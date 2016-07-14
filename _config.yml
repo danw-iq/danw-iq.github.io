@@ -1,16 +1,16 @@
 ## This content is duplicated here from configs/config_designers.yml because I'm building this site through Github Pages, and Github Pages just looks for the _config.yml file in the root directory to create the build.
 # project definitions
-project: doc_designers
-audience: designers
+project: documentation-theme-jekyll-designer
+audience: designer
 product: all
 platform: all
 version: all
-destination: ../doc_designers
-baseurl: "/documentation-testing/"
-pagefileurl: "/documentation-testing/"
-api_baseurl: "/documentation-testing/api"
+##destination: ../doc_designers
+baseurl: "/"
+pagefileurl: "../../"
+api_baseurl: "/api"
 fileurl: "../"
-url: "http://melissakendall.github.io/documentation-testing/"
+url: "http://danw-iq.github.io/"
 topnav_title: iQmetrix Developer Portal 
 homepage_title: iQmetrix Developer Portal 
 site_title: iQmetrix Developer Portal 
