@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=",  ">
+<title>Trade In Reporting Service  | iQmetrix Developer Portal</title>
+<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/modern-business.css">
+<link rel="stylesheet" type="text/css" href="../../css/customstyles.css">
+<link rel="stylesheet" type="text/css" href="" | prepend:site.pagefileurl }}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../../js/jquery.navgoco.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
+<script src="../../js/toc.js"></script>
+<script src="../../js/customscripts.js"></script>
+<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+
+
+<!-- Image popup source files -->
+<!-- http://dimsemenov.com/plugins/magnific-popup/ -->
+<link rel="stylesheet" type="text/css" href="../../css/magnific-popup.css">
+<script src="../../js/jquery.magnific-popup.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+
+        // surround each image with an anchor class  for image popup
+        $('img').each( function() {
+            var $img = $(this),
+            href = $img.attr('src');
+            $img.wrap('<a class="image-link" href=' + href + '></a>');
+             
+        });
+
+        // make each image with image-link class popup "on click"
+        // !! Drawback -- all images could popup :(
+        $('.image-link').magnificPopup({
+            type:'image',
+            closeOnContentClick: true
+        });
+                
+    });    
+</script>
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+    //Hacky code to make sure they don't go to a bad page
+    $( window ).load(function() {
+
+        if (document.baseURI.indexOf("api/generalledger.html") > 0) {
+            window.location.href = 'http://developers.iqmetrix.com/api/general-ledger/';
+        }
+        else if (document.baseURI.indexOf("api/productlibrary.html") > 0) {
+          window.location.href = 'http://developers.iqmetrix.com/api/product-library/';
+        }
+        else if (document.baseURI.indexOf("api/entitystore.html") > 0) {
+          window.location.href = 'http://developers.iqmetrix.com/api/entity-store/';
+        }
+        else if(document.baseURI.indexOf(".html") > 0) {
+           window.location.href = document.baseURI.substring(0, document.baseURI.indexOf(".html"));
+        }
+    });
+</script>
+
+
+
+
+
+ 
+
+<script>
+  $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+
+
+
+
+
+  </head>
+
+<body>
+
+   <!-- Send feedback function -->
+<script>
+    function SendLinkByMail(href) {
+        var subject= " all documentation feedback";
+        var body = "I have some feedback about the Trade In Reporting Service page: ";
+        body += window.location.href;
+        body += "";
+        var uri = "mailto:apidesign@iqmetrix.com?subject=";
+        uri += encodeURIComponent(subject);
+        uri += "&body=";
+        uri += encodeURIComponent(body);
+        window.location.href = uri;
+    }
+</script>
+
+<!-- Navigation -->
+<nav id="navbar-custom" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+   <div class="container topnavlinks">
+   <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a href="http://localhost:4006/">
+        <span id="top-iq-logo"><img src="http://melissakendall.github.io/documentation-testing/images/iq-logo-white.png"></span>
+        <span id="projectTitle">iQmetrix Developer Portal</span>
+      </a>
+   </div>
+   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul id="top-bar-categories" class="nav navbar-nav navbar-right">
+      
+      <!-- entries without drop-downs appear here -->
+      <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+      <!-- 
+
+Hard coding for now, so no longer uses topnav config
+
+
+
+
+
+
+
+
+
+  
+      
+      
+          <li><a href="/api/changelog/">CHANGELOG</a></li>
+      
+    
+  
+      
+      
+          <li class="active"><a href="//">API REFERENCE</a></li>
+       
+    
+  
+      
+      
+          <li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
+      
+    
+  
+
+
+-->
+
+<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=all">SHOW ALL</a></li>
+<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=partner">PARTNERS</a></li>
+<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=dropship">DROPSHIP</a></li>
+<li><a href="mailto:?subject=Support">SUPPORT</a></li>
+<li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
+
+         <!--
+      <li>
+         <div id="search-demo-container">
+            <input type="text" id="search-input" placeholder="">
+            <ul id="results-container"></ul>
+         </div>
+         <script src="../..//js/jekyll-search.js" type="text/javascript"></script>
+         <script type="text/javascript">
+            SimpleJekyllSearch({
+              searchInput: document.getElementById('search-input'),
+              resultsContainer: document.getElementById('results-container'),
+              json: '../../search.json',
+              searchResultTemplate: '<li><a href="{url}" title="Trade In Reporting Service">{title}</a></li>',
+              noResultsText: '',
+              exclude: '404'
+            })
+         </script>
+      </li>
+         -->
+    
+
+   </div>
+   <!-- /.container -->
+</nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="col-lg-12">&nbsp;</div>
+
+            <!-- Col-md-3 -->
+            <!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+            $(document).ready(function() {
+
+                // Initialize navgoco with default options
+                $("#mysidebar").navgoco({
+                    caretHtml: '',
+                    accordion: true,
+                    openClass: 'active', // open
+                    save: false, // leave false or nav higlighting doesn't work right
+                    cookie: {
+                        name: 'navgoco',
+                        expires: false,
+                        path: '/'
+                    },
+                    slide: {
+                        duration: 400,
+                        easing: 'swing'
+                    }
+                });
+
+                $("#collapseAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', false);
+                });
+
+                $("#expandAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', true);
+                });
+
+
+                if(window.location.hostname == "melissakendall.github.io")
+                {
+                    $("#mysidebar a").each(function(e) {
+                        var url = $(this).attr("href");
+                        
+                        if(url != null) {
+                            url = "http://melissakendall.github.io/documentation-testing" + url;
+                        }
+
+                        $(this).attr("href", url);
+                    });                   
+                }
+
+            });
+                           
+        </script>
+
+        
+
+
+
+
+
+
+
+        <ul id="mysidebar" class="nav affix">
+            
+                
+                    
+                        <li><a>API Reference</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/api/authentication/">Authentication</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/assets/">Assets</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/catalog/">Catalog</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/company-tree/">Company Tree</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/crm/">Customers</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Dropship</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/cost-feed/">Cost Feed</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-feed/">Product Feed</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-subscription/">Product Subscription</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/saccs/">Shipping Aggregator</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/shipping-options/">Shipping Options</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/supplier-availability/">Supplier Availability</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/supplier-orders/">Supplier Orders</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/entity-store/">Entities</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/general-ledger/">General Ledger</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/availability/">Inventory Availability</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/orders/">Orders</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Partners</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/partner-reporting/">Partner Reporting</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/partner-relationships/">Relationships</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/pricing">Pricing</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Product Library</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/classification-tree/">Classification Tree</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/field-definitions/">Field Definitions</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-library/">Products</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-structure/">Product Structure</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/reference/">Reference</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">RQ</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/carrier-integration/">Carrier Integration</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/cmi/">Customer Managed Inventory (CMI)</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/commissions/">Commissions</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/epc/">Electronic Product Catalog (EPC)</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/punch-clock/">Punch Clock</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/vmi/">Vendor Managed Inventory (VMI)</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/security-roles/">Security Roles</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/user-manager/">User Manager</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a>Guides</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/guides/creating-an-in-store-order/">Creating an In Store Order</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/creating-a-user-for-rq/">Creating a User for RQ</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Dropship Client Integration Guides</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-pos-guide/">Dropship Point of Sale Guide</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Dropship Partner Integration Guides</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-onboarding-guide/">Dropship Onboarding Guide</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-order-guide/">Dropship Order Management Guide</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-test-order-guide/">Dropship Test Order Guide</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/commerce-guide/">eCommerce Integration Guide</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Endless Aisle Integration Guide</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/overview">Overview</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/corporate-hierarchy">Corporate Hierarchy</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/content">Content</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/inventory">Inventory</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/orders">Orders</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/3pa/">Third Party Authentication</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/vmi-onboarding-guide/">VMI Onboarding Guide</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a>Core Concepts</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/classification-tree/">Classification Tree</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/company-tree/">Company Tree</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/product-library/">Product Library</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/product-structure/">Product Structure</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/user-manager/">User Manager</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a>FAQ</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/faq/auth-faq/">Authentication FAQ</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/faq/dropship-faq/">Dropship FAQ</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a href="/reference-applications/">Reference Applications</a>
+                    
+                
+            
+        </ul>
+
+        
+    </div>
+<!-- div missing here is intentional -->
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+            
+              <div class="col-md-7"><link rel="stylesheet" type="text/css" href="../../css/prism.css" />
+
+<script src="../../js/prism.js"></script>
+
+<h2 id="overview">Overview</h2>
+
+<p>The Trade-In Reporting Service allows Phobio to push enhanced trade-in reporting data into iQmetrix’s systems.</p>
+
+<h2 id="endpoints">Endpoints</h2>
+
+<ul>
+  <li>Sandbox: <a href="https://tradeinreportingdemo.iqmetrix.net/v1">https://tradeinreportingdemo.iqmetrix.net/v1</a></li>
+  <li>Production: <a href="https://tradeinreporting.iqmetrix.net/v1">https://tradeinreporting.iqmetrix.net/v1</a></li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<h3 id="phobiotradeindata">PhobioTradeInData</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">inspectedDate</td>
+      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">Date added to statement for payment</td>
+      <td style="text-align: left"><code>2016-03-16T12:00:00.000Z</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">invoiceNumber</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Phobio invoice number</td>
+      <td style="text-align: left"><code>84WEAIN5703</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">originalCustomerInspectionValue</td>
+      <td style="text-align: left">Decimal</td>
+      <td style="text-align: left">Amount customer should have received based on inspection</td>
+      <td style="text-align: left"><code>310.50</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">originalCustomerTradeInValue</td>
+      <td style="text-align: left">Decimal</td>
+      <td style="text-align: left">Value customer deserved for Trade (updated by Phobio upon receipt)</td>
+      <td style="text-align: left"><code>310.50</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paymentDate</td>
+      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">Date payment issued by Phobio</td>
+      <td style="text-align: left"><code>2016-03-16T12:00:00.000Z</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">postInspectionValue</td>
+      <td style="text-align: left">Decimal</td>
+      <td style="text-align: left">Payment amount to dealer</td>
+      <td style="text-align: left"><code>310.50</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">processedDate</td>
+      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">Date processed at Phobio</td>
+      <td style="text-align: left"><code>2016-03-17T12:00:00.000Z</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">receivedDate</td>
+      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">Date received at Phobio</td>
+      <td style="text-align: left"><code>2016-03-16T12:00:00.000Z</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">receivedImei</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">IMEI of product received at Phobio</td>
+      <td style="text-align: left"><code>351756051523999</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">receivedProductDisplayName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Name of product received at Phobio</td>
+      <td style="text-align: left"><code>Galaxy S6 edge+ 32GB - Black Sapphire</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">referenceNumber</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">The reference number given to the trade by the Provider</td>
+      <td style="text-align: left"><code>123</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">serialNumber</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">The serial number (IMEI) of the trade this data applies to</td>
+      <td style="text-align: left"><code>B7FQ-RANC</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">shippedDate</td>
+      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">Date shipped from store</td>
+      <td style="text-align: left"><code>2016-03-13T12:00:00.000Z</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">shipmentId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">UID of shipment</td>
+      <td style="text-align: left"><code>123</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tradeInStatus</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Status of the Trade-In, see <a href="#trade-in-status">Trade-In Status</a> for a list of acceptable values</td>
+      <td style="text-align: left"><code>Quoted</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="providertradedata">ProviderTradeData</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">referenceNumber</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">The reference number from the provider</td>
+      <td style="text-align: left"><code>123</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tradeDataId</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">The identifier of the provider trade data</td>
+      <td style="text-align: left"><code>357</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="enumerations">Enumerations</h2>
+
+<h3 id="trade-in-status">Trade-In Status</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Quoted</td>
+      <td style="text-align: left">Customer has been given quote for Trade-In</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Received</td>
+      <td style="text-align: left">Device from Customer has been received</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Inspected</td>
+      <td style="text-align: left">Device has been inspected</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="create-or-update-a-trade" class="clickable-header top-level-header">Create or Update a Trade</h2>
+
+<h4>Request</h4>
+
+<pre>
+POST /providers({ProviderId})/tradeData
+</pre>
+
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code></li></ul>
+
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>ProviderId</code> (<strong>Required</strong>)  - The provider identifier given by iQmetrix
+    </li>
+    </ul>
+
+<h4>Request Parameters</h4>
+
+<ul><li><code>receivedImei</code> (<strong>Required</strong>) </li><li><code>referenceNumber</code> (<strong>Required</strong>) </li><li><code>inspectedDate</code> (Optional) </li><li><code>invoiceNumber</code> (Optional) </li><li><code>originalCustomerInspectionValue </code> (Optional) </li><li><code>originalCustomerTradeInValue</code> (Optional) </li><li><code>paymentDate</code> (Optional) </li><li><code>postInspectionValue</code> (Optional) </li><li><code>processedDate</code> (Optional) </li><li><code>receivedDate</code> (Optional) </li><li><code>receivedProductDisplayName</code> (Optional) </li><li><code>serialNumber</code> (Optional) </li><li><code>shippedDate</code> (Optional) </li><li><code>shipmentId</code> (Optional) </li><li><code>tradeInStatus</code> (Optional) </li></ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-create-or-update-a-trade" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-create-or-update-a-trade" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-create-or-update-a-trade" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-create-or-update-a-trade" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-create-or-update-a-trade" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-create-or-update-a-trade" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-create-or-update-a-trade"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-create-or-update-a-trade">
+<pre id="http-code-create-or-update-a-trade"><code class="language-http">POST /providers(10)/tradeData
+Authorization: Bearer (Access Token)
+</code><code class="language-csharp">[
+    {
+        "inspectedDate": "2016-03-16T12:00:00.000Z",
+        "invoiceNumber": "84WEAIN5703",
+        "originalCustomerInspectionValue ": 310.5,
+        "originalCustomerTradeInValue": 310.5,
+        "paymentDate": "2016-03-16T12:00:00.000Z",
+        "postInspectionValue": 310.5,
+        "processedDate": "2016-03-17T12:00:00.000Z",
+        "receivedDate": "2016-03-16T12:00:00.000Z",
+        "receivedImei": "351756051523999",
+        "receivedProductDisplayName": "Galaxy S6 edge+ 32GB - Black Sapphire",
+        "referenceNumber": "123",
+        "serialNumber": "B7FQ-RANC",
+        "shippedDate": "2016-03-13T12:00:00.000Z",
+        "shipmentId": "123",
+        "tradeInStatus": "Quoted"
+    }
+]</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-create-or-update-a-trade">
+<pre id="curl-code-create-or-update-a-trade"><code class="language-http">curl -X POST "https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeData" -H "Authorization: Bearer (Access Token)" -d '[
+    {
+        "inspectedDate": "2016-03-16T12:00:00.000Z",
+        "invoiceNumber": "84WEAIN5703",
+        "originalCustomerInspectionValue ": 310.5,
+        "originalCustomerTradeInValue": 310.5,
+        "paymentDate": "2016-03-16T12:00:00.000Z",
+        "postInspectionValue": 310.5,
+        "processedDate": "2016-03-17T12:00:00.000Z",
+        "receivedDate": "2016-03-16T12:00:00.000Z",
+        "receivedImei": "351756051523999",
+        "receivedProductDisplayName": "Galaxy S6 edge+ 32GB - Black Sapphire",
+        "referenceNumber": "123",
+        "serialNumber": "B7FQ-RANC",
+        "shippedDate": "2016-03-13T12:00:00.000Z",
+        "shipmentId": "123",
+        "tradeInStatus": "Quoted"
+    }
+]'</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-create-or-update-a-trade">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-create-or-update-a-trade"><code class="language-csharp">static IRestResponse CreateOrUpdateATrade()
+{
+    var client = new RestClient("https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeData");
+    var request = new RestRequest(Method.POST);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+
+     request.AddParameter("application/json", "[{\"inspectedDate\":\"2016-03-16T12:00:00.000Z\",\"invoiceNumber\":\"84WEAIN5703\",\"originalCustomerInspectionValue \":310.5,\"originalCustomerTradeInValue\":310.5,\"paymentDate\":\"2016-03-16T12:00:00.000Z\",\"postInspectionValue\":310.5,\"processedDate\":\"2016-03-17T12:00:00.000Z\",\"receivedDate\":\"2016-03-16T12:00:00.000Z\",\"receivedImei\":\"351756051523999\",\"receivedProductDisplayName\":\"Galaxy S6 edge+ 32GB - Black Sapphire\",\"referenceNumber\":\"123\",\"serialNumber\":\"B7FQ-RANC\",\"shippedDate\":\"2016-03-13T12:00:00.000Z\",\"shipmentId\":\"123\",\"tradeInStatus\":\"Quoted\"}]", ParameterType.RequestBody);
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-create-or-update-a-trade">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-create-or-update-a-trade"><code class="language-java">import org.apache.http.entity.StringEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse CreateOrUpdateATrade() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpPost request = new HttpPost("https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeData");
+     
+    request.addHeader("Authorization", "Bearer (Access Token)"); 
+    StringEntity body = new StringEntity("[{\"inspectedDate\":\"2016-03-16T12:00:00.000Z\",\"invoiceNumber\":\"84WEAIN5703\",\"originalCustomerInspectionValue \":310.5,\"originalCustomerTradeInValue\":310.5,\"paymentDate\":\"2016-03-16T12:00:00.000Z\",\"postInspectionValue\":310.5,\"processedDate\":\"2016-03-17T12:00:00.000Z\",\"receivedDate\":\"2016-03-16T12:00:00.000Z\",\"receivedImei\":\"351756051523999\",\"receivedProductDisplayName\":\"Galaxy S6 edge+ 32GB - Black Sapphire\",\"referenceNumber\":\"123\",\"serialNumber\":\"B7FQ-RANC\",\"shippedDate\":\"2016-03-13T12:00:00.000Z\",\"shipmentId\":\"123\",\"tradeInStatus\":\"Quoted\"}]");
+    request.setEntity(body);
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-create-or-update-a-trade">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-create-or-update-a-trade"><code class="language-ruby">require 'rest-client'
+
+body = "[{\"inspectedDate\":\"2016-03-16T12:00:00.000Z\",\"invoiceNumber\":\"84WEAIN5703\",\"originalCustomerInspectionValue \":310.5,\"originalCustomerTradeInValue\":310.5,\"paymentDate\":\"2016-03-16T12:00:00.000Z\",\"postInspectionValue\":310.5,\"processedDate\":\"2016-03-17T12:00:00.000Z\",\"receivedDate\":\"2016-03-16T12:00:00.000Z\",\"receivedImei\":\"351756051523999\",\"receivedProductDisplayName\":\"Galaxy S6 edge+ 32GB - Black Sapphire\",\"referenceNumber\":\"123\",\"serialNumber\":\"B7FQ-RANC\",\"shippedDate\":\"2016-03-13T12:00:00.000Z\",\"shipmentId\":\"123\",\"tradeInStatus\":\"Quoted\"}]";
+
+response = RestClient.post 'https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeData', body, {
+     :'Authorization' =&gt; 'Bearer (Access Token)',
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<p>Array[<a href="#providertradedata">ProviderTradeData</a>]</p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 200 Content-Type: application/json
+</pre>
+<pre>[
+    {
+        "referenceNumber": "123",
+        "tradeDataId": 357
+    }
+]</pre>
+
+<h2 id="get-provider-data-for-a-trade" class="clickable-header top-level-header">Get Provider Data for a Trade</h2>
+
+<h4>Request</h4>
+
+<pre>
+GET /providers({ProviderId})/tradeData({TradeDataId})
+</pre>
+
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code></li></ul>
+
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>ProviderId</code> (<strong>Required</strong>)  - The provider identifier given by iQmetrix
+    </li>
+    
+    <li>
+        <code>TradeDataId</code> (<strong>Required</strong>)  - The identifier for the Provider trade-In data
+    </li>
+    </ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-get-provider-data-for-a-trade" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-get-provider-data-for-a-trade" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-get-provider-data-for-a-trade" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-get-provider-data-for-a-trade" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-get-provider-data-for-a-trade" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-get-provider-data-for-a-trade" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-get-provider-data-for-a-trade"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-get-provider-data-for-a-trade">
+<pre id="http-code-get-provider-data-for-a-trade"><code class="language-http">GET /providers(10)/tradeData(357)
+Authorization: Bearer (Access Token)
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-get-provider-data-for-a-trade">
+<pre id="curl-code-get-provider-data-for-a-trade"><code class="language-http">curl -X GET "https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeData(357)" -H "Authorization: Bearer (Access Token)"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-get-provider-data-for-a-trade">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-get-provider-data-for-a-trade"><code class="language-csharp">static IRestResponse GetProviderDataForATrade()
+{
+    var client = new RestClient("https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeData(357)");
+    var request = new RestRequest(Method.GET);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-get-provider-data-for-a-trade">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-get-provider-data-for-a-trade"><code class="language-java">
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse GetProviderDataForATrade() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpGet request = new HttpGet("https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeData(357)");
+     
+    request.addHeader("Authorization", "Bearer (Access Token)"); 
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-get-provider-data-for-a-trade">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-get-provider-data-for-a-trade"><code class="language-ruby">require 'rest-client'
+
+
+
+response = RestClient.get 'https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeData(357)', {
+     :'Authorization' =&gt; 'Bearer (Access Token)',
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<p><a href="#phobiotradeindata">PhobioTradeInData</a></p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 200 Content-Type: application/json
+</pre>
+<pre>{
+    "inspectedDate": "2016-03-16T12:00:00.000Z",
+    "invoiceNumber": "84WEAIN5703",
+    "originalCustomerInspectionValue ": 310.5,
+    "originalCustomerTradeInValue": 310.5,
+    "paymentDate": "2016-03-16T12:00:00.000Z",
+    "postInspectionValue": 310.5,
+    "processedDate": "2016-03-17T12:00:00.000Z",
+    "receivedDate": "2016-03-16T12:00:00.000Z",
+    "receivedImei": "351756051523999",
+    "receivedProductDisplayName": "Galaxy S6 edge+ 32GB - Black Sapphire",
+    "referenceNumber": "123",
+    "serialNumber": "B7FQ-RANC",
+    "shippedDate": "2016-03-13T12:00:00.000Z",
+    "shipmentId": "123",
+    "tradeInStatus": "Quoted"
+}</pre>
+
+<h2 id="errors" class="clickable-header top-level-header">Errors</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">HTTP Status Code</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">How to Resolve</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code>HTTP 400</code></td>
+      <td style="text-align: left"><code>Bad Request</code></td>
+      <td style="text-align: left">Ensure request body is formatted properly</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>HTTP 403</code></td>
+      <td style="text-align: left"><code>Unauthorized</code></td>
+      <td style="text-align: left">Ensure Access Token is valid and user has appropriate security</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>HTTP 404</code></td>
+      <td style="text-align: left"><code>Not Found</code></td>
+      <td style="text-align: left">Ensure ProviderId and/or TradeDataId are valid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>HTTP 429</code></td>
+      <td style="text-align: left"><code>Too Many Requests</code></td>
+      <td style="text-align: left">See <a href="/api/rate-limiting">Rate Limiting</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>HTTP 500</code></td>
+      <td style="text-align: left"><code>Unexpected Error</code></td>
+      <td style="text-align: left">Contact support</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+              <div class="col-lg-1 hidden-md hidden-sm hidden-xs"><!-- start page metadata -->
+
+
+<div class="pageMetadata affix">
+    <div class="pageMetadataTitle">Table of Contents</div>
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+
+    $('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2, h3' });
+
+    //Resize once
+    resizeWindow();
+
+    //Resize whenever window changes
+    $(window).resize(function () {
+        resizeWindow();
+    });
+
+});
+
+function resizeWindow() {
+
+    var windowHeight = $(window).height();
+    var windowWidth = $(window).width();
+
+    var tocHeight = $(".pageMetadata").height();
+
+    if(windowWidth < 1560 || windowHeight < tocHeight) {        
+        //Grab "pageMetadata" and move it to first  child of .post-header
+        $(".pageMetadata").prependTo(".post-header");
+        $(".pageMetadata").removeClass("affix");        
+    } else if(windowWidth > 1560) {
+        //Grab "pageMetadata" and move it back to where it was
+        $(".pageMetadata").appendTo(".col-lg-1.hidden-md.hidden-sm.hidden-xs");
+        $(".pageMetadata" ).addClass("affix");
+    }      
+}
+
+</script>
+
+<div id="toc"></div>
+
+    
+    <p><div class="metadataRow"><span class="tagTitle">Last updated:</span> 9-5-2016</div></p>
+    
+
+</div>
+
+
+
+
+<!-- end pageMetadata --></div>
+            
+    </div>
+
+</body>
+
+<!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-408430-5', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+</html>
+

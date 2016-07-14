@@ -11,6 +11,7 @@ pagefileurl: "../../"
 api_baseurl: "/api"
 fileurl: "../"
 url: "http://danw-iq.github.io/"
+##url: "http://localhost:4006/"
 topnav_title: iQmetrix Developer Portal 
 homepage_title: iQmetrix Developer Portal 
 site_title: iQmetrix Developer Portal 
@@ -52,7 +53,7 @@ defaults:
       path: ""
       type: "pages"
     values:
-      layout: "demo"
+      layout: "default"
       comments: true
   -
     scope:

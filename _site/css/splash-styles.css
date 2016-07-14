@@ -1,0 +1,115 @@
+
+/**** HTML Selectors ****/
+a:hover{
+	color: #0096db;
+}
+
+
+/**** Class Selectors ****/
+
+.bottom-links{
+	color: black;
+	text-decoration: none;
+}
+
+.bottom-links:hover{
+	color: #0096db;
+	text-decoration: none;
+}
+
+
+.btn{
+	background-color: #000;
+	border-color: #000;
+}
+
+.center-buttons{
+	text-align: center;
+}
+
+.center-buttons > li{
+	margin: 20px 50px;
+
+}
+
+.container{
+	text-align: center;
+}
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+.front-jumbotron {
+  padding-top: 70px;
+  padding-bottom: 20px;
+  font-size: 14px;
+}
+
+.front-page-button, .front-page-button:visited, .front-page-button:active {
+    color:black;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right:10px;
+    padding-left:10px;
+    margin-bottom: 20px;
+}
+
+.front-page-button:hover{
+    text-decoration: none;
+    background-color: black;
+    color:white;
+}
+
+
+.links-row div{
+	margin-bottom: 30px;
+}
+
+.navbar-default{
+	background-color: #222;
+}
+
+.navbar-default .navbar-nav>li>a, .navbar-inverse .navbar-nav>li>a{
+	color: white;
+}
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:hover{
+	background-color: white;
+	color: black;
+
+}
+
+.platform-img{
+	margin: 0 auto;
+}
+
+.row{
+	margin: 0px;
+}
+
+
+/**** ID Selectors ****/
+#portal-desc{
+	padding: 0px 100px;
+}
+
+/**** Media Selectors ****/
+
+@media screen and (min-width: 0px) and (max-width: 991px){
+	.row-sm-eq-height {
+		/*overflow: hidden;*/
+	  	display: -webkit-box;
+	  	display: -webkit-flex;
+	  	display: -ms-flexbox;
+	  	display: flex;
+
+	  	min-width: 500px;
+
+	}
+}
+
+@media screen and (min-width: 1200px){
+	.container{
+		width: 1200px;
+	}
+}

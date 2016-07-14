@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=",  ">
+<title>Endless Aisle Integration Guide  | iQmetrix Developer Portal</title>
+<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/modern-business.css">
+<link rel="stylesheet" type="text/css" href="../../css/customstyles.css">
+<link rel="stylesheet" type="text/css" href="" | prepend:site.pagefileurl }}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../../js/jquery.navgoco.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
+<script src="../../js/toc.js"></script>
+<script src="../../js/customscripts.js"></script>
+<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+
+
+<!-- Image popup source files -->
+<!-- http://dimsemenov.com/plugins/magnific-popup/ -->
+<link rel="stylesheet" type="text/css" href="../../css/magnific-popup.css">
+<script src="../../js/jquery.magnific-popup.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+
+        // surround each image with an anchor class  for image popup
+        $('img').each( function() {
+            var $img = $(this),
+            href = $img.attr('src');
+            $img.wrap('<a class="image-link" href=' + href + '></a>');
+             
+        });
+
+        // make each image with image-link class popup "on click"
+        // !! Drawback -- all images could popup :(
+        $('.image-link').magnificPopup({
+            type:'image',
+            closeOnContentClick: true
+        });
+                
+    });    
+</script>
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+    //Hacky code to make sure they don't go to a bad page
+    $( window ).load(function() {
+
+        if (document.baseURI.indexOf("api/generalledger.html") > 0) {
+            window.location.href = 'http://developers.iqmetrix.com/api/general-ledger/';
+        }
+        else if (document.baseURI.indexOf("api/productlibrary.html") > 0) {
+          window.location.href = 'http://developers.iqmetrix.com/api/product-library/';
+        }
+        else if (document.baseURI.indexOf("api/entitystore.html") > 0) {
+          window.location.href = 'http://developers.iqmetrix.com/api/entity-store/';
+        }
+        else if(document.baseURI.indexOf(".html") > 0) {
+           window.location.href = document.baseURI.substring(0, document.baseURI.indexOf(".html"));
+        }
+    });
+</script>
+
+
+
+
+
+ 
+
+<script>
+  $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+
+
+
+
+
+  </head>
+
+<body>
+
+   <!-- Send feedback function -->
+<script>
+    function SendLinkByMail(href) {
+        var subject= " all documentation feedback";
+        var body = "I have some feedback about the Endless Aisle Integration Guide page: ";
+        body += window.location.href;
+        body += "";
+        var uri = "mailto:apidesign@iqmetrix.com?subject=";
+        uri += encodeURIComponent(subject);
+        uri += "&body=";
+        uri += encodeURIComponent(body);
+        window.location.href = uri;
+    }
+</script>
+
+<!-- Navigation -->
+<nav id="navbar-custom" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+   <div class="container topnavlinks">
+   <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a href="http://localhost:4006/">
+        <span id="top-iq-logo"><img src="http://melissakendall.github.io/documentation-testing/images/iq-logo-white.png"></span>
+        <span id="projectTitle">iQmetrix Developer Portal</span>
+      </a>
+   </div>
+   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul id="top-bar-categories" class="nav navbar-nav navbar-right">
+      
+      <!-- entries without drop-downs appear here -->
+      <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+      <!-- 
+
+Hard coding for now, so no longer uses topnav config
+
+
+
+
+
+
+
+
+
+  
+      
+      
+          <li><a href="/api/changelog/">CHANGELOG</a></li>
+      
+    
+  
+      
+      
+          <li class="active"><a href="//">API REFERENCE</a></li>
+       
+    
+  
+      
+      
+          <li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
+      
+    
+  
+
+
+-->
+
+<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=all">SHOW ALL</a></li>
+<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=partner">PARTNERS</a></li>
+<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=dropship">DROPSHIP</a></li>
+<li><a href="mailto:?subject=Support">SUPPORT</a></li>
+<li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
+
+         <!--
+      <li>
+         <div id="search-demo-container">
+            <input type="text" id="search-input" placeholder="">
+            <ul id="results-container"></ul>
+         </div>
+         <script src="../..//js/jekyll-search.js" type="text/javascript"></script>
+         <script type="text/javascript">
+            SimpleJekyllSearch({
+              searchInput: document.getElementById('search-input'),
+              resultsContainer: document.getElementById('results-container'),
+              json: '../../search.json',
+              searchResultTemplate: '<li><a href="{url}" title="Endless Aisle Integration Guide">{title}</a></li>',
+              noResultsText: '',
+              exclude: '404'
+            })
+         </script>
+      </li>
+         -->
+    
+
+   </div>
+   <!-- /.container -->
+</nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="col-lg-12">&nbsp;</div>
+
+            <!-- Col-md-3 -->
+            <!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+            $(document).ready(function() {
+
+                // Initialize navgoco with default options
+                $("#mysidebar").navgoco({
+                    caretHtml: '',
+                    accordion: true,
+                    openClass: 'active', // open
+                    save: false, // leave false or nav higlighting doesn't work right
+                    cookie: {
+                        name: 'navgoco',
+                        expires: false,
+                        path: '/'
+                    },
+                    slide: {
+                        duration: 400,
+                        easing: 'swing'
+                    }
+                });
+
+                $("#collapseAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', false);
+                });
+
+                $("#expandAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', true);
+                });
+
+
+                if(window.location.hostname == "melissakendall.github.io")
+                {
+                    $("#mysidebar a").each(function(e) {
+                        var url = $(this).attr("href");
+                        
+                        if(url != null) {
+                            url = "http://melissakendall.github.io/documentation-testing" + url;
+                        }
+
+                        $(this).attr("href", url);
+                    });                   
+                }
+
+            });
+                           
+        </script>
+
+        
+
+
+
+
+
+
+
+        <ul id="mysidebar" class="nav affix">
+            
+                
+                    
+                        <li><a>API Reference</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/api/authentication/">Authentication</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/assets/">Assets</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/catalog/">Catalog</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/company-tree/">Company Tree</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/crm/">Customers</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Dropship</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/cost-feed/">Cost Feed</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-feed/">Product Feed</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-subscription/">Product Subscription</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/saccs/">Shipping Aggregator</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/shipping-options/">Shipping Options</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/supplier-availability/">Supplier Availability</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/supplier-orders/">Supplier Orders</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/entity-store/">Entities</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/general-ledger/">General Ledger</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/availability/">Inventory Availability</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/orders/">Orders</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Partners</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/partner-reporting/">Partner Reporting</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/partner-relationships/">Relationships</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/pricing">Pricing</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Product Library</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/classification-tree/">Classification Tree</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/field-definitions/">Field Definitions</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-library/">Products</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-structure/">Product Structure</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/reference/">Reference</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">RQ</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/carrier-integration/">Carrier Integration</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/cmi/">Customer Managed Inventory (CMI)</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/commissions/">Commissions</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/epc/">Electronic Product Catalog (EPC)</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/punch-clock/">Punch Clock</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/vmi/">Vendor Managed Inventory (VMI)</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/security-roles/">Security Roles</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/user-manager/">User Manager</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a>Guides</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/guides/creating-an-in-store-order/">Creating an In Store Order</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/creating-a-user-for-rq/">Creating a User for RQ</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Dropship Client Integration Guides</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-pos-guide/">Dropship Point of Sale Guide</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Dropship Partner Integration Guides</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-onboarding-guide/">Dropship Onboarding Guide</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-order-guide/">Dropship Order Management Guide</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-test-order-guide/">Dropship Test Order Guide</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/commerce-guide/">eCommerce Integration Guide</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Endless Aisle Integration Guide</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/overview">Overview</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li class="active"><a href="/guides/ea-guide/corporate-hierarchy">Corporate Hierarchy</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/content">Content</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/inventory">Inventory</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/orders">Orders</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/3pa/">Third Party Authentication</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/vmi-onboarding-guide/">VMI Onboarding Guide</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a>Core Concepts</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/classification-tree/">Classification Tree</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/company-tree/">Company Tree</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/product-library/">Product Library</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/product-structure/">Product Structure</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/user-manager/">User Manager</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a>FAQ</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/faq/auth-faq/">Authentication FAQ</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/faq/dropship-faq/">Dropship FAQ</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a href="/reference-applications/">Reference Applications</a>
+                    
+                
+            
+        </ul>
+
+        
+    </div>
+<!-- div missing here is intentional -->
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+            
+              <div class="col-md-7">
+<style>
+  table {
+    min-width: 100%;
+  }
+</style>
+
+<hr />
+
+<div id="page-selector">
+  <div class="row">
+    <span class="col-md-2 col-md-offset-1 text-center ">
+      <a href="http://localhost:4006//guides/ea-guide/overview">
+        <span class="col-md-12">
+          <h4>Overview</h4><br />
+        </span>        
+        <span class="col-md-12">
+          <i class="fa fa-home fa-3x"></i>
+        </span>
+      </a>
+    </span>  
+    <span class="col-md-2 text-center  selectedIcon ">
+      <a href="http://localhost:4006//guides/ea-guide/corporate-hierarchy">
+        <span class="col-md-12">
+          <h4>Corporate Hierarchy</h4>
+        </span>        
+        <span class="col-md-12">
+          <i class="fa fa-map-marker fa-3x" style="font-size:2.7em;"></i>
+        </span>
+      </a>
+    </span>
+    <span class="col-md-2 text-center ">
+      <a href="http://localhost:4006//guides/ea-guide/content">
+        <span class="col-md-12">
+          <h4>Content</h4><br />
+        </span>             
+        <span class="col-md-12">
+          <i class="fa fa-list-alt fa-3x"></i>
+        </span>
+      </a>    
+    </span> 
+    <span class="col-md-2 text-center ">
+      <a href="http://localhost:4006//guides/ea-guide/inventory">
+        <span class="col-md-12">
+          <h4>Inventory</h4><br />
+        </span>             
+        <span class="col-md-12">
+          <i class="fa fa-barcode fa-3x"></i>
+        </span>
+      </a>       
+    </span>  
+    <span class="col-md-2 text-center ">
+      <a href="http://localhost:4006//guides/ea-guide/orders">
+        <span class="col-md-12">
+          <h4>Orders</h4><br />
+        </span>             
+        <span class="col-md-12">
+          <i class="fa fa-file-text-o fa-3x" style="font-size:2.5em;"></i>
+        </span>
+      </a>   
+    </span>
+  </div>
+</div>
+<p><br /></p>
+<hr />
+
+<h2 id="overview">Overview</h2>
+
+<p><strong>Corporate Hierarchy</strong> describes how your <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a> is structured, and is represented by your <a href="/company-tree/">Company Tree</a>.</p>
+
+<p>Changes to your corporate hierarchy, such as those described in <strong>Table 1</strong>, should be pushed to Endless Aisle to ensure pricing and inventory are accurate.</p>
+
+<p><strong>Table 1:</strong> Methods for Updating Corporate Hierarchy</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Change</th>
+      <th style="text-align: left">How to Modify</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Changing a store’s address or hours</td>
+      <td style="text-align: left">See <a href="#updating-a-location">Updating a Location</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Creating a new store</td>
+      <td style="text-align: left">See <a href="#creating-a-location">Creating a Location</a></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Changing how stores are organized</td>
+      <td style="text-align: left">See <a href="/api/company-tree/#creating-a-division">Creating a Division</a> or <br /> <a href="/api/company-tree/#creating-a-group">Creating a Group</a> or <br /> <a href="/api/company-tree/#deleting-a-group-or-division">Deleting a Group or Division</a></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="updating-a-location">Updating a Location</h2>
+
+<p>Updating a Location in Endless Aisle involves…</p>
+
+<ol>
+  <li><a href="#getting-the-location-identifier">Getting the Location Identifier</a></li>
+  <li><a href="#updating-the-location">Updating the Location</a></li>
+</ol>
+
+<h3 id="step-1---getting-the-location-identifier">Step 1 - Getting the Location Identifier</h3>
+
+<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip: </b>
+If you already know the Identifier of the Location you want to update, you can skip this step
+</div>
+
+<p>Before you can update a Location, you must get its Identifier.</p>
+
+<p>We can use <a href="/api/company-tree/#getting-all-locations-for-a-company">Getting All Locations for a Company</a> to look for a Location in Chicago called Atrium Mall.</p>
+
+<h5 id="example-request">Example Request</h5>
+
+<p><code>
+GET https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code></p>
+
+<h5 id="example-response">Example Response</h5>
+
+<p><code>
+HTTP 200 Content-Type: application/json
+[  
+   {  
+      "Id": 14213,
+      "Name": "Avalon Mall",
+      "Description": "",
+      "Role": "Location",
+      "LocationType": null,
+      "LocationSubType": null,
+      "Address": {  
+         "AddressLine1": null,
+         "AddressLine2": null,
+         "City": "St. John's",
+         "StateCode": "NL",
+         "StateName": "Newfoundland and Labrador",
+         "CountryCode": "CA",
+         "CountryName": "Canada",
+         "Zip": null
+      },
+      "Contacts": [...],
+      "StorePhoneNumbers": [...],
+      "Area": null,
+      "StoreHours": {...},
+      "Geography": null,
+      "TimeZone": null,
+      "Roles": [...],
+      "SortName": "avalon mall",
+      "Attributes": {...},
+      "Relationships": [...],
+      "CreatedUtc": "2015-11-20T19:10:30.445Z",
+      "LastModifiedUtc": "2015-11-20T19:10:30.445Z",
+      "CorrelationId": null,
+      "ClientEntityId": null,
+      "TypeId": null,
+      "Logo": null,
+      "Version": 1     
+   },
+   {  
+      "Id": 14239,
+      "Name": "Atrium Mall - Chicago",
+      "Description": "",
+      "Role": "Location",   
+      "LocationType": null,
+      "LocationSubType": null,
+      "Address": {  
+         "AddressLine1": "512 Broad Street",
+         "AddressLine2": null,
+         "City": "Chicago",
+         "StateCode": "IL",
+         "StateName": "Illinois",
+         "CountryCode": "US",
+         "CountryName": "United States",
+         "Zip": null
+      },
+      "Contacts": [...],
+      "StorePhoneNumbers": [...],
+      "Area": null,
+      "StoreHours": {...},
+      "Geography": null,
+      "TimeZone": null,
+      "Roles": [...],
+      "SortName": "atrium mall - chicago",
+      "Attributes": {...},
+      "Relationships": [...],
+      "CreatedUtc": "2015-11-20T19:54:18.613Z",
+      "LastModifiedUtc": "2016-04-19T19:12:29.19Z",
+      "CorrelationId": null,
+      "ClientEntityId": null,
+      "TypeId": 95,
+      "Logo": null,
+      "Version": 1
+   },   
+   ...
+]
+</code></p>
+
+<p>From the response, you can see the <code>Id</code> of Atrium Mall is <code>14239</code>.</p>
+
+<h3 id="step-2---updating-the-location">Step 2 - Updating the Location</h3>
+
+<p>Now that you know the <code>Id</code>, you can update the Location’s address using <a href="/api/company-tree/#updating-a-location">Updating a Location</a>. For this example, the new address will be 200 Atrium Street.</p>
+
+<h5 id="example-request-1">Example Request</h5>
+
+<p><code>
+PUT https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations(14239)
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+{
+  "Id": 14239,
+  "Name": "Atrium Mall - Chicago",
+  "Description": "",
+  "Role": "Location",   
+  "LocationType": null,
+  "LocationSubType": null,
+  "Address": {  
+     "AddressLine1": "200 Atrium Street",
+     "AddressLine2": null,
+     "City": "Chicago",
+     "StateCode": "IL",
+     "StateName": "Illinois",
+     "CountryCode": "US",
+     "CountryName": "United States",
+     "Zip": null
+  },
+  "Contacts": [...],
+  "StorePhoneNumbers": [...],
+  "Area": null,
+  "StoreHours": {...},
+  "Geography": null,
+  "TimeZone": null,
+  "Roles": [...],
+  "SortName": "atrium mall - chicago",
+  "Attributes": {...},
+  "Relationships": [...],
+  "CreatedUtc": "2015-11-20T19:54:18.613Z",
+  "LastModifiedUtc": "2016-04-19T19:12:29.19Z",
+  "CorrelationId": null,
+  "ClientEntityId": null,
+  "TypeId": 95,
+  "Logo": null,
+  "Version": 1
+}
+</code></p>
+
+<h5 id="example-response-1">Example Response</h5>
+
+<p><code>
+HTTP 200 Content-Type: application/json
+{
+  "Id": 14239,
+  "Name": "Atrium Mall - Chicago",
+  "Description": "",
+  "Role": "Location",   
+  "LocationType": null,
+  "LocationSubType": null,
+  "Address": {  
+     "AddressLine1": "200 Atrium Street",
+     "AddressLine2": null,
+     "City": "Chicago",
+     "StateCode": "IL",
+     "StateName": "Illinois",
+     "CountryCode": "US",
+     "CountryName": "United States",
+     "Zip": null
+  },
+  "Contacts": [...],
+  "StorePhoneNumbers": [...],
+  "Area": null,
+  "StoreHours": {...},
+  "Geography": null,
+  "TimeZone": null,
+  "Roles": [...],
+  "SortName": "atrium mall - chicago",
+  "Attributes": {...},
+  "Relationships": [...],
+  "CreatedUtc": "2015-11-20T19:54:18.613Z",
+  "LastModifiedUtc": "2016-04-19T19:12:29.19Z",
+  "CorrelationId": null,
+  "ClientEntityId": null,
+  "TypeId": 95,
+  "Logo": null,
+  "Version": 2  
+}
+</code></p>
+
+<h2 id="creating-a-location">Creating a Location</h2>
+
+<p>Creating a Location in Endless Aisle involves…</p>
+
+<ol>
+  <li><a href="#determining-the-parent-id">Determining the Parent Id</a></li>
+  <li><a href="#creating-the-location">Creating the Location</a></li>
+</ol>
+
+<h3 id="step-1---determining-the-parent-id">Step 1 - Determining the Parent Id</h3>
+
+<p>Before you can create a Location, you must determine <strong>where</strong> you want the Location to exist in your <a href="/company-tree/">Company Tree</a>.</p>
+
+<p>You can use <a href="/api/company-tree/#getting-a-company-tree">Getting a Company Tree</a> to see the existing Tree and decide where you want to add the Location.</p>
+
+<p>In this example, the new Location will be in Calgary, which is in the province of Alberta.</p>
+
+<h5 id="example-request-2">Example Request</h5>
+
+<p><code>
+GET https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code></p>
+
+<h5 id="example-response-2">Example Response</h5>
+
+<p><code>
+HTTP 200 Content-Type: application/json
+{
+    "Id": 14146,
+    "Name": "Kentel Corp",
+    "Description": "Wireless accessories provider with store locations all across the globe.",
+    "Role": "Company",
+    "Nodes": [
+      {
+        "Id": 14148,
+        "Name": "Canada",
+        "Description": "",
+        "Role": "Group",
+        "ClientEntityId": null,
+        "Nodes": [
+          {
+            "Id": 14158,
+            "Name": "Mobile etc.",
+            "Description": "",
+            "Role": "Division",
+            "ClientEntityId": null,
+            "Nodes": [
+              {
+                "Id": 14169,
+                "Name": "Alberta",
+                "Description": "",
+                "Role": "Group",
+                "ClientEntityId": null,
+                "Nodes": []                 
+              },
+              ...     
+            ]          
+          },
+          ...
+        ] 
+      },
+      ...   
+    ]
+}
+</code></p>
+
+<p>From the response, you can see the <code>Id</code> of Alberta is <code>14169</code>.</p>
+
+<h3 id="step-2---creating-the-location">Step 2 - Creating The Location</h3>
+
+<p>Now that you know the Parent <code>Id</code>, you can create the Location using <a href="/api/company-tree/#creating-a-location">Creating a Location</a>. The new Location will be called Beacon Hill (Calgary) with an address of 2215 Rosehill Blvd.</p>
+
+<h5 id="example-request-3">Example Request</h5>
+
+<p><code>
+POST https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14169)/Locations
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+{
+  "Name": "Beacon Hill (Calgary)",
+  "Address": {
+    "AddressLine1": "2215 Rosehill Blvd",
+    "AddressLine2": null,
+    "City": "Calgary",
+    "StateCode": "AB",
+    "StateName": "Alberta",
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Zip": null
+  },
+  "Roles": [
+    {
+      "Name": "Location"
+    }
+  ]
+}
+</code></p>
+
+<h5 id="example-response-3">Example Response</h5>
+
+<p><code>
+HTTP 201 Content-Type: application/json
+{
+  "Id": 14216,
+  "Name": "Beacon Hill (Calgary)",
+  "Description": "",
+  "Role": "Location",
+  "LocationType": null,
+  "LocationSubType": null,
+  "Address": {
+    "AddressLine1": "2215 Rosehill Blvd",
+    "AddressLine2": null,
+    "City": "Calgary",
+    "StateCode": "AB",
+    "StateName": "Alberta",
+    "CountryCode": "CA",
+    "CountryName": "Canada",
+    "Zip": null
+  },
+  "Contacts": [],
+  "StorePhoneNumbers": [],
+  "Area": null,
+  "StoreHours": {
+    "Monday": null,
+    "Tuesday": null,
+    "Wednesday": null,
+    "Thursday": null,
+    "Friday": null,
+    "Saturday": null,
+    "Sunday": null
+  },
+  "Geography": null,
+  "TimeZone": null,
+  "Roles": [
+    {
+      "Name": "Location"
+    }
+  ],
+  "SortName": "beacon hill (calgary)",
+  "Attributes": {},
+  "Relationships": [
+    {
+      "Id": 6334,
+      "Definition": 12,
+      "Source": 14169,
+      "Destination": 14216,
+      "CreatedUtc": "2015-11-20T19:15:58.004Z",
+      "Version": 1
+    }
+  ],
+  "CreatedUtc": "2015-11-20T19:15:57.988Z",
+  "LastModifiedUtc": "2015-11-20T19:16:41.056Z",
+  "CorrelationId": null,
+  "ClientEntityId": null,
+  "TypeId": null,
+  "Logo": null,
+  "Version": 1
+}
+</code></p>
+</div>
+              <div class="col-lg-1 hidden-md hidden-sm hidden-xs"><!-- start page metadata -->
+
+
+<div class="pageMetadata affix">
+    <div class="pageMetadataTitle">Table of Contents</div>
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+
+    $('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2, h3' });
+
+    //Resize once
+    resizeWindow();
+
+    //Resize whenever window changes
+    $(window).resize(function () {
+        resizeWindow();
+    });
+
+});
+
+function resizeWindow() {
+
+    var windowHeight = $(window).height();
+    var windowWidth = $(window).width();
+
+    var tocHeight = $(".pageMetadata").height();
+
+    if(windowWidth < 1560 || windowHeight < tocHeight) {        
+        //Grab "pageMetadata" and move it to first  child of .post-header
+        $(".pageMetadata").prependTo(".post-header");
+        $(".pageMetadata").removeClass("affix");        
+    } else if(windowWidth > 1560) {
+        //Grab "pageMetadata" and move it back to where it was
+        $(".pageMetadata").appendTo(".col-lg-1.hidden-md.hidden-sm.hidden-xs");
+        $(".pageMetadata" ).addClass("affix");
+    }      
+}
+
+</script>
+
+<div id="toc"></div>
+
+    
+
+</div>
+
+
+
+
+<!-- end pageMetadata --></div>
+            
+    </div>
+
+</body>
+
+<!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-408430-5', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+</html>
+

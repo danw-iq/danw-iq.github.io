@@ -1,0 +1,3381 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=",  ">
+<title>Product Structure  | iQmetrix Developer Portal</title>
+<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/modern-business.css">
+<link rel="stylesheet" type="text/css" href="../../css/customstyles.css">
+<link rel="stylesheet" type="text/css" href="" | prepend:site.pagefileurl }}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../../js/jquery.navgoco.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
+<script src="../../js/toc.js"></script>
+<script src="../../js/customscripts.js"></script>
+<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+
+
+<!-- Image popup source files -->
+<!-- http://dimsemenov.com/plugins/magnific-popup/ -->
+<link rel="stylesheet" type="text/css" href="../../css/magnific-popup.css">
+<script src="../../js/jquery.magnific-popup.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+
+        // surround each image with an anchor class  for image popup
+        $('img').each( function() {
+            var $img = $(this),
+            href = $img.attr('src');
+            $img.wrap('<a class="image-link" href=' + href + '></a>');
+             
+        });
+
+        // make each image with image-link class popup "on click"
+        // !! Drawback -- all images could popup :(
+        $('.image-link').magnificPopup({
+            type:'image',
+            closeOnContentClick: true
+        });
+                
+    });    
+</script>
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+    //Hacky code to make sure they don't go to a bad page
+    $( window ).load(function() {
+
+        if (document.baseURI.indexOf("api/generalledger.html") > 0) {
+            window.location.href = 'http://developers.iqmetrix.com/api/general-ledger/';
+        }
+        else if (document.baseURI.indexOf("api/productlibrary.html") > 0) {
+          window.location.href = 'http://developers.iqmetrix.com/api/product-library/';
+        }
+        else if (document.baseURI.indexOf("api/entitystore.html") > 0) {
+          window.location.href = 'http://developers.iqmetrix.com/api/entity-store/';
+        }
+        else if(document.baseURI.indexOf(".html") > 0) {
+           window.location.href = document.baseURI.substring(0, document.baseURI.indexOf(".html"));
+        }
+    });
+</script>
+
+
+
+
+
+ 
+
+<script>
+  $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+
+
+
+
+
+  </head>
+
+<body>
+
+   <!-- Send feedback function -->
+<script>
+    function SendLinkByMail(href) {
+        var subject= " all documentation feedback";
+        var body = "I have some feedback about the Product Structure page: ";
+        body += window.location.href;
+        body += "";
+        var uri = "mailto:apidesign@iqmetrix.com?subject=";
+        uri += encodeURIComponent(subject);
+        uri += "&body=";
+        uri += encodeURIComponent(body);
+        window.location.href = uri;
+    }
+</script>
+
+<!-- Navigation -->
+<nav id="navbar-custom" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+   <div class="container topnavlinks">
+   <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a href="http://localhost:4006/">
+        <span id="top-iq-logo"><img src="http://melissakendall.github.io/documentation-testing/images/iq-logo-white.png"></span>
+        <span id="projectTitle">iQmetrix Developer Portal</span>
+      </a>
+   </div>
+   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul id="top-bar-categories" class="nav navbar-nav navbar-right">
+      
+      <!-- entries without drop-downs appear here -->
+      <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+      <!-- 
+
+Hard coding for now, so no longer uses topnav config
+
+
+
+
+
+
+
+
+
+  
+      
+      
+          <li><a href="/api/changelog/">CHANGELOG</a></li>
+      
+    
+  
+      
+      
+          <li class="active"><a href="//">API REFERENCE</a></li>
+       
+    
+  
+      
+      
+          <li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
+      
+    
+  
+
+
+-->
+
+<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=all">SHOW ALL</a></li>
+<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=partner">PARTNERS</a></li>
+<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=dropship">DROPSHIP</a></li>
+<li><a href="mailto:?subject=Support">SUPPORT</a></li>
+<li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
+
+         <!--
+      <li>
+         <div id="search-demo-container">
+            <input type="text" id="search-input" placeholder="">
+            <ul id="results-container"></ul>
+         </div>
+         <script src="../..//js/jekyll-search.js" type="text/javascript"></script>
+         <script type="text/javascript">
+            SimpleJekyllSearch({
+              searchInput: document.getElementById('search-input'),
+              resultsContainer: document.getElementById('results-container'),
+              json: '../../search.json',
+              searchResultTemplate: '<li><a href="{url}" title="Product Structure">{title}</a></li>',
+              noResultsText: '',
+              exclude: '404'
+            })
+         </script>
+      </li>
+         -->
+    
+
+   </div>
+   <!-- /.container -->
+</nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="col-lg-12">&nbsp;</div>
+
+            <!-- Col-md-3 -->
+            <!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+            $(document).ready(function() {
+
+                // Initialize navgoco with default options
+                $("#mysidebar").navgoco({
+                    caretHtml: '',
+                    accordion: true,
+                    openClass: 'active', // open
+                    save: false, // leave false or nav higlighting doesn't work right
+                    cookie: {
+                        name: 'navgoco',
+                        expires: false,
+                        path: '/'
+                    },
+                    slide: {
+                        duration: 400,
+                        easing: 'swing'
+                    }
+                });
+
+                $("#collapseAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', false);
+                });
+
+                $("#expandAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', true);
+                });
+
+
+                if(window.location.hostname == "melissakendall.github.io")
+                {
+                    $("#mysidebar a").each(function(e) {
+                        var url = $(this).attr("href");
+                        
+                        if(url != null) {
+                            url = "http://melissakendall.github.io/documentation-testing" + url;
+                        }
+
+                        $(this).attr("href", url);
+                    });                   
+                }
+
+            });
+                           
+        </script>
+
+        
+
+
+
+
+
+
+
+        <ul id="mysidebar" class="nav affix">
+            
+                
+                    
+                        <li><a>API Reference</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/api/authentication/">Authentication</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/assets/">Assets</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/catalog/">Catalog</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/company-tree/">Company Tree</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/crm/">Customers</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Dropship</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/cost-feed/">Cost Feed</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-feed/">Product Feed</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-subscription/">Product Subscription</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/saccs/">Shipping Aggregator</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/shipping-options/">Shipping Options</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/supplier-availability/">Supplier Availability</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/supplier-orders/">Supplier Orders</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/entity-store/">Entities</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/general-ledger/">General Ledger</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/availability/">Inventory Availability</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/orders/">Orders</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Partners</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/partner-reporting/">Partner Reporting</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/partner-relationships/">Relationships</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/pricing">Pricing</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Product Library</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/classification-tree/">Classification Tree</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/field-definitions/">Field Definitions</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-library/">Products</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li class="active"><a href="/api/product-structure/">Product Structure</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/reference/">Reference</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">RQ</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/carrier-integration/">Carrier Integration</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/cmi/">Customer Managed Inventory (CMI)</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/commissions/">Commissions</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/epc/">Electronic Product Catalog (EPC)</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/punch-clock/">Punch Clock</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/vmi/">Vendor Managed Inventory (VMI)</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/security-roles/">Security Roles</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/user-manager/">User Manager</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a>Guides</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/guides/creating-an-in-store-order/">Creating an In Store Order</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/creating-a-user-for-rq/">Creating a User for RQ</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Dropship Client Integration Guides</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-pos-guide/">Dropship Point of Sale Guide</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Dropship Partner Integration Guides</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-onboarding-guide/">Dropship Onboarding Guide</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-order-guide/">Dropship Order Management Guide</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-test-order-guide/">Dropship Test Order Guide</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/commerce-guide/">eCommerce Integration Guide</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Endless Aisle Integration Guide</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/overview">Overview</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/corporate-hierarchy">Corporate Hierarchy</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/content">Content</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/inventory">Inventory</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/orders">Orders</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/3pa/">Third Party Authentication</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/vmi-onboarding-guide/">VMI Onboarding Guide</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a>Core Concepts</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/classification-tree/">Classification Tree</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/company-tree/">Company Tree</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/product-library/">Product Library</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/product-structure/">Product Structure</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/user-manager/">User Manager</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a>FAQ</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/faq/auth-faq/">Authentication FAQ</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/faq/dropship-faq/">Dropship FAQ</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a href="/reference-applications/">Reference Applications</a>
+                    
+                
+            
+        </ul>
+
+        
+    </div>
+<!-- div missing here is intentional -->
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+            
+              <div class="col-md-7"><link rel="stylesheet" type="text/css" href="../../css/prism.css" />
+
+<script src="../../js/prism.js"></script>
+
+<h2 id="overview">Overview</h2>
+
+<p>In <a href="/product-library">Product Library</a> and in your Catalog, products are structured in a way to make managing them easier.</p>
+
+<p>To learn about Master Products, Variations and Revisions, see <a href="/product-structure">Product Structure</a>.</p>
+
+<h2 id="endpoints">Endpoints</h2>
+
+<ul>
+  <li>Sandbox: <a href="https://productlibrarydemo.iqmetrix.net/v1">https://productlibrarydemo.iqmetrix.net/v1</a></li>
+  <li>Production: <a href="https://productlibrary.iqmetrix.net/v1">https://productlibrary.iqmetrix.net/v1</a></li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<h3 id="productdocument">ProductDocument</h3>
+
+<p>A ProductDocument represents the <a href="/concepts/product-structure/">hierarchical structure</a> of Products in Product Library.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Identifier</td>
+      <td style="text-align: left"><code>8</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Classification</td>
+      <td style="text-align: left">object</td>
+      <td style="text-align: left"><a href="/api/classification-tree/#classification">Classification</a> information</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Classification.TreeId</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Identifier for a <a href="/api/classification-tree/#classificationtree">ClassificationTree</a></td>
+      <td style="text-align: left"><code>1</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Classification.Id</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Identifier for a <a href="/api/classification-tree/#classification">Classification</a> or <a href="/api/classification-tree/#category">Category</a></td>
+      <td style="text-align: left"><code>4</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Classification.Name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left"><code>Smartphones</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ColorDefinitions</td>
+      <td style="text-align: left">Array[<a href="/api/catalog/#colordefinition">ColorDefinition</a>]</td>
+      <td style="text-align: left">List of <a href="/api/catalog/#colordefinition">ColorDefinitions</a></td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CreatedUtc</td>
+      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">Created date in UTC</td>
+      <td style="text-align: left"><code>2015-05-28T12:00:00.000Z</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LastModifiedUtc</td>
+      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">Last modified date in UTC</td>
+      <td style="text-align: left"><code>2015-05-28T12:00:00.000Z</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Manufacturer</td>
+      <td style="text-align: left">object</td>
+      <td style="text-align: left"><a href="/api/entity-store/#manufacturer">Manufacturer</a> information</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Manufacturer.Id</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Identifier for the <a href="/api/entity-store/#manufacturer">Manufacturer</a></td>
+      <td style="text-align: left"><code>13149</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Manufacturer.Name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Name of the <a href="/api/entity-store/#manufacturer">Manufacturer</a></td>
+      <td style="text-align: left"><code>OtterBox</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Owner</td>
+      <td style="text-align: left">object</td>
+      <td style="text-align: left">Indicates if this Product is publicly accessible (null) or private (not null)</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Owner.Id</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">For private products, Identifier of the Company that owns this Product</td>
+      <td style="text-align: left"><code>14146</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Owner.Name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">For private products, Name of the Company that owns this Product</td>
+      <td style="text-align: left"><code>Kentel Corp</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RevisionGroups</td>
+      <td style="text-align: left">Array[<a href="/api/product-structure/#revisiongroup">RevisionGroup</a>]</td>
+      <td style="text-align: left">Revisions</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RootRevision</td>
+      <td style="text-align: left"><a href="/api/product-structure/#masterproduct">MasterProduct</a></td>
+      <td style="text-align: left">Master Product, root of the Product hierarchy</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Version</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">The latest revision number</td>
+      <td style="text-align: left"><code>1</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="asset">Asset</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">GUID</td>
+      <td style="text-align: left">Identifier</td>
+      <td style="text-align: left"><code>a130e8f0-ddb1-4034-a34a-53d3ac03d384</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left"><code>HeroShot</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MimeType</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Type of image</td>
+      <td style="text-align: left"><code>image/jpeg</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">IsHidden</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">A flag to indicate if this Asset is hidden, not to be used in Endless Aisle</td>
+      <td style="text-align: left"><code>false</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="masterproduct">MasterProduct</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ColorDefinitionId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Unique identifier for a ColorDefinition</td>
+      <td style="text-align: left"><code>5c6e2779-79d1-4fbd-b6a8-36b81e851b15</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FieldValues</td>
+      <td style="text-align: left">Array[<a href="/api/product-structure/#fieldvalue">FieldValue</a>]</td>
+      <td style="text-align: left">List of FieldValues which represent the properties this Master Product has such as name, screen size, etc</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">IdentifierGroups</td>
+      <td style="text-align: left">Array[<a href="/api/product-structure/#identifiergroup">IdentifierGroup</a>]</td>
+      <td style="text-align: left">List of IdentifierGroups</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">IsArchived</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">A flag to indicate if the MasterProduct is archived</td>
+      <td style="text-align: left"><code>false</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Variations</td>
+      <td style="text-align: left">Array[<a href="/api/product-structure/#variation">Variation</a>]</td>
+      <td style="text-align: left">Variations</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="identifiergroup">IdentifierGroup</h3>
+
+<p>An Identifier is a value that uniquely represents a product within a certain context. For example, a product sold by one vendor may have different SKU identifiers than the same product sold by another vendor. IdentifierGroups are used to group Identifiers by type.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Type</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Acceptable values include: ManufacturerSKU, VendorSKU, UPC</td>
+      <td style="text-align: left"><code>ManufacturerSKU</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ForceOverride</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">A flag to indicate if this Identifier Group is inherited (synced) from a parent. See <a href="#extended-examples">Extended Examples</a></td>
+      <td style="text-align: left"><code>false</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Identifiers</td>
+      <td style="text-align: left">Array[object]</td>
+      <td style="text-align: left">List of Identifiers of the given type</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Description</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Description</td>
+      <td style="text-align: left"><code>Manufacturer sku</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Entity</td>
+      <td style="text-align: left">object</td>
+      <td style="text-align: left">Manufacturer or Vendor information for ManufacturerSKU or VendorSKU</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Entity.Id</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Identifier of an Entity used for Entity Revisions. See <a href="/concepts/product-structure/#carrier-revisions">Carrier Revisions</a> for more information</td>
+      <td style="text-align: left"><code>14146</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Entity.Name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Entity name</td>
+      <td style="text-align: left"><code>Kentel Corp</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Type</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">This value should match the Type property of the IdentifierGroup</td>
+      <td style="text-align: left"><code>ManufacturerSKU</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Value</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Value</td>
+      <td style="text-align: left"><code>ManufacturerSKU</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="identifier">Identifier</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Description</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Description</td>
+      <td style="text-align: left"><code>Manufacturer sku</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Entity</td>
+      <td style="text-align: left">object</td>
+      <td style="text-align: left">Manufacturer or Vendor information for ManufacturerSKU or VendorSKU</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Entity.Id</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Identifier of an Entity used for Entity Revisions. See <a href="/concepts/product-structure/#carrier-revisions">Carrier Revisions</a> for more information</td>
+      <td style="text-align: left"><code>14146</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Entity.Name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Entity name</td>
+      <td style="text-align: left"><code>Kentel Corp</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Type</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">This value should match the Type property of the IdentifierGroup</td>
+      <td style="text-align: left"><code>ManufacturerSKU</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Value</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Value</td>
+      <td style="text-align: left"><code>ManufacturerSKU</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="revisiongroup">RevisionGroup</h3>
+
+<p>RevisionGroups are used to group Revisions by type and parent Variation. See <a href="#extended-examples">Extended Examples</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">GroupType</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Revision type. See <a href="#grouptypes">GroupTypes</a> for a list of acceptable values</td>
+      <td style="text-align: left"><code>Entity</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Order</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">A value used for sorting Revisions</td>
+      <td style="text-align: left"><code>1</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Revisions</td>
+      <td style="text-align: left">Array[<a href="/api/product-structure/#revision">Revision</a>]</td>
+      <td style="text-align: left">List of Revisions in this category</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">VariationId</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Identifier for the Variation, if this Revision was created off of a Variation</td>
+      <td style="text-align: left"><code>5</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="revision">Revision</h3>
+
+<p>To learn more about Master Products, Variations and Revisions, see <a href="/product-structure">Product Structure</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Identifier</td>
+      <td style="text-align: left"><code>5</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ColorDefinitionId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Unique identifier for a ColorDefinition</td>
+      <td style="text-align: left"><code>5c6e2779-79d1-4fbd-b6a8-36b81e851b15</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Entity</td>
+      <td style="text-align: left">object</td>
+      <td style="text-align: left">An identifier for an Entity this Revision was created for</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Entity.Id</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Identifier of an Entity used for Entity Revisions. See <a href="/concepts/product-structure/#carrier-revisions">Carrier Revisions</a> for more information</td>
+      <td style="text-align: left"><code>14146</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Entity.Name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Entity name</td>
+      <td style="text-align: left"><code>Kentel Corp</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FieldValues</td>
+      <td style="text-align: left">Array[<a href="/api/product-structure/#fieldvalue">FieldValue</a>]</td>
+      <td style="text-align: left">FieldValues representing properties that determine how this Revision differs from its parent Variation or MasterProduct</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">IdentifierGroups</td>
+      <td style="text-align: left">Array[<a href="/api/product-structure/#identifiergroup">IdentifierGroup</a>]</td>
+      <td style="text-align: left">List of IdentifierGroups</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Regions</td>
+      <td style="text-align: left">Array[<a href="/api/catalog/#region">Region</a>]</td>
+      <td style="text-align: left">List of regions this Revision is applicable to</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="variation">Variation</h3>
+
+<p>To learn more about Master Products, Variations and Revisions, see <a href="/product-structure">Product Structure</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ColorDefinitionId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Unique identifier for a ColorDefinition</td>
+      <td style="text-align: left"><code>5c6e2779-79d1-4fbd-b6a8-36b81e851b15</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">FieldValues</td>
+      <td style="text-align: left">Array[<a href="/api/product-structure/#fieldvalue">FieldValue</a>]</td>
+      <td style="text-align: left">FieldValues representing properties that determine how this Revision differs from its parent Variation or MasterProduct</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">IdentifierGroups</td>
+      <td style="text-align: left">Array[<a href="/api/product-structure/#identifiergroup">IdentifierGroup</a>]</td>
+      <td style="text-align: left">List of IdentifierGroups</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">IsArchived</td>
+      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">A flag to indicate if this Variation is archived. Archived Products are hidden from searches and can only be access directly.</td>
+      <td style="text-align: left"><code>false</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fieldvalue">FieldValue</h3>
+
+<p>A FieldValue represents a product property and defines how Variations and Revisions differ from their parents. FieldValues are made up of a reference to a  and a value. See <a href="#extended-examples">Extended Examples</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">FieldDefinitionId</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Identifier for a <a href="/api/field-definitions/#fielddefinition">FieldDefinition</a></td>
+      <td style="text-align: left"><code>1</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LanguageInvariantValue</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Value</td>
+      <td style="text-align: left"><code>iPhone 4S 16 GB Black</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="colortag">ColorTag</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Identifier</td>
+      <td style="text-align: left"><code>5</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left"><code>Green</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ColorCode</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">A valid Hex code representing this color</td>
+      <td style="text-align: left"><code>#51B14D</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="colordefinitions">ColorDefinitions</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ColorDefinitions</td>
+      <td style="text-align: left">Array[<a href="/api/catalog/#colordefinition">ColorDefinition</a>]</td>
+      <td style="text-align: left">List of <a href="/api/catalog/#colordefinition">ColorDefinitions</a></td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="enumerations">Enumerations</h2>
+
+<h3 id="grouptype">GroupType</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Region</td>
+      <td style="text-align: left">Variation is specific to a <a href="/api/reference/#country">Country</a> or <a href="/api/reference/#state">State</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Entity</td>
+      <td style="text-align: left">Variation is specific to a <a href="/api/company-tree/#company">Company</a> or <a href="/api/entity-store/#carrier">Carrier</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RegionAndEntity</td>
+      <td style="text-align: left">Varation is a combination of the above</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="swatchtype">SwatchType</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Asset</td>
+      <td style="text-align: left">Color is represented by an <a href="/api/assets/#asset">Asset</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ColorCode</td>
+      <td style="text-align: left">Color is represented by a Hex code</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Empty</td>
+      <td style="text-align: left">No swatch</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="requests">Requests</h2>
+
+<h3 id="creating-a-master-product" class="clickable-header top-level-header">Creating a Master Product</h3>
+
+<h4>Request</h4>
+
+<pre>
+POST /ProductDocs
+</pre>
+
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li><li><code>Content-Type: application/json</code></li></ul>
+
+<h4>Request Parameters</h4>
+
+<ul><li><code>Classification</code> (<strong>Required</strong>) </li><ul><li><code>TreeId</code> (<strong>Required</strong>) - Identifier for a <a href="http://developers.iqmetrix.com/api/classification-tree/#classificationtree">ClassificationTree</a></li><li><code>Id</code> (<strong>Required</strong>) - Identifier for a <a href="http://developers.iqmetrix.com/api/classification-tree/#classification">Classification</a> or <a href="http://developers.iqmetrix.com/api/classification-tree/#category">Category</a></li></ul><li><code>OwnerEntityId</code> (<strong>Required</strong>) - Identifier of the <a href="/api/company-tree/#company">Company</a> the Product will belong to</li><li><code>RootRevision</code> (<strong>Required</strong>) </li><ul><li><code>FieldValues</code> (<strong>Required</strong>) </li><ul><li><code>FieldDefinitionId</code> (<strong>Required</strong>) - Identifier for a <a href="http://developers.iqmetrix.com/api/field-definitions/#fielddefinition">FieldDefinition</a></li><li><code>LanguageInvariantValue</code> (<strong>Required</strong>) </li></ul><li><code>Assets</code> (Optional) - Image <a href="http://developers.iqmetrix.com/api/assets/#asset">Assets</a> for the Master Product</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier for an <a href="http://developers.iqmetrix.com/api/assets/#asset">Asset</a></li><li><code>Name</code> (<strong>Required</strong>) </li><li><code>MimeType</code> (<strong>Required</strong>) </li><li><code>IsHidden</code> (Optional) - Defaults to false</li></ul><li><code>ColorDefinitionId</code> (Optional) - Unique identifier for a <a href="http://developers.iqmetrix.com/api/catalog/#colordefinition">ColorDefinition</a></li><li><code>IdentifierGroups</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - Acceptable values include: ManufacturerSKU, VendorSKU, UPC</li><li><code>ForceOverride</code> (Optional) - A flag to indicate if this Identifier Group is inherited (synced) from a parent. See <a href="#extended-examples">Extended Examples</a></li><li><code>Identifiers</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - This value should match the Type property of the IdentifierGroup</li><li><code>Value</code> (<strong>Required</strong>) </li><li><code>Description</code> (Optional) </li><li><code>Entity</code> (Optional) - Manufacturer or Vendor information for ManufacturerSKU or VendorSKU</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier of an Entity used for Entity Revisions. See <a href="/concepts/product-structure/#carrier-revisions">Carrier Revisions</a> for more information</li></ul></ul></ul></ul><li><code>ColorDefinitions</code> (Optional) </li><ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>ColorTagIds</code> (Optional) - List of ColorTag Identifiers, see <a href="/api/product-structure/#getting-all-color-tags">Getting All Color Tags</a> for a list</li><li><code>Swatch</code> (Optional) </li><ul><li><code>Type</code> (Optional) - Acceptable values are Asset, ColorCodes or Empty</li><li><code>AssetId</code> (Optional) - If Type is Asset, an identifier for an Asset. Otherwise, this property is ignored</li><li><code>ColorCode</code> (Optional) - If Type is ColorCode, a valid hex code for a color. Otherwise, this propety is ignored</li></ul></ul><li><code>Manufacturer</code> (Optional) </li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier for a <a href="http://developers.iqmetrix.com/api/entity-store/#manufacturer">Manufacturer</a></li></ul></ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-creating-a-master-product" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-creating-a-master-product" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-creating-a-master-product" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-creating-a-master-product" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-creating-a-master-product" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-creating-a-master-product" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-creating-a-master-product"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-creating-a-master-product">
+<pre id="http-code-creating-a-master-product"><code class="language-http">POST /ProductDocs
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code><code class="language-csharp">{
+    "Classification": {
+        "TreeId": 1,
+        "Id": 4
+    },
+    "ColorDefinitions": [
+        {
+            "Name": "Black Sapphire",
+            "ColorTagIds": [
+                1
+            ],
+            "Swatch": {
+                "Type": "ColorCode",
+                "AssetId": "null",
+                "ColorCode": "#C0C8D0"
+            }
+        }
+    ],
+    "Manufacturer": {
+        "Id": 13149
+    },
+    "OwnerEntityId": 14146,
+    "RootRevision": {
+        "Assets": [
+            {
+                "Id": "a130e8f0-ddb1-4034-a34a-53d3ac03d384",
+                "Name": "HeroShot",
+                "MimeType": "image/jpeg",
+                "IsHidden": false
+            }
+        ],
+        "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+        "FieldValues": [
+            {
+                "FieldDefinitionId": 1,
+                "LanguageInvariantValue": "iPhone 4S 16 GB Black"
+            }
+        ],
+        "IdentifierGroups": [
+            {
+                "Type": "ManufacturerSKU",
+                "ForceOverride": false,
+                "Identifiers": [
+                    {
+                        "Description": "Manufacturer sku",
+                        "Entity": {
+                            "Id": 14146
+                        },
+                        "Type": "ManufacturerSKU",
+                        "Value": "ManufacturerSKU"
+                    }
+                ]
+            }
+        ]
+    }
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-creating-a-master-product">
+<pre id="curl-code-creating-a-master-product"><code class="language-http">curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+    "Classification": {
+        "TreeId": 1,
+        "Id": 4
+    },
+    "ColorDefinitions": [
+        {
+            "Name": "Black Sapphire",
+            "ColorTagIds": [
+                1
+            ],
+            "Swatch": {
+                "Type": "ColorCode",
+                "AssetId": "null",
+                "ColorCode": "#C0C8D0"
+            }
+        }
+    ],
+    "Manufacturer": {
+        "Id": 13149
+    },
+    "OwnerEntityId": 14146,
+    "RootRevision": {
+        "Assets": [
+            {
+                "Id": "a130e8f0-ddb1-4034-a34a-53d3ac03d384",
+                "Name": "HeroShot",
+                "MimeType": "image/jpeg",
+                "IsHidden": false
+            }
+        ],
+        "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+        "FieldValues": [
+            {
+                "FieldDefinitionId": 1,
+                "LanguageInvariantValue": "iPhone 4S 16 GB Black"
+            }
+        ],
+        "IdentifierGroups": [
+            {
+                "Type": "ManufacturerSKU",
+                "ForceOverride": false,
+                "Identifiers": [
+                    {
+                        "Description": "Manufacturer sku",
+                        "Entity": {
+                            "Id": 14146
+                        },
+                        "Type": "ManufacturerSKU",
+                        "Value": "ManufacturerSKU"
+                    }
+                ]
+            }
+        ]
+    }
+}'</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-creating-a-master-product">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-creating-a-master-product"><code class="language-csharp">static IRestResponse CreatingAMasterProduct()
+{
+    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs");
+    var request = new RestRequest(Method.POST);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+    request.AddHeader("Content-Type", "application/json"); 
+
+     request.AddParameter("application/json", "{\"Classification\":{\"TreeId\":1,\"Id\":4},\"ColorDefinitions\":[{\"Name\":\"Black Sapphire\",\"ColorTagIds\":[1],\"Swatch\":{\"Type\":\"ColorCode\",\"AssetId\":\"null\",\"ColorCode\":\"#C0C8D0\"}}],\"Manufacturer\":{\"Id\":13149},\"OwnerEntityId\":14146,\"RootRevision\":{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}}", ParameterType.RequestBody);
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-creating-a-master-product">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-creating-a-master-product"><code class="language-java">import org.apache.http.entity.StringEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse CreatingAMasterProduct() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpPost request = new HttpPost("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs");
+     
+    request.addHeader("Authorization", "Bearer (Access Token)"); 
+    request.addHeader("Accept", "application/json"); 
+    request.addHeader("Content-Type", "application/json"); 
+    StringEntity body = new StringEntity("{\"Classification\":{\"TreeId\":1,\"Id\":4},\"ColorDefinitions\":[{\"Name\":\"Black Sapphire\",\"ColorTagIds\":[1],\"Swatch\":{\"Type\":\"ColorCode\",\"AssetId\":\"null\",\"ColorCode\":\"#C0C8D0\"}}],\"Manufacturer\":{\"Id\":13149},\"OwnerEntityId\":14146,\"RootRevision\":{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}}");
+    request.setEntity(body);
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-creating-a-master-product">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-creating-a-master-product"><code class="language-ruby">require 'rest-client'
+
+body = "{\"Classification\":{\"TreeId\":1,\"Id\":4},\"ColorDefinitions\":[{\"Name\":\"Black Sapphire\",\"ColorTagIds\":[1],\"Swatch\":{\"Type\":\"ColorCode\",\"AssetId\":\"null\",\"ColorCode\":\"#C0C8D0\"}}],\"Manufacturer\":{\"Id\":13149},\"OwnerEntityId\":14146,\"RootRevision\":{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}}";
+
+response = RestClient.post 'https://productlibrarydemo.iqmetrix.net/v1/ProductDocs', body, {
+     :'Authorization' =&gt; 'Bearer (Access Token)',
+     :'Accept' =&gt; 'application/json',
+     :'Content-Type' =&gt; 'application/json',
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<p><a href="#productdocument">ProductDocument</a></p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 201 Content-Type: application/json
+</pre>
+<pre>{
+    "Id": 8,
+    "Classification": {
+        "TreeId": 1,
+        "Id": 4,
+        "Name": "Smartphones"
+    },
+    "ColorDefinitions": [
+        {
+            "Id": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+            "Name": "Black Sapphire",
+            "ColorTagIds": [ 1 ]
+            "ColorTags": [
+                {
+                    "Id": 1,
+                    "Name": "Black",
+                    "ColorCode": "#303232"
+                }
+            ],
+            "Swatch": {
+                "Type": "ColorCode",
+                "AssetId": null,
+                "ColorCode": "#C0C8D0"
+            }
+        }
+    ],
+    "CreatedUtc": "2015-05-28T12:00:00.000Z",
+    "LastModifiedUtc": "2015-05-28T12:00:00.000Z",
+    "Manufacturer": {
+        "Id": 13149,
+        "Name": "OtterBox"
+    },
+    "Owner": {
+        "Id": 14146,
+        "Name": "Kentel Corp"
+    },
+    "RevisionGroups": [
+        {
+            "Order": 1,
+            "VariationId": null,
+            "GroupType": "Entity",
+            "Revisions": []
+        },
+        {
+            "Order": 0,
+            "VariationId": null,
+            "GroupType": "Region",
+            "Revisions": []
+        },
+        {
+            "Order": 2,
+            "VariationId": null,
+            "GroupType": "RegionAndEntity",
+            "Revisions": []
+        }
+    ],
+    "RootRevision": {
+        "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+        "FieldValues": [
+            {
+                "FieldDefinitionId": 1,
+                "LanguageInvariantValue": "iPhone 4S 16 GB Black"
+            }
+        ],
+        "IdentifierGroups": [
+            {
+                "Type": "ManufacturerSKU",
+                "ForceOverride": false,
+                "Identifiers": [
+                    {
+                        "Description": "Manufacturer sku",
+                        "Entity": {
+                            "Id": 14146,
+                            "Name": "Kentel Corp"
+                        },
+                        "Type": "ManufacturerSKU",
+                        "Value": "ManufacturerSKU"
+                    }
+                ]
+            }
+        ],
+        "IsArchived": false
+    },
+    "Version": 1
+}
+</pre>
+
+<h3 id="getting-a-product-hierarchy" class="clickable-header top-level-header">Getting a Product Hierarchy</h3>
+
+<p>This request will get a Master Product and all child Variations and Revisions.</p>
+
+<h4>Request</h4>
+
+<pre>
+GET /ProductDocs({ProductDocumentId})
+</pre>
+
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li></ul>
+
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>ProductDocumentId</code> (<strong>Required</strong>)  - Identifier for a <a href="http://developers.iqmetrix.com/api/product-structure/#productdocument">ProductDocument</a>
+    </li>
+    </ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-a-product-hierarchy" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-a-product-hierarchy" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-a-product-hierarchy" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-a-product-hierarchy" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-a-product-hierarchy" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-a-product-hierarchy" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-a-product-hierarchy"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-a-product-hierarchy">
+<pre id="http-code-getting-a-product-hierarchy"><code class="language-http">GET /ProductDocs(8)
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-a-product-hierarchy">
+<pre id="curl-code-getting-a-product-hierarchy"><code class="language-http">curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-a-product-hierarchy">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-a-product-hierarchy"><code class="language-csharp">static IRestResponse GettingAProductHierarchy()
+{
+    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)");
+    var request = new RestRequest(Method.GET);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-a-product-hierarchy">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-a-product-hierarchy"><code class="language-java">
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse GettingAProductHierarchy() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpGet request = new HttpGet("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)");
+     
+    request.addHeader("Authorization", "Bearer (Access Token)"); 
+    request.addHeader("Accept", "application/json"); 
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-a-product-hierarchy">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-a-product-hierarchy"><code class="language-ruby">require 'rest-client'
+
+
+
+response = RestClient.get 'https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)', {
+     :'Authorization' =&gt; 'Bearer (Access Token)',
+     :'Accept' =&gt; 'application/json',
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<p><a href="#productdocument">ProductDocument</a></p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 200 Content-Type: application/json
+</pre>
+<pre>{
+    "Id": 8,
+    "Classification": {
+        "TreeId": 1,
+        "Id": 4,
+        "Name": "Smartphones"
+    },
+    "ColorDefinitions": [
+        {
+            "Id": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+            "Name": "Black Sapphire",
+            "ColorTagIds": [
+                1
+            ],
+            "ColorTags": [
+                {
+                    "Id": 1,
+                    "Name": "Black",
+                    "ColorCode": "#303232"
+                }
+            ],
+            "Swatch": {
+                "Type": "ColorCode",
+                "AssetId": "null",
+                "ColorCode": "#C0C8D0"
+            }
+        }
+    ],
+    "CreatedUtc": "2015-05-28T12:00:00.000Z",
+    "LastModifiedUtc": "2015-05-28T12:00:00.000Z",
+    "Manufacturer": {
+        "Id": 13149,
+        "Name": "OtterBox"
+    },
+    "Owner": {
+        "Id": 14146,
+        "Name": "Kentel Corp"
+    },
+    "RevisionGroups": [
+        {
+            "GroupType": "Entity",
+            "Order": 1,
+            "Revisions": [
+                {
+                    "Id": 5,
+                    "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+                    "Entity": {
+                        "Id": 14146,
+                        "Name": "Kentel Corp"
+                    },
+                    "FieldValues": [
+                        {
+                            "FieldDefinitionId": 1,
+                            "LanguageInvariantValue": "iPhone 4S 16 GB Black"
+                        }
+                    ],
+                    "IdentifierGroups": [
+                        {
+                            "Type": "ManufacturerSKU",
+                            "ForceOverride": false,
+                            "Identifiers": [
+                                {
+                                    "Description": "Manufacturer sku",
+                                    "Entity": {
+                                        "Id": 14146,
+                                        "Name": "Kentel Corp"
+                                    },
+                                    "Type": "ManufacturerSKU",
+                                    "Value": "ManufacturerSKU"
+                                }
+                            ]
+                        }
+                    ],
+                    "Regions": [
+                        {
+                            "CountryCode": "CA",
+                            "CountryName": "Canada",
+                            "StateCode": "AB",
+                            "StateName": "British Columbia"
+                        }
+                    ]
+                }
+            ],
+            "VariationId": 5
+        }
+    ],
+    "RootRevision": {
+        "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+        "FieldValues": [
+            {
+                "FieldDefinitionId": 1,
+                "LanguageInvariantValue": "iPhone 4S 16 GB Black"
+            }
+        ],
+        "IdentifierGroups": [
+            {
+                "Type": "ManufacturerSKU",
+                "ForceOverride": false,
+                "Identifiers": [
+                    {
+                        "Description": "Manufacturer sku",
+                        "Entity": {
+                            "Id": 14146,
+                            "Name": "Kentel Corp"
+                        },
+                        "Type": "ManufacturerSKU",
+                        "Value": "ManufacturerSKU"
+                    }
+                ]
+            }
+        ],
+        "IsArchived": false
+    },
+    "Version": 1
+}</pre>
+
+<h3 id="updating-a-master-product" class="clickable-header top-level-header">Updating a Master Product</h3>
+
+<div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Important: </b> This request cannot <strong>update</strong> existing Assets, only add new Assets</div>
+
+<h4>Request</h4>
+
+<pre>
+PUT /ProductDocs({ProductDocumentId})
+</pre>
+
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li><li><code>Content-Type: application/json</code></li></ul>
+
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>ProductDocumentId</code> (<strong>Required</strong>)  - Identifier for a <a href="http://developers.iqmetrix.com/api/product-structure/#productdocument">ProductDocument</a>
+    </li>
+    </ul>
+
+<h4>Request Parameters</h4>
+
+<ul><li><code>FieldValues</code> (<strong>Required</strong>) </li><ul><li><code>FieldDefinitionId</code> (<strong>Required</strong>) - Identifier for a <a href="http://developers.iqmetrix.com/api/field-definitions/#fielddefinition">FieldDefinition</a></li><li><code>LanguageInvariantValue</code> (<strong>Required</strong>) </li></ul><li><code>Assets</code> (Optional) - Image <a href="http://developers.iqmetrix.com/api/assets/#asset">Assets</a> for the Master Product</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier for an <a href="http://developers.iqmetrix.com/api/assets/#asset">Asset</a></li><li><code>Name</code> (<strong>Required</strong>) </li><li><code>MimeType</code> (<strong>Required</strong>) </li><li><code>IsHidden</code> (Optional) - Defaults to false</li></ul><li><code>ColorDefinitionId</code> (Optional) - Unique identifier for a <a href="http://developers.iqmetrix.com/api/catalog/#colordefinition">ColorDefinition</a></li><li><code>IdentifierGroups</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - Acceptable values include: ManufacturerSKU, VendorSKU, UPC</li><li><code>ForceOverride</code> (Optional) - A flag to indicate if this Identifier Group is inherited (synced) from a parent. See <a href="#extended-examples">Extended Examples</a></li><li><code>Identifiers</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - This value should match the Type property of the IdentifierGroup</li><li><code>Value</code> (<strong>Required</strong>) </li><li><code>Description</code> (Optional) </li><li><code>Entity</code> (Optional) - Manufacturer or Vendor information for ManufacturerSKU or VendorSKU</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier of an Entity used for Entity Revisions. See <a href="/concepts/product-structure/#carrier-revisions">Carrier Revisions</a> for more information</li></ul></ul></ul></ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-updating-a-master-product" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-updating-a-master-product" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-updating-a-master-product" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-updating-a-master-product" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-updating-a-master-product" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-updating-a-master-product" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-updating-a-master-product"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-updating-a-master-product">
+<pre id="http-code-updating-a-master-product"><code class="language-http">PUT /ProductDocs(8)
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code><code class="language-csharp">{
+    "Assets": [
+        {
+            "Id": "a130e8f0-ddb1-4034-a34a-53d3ac03d384",
+            "Name": "HeroShot",
+            "MimeType": "image/jpeg",
+            "IsHidden": false
+        }
+    ],
+    "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+    "FieldValues": [
+        {
+            "FieldDefinitionId": 1,
+            "LanguageInvariantValue": "iPhone 4S 16 GB Black"
+        }
+    ],
+    "IdentifierGroups": [
+        {
+            "Type": "ManufacturerSKU",
+            "ForceOverride": false,
+            "Identifiers": [
+                {
+                    "Description": "Manufacturer sku",
+                    "Entity": {
+                        "Id": 14146,
+                        "Name": "Kentel Corp"
+                    },
+                    "Type": "ManufacturerSKU",
+                    "Value": "ManufacturerSKU"
+                }
+            ]
+        }
+    ]
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-updating-a-master-product">
+<pre id="curl-code-updating-a-master-product"><code class="language-http">curl -X PUT "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+    "Assets": [
+        {
+            "Id": "a130e8f0-ddb1-4034-a34a-53d3ac03d384",
+            "Name": "HeroShot",
+            "MimeType": "image/jpeg",
+            "IsHidden": false
+        }
+    ],
+    "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+    "FieldValues": [
+        {
+            "FieldDefinitionId": 1,
+            "LanguageInvariantValue": "iPhone 4S 16 GB Black"
+        }
+    ],
+    "IdentifierGroups": [
+        {
+            "Type": "ManufacturerSKU",
+            "ForceOverride": false,
+            "Identifiers": [
+                {
+                    "Description": "Manufacturer sku",
+                    "Entity": {
+                        "Id": 14146,
+                        "Name": "Kentel Corp"
+                    },
+                    "Type": "ManufacturerSKU",
+                    "Value": "ManufacturerSKU"
+                }
+            ]
+        }
+    ]
+}'</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-updating-a-master-product">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-updating-a-master-product"><code class="language-csharp">static IRestResponse UpdatingAMasterProduct()
+{
+    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)");
+    var request = new RestRequest(Method.PUT);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+    request.AddHeader("Content-Type", "application/json"); 
+
+     request.AddParameter("application/json", "{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}", ParameterType.RequestBody);
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-updating-a-master-product">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-updating-a-master-product"><code class="language-java">import org.apache.http.entity.StringEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse UpdatingAMasterProduct() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpPut request = new HttpPut("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)");
+     
+    request.addHeader("Authorization", "Bearer (Access Token)"); 
+    request.addHeader("Accept", "application/json"); 
+    request.addHeader("Content-Type", "application/json"); 
+    StringEntity body = new StringEntity("{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}");
+    request.setEntity(body);
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-updating-a-master-product">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-updating-a-master-product"><code class="language-ruby">require 'rest-client'
+
+body = "{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}";
+
+response = RestClient.put 'https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)', body, {
+     :'Authorization' =&gt; 'Bearer (Access Token)',
+     :'Accept' =&gt; 'application/json',
+     :'Content-Type' =&gt; 'application/json',
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 204 Content-Type: application/json
+</pre>
+
+<h3 id="creating-a-variation" class="clickable-header top-level-header">Creating a Variation</h3>
+
+<h4>Request</h4>
+
+<pre>
+POST /ProductDocs({ProductDocumentId})/Variations
+</pre>
+
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li><li><code>Content-Type: application/json</code></li></ul>
+
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>ProductDocumentId</code> (<strong>Required</strong>)  - Identifier for a <a href="http://developers.iqmetrix.com/api/product-structure/#productdocument">ProductDocument</a>
+    </li>
+    </ul>
+
+<h4>Request Parameters</h4>
+
+<ul><li><code>FieldValues</code> (<strong>Required</strong>) - Must be unique across all Variations for the MasterProduct</li><ul><li><code>FieldDefinitionId</code> (<strong>Required</strong>) - Identifier for a <a href="http://developers.iqmetrix.com/api/field-definitions/#fielddefinition">FieldDefinition</a></li><li><code>LanguageInvariantValue</code> (<strong>Required</strong>) </li></ul><li><code>Assets</code> (Optional) - Image <a href="http://developers.iqmetrix.com/api/assets/#asset">Assets</a> for the Variation</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier for an <a href="http://developers.iqmetrix.com/api/assets/#asset">Asset</a></li><li><code>Name</code> (<strong>Required</strong>) </li><li><code>MimeType</code> (<strong>Required</strong>) </li><li><code>IsHidden</code> (Optional) - Defaults to false</li></ul><li><code>ColorDefinitionId</code> (Optional) - Identifier for a ColorDefinition. For a list of ColorDefinitions, see <a href="/api/product-structure/#getting-color-definitions-for-a-master-product">Getting Color Definitions For a Master Product</a></li><li><code>IdentifierGroups</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - Acceptable values include: ManufacturerSKU, VendorSKU, UPC</li><li><code>ForceOverride</code> (Optional) - A flag to indicate if this Identifier Group is inherited (synced) from a parent. See <a href="#extended-examples">Extended Examples</a></li><li><code>Identifiers</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - This value should match the Type property of the IdentifierGroup</li><li><code>Value</code> (<strong>Required</strong>) </li><li><code>Description</code> (Optional) </li><li><code>Entity</code> (Optional) - Manufacturer or Vendor information for ManufacturerSKU or VendorSKU</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier of an Entity used for Entity Revisions. See <a href="/concepts/product-structure/#carrier-revisions">Carrier Revisions</a> for more information</li></ul></ul></ul></ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-creating-a-variation" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-creating-a-variation" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-creating-a-variation" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-creating-a-variation" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-creating-a-variation" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-creating-a-variation" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-creating-a-variation"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-creating-a-variation">
+<pre id="http-code-creating-a-variation"><code class="language-http">POST /ProductDocs(8)/Variations
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code><code class="language-csharp">{
+    "Assets": [
+        {
+            "Id": "a130e8f0-ddb1-4034-a34a-53d3ac03d384",
+            "Name": "HeroShot",
+            "MimeType": "image/jpeg",
+            "IsHidden": false
+        }
+    ],
+    "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+    "FieldValues": [
+        {
+            "FieldDefinitionId": 1,
+            "LanguageInvariantValue": "iPhone 4S 16 GB Black"
+        }
+    ],
+    "IdentifierGroups": [
+        {
+            "Type": "ManufacturerSKU",
+            "ForceOverride": false,
+            "Identifiers": [
+                {
+                    "Description": "Manufacturer sku",
+                    "Entity": {
+                        "Id": 14146
+                    },
+                    "Type": "ManufacturerSKU",
+                    "Value": "ManufacturerSKU"
+                }
+            ]
+        }
+    ]
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-creating-a-variation">
+<pre id="curl-code-creating-a-variation"><code class="language-http">curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+    "Assets": [
+        {
+            "Id": "a130e8f0-ddb1-4034-a34a-53d3ac03d384",
+            "Name": "HeroShot",
+            "MimeType": "image/jpeg",
+            "IsHidden": false
+        }
+    ],
+    "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+    "FieldValues": [
+        {
+            "FieldDefinitionId": 1,
+            "LanguageInvariantValue": "iPhone 4S 16 GB Black"
+        }
+    ],
+    "IdentifierGroups": [
+        {
+            "Type": "ManufacturerSKU",
+            "ForceOverride": false,
+            "Identifiers": [
+                {
+                    "Description": "Manufacturer sku",
+                    "Entity": {
+                        "Id": 14146
+                    },
+                    "Type": "ManufacturerSKU",
+                    "Value": "ManufacturerSKU"
+                }
+            ]
+        }
+    ]
+}'</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-creating-a-variation">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-creating-a-variation"><code class="language-csharp">static IRestResponse CreatingAVariation()
+{
+    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variations");
+    var request = new RestRequest(Method.POST);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+    request.AddHeader("Content-Type", "application/json"); 
+
+     request.AddParameter("application/json", "{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}", ParameterType.RequestBody);
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-creating-a-variation">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-creating-a-variation"><code class="language-java">import org.apache.http.entity.StringEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse CreatingAVariation() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpPost request = new HttpPost("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variations");
+     
+    request.addHeader("Authorization", "Bearer (Access Token)"); 
+    request.addHeader("Accept", "application/json"); 
+    request.addHeader("Content-Type", "application/json"); 
+    StringEntity body = new StringEntity("{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}");
+    request.setEntity(body);
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-creating-a-variation">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-creating-a-variation"><code class="language-ruby">require 'rest-client'
+
+body = "{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}";
+
+response = RestClient.post 'https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variations', body, {
+     :'Authorization' =&gt; 'Bearer (Access Token)',
+     :'Accept' =&gt; 'application/json',
+     :'Content-Type' =&gt; 'application/json',
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<ul><li><code>VariationId</code> (Integer) - Identifier for a <a href="http://developers.iqmetrix.com/api/product-structure/#variation">Variation</a></li></ul>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 201 Content-Type: application/json
+</pre>
+<pre>{
+    "VariationId": 8
+}</pre>
+
+<h3 id="updating-a-variation" class="clickable-header top-level-header">Updating a Variation</h3>
+
+<div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Important: </b> This request cannot <strong>update</strong> existing Assets, only add new Assets</div>
+
+<h4>Request</h4>
+
+<pre>
+PUT /ProductDocs({ProductDocumentId})/Variations?variationId={VariationId}
+</pre>
+
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li><li><code>Content-Type: application/json</code></li></ul>
+
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>ProductDocumentId</code> (<strong>Required</strong>)  - Identifier for a <a href="http://developers.iqmetrix.com/api/product-structure/#productdocument">ProductDocument</a>
+    </li>
+    
+    <li>
+        <code>VariationId</code> (<strong>Required</strong>)  - Identifier of the <a href="http://developers.iqmetrix.com/api/product-structure/#variation">Variation</a>. To get a list of Variations for a Product, see <a href="#getting-a-product-hierarchy">Getting a Product Hierarchy</a>
+    </li>
+    </ul>
+
+<h4>Request Parameters</h4>
+
+<ul><li><code>FieldValues</code> (<strong>Required</strong>) - Must be unique across all Variations for the MasterProduct</li><ul><li><code>FieldDefinitionId</code> (<strong>Required</strong>) - Identifier for a <a href="http://developers.iqmetrix.com/api/field-definitions/#fielddefinition">FieldDefinition</a></li><li><code>LanguageInvariantValue</code> (<strong>Required</strong>) </li></ul><li><code>Assets</code> (Optional) - Image <a href="http://developers.iqmetrix.com/api/assets/#asset">Assets</a> for the Variation</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier for an <a href="http://developers.iqmetrix.com/api/assets/#asset">Asset</a></li><li><code>Name</code> (<strong>Required</strong>) </li><li><code>MimeType</code> (<strong>Required</strong>) </li><li><code>IsHidden</code> (Optional) - Defaults to false</li></ul><li><code>ColorDefinitionId</code> (Optional) - Identifier for a ColorDefinition. For a list of ColorDefinitions, see <a href="/api/product-structure/#getting-color-definitions-for-a-master-product">Getting Color Definitions For a Master Product</a></li><li><code>IdentifierGroups</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - Acceptable values include: ManufacturerSKU, VendorSKU, UPC</li><li><code>ForceOverride</code> (Optional) - A flag to indicate if this Identifier Group is inherited (synced) from a parent. See <a href="#extended-examples">Extended Examples</a></li><li><code>Identifiers</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - This value should match the Type property of the IdentifierGroup</li><li><code>Value</code> (<strong>Required</strong>) </li><li><code>Description</code> (Optional) </li><li><code>Entity</code> (Optional) - Manufacturer or Vendor information for ManufacturerSKU or VendorSKU</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier of an Entity used for Entity Revisions. See <a href="/concepts/product-structure/#carrier-revisions">Carrier Revisions</a> for more information</li></ul></ul></ul></ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-updating-a-variation" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-updating-a-variation" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-updating-a-variation" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-updating-a-variation" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-updating-a-variation" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-updating-a-variation" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-updating-a-variation"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-updating-a-variation">
+<pre id="http-code-updating-a-variation"><code class="language-http">PUT /ProductDocs(8)/Variations?variationId=1
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code><code class="language-csharp">{
+    "Assets": [
+        {
+            "Id": "a130e8f0-ddb1-4034-a34a-53d3ac03d384",
+            "Name": "HeroShot",
+            "MimeType": "image/jpeg",
+            "IsHidden": false
+        }
+    ],
+    "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+    "FieldValues": [
+        {
+            "FieldDefinitionId": 1,
+            "LanguageInvariantValue": "iPhone 4S 16 GB Black"
+        }
+    ],
+    "IdentifierGroups": [
+        {
+            "Type": "ManufacturerSKU",
+            "ForceOverride": false,
+            "Identifiers": [
+                {
+                    "Description": "Manufacturer sku",
+                    "Entity": {
+                        "Id": 14146,
+                        "Name": "Kentel Corp"
+                    },
+                    "Type": "ManufacturerSKU",
+                    "Value": "ManufacturerSKU"
+                }
+            ]
+        }
+    ]
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-updating-a-variation">
+<pre id="curl-code-updating-a-variation"><code class="language-http">curl -X PUT "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variations?variationId=1" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+    "Assets": [
+        {
+            "Id": "a130e8f0-ddb1-4034-a34a-53d3ac03d384",
+            "Name": "HeroShot",
+            "MimeType": "image/jpeg",
+            "IsHidden": false
+        }
+    ],
+    "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+    "FieldValues": [
+        {
+            "FieldDefinitionId": 1,
+            "LanguageInvariantValue": "iPhone 4S 16 GB Black"
+        }
+    ],
+    "IdentifierGroups": [
+        {
+            "Type": "ManufacturerSKU",
+            "ForceOverride": false,
+            "Identifiers": [
+                {
+                    "Description": "Manufacturer sku",
+                    "Entity": {
+                        "Id": 14146,
+                        "Name": "Kentel Corp"
+                    },
+                    "Type": "ManufacturerSKU",
+                    "Value": "ManufacturerSKU"
+                }
+            ]
+        }
+    ]
+}'</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-updating-a-variation">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-updating-a-variation"><code class="language-csharp">static IRestResponse UpdatingAVariation()
+{
+    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variations?variationId=1");
+    var request = new RestRequest(Method.PUT);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+    request.AddHeader("Content-Type", "application/json"); 
+
+     request.AddParameter("application/json", "{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}", ParameterType.RequestBody);
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-updating-a-variation">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-updating-a-variation"><code class="language-java">import org.apache.http.entity.StringEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse UpdatingAVariation() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpPut request = new HttpPut("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variations?variationId=1");
+     
+    request.addHeader("Authorization", "Bearer (Access Token)"); 
+    request.addHeader("Accept", "application/json"); 
+    request.addHeader("Content-Type", "application/json"); 
+    StringEntity body = new StringEntity("{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}");
+    request.setEntity(body);
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-updating-a-variation">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-updating-a-variation"><code class="language-ruby">require 'rest-client'
+
+body = "{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}";
+
+response = RestClient.put 'https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variations?variationId=1', body, {
+     :'Authorization' =&gt; 'Bearer (Access Token)',
+     :'Accept' =&gt; 'application/json',
+     :'Content-Type' =&gt; 'application/json',
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 204 Content-Type: application/json
+</pre>
+
+<h3 id="creating-a-revision" class="clickable-header top-level-header">Creating a Revision</h3>
+
+<p>At least one of the following is required in the URI for this request: <code>VariationId</code>, <code>CountryCode</code>, <code>StateCode</code>, <code>EntityId</code>.</p>
+
+<h4>Request</h4>
+
+<pre>
+POST /ProductDocs({ProductDocumentId})/Revisions?variationId={VariationId}&amp;countryCode={CountryCode}&amp;stateCode={StateCode}&amp;entityId={EntityId}
+</pre>
+
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li><li><code>Content-Type: application/json</code></li></ul>
+
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>ProductDocumentId</code> (<strong>Required</strong>)  - Identifier for a <a href="http://developers.iqmetrix.com/api/product-structure/#productdocument">ProductDocument</a>
+    </li>
+    
+    <li>
+        <code>VariationId</code> (Optional)  - Identifier for a <a href="http://developers.iqmetrix.com/api/product-structure/#variation">Variation</a>, to get a list of Variations for a Product, see <a href="#getting-a-product-hierarchy">Getting a Product Hierarchy</a>
+    </li>
+    
+    <li>
+        <code>CountryCode</code> (Optional)  - Two letter country code for a Country. Uses the ISO 3166-1 alpha-2 standard
+    </li>
+    
+    <li>
+        <code>StateCode</code> (Optional)  - Two letter state code for a State or Province. Based off the ISO 3166-2 standard
+    </li>
+    
+    <li>
+        <code>EntityId</code> (Optional)  - Identifier for a <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a> or <a href="http://developers.iqmetrix.com/api/entity-store/#carrier">Carrier</a>
+    </li>
+    </ul>
+
+<h4>Request Parameters</h4>
+
+<ul><li><code>FieldValues</code> (<strong>Required</strong>) </li><ul><li><code>FieldDefinitionId</code> (<strong>Required</strong>) - Identifier for a <a href="http://developers.iqmetrix.com/api/field-definitions/#fielddefinition">FieldDefinition</a></li><li><code>LanguageInvariantValue</code> (<strong>Required</strong>) </li></ul><li><code>ColorDefinitionId</code> (Optional) </li><li><code>IdentifierGroups</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - Acceptable values include: ManufacturerSKU, VendorSKU, UPC</li><li><code>ForceOverride</code> (Optional) - A flag to indicate if this Identifier Group is inherited (synced) from a parent. See <a href="#extended-examples">Extended Examples</a></li><li><code>Identifiers</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - This value should match the Type property of the IdentifierGroup</li><li><code>Value</code> (<strong>Required</strong>) </li><li><code>Description</code> (Optional) </li><li><code>Entity</code> (Optional) - Manufacturer or Vendor information for ManufacturerSKU or VendorSKU</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier of an Entity used for Entity Revisions. See <a href="/concepts/product-structure/#carrier-revisions">Carrier Revisions</a> for more information</li></ul></ul></ul></ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-creating-a-revision" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-creating-a-revision" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-creating-a-revision" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-creating-a-revision" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-creating-a-revision" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-creating-a-revision" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-creating-a-revision"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-creating-a-revision">
+<pre id="http-code-creating-a-revision"><code class="language-http">POST /ProductDocs(8)/Revisions?variationId=4&amp;countryCode=CA&amp;stateCode=MB&amp;entityId=1
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code><code class="language-csharp">{
+    "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+    "FieldValues": [
+        {
+            "FieldDefinitionId": 1,
+            "LanguageInvariantValue": "iPhone 4S 16 GB Black"
+        }
+    ],
+    "IdentifierGroups": [
+        {
+            "Type": "ManufacturerSKU",
+            "ForceOverride": false,
+            "Identifiers": [
+                {
+                    "Description": "Manufacturer sku",
+                    "Entity": {
+                        "Id": 14146
+                    },
+                    "Type": "ManufacturerSKU",
+                    "Value": "ManufacturerSKU"
+                }
+            ]
+        }
+    ]
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-creating-a-revision">
+<pre id="curl-code-creating-a-revision"><code class="language-http">curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revisions?variationId=4&amp;countryCode=CA&amp;stateCode=MB&amp;entityId=1" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+    "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+    "FieldValues": [
+        {
+            "FieldDefinitionId": 1,
+            "LanguageInvariantValue": "iPhone 4S 16 GB Black"
+        }
+    ],
+    "IdentifierGroups": [
+        {
+            "Type": "ManufacturerSKU",
+            "ForceOverride": false,
+            "Identifiers": [
+                {
+                    "Description": "Manufacturer sku",
+                    "Entity": {
+                        "Id": 14146
+                    },
+                    "Type": "ManufacturerSKU",
+                    "Value": "ManufacturerSKU"
+                }
+            ]
+        }
+    ]
+}'</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-creating-a-revision">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-creating-a-revision"><code class="language-csharp">static IRestResponse CreatingARevision()
+{
+    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revisions?variationId=4&amp;countryCode=CA&amp;stateCode=MB&amp;entityId=1");
+    var request = new RestRequest(Method.POST);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+    request.AddHeader("Content-Type", "application/json"); 
+
+     request.AddParameter("application/json", "{\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}", ParameterType.RequestBody);
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-creating-a-revision">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-creating-a-revision"><code class="language-java">import org.apache.http.entity.StringEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse CreatingARevision() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpPost request = new HttpPost("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revisions?variationId=4&amp;countryCode=CA&amp;stateCode=MB&amp;entityId=1");
+     
+    request.addHeader("Authorization", "Bearer (Access Token)"); 
+    request.addHeader("Accept", "application/json"); 
+    request.addHeader("Content-Type", "application/json"); 
+    StringEntity body = new StringEntity("{\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}");
+    request.setEntity(body);
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-creating-a-revision">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-creating-a-revision"><code class="language-ruby">require 'rest-client'
+
+body = "{\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}";
+
+response = RestClient.post 'https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revisions?variationId=4&amp;countryCode=CA&amp;stateCode=MB&amp;entityId=1', body, {
+     :'Authorization' =&gt; 'Bearer (Access Token)',
+     :'Accept' =&gt; 'application/json',
+     :'Content-Type' =&gt; 'application/json',
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<p><a href="#revision">Revision</a></p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 201 Content-Type: application/json
+</pre>
+<pre>{
+    "Id": 5,
+    "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+    "Entity": {
+        "Id": 14146,
+        "Name": "Kentel Corp"
+    },
+    "FieldValues": [
+        {
+            "FieldDefinitionId": 1,
+            "LanguageInvariantValue": "iPhone 4S 16 GB Black"
+        }
+    ],
+    "IdentifierGroups": [
+        {
+            "Type": "ManufacturerSKU",
+            "ForceOverride": false,
+            "Identifiers": [
+                {
+                    "Description": "Manufacturer sku",
+                    "Entity": {
+                        "Id": 14146,
+                        "Name": "Kentel Corp"
+                    },
+                    "Type": "ManufacturerSKU",
+                    "Value": "ManufacturerSKU"
+                }
+            ]
+        }
+    ],
+    "Regions": [
+        {
+            "CountryCode": "CA",
+            "CountryName": "Canada",
+            "StateCode": "AB",
+            "StateName": "British Columbia"
+        }
+    ]
+}</pre>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 204 Content-Type: application/json
+</pre>
+
+<h3 id="updating-a-revision" class="clickable-header top-level-header">Updating a Revision</h3>
+
+<p>To update an existing Revision, the same URI paramters that were used to create the Revision must be used.</p>
+
+<h4>Request</h4>
+
+<pre>
+PUT /ProductDocs({ProductDocumentId})/Revisions?variationId={VariationId}&amp;countryCode={CountryCode}&amp;stateCode={StateCode}&amp;entityId={EntityId}
+</pre>
+
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li><li><code>Content-Type: application/json</code></li></ul>
+
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>ProductDocumentId</code> (<strong>Required</strong>)  - Identifier for a <a href="http://developers.iqmetrix.com/api/product-structure/#productdocument">ProductDocument</a>
+    </li>
+    
+    <li>
+        <code>VariationId</code> (Optional)  - Identifier for a <a href="http://developers.iqmetrix.com/api/product-structure/#variation">Variation</a>, to get a list of Variations for a Product, see <a href="#getting-a-product-hierarchy">Getting a Product Hierarchy</a>
+    </li>
+    
+    <li>
+        <code>CountryCode</code> (Optional)  - Two letter country code for a Country. Uses the ISO 3166-1 alpha-2 standard
+    </li>
+    
+    <li>
+        <code>StateCode</code> (Optional)  - Two letter state code for a State or Province. Based off the ISO 3166-2 standard
+    </li>
+    
+    <li>
+        <code>EntityId</code> (Optional)  - Identifier for a <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a> or <a href="http://developers.iqmetrix.com/api/entity-store/#carrier">Carrier</a>
+    </li>
+    </ul>
+
+<h4>Request Parameters</h4>
+
+<ul><li><code>FieldValues</code> (<strong>Required</strong>) </li><ul><li><code>FieldDefinitionId</code> (<strong>Required</strong>) - Identifier for a <a href="http://developers.iqmetrix.com/api/field-definitions/#fielddefinition">FieldDefinition</a></li><li><code>LanguageInvariantValue</code> (<strong>Required</strong>) </li></ul><li><code>ColorDefinitionId</code> (Optional) </li><li><code>IdentifierGroups</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - Acceptable values include: ManufacturerSKU, VendorSKU, UPC</li><li><code>ForceOverride</code> (Optional) - A flag to indicate if this Identifier Group is inherited (synced) from a parent. See <a href="#extended-examples">Extended Examples</a></li><li><code>Identifiers</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - This value should match the Type property of the IdentifierGroup</li><li><code>Value</code> (<strong>Required</strong>) </li><li><code>Description</code> (Optional) </li><li><code>Entity</code> (Optional) - Manufacturer or Vendor information for ManufacturerSKU or VendorSKU</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier of an Entity used for Entity Revisions. See <a href="/concepts/product-structure/#carrier-revisions">Carrier Revisions</a> for more information</li></ul></ul></ul></ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-updating-a-revision" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-updating-a-revision" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-updating-a-revision" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-updating-a-revision" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-updating-a-revision" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-updating-a-revision" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-updating-a-revision"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-updating-a-revision">
+<pre id="http-code-updating-a-revision"><code class="language-http">PUT /ProductDocs(8)/Revisions?variationId=4&amp;countryCode=CA&amp;stateCode=MB&amp;entityId=1
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code><code class="language-csharp">{
+    "Id": 5,
+    "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+    "Entity": {
+        "Id": 14146,
+        "Name": "Kentel Corp"
+    },
+    "FieldValues": [
+        {
+            "FieldDefinitionId": 1,
+            "LanguageInvariantValue": "iPhone 4S 16 GB Black"
+        }
+    ],
+    "IdentifierGroups": [
+        {
+            "Type": "ManufacturerSKU",
+            "ForceOverride": false,
+            "Identifiers": [
+                {
+                    "Description": "Manufacturer sku",
+                    "Entity": {
+                        "Id": 14146,
+                        "Name": "Kentel Corp"
+                    },
+                    "Type": "ManufacturerSKU",
+                    "Value": "ManufacturerSKU"
+                }
+            ]
+        }
+    ],
+    "Regions": [
+        {
+            "CountryCode": "CA",
+            "CountryName": "Canada",
+            "StateCode": "AB",
+            "StateName": "British Columbia"
+        }
+    ]
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-updating-a-revision">
+<pre id="curl-code-updating-a-revision"><code class="language-http">curl -X PUT "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revisions?variationId=4&amp;countryCode=CA&amp;stateCode=MB&amp;entityId=1" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+    "Id": 5,
+    "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+    "Entity": {
+        "Id": 14146,
+        "Name": "Kentel Corp"
+    },
+    "FieldValues": [
+        {
+            "FieldDefinitionId": 1,
+            "LanguageInvariantValue": "iPhone 4S 16 GB Black"
+        }
+    ],
+    "IdentifierGroups": [
+        {
+            "Type": "ManufacturerSKU",
+            "ForceOverride": false,
+            "Identifiers": [
+                {
+                    "Description": "Manufacturer sku",
+                    "Entity": {
+                        "Id": 14146,
+                        "Name": "Kentel Corp"
+                    },
+                    "Type": "ManufacturerSKU",
+                    "Value": "ManufacturerSKU"
+                }
+            ]
+        }
+    ],
+    "Regions": [
+        {
+            "CountryCode": "CA",
+            "CountryName": "Canada",
+            "StateCode": "AB",
+            "StateName": "British Columbia"
+        }
+    ]
+}'</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-updating-a-revision">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-updating-a-revision"><code class="language-csharp">static IRestResponse UpdatingARevision()
+{
+    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revisions?variationId=4&amp;countryCode=CA&amp;stateCode=MB&amp;entityId=1");
+    var request = new RestRequest(Method.PUT);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+    request.AddHeader("Content-Type", "application/json"); 
+
+     request.AddParameter("application/json", "{\"Id\":5,\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}],\"Regions\":[{\"CountryCode\":\"CA\",\"CountryName\":\"Canada\",\"StateCode\":\"AB\",\"StateName\":\"British Columbia\"}]}", ParameterType.RequestBody);
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-updating-a-revision">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-updating-a-revision"><code class="language-java">import org.apache.http.entity.StringEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse UpdatingARevision() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpPut request = new HttpPut("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revisions?variationId=4&amp;countryCode=CA&amp;stateCode=MB&amp;entityId=1");
+     
+    request.addHeader("Authorization", "Bearer (Access Token)"); 
+    request.addHeader("Accept", "application/json"); 
+    request.addHeader("Content-Type", "application/json"); 
+    StringEntity body = new StringEntity("{\"Id\":5,\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}],\"Regions\":[{\"CountryCode\":\"CA\",\"CountryName\":\"Canada\",\"StateCode\":\"AB\",\"StateName\":\"British Columbia\"}]}");
+    request.setEntity(body);
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-updating-a-revision">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-updating-a-revision"><code class="language-ruby">require 'rest-client'
+
+body = "{\"Id\":5,\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}],\"Regions\":[{\"CountryCode\":\"CA\",\"CountryName\":\"Canada\",\"StateCode\":\"AB\",\"StateName\":\"British Columbia\"}]}";
+
+response = RestClient.put 'https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revisions?variationId=4&amp;countryCode=CA&amp;stateCode=MB&amp;entityId=1', body, {
+     :'Authorization' =&gt; 'Bearer (Access Token)',
+     :'Accept' =&gt; 'application/json',
+     :'Content-Type' =&gt; 'application/json',
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 204 Content-Type: application/json
+</pre>
+
+<h3 id="getting-color-definitions" class="clickable-header top-level-header">Getting Color Definitions</h3>
+
+<p>This request can be used to get a <code>ColorDefinitionId</code> when creating a Variation or Revision.</p>
+
+<h4>Request</h4>
+
+<pre>
+GET /ProductDocs({ProductDocumentId})/ColorDefinitions
+</pre>
+
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li></ul>
+
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>ProductDocumentId</code> (<strong>Required</strong>)  - Identifier for a <a href="http://developers.iqmetrix.com/api/product-structure/#productdocument">ProductDocument</a>
+    </li>
+    </ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-color-definitions" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-color-definitions" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-color-definitions" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-color-definitions" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-color-definitions" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-color-definitions" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-color-definitions"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-color-definitions">
+<pre id="http-code-getting-color-definitions"><code class="language-http">GET /ProductDocs(8)/ColorDefinitions
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-color-definitions">
+<pre id="curl-code-getting-color-definitions"><code class="language-http">curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDefinitions" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-color-definitions">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-color-definitions"><code class="language-csharp">static IRestResponse GettingColorDefinitions()
+{
+    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDefinitions");
+    var request = new RestRequest(Method.GET);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-color-definitions">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-color-definitions"><code class="language-java">
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse GettingColorDefinitions() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpGet request = new HttpGet("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDefinitions");
+     
+    request.addHeader("Authorization", "Bearer (Access Token)"); 
+    request.addHeader("Accept", "application/json"); 
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-color-definitions">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-color-definitions"><code class="language-ruby">require 'rest-client'
+
+
+
+response = RestClient.get 'https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDefinitions', {
+     :'Authorization' =&gt; 'Bearer (Access Token)',
+     :'Accept' =&gt; 'application/json',
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<p><a href="#colordefinitions">ColorDefinitions</a></p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 200 Content-Type: application/json
+</pre>
+<pre>{
+    "ColorDefinitions": [
+        {
+            "Id": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+            "Name": "Black Sapphire",
+            "ColorTagIds": [
+                1
+            ],
+            "ColorTags": [
+                {
+                    "Id": 1,
+                    "Name": "Black",
+                    "ColorCode": "#303232"
+                }
+            ],
+            "Swatch": {
+                "Type": "ColorCode",
+                "AssetId": "null",
+                "ColorCode": "#C0C8D0"
+            }
+        }
+    ]
+}</pre>
+
+<h3 id="creating-a-color-definition" class="clickable-header top-level-header">Creating a Color Definition</h3>
+
+<p>This request can be used to add additional ColorDefinitions to a Product once it has been created.</p>
+
+<h4>Request</h4>
+
+<pre>
+POST /ProductDocs({ProductDocumentId})/ColorDefinitions
+</pre>
+
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li><li><code>Content-Type: application/json</code></li></ul>
+
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>ProductDocumentId</code> (<strong>Required</strong>)  - Identifier for a <a href="http://developers.iqmetrix.com/api/product-structure/#productdocument">ProductDocument</a>
+    </li>
+    </ul>
+
+<h4>Request Parameters</h4>
+
+<ul><li><code>ColorDefinitions</code> (<strong>Required</strong>) </li><ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>ColorTagIds</code> (Optional) - List of ColorTag Identifiers, see <a href="/api/product-structure/#getting-all-color-tags">Getting All Color Tags</a> for a list</li><li><code>Swatch</code> (Optional) </li><ul><li><code>Type</code> (Optional) - Acceptable values are Asset, ColorCodes or Empty</li><li><code>AssetId</code> (Optional) - If Type is Asset, an identifier for an Asset. Otherwise, this property is ignored</li><li><code>ColorCode</code> (Optional) - If Type is ColorCode, a valid hex code for a color. Otherwise, this propety is ignored</li></ul></ul></ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-creating-a-color-definition" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-creating-a-color-definition" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-creating-a-color-definition" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-creating-a-color-definition" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-creating-a-color-definition" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-creating-a-color-definition" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-creating-a-color-definition"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-creating-a-color-definition">
+<pre id="http-code-creating-a-color-definition"><code class="language-http">POST /ProductDocs(8)/ColorDefinitions
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code><code class="language-csharp">{
+    "ColorDefinitions": [
+        {
+            "Name": "Black Sapphire",
+            "ColorTagIds": [
+                1
+            ],
+            "Swatch": {
+                "Type": "ColorCode",
+                "AssetId": "null",
+                "ColorCode": "#C0C8D0"
+            }
+        }
+    ]
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-creating-a-color-definition">
+<pre id="curl-code-creating-a-color-definition"><code class="language-http">curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDefinitions" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+    "ColorDefinitions": [
+        {
+            "Name": "Black Sapphire",
+            "ColorTagIds": [
+                1
+            ],
+            "Swatch": {
+                "Type": "ColorCode",
+                "AssetId": "null",
+                "ColorCode": "#C0C8D0"
+            }
+        }
+    ]
+}'</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-creating-a-color-definition">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-creating-a-color-definition"><code class="language-csharp">static IRestResponse CreatingAColorDefinition()
+{
+    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDefinitions");
+    var request = new RestRequest(Method.POST);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+    request.AddHeader("Content-Type", "application/json"); 
+
+     request.AddParameter("application/json", "{\"ColorDefinitions\":[{\"Name\":\"Black Sapphire\",\"ColorTagIds\":[1],\"Swatch\":{\"Type\":\"ColorCode\",\"AssetId\":\"null\",\"ColorCode\":\"#C0C8D0\"}}]}", ParameterType.RequestBody);
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-creating-a-color-definition">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-creating-a-color-definition"><code class="language-java">import org.apache.http.entity.StringEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse CreatingAColorDefinition() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpPost request = new HttpPost("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDefinitions");
+     
+    request.addHeader("Authorization", "Bearer (Access Token)"); 
+    request.addHeader("Accept", "application/json"); 
+    request.addHeader("Content-Type", "application/json"); 
+    StringEntity body = new StringEntity("{\"ColorDefinitions\":[{\"Name\":\"Black Sapphire\",\"ColorTagIds\":[1],\"Swatch\":{\"Type\":\"ColorCode\",\"AssetId\":\"null\",\"ColorCode\":\"#C0C8D0\"}}]}");
+    request.setEntity(body);
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-creating-a-color-definition">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-creating-a-color-definition"><code class="language-ruby">require 'rest-client'
+
+body = "{\"ColorDefinitions\":[{\"Name\":\"Black Sapphire\",\"ColorTagIds\":[1],\"Swatch\":{\"Type\":\"ColorCode\",\"AssetId\":\"null\",\"ColorCode\":\"#C0C8D0\"}}]}";
+
+response = RestClient.post 'https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDefinitions', body, {
+     :'Authorization' =&gt; 'Bearer (Access Token)',
+     :'Accept' =&gt; 'application/json',
+     :'Content-Type' =&gt; 'application/json',
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<p><a href="#colordefinitions">ColorDefinitions</a></p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 200 Content-Type: application/json
+</pre>
+<pre>{
+    "ColorDefinitions": [
+        {
+            "Id": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
+            "Name": "Black Sapphire",
+            "ColorTagIds": [
+                1
+            ],
+            "ColorTags": [
+                {
+                    "Id": 1,
+                    "Name": "Black",
+                    "ColorCode": "#303232"
+                }
+            ],
+            "Swatch": {
+                "Type": "ColorCode",
+                "AssetId": "null",
+                "ColorCode": "#C0C8D0"
+            }
+        }
+    ]
+}</pre>
+
+<h3 id="getting-all-color-tags" class="clickable-header top-level-header">Getting All Color Tags</h3>
+
+<h4>Request</h4>
+
+<pre>
+GET /ColorTags
+</pre>
+
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li></ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-all-color-tags" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-all-color-tags" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-all-color-tags" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-all-color-tags" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-all-color-tags" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-all-color-tags" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-all-color-tags"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-all-color-tags">
+<pre id="http-code-getting-all-color-tags"><code class="language-http">GET /ColorTags
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-all-color-tags">
+<pre id="curl-code-getting-all-color-tags"><code class="language-http">curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ColorTags" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-all-color-tags">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-all-color-tags"><code class="language-csharp">static IRestResponse GettingAllColorTags()
+{
+    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ColorTags");
+    var request = new RestRequest(Method.GET);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-all-color-tags">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-all-color-tags"><code class="language-java">
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse GettingAllColorTags() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpGet request = new HttpGet("https://productlibrarydemo.iqmetrix.net/v1/ColorTags");
+     
+    request.addHeader("Authorization", "Bearer (Access Token)"); 
+    request.addHeader("Accept", "application/json"); 
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-all-color-tags">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-all-color-tags"><code class="language-ruby">require 'rest-client'
+
+
+
+response = RestClient.get 'https://productlibrarydemo.iqmetrix.net/v1/ColorTags', {
+     :'Authorization' =&gt; 'Bearer (Access Token)',
+     :'Accept' =&gt; 'application/json',
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<ul><li><code>ColorTags</code> (Array) </li><ul><li><code>Id</code> (Integer) - Identifier of a <a href="http://developers.iqmetrix.com/api/product-structure/#colortag">ColorTag</a>, see <a href="#getting-all-color-tags">Getting All Color Tags</a> for a list</li><li><code>Name</code> (String) </li><li><code>ColorCode</code> (String) </li></ul></ul>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 200 Content-Type: application/json
+</pre>
+<pre>{
+    "ColorTags": [
+        {
+            "Id": 1,
+            "Name": "Black",
+            "ColorCode": "#303232"
+        }
+    ]
+}</pre>
+
+<h2 id="extended-examples" class="clickable-header top-level-header">Extended Examples</h2>
+
+<p>These examples are intended to illustrate some of the more complex concepts in the Product Structure API.</p>
+
+<h4 id="revision-group">Revision Group</h4>
+
+<p>A <a href="#revisiongroup">RevisionGroup</a> is how child Revisions of a given Master Product or Variation are represented in the API.</p>
+
+<p><code>csharp
+{
+    "VariationId": 3,
+    "GroupType": "Entity",
+    "Revisions": [
+        {
+            "Id": 4,
+            "Entity": {
+                "Id": 12372,
+                "Name": "Jump.ca"
+            },
+            ...
+        },
+        {
+            "Id": 3,
+            "Entity": {
+                "Id": 3335,
+                "Name": "KENTEL"
+            },
+            ...
+        }              
+    ]
+}
+</code></p>
+
+<p>The example above is a snippet from a <a href="http://developers.iqmetrix.com/api/product-structure/#masterproduct">MasterProduct</a> with two child Revisions.</p>
+
+<p><code>"GroupType": "Entity"</code> means that these Revisions are Entity Revisions, owned by a specific Entity, such as a Company or Carrier.</p>
+
+<p>In this case, the two Entities that own these Revisions are <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a> Entities, Jump.ca and KENTEL.</p>
+
+<h4 id="field-values">Field Values</h4>
+
+<p>A <a href="#fieldvalue">FieldValue</a> pairs a <a href="http://developers.iqmetrix.com/api/field-definitions/#fielddefinition">FieldDefinition</a> with a value that allows us to see how a child Variation or Revision differs from its parent.</p>
+
+<p><code>csharp
+{
+    "Revisions": [
+        {
+            "Id": 4,
+            "FieldValues": [
+                {
+                    "FieldDefinitionId": 76,
+                    "LanguageInvariantValue": "659.50 CAD"
+                }
+            ]
+        },
+        {
+            "Id": 3,
+            "FieldValues": [
+                {
+                    "FieldDefinitionId": 76,
+                    "LanguageInvariantValue": "449.50 USD"
+                }
+            ]
+        },              
+    ]
+}
+</code></p>
+
+<p>The example above is a snippet from a <a href="http://developers.iqmetrix.com/api/product-structure/#masterproduct">MasterProduct</a> with two child Revisions which have one FieldValue change each.</p>
+
+<p>Using <a href="/api/field-definitions/#getting-a-fielddefinition">Getting a Field Definition</a> we can determine that the FieldDefinition specified is MSRP.</p>
+
+<p>Therefore, these Revisions differ from the MasterProduct by MSRP, one Revision has <code>659.50 CAD</code> and the other has <code>449.50 USD</code>.</p>
+
+<h4 id="force-overide">Force Overide</h4>
+
+<p>Products in Product Library can have an <strong>inheritance</strong> relationship between a parent (Master Product or Variation) and child (Variation or Revision).</p>
+
+<p>Inheriting an <a href="#identifiergroup">IdentifierGroup</a> allows a child to have an identicial set of <a href="#identifier">Identifiers</a> as its parent.</p>
+
+<p>IdentifierGroups can also be <strong>synched</strong>, allowing a child to automatically inherit any changes made to the inherited group.</p>
+
+<p>Note that Identifiers can only be synced as a complete set, either all Identifiers of a specific type (Vendor, UPC, Manufacturer) are synced, or none are.</p>
+
+<p>By forcing a child to override an IdentifierGroup, we prevent the sync and allow the child to have different Identifiers than its parent.</p>
+
+<p><code>csharp
+{
+  "Variations": [
+    {
+      "IdentifierGroups": [
+        {
+          "Type": "VendorSKU",
+          "Identifiers": [
+            {
+              "Type": "VendorSKU",
+              "Value": "V8341221L"
+            }
+          ],
+          "ForceOverride": true
+        },
+        {    
+          "Type": "ManufacturerSKU",
+          "Identifiers": [
+            {
+              "Type": "ManufacturerSKU",
+              "Value": "ME341LL/A"
+            }
+          ],
+          "ForceOverride": false
+        }
+      ],
+    },
+  ],
+  "IdentifierGroups": [
+    {
+      "Type": "VendorSKU",
+      "Identifiers": [
+        {
+          "Type": "VendorSKU",
+          "Value": "V8341221L"
+        }
+      ],
+      "ForceOverride": true
+    },
+    {    
+      "Type": "ManufacturerSKU",
+      "Identifiers": [
+        {
+          "Type": "ManufacturerSKU",
+          "Value": "545512G/A"
+        }
+      ],
+      "ForceOverride": false
+    }        
+    ...
+  ]
+}
+</code></p>
+
+<p>The example above is a summarized <a href="http://developers.iqmetrix.com/api/product-structure/#masterproduct">MasterProduct</a> which includes one child <a href="http://developers.iqmetrix.com/api/product-structure/#variation">Variation</a>, one Vendor SKU (<code>V8341221L</code>) and one Manufacturer SKU (<code>545512G/A</code>).</p>
+
+<p>With ForceOverride set to <code>true</code> for Vendor SKUs, we know that the child Variation has one and only one Vendor SKU - <code>V8341221L</code>.</p>
+
+<p>However, Manufacturer SKU’s have ForceOverride set to <code>false</code>, showing that the child Variation is not inheriting all of the parent Master Product’s Manufacturer SKUs.</p>
+
+<p>Looking at the Variation, there is a Manufacturer SKU with a value of <code>ME341LL/A</code> that is breaking inheritance.</p>
+
+<h2 id="errors" class="clickable-header top-level-header">Errors</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Error Code</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">How To Resolve</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code>HTTP 400</code></td>
+      <td style="text-align: left"><code>Color Definition name cannot be empty</code></td>
+      <td style="text-align: left">Ensure ColorDefinition.Name is provided</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>HTTP 400</code></td>
+      <td style="text-align: left"><code>Product document must have a valid manufacturer: Entity with id {x} does not exist</code></td>
+      <td style="text-align: left">Ensure Manufacturer.Id is valid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>HTTP 400</code></td>
+      <td style="text-align: left"><code>Must use valid ClassificationTree</code></td>
+      <td style="text-align: left">Ensure Classification.TreeId is valid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>HTTP 400</code></td>
+      <td style="text-align: left"><code>Entity with id {x} does not exist</code></td>
+      <td style="text-align: left">Ensure the EntityId is valid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>HTTP 400</code></td>
+      <td style="text-align: left"><code>Product identifier '{x}SKU': Entity with id {y} does not exist</code></td>
+      <td style="text-align: left">Ensure Entity.Id values exist and are valid Entities</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>HTTP 400</code></td>
+      <td style="text-align: left"><code>For every locale, Product Name must be different for every validation</code></td>
+      <td style="text-align: left">Ensure the Variation name used is unique for all Variations on the Master Product</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>HTTP 404</code></td>
+      <td style="text-align: left"><code>Unable to find document id {x}</code></td>
+      <td style="text-align: left">Ensure FieldValues.FieldDefinitionId is valid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>HTTP 404</code></td>
+      <td style="text-align: left"><code>Product document not found</code></td>
+      <td style="text-align: left">Ensure the Product Document exists and the ProductDocumentId is valid</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+              <div class="col-lg-1 hidden-md hidden-sm hidden-xs"><!-- start page metadata -->
+
+
+<div class="pageMetadata affix">
+    <div class="pageMetadataTitle">Table of Contents</div>
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+
+    $('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2, h3' });
+
+    //Resize once
+    resizeWindow();
+
+    //Resize whenever window changes
+    $(window).resize(function () {
+        resizeWindow();
+    });
+
+});
+
+function resizeWindow() {
+
+    var windowHeight = $(window).height();
+    var windowWidth = $(window).width();
+
+    var tocHeight = $(".pageMetadata").height();
+
+    if(windowWidth < 1560 || windowHeight < tocHeight) {        
+        //Grab "pageMetadata" and move it to first  child of .post-header
+        $(".pageMetadata").prependTo(".post-header");
+        $(".pageMetadata").removeClass("affix");        
+    } else if(windowWidth > 1560) {
+        //Grab "pageMetadata" and move it back to where it was
+        $(".pageMetadata").appendTo(".col-lg-1.hidden-md.hidden-sm.hidden-xs");
+        $(".pageMetadata" ).addClass("affix");
+    }      
+}
+
+</script>
+
+<div id="toc"></div>
+
+    
+    <p><div class="metadataRow"><span class="tagTitle">Last updated:</span> 13-7-2016</div></p>
+    
+
+</div>
+
+
+
+
+<!-- end pageMetadata --></div>
+            
+    </div>
+
+</body>
+
+<!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-408430-5', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+</html>
+

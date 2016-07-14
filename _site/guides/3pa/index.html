@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=",  ">
+<title>Third Party Authentication  | iQmetrix Developer Portal</title>
+<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/modern-business.css">
+<link rel="stylesheet" type="text/css" href="../../css/customstyles.css">
+<link rel="stylesheet" type="text/css" href="" | prepend:site.pagefileurl }}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../../js/jquery.navgoco.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
+<script src="../../js/toc.js"></script>
+<script src="../../js/customscripts.js"></script>
+<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+
+
+<!-- Image popup source files -->
+<!-- http://dimsemenov.com/plugins/magnific-popup/ -->
+<link rel="stylesheet" type="text/css" href="../../css/magnific-popup.css">
+<script src="../../js/jquery.magnific-popup.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+
+        // surround each image with an anchor class  for image popup
+        $('img').each( function() {
+            var $img = $(this),
+            href = $img.attr('src');
+            $img.wrap('<a class="image-link" href=' + href + '></a>');
+             
+        });
+
+        // make each image with image-link class popup "on click"
+        // !! Drawback -- all images could popup :(
+        $('.image-link').magnificPopup({
+            type:'image',
+            closeOnContentClick: true
+        });
+                
+    });    
+</script>
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+    //Hacky code to make sure they don't go to a bad page
+    $( window ).load(function() {
+
+        if (document.baseURI.indexOf("api/generalledger.html") > 0) {
+            window.location.href = 'http://developers.iqmetrix.com/api/general-ledger/';
+        }
+        else if (document.baseURI.indexOf("api/productlibrary.html") > 0) {
+          window.location.href = 'http://developers.iqmetrix.com/api/product-library/';
+        }
+        else if (document.baseURI.indexOf("api/entitystore.html") > 0) {
+          window.location.href = 'http://developers.iqmetrix.com/api/entity-store/';
+        }
+        else if(document.baseURI.indexOf(".html") > 0) {
+           window.location.href = document.baseURI.substring(0, document.baseURI.indexOf(".html"));
+        }
+    });
+</script>
+
+
+
+
+
+ 
+
+<script>
+  $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+
+
+
+
+
+  </head>
+
+<body>
+
+   <!-- Send feedback function -->
+<script>
+    function SendLinkByMail(href) {
+        var subject= " all documentation feedback";
+        var body = "I have some feedback about the Third Party Authentication page: ";
+        body += window.location.href;
+        body += "";
+        var uri = "mailto:apidesign@iqmetrix.com?subject=";
+        uri += encodeURIComponent(subject);
+        uri += "&body=";
+        uri += encodeURIComponent(body);
+        window.location.href = uri;
+    }
+</script>
+
+<!-- Navigation -->
+<nav id="navbar-custom" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+   <div class="container topnavlinks">
+   <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a href="http://localhost:4006/">
+        <span id="top-iq-logo"><img src="http://melissakendall.github.io/documentation-testing/images/iq-logo-white.png"></span>
+        <span id="projectTitle">iQmetrix Developer Portal</span>
+      </a>
+   </div>
+   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul id="top-bar-categories" class="nav navbar-nav navbar-right">
+      
+      <!-- entries without drop-downs appear here -->
+      <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+      <!-- 
+
+Hard coding for now, so no longer uses topnav config
+
+
+
+
+
+
+
+
+
+  
+      
+      
+          <li><a href="/api/changelog/">CHANGELOG</a></li>
+      
+    
+  
+      
+      
+          <li class="active"><a href="//">API REFERENCE</a></li>
+       
+    
+  
+      
+      
+          <li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
+      
+    
+  
+
+
+-->
+
+<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=all">SHOW ALL</a></li>
+<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=partner">PARTNERS</a></li>
+<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=dropship">DROPSHIP</a></li>
+<li><a href="mailto:?subject=Support">SUPPORT</a></li>
+<li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
+
+         <!--
+      <li>
+         <div id="search-demo-container">
+            <input type="text" id="search-input" placeholder="">
+            <ul id="results-container"></ul>
+         </div>
+         <script src="../..//js/jekyll-search.js" type="text/javascript"></script>
+         <script type="text/javascript">
+            SimpleJekyllSearch({
+              searchInput: document.getElementById('search-input'),
+              resultsContainer: document.getElementById('results-container'),
+              json: '../../search.json',
+              searchResultTemplate: '<li><a href="{url}" title="Third Party Authentication">{title}</a></li>',
+              noResultsText: '',
+              exclude: '404'
+            })
+         </script>
+      </li>
+         -->
+    
+
+   </div>
+   <!-- /.container -->
+</nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="col-lg-12">&nbsp;</div>
+
+            <!-- Col-md-3 -->
+            <!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+            $(document).ready(function() {
+
+                // Initialize navgoco with default options
+                $("#mysidebar").navgoco({
+                    caretHtml: '',
+                    accordion: true,
+                    openClass: 'active', // open
+                    save: false, // leave false or nav higlighting doesn't work right
+                    cookie: {
+                        name: 'navgoco',
+                        expires: false,
+                        path: '/'
+                    },
+                    slide: {
+                        duration: 400,
+                        easing: 'swing'
+                    }
+                });
+
+                $("#collapseAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', false);
+                });
+
+                $("#expandAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', true);
+                });
+
+
+                if(window.location.hostname == "melissakendall.github.io")
+                {
+                    $("#mysidebar a").each(function(e) {
+                        var url = $(this).attr("href");
+                        
+                        if(url != null) {
+                            url = "http://melissakendall.github.io/documentation-testing" + url;
+                        }
+
+                        $(this).attr("href", url);
+                    });                   
+                }
+
+            });
+                           
+        </script>
+
+        
+
+
+
+
+
+
+
+        <ul id="mysidebar" class="nav affix">
+            
+                
+                    
+                        <li><a>API Reference</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/api/authentication/">Authentication</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/assets/">Assets</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/catalog/">Catalog</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/company-tree/">Company Tree</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/crm/">Customers</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Dropship</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/cost-feed/">Cost Feed</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-feed/">Product Feed</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-subscription/">Product Subscription</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/saccs/">Shipping Aggregator</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/shipping-options/">Shipping Options</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/supplier-availability/">Supplier Availability</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/supplier-orders/">Supplier Orders</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/entity-store/">Entities</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/general-ledger/">General Ledger</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/availability/">Inventory Availability</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/orders/">Orders</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Partners</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/partner-reporting/">Partner Reporting</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/partner-relationships/">Relationships</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/pricing">Pricing</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Product Library</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/classification-tree/">Classification Tree</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/field-definitions/">Field Definitions</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-library/">Products</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-structure/">Product Structure</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/reference/">Reference</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">RQ</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/carrier-integration/">Carrier Integration</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/cmi/">Customer Managed Inventory (CMI)</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/commissions/">Commissions</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/epc/">Electronic Product Catalog (EPC)</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/punch-clock/">Punch Clock</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/vmi/">Vendor Managed Inventory (VMI)</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/security-roles/">Security Roles</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/user-manager/">User Manager</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a>Guides</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/guides/creating-an-in-store-order/">Creating an In Store Order</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/creating-a-user-for-rq/">Creating a User for RQ</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Dropship Client Integration Guides</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-pos-guide/">Dropship Point of Sale Guide</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Dropship Partner Integration Guides</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-onboarding-guide/">Dropship Onboarding Guide</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-order-guide/">Dropship Order Management Guide</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-test-order-guide/">Dropship Test Order Guide</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/commerce-guide/">eCommerce Integration Guide</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Endless Aisle Integration Guide</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/overview">Overview</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/corporate-hierarchy">Corporate Hierarchy</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/content">Content</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/inventory">Inventory</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/orders">Orders</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li class="active"><a href="/guides/3pa/">Third Party Authentication</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/vmi-onboarding-guide/">VMI Onboarding Guide</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a>Core Concepts</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/classification-tree/">Classification Tree</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/company-tree/">Company Tree</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/product-library/">Product Library</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/product-structure/">Product Structure</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/user-manager/">User Manager</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a>FAQ</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/faq/auth-faq/">Authentication FAQ</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/faq/dropship-faq/">Dropship FAQ</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a href="/reference-applications/">Reference Applications</a>
+                    
+                
+            
+        </ul>
+
+        
+    </div>
+<!-- div missing here is intentional -->
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+            
+              <div class="col-md-7">
+<h2 id="overview">Overview</h2>
+
+<p>This guide describes how you can integrate your existing domain logins with iQmetrix products using <strong>Third Party Authentication (3PA)</strong>.</p>
+
+<div class="bs-callout bs-callout-info">
+<strong>Third Party Authentication (3PA)</strong> is an iQmetrix term referring to the ability of a user to access an iQmetrix product using an external mechanism.
+</div>
+
+<p>While this guide is intended to be identity provider agnostic, the examples included are specific to <strong>Microsoft Active Directory Federation Services</strong> for consistency.</p>
+
+<h3 id="implications">Implications</h3>
+
+<p>Enabling Third Party Authentication will limit your ability to:</p>
+
+<ul>
+  <li>Access iQmetrix Business Intelligence (BI)</li>
+  <li>Manage passwords in iQmetrix Products</li>
+  <li>Obtain support from iQmetrix if there are problems with the Identity Provider</li>
+</ul>
+
+<h2 id="who-is-this-guide-for">Who Is This Guide For?</h2>
+
+<p>You may be interested in this guide if you want to…</p>
+
+<ul>
+  <li>Simplify or automate your IT processes</li>
+  <li>Reduce the amount of time needed to manage users, credentials and access rights</li>
+  <li>Allow your users to log into RQ with their Identity Provider credentials</li>
+  <li>Manage your users in a single place</li>
+</ul>
+
+<div class="bs-callout bs-callout-info">
+An <strong>Identity Provider (IdP)</strong> is responsible for providing identifiers for users interacting with a system.
+</div>
+
+<h2 id="how-does-third-party-authentication-work">How Does Third Party Authentication Work?</h2>
+
+<p>3PA involves creating a <strong>trusted relationship</strong> between two systems which can enable your users to log into iQmetrix products with their Identity Provider credentials. This is commonly known as <strong>Single Sign On</strong>.</p>
+
+<div class="bs-callout bs-callout-info">
+<strong>Single Sign On (SSO)</strong> permits a user to enter one name and password to access multiple applications. <br />
+One popular example of SSO is the "Log In With Facebook" button used by many websites to allow users access to a website without creating an account.
+</div>
+
+<h5 id="example">Example</h5>
+
+<p>Sarah’s Company uses RQ with Third Party Authentication enabled using Microsoft Active Directory Federation Services (ADFS) for authentication.</p>
+
+<p>Sarah enters her domain username and password into RQ.</p>
+
+<p>RQ asks ADFS “is this name/password valid?”</p>
+
+<p>If ADFS confirms, RQ <strong>trusts</strong> ADFS and allows Sarah to log in successfully.</p>
+
+<p>If ADFS does not confirm, it tells RQ not to allow Sarah access and an error is displayed.</p>
+
+<h3 id="technical-flow">Technical Flow</h3>
+
+<p><img src="http://localhost:4006//images/3PAflow.png" alt="Authentication Flow" /></p>
+
+<ol>
+  <li>A user from your organization enters their credentials into an iQmetrix product, such as RQ</li>
+  <li>The application sends a request to iQmetrix’s Single Sign On (SSO) service</li>
+  <li>The SSO service determines if your organization has Third Party Authentication (3PA) enabled</li>
+  <li>The SSO service sends a POST <a href="http://docs.oasis-open.org/wss/v1.1/wss-v1.1-spec-os-UsernameTokenProfile.pdf">WS-Security UsernameToken Profile 1.1</a> request using the <code>#PasswordText</code> extension to the URL you supplied</li>
+  <li>Your Identity Provider responds with a <a href="http://docs.oasis-open.org/wss/v1.1/wss-v1.1-spec-os-SAMLTokenProfile.pdf">WS-Security SAML Token Profile 1.1</a> response with a SAML 2.0 token in the <code>RequestedSecurityToken</code> element</li>
+  <li>iQmetrix’s Authentication service accepts the response and generates an <a href="/api/glossary/#access-token">Access Token</a></li>
+  <li>The user is able to access the iQmetrix product</li>
+</ol>
+
+<h2 id="requirements">Requirements</h2>
+
+<p>Your organization must provide access to an Identity Provider with…</p>
+
+<ul>
+  <li>SAML Active Profile using WS-Trust over HTTPS</li>
+  <li>SSL Protection with a publicly available certificate</li>
+  <li>Acceptable User Names</li>
+  <li>High Availability</li>
+</ul>
+
+<p>Your Account Manager will need the following information to configure Third Party Authentication:</p>
+
+<ul>
+  <li>URL of your Identity Provider</li>
+  <li>An account within the Identity Provider created for RQ support personnel</li>
+</ul>
+
+<h5 id="example-1">Example</h5>
+
+<p>ADFS would require an ADFS Web Application Proxy with iQmetrix added as a Relaying Party Trust.</p>
+
+<h3 id="saml">SAML</h3>
+
+<p><strong>SAML</strong> (Security Assertion Markup Language) is an XML-based data format for exchanging data between systems.</p>
+
+<p>There are many different versions of SAML, but iQmetrix only supports SAML using <strong>WS-Trust</strong>.</p>
+
+<div class="bs-callout bs-callout-info">
+<strong>WS-Trust</strong> or Web Services Trust Language is a specification that uses secure messaging to create a trusted relationships between applications.
+</div>
+
+<h4 id="why-not-saml-20">Why Not SAML 2.0?</h4>
+
+<p>While SAML 2.0 is widely supported and useful in many situations, it has one major weakness that makes it unsuitable for use with RQ.</p>
+
+<p><strong>Layman’s Explanation</strong></p>
+
+<p>Using SAML 2.0, a Windows application like RQ can log in automatically <strong>if</strong> the user logged into the machine with a <strong>personal account</strong>.</p>
+
+<p>This is a problem because RQ is generally installed on a machine with a <strong>shared account</strong>. When a sales rep needs to use RQ they sign in using their own credentials. RQ easily switches between personal sessions in a matter of seconds.</p>
+
+<p>With SAML 2.0, a sales rep would have to sign out of the machine, sign back in with their personal credentials, and re-launch RQ. This would be very time-consuming and negate the benefits of SAML 2.0.</p>
+
+<p>In order to maintain the best possible experience and allow sales reps to quickly switch between RQ sessions, we have implemented a solution based on WS-Trust.</p>
+
+<p><strong>Technical Explanation</strong></p>
+
+<p>The SAML 2.0 protocol supports two profiles,</p>
+
+<ul>
+  <li>The <strong>Passive</strong> SAML profile redirects the browser to the Identity Provider’s sign in page for authentication and then redirects the browser back to the application passing it a SAML token. The passive SAML profile is incompatible with RQ because it is not browser based</li>
+  <li>The <strong>Active</strong> SAML profile is compatible with RQ but relies on the identity of the user that was authenticated on the host operating system. As RQ is generally installed on shared workstations with a generic user account, the identity of the user cannot be determined using the active SAML profile</li>
+</ul>
+
+<p>Given that neither of the SAML 2.0 profiles are suitable for use with RQ, we have implemented an SSO solution based on WS-Trust.</p>
+
+<h3 id="ssl-protection">SSL Protection</h3>
+
+<p><strong>Secure Socket Layer (SSL)</strong> is technology that establishes a secure channel of communication and makes all eCommerce and web security possible.</p>
+
+<p>SSL works by requiring a server to install a <strong>SSL Certificate</strong>, which acts as a key to access the server. For iQmetrix to communicate with your SSL encrypted server, this certificate must be publicly available.</p>
+
+<p>Your organization is responsible for providing an Identity Provider that is protected by SSL and has a publicly-available SSL certificate.</p>
+
+<h3 id="acceptable-user-names">Acceptable User Names</h3>
+
+<p>We strongly recommend you create publicly-accessible domains and map your users to them, rather than using your internal domains. This will ensure that your user names are unique within our system.</p>
+
+<p><strong>Email addresses</strong> are an excellent alternative to domain user names.</p>
+
+<h5 id="example-2">Example</h5>
+
+<p>A user “john.smith@yvr.kentel.local” could be mapped to “john.smith@kentel.com”.</p>
+
+<h3 id="high-availability">High Availability</h3>
+
+<p>High availability means a system is capable of maintaining a high level of operational performance for a period of time.</p>
+
+<p>It is your organization’s responsibility to ensure your Identity Provider is highly available. If you are unsure what that requires or if you anticipate problems, please let contact <a href="mailto:?subject=Support">Support</a> and we can discuss ways to mitigate these.</p>
+
+<h2 id="setup-and-configuration">Setup and Configuration</h2>
+
+<p>It is your responsibility to setup and configure your Identity Provider.</p>
+
+<h5 id="example-3">Example</h5>
+
+<p>Using ADFS, you may find the following setup guides useful.</p>
+
+<ul>
+  <li><a href="https://technet.microsoft.com/en-us/library/dn486820.aspx">Windows Server 2012 R2 AD FS Deployment Guide</a></li>
+  <li><a href="https://technet.microsoft.com/en-us/library/dn508281.aspx">Create a Non-Claims-Aware Relying Party Trust</a></li>
+</ul>
+
+<p>In adding a non-claims aware relaying party trust the retailer should use the following values:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Setting</th>
+      <th style="text-align: left">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Display Name</td>
+      <td style="text-align: left">iQmetrix Services</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Non-claims-aware relaying party trust identifier</td>
+      <td style="text-align: left">https://iqmetrix.net</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Multi-factor Authentication</td>
+      <td style="text-align: left">I do not want to configure multi-factor authentication settings for this relying party trust at this time</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="testing">Testing</h3>
+
+<p>When you are ready to test the integration, contact <a href="mailto:?subject=Support">Support</a> to request the 3PA testing utility.</p>
+
+<h3 id="requested-claims">Requested Claims</h3>
+
+<p>The following is a list of claims that will be requested:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Claim</th>
+      <th style="text-align: left">Required/Optional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn</code></td>
+      <td style="text-align: left">Required</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress</code></td>
+      <td style="text-align: left">Optional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname</code></td>
+      <td style="text-align: left">Optional</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname</code></td>
+      <td style="text-align: left">Optional</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="panel-group" id="example">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#example" href="#exampleRequest">Example</a>
+            </h4>
+        </div>
+        <div id="exampleRequest" class="panel-collapse collapse">
+            <div class="panel-body">
+<h4>Example Request</h4><br />
+<pre><code>POST https://adfs.retaillabs.io/adfs/services/trust/13/UsernameMixed
+Content-Type: application/soap+xml
+Content-Length: 2255
+Expect: 100-continue
+Accept-Encoding: gzip, deflate
+Connection: Keep-Alive
+</code></pre>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;s:Envelope</span> <span class="na">xmlns:s=</span><span class="s">"http://www.w3.org/2003/05/soap-envelope"</span> <span class="na">xmlns:a=</span><span class="s">"http://www.w3.org/2005/08/addressing"</span> <span class="na">xmlns:u=</span><span class="s">"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;s:Header&gt;</span>
+        <span class="nt">&lt;a:Action</span> <span class="na">s:mustUnderstand=</span><span class="s">"1"</span><span class="nt">&gt;</span>http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/Issue<span class="nt">&lt;/a:Action&gt;</span>
+        <span class="nt">&lt;a:MessageID&gt;</span>urn:uuid:2be726b3-e368-4a10-88f3-fd0312c9edc5<span class="nt">&lt;/a:MessageID&gt;</span>
+        <span class="nt">&lt;a:ReplyTo&gt;</span>
+            <span class="nt">&lt;a:Address&gt;</span>http://www.w3.org/2005/08/addressing/anonymous<span class="nt">&lt;/a:Address&gt;</span>
+        <span class="nt">&lt;/a:ReplyTo&gt;</span>
+        <span class="nt">&lt;a:To</span> <span class="na">s:mustUnderstand=</span><span class="s">"1"</span><span class="nt">&gt;</span>https://adfs.retaillabs.io/adfs/services/trust/13/UsernameMixed<span class="nt">&lt;/a:To&gt;</span>
+        <span class="nt">&lt;o:Security</span> <span class="na">s:mustUnderstand=</span><span class="s">"1"</span> <span class="na">xmlns:o=</span><span class="s">"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;u:Timestamp</span> <span class="na">u:Id=</span><span class="s">"_0"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;u:Created&gt;</span>2015-06-30T20:16:13.639Z<span class="nt">&lt;/u:Created&gt;</span>
+                <span class="nt">&lt;u:Expires&gt;</span>2015-06-30T20:21:13.639Z<span class="nt">&lt;/u:Expires&gt;</span>
+            <span class="nt">&lt;/u:Timestamp&gt;</span>
+            <span class="nt">&lt;o:UsernameToken</span> <span class="na">u:Id=</span><span class="s">"uuid-2ed4cc51-2345-446c-be94-9af4ab99d24c-1"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;o:Username&gt;</span>Nicola.Tesla@retaillabs.local<span class="nt">&lt;/o:Username&gt;</span>
+                <span class="nt">&lt;o:Password</span> <span class="na">Type=</span><span class="s">"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText"</span><span class="nt">&gt;</span>4AlternatingCurrent<span class="nt">&lt;/o:Password&gt;</span>
+            <span class="nt">&lt;/o:UsernameToken&gt;</span>
+        <span class="nt">&lt;/o:Security&gt;</span>
+    <span class="nt">&lt;/s:Header&gt;</span>
+    <span class="nt">&lt;s:Body&gt;</span>
+        <span class="nt">&lt;trust:RequestSecurityToken</span> <span class="na">xmlns:trust=</span><span class="s">"http://docs.oasis-open.org/ws-sx/ws-trust/200512"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;wsp:AppliesTo</span> <span class="na">xmlns:wsp=</span><span class="s">"http://schemas.xmlsoap.org/ws/2004/09/policy"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;a:EndpointReference&gt;</span>
+                    <span class="nt">&lt;a:Address&gt;</span>https://iqmetrix.net/<span class="nt">&lt;/a:Address&gt;</span>
+                <span class="nt">&lt;/a:EndpointReference&gt;</span>
+            <span class="nt">&lt;/wsp:AppliesTo&gt;</span>
+            <span class="nt">&lt;trust:Claims</span> <span class="na">Dialect=</span><span class="s">"http://schemas.xmlsoap.org/ws/2005/05/identity"</span> <span class="na">xmlns:i=</span><span class="s">"http://schemas.xmlsoap.org/ws/2005/05/identity"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;i:ClaimType</span> <span class="na">Uri=</span><span class="s">"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"</span> <span class="na">Optional=</span><span class="s">"false"</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;i:ClaimType</span> <span class="na">Uri=</span><span class="s">"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"</span> <span class="na">Optional=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;i:ClaimType</span> <span class="na">Uri=</span><span class="s">"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"</span> <span class="na">Optional=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;i:ClaimType</span> <span class="na">Uri=</span><span class="s">"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"</span> <span class="na">Optional=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/trust:Claims&gt;</span>
+            <span class="nt">&lt;trust:KeyType&gt;</span>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Bearer<span class="nt">&lt;/trust:KeyType&gt;</span>
+            <span class="nt">&lt;trust:RequestType&gt;</span>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Issue<span class="nt">&lt;/trust:RequestType&gt;</span>
+            <span class="nt">&lt;trust:TokenType&gt;</span>urn:oasis:names:tc:SAML:2.0:assertion<span class="nt">&lt;/trust:TokenType&gt;</span>
+        <span class="nt">&lt;/trust:RequestSecurityToken&gt;</span>
+    <span class="nt">&lt;/s:Body&gt;</span>
+<span class="nt">&lt;/s:Envelope&gt;</span></code></pre></div>
+
+<br /><h4>Example Response</h4><br />
+<pre><code>HTTP 200 Content-Type: application/soap+xml</code></pre>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;s:Envelope</span> <span class="na">xmlns:s=</span><span class="s">"http://www.w3.org/2003/05/soap-envelope"</span> <span class="na">xmlns:a=</span><span class="s">"http://www.w3.org/2005/08/addressing"</span> <span class="na">xmlns:u=</span><span class="s">"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;s:Header&gt;</span>
+        <span class="nt">&lt;a:Action</span> <span class="na">s:mustUnderstand=</span><span class="s">"1"</span><span class="nt">&gt;</span>http://docs.oasis-open.org/ws-sx/ws-trust/200512/RSTRC/IssueFinal<span class="nt">&lt;/a:Action&gt;</span>
+        <span class="nt">&lt;a:RelatesTo&gt;</span>urn:uuid:2be726b3-e368-4a10-88f3-fd0312c9edc5<span class="nt">&lt;/a:RelatesTo&gt;</span>
+        <span class="nt">&lt;o:Security</span> <span class="na">s:mustUnderstand=</span><span class="s">"1"</span> <span class="na">xmlns:o=</span><span class="s">"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;u:Timestamp</span> <span class="na">u:Id=</span><span class="s">"_0"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;u:Created&gt;</span>2015-06-30T20:16:15.509Z<span class="nt">&lt;/u:Created&gt;</span>
+                <span class="nt">&lt;u:Expires&gt;</span>2015-06-30T20:21:15.509Z<span class="nt">&lt;/u:Expires&gt;</span>
+            <span class="nt">&lt;/u:Timestamp&gt;</span>
+        <span class="nt">&lt;/o:Security&gt;</span>
+    <span class="nt">&lt;/s:Header&gt;</span>
+    <span class="nt">&lt;s:Body&gt;</span>
+        <span class="nt">&lt;trust:RequestSecurityTokenResponseCollection</span> <span class="na">xmlns:trust=</span><span class="s">"http://docs.oasis-open.org/ws-sx/ws-trust/200512"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;trust:RequestSecurityTokenResponse&gt;</span>
+                <span class="nt">&lt;trust:Lifetime&gt;</span>
+                    <span class="nt">&lt;wsu:Created</span> <span class="na">xmlns:wsu=</span><span class="s">"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"</span><span class="nt">&gt;</span>2015-06-30T20:16:15.505Z<span class="nt">&lt;/wsu:Created&gt;</span>
+                    <span class="nt">&lt;wsu:Expires</span> <span class="na">xmlns:wsu=</span><span class="s">"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"</span><span class="nt">&gt;</span>2015-06-30T21:16:15.505Z<span class="nt">&lt;/wsu:Expires&gt;</span>
+                <span class="nt">&lt;/trust:Lifetime&gt;</span>
+                <span class="nt">&lt;wsp:AppliesTo</span> <span class="na">xmlns:wsp=</span><span class="s">"http://schemas.xmlsoap.org/ws/2004/09/policy"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;wsa:EndpointReference</span> <span class="na">xmlns:wsa=</span><span class="s">"http://www.w3.org/2005/08/addressing"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;wsa:Address&gt;</span>https://iqmetrix.net<span class="nt">&lt;/wsa:Address&gt;</span>
+                    <span class="nt">&lt;/wsa:EndpointReference&gt;</span>
+                <span class="nt">&lt;/wsp:AppliesTo&gt;</span>
+                <span class="nt">&lt;trust:RequestedSecurityToken&gt;</span>
+                    <span class="nt">&lt;Assertion</span> <span class="na">ID=</span><span class="s">"_62c0ac75-0267-46cf-95a6-91b9cdc8ed79"</span> <span class="na">IssueInstant=</span><span class="s">"2015-06-30T20:16:15.509Z"</span> <span class="na">Version=</span><span class="s">"2.0"</span> <span class="na">xmlns=</span><span class="s">"urn:oasis:names:tc:SAML:2.0:assertion"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;Issuer&gt;</span>http://adfs.retaillabs.io/adfs/services/trust<span class="nt">&lt;/Issuer&gt;</span>
+                        <span class="nt">&lt;ds:Signature</span> <span class="na">xmlns:ds=</span><span class="s">"http://www.w3.org/2000/09/xmldsig#"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;ds:SignedInfo&gt;</span>
+                                <span class="nt">&lt;ds:CanonicalizationMethod</span> <span class="na">Algorithm=</span><span class="s">"http://www.w3.org/2001/10/xml-exc-c14n#"</span><span class="nt">/&gt;</span>
+                                <span class="nt">&lt;ds:SignatureMethod</span> <span class="na">Algorithm=</span><span class="s">"http://www.w3.org/2000/09/xmldsig#rsa-sha1"</span><span class="nt">/&gt;</span>
+                                <span class="nt">&lt;ds:Reference</span> <span class="na">URI=</span><span class="s">"#_62c0ac75-0267-46cf-95a6-91b9cdc8ed79"</span><span class="nt">&gt;</span>
+                                    <span class="nt">&lt;ds:Transforms&gt;</span>
+                                        <span class="nt">&lt;ds:Transform</span> <span class="na">Algorithm=</span><span class="s">"http://www.w3.org/2000/09/xmldsig#enveloped-signature"</span><span class="nt">/&gt;</span>
+                                        <span class="nt">&lt;ds:Transform</span> <span class="na">Algorithm=</span><span class="s">"http://www.w3.org/2001/10/xml-exc-c14n#"</span><span class="nt">/&gt;</span>
+                                    <span class="nt">&lt;/ds:Transforms&gt;</span>
+                                    <span class="nt">&lt;ds:DigestMethod</span> <span class="na">Algorithm=</span><span class="s">"http://www.w3.org/2000/09/xmldsig#sha1"</span><span class="nt">/&gt;</span>
+                                    <span class="nt">&lt;ds:DigestValue&gt;</span>nWRVS/+EPGC10gyKqvuLcXLhwE8=<span class="nt">&lt;/ds:DigestValue&gt;</span>
+                                <span class="nt">&lt;/ds:Reference&gt;</span>
+                            <span class="nt">&lt;/ds:SignedInfo&gt;</span>
+                            <span class="nt">&lt;ds:SignatureValue&gt;</span>lCi93bMFIoSOmf4uBq95OF4LO7c5mARkR4x/1LagKDBS/iKMEi73EmxtZJ5o9L/OAfIueaKrdtiXFJXqB5KysA3WAjuMDVtaDfbJzhMhqZnXB2NrShA0vBM4cfCFj1VJe9ozTQiQUVtL/O0HTM06jCMHwJhbl1DMdTdZt9OejDfBtJDk5wr0TGLBmDYuVjIb2k+nWIWvCCjmOQbHlK65IcFaOQoXYjdwGu4YWttejC4m+sqgnAH926t9eorxpY928EVxN5xoB/UFSQFpnfQvPgfogu1EeByF2mwvbdf/qNIMtejF4AqAq6RUWvdhcFy+VDJqeWYBN2UY9LP4XdIU0g==<span class="nt">&lt;/ds:SignatureValue&gt;</span>
+                            <span class="nt">&lt;KeyInfo</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/2000/09/xmldsig#"</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;ds:X509Data&gt;</span>
+                                    <span class="nt">&lt;ds:X509Certificate&gt;</span>MIIC4DCCAcigAwIBAgIQNGL3q/dLsoFBwDzHqMXstjANBgkqhkiG9w0BAQsFADAsMSowKAYDVQQDEyFBREZTIFNpZ25pbmcgLSBhZGZzLnJldGFpbGxhYnMuaW8wHhcNMTUwMTIxMjEwNTI4WhcNMTYwMTIxMjEwNTI4WjAsMSowKAYDVQQDEyFBREZTIFNpZ25pbmcgLSBhZGZzLnJldGFpbGxhYnMuaW8wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCo1zytlu3USZhnj9bVcIVcvhWr5ojuYNzvR8mX/enOcIyoPzlP+0nSaoajTxutLi5uXYE27bRtnVQ6vWwLCMJ5TLxW1LvgcE4yNQg2ns+f0mI27Nvic4xTP4Yhh6CzYdxSbJURGKKSOvTKTmNJttqNGUvpJRakavKC6zF6ZniA+E7AlL6ONQd+E7O80WdybK44vwiDxaPcgHlqIRAn6cHgYL9WgC8NMt8plJFxN4oxnUpIiyS2jyWWs3PfOsgFIWqmx18s6TpH8VEJ7JOJkC5vhHZ6RPXxnS5EkpOd24IzvwSrmMmYRcb3LLQptcGymD4s1YVKkoKp2JAdJIBtTdj3AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAFON9MIWas0ftf+No80T1LIRNh0kbvAFTYTDycLN1XzoIy1mCM0E+iRGe6ZmGNDgc+I11ZFbvvgV2DT/PLXlafRnKLomPWAZfzYHp1doWGFCFjBKQG6W0KjwTBxJTEy0v76I3q/BMBMn3iEr+uJvaDzsM212IImJqPvFsiQR3rEEoSZAWNNe8SVp3WiwoPXIv+hDuo1cRArroXb0rmZff/ubHWMJZz+4/RoLYz/EPCNDoygT7M/cV4mC5RVrvWC8eG8Gw9jBMeFXKQWcrS6PWY9py/f2nCzdmx8OPj9BhLoPc6ieD2ed44tIX58JhFdQxNfo7F4LAa4uZgi73Kzf9Bo=<span class="nt">&lt;/ds:X509Certificate&gt;</span>
+                                <span class="nt">&lt;/ds:X509Data&gt;</span>
+                            <span class="nt">&lt;/KeyInfo&gt;</span>
+                        <span class="nt">&lt;/ds:Signature&gt;</span>
+                        <span class="nt">&lt;Subject&gt;</span>
+                            <span class="nt">&lt;SubjectConfirmation</span> <span class="na">Method=</span><span class="s">"urn:oasis:names:tc:SAML:2.0:cm:bearer"</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;SubjectConfirmationData</span> <span class="na">NotOnOrAfter=</span><span class="s">"2015-06-30T20:21:15.509Z"</span><span class="nt">/&gt;</span>
+                            <span class="nt">&lt;/SubjectConfirmation&gt;</span>
+                        <span class="nt">&lt;/Subject&gt;</span>
+                        <span class="nt">&lt;Conditions</span> <span class="na">NotBefore=</span><span class="s">"2015-06-30T20:16:15.505Z"</span> <span class="na">NotOnOrAfter=</span><span class="s">"2015-06-30T21:16:15.505Z"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;AudienceRestriction&gt;</span>
+                                <span class="nt">&lt;Audience&gt;</span>https://iqmetrix.net<span class="nt">&lt;/Audience&gt;</span>
+                            <span class="nt">&lt;/AudienceRestriction&gt;</span>
+                        <span class="nt">&lt;/Conditions&gt;</span>
+                        <span class="nt">&lt;AttributeStatement&gt;</span>
+                            <span class="nt">&lt;Attribute</span> <span class="na">Name=</span><span class="s">"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"</span><span class="nt">&gt;</span>
+                                <span class="nt">&lt;AttributeValue&gt;</span>Nicola.Tesla@retaillabs.local<span class="nt">&lt;/AttributeValue&gt;</span>
+                            <span class="nt">&lt;/Attribute&gt;</span>
+                        <span class="nt">&lt;/AttributeStatement&gt;</span>
+                        <span class="nt">&lt;AuthnStatement</span> <span class="na">AuthnInstant=</span><span class="s">"2015-06-30T20:16:15.477Z"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;AuthnContext&gt;</span>
+                                <span class="nt">&lt;AuthnContextClassRef&gt;</span>urn:oasis:names:tc:SAML:2.0:ac:classes:Password<span class="nt">&lt;/AuthnContextClassRef&gt;</span>
+                            <span class="nt">&lt;/AuthnContext&gt;</span>
+                        <span class="nt">&lt;/AuthnStatement&gt;</span>
+                    <span class="nt">&lt;/Assertion&gt;</span>
+                <span class="nt">&lt;/trust:RequestedSecurityToken&gt;</span>
+                <span class="nt">&lt;trust:RequestedAttachedReference&gt;</span>
+                    <span class="nt">&lt;SecurityTokenReference</span> <span class="na">b:TokenType=</span><span class="s">"http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0"</span> <span class="na">xmlns=</span><span class="s">"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"</span> <span class="na">xmlns:b=</span><span class="s">"http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;KeyIdentifier</span> <span class="na">ValueType=</span><span class="s">"http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID"</span><span class="nt">&gt;</span>_62c0ac75-0267-46cf-95a6-91b9cdc8ed79<span class="nt">&lt;/KeyIdentifier&gt;</span>
+                    <span class="nt">&lt;/SecurityTokenReference&gt;</span>
+                <span class="nt">&lt;/trust:RequestedAttachedReference&gt;</span>
+                <span class="nt">&lt;trust:RequestedUnattachedReference&gt;</span>
+                    <span class="nt">&lt;SecurityTokenReference</span> <span class="na">b:TokenType=</span><span class="s">"http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0"</span> <span class="na">xmlns=</span><span class="s">"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"</span> <span class="na">xmlns:b=</span><span class="s">"http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;KeyIdentifier</span> <span class="na">ValueType=</span><span class="s">"http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID"</span><span class="nt">&gt;</span>_62c0ac75-0267-46cf-95a6-91b9cdc8ed79<span class="nt">&lt;/KeyIdentifier&gt;</span>
+                    <span class="nt">&lt;/SecurityTokenReference&gt;</span>
+                <span class="nt">&lt;/trust:RequestedUnattachedReference&gt;</span>
+                <span class="nt">&lt;trust:TokenType&gt;</span>urn:oasis:names:tc:SAML:2.0:assertion<span class="nt">&lt;/trust:TokenType&gt;</span>
+                <span class="nt">&lt;trust:RequestType&gt;</span>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Issue<span class="nt">&lt;/trust:RequestType&gt;</span>
+                <span class="nt">&lt;trust:KeyType&gt;</span>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Bearer<span class="nt">&lt;/trust:KeyType&gt;</span>
+            <span class="nt">&lt;/trust:RequestSecurityTokenResponse&gt;</span>
+        <span class="nt">&lt;/trust:RequestSecurityTokenResponseCollection&gt;</span>
+    <span class="nt">&lt;/s:Body&gt;</span>
+<span class="nt">&lt;/s:Envelope&gt;</span></code></pre></div>
+
+           </div>
+        </div>
+    </div>
+</div>
+
+<h2 id="managing-users">Managing Users</h2>
+
+<p>While Third Party Authentication can provide your users access to iQmetrix products, it does not have the ability to manage what those users can see or do once they are logged in.</p>
+
+<p>Manging users can be done through…</p>
+
+<ul>
+  <li>iQmetrix applications such as <a href="http://www.iqmetrix.com/products/rq">RQ</a></li>
+  <li><a href="/api/user-manager/">User Manager API</a> for an automated solution or</li>
+  <li><a href="https://hub.iqmetrix.net/">Hub</a> for a web-based solution or</li>
+  <li><a href="#automated-provisioning">Automated Provisioning</a></li>
+</ul>
+
+<h2 id="automated-provisioning">Automated Provisioning</h2>
+
+<p><strong>Automated Provisioning</strong> or auto-provisioning is a process that involves managing a service in one or more systems automatically.</p>
+
+<p>When combined with 3PA, Automated Provisioning allows you to manage users in iQmetrix services by auto-provisioning them from your existing Identity Provider.</p>
+
+<h5 id="example-4">Example</h5>
+
+<p>Sarah’s Company uses RQ with Third Party Authentication and Auto Provisioning enabled using ADFS for authentication.</p>
+
+<p>Sarah gets a promotion and is given a manager security role within ADFS.</p>
+
+<p>She enters her credentials in RQ, which asks ADFS “is this name/password valid?”.</p>
+
+<p>ADFS confirms and says “also, Sarah now has a manager security role”. RQ can then update the security for Sarah, so she is able to access areas of RQ restricted to managers.</p>
+
+<h3 id="requirements-1">Requirements</h3>
+
+<p>Automated Provisioning requires your organization to have…</p>
+
+<ul>
+  <li>Third Party Authentication enabled</li>
+  <li>A domain name that is unique within iQmetrix’s systems</li>
+</ul>
+
+<p>You will need to work with your Account Manager to map your Identity Provider roles to <a href="/api/security-roles/#securityrole">Security Roles</a>.</p>
+
+<p>To maintain this mapping, you will need to update <a href="https://hub.iqmetrix.net/">iQmetrix Hub</a> or <a href="http://www.iqmetrix.com/products/rq">RQ</a> when new roles are added or existing roles are updated.</p>
+
+<p>In addition, you will need to set and maintain a mapping using the ClientEntityId property on <a href="http://developers.iqmetrix.com/api/company-tree/#companytreenode">CompanyTreeNode</a> resources. This must be done using the Company Tree API.</p>
+
+<p>All user information that is supplied with authentication should be maintained in your Identity Provider.</p>
+
+<h3 id="implications-1">Implications</h3>
+
+<p>Enabling Automated Provisioning will result in…</p>
+
+<ul>
+  <li>A slight configuration delay during login</li>
+  <li>Limited ability to use the User Manager API - changes that do not match the Identity Provider will revert back the next time the user logs in</li>
+  <li>An error message if there is a problem configuring a user, the message will indicate how to solve the problem</li>
+</ul>
+
+<h3 id="technical-flow-1">Technical Flow</h3>
+
+<p>When added to 3PA, Automated Provisioning changes the technical flow by sending user information along with the POST request sent to the supplied URL. (Step 4 of <a href="#technical-flow">Technical Flow</a>).</p>
+
+<h3 id="claims">Claims</h3>
+
+<p>The following is a list of claims that will be requested.</p>
+
+<p>Notes:</p>
+
+<ul>
+  <li>We <strong>strongly recommend</strong> you include a ClientUserId, a user identifier, to avoid creating duplicate user accounts</li>
+  <li>Before Windows 2000, username is not supported</li>
+  <li>If an expected claim is not returned, exiting data will be wiped</li>
+</ul>
+
+<p>It may be possible to support custom claims if further user information is required.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">ClaimType</th>
+      <th style="text-align: left">Required in RQ?</th>
+      <th style="text-align: left">Required in Hub?</th>
+      <th style="text-align: left">Populates Field</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn</code></td>
+      <td style="text-align: left">Required</td>
+      <td style="text-align: left">Required</td>
+      <td style="text-align: left"><a href="/api/user-manager/#user">User</a>.UserName</td>
+      <td style="text-align: left">Nicola.Tesla@retaillabs.com</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname</code></td>
+      <td style="text-align: left">Required</td>
+      <td style="text-align: left">Optional</td>
+      <td style="text-align: left"><a href="/api/user-manager/#user">User</a>FirstName</td>
+      <td style="text-align: left">Nicola</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname</code></td>
+      <td style="text-align: left">Required</td>
+      <td style="text-align: left">Optional</td>
+      <td style="text-align: left"><a href="/api/user-manager/#user">User</a>LastName</td>
+      <td style="text-align: left">Tesla</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress</code></td>
+      <td style="text-align: left">Optional</td>
+      <td style="text-align: left">Optional</td>
+      <td style="text-align: left"><a href="/api/user-manager/#user">User</a>Email</td>
+      <td style="text-align: left">ntesla@retaillabs.com</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>http://iqmetrix.net/claims/telephoneNumbers/home</code></td>
+      <td style="text-align: left">Optional</td>
+      <td style="text-align: left">Optional</td>
+      <td style="text-align: left"><a href="/api/user-manager/#user">User</a>.PhoneNumbers</td>
+      <td style="text-align: left">604-123-4567x1000</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>http://iqmetrix.net/claims/telephoneNumbers/work</code></td>
+      <td style="text-align: left">Optional</td>
+      <td style="text-align: left">Optional</td>
+      <td style="text-align: left"><a href="/api/user-manager/#user">User</a>.PhoneNumbers</td>
+      <td style="text-align: left">604-654-3210x1234</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>http://iqmetrix.net/claims/telephoneNumbers/cell</code></td>
+      <td style="text-align: left">Optional</td>
+      <td style="text-align: left">Optional</td>
+      <td style="text-align: left"><a href="/api/user-manager/#user">User</a>.PhoneNumbers</td>
+      <td style="text-align: left">604-654-6543</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>http://iqmetrix.net/claims/securityGroupName</code></td>
+      <td style="text-align: left">Required</td>
+      <td style="text-align: left">Optional</td>
+      <td style="text-align: left"><a href="/api/security-roles/#assignedrole">AssignedRole</a></td>
+      <td style="text-align: left">StoreManagers</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>http://iqmetrix.net/claims/assignedEntityClientEntityId</code></td>
+      <td style="text-align: left">Optional</td>
+      <td style="text-align: left">Optional</td>
+      <td style="text-align: left">Assigned <a href="/api/company-tree/#location">Location</a></td>
+      <td style="text-align: left">TheMarketCode</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>http://iqmetrix.net/claims/clientUserId</code></td>
+      <td style="text-align: left">Optional</td>
+      <td style="text-align: left">Optional</td>
+      <td style="text-align: left"><a href="/api/user-manager/#user">User</a>.ClientUserID</td>
+      <td style="text-align: left">22323</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+              <div class="col-lg-1 hidden-md hidden-sm hidden-xs"><!-- start page metadata -->
+
+
+<div class="pageMetadata affix">
+    <div class="pageMetadataTitle">Table of Contents</div>
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+
+    $('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2, h3' });
+
+    //Resize once
+    resizeWindow();
+
+    //Resize whenever window changes
+    $(window).resize(function () {
+        resizeWindow();
+    });
+
+});
+
+function resizeWindow() {
+
+    var windowHeight = $(window).height();
+    var windowWidth = $(window).width();
+
+    var tocHeight = $(".pageMetadata").height();
+
+    if(windowWidth < 1560 || windowHeight < tocHeight) {        
+        //Grab "pageMetadata" and move it to first  child of .post-header
+        $(".pageMetadata").prependTo(".post-header");
+        $(".pageMetadata").removeClass("affix");        
+    } else if(windowWidth > 1560) {
+        //Grab "pageMetadata" and move it back to where it was
+        $(".pageMetadata").appendTo(".col-lg-1.hidden-md.hidden-sm.hidden-xs");
+        $(".pageMetadata" ).addClass("affix");
+    }      
+}
+
+</script>
+
+<div id="toc"></div>
+
+    
+
+</div>
+
+
+
+
+<!-- end pageMetadata --></div>
+            
+    </div>
+
+</body>
+
+<!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-408430-5', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+</html>
+

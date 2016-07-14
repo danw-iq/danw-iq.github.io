@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=",  ">
+<title>Partner Reporting  | iQmetrix Developer Portal</title>
+<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/modern-business.css">
+<link rel="stylesheet" type="text/css" href="../../css/customstyles.css">
+<link rel="stylesheet" type="text/css" href="" | prepend:site.pagefileurl }}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../../js/jquery.navgoco.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
+<script src="../../js/toc.js"></script>
+<script src="../../js/customscripts.js"></script>
+<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+
+
+<!-- Image popup source files -->
+<!-- http://dimsemenov.com/plugins/magnific-popup/ -->
+<link rel="stylesheet" type="text/css" href="../../css/magnific-popup.css">
+<script src="../../js/jquery.magnific-popup.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+
+        // surround each image with an anchor class  for image popup
+        $('img').each( function() {
+            var $img = $(this),
+            href = $img.attr('src');
+            $img.wrap('<a class="image-link" href=' + href + '></a>');
+             
+        });
+
+        // make each image with image-link class popup "on click"
+        // !! Drawback -- all images could popup :(
+        $('.image-link').magnificPopup({
+            type:'image',
+            closeOnContentClick: true
+        });
+                
+    });    
+</script>
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+    //Hacky code to make sure they don't go to a bad page
+    $( window ).load(function() {
+
+        if (document.baseURI.indexOf("api/generalledger.html") > 0) {
+            window.location.href = 'http://developers.iqmetrix.com/api/general-ledger/';
+        }
+        else if (document.baseURI.indexOf("api/productlibrary.html") > 0) {
+          window.location.href = 'http://developers.iqmetrix.com/api/product-library/';
+        }
+        else if (document.baseURI.indexOf("api/entitystore.html") > 0) {
+          window.location.href = 'http://developers.iqmetrix.com/api/entity-store/';
+        }
+        else if(document.baseURI.indexOf(".html") > 0) {
+           window.location.href = document.baseURI.substring(0, document.baseURI.indexOf(".html"));
+        }
+    });
+</script>
+
+
+
+
+
+ 
+
+<script>
+  $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+
+
+
+
+
+  </head>
+
+<body>
+
+   <!-- Send feedback function -->
+<script>
+    function SendLinkByMail(href) {
+        var subject= " all documentation feedback";
+        var body = "I have some feedback about the Partner Reporting page: ";
+        body += window.location.href;
+        body += "";
+        var uri = "mailto:apidesign@iqmetrix.com?subject=";
+        uri += encodeURIComponent(subject);
+        uri += "&body=";
+        uri += encodeURIComponent(body);
+        window.location.href = uri;
+    }
+</script>
+
+<!-- Navigation -->
+<nav id="navbar-custom" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+   <div class="container topnavlinks">
+   <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a href="http://localhost:4006/">
+        <span id="top-iq-logo"><img src="http://melissakendall.github.io/documentation-testing/images/iq-logo-white.png"></span>
+        <span id="projectTitle">iQmetrix Developer Portal</span>
+      </a>
+   </div>
+   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul id="top-bar-categories" class="nav navbar-nav navbar-right">
+      
+      <!-- entries without drop-downs appear here -->
+      <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+      <!-- 
+
+Hard coding for now, so no longer uses topnav config
+
+
+
+
+
+
+
+
+
+  
+      
+      
+          <li><a href="/api/changelog/">CHANGELOG</a></li>
+      
+    
+  
+      
+      
+          <li class="active"><a href="//">API REFERENCE</a></li>
+       
+    
+  
+      
+      
+          <li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
+      
+    
+  
+
+
+-->
+
+<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=all">SHOW ALL</a></li>
+<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=partner">PARTNERS</a></li>
+<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=dropship">DROPSHIP</a></li>
+<li><a href="mailto:?subject=Support">SUPPORT</a></li>
+<li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
+
+         <!--
+      <li>
+         <div id="search-demo-container">
+            <input type="text" id="search-input" placeholder="">
+            <ul id="results-container"></ul>
+         </div>
+         <script src="../..//js/jekyll-search.js" type="text/javascript"></script>
+         <script type="text/javascript">
+            SimpleJekyllSearch({
+              searchInput: document.getElementById('search-input'),
+              resultsContainer: document.getElementById('results-container'),
+              json: '../../search.json',
+              searchResultTemplate: '<li><a href="{url}" title="Partner Reporting">{title}</a></li>',
+              noResultsText: '',
+              exclude: '404'
+            })
+         </script>
+      </li>
+         -->
+    
+
+   </div>
+   <!-- /.container -->
+</nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="col-lg-12">&nbsp;</div>
+
+            <!-- Col-md-3 -->
+            <!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+            $(document).ready(function() {
+
+                // Initialize navgoco with default options
+                $("#mysidebar").navgoco({
+                    caretHtml: '',
+                    accordion: true,
+                    openClass: 'active', // open
+                    save: false, // leave false or nav higlighting doesn't work right
+                    cookie: {
+                        name: 'navgoco',
+                        expires: false,
+                        path: '/'
+                    },
+                    slide: {
+                        duration: 400,
+                        easing: 'swing'
+                    }
+                });
+
+                $("#collapseAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', false);
+                });
+
+                $("#expandAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', true);
+                });
+
+
+                if(window.location.hostname == "melissakendall.github.io")
+                {
+                    $("#mysidebar a").each(function(e) {
+                        var url = $(this).attr("href");
+                        
+                        if(url != null) {
+                            url = "http://melissakendall.github.io/documentation-testing" + url;
+                        }
+
+                        $(this).attr("href", url);
+                    });                   
+                }
+
+            });
+                           
+        </script>
+
+        
+
+
+
+
+
+
+
+        <ul id="mysidebar" class="nav affix">
+            
+                
+                    
+                        <li><a>API Reference</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/api/authentication/">Authentication</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/assets/">Assets</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/catalog/">Catalog</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/company-tree/">Company Tree</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/crm/">Customers</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Dropship</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/cost-feed/">Cost Feed</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-feed/">Product Feed</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-subscription/">Product Subscription</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/saccs/">Shipping Aggregator</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/shipping-options/">Shipping Options</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/supplier-availability/">Supplier Availability</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/supplier-orders/">Supplier Orders</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/entity-store/">Entities</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/general-ledger/">General Ledger</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/availability/">Inventory Availability</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/orders/">Orders</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Partners</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li class="active"><a href="/api/partner-reporting/">Partner Reporting</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/partner-relationships/">Relationships</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/pricing">Pricing</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Product Library</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/classification-tree/">Classification Tree</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/field-definitions/">Field Definitions</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-library/">Products</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-structure/">Product Structure</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/reference/">Reference</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">RQ</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/carrier-integration/">Carrier Integration</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/cmi/">Customer Managed Inventory (CMI)</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/commissions/">Commissions</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/epc/">Electronic Product Catalog (EPC)</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/punch-clock/">Punch Clock</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/vmi/">Vendor Managed Inventory (VMI)</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/security-roles/">Security Roles</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/user-manager/">User Manager</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a>Guides</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/guides/creating-an-in-store-order/">Creating an In Store Order</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/creating-a-user-for-rq/">Creating a User for RQ</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Dropship Client Integration Guides</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-pos-guide/">Dropship Point of Sale Guide</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Dropship Partner Integration Guides</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-onboarding-guide/">Dropship Onboarding Guide</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-order-guide/">Dropship Order Management Guide</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-test-order-guide/">Dropship Test Order Guide</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/commerce-guide/">eCommerce Integration Guide</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Endless Aisle Integration Guide</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/overview">Overview</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/corporate-hierarchy">Corporate Hierarchy</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/content">Content</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/inventory">Inventory</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/orders">Orders</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/3pa/">Third Party Authentication</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/vmi-onboarding-guide/">VMI Onboarding Guide</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a>Core Concepts</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/classification-tree/">Classification Tree</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/company-tree/">Company Tree</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/product-library/">Product Library</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/product-structure/">Product Structure</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/user-manager/">User Manager</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a>FAQ</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/faq/auth-faq/">Authentication FAQ</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/faq/dropship-faq/">Dropship FAQ</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a href="/reference-applications/">Reference Applications</a>
+                    
+                
+            
+        </ul>
+
+        
+    </div>
+<!-- div missing here is intentional -->
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+            
+              <div class="col-md-7"><link rel="stylesheet" type="text/css" href="../../css/prism.css" />
+
+<script src="../../js/prism.js"></script>
+
+<h2 id="endpoints">Endpoints</h2>
+
+<ul>
+  <li>Sandbox: <a href="https://reportingdemo.iqmetrix.net/v1">https://reportingdemo.iqmetrix.net/v1</a></li>
+  <li>Production: <a href="https://reporting.iqmetrix.net/v1">https://reporting.iqmetrix.net/v1</a></li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<h3 id="transaction">Transaction</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">CompanyId</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Identifier for the Dealer</td>
+      <td style="text-align: left"><code>1548</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CompanyName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Dealer name</td>
+      <td style="text-align: left"><code>CompanyA</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">StoreId</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Identifier for a <a href="/api/company-tree/#location">Location</a> where the Transaction took place</td>
+      <td style="text-align: left"><code>548</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">StoreName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Name of the <a href="/api/company-tree/#location">Location</a> where the Transaction took place</td>
+      <td style="text-align: left"><code>Vancouver City Centre Mall</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">RQEmployeeId</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Identifier of the sales person who tendered the Transaction. EmployeeId in RQ. Only unique in the context of a dealer</td>
+      <td style="text-align: left"><code>897</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SalesPersonName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Name of the sales person who tendered the Transaction</td>
+      <td style="text-align: left"><code>Mike Johnson</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">InvoiceId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Identifier of the Invoice. Only unique in the context of a dealer</td>
+      <td style="text-align: left"><code>36977459</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">OriginalInvoiceId</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">When SalesTransactionType is Refund, this property is the InvoiceId of the original invoice. Only unique in the context of a dealer</td>
+      <td style="text-align: left"><code>36977400</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SalesTransactionDateTime</td>
+      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">Date when the Transaction occured (store local time)</td>
+      <td style="text-align: left"><code>2015-12-03 17:35:00.000</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SalesTransactionType</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Type of Transaction (i.e. Sales, Refund)</td>
+      <td style="text-align: left"><code>Sales</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ProductName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Name of the Product on the Transaction</td>
+      <td style="text-align: left"><code>Samsung Galaxy S4 16GB - Black Mist</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ProductSku</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Product SKU saved in RQ dealer database</td>
+      <td style="text-align: left"><code>WDDDSM000146</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ProductLibrarySlug</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">iQmetrix internal product unique identifier.</td>
+      <td style="text-align: left"><code>M3310-V1-E13076</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Quantity</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Number of items sold on the Transaction</td>
+      <td style="text-align: left"><code>1</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UnitCost</td>
+      <td style="text-align: left">Decimal</td>
+      <td style="text-align: left">The unit cost of the Product</td>
+      <td style="text-align: left"><code>5.99</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GrossProfit</td>
+      <td style="text-align: left">Decimal</td>
+      <td style="text-align: left">Gross profit from the Transaction</td>
+      <td style="text-align: left"><code>4.99</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TotalSales</td>
+      <td style="text-align: left">Decimal</td>
+      <td style="text-align: left">Total sales from the Transaction</td>
+      <td style="text-align: left"><code>19.99</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SerialNumber</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Serial Number of the Product on the Transaction</td>
+      <td style="text-align: left"><code>359367059548016</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ManufacturerName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Name of the <a href="/api/entity-store/#manufacturer">Manufacturer</a> of the Product on the Transaction</td>
+      <td style="text-align: left"><code>Samsung</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ActivationType</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Activation type of the Transaction. See <a href="/api/carrier-integration/#activationtype">ActivationTypes</a> for a list of acceptable values</td>
+      <td style="text-align: left"><code>New Activation</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CarrierName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Name of the Carrier</td>
+      <td style="text-align: left"><code>Sasktel Mobility</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="requests">Requests</h2>
+
+<h3 id="getting-sales-transactions" class="clickable-header top-level-header">Getting Sales Transactions</h3>
+
+<p>This report will return sales data for both <strong>physical</strong> products and <strong>non-physical</strong> products, such as activations, upgrades and refunds.</p>
+
+<h4>Request</h4>
+
+<pre>
+GET /partners({PartnerId})/salesTransactions?startDate={StartDate}&amp;endDate={EndDate}&amp;$skip={Skip}&amp;$top={Top}
+</pre>
+
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li></ul>
+
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>PartnerId</code> (<strong>Required</strong>)  - Identifier for the Partner
+    </li>
+    
+    <li>
+        <code>StartDate</code> (<strong>Required</strong>)  - Date at which to begin search request
+    </li>
+    
+    <li>
+        <code>EndDate</code> (<strong>Required</strong>)  - Date at which to end search request
+    </li>
+    
+    <li>
+        <code>Skip</code> (Optional)  - Number of records to skip
+    </li>
+    
+    <li>
+        <code>Top</code> (Optional)  - Number of records to take. Must be in the range [1-100]. Defaults to 20.
+    </li>
+    </ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-sales-transactions" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-sales-transactions" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-sales-transactions" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-sales-transactions" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-sales-transactions" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-sales-transactions" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-sales-transactions"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-sales-transactions">
+<pre id="http-code-getting-sales-transactions"><code class="language-http">GET /partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&amp;endDate=2015-12-30T08:00:00.000Z&amp;$skip=0&amp;$top=10
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-sales-transactions">
+<pre id="curl-code-getting-sales-transactions"><code class="language-http">curl -X GET "https://reportingdemo.iqmetrix.net/v1/partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&amp;endDate=2015-12-30T08:00:00.000Z&amp;$skip=0&amp;$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-sales-transactions">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-sales-transactions"><code class="language-csharp">static IRestResponse GettingSalesTransactions()
+{
+    var client = new RestClient("https://reportingdemo.iqmetrix.net/v1/partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&amp;endDate=2015-12-30T08:00:00.000Z&amp;$skip=0&amp;$top=10");
+    var request = new RestRequest(Method.GET);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-sales-transactions">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-sales-transactions"><code class="language-java">
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse GettingSalesTransactions() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpGet request = new HttpGet("https://reportingdemo.iqmetrix.net/v1/partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&amp;endDate=2015-12-30T08:00:00.000Z&amp;$skip=0&amp;$top=10");
+     
+    request.addHeader("Authorization", "Bearer (Access Token)"); 
+    request.addHeader("Accept", "application/json"); 
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-sales-transactions">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-sales-transactions"><code class="language-ruby">require 'rest-client'
+
+
+
+response = RestClient.get 'https://reportingdemo.iqmetrix.net/v1/partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&amp;endDate=2015-12-30T08:00:00.000Z&amp;$skip=0&amp;$top=10', {
+     :'Authorization' =&gt; 'Bearer (Access Token)',
+     :'Accept' =&gt; 'application/json',
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<ul><li><code>_links</code> (Object) - Relative URL's used for Pagination</li><ul><li><code>prev</code> (String) - Refers to a resource containing the previous page of results, null if there is no previous page</li><li><code>self</code> (String) - The request that returned these results</li><li><code>next</code> (String) - Refers to a resource containing the next page of results, null if this is the last page</li></ul><li><code>_metadata</code> (Object) - Data representing Pagination details</li><ul><li><code>count</code> (Integer) - The total number of results returned from the request</li><li><code>skip</code> (Integer) - Value of skip in the request URI, if not specified the value will be 0</li><li><code>top</code> (Integer) - Value of top in the request URI, if not specified the value will be 30</li></ul><li><code>items</code> (Array[<a href="/api/partner-reporting/#transaction">Transaction</a>]) </li><ul><li><code>CompanyId</code> (Integer) </li><li><code>CompanyName</code> (String) </li><li><code>StoreId</code> (Integer) </li><li><code>StoreName</code> (String) </li><li><code>RQEmployeeId</code> (Integer) </li><li><code>SalesPersonName</code> (String) </li><li><code>InvoiceId</code> (String) </li><li><code>OriginalInvoiceId</code> (String) </li><li><code>SalesTransactionDateTime</code> (Datetime) </li><li><code>SalesTransactionType</code> (String) </li><li><code>ProductName</code> (String) </li><li><code>ProductSku</code> (String) </li><li><code>ProductLibrarySlug</code> (String) </li><li><code>Quantity</code> (Integer) </li><li><code>UnitCost</code> (Decimal) </li><li><code>GrossProfit</code> (Decimal) </li><li><code>TotalSales</code> (Decimal) </li><li><code>SerialNumber</code> (String) </li><li><code>ManufacturerName</code> (String) </li><li><code>ActivationType</code> (String) </li><li><code>CarrierName</code> (String) </li></ul></ul>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 200 Content-Type: application/json
+</pre>
+<pre>{
+  "_links": {
+    "prev": null,
+    "self": "/v1/partners(36)/salesTransactions?$skip=0&amp;$top=10&amp;StartDate=2015-10-03T17:35:00.000Z&amp;EndDate=2016-12-30T12:00:00.000Z",
+    "next": "/v1/partners(36)/salesTransactions?$skip=10&amp;$top=10&amp;StartDate=2015-10-03T17:35:00.000Z&amp;EndDate=2016-12-30T12:00:00.000Z"
+  },
+  "_metadata": {
+    "count": 100,
+    "skip": 0,
+    "top": 10
+  },
+  "items": [
+    {
+      "CompanyId": 1548,
+      "CompanyName": "CompanyA",
+      "StoreId": 548,
+      "StoreName": "Vancouver City Centre Mall",
+      "RQEmployeeId": 897,
+      "SalesPersonName": "Mike Johnson",
+      "InvoiceId": "36977459",
+      "OriginalInvoiceId": "36977400",
+      "SalesTransactionDateTime": "2015-12-03 17:35:00.000",
+      "SalesTransactionType": "Sales",
+      "ProductName": "Samsung Galaxy S4 16GB - Black Mist",
+      "ProductSku": "WDDDSM000146",
+      "Quantity": 1,
+      "TotalSales": 35.99,
+      "UnitCost": 5.7,
+      "GrossProfit": 30.29,
+      "ProductLibrarySlug": "M3310-V1-E13076",
+      "SerialNumber": "359367059548016",
+      "ManufacturerName": "Samsung",
+      "ActivationType": "New Activation",
+      "CarrierName": "Sasktel Mobility"
+    },          
+    {
+      "CompanyId": "1548",
+      "CompanyName": "CompanyA",
+      "StoreId": 548,
+      "StoreName": "White Rock",
+      "RQEmployeeId": 397,
+      "SalesPersonName": "Jane Smith",
+      "InvoiceId": 19949,
+      "OriginalInvoiceId": 1994546,
+      "SalesTransactionDateTime": "2015-10-03 10:4:00.000",
+      "SalesTransactionType": "Refund",
+      "ProductName": "$10 Fido Device Protection (iPhone and select Premium Tab) Term",
+      "ProductSKU": "FDFERB000195",
+      "Quantity": -1,
+      "TotalSales": -25,
+      "UnitCost": 0,
+      "GrossProfit": -25,
+      "ProductLibrarySlug": null,
+      "SerialNumber": "6047236477",
+      "ManufacturerName": "",
+      "ActivationType": "NotSet",
+      "CarrierName": null
+    },
+    {
+      "CompanyId": "1548",
+      "CompanyName": "CompanyA",
+      "StoreId": 542,
+      "StoreName": "Kinetic - Mission",
+      "RQEmployeeId": 415,
+      "SalesPersonName": "John Smith",
+      "InvoiceId": 1994908,
+      "OriginalInvoiceId": 1994908,
+      "SalesTransactionDateTime": "2015-10-03 10:45:00.000",
+      "SalesTransactionType": "Sales",
+      "ProductName": "Sony Xperia TL",
+      "ProductSKU": "DHADSO000045",
+      "Quantity": 1,
+      "TotalSales": 0,
+      "UnitCost": 300,
+      "GrossProfit": -300,
+      "ProductLibrarySlug": "M73",
+      "SerialNumber": "352226073857091",
+      "ManufacturerName": "Sony Ericsson",
+      "ActivationType": "Upgrade",
+      "CarrierName": "Rogers Wireless Inc."
+    }
+  ]
+}
+</pre>
+
+<h2 id="pagination" class="clickable-header top-level-header">Pagination</h2>
+
+<p>The Parner Reporting API supports pagination of collections of resources for some requests.</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<p>Pagination is done through the use of $skip and $top query string parameters.</p>
+
+<p><code>$skip</code> denotes the number of items to skip from the entire set of results. This value defaults to 0 if no <code>$skip</code> value is specified. If a value less than 0 is specified, the URI is considered malformed.</p>
+
+<p><code>$top</code> denotes the maximum number of items to include in the response. This value defaults to 30 if no <code>$top</code> value is specified. Acceptable values are in the range [0-100].</p>
+
+<h3 id="navigation-links">Navigation Links</h3>
+
+<p>Pagination-enabled requests include links for ‘self’, ‘prev’ and ‘next’ in the response data.</p>
+
+<p>These links are <em>relative</em>, they do not include the base endpoint. It is the responsibility of the client to prepend the appropriate endpoint.</p>
+
+<h5 id="example">Example</h5>
+
+<pre><code>{
+    "_links": {
+        "prev": null,
+        "self": "/v1/partners(36)/salesTransactions?startDate=2015-12-03&amp;endDate=2015-12-30&amp;$top=5",
+        "next": "/v1/partners(36)/salesTransactions?startDate=2015-12-03&amp;endDate=2015-12-30&amp;$skip=5&amp;$top=5"
+    },
+    "_metadata": {
+        "count": 15,
+        "skip": 0,
+        "top": 5
+    }
+}
+</code></pre>
+
+<p>In the example above, the <code>_links</code> section is included in the data returned from an API call to <a href="#getting-sales-transactions">Getting Sales Transactions</a>, where <code>$skip=0</code> and <code>$top=5</code>.</p>
+
+<p>The <code>self</code>.<code>href</code> value is the relative version of the API call that returned these results.</p>
+
+<p>The <code>next</code>.<code>href</code> refers to a resource containing a page with the <strong>next</strong> 5 items.</p>
+
+<p>The <code>prev</code>.<code>href</code> refers to a resource containing a page with the <strong>previous</strong> 5 items.</p>
+
+<h2 id="errors" class="clickable-header top-level-header">Errors</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">HTTP Status Code</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">How to Resolve</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code>HTTP 401</code></td>
+      <td style="text-align: left"><code>Unauthorized Access</code></td>
+      <td style="text-align: left">Ensure the access code provided is valid</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>HTTP 404</code></td>
+      <td style="text-align: left"><code>Not Found</code></td>
+      <td style="text-align: left">Ensure the PartnerId provided in the URI is correct</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>HTTP 400</code></td>
+      <td style="text-align: left"><code>Bad Request</code></td>
+      <td style="text-align: left">Ensure URI parameters are valid</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+              <div class="col-lg-1 hidden-md hidden-sm hidden-xs"><!-- start page metadata -->
+
+
+<div class="pageMetadata affix">
+    <div class="pageMetadataTitle">Table of Contents</div>
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+
+    $('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2, h3' });
+
+    //Resize once
+    resizeWindow();
+
+    //Resize whenever window changes
+    $(window).resize(function () {
+        resizeWindow();
+    });
+
+});
+
+function resizeWindow() {
+
+    var windowHeight = $(window).height();
+    var windowWidth = $(window).width();
+
+    var tocHeight = $(".pageMetadata").height();
+
+    if(windowWidth < 1560 || windowHeight < tocHeight) {        
+        //Grab "pageMetadata" and move it to first  child of .post-header
+        $(".pageMetadata").prependTo(".post-header");
+        $(".pageMetadata").removeClass("affix");        
+    } else if(windowWidth > 1560) {
+        //Grab "pageMetadata" and move it back to where it was
+        $(".pageMetadata").appendTo(".col-lg-1.hidden-md.hidden-sm.hidden-xs");
+        $(".pageMetadata" ).addClass("affix");
+    }      
+}
+
+</script>
+
+<div id="toc"></div>
+
+    
+    <p><div class="metadataRow"><span class="tagTitle">Last updated:</span> 13-7-2016</div></p>
+    
+
+</div>
+
+
+
+
+<!-- end pageMetadata --></div>
+            
+    </div>
+
+</body>
+
+<!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-408430-5', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+</html>
+

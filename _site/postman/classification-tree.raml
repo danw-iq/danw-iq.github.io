@@ -1,0 +1,29 @@
+#%RAML 0.8
+title: classification-tree
+baseUri: https://productlibrarydemo.iqmetrix.net/v1
+
+/ClassificationTrees({ClassificationTreeId}):
+    uriParameters:
+        
+        ClassificationTreeId:
+            displayName: ClassificationTreeId
+            type: string
+            example: 1
+            description: |
+                Identifier for the {{ClassificationTree}} 
+            required: true
+          
+      
+    get:
+        displayName: Getting a Classification Tree
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/json
+            
+        body:
+            
+    

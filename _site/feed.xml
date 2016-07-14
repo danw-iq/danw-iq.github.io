@@ -1,0 +1,922 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <description></description>
+    <link>http://localhost:4006///</link>
+    <atom:link href="http://localhost:4006///feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 14 Jul 2016 14:02:02 -0700</pubDate>
+    <lastBuildDate>Thu, 14 Jul 2016 14:02:02 -0700</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+        
+    
+        
+    
+        
+          <item>
+            <title>Assets</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/assets/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/assets/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/assets/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/assets/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Authentication FAQ</title>
+            <lastBuildDate>Thu, 05 May 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///other/auth-faq/</link>
+            <guid isPermaLink="true">http://localhost:4006///other/auth-faq/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Authentication FAQ</title>
+            <lastBuildDate>Thu, 05 May 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///faq/auth-faq/</link>
+            <guid isPermaLink="true">http://localhost:4006///faq/auth-faq/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Authentication</title>
+            <lastBuildDate>Mon, 25 Apr 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/authentication/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/authentication/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Authentication</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///tutorials/authentication/index.html</link>
+            <guid isPermaLink="true">http://localhost:4006///tutorials/authentication/index.html</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Inventory Availability</title>
+            <lastBuildDate>Tue, 29 Dec 2015 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///api/availability-v1/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/availability-v1/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Inventory Availability</title>
+            <lastBuildDate>Tue, 29 Dec 2015 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///api/availability/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/availability/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/availability/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/availability/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Inventory Availability</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/availability/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/availability/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/carrier-integration/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/carrier-integration/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Carrier Integration</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/carrier-integration/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/carrier-integration/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/catalog/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/catalog/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Catalog</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/catalog/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/catalog/</guid>
+          </item>
+        
+    
+        
+    
+        
+          <item>
+            <title>Classification Tree</title>
+            <lastBuildDate>Wed, 23 Mar 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///concepts/classification-tree/</link>
+            <guid isPermaLink="true">http://localhost:4006///concepts/classification-tree/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Classification Tree</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/classification-tree/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/classification-tree/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/classification-tree/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/classification-tree/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Customer Managed Inventory</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/cmi/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/cmi/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/cmi/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/cmi/</guid>
+          </item>
+        
+    
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/commissions/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/commissions/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Commissions</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/commissions/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/commissions/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Company Tree</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/company-tree/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/company-tree/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/company-tree/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/company-tree/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Company Tree</title>
+            <lastBuildDate>Wed, 23 Mar 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///concepts/company-tree/</link>
+            <guid isPermaLink="true">http://localhost:4006///concepts/company-tree/</guid>
+          </item>
+        
+    
+        
+    
+        
+    
+        
+          <item>
+            <title>Corporate Rewards</title>
+            <lastBuildDate>Tue, 19 Jan 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///api/corporate-rewards/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/corporate-rewards/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/cost-feed/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/cost-feed/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Cost Feed</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/cost-feed/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/cost-feed/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Creating a User for RQ</title>
+            <lastBuildDate>Mon, 11 Apr 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///guides/creating-a-user-for-rq/</link>
+            <guid isPermaLink="true">http://localhost:4006///guides/creating-a-user-for-rq/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Creating an In Store Order</title>
+            <lastBuildDate>Mon, 30 Nov 2015 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///guides/creating-an-in-store-order/</link>
+            <guid isPermaLink="true">http://localhost:4006///guides/creating-an-in-store-order/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Customers</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/crm/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/crm/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/crm/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/crm/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Customized Reports</title>
+            <lastBuildDate>Thu, 14 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/Customized-Reports/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/Customized-Reports/</guid>
+          </item>
+        
+    
+        
+    
+        
+          <item>
+            <title>Dropship FAQ</title>
+            <lastBuildDate>Wed, 04 May 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///other/dropship-faq/</link>
+            <guid isPermaLink="true">http://localhost:4006///other/dropship-faq/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Dropship FAQ</title>
+            <lastBuildDate>Wed, 04 May 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///faq/dropship-faq/</link>
+            <guid isPermaLink="true">http://localhost:4006///faq/dropship-faq/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Dropship Onboarding Guide</title>
+            <lastBuildDate>Mon, 18 Apr 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///guides/dropship-onboarding-guide/</link>
+            <guid isPermaLink="true">http://localhost:4006///guides/dropship-onboarding-guide/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Dropship Order Management Guide</title>
+            <lastBuildDate>Mon, 18 Apr 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///guides/dropship-order-guide/</link>
+            <guid isPermaLink="true">http://localhost:4006///guides/dropship-order-guide/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Dropship Point of Sale Guide</title>
+            <lastBuildDate>Mon, 30 May 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///guides/dropship-pos-guide/</link>
+            <guid isPermaLink="true">http://localhost:4006///guides/dropship-pos-guide/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Dropship Test Order Guide</title>
+            <lastBuildDate>Mon, 25 Apr 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///guides/dropship-test-order-guide/</link>
+            <guid isPermaLink="true">http://localhost:4006///guides/dropship-test-order-guide/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Dropship</title>
+            <lastBuildDate>Mon, 07 Dec 2015 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///dropship/</link>
+            <guid isPermaLink="true">http://localhost:4006///dropship/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/entity-store/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/entity-store/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Entities</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/entity-store/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/entity-store/</guid>
+          </item>
+        
+    
+        
+    
+        
+          <item>
+            <title>Envysion Reports</title>
+            <lastBuildDate>Thu, 14 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/Envysion-Reports/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/Envysion-Reports/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/epc/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/epc/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Electronic Product Catalog</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/epc/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/epc/</guid>
+          </item>
+        
+    
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/field-definitions/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/field-definitions/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Field Definitions</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/field-definitions/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/field-definitions/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title></title>
+            <lastBuildDate>Tue, 01 Dec 2015 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///api/front-page/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/front-page/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>General Ledger</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/general-ledger/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/general-ledger/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/general-ledger/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/general-ledger/</guid>
+          </item>
+        
+    
+        
+    
+        
+          <item>
+            <title>Glossary</title>
+            <lastBuildDate>Wed, 23 Mar 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/glossary/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/glossary/</guid>
+          </item>
+        
+    
+        
+    
+        
+          <item>
+            <title>Core Concepts</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///concepts/</link>
+            <guid isPermaLink="true">http://localhost:4006///concepts/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Guides</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///guides/</link>
+            <guid isPermaLink="true">http://localhost:4006///guides/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Introduction</title>
+            <lastBuildDate>Wed, 23 Mar 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/</guid>
+          </item>
+        
+    
+        
+    
+        
+    
+        
+          <item>
+            <title>Invoice</title>
+            <lastBuildDate>Thu, 18 Feb 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///api/invoice/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/invoice/</guid>
+          </item>
+        
+    
+        
+    
+        
+    
+        
+          <item>
+            <title>Orders</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/orders/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/orders/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/orders/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/orders/</guid>
+          </item>
+        
+    
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/partner-relationships/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/partner-relationships/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Partner Relationships</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/partner-relationships/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/partner-relationships/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/partner-reporting/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/partner-reporting/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Partner Reporting</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/partner-reporting/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/partner-reporting/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Pricing</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/pricing/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/pricing/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/pricing/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/pricing/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Product Feed Requirements</title>
+            <lastBuildDate>Mon, 21 Mar 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///product-feed-requirements/</link>
+            <guid isPermaLink="true">http://localhost:4006///product-feed-requirements/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Product Feed</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/product-feed/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/product-feed/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/product-feed/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/product-feed/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/product-library/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/product-library/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Product Library</title>
+            <lastBuildDate>Wed, 23 Mar 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///concepts/product-library/</link>
+            <guid isPermaLink="true">http://localhost:4006///concepts/product-library/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Products</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/product-library/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/product-library/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/product-structure/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/product-structure/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Product Structure</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/product-structure/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/product-structure/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Product Structure</title>
+            <lastBuildDate>Wed, 23 Mar 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///concepts/product-structure/</link>
+            <guid isPermaLink="true">http://localhost:4006///concepts/product-structure/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/product-subscription/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/product-subscription/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Product Subscription</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/product-subscription/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/product-subscription/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Punch Clock</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/punch-clock/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/punch-clock/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/punch-clock/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/punch-clock/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Rate Limiting</title>
+            <lastBuildDate>Wed, 23 Mar 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/rate-limiting/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/rate-limiting/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Reference</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/reference/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/reference/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/reference/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/reference/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>RQ Data Connect Bridge</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/RQ-Data-Connect-Bridge/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/RQ-Data-Connect-Bridge/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Envysion Rq Data Connect</title>
+            <lastBuildDate>Mon, 11 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/Envysion-RQ-Data-Connect/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/Envysion-RQ-Data-Connect/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>RQ Data Connect</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/RQ-Data-Connect/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/RQ-Data-Connect/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>RQ Data Connect Guide</title>
+            <lastBuildDate>Mon, 11 Apr 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///guides/rq-data-connect</link>
+            <guid isPermaLink="true">http://localhost:4006///guides/rq-data-connect</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Shipping Aggregator</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/saccs/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/saccs/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/saccs/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/saccs/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/security-roles/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/security-roles/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Security Roles</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/security-roles/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/security-roles/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Shipping Options</title>
+            <lastBuildDate>Fri, 12 Feb 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///api/shipping-options/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/shipping-options/</guid>
+          </item>
+        
+    
+        
+    
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/supplier-availability/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/supplier-availability/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Supplier Availability</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/supplier-availability/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/supplier-availability/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Supplier Orders</title>
+            <lastBuildDate>Fri, 12 Feb 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///api/supplier-orders/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/supplier-orders/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/Trade-In-Reporting-Service/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/Trade-In-Reporting-Service/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Trade In Reporting Service</title>
+            <lastBuildDate>Mon, 09 May 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/Trade-In-Reporting-Service/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/Trade-In-Reporting-Service/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>User Manager</title>
+            <lastBuildDate>Wed, 23 Mar 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///concepts/user-manager/</link>
+            <guid isPermaLink="true">http://localhost:4006///concepts/user-manager/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Interactive Console</title>
+            <lastBuildDate>Thu, 03 Mar 2016 00:00:00 -0800</lastBuildDate>
+            <link>http://localhost:4006///interactive/user-manager/</link>
+            <guid isPermaLink="true">http://localhost:4006///interactive/user-manager/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>User Manager</title>
+            <lastBuildDate>Wed, 13 Jul 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/user-manager/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/user-manager/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>VMI Onboarding Guide</title>
+            <lastBuildDate>Mon, 13 Jun 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///guides/vmi-onboarding-guide/</link>
+            <guid isPermaLink="true">http://localhost:4006///guides/vmi-onboarding-guide/</guid>
+          </item>
+        
+    
+        
+          <item>
+            <title>Vendor Managed Inventory</title>
+            <lastBuildDate>Wed, 01 Jun 2016 00:00:00 -0700</lastBuildDate>
+            <link>http://localhost:4006///api/vmi/</link>
+            <guid isPermaLink="true">http://localhost:4006///api/vmi/</guid>
+          </item>
+        
+    
+  </channel>
+</rss>

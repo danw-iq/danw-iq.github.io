@@ -1,0 +1,73 @@
+#%RAML 0.8
+title: epc
+baseUri: https://platformepcdemo.iqmetrix.net/v1
+
+/companies({CompanyId})/products:
+    uriParameters:
+        
+        CompanyId:
+            displayName: CompanyId
+            type: integer
+            example: 1
+            description: |
+                Identifier for the Company 
+            required: true
+          
+      
+    post:
+        displayName: Importing Products
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/json
+            
+            Content-Type:
+                example: application/json
+            
+        body:
+            
+            application/json:
+                
+                
+                example: |  
+                    {"RegularProducts":[{"Id":12,"Barcodes":["BARCODE123"],"ProductName":"iPhone 4S 16GB White","CategoryName":"Products > Phones > Smartphones","DaysKeptInStock":10,"DefaultPricing":{"AllowReturns":true,"Discountable":true,"FloorPrice":0,"ForSale":true,"InvoiceComments":"Invoice comment","LockMinMaxed":true,"Margin":1,"MaximumQuantity":10,"MinimumQuantity":1,"MsrpAmount":499.99,"MsrpCurrencyCode":"USD","Price":499.99,"PrimaryVendorName":"Apple","RefundPeriod":10,"RefundToUsed":false,"ShowOnInvoice":true,"StoreInStorePrice":399.99},"Enabled":true,"EnforcedTrackingNumberLength":50,"ExtendedAttributes":[{"Name":"ProductId","Value":"66"}],"GlCostOfSalesAccountNumber":"1001","GlInventoryAccountNumber":"1002","GlInventoryCorrectionsAccountNumber":"1001","GlSalesAccountNumber":"1003","IgnoreAutomaticTaxAddition":false,"LocationVendors":[{"Cost":99.99,"DiscontinuedDate":"2016-01-01T12:00:00.000","DoNotOrder":false,"EndOfLife":"2016-01-01T12:00:00.000","SpecialOrder":false,"TargetLocationName":"Saskatchewan","TargetLocationType":"RegionName","VendorName":"SampleVendor","WriteOff":false}],"LongDescription":"The iPhone 4S is a gradualstep over the iPhone 4.","ManufacturerName":"Apple","ManufacturerSku":"ABC123","Model":"iPhone 6","PricingAndPurchasingLocations":[{"AllowReturns":true,"Discountable":true,"FloorPrice":0,"ForSale":true,"InvoiceComments":"Invoice comment","LockMinMaxed":true,"Margin":1,"MaximumQuantity":10,"MinimumQuantity":1,"MsrpAmount":499.99,"MsrpCurrencyCode":"USD","Price":499.99,"PrimaryVendorName":"Apple","RefundPeriod":10,"RefundToUsed":false,"SaleBeginDate":"2015-10-14T12:00:00.000","SaleEndDate":"2015-10-18T12:00:00.000","SalePrice":399.99,"ShowOnInvoice":true,"StoreInStorePrice":399.99,"TargetLocationName":"Saskatchewan","TargetLocationType":"RegionName"}],"PricingMethod":"Fixed","ProductLabel":"","ProductReferenceId":"PRO123","ReleaseDate":"2011-10-14T12:00:00.000","Serialized":true,"SerialNumberPromptText":"Serial prompt text here","ShortDescription":"Better than the iPhone 3G","Vendors":[{"Cost":99.99,"DiscontinuedDate":"2016-01-01T12:00:00.000","DoNotOrder":false,"EndOfLife":"2016-01-01T12:00:00.000","SpecialOrder":false,"VendorName":"SampleVendor","VendorSku":"DEF987","WriteOff":false}],"WarehouseLocation":"Cornwall"}],"NonStockedProducts":[{"Id":14,"ProductName":"Prepaid Rate Plan","CategoryName":"Rate Plans > Rate Plans","DefaultPricing":{"AllowReturns":false,"CarrierPrice":0,"Cost":0,"Discountable":false,"FloorPrice":0,"ForSale":true,"InvoiceComments":"Invoice comment","Margin":0,"Price":0,"RefundPeriod":null,"ShowOnInvoice":true,"StoreInStorePrice":399.99},"Enabled":true,"EnforcedTrackingNumberLength":50,"ExtendedAttributes":[{"Name":"ProductId","Value":"66"}],"GlCostOfSalesAccountNumber":"1001","GlInventoryAccountNumber":"1002","GlSalesAccountNumber":"1003","IgnoreAutomaticTaxAddition":true,"LongDescription":"Prepaid plan forpeople on the go","PricingLocations":[{"AllowReturns":false,"CarrierPrice":0,"Cost":0,"Discountable":false,"FloorPrice":0,"ForSale":true,"InvoiceComments":"Invoice comment","Margin":0,"Price":0,"SalePrice":0,"SaleBeginDate":"null","SaleEndDate":"null","ShowOnInvoice":true,"RefundPeriod":null,"StoreInStorePrice":399.99,"TargetLocationName":"Saskatchewan","TargetLocationType":"RegionName"}],"PricingMethod":"Fixed","ProductLabel":"Prepaid Rate Plan","ProductReferenceId":"PRO123A","RefundPeriod":null,"Serialized":false,"SerialNumberPromptText":"null","ShortDescription":"Prepaid plan"}],"NonRevenueProducts":[{"Id":18,"ProductName":"Recycling Fee","CategoryName":"Misc > Misc. Fees","DefaultPricing":{"AllowReturns":false,"CarrierPrice":0,"Cost":0,"Discountable":false,"FloorPrice":0,"ForSale":true,"InvoiceComments":"Invoice comment","Margin":0,"Price":0,"RefundPeriod":null,"ShowOnInvoice":true,"StoreInStorePrice":399.99},"Enabled":true,"EnforcedTrackingNumberLength":50,"ExtendedAttributes":[{"Name":"ProductId","Value":"66"}],"GlCostOfSalesAccountNumber":"1001","GlInventoryAccountNumber":"1002","GlSalesAccountNumber":"1003","IgnoreAutomaticTaxAddition":false,"LongDescription":"Recycling fee to disposeof old handset","PricingLocations":[{"AllowReturns":false,"CarrierPrice":0,"Cost":0,"Discountable":false,"FloorPrice":0,"ForSale":true,"InvoiceComments":"Invoice comment","Margin":0,"Price":0,"SalePrice":0,"SaleBeginDate":"null","SaleEndDate":"null","ShowOnInvoice":true,"RefundPeriod":null,"StoreInStorePrice":399.99,"TargetLocationName":"Saskatchewan","TargetLocationType":"RegionName"}],"PricingMethod":"Fixed","ProductLabel":"Recycling Fee","ProductReferenceId":"PRO123C","Serialized":true,"SerialNumberPromptText":"Serial prompt text here","ShortDescription":"Recycling fee"}],"VendorRebateProducts":[{"Id":16,"VendorName":"SampleVendor","ProductName":"2 YR New Act","CategoryName":"Rate Plans > Rate Plan Rebates","DefaultPricing":{"AllowReturns":false,"CarrierPrice":0,"Cost":0,"Discountable":false,"FloorPrice":0,"ForSale":true,"InvoiceComments":"Invoice comment","Margin":0,"Price":0,"RefundPeriod":null,"ShowOnInvoice":true,"StoreInStorePrice":399.99},"Enabled":true,"EnforcedTrackingNumberLength":50,"ExtendedAttributes":[{"Name":"ProductId","Value":"66"}],"GlCostOfSalesAccountNumber":"1001","GlInventoryAccountNumber":"1002","GlSalesAccountNumber":"1003","IgnoreAutomaticTaxAddition":false,"LongDescription":"Rebate on 2 year actiations","PricingLocations":[{"AllowReturns":false,"CarrierPrice":0,"Cost":0,"Discountable":false,"FloorPrice":0,"ForSale":true,"InvoiceComments":"Invoice comment","Margin":0,"Price":0,"SalePrice":0,"SaleBeginDate":"null","SaleEndDate":"null","ShowOnInvoice":true,"RefundPeriod":null,"StoreInStorePrice":399.99,"TargetLocationName":"Saskatchewan","TargetLocationType":"RegionName"}],"PricingMethod":"Fixed","ProductLabel":"2 YR New Act","ProductReferenceId":"PRO123B","Serialized":true,"SerialNumberPromptText":"Serial prompt text here","ShortDescription":"2 yr rebate","VendorAccountName":"Verizon"}]}
+                
+            
+    
+
+/companies({CompanyId})/batches({BatchId})/status:
+    uriParameters:
+        
+        CompanyId:
+            displayName: CompanyId
+            type: integer
+            example: 1
+            description: |
+                Identifier for the Company 
+            required: true
+        
+        BatchId:
+            displayName: BatchId
+            type: integer
+            example: 3
+            description: |
+                Identifier of the batch, which is supplied in responses to other requests to the EPC API 
+            required: true
+          
+      
+    get:
+        displayName: Getting Status for a Batch
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/json
+            
+        body:
+            
+    

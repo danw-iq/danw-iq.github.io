@@ -1,0 +1,29 @@
+#%RAML 0.8
+title: Authentication
+baseUri: https://accountsdemo.iqmetrix.net/v1
+/oauth2/token:
+  post:
+    headers: 
+      Content-Type:
+        example: application/x-www-form-urlencoded
+        required: true  
+    body:
+      application/x-www-form-urlencoded:
+        formParameters:
+          grant_type: 
+            type: string
+            description: The value must be password for getting an access token or refresh_token for  refreshing
+            example: refresh_token
+            required: true
+          refresh_token:
+            type: string
+            description: The refresh token we are exchanging
+            required: true
+          client_id:
+            type: string
+            description: The client ID, provided by iQmetrix
+            required: true
+          client_secret:
+            type: string
+            description: The client secret
+            required: true     

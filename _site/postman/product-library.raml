@@ -1,0 +1,55 @@
+#%RAML 0.8
+title: product-library
+baseUri: https://productlibrarydemo.iqmetrix.net/v1
+
+/Products/{SlugId}:
+    uriParameters:
+        
+        SlugId:
+            displayName: SlugId
+            type: string
+            example: M870-V7
+            description: |
+                Identifier for the <a href="api/catalog/#product-slug">Product Slug</a> 
+            required: true
+          
+      
+    get:
+        displayName: Get Product by Slug ID
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/json
+            
+        body:
+            
+    
+
+/Products/FindByIdentifier?{Options}:
+    uriParameters:
+        
+        Options:
+            displayName: Options
+            type: string
+            example: value=336963&type=VendorSKU&entityId=13238
+            description: |
+                The options for the search 
+            required: true
+          
+      
+    get:
+        displayName: Searching for Products by Identifier
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/json
+            
+        body:
+            
+    

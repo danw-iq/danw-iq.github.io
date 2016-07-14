@@ -1,0 +1,184 @@
+#%RAML 0.8
+title: product-subscription
+baseUri: https://productsubscriptionsdemo.iqmetrix.net/v1
+
+/subscription({ListId}):
+    uriParameters:
+        
+        ListId:
+            displayName: ListId
+            type: string
+            example: 43d92a51-650e-4b85-b5d0-8d51bf4c59f4
+            description: |
+                 
+            required: true
+          
+      
+    get:
+        displayName: Getting All Companies in a Product Subscription
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/json
+            
+        body:
+            
+    
+
+/subscribablelists({ListId}):
+    uriParameters:
+        
+        ListId:
+            displayName: GUID
+            type: string
+            example: 43d92a51-650e-4b85-b5d0-8d51bf4c59f4
+            description: |
+                GUID you have added for {{SubscribableList}} 
+            required: true
+          
+      
+    put:
+        displayName: Creating a Subscribable List
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/json
+            
+            Content-Type:
+                example: application/json
+            
+        body:
+            
+            application/json:
+                
+                
+                example: |
+                    {
+                        "EntityId": 14107,
+                        "Name": "Test List Name",
+                        "Dropshippable": true
+                    }
+                    
+
+                
+            
+    
+
+/subscribablelists({SubscribableListId}):
+    uriParameters:
+        
+        SubscribableListId:
+            displayName: Id
+            type: string
+            example: 43d92a51-650e-4b85-b5d0-8d51bf4c59f4
+            description: |
+                Identifier for a {{SubscribableList}} 
+            required: true
+          
+      
+    get:
+        displayName: Getting a Subscribable List
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/json
+            
+        body:
+            
+      
+    put:
+        displayName: Updating Products in a Subscribable List
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/json
+            
+            Content-Type:
+                example: application/json
+            
+        body:
+            
+            application/json:
+                
+                
+                example: |
+                    {
+                       "EntityId": 14107,
+                       "Name": "Nozama's Product List",
+                       "Products": [
+                           {
+                               "ProductName": "Samsung Galaxy S4 Standard Battery",
+                               "VendorSku": "B00LAOKN4S",
+                               "Price": 24.99,
+                               "Dropshippable": true
+                           }
+                       ]          
+                    }
+                    
+
+                
+            
+    
+
+/subscription({ListId})/company({CompanyId}):
+    uriParameters:
+        
+        ListId:
+            displayName: ListId
+            type: string
+            example: 43d92a51-650e-4b85-b5d0-8d51bf4c59f4
+            description: |
+                Identifier for a {{SubscribableList}} 
+            required: true
+        
+        CompanyId:
+            displayName: CompanyId
+            type: integer
+            example: 14146
+            description: |
+                Identifier for the {{Company}} 
+            required: true
+          
+      
+    put:
+        displayName: Adding a Company to a Subscribable List
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/json
+            
+            Content-Type:
+                example: application/json
+            
+        body:
+            
+            application/json:
+                
+                
+            
+      
+    delete:
+        displayName: Deleting a Company from a Subscribable List
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+        body:
+            
+    

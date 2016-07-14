@@ -1,0 +1,362 @@
+#%RAML 0.8
+title: carrier-integration
+baseUri: https://carrierservicesdemo.iqmetrix.net/v2
+
+/Companies({CompanyId})/Locations({LocationId})/Carriers({CarrierId})/Activations({ActivationId}):
+    uriParameters:
+        
+        CompanyId:
+            displayName: CompanyId
+            type: integer
+            example: 123
+            description: |
+                Identifier for the {{Company}} 
+            required: true
+        
+        LocationId:
+            displayName: LocationId
+            type: integer
+            example: 5678
+            description: |
+                Identifier for the {{Location}} 
+            required: true
+        
+        CarrierId:
+            displayName: CarrierId
+            type: integer
+            example: 41
+            description: |
+                Identifier for the {{Carrier}} 
+            required: true
+        
+        ActivationId:
+            displayName: ActivationId
+            type: string
+            example: 6=1115550123
+            description: |
+                Activation lookup string, see <a href="#getting-an-activation">Getting an Activation</a> 
+            required: true
+          
+      
+    put:
+        displayName: Creating an Activation
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/json
+            
+            Content-Type:
+                example: application/json
+            
+        body:
+            
+            application/json:
+                
+                
+                example: |  
+                    {"Id":"6=1115550123","CarrierActivationDetails":{"ActivationId":354,"ActivationDate":"2015-06-19T05:44:39.7163989Z","ActivatedProduct":{"Description":"Samsung Galaxy S5","ESN":"35854205829867","IMEI":"351756051523999","Make":"Samsung","MobileDeviceNumber":"1115550123","Model":"Galaxy S5","Price":499,"ProductId":"","SerialNumber":"98769456321","SIM":"89000000000000001234","SKU":"DEF987","SOCCode":"DEF987","Tab":{"Amount":50,"Commission":{"Name":"Promo","Description":"FREE Roam Like Home","Amount":55,"Notes":"US","ReferenceNumber":"abc123","SOCCode":"AGG242"},"ReferenceNumber":"abc123"}},"ActivationState":"Pending","ActivationTermCode":"EarlyUpgrade","ActivationType":"NewActivation","AdditionalFees":[{"Name":"Roaming","Description":"Roam like home","Amount":55,"Notes":"US","Rebate":{"Name":"Promo","Description":"FREE Roam Like Home","Amount":55,"Notes":"US","ReferenceNumber":"abc123","SOCCode":"AGG242"},"ReferenceNumber":"abc123","SOCCode":"BB3221"}],"ContractLengthInMonths":24,"ContractNumberIsAccountNumber":false,"DealerName":"IAPR","DealerCode":"IAPR","Deposit":{"Name":"Roaming","Description":"Roam like home","Amount":55,"Notes":"US","Rebate":{"Name":"Promo","Description":"FREE Roam Like Home","Amount":55,"Notes":"US","ReferenceNumber":"abc123","SOCCode":"AGG242"},"ReferenceNumber":"abc123","SOCCode":"BB3221"},"Notes":"Notes go here!","OrderNumber":"ORD1234","RatePlans":[{"RatePlanId":"ABC1234","Name":"Country-wide Unlimited","ContractTerms":"Some terms","Description":"The perfect plan for lots of calling!","IncludedRatePlanFeatures":[{"RatePlanAddonId":"XYZ5678","Name":"TEXT100","Description":"One hundred additional text messages.","MonthlyRecurringCharges":5,"SOCCode":"XYZ5678"}],"MonthlyRecurringCharges":55,"RatePlanFeatureAddons":[{"RatePlanAddonId":"XYZ5678","Name":"TEXT100","Description":"One hundred additional text messages.","MonthlyRecurringCharges":5,"SOCCode":"XYZ5678"}],"SOCCode":"ABC1234"}],"RemoteActivationID":"3023997373","Subscriber":{"SubscriberId":"12121212121","FirstName":"Joe","LastName":"Smith","Addresses":[{"AddressLine1":"123 Main Street","AddressLine2":"Apt 200","City":"Dover","Country":"USA","County":"Fairfield","POBox":"PO Box 123","PostalCode":"19901","Province":"DE","SuiteNumber":"100","Type":"Residential"}],"AssociatedAccount":{"AccountId":"343434343","Notes":"","TrackingNumber":"5656565656"},"BirthDate":"5/16/1980","CompanyName":"","Email":"subscriber@example.com","IsIndividual":true,"Notes":"24 Month Term","PhoneNumbers":[{"Type":"Home","Value":"1234561234"}],"SSN":"6789","TrackingNumber":"2121212121"},"TrackingNumber":"3023997373"},"CarrierId":41,"CompanyId":1234,"LocationId":5678}
+                
+            
+    
+
+/Companies({CompanyId})/Locations({LocationId})/Carriers({CarrierId})/Activations({ActivationLookup}):
+    uriParameters:
+        
+        CompanyId:
+            displayName: CompanyId
+            type: integer
+            example: 123
+            description: |
+                Identifier for the {{Company}} 
+            required: true
+        
+        LocationId:
+            displayName: LocationId
+            type: integer
+            example: 5678
+            description: |
+                Identifier for the {{Location}} 
+            required: true
+        
+        CarrierId:
+            displayName: CarrierId
+            type: integer
+            example: 41
+            description: |
+                Identifier for the {{Carrier}} 
+            required: true
+        
+        ActivationLookup:
+            displayName: ActivationLookup
+            type: string
+            example: 6=1115550123
+            description: |
+                Activation lookup string 
+            required: true
+          
+      
+    get:
+        displayName: Getting an Activation
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/json
+            
+            Content-Type:
+                example: application/json
+            
+        body:
+            
+    
+
+/Companies({CompanyId})/Carriers({CarrierId})/ActivationImportFields:
+    uriParameters:
+        
+        CompanyId:
+            displayName: CompanyId
+            type: integer
+            example: 123
+            description: |
+                Identifier for the {{Company}} 
+            required: true
+        
+        CarrierId:
+            displayName: CarrierId
+            type: integer
+            example: 41
+            description: |
+                Identifier for the {{Carrier}} 
+            required: true
+          
+      
+    get:
+        displayName: Getting Activation Lookup Fields
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/json
+            
+            Content-Type:
+                example: application/json
+            
+        body:
+            
+    
+
+/Companies({CompanyId})/Carriers({CarrierId})/Configurations:
+    uriParameters:
+        
+        CompanyId:
+            displayName: CompanyId
+            type: integer
+            example: 123
+            description: |
+                Identifier for the {{Company}} 
+            required: true
+        
+        CarrierId:
+            displayName: CarrierId
+            type: integer
+            example: 41
+            description: |
+                Identifier for the {{Carrier}} 
+            required: true
+          
+      
+    get:
+        displayName: Getting Configurations By Company and Carrier
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/json
+            
+        body:
+            
+      
+    post:
+        displayName: Enabling a Carrier Integration for a Location
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/json
+            
+            Content-Type:
+                example: application/json
+            
+        body:
+            
+            application/json:
+                
+                
+                example: |
+                    {
+  "CompanyWideSettingsResource": {
+    "CompanyWideIntegrationSettings": [
+      {
+        "Id": 1,
+        "Value": "True",
+        "ValueOptions": null
+      }
+    ]
+  },
+  "LocationSettingsResource": {
+    "Locations": [
+      {
+        "LocationID": 5678,
+        "IntegrationSettings": [
+          {
+            "Id": 1,
+            "Value": "True",
+            "ValueOptions": null
+          }
+        ]
+      }
+    ]
+  }
+}
+
+                
+            
+    
+
+/Companies({CompanyId})/Carriers({CarrierId})/Configurations/:
+    uriParameters:
+        
+        CompanyId:
+            displayName: CompanyId
+            type: integer
+            example: 123
+            description: |
+                Identifier for the {{Company}} 
+            required: true
+        
+        CarrierId:
+            displayName: CarrierId
+            type: integer
+            example: 41
+            description: |
+                Identifier for the {{Carrier}} 
+            required: true
+          
+      
+    post:
+        displayName: Disabling a Carrier Integration for a Location
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/json
+            
+            Content-Type:
+                example: application/json
+            
+        body:
+            
+            application/json:
+                
+                
+                example: |
+                    {
+  "CompanyWideSettingsResource": {
+    "CompanyWideIntegrationSettings": [
+      {
+        "Id": 1,
+        "Value": "True",
+        "ValueOptions": null
+      }
+    ]
+  },
+  "LocationSettingsResource": {
+    "Locations": [
+      {
+        "LocationID": 5678,
+        "IntegrationSettings": [
+          {
+            "Id": 1,
+            "Value": "False",
+            "ValueOptions": null
+          }
+        ]
+      }
+    ]
+  }
+}
+
+                
+            
+    
+
+/Companies({CompanyId})/Carriers({CarrierId})/ConfirmedActivations?$filter=ConfirmationDateUTC ge DateTime'{ConfirmationDate}'&$skip={Skip}&$top={Top}:
+    uriParameters:
+        
+        CompanyId:
+            displayName: CompanyId
+            type: integer
+            example: 123
+            description: |
+                Identifier for the {{Company}} 
+            required: true
+        
+        CarrierId:
+            displayName: CarrierId
+            type: integer
+            example: 41
+            description: |
+                Identifier for the {{Carrier}} 
+            required: true
+        
+        ConfirmationDate:
+            displayName: ConfirmationDate
+            type: string
+            example: Thu Jul 16 2015 09:29:31 GMT-0600 (Canada Central Standard Time)
+            description: |
+                Limits returned records to ones that were created after the specified date 
+            required: false
+        
+        Skip:
+            displayName: Skip
+            type: integer
+            example: 0
+            description: |
+                Number of records to skip before returning. See <a href="#pagiation">Pagination</a> for more details 
+            required: false
+        
+        Top:
+            displayName: Top
+            type: integer
+            example: 5
+            description: |
+                Maximum number of records return. See <a href="#pagiation">Pagination</a> for more details 
+            required: false
+          
+      
+    get:
+        displayName: Retrieving Completed Activations
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/hal+json
+            
+        body:
+            
+    

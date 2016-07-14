@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=",  supplier orders dropship">
+<title>Supplier Orders  | iQmetrix Developer Portal</title>
+<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/modern-business.css">
+<link rel="stylesheet" type="text/css" href="../../css/customstyles.css">
+<link rel="stylesheet" type="text/css" href="" | prepend:site.pagefileurl }}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../../js/jquery.navgoco.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
+<script src="../../js/toc.js"></script>
+<script src="../../js/customscripts.js"></script>
+<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+
+
+<!-- Image popup source files -->
+<!-- http://dimsemenov.com/plugins/magnific-popup/ -->
+<link rel="stylesheet" type="text/css" href="../../css/magnific-popup.css">
+<script src="../../js/jquery.magnific-popup.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+
+        // surround each image with an anchor class  for image popup
+        $('img').each( function() {
+            var $img = $(this),
+            href = $img.attr('src');
+            $img.wrap('<a class="image-link" href=' + href + '></a>');
+             
+        });
+
+        // make each image with image-link class popup "on click"
+        // !! Drawback -- all images could popup :(
+        $('.image-link').magnificPopup({
+            type:'image',
+            closeOnContentClick: true
+        });
+                
+    });    
+</script>
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+    //Hacky code to make sure they don't go to a bad page
+    $( window ).load(function() {
+
+        if (document.baseURI.indexOf("api/generalledger.html") > 0) {
+            window.location.href = 'http://developers.iqmetrix.com/api/general-ledger/';
+        }
+        else if (document.baseURI.indexOf("api/productlibrary.html") > 0) {
+          window.location.href = 'http://developers.iqmetrix.com/api/product-library/';
+        }
+        else if (document.baseURI.indexOf("api/entitystore.html") > 0) {
+          window.location.href = 'http://developers.iqmetrix.com/api/entity-store/';
+        }
+        else if(document.baseURI.indexOf(".html") > 0) {
+           window.location.href = document.baseURI.substring(0, document.baseURI.indexOf(".html"));
+        }
+    });
+</script>
+
+
+
+
+
+ 
+
+<script>
+  $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+
+
+
+
+
+  </head>
+
+<body>
+
+   <!-- Send feedback function -->
+<script>
+    function SendLinkByMail(href) {
+        var subject= " all documentation feedback";
+        var body = "I have some feedback about the Supplier Orders page: ";
+        body += window.location.href;
+        body += "";
+        var uri = "mailto:apidesign@iqmetrix.com?subject=";
+        uri += encodeURIComponent(subject);
+        uri += "&body=";
+        uri += encodeURIComponent(body);
+        window.location.href = uri;
+    }
+</script>
+
+<!-- Navigation -->
+<nav id="navbar-custom" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+   <div class="container topnavlinks">
+   <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a href="http://localhost:4006/">
+        <span id="top-iq-logo"><img src="http://melissakendall.github.io/documentation-testing/images/iq-logo-white.png"></span>
+        <span id="projectTitle">iQmetrix Developer Portal</span>
+      </a>
+   </div>
+   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul id="top-bar-categories" class="nav navbar-nav navbar-right">
+      
+      <!-- entries without drop-downs appear here -->
+      <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+      <!-- 
+
+Hard coding for now, so no longer uses topnav config
+
+
+
+
+
+
+
+
+
+  
+      
+      
+          <li><a href="/api/changelog/">CHANGELOG</a></li>
+      
+    
+  
+      
+      
+          <li class="active"><a href="//">API REFERENCE</a></li>
+       
+    
+  
+      
+      
+          <li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
+      
+    
+  
+
+
+-->
+
+<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=all">SHOW ALL</a></li>
+<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=partner">PARTNERS</a></li>
+<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=dropship">DROPSHIP</a></li>
+<li><a href="mailto:?subject=Support">SUPPORT</a></li>
+<li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
+
+         <!--
+      <li>
+         <div id="search-demo-container">
+            <input type="text" id="search-input" placeholder="">
+            <ul id="results-container"></ul>
+         </div>
+         <script src="../..//js/jekyll-search.js" type="text/javascript"></script>
+         <script type="text/javascript">
+            SimpleJekyllSearch({
+              searchInput: document.getElementById('search-input'),
+              resultsContainer: document.getElementById('results-container'),
+              json: '../../search.json',
+              searchResultTemplate: '<li><a href="{url}" title="Supplier Orders">{title}</a></li>',
+              noResultsText: '',
+              exclude: '404'
+            })
+         </script>
+      </li>
+         -->
+    
+
+   </div>
+   <!-- /.container -->
+</nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="col-lg-12">&nbsp;</div>
+
+            <!-- Col-md-3 -->
+            <!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+            $(document).ready(function() {
+
+                // Initialize navgoco with default options
+                $("#mysidebar").navgoco({
+                    caretHtml: '',
+                    accordion: true,
+                    openClass: 'active', // open
+                    save: false, // leave false or nav higlighting doesn't work right
+                    cookie: {
+                        name: 'navgoco',
+                        expires: false,
+                        path: '/'
+                    },
+                    slide: {
+                        duration: 400,
+                        easing: 'swing'
+                    }
+                });
+
+                $("#collapseAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', false);
+                });
+
+                $("#expandAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', true);
+                });
+
+
+                if(window.location.hostname == "melissakendall.github.io")
+                {
+                    $("#mysidebar a").each(function(e) {
+                        var url = $(this).attr("href");
+                        
+                        if(url != null) {
+                            url = "http://melissakendall.github.io/documentation-testing" + url;
+                        }
+
+                        $(this).attr("href", url);
+                    });                   
+                }
+
+            });
+                           
+        </script>
+
+        
+
+
+
+
+
+
+
+        <ul id="mysidebar" class="nav affix">
+            
+                
+                    
+                        <li><a>API Reference</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/api/authentication/">Authentication</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/assets/">Assets</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/catalog/">Catalog</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/company-tree/">Company Tree</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/crm/">Customers</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Dropship</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/cost-feed/">Cost Feed</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-feed/">Product Feed</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-subscription/">Product Subscription</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/saccs/">Shipping Aggregator</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/shipping-options/">Shipping Options</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/supplier-availability/">Supplier Availability</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li class="active"><a href="/api/supplier-orders/">Supplier Orders</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/entity-store/">Entities</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/general-ledger/">General Ledger</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/availability/">Inventory Availability</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/orders/">Orders</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Partners</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/partner-reporting/">Partner Reporting</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/partner-relationships/">Relationships</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/pricing">Pricing</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Product Library</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/classification-tree/">Classification Tree</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/field-definitions/">Field Definitions</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-library/">Products</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/product-structure/">Product Structure</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/reference/">Reference</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">RQ</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/api/carrier-integration/">Carrier Integration</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/cmi/">Customer Managed Inventory (CMI)</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/commissions/">Commissions</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/epc/">Electronic Product Catalog (EPC)</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/punch-clock/">Punch Clock</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/api/vmi/">Vendor Managed Inventory (VMI)</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/security-roles/">Security Roles</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/api/user-manager/">User Manager</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a>Guides</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/guides/creating-an-in-store-order/">Creating an In Store Order</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/creating-a-user-for-rq/">Creating a User for RQ</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Dropship Client Integration Guides</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-pos-guide/">Dropship Point of Sale Guide</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Dropship Partner Integration Guides</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-onboarding-guide/">Dropship Onboarding Guide</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-order-guide/">Dropship Order Management Guide</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/dropship-test-order-guide/">Dropship Test Order Guide</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/commerce-guide/">eCommerce Integration Guide</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel"><a href="#">Endless Aisle Integration Guide</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/overview">Overview</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/corporate-hierarchy">Corporate Hierarchy</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/content">Content</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/inventory">Inventory</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a href="/guides/ea-guide/orders">Orders</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/3pa/">Third Party Authentication</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/guides/vmi-onboarding-guide/">VMI Onboarding Guide</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a>Core Concepts</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/classification-tree/">Classification Tree</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/company-tree/">Company Tree</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/product-library/">Product Library</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/product-structure/">Product Structure</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/concepts/user-manager/">User Manager</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a>FAQ</a>
+                            <ul style="display: none;">
+                                
+                                    
+                                        
+                                            <li><a href="/faq/auth-faq/">Authentication FAQ</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                            <li><a href="/faq/dropship-faq/">Dropship FAQ</a></li>
+                                        
+                                    
+                                
+                            </ul>
+                        </li>
+                    
+                
+                    
+                        <li><a href="/reference-applications/">Reference Applications</a>
+                    
+                
+            
+        </ul>
+
+        
+    </div>
+<!-- div missing here is intentional -->
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+            
+              <div class="col-md-7">
+<h2 id="overview">Overview</h2>
+
+<p>This API allows suppliers to manage order submitted by retailers participating in the Dropship program facilitated via iQmetrix Platform:</p>
+
+<ul>
+  <li>Get a list of order notifications</li>
+  <li>Get an archived list of order notifications</li>
+  <li>Update the status of orders</li>
+  <li>Update the status of items</li>
+</ul>
+
+<h3 id="order-status-updates">Order Status Updates</h3>
+
+<p>Suppliers have an ability to update the status of the order or individual items in that order. Some order status transitions trigger notifications to retailers and end customers who placed the order. Depending on item stock, one of the following calls should be used:</p>
+
+<ul>
+  <li><code>OrderStatusUpdate</code> should be used if all items in the order are stocked for shipment</li>
+  <li><code>ItemStatusUpdate</code> should be used if one or more items in the order are <strong>not</strong> stocked for shipment</li>
+</ul>
+
+<p>More information regarding states can be found in the <a href="/guides/dropship-order-guide">Dropship Order Guide</a>.</p>
+
+<p>Once an order has been shipped from the supplier’s warehouse, the order status must be updated to <code>Shipped</code>, and include a tracking number and shipping carrier to notify the end client.</p>
+
+<p>If the supplier wants to provide reasoning behind an order or item’s specific status, then a message can be provided in the <code>Message</code> field.</p>
+
+<h3 id="order-notifications-feed">Order Notifications Feed</h3>
+
+<p>The order notifications feed contains a list of dropship order events for a supplier in “<a href="http://tools.ietf.org/html/rfc4287">Atom Syndication Format</a>” using “<a href="https://tools.ietf.org/html/rfc5005#page-6">Archived Feeds</a>” and is encoded as <code>atom+xml</code>. Newly created orders are prepended to the beginning of the notification feed.</p>
+
+<p>Each page of the feed will contain up to 50 events.</p>
+
+<h2 id="endpoints">Endpoints</h2>
+
+<ul>
+  <li>Sandbox: https://dropshipdemo.iqmetrix.net/v1</li>
+  <li>Production: https://dropship.iqmetrix.net/v1</li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<h3 id="orderstatusupdate">OrderStatusUpdate</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">DataType</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">GUID</td>
+      <td style="text-align: left">Identifier for the Dropship order</td>
+      <td style="text-align: left"><code>91a57ddb-2d42-402b-85b4-fe327a347313</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Info</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">General information about the item(s), such as tracking site, additional reference info, etc</td>
+      <td style="text-align: left"><code>www.ups.com</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Message</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">A reason for the status of an order</td>
+      <td style="text-align: left"><code>Error: Product '98ESP456' is unavailable</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ShippingProvider</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Shipping carrier for the order</td>
+      <td style="text-align: left"><code>UPS</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Status</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Current <a href="#orderstatus">OrderStatus</a></td>
+      <td style="text-align: left"><code>Shipped</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TrackingInfo</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Tracking number for a shipped order</td>
+      <td style="text-align: left"><code>23923408863</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>ReferenceName</em></td>
+      <td style="text-align: left"><em>String</em></td>
+      <td style="text-align: left"><em>Reserved for internal use</em></td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>ReferenceValue</em></td>
+      <td style="text-align: left"><em>String</em></td>
+      <td style="text-align: left"><em>Reserved for internal use</em></td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="itemstatusupdate">ItemStatusUpdate</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">DataType</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">GUID</td>
+      <td style="text-align: left">Identifier for the Dropship order</td>
+      <td style="text-align: left"><code>91a57ddb-2d42-402b-85b4-fe327a347313</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ItemInformation</td>
+      <td style="text-align: left">Array[Object]</td>
+      <td style="text-align: left">A list of <a href="#iteminformation">ItemInformation</a></td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="iteminformation">ItemInformation</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">DataType</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">CatalogId</td>
+      <td style="text-align: left">GUID</td>
+      <td style="text-align: left">Identifier for the <a href="/api/catalog/#catalogitem">Catalog</a> item</td>
+      <td style="text-align: left"><code>dbc2577a-021f-4bbf-8289</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Info</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">General information about the item(s), such as tracking site, additional reference info, etc</td>
+      <td style="text-align: left"><code>www.ups.com</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Message</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">A reason for the status of an order</td>
+      <td style="text-align: left"><code>No errors</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ProductName</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Name of the product</td>
+      <td style="text-align: left"><code>239234SMS L720 BLU SPT RTD8863</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Quantity</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Used in the case of partial shipments.</td>
+      <td style="text-align: left"><code>5</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Status</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Current <a href="#itemstatus">ItemStatus</a></td>
+      <td style="text-align: left"><code>Exception</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Sku</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Vendor SKU</td>
+      <td style="text-align: left"><code>9356SAMGL6S</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TrackingInfo</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">The tracking number for this shipped product</td>
+      <td style="text-align: left"><code>23923408863</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ShippingProvider</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">The shipping carrier that the product was shipped with</td>
+      <td style="text-align: left"><code>UPS</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>ReferenceName</em></td>
+      <td style="text-align: left"><em>String</em></td>
+      <td style="text-align: left"><em>Reserved for internal use</em></td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>ReferenceValue</em></td>
+      <td style="text-align: left"><em>String</em></td>
+      <td style="text-align: left"><em>Reserved for internal use</em></td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="feed">Feed</h3>
+
+<div class="special_table">
+
+<table>
+    <thead>
+        <tr><th colspan="3">Name</th><th>Type</th><th>Description</th><th>Example</th></tr>
+    </thead>
+
+    <tbody>
+        <tr><td colspan="3">id</td><td>GUID</td><td>Identifier for the Feed</td><td><code>urn:uuid:f1be4a74-508f-4159-b3f1-c6efe76c03e4</code></td></tr>
+        <tr><td colspan="3">title</td><td>String</td><td>Title of order feed</td><td><code>Dropship Order Event Feed</code></td></tr>
+        <tr><td colspan="3">updated</td><td>DateTime</td><td>Timestamp based on newest entry timestamp</td><td><code>2015-10-23T21:37:34Z</code></td></tr>
+        <tr><td colspan="3">author</td><td>Object</td><td>Container for author name</td><td></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">name</td><td>String</td><td>Name of author</td><td><code>iQmetrix</code></td></tr>
+        <tr><td colspan="3">link current</td><td>String</td><td>Link to the order feed endpoint</td><td><code>https://dropship.iqmetrix.net/v1/Suppliers(60455)/Notifications</code></td></tr>
+        <tr><td colspan="3">link self</td><td>String</td><td>Link to the current order feed instance</td><td><code>https://dropship.iqmetrix.net/v1/Suppliers(60455)/Notifications/Pages(f1be4a74-508f-4159-b3f1-c6efe76c03e4)</code></td></tr>
+        <tr><td colspan="3">link prev-archive</td><td>String</td><td>Link to the previously archived order feed</td><td><code>https://dropship.iqmetrix.net/v1/Suppliers(60455)/Notifications/Pages(e1697c26-23e2-4bc7-8f6c-494c6034d9e2)</code></td></tr>
+        <tr><td colspan="3">Entry</td><td>Object</td><td>Entry in Order Feed</td><td></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">id</td><td>GUID</td><td>Entry identifier</td><td><code>urn:uuid:9e5a279b-9583-4d51-b3fa-00d0d146986a</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">title</td><td>String</td><td>Title for order entry</td><td><code>Dropship Order Created</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">published</td><td>DateTime</td><td>Published date for order entry</td><td><code>2015-10-23T21:37:31Z</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">updated</td><td>DateTime</td><td>Last update for order entry</td><td><code>2015-10-23T21:37:31Z</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">content</td><td>Object</td><td>Container for order type</td><td></td></tr>
+        <tr><td class="spacing"></td><td class="spacing"></td>
+            <td>One of: 
+            <ul>
+                <li>order-created</li>
+                <li>order-status-updated</li>
+            </ul>
+            </td>
+            <td>Object</td><td>Order entry type</td>
+            <td>
+                <a href="#ordercreated">OrderCreated</a> or <a href="#orderstatusupdated">OrderStatusUpdated</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<h3 id="ordercreated">OrderCreated</h3>
+
+<div class="special_table" id="#ordercreated">
+
+<table>
+    <thead>
+        <tr><th colspan="3">Name</th><th>DataType</th><th>Description</th><th>Example</th></tr>
+    </thead>
+    
+    <tbody>
+        <tr><td colspan="3">order-id</td><td>GUID</td><td>Identifier for the Dropship order</td><td><code>32cb2b46-fb26-48c8-9b8f-67ed759e2599</code></td></tr>
+        <tr><td colspan="3">items</td><td>Array[Object]</td><td>Array of order items</td><td></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">order-item</td><td>Object</td><td>Information for item in order</td><td></td></tr>
+        <tr><td class="spacing"></td><td class="spacing"></td><td>catalog-id</td><td>String</td><td><a href="/api/catalog/">Catalog</a> identifier</td><td><code>18e039de-4d8e-d0db55a07</code></td></tr>
+        <tr><td class="spacing"></td><td class="spacing"></td><td>description</td><td>String</td><td>Description of item</td><td><code>Some Item</code></td></tr>
+        <tr><td class="spacing"></td><td class="spacing"></td><td>quantity</td><td>Integer</td><td>Number of items</td><td><code>1</code></td></tr>
+        <tr><td class="spacing"></td><td class="spacing"></td><td>selling-price</td><td>Decimal</td><td>MSRP consumer price of item</td><td><code>100</code></td></tr>
+        <tr><td class="spacing"></td><td class="spacing"></td><td>sku</td><td>String</td><td>Vendor SKU</td><td><code>AB-JH0786-MI</code></td></tr>
+        <tr><td colspan="3">seller</td><td>Object</td><td>Information for selling store</td><td><code>Dropship Order Event Feed</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">company-id</td><td>Integer</td><td>Company identifier</td><td><code>33772</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">location-id</td><td>Integer</td><td>Store location identifier</td><td><code>33773</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">po-reference</td><td>String</td><td>Purchase order that gets printed on customer invoice</td><td><code>ABC123N1</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">printable-id</td><td>String</td><td>ID that gets printed on customer invoice</td><td><code>98764531</code></td></tr>
+        <tr><td colspan="3">ship-to-store</td><td>Boolean</td><td>Indicates if order is shipped to store</td><td><code>false</code></td></tr>
+        <tr><td colspan="3">shipping-address</td><td>Object</td><td>Information for shipping address</td><td></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">address-id</td><td>GUID</td><td><a href="/api/crm/#address">Address</a> identifier</td><td><code>0987530-1234-0000-0000-654345</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">attention-to</td><td>String</td><td>Recipient's name</td><td><code>Bob Eh</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">country</td><td>String</td><td>Country</td><td><code>Canada</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">country-code</td><td>String</td><td>Country code</td><td><code>CA</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">locality</td><td>String</td><td>City</td><td><code>Moosejaw</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">notes</td><td>String</td><td>Notes for recipient</td><td><code>Onroute</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">phone</td><td>String</td><td>Recipient phone number</td><td><code>555-555-5555</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">post-office-box-number</td><td>String</td><td>P.O. box number</td><td><code>510</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">postal-code</td><td>String</td><td>Postal/zip code</td><td><code>S6J1N2</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">region</td><td>String</td><td>Province/Territory/State</td><td><code>Saskatchewan</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">region-code</td><td>String</td><td>Province/Territory/State code</td><td><code>SK</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">street-address-1</td><td>String</td><td>Address line 1</td><td><code>742 Evergreen Terrace</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">street-address-2</td><td>String</td><td>Address line 2</td><td><code>West</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">type</td><td>String</td><td><a href="/api/crm/#addresstype">Address</a> type</td><td><code>Home</code></td></tr>
+        <tr><td colspan="3">shipping-customer</td><td>Object</td><td>Information for shipping customer</td><td></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">customer-id</td><td>GUID</td><td><a href="/api/crm/#customer">Customer</a> identifier</td><td><code>3da9470e-f1b2-a-bd47-5bf18fe2d1ab</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">alternate-name</td><td>String</td><td>Customer's alternate name</td><td><code>Francis</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">family-name</td><td>String</td><td>Last name</td><td><code>Eh</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">middle-name</td><td>String</td><td>Midle name</td><td><code>John</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">notes</td><td>String</td><td>Notes for recipient</td><td><code>Pending shipment</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">primary-name</td><td>String</td><td>First name</td><td><code>Bob</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">title</td><td>String</td><td>Recipient's title</td><td><code>Mr.</code></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">type</td><td>String</td><td><a href="/api/crm/#customertype">Customer</a> type</td><td><code>Person</code></td></tr>
+        <tr><td colspan="3">shipping-method</td><td>String</td><td>Method ID that comes from shipping provider</td><td><code>123</code></td></tr>
+        <tr><td colspan="3">supplier-id</td><td>Integer</td><td>Supplier identifier</td><td><code>60455</code></td></tr>
+    </tbody>  
+</table>
+</div>
+
+<h3 id="orderstatusupdated">OrderStatusUpdated</h3>
+
+<div class="special_table" id="#orderstatusupdated">
+
+<table>
+    <thead>
+        <tr><th colspan="3">Name</th><th>DataType</th><th>Description</th><th>Example</th></tr>
+    </thead>    
+    
+    <tbody>
+        <tr><td colspan="3">order-id</td><td>GUID</td><td>Identifier for the Dropship order</td><td><code>32cb2b46-fb26-48c8-9b8f-67ed759e2599</code></td></tr>
+        <tr><td colspan="3">company-id</td><td>Integer</td><td><a href="/api/company-tree/#company">Company</a> identifier</td><td><code>50068</code></td></tr>
+        <tr><td colspan="3">items</td><td>Array[item-information]</td><td>Array of order items</td><td></td></tr>
+        <tr><td class="spacing"></td><td colspan="2">item-information</td><td>Object</td><td>Information for item in order</td><td></td></tr>
+        <tr><td class="spacing"></td><td class="spacing"></td><td>catalog-id</td><td>GUID</td><td><a href="/api/catalog/">Catalog</a> identifier</td><td><code>18e039de-f950-4d8e-a48a-d06e4db55a07</code></td></tr>
+        <tr><td class="spacing"></td><td class="spacing"></td><td>info</td><td>String</td><td>General information about the item</td><td><code>www.ups.com</code></td></tr>
+        <tr><td class="spacing"></td><td class="spacing"></td><td>message</td><td>String</td><td>A reason for the status of an order</td><td><code>Error: Product '98ESP456' is unavailable</code></td></tr>
+        <tr><td class="spacing"></td><td class="spacing"></td><td>quantity</td><td>Integer</td><td>Number of items</td><td><code>1</code></td></tr>
+        <tr><td class="spacing"></td><td class="spacing"></td><td>shipping-provider</td><td>String</td><td>Shipping provider</td><td><code>Purolator</code></td></tr>
+        <tr><td class="spacing"></td><td class="spacing"></td><td>sku</td><td>String</td><td>Vendor SKU</td><td><code>AB-JH0786-MI</code></td></tr>
+        <tr><td class="spacing"></td><td class="spacing"></td><td>status</td><td>String</td><td><a href="#itemstatus">Order item status</a></td><td><code>Other</code></td></tr>
+        <tr><td class="spacing"></td><td class="spacing"></td><td>tracking-info</td><td>String</td><td>The tracking number for this shipped product</td><td><code>23923408863</code></td></tr>
+        <tr><td class="spacing"></td><td class="spacing"></td><td><em>reference-name</em></td><td><em>String</em></td><td><em>Reserved for internal use</em></td><td></td></tr>
+        <tr><td class="spacing"></td><td class="spacing"></td><td><em>reference-value</em></td><td><em>String</em></td><td><em>Reserved for internal use</em></td><td></td></tr>
+        <tr><td colspan="3">supplier-id</td><td>Integer</td><td>Supplier identifier</td><td><code>60455</code></td></tr>
+    </tbody>        
+</table>    
+</div>
+
+<h2 id="types">Types</h2>
+
+<h3 id="orderstatus">OrderStatus</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">PendingSupplier</td>
+      <td style="text-align: left">A new order has been created but is pending the supplier</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Ordered</td>
+      <td style="text-align: left">Order has been picked up by the supplier and is in processing stage (picked, packed and shipped)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Shipped</td>
+      <td style="text-align: left">Order has been shipped from a warehouse</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">BackOrdered</td>
+      <td style="text-align: left">Order cannot currently be fulfilled due to items being temporarily out of stock</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">Error</td>
+      <td style="text-align: left">There has been an exception with either a product or an entire order</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">NotAvailable</td>
+      <td style="text-align: left">Some or all items from order are no longer available</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">PartiallyShipped</td>
+      <td style="text-align: left">Some items have been shipped due to availability, and other items are pending availability</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">Cancelled</td>
+      <td style="text-align: left">Order has been canceled</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">8</td>
+      <td style="text-align: left">Other</td>
+      <td style="text-align: left">Order is in a state not represented by the other states</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="itemstatus">ItemStatus</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">0</td>
+      <td style="text-align: left">PendingSupplier</td>
+      <td style="text-align: left">A new order has been created but is pending the supplier</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">Ordered</td>
+      <td style="text-align: left">Order has been picked up by the supplier and is in processing stage (picked, packed and shipped)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">Shipped</td>
+      <td style="text-align: left">Order has been shipped from a warehouse</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">BackOrdered</td>
+      <td style="text-align: left">Order cannot currently be fulfilled due to items being temporarily out of stock</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">Error</td>
+      <td style="text-align: left">There has been an exception with either a product or an entire order</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">NotAvailable</td>
+      <td style="text-align: left">This item from order is no longer available</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">PartiallyShipped</td>
+      <td style="text-align: left">This item has been shipped due to some quantity available</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">Cancelled</td>
+      <td style="text-align: left">Item from order has been canceled</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">8</td>
+      <td style="text-align: left">Other</td>
+      <td style="text-align: left">Item from order is in a state not represented by the other states</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="updating-order-status">Updating Order Status</h2>
+
+<h4 id="request">Request</h4>
+
+<pre><code>PUT /Suppliers({SupplierId})/Orders({OrderId})/OrderStatusUpdate
+
+{
+    {OrderStatusUpdate}
+}
+</code></pre>
+
+<h4 id="headers">Headers</h4>
+
+<ul>
+  <li><code>Authorization: Bearer</code> (<a href="/api/glossary/#access-token">Access Token</a>)</li>
+  <li><code>Accept: application/json</code></li>
+  <li><code>Content-Type: application/json</code></li>
+</ul>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+  <li><code>SupplierId</code> (<strong>Required</strong>)</li>
+  <li><code>OrderId</code> (<strong>Required</strong>)</li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul>
+  <li><code>Id</code> (<strong>Required</strong>)</li>
+  <li><code>Status</code> (Optional) - default PendingSupplier</li>
+  <li><code>Info</code> (Optional)</li>
+  <li><code>Message</code> (Optional)</li>
+  <li><code>ShippingProvider</code> (Optional)</li>
+  <li><code>TrackingInfo</code> (Optional)</li>
+</ul>
+
+<h6 id="example">Example</h6>
+
+<pre><code>PUT /Suppliers(60455)/Orders(0b05f9fb-1210-4494-b654-d051948716b4)/OrderStatusUpdate
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+{
+    "Id": "0b05f9fb-1210-4494-b654-d051948716b4",
+    "Status": "Shipped",
+    "Message": "No errors",
+    "TrackingInfo": "23923408863",
+    "ShippingProvider": "UPS"
+}
+</code></pre>
+
+<h4 id="response">Response</h4>
+
+<p>Returns <a href="#orderstatusupdate">OrderStatusUpdate</a> that was created, if successful</p>
+
+<h6 id="example-1">Example</h6>
+
+<pre><code>HTTP 202 Accepted Content-Type: application/json
+{
+    "Id": "0b05f9fb-1210-4494-b654-d051948716b4",
+    "Status": "Shipped",
+    "TrackingInfo": "23923408863",
+    "ShippingProvider": "UPS",
+    "Info": null,
+    "Message": "No errors"
+}
+</code></pre>
+
+<h2 id="updating-item-status">Updating Item Status</h2>
+
+<p>If products from an order have been split into multiple shipments, then the supplier must provide tracking numbers for each shipment.</p>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>PUT /Suppliers({EntityId})/Orders({OrderId})/ItemStatusUpdate
+
+{
+    {ItemStatusUpdate}
+}
+</code></pre>
+
+<h4 id="headers-1">Headers</h4>
+
+<ul>
+  <li><code>Authorization: Bearer</code> (<a href="/api/glossary/#access-token">Access Token</a>)</li>
+  <li><code>Accept: application/json</code></li>
+  <li><code>Content-Type: application/json</code></li>
+</ul>
+
+<h4 id="uri-parameters-1">URI Parameters</h4>
+
+<ul>
+  <li><code>EntityId</code> (<strong>Required</strong>)</li>
+  <li><code>OrderId</code> (<strong>Required</strong>)</li>
+</ul>
+
+<h4 id="request-parameters-1">Request Parameters</h4>
+
+<ul>
+  <li><code>Id</code> (<strong>Required</strong>)</li>
+  <li><code>ItemInformation</code> (Optional)
+    <ul>
+      <li><code>Sku</code> (<strong>Required</strong>)</li>
+      <li><code>Status</code> (Optional) - default PendingSupplier</li>
+      <li><code>CatalogId</code> (Optional)</li>
+      <li><code>Info</code> (Optional)</li>
+      <li><code>Message</code> (Optional)</li>
+      <li><code>ProductName</code> (Optional)</li>
+      <li><code>Quantity</code> (Optional)</li>
+      <li><code>ShippingProvider</code> (Optional)</li>
+      <li><code>TrackingInfo</code> (Optional)</li>
+    </ul>
+  </li>
+</ul>
+
+<h6 id="example-2">Example</h6>
+
+<pre><code>PUT /Suppliers(60455)/Orders(0b05f9fb-1210-4494-b654-d051948716b4)/OrderStatusUpdate
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+{
+    "Id": "0b05f9fb-1210-4494-b654-d051948716b4",
+    "ItemInformation": [
+        {
+            "Status": "Error",      
+            "ProductName": "SMS L720 BLU SPT RTD",
+            "Message": "Error: Product 'iPhone 6 Case' could not be found",
+            "Sku": "abc123",
+            "TrackingInfo": "239BFD08863",
+            "ShippingProvider": "UPS"
+        },
+        {
+            "Status": "Shipped",
+            "ProductName": "Fit Bit - Razor",
+            "Sku": "234oike",
+            "TrackingInfo": 9870873242,
+            "ShippingProvider": "FedEx"
+        }
+    ]    
+}
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<p>Returns <a href="#itemstatusupdate">ItemStatusUpdate</a> that was created, if successful</p>
+
+<h6 id="example-3">Example</h6>
+
+<pre><code>HTTP 202 Accepted Content-Type: application/json
+{
+    "Id": "0b05f9fb-1210-4494-b654-d051948716b4",
+    "ItemInformation": [
+        {
+            "Sku": "abc123",
+            "CatalogId": "dbc2577a-021f-4bbf-8289-ff9cac593a8b",
+            "Quantity": 1,
+            "Status": "Error",
+            "TrackingInfo": "239BFD08863",
+            "ShippingProvider": "UPS",
+            "Info": null,
+            "Message": "Error: Product 'iPhone 6 Case' could not be found"
+        },
+        {
+            "Sku": "234oike",
+            "CatalogId": "sdf78-fds45f-654fd5-ff9ca69ghje",
+            "Quantity": 1,
+            "Status": "Shipped",
+            "TrackingInfo": "9870873242",
+            "ShippingProvider": "FedEx",
+            "Info": null,
+            "Message": null
+        }
+    ]
+}
+</code></pre>
+
+<h2 id="getting-the-order-feed">Getting the Order Feed</h2>
+
+<p>The <code>current</code> feed endpoint gives access to the most recent (up to 50) entries in the notification feed while the <code>prev-archive</code> link will give access to the previous (up to 50) entries in the feed.</p>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>GET /Suppliers({SupplierId})/Notifications
+</code></pre>
+
+<h4 id="headers-2">Headers</h4>
+
+<ul>
+  <li><code>Authorization: Bearer</code> (<a href="/api/glossary/#access-token">Access Token</a>)</li>
+  <li><code>Accept: application/atom+xml</code></li>
+</ul>
+
+<h4 id="uri-parameters-2">URI Parameters</h4>
+
+<ul>
+  <li><code>SupplierId</code> (<strong>Required</strong>)</li>
+</ul>
+
+<h6 id="example-4">Example</h6>
+
+<pre><code>GET /Suppliers(60455)/Notifications
+Authorization: Bearer (Access Token)
+Accept: application/atom+xml
+</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<p>Returns the <a href="#feed">Order Feed</a> for a specific supplier</p>
+
+<h6 id="example-5">Example</h6>
+
+<p>```xml
+<?xml version="1.0" encoding="utf-8"?></p>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title type="text">Dropship Order Event Feed</title>
+    <id>urn:uuid:f1be4a74-508f-4159-b3f1-c6efe76c03e4</id>
+    <updated>2015-10-23T21:37:34Z</updated>
+    <author>
+        <name>iQmetrix</name>
+    </author>
+    <link rel="current" href="https://dropship.iqmetrix.net/v1/Suppliers(60455)/Notifications" />
+    <link rel="self" href="https://dropship.iqmetrix.net/v1/Suppliers(60455)/Notifications/Pages(f1be4a74-508f-4159-b3f1-c6efe76c03e4)" />
+    <link rel="prev-archive" href="https://dropship.iqmetrix.net/v1/Suppliers(60455)/Notifications/Pages(e1697c26-23e2-4bc7-8f6c-494c6034d9e2)" />
+    <entry>
+        <id>urn:uuid:9e5a279b-9583-4d51-b3fa-00d0d146986a</id>
+        <title type="text">Dropship Order Created</title>
+        <published>2015-10-23T21:37:31Z</published>
+        <updated>2015-10-23T21:37:31Z</updated>
+        <content type="application/xml">
+            <order-created xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:iQmetrix:dropship">
+                <items>
+                    <order-item>
+                        <catalog-id>18e039de-f950-4d8e-a48a-d06e4db55a07</catalog-id>
+                        <description>Some Item</description>
+                        <quantity>1</quantity>
+                        <selling-price>100</selling-price>
+                        <sku>AB-JH0786-MI</sku>
+                    </order-item>
+                    <order-item>
+                        <catalog-id>736fae29-88e2-4360-8b0e-d2e3d3254c06</catalog-id>
+                        <description>Another Item</description>
+                        <quantity>2</quantity>
+                        <selling-price>42</selling-price>
+                        <sku>EM-JH073-MI</sku>
+                    </order-item>
+                </items>
+                <order-id>32cb2b46-fb26-48c8-9b8f-67ed759e2599</order-id>
+                <seller>
+                    <company-id>33772</company-id>
+                    <location-id>33773</location-id>
+                    <po-reference>ABC123N1</po-reference>
+                    <printable-id>98764531</printable-id>
+                </seller>
+                <ship-to-store>true</ship-to-store>
+                <shipping-address>
+                    <address-id>00000000-0000-0000-0000-000000000000</address-id>
+                    <attention-to>Bob Eh</attention-to>
+                    <country>Canada</country>
+                    <country-code>CA</country-code>
+                    <locality>Moosejaw</locality>
+                    <notes i:nil="true" />
+                    <phone i:nil="true" />
+                    <post-office-box-number i:nil="true" />
+                    <postal-code>S6J1N2</postal-code>
+                    <region>Saskatchewan</region>
+                    <region-code>SK</region-code>
+                    <street-address-1>742 Evergreen Terrace</street-address-1>
+                    <street-address-2 i:nil="true" />
+                    <type i:nil="true" />
+                </shipping-address>
+                <shipping-customer>
+                    <alternate-name i:nil="true" />
+                    <customer-id>3da9470e-f1b2-4a1a-bd47-5bf18fe2d1ab</customer-id>
+                    <family-name>Eh</family-name>
+                    <middle-name i:nil="true" />
+                    <notes i:nil="true" />
+                    <primary-name>Bob</primary-name>
+                    <title i:nil="true" />
+                    <type>Person</type>
+                </shipping-customer>
+                <shipping-method>123</shipping-method>
+                <supplier-id>60455</supplier-id>
+            </order-created>
+        </content>
+    </entry>
+    <entry>
+        <id>urn:uuid:gf456fd486-df4s56g-d45fdsf-f74ds8fds456fs</id>
+        <title type="text">Dropship Order Status Updated</title>
+        <published>2015-10-09T15:36:45Z</published>
+        <updated>2015-10-09T15:36:45Z</updated>
+        <content type="application/xml">
+            <order-status-updated xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:iQmetrix:dropship">
+                <company-id>50068</company-id>
+                <items>
+                    <item-information>
+                        <catalog-id>18e039de-f950-4d8e-a48a-d06e4db55a07</catalog-id>
+                        <info i:nil="true" />
+                        <message i:nil="true" />
+                        <quantity>1</quantity>
+                        <shipping-provider>Purolator</shipping-provider>
+                        <sku>AB-JH0786-MI</sku>
+                        <status>Other</status>
+                        <tracking-info i:nil="true" />
+                    </item-information>
+                </items>
+                <order-id>32cb2b46-fb26-48c8-9b8f-67ed759e2599</order-id>
+                <supplier-id>60455</supplier-id>
+            </order-status-updated>
+        </content>
+    </entry>
+</feed>
+<p>```</p>
+
+<h2 id="getting-order-feed-archives">Getting Order Feed Archives</h2>
+
+<p>The <code>next-archive</code> link gives access to a newer (up to 50) list of archive entries in the notification feed while the <code>prev-archive</code> link will give access to the previous (up to 50) list of archive entries.</p>
+
+<h4 id="request-3">Request</h4>
+
+<pre><code>GET /Suppliers({SupplierId})/Notifications/Pages({PageId})
+</code></pre>
+
+<h4 id="headers-3">Headers</h4>
+
+<ul>
+  <li><code>Authorization: Bearer</code> (<a href="/api/glossary/#access-token">Access Token</a>)</li>
+  <li><code>Accept: application/atom+xml</code></li>
+</ul>
+
+<h4 id="uri-parameters-3">URI Parameters</h4>
+
+<ul>
+  <li><code>SupplierId</code> (<strong>Required</strong>)</li>
+  <li><code>PageId</code> (<strong>Required</strong>)</li>
+</ul>
+
+<h6 id="example-6">Example</h6>
+
+<pre><code>GET /Suppliers(60455)/Notifications/Pages(e1697c26-23e2-4bc7-8f6c-494c6034d9e2)
+Authorization: Bearer (Access Token)
+Accept: application/atom+xml
+</code></pre>
+
+<h4 id="response-3">Response</h4>
+
+<p>Returns an archive of the <a href="#feed">Order Feed</a>, based on page ID</p>
+
+<h5 id="example-7">Example</h5>
+
+<p>```xml
+<?xml version="1.0" encoding="utf-8"?></p>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title type="text">Dropship Order Event Feed</title>
+    <id>urn:uuid:e1697c26-23e2-4bc7-8f6c-494c6034d9e2</id>
+    <updated>2015-07-08T20:20:45Z</updated>
+    <author>
+        <name>iQmetrix</name>
+    </author>
+    <link rel="current" href="https://dropship.iqmetrix.net/v1/Suppliers(60455)/Notifications" />
+    <link rel="self" href="https://dropship.iqmetrix.net/v1/Suppliers(60455)/Notifications/Pages(e1697c26-23e2-4bc7-8f6c-494c6034d9e2)" />
+    <link rel="next-archive" href="https://dropship.iqmetrix.net/v1/Suppliers(60455)/Notifications/Pages(f1be4a74-508f-4159-b3f1-c6efe76c03e4)" />
+    <link rel="prev-archive" href="https://dropship.iqmetrix.net/v1/Suppliers(60455)/Notifications/Pages(b59ded0f-0119-4c49-9113-93862e24eac6)" />
+    <entry>
+        <id>urn:uuid:b77ef04c-8dd4-4fba-b8c4-10de4bccbeb3</id>
+        <title type="text">Dropship Order Status Updated</title>
+        <published>2015-07-08T20:20:45Z</published>
+        <updated>2015-07-08T20:20:45Z</updated>
+        <content type="application/xml">
+            <order-status-updated xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:iQmetrix:dropship">
+                <company-id>29796</company-id>
+                <items>
+                    <item-information>
+                        <catalog-id>30cece9f-a90d-4f51-b33f-0aa663371658</catalog-id>
+                        <info>Additional info</info>
+                        <message>Message</message>
+                        <quantity>1</quantity>
+                        <shipping-provider>UPS</shipping-provider>
+                        <sku>GB40030</sku>
+                        <status>Shipped</status>
+                        <tracking-info>8979876</tracking-info>
+                    </item-information>
+                </items>
+                <order-id>503ed5af-fe26-4d60-9b4f-8d5a708c761b</order-id>
+                <supplier-id>60455</supplier-id>
+            </order-status-updated>       
+        </content>
+    </entry>
+</feed>
+<p>```</p>
+
+<h2 id="errors">Errors</h2>
+
+<p>The table below may help resolve problems encountered when making requests to the Supplier Orders API.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">HTTP Status Code</th>
+      <th style="text-align: left">Message</th>
+      <th style="text-align: left">How to Resolve</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code>HTTP 400</code></td>
+      <td style="text-align: left"><code>Cannot find supplier identifier in the uri</code></td>
+      <td style="text-align: left">Occurs when entering an incorrect <code>SupplierId</code> in the uri</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>HTTP 400</code></td>
+      <td style="text-align: left"><code>The request is invalid</code></td>
+      <td style="text-align: left">Occurs when entering an incorrect <code>PageId</code> in the uri</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>HTTP 401</code></td>
+      <td style="text-align: left"><code>Invalid token</code></td>
+      <td style="text-align: left">Occurs when entering an incorrect token in the request header</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>HTTP 404</code></td>
+      <td style="text-align: left"><code>Not found</code></td>
+      <td style="text-align: left">Occurs when entering an incorrect uri path (e.g. Zxppliers({SupplierId}))</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+              <div class="col-lg-1 hidden-md hidden-sm hidden-xs"><!-- start page metadata -->
+
+
+<div class="pageMetadata affix">
+    <div class="pageMetadataTitle">Table of Contents</div>
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+
+    $('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2, h3' });
+
+    //Resize once
+    resizeWindow();
+
+    //Resize whenever window changes
+    $(window).resize(function () {
+        resizeWindow();
+    });
+
+});
+
+function resizeWindow() {
+
+    var windowHeight = $(window).height();
+    var windowWidth = $(window).width();
+
+    var tocHeight = $(".pageMetadata").height();
+
+    if(windowWidth < 1560 || windowHeight < tocHeight) {        
+        //Grab "pageMetadata" and move it to first  child of .post-header
+        $(".pageMetadata").prependTo(".post-header");
+        $(".pageMetadata").removeClass("affix");        
+    } else if(windowWidth > 1560) {
+        //Grab "pageMetadata" and move it back to where it was
+        $(".pageMetadata").appendTo(".col-lg-1.hidden-md.hidden-sm.hidden-xs");
+        $(".pageMetadata" ).addClass("affix");
+    }      
+}
+
+</script>
+
+<div id="toc"></div>
+
+    
+    <p><div class="metadataRow"><span class="tagTitle">Last updated:</span> 12-02-2016</div></p>
+    
+
+</div>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="../../css/syntax.css">
+
+<!-- end pageMetadata --></div>
+            
+    </div>
+
+</body>
+
+<!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-408430-5', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+
+</html>
+
