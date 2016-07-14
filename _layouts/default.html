@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+ {% include head.html %}
+
+<script>
+  $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+{% unless site.print == true %}
+{% if page.video == true %}
+<link href="https://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
+<script src="https://vjs.zencdn.net/4.12/video.js"></script>
+{% endif %}
+{% endunless %}
+
+{% if page.datatable == true %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.js"></script>
+{% endif %}
+
+  </head>
+
+<body>
+
+   {% include topnav.html %}
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="col-lg-12">&nbsp;</div>
+
+            <!-- Col-md-3 -->
+            {% include sidebar.html %}
+
+            {% if page.metadata == false %}
+              <div class="col-md-9">{{content}}</div>
+            {% else %}
+              <div class="col-md-7">{{content}}</div>
+              <div class="col-lg-1 hidden-md hidden-sm hidden-xs">{% include pagemetadata.html %}</div>
+            {% endif %}
+    </div>
+
+</body>
+{% if site.google_analytics %}
+{% include google_analytics.html %}
+{% endif %}
+
+</html>
+

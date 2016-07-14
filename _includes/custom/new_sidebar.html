@@ -1,0 +1,166 @@
+{% assign sidebar = site.data.generated_sidebar.entries %}
+
+	<!-- Left sidebar for current page -->
+
+    {% for entry in sidebar %}
+    	{% if entry.title == "Reference" %}
+    	
+	    {% for reference in entry.subcategories %}
+
+	    	{% if reference.subcategories %}
+	    		        	
+	    		{% for subref in reference.subcategories %}
+
+	    			{% assign ref = subref.url | append: '/' %}
+
+	    			{% if ref == page.url %}
+
+	    				<ul class="nav" id="side-menu">
+
+	    				 <!-- Add in Overview section -->
+				        {% if subref.overview %}					        
+				            <li><a href="#overview">Overview</a></li>	        	
+				            
+				        {% endif %}
+
+			          	<!-- Add in Resources section -->
+			          	{% if subref.resources %}				
+					        <li>
+		                  		<a href="#">Resources<span class="fa arrow"></span></a>
+		                  		<ul class="nav nav-second-level">
+					        		{% for resource in subref.resources %}
+					            	<li><a href="#{{resource.title | downcase}}">{{resource.title}}</a></li>
+					        		{% endfor %}
+					        	</ul>
+					        </li>
+			        	{% endif %}
+
+			        	<!-- Add in Enumerations section -->
+			          	{% if subref.enumerations %}				
+					        <li>
+		                  		<a href="#">Enumerations<span class="fa arrow"></span></a>
+		                  		<ul class="nav nav-second-level">
+					        		{% for enumeration in subref.enumerations %}
+					            	<li><a href="#{{enumeration.title | downcase}}">{{enumeration.title}}</a></li>
+					        		{% endfor %}
+					        	</ul>
+					        </li>
+			        	{% endif %}
+
+				        <!-- Add in Requests section -->
+				        {% if subref.requests %}
+					        <li>
+		                  		<a href="#">Requests<span class="fa arrow"></span></a>
+		                  		<ul class="nav nav-second-level">
+					        		{% for request in subref.requests %}
+					            	<li><a href="#{{request.url}}">{{request.title}}</a></li>
+					        		{% endfor %}
+					        	</ul>
+					        </li>     
+				        {% endif %}
+
+				        <!-- Add in Extended Examples section -->
+				        {% if subref.extended-examples %}					        
+				            <li><a href="#extended-examples">Extended Examples</a></li>
+				        {% endif %}
+
+				        <!-- Add in Searching section -->
+				        {% if subref.searching %}					        
+				            <li><a href="#searching">Searching</a></li>
+				        {% endif %}
+
+				        <!-- Add in Pagination section -->
+				        {% if subref.pagination %}					        
+				            <li><a href="#pagination">Pagination</a></li>
+				        {% endif %}
+
+				        <!-- Add in Errors section -->
+				        {% if subref.errors %}					        
+				            <li><a href="#errors">Errors</a></li>
+				        {% endif %}
+
+				    	</ul>
+
+				    {% endif %}
+
+
+			    {% endfor %}
+
+	    	{% endif %}
+
+	    	{% assign ref = reference.url | append: '/' %}
+
+	    	{% if ref == page.url %}
+
+	    		<ul class="nav" id="side-menu">
+
+		        <!-- Add in Overview section -->
+		        {% if reference.overview %}					        
+		            <li><a href="#overview">Overview</a></li>	        	
+		            
+		        {% endif %}
+
+	          	<!-- Add in Resources section -->
+	          	{% if reference.resources %}				
+			        <li>
+                  		<a href="#">Resources<span class="fa arrow"></span></a>
+                  		<ul class="nav nav-second-level">
+			        		{% for resource in reference.resources %}
+			            	<li><a href="#{{resource.title | downcase}}">{{resource.title}}</a></li>
+			        		{% endfor %}
+			        	</ul>
+			        </li>
+	        	{% endif %}
+
+	        	<!-- Add in Enumerations section -->
+	          	{% if reference.enumerations %}				
+			        <li>
+                  		<a href="#">Enumerations<span class="fa arrow"></span></a>
+                  		<ul class="nav nav-second-level">
+			        		{% for enumeration in reference.enumerations %}
+			            	<li><a href="#{{enumeration.title | downcase}}">{{enumeration.title}}</a></li>
+			        		{% endfor %}
+			        	</ul>
+			        </li>
+	        	{% endif %}
+
+		        <!-- Add in Requests section -->
+		        {% if reference.requests %}
+			        <li>
+                  		<a href="#">Requests<span class="fa arrow"></span></a>
+                  		<ul class="nav nav-second-level">
+			        		{% for request in reference.requests %}
+			            	<li><a href="#{{request.url}}">{{request.title}}</a></li>
+			        		{% endfor %}
+			        	</ul>
+			        </li>     
+		        {% endif %}
+
+		        <!-- Add in Extended Examples section -->
+		        {% if reference.extended-examples %}					        
+		            <li><a href="#extended-examples">Extended Examples</a></li>
+		        {% endif %}
+
+		        <!-- Add in Searching section -->
+		        {% if reference.searching %}					        
+		            <li><a href="#searching">Searching</a></li>
+		        {% endif %}
+
+		        <!-- Add in Pagination section -->
+		        {% if reference.pagination %}					        
+		            <li><a href="#pagination">Pagination</a></li>
+		        {% endif %}
+
+		        <!-- Add in Errors section -->
+		        {% if reference.errors %}					        
+		            <li><a href="#errors">Errors</a></li>
+		        {% endif %}
+
+		        </ul>
+
+		    {% endif %}
+	    {% endfor %}
+	    
+	    {% endif %}
+	{% endfor %}
+

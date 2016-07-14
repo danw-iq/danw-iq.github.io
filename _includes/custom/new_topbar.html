@@ -1,0 +1,179 @@
+
+<!-- Navbar icon when in mobile mode -->
+<div class="container-fluid">
+ <div class="navbar-header">
+  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="navbar-brand" href="{{site.url}}"><img src="{{ "/images/splash/iqmetrix-logo-white.png" | prepend: site.url }}" alt="Brand"/></a>
+ </div>
+ 
+ <div id="navbar" class="navbar-collapse collapse">
+
+<ul class="nav navbar-nav navbar-right">
+{% assign topbar = site.data.generated_sidebar.entries %}
+
+	<!-- Top sidebar for current page -->
+
+    {% for entry in topbar %}
+
+    	<!-- API section -->
+    	{% if entry.title == "Reference" %}
+
+	    	<li class="dropdown">
+	  			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-submenu>API REFERENCE<span class="caret"></span></a>
+	  			<ul class="dropdown-menu">
+
+	  			    {% assign references = entry.subcategories | sort: 'title' %}
+
+	  				{% for reference in references %}
+
+	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
+
+		  				{% if reference.subcategories %}
+
+		  				<li class="dropdown-submenu">
+	                  		<a href="#" tabindex="-1"><b>{{reference.title}}</b></a>
+		  					
+		  					<ul class="dropdown-menu">
+		  						{% for subref in reference.subcategories %}
+	                    		<li><a href="/documentation-testing{{subref.url}}" tabindex="-1">{{subref.title}}</a></li>
+	                    		{% endfor %}
+	                  		</ul>
+		                </li>
+
+		                {% else %}
+
+		  				<!-- Display all of the APIs -->
+
+		  				<li><a href="/documentation-testing{{reference.url}}">{{reference.title}}</a></li>
+
+		  				{% endif %}
+
+	  				{% endfor %}
+	  			</ul>
+	  		</li>
+
+	    {% endif %}
+
+	    <!-- Guides section -->
+	    {% if entry.title == "Guides" %}
+
+	    	<li class="dropdown">
+	  			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-submenu>GUIDES<span class="caret"></span></a>
+	  			<ul class="dropdown-menu">
+
+	  				{% for guide in entry.subcategories %}
+
+	  				<!-- If there is a group of guides, create a submenu and display those guides -->
+
+		  				{% if guide.thirdLevelItems %}
+
+		  				<li class="dropdown-submenu">
+	                  		<a href="#" tabindex="-1">{{guide.title}}</a>
+		  					
+		  					<ul class="dropdown-menu">
+		  						{% for subguide in guide.thirdLevelItems %}
+	                    		<li><a href="/documentation-testing{{subguide.url}}" tabindex="-1">{{subguide.title}}</a></li>
+	                    		{% endfor %}
+	                  		</ul>
+		                </li>
+
+		                {% else %}
+		                <!-- Display all of the Guides -->
+		                <li><a href="/documentation-testing{{guide.url}}">{{guide.title}}</a></li>
+		                
+		                {% endif %}
+
+	  				{% endfor %}
+	  			</ul>
+	  		</li>
+		
+		{% endif %}
+
+		<!-- Core Concepts section -->
+    	{% if entry.title == "Core Concepts" %}
+
+	    	<li class="dropdown">
+	  			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-submenu>CORE CONCEPTS<span class="caret"></span></a>
+	  			<ul class="dropdown-menu">
+
+	  				{% for concept in entry.subcategories %}
+
+	  				<!-- Display all of the Concepts -->
+
+	  				<li><a href="/documentation-testing{{concept.url}}">{{concept.title}}</a></li>
+
+	  				{% endfor %}
+	  			</ul>
+	  		</li>
+
+	    {% endif %}
+
+	    <!-- FAQ section -->
+    	{% if entry.title == "FAQ" %}
+
+	    	<li class="dropdown">
+	  			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-submenu>FAQ<span class="caret"></span></a>
+	  			<ul class="dropdown-menu">
+
+	  				{% for faq in entry.subcategories %}
+
+	  				<!-- Display all of the Concepts -->
+
+	  				<li><a href="/documentation-testing{{faq.url}}">{{faq.title}}</a></li>
+
+	  				{% endfor %}
+	  			</ul>
+	  		</li>
+
+	    {% endif %}
+
+	    <!-- Sample Applications section -->
+    	{% if entry.title == "Sample Applications" %}
+    		<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-submenu>SAMPLE APPLICATIONS<span class="caret"></span></a>
+	  			<ul class="dropdown-menu">
+
+	  				{% for app in entry.subcategories %}
+
+	  				<!-- Display all of the Concepts -->
+
+	  				<li><a href="/documentation-testing{{app.url}}">{{app.title}}</a></li>
+
+	  				{% endfor %}
+	  			</ul>
+	  		</li>
+
+
+	    {% endif %}
+
+	{% endfor %}
+
+	</ul>
+  </div>
+</div>
+
+<!-- Breadcrumb -->
+
+<ol class="breadcrumb">
+	<li><a href="{{site.url}}">Developer Portal</a></li>
+	<!-- <li><a href="#">API Reference</a></li> -->
+
+	{% if page.url contains 'api' %}
+		<li><a href="{{"/api/" | prepend: site.url}}">API Reference</a></li>
+	{% elsif page.url contains 'guide' %}
+		<li><a href="{{"/guides/" | prepend: site.url}}">Guides</a></li>
+	{% elsif page.url contains 'concept' %}
+		<li><a href="{{"/concepts/" | prepend: site.url}}">Core Concepts</a></li>
+	{% elsif page.url contains 'faq' %}
+		<li><a href="{{"/faq/auth-faq/" | prepend: site.url}}">FAQ</a></li>
+	{% else %}
+		<li><a href="{{"/reference-applications/" | prepend: site.url}}">Sample Applications</a></li>
+	{% endif %}
+	<!-- <li class="active">Customers API</li> -->
+	<li class="active">{{page.title}}</li>
+</ol>

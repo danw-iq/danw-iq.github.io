@@ -1,0 +1,105 @@
+<!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+            $(document).ready(function() {
+
+                // Initialize navgoco with default options
+                $("#mysidebar").navgoco({
+                    caretHtml: '',
+                    accordion: {{site.sidebar_accordion}},
+                    openClass: 'active', // open
+                    save: false, // leave false or nav higlighting doesn't work right
+                    cookie: {
+                        name: 'navgoco',
+                        expires: false,
+                        path: '/'
+                    },
+                    slide: {
+                        duration: 400,
+                        easing: 'swing'
+                    }
+                });
+
+                $("#collapseAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', false);
+                });
+
+                $("#expandAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', true);
+                });
+
+
+                if(window.location.hostname == "melissakendall.github.io")
+                {
+                    $("#mysidebar a").each(function(e) {
+                        var url = $(this).attr("href");
+                        
+                        if(url != null) {
+                            url = "http://melissakendall.github.io/documentation-testing" + url;
+                        }
+
+                        $(this).attr("href", url);
+                    });                   
+                }
+
+            });
+                           
+        </script>
+
+        {% include custom/conditions.html %}
+
+        <ul id="mysidebar" class="nav affix">
+            {% for entry in sidebar %}
+                {% for subcategory in entry.subcategories %}
+                    {% if subcategory.url != null %}
+                        <li><a href="{{ subcategory.url }}">{{ subcategory.title }}</a>
+                    {% elsif subcategory.audience contains audience and subcategory.product contains product and subcategory.platform contains platform and subcategory.version contains version and subcategory.web != false %}
+                        <li><a>{{ subcategory.title }}</a>
+                            <ul style="display: none;">
+                                {% for item in subcategory.items %}
+                                    {% if item.thirdLevelItems != null %}
+                                        <li class="thirdlevel"><a href="#">{{ item.title }}</a>
+                                            <ul>
+                                                {% for deepItem in item.thirdLevelItems %}
+                                                    {% if deepItem.external_url %}
+                                                        <li><a href="{{deepItem.external_url}}" target="_blank">{{deepItem.title}}</a></li>
+                                                    {% elsif page.url contains deepItem.url %}
+                                                        <li class="active"><a href="{{deepItem.url | prepend: site.suffix}}">{{deepItem.title}}</a></li>
+                                                    {% else %}
+                                                        <li><a href="{{deepItem.url | prepend: site.suffix}}">{{deepItem.title}}</a></li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                    {% elsif item.audience contains audience and item.product contains product and item.platform contains platform and item.version contains version and item.web != false %}
+                                        {% if item.external_url %}
+                                            <li><a href="{{item.external_url}}" target="_blank">{{subcategory.title}}</a></li>
+                                        {% elsif page.url contains item.url %}
+                                            <li class="active"><a href="{{item.url | v: site.suffix}}">{{item.title}}</a></li>
+                                        {% else %}
+                                            <li><a href="{{item.url | prepend: site.suffix}}">{{item.title}}</a></li>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </ul>
+
+        {% if site.sidebar_accordion == false %}
+            <p class="external">
+                <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+            </p>
+        {% endif %}
+    </div>
+<!-- div missing here is intentional -->
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>

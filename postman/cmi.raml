@@ -1,0 +1,220 @@
+#%RAML 0.8
+title: cmi
+baseUri: https://vmidemo.iqmetrix.net/VMIClientService.asmx
+
+/?op=CreatePurchaseOrderShipmentNotice:
+    uriParameters:
+          
+      
+    post:
+        displayName: Creating a Purchase Order Shipment Notice
+        headers:
+            
+        body:
+            
+            application/xml:
+                
+                
+                example: |
+                    <?xml version="1.0" encoding="utf-8"?>
+                    <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+                      <soap:Body>
+                        <CreatePurchaseOrderShipmentNotice xmlns="http://www.iqmetrix.com">
+                          <client>
+                            <ClientID>9DC6AA95-856B-42C9-8AAF-392A2A02AC77</ClientID>
+                            <Username>sampleusername</Username>
+                            <Password>samplepassword</Password>
+                            <StoreID>-1</StoreID>
+                          </client>
+                          <notice>
+                            <PurchaseOrderShipmentNotice>
+                              <PurchaseOrderID>84DACFD3-4095-4D50-A02E-781B86B7408E</PurchaseOrderID>
+                              <ProductItemID>11142</ProductItemID>
+                              <Quantity>1</Quantity>
+                              <RQPurchaseOrderID>22073</RQPurchaseOrderID>
+                              <SerialNumbers>
+                                <string>97000012</string>
+                                ...
+                              </SerialNumbers>
+                              <ShipmentNumber>SHIP001</ShipmentNumber>
+                              <VendorInvoiceNumber>1002</VendorInvoiceNumber>
+                              <VendorSKU>ABC123</VendorSKU>
+                            </PurchaseOrderShipmentNotice>
+                            ...
+                          </notice>
+                        </CreatePurchaseOrderShipmentNotice>
+                      </soap:Body>
+                    </soap:Envelope>
+                    
+
+                
+            
+    
+
+/?op=GetPurchaseOrdersByStatus:
+    uriParameters:
+          
+      
+    post:
+        displayName: Getting Purchase Orders By Status
+        headers:
+            
+        body:
+            
+            application/xml:
+                
+                
+                example: |
+                    <?xml version="1.0" encoding="utf-8"?>
+                    <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+                      <soap:Body>
+                        <GetPurchaseOrdersByStatus xmlns="http://www.iqmetrix.com">
+                          <client>
+                            <ClientID>9DC6AA95-856B-42C9-8AAF-392A2A02AC77</ClientID>
+                            <Username>sampleusername</Username>
+                            <Password>samplepassword</Password>
+                          </client>
+                          <isCommitted>true</isCommitted>
+                          <isCompleted>true</isCompleted>
+                          <startDate>2015-01-01T12:00:00.000</startDate>
+                          <endDate>2015-01-30T12:00:00.000</endDate>
+                        </GetPurchaseOrdersByStatus>
+                      </soap:Body>
+                    </soap:Envelope>
+                    
+
+                
+            
+    
+
+/?op=GetPurchaseOrdersByReferenceNumber:
+    uriParameters:
+          
+      
+    post:
+        displayName: Getting Purchase Orders by Reference Number
+        headers:
+            
+        body:
+            
+            application/xml:
+                
+                
+                example: |
+                    <?xml version="1.0" encoding="utf-8"?>
+                    <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+                      <soap:Body>
+                        <GetPurchaseOrderByReferenceNumber xmlns="http://www.iqmetrix.com">
+                          <client>
+                            <ClientID>9DC6AA95-856B-42C9-8AAF-392A2A02AC77</ClientID>
+                            <Username>sampleusername</Username>
+                            <Password>samplepassword</Password>
+                          </client>
+                          <purchaseOrderReferenceNumber>77123</purchaseOrderReferenceNumber>
+                        </GetPurchaseOrderByReferenceNumber>
+                      </soap:Body>
+                    </soap:Envelope>
+                    
+
+                
+            
+    
+
+/?op=GetPurchaseOrdersByBusinessId:
+    uriParameters:
+          
+      
+    post:
+        displayName: Getting Client Purchase Orders by Business Key
+        headers:
+            
+        body:
+            
+            application/xml:
+                
+                
+                example: |
+                    <?xml version="1.0" encoding="utf-8"?>
+                    <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+                      <soap:Body>
+                        <GetPurchaseOrderByBusinessID xmlns="http://www.iqmetrix.com">
+                          <client>
+                            <ClientID>9DC6AA95-856B-42C9-8AAF-392A2A02AC77</ClientID>
+                            <Username>sampleusername</Username>
+                            <Password>samplepassword</Password>
+                          </client>
+                          <purchaseOrderIdByStore>123</purchaseOrderIdByStore>
+                        </GetPurchaseOrderByBusinessID>
+                      </soap:Body>
+                    </soap:Envelope>          
+                    
+
+                
+            
+    
+
+/?op=GetReceivingInfo:
+    uriParameters:
+          
+      
+    post:
+        displayName: Getting Receiving Info
+        headers:
+            
+        body:
+            
+            application/xml:
+                
+                
+                example: |
+                    <?xml version="1.0" encoding="utf-8"?>
+                    <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+                      <soap:Body>
+                        <GetReceivingInfo xmlns="http://www.iqmetrix.com">
+                          <client>
+                            <ClientID>9DC6AA95-856B-42C9-8AAF-392A2A02AC77</ClientID>
+                            <Username>sampleusername</Username>
+                            <Password>samplepassword</Password>
+                          </client>
+                          <startDate>01/01/2016</startDate>
+                          <endDate>05/25/2016</endDate>
+                        </GetReceivingInfo>
+                      </soap:Body>
+                    </soap:Envelope>          
+                    
+
+                
+            
+    
+
+/?op=GetStoreList:
+    uriParameters:
+          
+      
+    post:
+        displayName: Getting All CMI Enabled Stores
+        headers:
+            
+        body:
+            
+            application/xml:
+                
+                
+                example: |
+                    <?xml version="1.0" encoding="utf-8"?>
+                    <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+                      <soap:Body>
+                        <GetStoreList xmlns="http://www.iqmetrix.com">
+                          <client>
+                            <ClientID>9DC6AA95-856B-42C9-8AAF-392A2A02AC77</ClientID>
+                            <Username>sampleusername</Username>
+                            <Password>samplepassword</Password>
+                          </client>
+                        </GetStoreList>
+                      </soap:Body>
+                    </soap:Envelope>          
+                    
+
+                
+            
+    

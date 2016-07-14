@@ -1,0 +1,12 @@
+<head>
+<link href="http://melissakendall.github.io/documentation-testing/css/api-console-light-theme.css" rel="stylesheet" class="theme">
+</head>
+
+<body ng-app="ramlConsoleApp" ng-cloak class="raml-console-body">
+  <raml-console src="http://melissakendall.github.io/documentation-testing/postman/{{include.url}}" disable-theme-switcher disable-raml-client-generator></raml-console>
+  <script src="http://melissakendall.github.io/documentation-testing/js/api-console-vendor.js"></script>
+  <script src="http://melissakendall.github.io/documentation-testing/js/api-console.js"></script>
+  <script>
+    $.noConflict();
+  </script>
+</body>

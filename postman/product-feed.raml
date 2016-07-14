@@ -1,0 +1,163 @@
+#%RAML 0.8
+title: product-feed
+baseUri: https://productlibrarydemo.iqmetrix.net/v1
+
+/ProductFeeds({FeedId})/Products:
+    uriParameters:
+        
+        FeedId:
+            displayName: FeedId
+            type: string
+            example: 34
+            description: |
+                Product Feed identifier 
+            required: true
+          
+      
+    post:
+        displayName: Adding a Product to a Feed
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/json
+            
+            Content-Type:
+                example: application/json
+            
+        body:
+            
+            application/json:
+                
+                
+                example: |
+                    {
+                      "Classification": {
+                        "TreeId": 1,
+                        "Id": 4
+                      },
+                      "Fields": [
+                        {
+                          "Definition": {
+                            "Id": 1,
+                            "StringId": "Product Name"
+                          },
+                          "Value": "Agent18 SlimShield Case for iPhone 6 - Black"
+                        },
+                        {
+                          "Definition": {
+                            "Id": 129,
+                            "StringId": "Color Tags"
+                          },
+                          "Value": "Black, Red"
+                        },
+                        {
+                          "Definition": {
+                            "Id": 76,
+                            "StringId": "MSRP",
+                            "InputType": "Currency"
+                          },
+                          "Value": "24.99 CAD"
+                        }                          
+                      ],
+                      "Assets": [
+                        {
+                          "AssetUrl": "http://image.sample.com/a.jpg"
+                        },
+                        {
+                          "AssetUrl": "http://image.sample.com/b.png"
+                        },
+                        {
+                          "AssetUrl": "http://image.sample.com/c.mov"
+                        }
+                      ],
+                      "ModelName": "Agent18 SlimShield Case for iPhone 6",
+                      "LastModifiedByVendorUtc": "2015-09-16T10:40:31.101Z",
+                      "Manufacturer": "Agent18",
+                      "ManufacturerSku": "980113579",
+                      "UPC": "723755004337",
+                      "VendorSkus": [
+                        {
+                          "Description": "Online retailer",
+                          "Sku": "1115884",
+                          "VendorName": "Amazon"
+                        }
+                      ]
+                    }
+                    
+
+                
+            
+      
+    get:
+        displayName: Getting All Products in a Feed
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/json
+            
+        body:
+            
+    
+
+/ProductFeeds({FeedId}):
+    uriParameters:
+        
+        FeedId:
+            displayName: FeedId
+            type: string
+            example: 34
+            description: |
+                 
+            required: true
+          
+      
+    get:
+        displayName: Getting a Product Feed
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+            Accept:
+                example: application/json
+            
+        body:
+            
+    
+
+/ProductFeeds({FeedId})/Products({ProductId}):
+    uriParameters:
+        
+        FeedId:
+            displayName: FeedId
+            type: string
+            example: 34
+            description: |
+                 
+            required: true
+        
+        ProductId:
+            displayName: ProductId
+            type: string
+            example: 2
+            description: |
+                 
+            required: true
+          
+      
+    delete:
+        displayName: Removing a Product from a Feed
+        headers:
+            
+            Authorization:
+                example: Bearer (Access Token)
+            
+        body:
+            
+    
