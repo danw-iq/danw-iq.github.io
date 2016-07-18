@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../../css/modern-business.css">
 <link rel="stylesheet" type="text/css" href="../../css/customstyles.css">
-<link rel="stylesheet" type="text/css" href="" | prepend:site.pagefileurl }}">
+<!-- <link rel="stylesheet" type="text/css" href="" | prepend:site.pagefileurl }}"> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="../../js/jquery.navgoco.min.js"></script>
@@ -168,11 +168,10 @@ Hard coding for now, so no longer uses topnav config
 
 -->
 
-<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=all">SHOW ALL</a></li>
-<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=partner">PARTNERS</a></li>
-<li><a href="http://melissakendall.github.io/documentation-testing/api/?entity=dropship">DROPSHIP</a></li>
+<li><a href="/api/">DOCUMENTATION</a></li>
+<li><a href="/api/changelog">CHANGELOG</a></li>
 <li><a href="mailto:?subject=Support">SUPPORT</a></li>
-<li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
+
 
          <!--
       <li>
@@ -239,99 +238,106 @@ Hard coding for now, so no longer uses topnav config
                     $("#mysidebar").navgoco('toggle', true);
                 });
 
-
-                if(window.location.hostname == "melissakendall.github.io")
+                if(window.location.hostname == "apidocumentation-dev-westus.azurewebsites.net")
                 {
-                    $("#mysidebar a").each(function(e) {
+                    $("a").each(function(e) {
                         var url = $(this).attr("href");
                         
-                        if(url != null) {
-                            url = "http://melissakendall.github.io/documentation-testing" + url;
+                        if(url.indexOf("developers.iqmetrix.com") > -1) {
+                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
                         }
 
                         $(this).attr("href", url);
-                    });                   
+                    });
+
+                    $("img").each(function(e) {
+                        var url = $(this).attr("src");
+                        
+                        if(url.indexOf("developers.iqmetrix.com") > -1) {
+                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
+                        }
+
+                        $(this).attr("src", url);
+                    });                    
                 }
 
+                if(window.location.search != "" && window.location.search != null && window.location.search.indexOf("=") > -1) {
+
+                    var entityValue = window.location.search.split("=")[1];
+
+                    $("."+entityValue).hide();
+                }
             });
-                           
+
         </script>
-
-        
-
-
-
-
-
-
 
         <ul id="mysidebar" class="nav affix">
             
                 
                     
-                        <li><a>API Reference</a>
+                        <li class=""><a href="#">API Reference</a>
                             <ul style="display: none;">
                                 
                                     
                                         
-                                            <li><a href="/api/authentication/">Authentication</a></li>
+                                            <li class=""><a href="/api/authentication/">Authentication</a></li>
                                         
                                     
                                 
                                     
                                         
-                                            <li><a href="/api/assets/">Assets</a></li>
+                                            <li class=""><a href="/api/assets/">Assets</a></li>
                                         
                                     
                                 
                                     
                                         
-                                            <li><a href="/api/catalog/">Catalog</a></li>
+                                            <li class=""><a href="/api/catalog/">Catalog</a></li>
                                         
                                     
                                 
                                     
                                         
-                                            <li><a href="/api/company-tree/">Company Tree</a></li>
+                                            <li class=""><a href="/api/company-tree/">Company Tree</a></li>
                                         
                                     
                                 
                                     
                                         
-                                            <li><a href="/api/crm/">Customers</a></li>
+                                            <li class=""><a href="/api/crm/">Customers</a></li>
                                         
                                     
                                 
                                     
-                                        <li class="thirdlevel"><a href="#">Dropship</a>
+                                        <li class="thirdlevel "><a href="#">Dropship</a>
                                             <ul>
                                                 
                                                     
-                                                        <li><a href="/api/cost-feed/">Cost Feed</a></li>
+                                                        <li class=""><a href="/api/cost-feed/">Cost Feed</a></li>
                                                     
                                                 
                                                     
-                                                        <li><a href="/api/product-feed/">Product Feed</a></li>
+                                                        <li class=""><a href="/api/product-feed/">Product Feed</a></li>
                                                     
                                                 
                                                     
-                                                        <li><a href="/api/product-subscription/">Product Subscription</a></li>
+                                                        <li class=""><a href="/api/product-subscription/">Product Subscription</a></li>
                                                     
                                                 
                                                     
-                                                        <li><a href="/api/saccs/">Shipping Aggregator</a></li>
+                                                        <li class=""><a href="/api/saccs/">Shipping Aggregator</a></li>
                                                     
                                                 
                                                     
-                                                        <li><a href="/api/shipping-options/">Shipping Options</a></li>
+                                                        <li class=""><a href="/api/shipping-options/">Shipping Options</a></li>
                                                     
                                                 
                                                     
-                                                        <li><a href="/api/supplier-availability/">Supplier Availability</a></li>
+                                                        <li class=""><a href="/api/supplier-availability/">Supplier Availability</a></li>
                                                     
                                                 
                                                     
-                                                        <li><a href="/api/supplier-orders/">Supplier Orders</a></li>
+                                                        <li class=""><a href="/api/supplier-orders/">Supplier Orders</a></li>
                                                     
                                                 
                                             </ul>
@@ -340,38 +346,38 @@ Hard coding for now, so no longer uses topnav config
                                 
                                     
                                         
-                                            <li><a href="/api/entity-store/">Entities</a></li>
+                                            <li class=""><a href="/api/entity-store/">Entities</a></li>
                                         
                                     
                                 
                                     
                                         
-                                            <li><a href="/api/general-ledger/">General Ledger</a></li>
+                                            <li class=""><a href="/api/general-ledger/">General Ledger</a></li>
                                         
                                     
                                 
                                     
                                         
-                                            <li><a href="/api/availability/">Inventory Availability</a></li>
+                                            <li class=""><a href="/api/availability/">Inventory Availability</a></li>
                                         
                                     
                                 
                                     
                                         
-                                            <li><a href="/api/orders/">Orders</a></li>
+                                            <li class=""><a href="/api/orders/">Orders</a></li>
                                         
                                     
                                 
                                     
-                                        <li class="thirdlevel"><a href="#">Partners</a>
+                                        <li class="thirdlevel "><a href="#">Partners</a>
                                             <ul>
                                                 
                                                     
-                                                        <li><a href="/api/partner-reporting/">Partner Reporting</a></li>
+                                                        <li class=""><a href="/api/partner-reporting/">Partner Reporting</a></li>
                                                     
                                                 
                                                     
-                                                        <li><a href="/api/partner-relationships/">Relationships</a></li>
+                                                        <li class=""><a href="/api/partner-relationships/">Relationships</a></li>
                                                     
                                                 
                                             </ul>
@@ -380,28 +386,28 @@ Hard coding for now, so no longer uses topnav config
                                 
                                     
                                         
-                                            <li><a href="/api/pricing">Pricing</a></li>
+                                            <li class=""><a href="/api/pricing">Pricing</a></li>
                                         
                                     
                                 
                                     
-                                        <li class="thirdlevel"><a href="#">Product Library</a>
+                                        <li class="thirdlevel "><a href="#">Product Library</a>
                                             <ul>
                                                 
                                                     
-                                                        <li><a href="/api/classification-tree/">Classification Tree</a></li>
+                                                        <li class=""><a href="/api/classification-tree/">Classification Tree</a></li>
                                                     
                                                 
                                                     
-                                                        <li><a href="/api/field-definitions/">Field Definitions</a></li>
+                                                        <li class=""><a href="/api/field-definitions/">Field Definitions</a></li>
                                                     
                                                 
                                                     
-                                                        <li><a href="/api/product-library/">Products</a></li>
+                                                        <li class=""><a href="/api/product-library/">Products</a></li>
                                                     
                                                 
                                                     
-                                                        <li><a href="/api/product-structure/">Product Structure</a></li>
+                                                        <li class=""><a href="/api/product-structure/">Product Structure</a></li>
                                                     
                                                 
                                             </ul>
@@ -410,36 +416,36 @@ Hard coding for now, so no longer uses topnav config
                                 
                                     
                                         
-                                            <li><a href="/api/reference/">Reference</a></li>
+                                            <li class=""><a href="/api/reference/">Reference</a></li>
                                         
                                     
                                 
                                     
-                                        <li class="thirdlevel"><a href="#">RQ</a>
+                                        <li class="thirdlevel "><a href="#">RQ</a>
                                             <ul>
                                                 
                                                     
-                                                        <li><a href="/api/carrier-integration/">Carrier Integration</a></li>
+                                                        <li class=""><a href="/api/carrier-integration/">Carrier Integration</a></li>
                                                     
                                                 
                                                     
-                                                        <li><a href="/api/cmi/">Customer Managed Inventory (CMI)</a></li>
+                                                        <li class=""><a href="/api/cmi/">Customer Managed Inventory (CMI)</a></li>
                                                     
                                                 
                                                     
-                                                        <li><a href="/api/commissions/">Commissions</a></li>
+                                                        <li class=""><a href="/api/commissions/">Commissions</a></li>
                                                     
                                                 
                                                     
-                                                        <li><a href="/api/epc/">Electronic Product Catalog (EPC)</a></li>
+                                                        <li class=""><a href="/api/epc/">Electronic Product Catalog (EPC)</a></li>
                                                     
                                                 
                                                     
-                                                        <li class="active"><a href="/api/punch-clock/">Punch Clock</a></li>
+                                                        <li class="active "><a href="/api/punch-clock/">Punch Clock</a></li>
                                                     
                                                 
                                                     
-                                                        <li><a href="/api/vmi/">Vendor Managed Inventory (VMI)</a></li>
+                                                        <li class=""><a href="/api/vmi/">Vendor Managed Inventory (VMI)</a></li>
                                                     
                                                 
                                             </ul>
@@ -448,13 +454,13 @@ Hard coding for now, so no longer uses topnav config
                                 
                                     
                                         
-                                            <li><a href="/api/security-roles/">Security Roles</a></li>
+                                            <li class=""><a href="/api/security-roles/">Security Roles</a></li>
                                         
                                     
                                 
                                     
                                         
-                                            <li><a href="/api/user-manager/">User Manager</a></li>
+                                            <li class=""><a href="/api/user-manager/">User Manager</a></li>
                                         
                                     
                                 
@@ -463,27 +469,27 @@ Hard coding for now, so no longer uses topnav config
                     
                 
                     
-                        <li><a>Guides</a>
+                        <li class=""><a href="#">Guides</a>
                             <ul style="display: none;">
                                 
                                     
                                         
-                                            <li><a href="/guides/creating-an-in-store-order/">Creating an In Store Order</a></li>
+                                            <li class=""><a href="/guides/creating-an-in-store-order/">Creating an In Store Order</a></li>
                                         
                                     
                                 
                                     
                                         
-                                            <li><a href="/guides/creating-a-user-for-rq/">Creating a User for RQ</a></li>
+                                            <li class=""><a href="/guides/creating-a-user-for-rq/">Creating a User for RQ</a></li>
                                         
                                     
                                 
                                     
-                                        <li class="thirdlevel"><a href="#">Dropship Client Integration Guides</a>
+                                        <li class="thirdlevel "><a href="#">Dropship Client Integration Guides</a>
                                             <ul>
                                                 
                                                     
-                                                        <li><a href="/guides/dropship-pos-guide/">Dropship Point of Sale Guide</a></li>
+                                                        <li class=""><a href="/guides/dropship-pos-guide/">Dropship Point of Sale Guide</a></li>
                                                     
                                                 
                                             </ul>
@@ -491,53 +497,19 @@ Hard coding for now, so no longer uses topnav config
                                     
                                 
                                     
-                                        <li class="thirdlevel"><a href="#">Dropship Partner Integration Guides</a>
+                                        <li class="thirdlevel "><a href="#">Dropship Partner Integration Guides</a>
                                             <ul>
                                                 
                                                     
-                                                        <li><a href="/guides/dropship-onboarding-guide/">Dropship Onboarding Guide</a></li>
+                                                        <li class=""><a href="/guides/dropship-onboarding-guide/">Dropship Onboarding Guide</a></li>
                                                     
                                                 
                                                     
-                                                        <li><a href="/guides/dropship-order-guide/">Dropship Order Management Guide</a></li>
+                                                        <li class=""><a href="/guides/dropship-order-guide/">Dropship Order Management Guide</a></li>
                                                     
                                                 
                                                     
-                                                        <li><a href="/guides/dropship-test-order-guide/">Dropship Test Order Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li><a href="/guides/commerce-guide/">eCommerce Integration Guide</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel"><a href="#">Endless Aisle Integration Guide</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li><a href="/guides/ea-guide/overview">Overview</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li><a href="/guides/ea-guide/corporate-hierarchy">Corporate Hierarchy</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li><a href="/guides/ea-guide/content">Content</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li><a href="/guides/ea-guide/inventory">Inventory</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li><a href="/guides/ea-guide/orders">Orders</a></li>
+                                                        <li class=""><a href="/guides/dropship-test-order-guide/">Dropship Test Order Guide</a></li>
                                                     
                                                 
                                             </ul>
@@ -546,13 +518,47 @@ Hard coding for now, so no longer uses topnav config
                                 
                                     
                                         
-                                            <li><a href="/guides/3pa/">Third Party Authentication</a></li>
+                                            <li class=""><a href="/guides/commerce-guide/">eCommerce Integration Guide</a></li>
+                                        
+                                    
+                                
+                                    
+                                        <li class="thirdlevel "><a href="#">Endless Aisle Integration Guide</a>
+                                            <ul>
+                                                
+                                                    
+                                                        <li class=""><a href="/guides/ea-guide/overview">Overview</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li class=""><a href="/guides/ea-guide/corporate-hierarchy">Corporate Hierarchy</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li class=""><a href="/guides/ea-guide/content">Content</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li class=""><a href="/guides/ea-guide/inventory">Inventory</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li class=""><a href="/guides/ea-guide/orders">Orders</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            <li class=""><a href="/guides/3pa/">Third Party Authentication</a></li>
                                         
                                     
                                 
                                     
                                         
-                                            <li><a href="/guides/vmi-onboarding-guide/">VMI Onboarding Guide</a></li>
+                                            <li class=""><a href="/guides/vmi-onboarding-guide/">VMI Onboarding Guide</a></li>
                                         
                                     
                                 
@@ -561,36 +567,36 @@ Hard coding for now, so no longer uses topnav config
                     
                 
                     
-                        <li><a>Core Concepts</a>
+                        <li class=""><a href="#">Core Concepts</a>
                             <ul style="display: none;">
                                 
                                     
                                         
-                                            <li><a href="/concepts/classification-tree/">Classification Tree</a></li>
+                                            <li class=""><a href="/concepts/classification-tree/">Classification Tree</a></li>
                                         
                                     
                                 
                                     
                                         
-                                            <li><a href="/concepts/company-tree/">Company Tree</a></li>
+                                            <li class=""><a href="/concepts/company-tree/">Company Tree</a></li>
                                         
                                     
                                 
                                     
                                         
-                                            <li><a href="/concepts/product-library/">Product Library</a></li>
+                                            <li class=""><a href="/concepts/product-library/">Product Library</a></li>
                                         
                                     
                                 
                                     
                                         
-                                            <li><a href="/concepts/product-structure/">Product Structure</a></li>
+                                            <li class=""><a href="/concepts/product-structure/">Product Structure</a></li>
                                         
                                     
                                 
                                     
                                         
-                                            <li><a href="/concepts/user-manager/">User Manager</a></li>
+                                            <li class=""><a href="/concepts/user-manager/">User Manager</a></li>
                                         
                                     
                                 
@@ -599,18 +605,18 @@ Hard coding for now, so no longer uses topnav config
                     
                 
                     
-                        <li><a>FAQ</a>
+                        <li class=""><a href="#">FAQ</a>
                             <ul style="display: none;">
                                 
                                     
                                         
-                                            <li><a href="/faq/auth-faq/">Authentication FAQ</a></li>
+                                            <li class=""><a href="/faq/auth-faq/">Authentication FAQ</a></li>
                                         
                                     
                                 
                                     
                                         
-                                            <li><a href="/faq/dropship-faq/">Dropship FAQ</a></li>
+                                            <li class=""><a href="/faq/dropship-faq/">Dropship FAQ</a></li>
                                         
                                     
                                 
@@ -619,7 +625,7 @@ Hard coding for now, so no longer uses topnav config
                     
                 
                     
-                        <li><a href="/reference-applications/">Reference Applications</a>
+                        <li class=""><a href="/reference-applications/">Reference Applications</a>
                     
                 
             
@@ -631,6 +637,7 @@ Hard coding for now, so no longer uses topnav config
 
 <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
 <script>$("li.active").parents('li').toggleClass("active");</script>
+
 
 
             
