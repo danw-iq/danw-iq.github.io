@@ -2102,6 +2102,18 @@ curl -X POST <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14
 </code></pre>
 
 <h4 id="response">Response</h4>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21Z8F4AQ"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsArchived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateAddedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-09T20:12:05.987"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateUpdatedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-09T20:12:05.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RmsId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <ul>
 <li><code class="prettyprint">CatalogItemId</code> (Guid)</li>
@@ -2113,17 +2125,6 @@ curl -X POST <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14
 <li><code class="prettyprint">Slug</code> (String) </li>
 <li><code class="prettyprint">SourceIds</code> (Array)</li>
 </ul>
-<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
-{
-    "CatalogItemId": "a183f1a9-c58f-426a-930a-9a6357db52ed",
-    "CatalogSku": "21Z8F4AQ",
-    "IsArchived": false,
-    "DateAddedUtc": "2016-08-09T20:12:05.987",
-    "DateUpdatedUtc": "2016-08-09T20:12:05.99",
-    "RmsId": "1",
-    "Slug": "M1248-V1"
-}
-</code></pre>
 
 <h2 id="getting-extended-attributes-for-a-catalog-item">Getting Extended Attributes for a Catalog Item</h2>
 
