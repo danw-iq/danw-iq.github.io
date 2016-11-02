@@ -91,7 +91,7 @@
       <script src="../../javascripts/all.js"></script>
   </head>
 
-  <body class="api api_catalog api_catalog_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+  <body class="api api_catalog api_catalog_index" data-languages="[&quot;http&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -101,7 +101,7 @@
     <div class="tocify-wrapper">
       <img src="../../images/logo.png" />
         <div class="lang-selector">
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="http">javascript</a>
               <a href="#" data-language-name="shell">cURL</a>
               <a href="#" data-language-name="csharp">c#</a>
               <a href="#" data-language-name="java">java</a>
@@ -124,8 +124,8 @@
 <h2 id="product-slug">Product Slug</h2>
 
 <p>A <strong>slug</strong> is a generated identifier for a Product within the Product Library, determined using its {{ProductStructure_Concept}} and the following formula:</p>
-
-<p><code class="prettyprint">M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}</code></p>
+<pre class="highlight plaintext"><code>M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
+</code></pre>
 
 <ul>
 <li>ProductDocumentId - Identifier for a {{ProductDocument}}</li>
@@ -136,7 +136,11 @@
 
 <h3 id="example">Example</h3>
 
-<p><code class="prettyprint">M1-V2-E3-RCABC</code></p>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>M1-V2-E3-RCABC
+</code></pre>
 
 <p>Using the slug in the example above, we can determine the following:</p>
 
@@ -156,660 +160,7 @@
 
 <h1 id="resources">Resources</h1>
 
-<h2 id="catalogsearchresult-option-a">CatalogSearchResult - Option A</h2>
-
-<p>A CatalogSearchResult resource is used to return information about Product resources that match a given criteria, defined in the request.</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Name</th>
-<th style="text-align: left">Data Type</th>
-<th style="text-align: left">Description</th>
-<th style="text-align: left">Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">Items</td>
-<td style="text-align: left">Array[object]</td>
-<td style="text-align: left">Products matching the search criteria</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Name</td>
-<td style="text-align: left"><code class="prettyprint">Galaxy S6 edge+ 32GB - Black Sapphire</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.CanonicalClassification</td>
-<td style="text-align: left">object</td>
-<td style="text-align: left">ClassificationTree details</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.CanonicalClassification.Id</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Identifier for the <a href="/api/classification-tree/#classification">Classification</a> or <a href="/api/classification-tree/#category">Category</a></td>
-<td style="text-align: left"><code class="prettyprint">4</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.CanonicalClassification.Name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Name of the Classification/Category</td>
-<td style="text-align: left"><code class="prettyprint">Smartphones</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.CanonicalClassification.ParentCategories</td>
-<td style="text-align: left">Array[object]</td>
-<td style="text-align: left">List of Parent Categories</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.CanonicalClassification.ParentCategories.Id</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Identifier</td>
-<td style="text-align: left"><code class="prettyprint">2</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.CanonicalClassification.ParentCategories.Name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Name</td>
-<td style="text-align: left"><code class="prettyprint">Devices</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.CatalogItemId</td>
-<td style="text-align: left">GUID</td>
-<td style="text-align: left">Unique identifier for the CatalogItem</td>
-<td style="text-align: left"><code class="prettyprint">a183f1a9-c58f-426a-930a-9a6357db52ed</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.CatalogSku</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">SKU</td>
-<td style="text-align: left"><code class="prettyprint">21Z8F4AQ</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ClassificationTreeId</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Identifier for the <a href="/api/classification-tree/#classificationtree">ClassificationTree</a></td>
-<td style="text-align: left"><code class="prettyprint">1</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ColorDefinition</td>
-<td style="text-align: left">object</td>
-<td style="text-align: left">Information about the color of the Product</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ColorDefinition.Id</td>
-<td style="text-align: left">GUID</td>
-<td style="text-align: left">Unique identifier</td>
-<td style="text-align: left"><code class="prettyprint">5c6e2779-79d1-4fbd-b6a8-36b81e851b15</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ColorDefinition.Name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Name</td>
-<td style="text-align: left"><code class="prettyprint">Black Sapphire</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ColorDefinition.ColorTags</td>
-<td style="text-align: left">Array[object]</td>
-<td style="text-align: left">Color information</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ColorDefinition.ColorTags.Id</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Identifier</td>
-<td style="text-align: left"><code class="prettyprint">1</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ColorDefinition.ColorTags.Name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Name</td>
-<td style="text-align: left"><code class="prettyprint">Black</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ColorDefinition.ColorTags.ColorCode</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">A valid Hex code representing this color</td>
-<td style="text-align: left"><code class="prettyprint">#303232</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ColorDefinition.Swatch</td>
-<td style="text-align: left"><a href='/api/catalog/#swatch'>Swatch</a></td>
-<td style="text-align: left">An icon to display on a screen next to a color showing the actual color of the product. Can be provided as an image Asset or hex code</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.CompanyId</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Identifier for the Company</td>
-<td style="text-align: left"><code class="prettyprint">14146</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.DateAddedUtc</td>
-<td style="text-align: left">DateTime</td>
-<td style="text-align: left">Date this Product was added to the catalog, in UTC</td>
-<td style="text-align: left"><code class="prettyprint">2011-10-14T12:00:00.000</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.HeroShotId</td>
-<td style="text-align: left">GUID</td>
-<td style="text-align: left"><a href="/api/glossary/#hero-shot">Hero Shot</a> identifier</td>
-<td style="text-align: left"><code class="prettyprint">44f60963-5515-44bc-9509-71aef6463580</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Identifiers</td>
-<td style="text-align: left">Array[<a href='/api/catalog/#identifier'>Identifier</a>]</td>
-<td style="text-align: left">Identifiers</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.IsLinkedToCuratedProduct</td>
-<td style="text-align: left">Boolean</td>
-<td style="text-align: left">A flag to indicate if this version of this Product is publicly accessible (true), or private (false)</td>
-<td style="text-align: left"><code class="prettyprint">true</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.IsDropShippable</td>
-<td style="text-align: left">Boolean</td>
-<td style="text-align: left">A flag to indicate if this Product can be shipped</td>
-<td style="text-align: left"><code class="prettyprint">true</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.IsMasterProduct</td>
-<td style="text-align: left">Boolean</td>
-<td style="text-align: left">A flag to indicate if this is a Master Product</td>
-<td style="text-align: left"><code class="prettyprint">false</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Manufacturer</td>
-<td style="text-align: left">object</td>
-<td style="text-align: left"><a href="/api/entity-store/#manufacturer">Manufacturer</a> information for the Product</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Manufacturer.Id</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Identifier for the <a href="/api/entity-store/#manufacturer">Manufacturer</a></td>
-<td style="text-align: left"><code class="prettyprint">13149</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Manufacturer.Name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Name of the <a href="/api/entity-store/#manufacturer">Manufacturer</a></td>
-<td style="text-align: left"><code class="prettyprint">OtterBox</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Msrp</td>
-<td style="text-align: left">object</td>
-<td style="text-align: left">Manufacturer suggested retail price information for the Product</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Msrp.Amount</td>
-<td style="text-align: left">Decimal</td>
-<td style="text-align: left">Manufacturers suggested retail price</td>
-<td style="text-align: left"><code class="prettyprint">100</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Msrp.CurrencyCode</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Currency. For a list of acceptable values, see <a href='/api/reference/#getting-all-currencies'>Getting All Currencies</a></td>
-<td style="text-align: left"><code class="prettyprint">USD</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ProductVersion</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Latest revision number</td>
-<td style="text-align: left"><code class="prettyprint">1</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ShortDescription</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Short Description</td>
-<td style="text-align: left"><code class="prettyprint">Next is Now</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Slug</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">URL friendly identifier for the Product</td>
-<td style="text-align: left"><code class="prettyprint">M1248-V1</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.VariationId</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Identifier for the <a href="/concepts/product-structure/#Variations">Variation</a> this Product represents</td>
-<td style="text-align: left"><code class="prettyprint">1</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Vendors</td>
-<td style="text-align: left">Array[object]</td>
-<td style="text-align: left">Vendors for the Product</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Vendors.Id</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Identifier for the <a href="/api/entity-store/#supplier">Supplier</a></td>
-<td style="text-align: left"><code class="prettyprint">14107</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Vendors.Name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Name of the <a href="/api/entity-store/#supplier">Supplier</a></td>
-<td style="text-align: left"><code class="prettyprint">NOZAMA Inc.</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Facets</td>
-<td style="text-align: left">object</td>
-<td style="text-align: left">Summary of Manufacturer and Vendor information for the Items</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">Facets.ClassificationAndCategories</td>
-<td style="text-align: left">Array[object]</td>
-<td style="text-align: left">Count of Classification and Categories in results</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">Facets.ClassificationAndCategories.Count</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Number of items in the response with the Classification or Category specified in Item</td>
-<td style="text-align: left"><code class="prettyprint">1</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Facets.ClassificationAndCategories.Item</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Identifier of a Classification or Category</td>
-<td style="text-align: left"><code class="prettyprint">4</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Facets.Manufacturers</td>
-<td style="text-align: left">Array[<a href='/api/catalog/#manufacturer'>Manufacturer</a>]</td>
-<td style="text-align: left">Manufacturer information for the Items</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">Facets.Vendors</td>
-<td style="text-align: left">Array[<a href='/api/catalog/#manufacturer'>Manufacturer</a>]</td>
-<td style="text-align: left">Vendor information for the Items</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">MetaData</td>
-<td style="text-align: left">object</td>
-<td style="text-align: left">Data representing pagination details</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">MetaData.Page</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Page of Items to be included in the resource</td>
-<td style="text-align: left"><code class="prettyprint">1</code></td>
-</tr>
-<tr>
-<td style="text-align: left">MetaData.PageSize</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Number of Items included in the resource</td>
-<td style="text-align: left"><code class="prettyprint">20</code></td>
-</tr>
-<tr>
-<td style="text-align: left">MetaData.TotalResults</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Number of Items matching the search criteria</td>
-<td style="text-align: left"><code class="prettyprint">5</code></td>
-</tr>
-</tbody></table>
-
-<h2 id="catalogsearchresult-option-b">CatalogSearchResult - Option B</h2>
-
-<p>A CatalogSearchResult resource is used to return information about Product resources that match a given criteria, defined in the request.</p>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Galaxy S6 edge+ 32GB - Black Sapphire"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CanonicalClassification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"ParentCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                    </span><span class="p">{</span><span class="w">
-                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Devices"</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">]</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21Z8F4AQ"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ClassificationTreeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"DateAddedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-10-14T12:00:00.000"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"HeroShotId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f60963-5515-44bc-9509-71aef6463580"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EM-JE040-RA"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"SkuType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ManufacturerSku"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="w">
-                    </span><span class="p">},</span><span class="w">
-                    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer SKU"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="nt">"IsLinkedToCuratedProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"IsDropShippable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"IsMasterProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nt">"Msrp"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nt">"ProductVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Next is Now"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"VariationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14107</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOZAMA Inc."</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"Facets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"ClassificationAndCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="nt">"Manufacturers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"MetaData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"Page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"TotalResults"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Name</th>
-<th style="text-align: left">Data Type</th>
-<th style="text-align: left">Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">Items</td>
-<td style="text-align: left">Array[object]</td>
-<td style="text-align: left">Products matching the search criteria</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Name</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.CanonicalClassification</td>
-<td style="text-align: left">object</td>
-<td style="text-align: left">ClassificationTree details</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.CanonicalClassification.Id</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Identifier for the <a href="/api/classification-tree/#classification">Classification</a> or <a href="/api/classification-tree/#category">Category</a></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.CanonicalClassification.Name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Name of the Classification/Category</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.CanonicalClassification.ParentCategories</td>
-<td style="text-align: left">Array[object]</td>
-<td style="text-align: left">List of Parent Categories</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.CanonicalClassification.ParentCategories.Id</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Identifier</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.CanonicalClassification.ParentCategories.Name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Name</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.CatalogItemId</td>
-<td style="text-align: left">GUID</td>
-<td style="text-align: left">Unique identifier for the CatalogItem</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.CatalogSku</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">SKU</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ClassificationTreeId</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Identifier for the <a href="/api/classification-tree/#classificationtree">ClassificationTree</a></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ColorDefinition</td>
-<td style="text-align: left">object</td>
-<td style="text-align: left">Information about the color of the Product</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ColorDefinition.Id</td>
-<td style="text-align: left">GUID</td>
-<td style="text-align: left">Unique identifier</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ColorDefinition.Name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Name</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ColorDefinition.ColorTags</td>
-<td style="text-align: left">Array[object]</td>
-<td style="text-align: left">Color information</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ColorDefinition.ColorTags.Id</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Identifier</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ColorDefinition.ColorTags.Name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Name</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ColorDefinition.ColorTags.ColorCode</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">A valid Hex code representing this color</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ColorDefinition.Swatch</td>
-<td style="text-align: left"><a href='/api/catalog/#swatch'>Swatch</a></td>
-<td style="text-align: left">An icon to display on a screen next to a color showing the actual color of the product. Can be provided as an image Asset or hex code</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.CompanyId</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Identifier for the Company</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.DateAddedUtc</td>
-<td style="text-align: left">DateTime</td>
-<td style="text-align: left">Date this Product was added to the catalog, in UTC</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.HeroShotId</td>
-<td style="text-align: left">GUID</td>
-<td style="text-align: left"><a href="/api/glossary/#hero-shot">Hero Shot</a> identifier</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Identifiers</td>
-<td style="text-align: left">Array[<a href='/api/catalog/#identifier'>Identifier</a>]</td>
-<td style="text-align: left">Identifiers</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.IsLinkedToCuratedProduct</td>
-<td style="text-align: left">Boolean</td>
-<td style="text-align: left">A flag to indicate if this version of this Product is publicly accessible (true), or private (false)</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.IsDropShippable</td>
-<td style="text-align: left">Boolean</td>
-<td style="text-align: left">A flag to indicate if this Product can be shipped</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.IsMasterProduct</td>
-<td style="text-align: left">Boolean</td>
-<td style="text-align: left">A flag to indicate if this is a Master Product</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Manufacturer</td>
-<td style="text-align: left">object</td>
-<td style="text-align: left"><a href="/api/entity-store/#manufacturer">Manufacturer</a> information for the Product</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Manufacturer.Id</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Identifier for the <a href="/api/entity-store/#manufacturer">Manufacturer</a></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Manufacturer.Name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Name of the <a href="/api/entity-store/#manufacturer">Manufacturer</a></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Msrp</td>
-<td style="text-align: left">object</td>
-<td style="text-align: left">Manufacturer suggested retail price information for the Product</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Msrp.Amount</td>
-<td style="text-align: left">Decimal</td>
-<td style="text-align: left">Manufacturers suggested retail price</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Msrp.CurrencyCode</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Currency. For a list of acceptable values, see <a href='/api/reference/#getting-all-currencies'>Getting All Currencies</a></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ProductVersion</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Latest revision number</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.ShortDescription</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Short Description</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Slug</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">URL friendly identifier for the Product</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.VariationId</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Identifier for the <a href="/concepts/product-structure/#Variations">Variation</a> this Product represents</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Vendors</td>
-<td style="text-align: left">Array[object]</td>
-<td style="text-align: left">Vendors for the Product</td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Vendors.Id</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Identifier for the <a href="/api/entity-store/#supplier">Supplier</a></td>
-</tr>
-<tr>
-<td style="text-align: left">Items.Vendors.Name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Name of the <a href="/api/entity-store/#supplier">Supplier</a></td>
-</tr>
-<tr>
-<td style="text-align: left">Facets</td>
-<td style="text-align: left">object</td>
-<td style="text-align: left">Summary of Manufacturer and Vendor information for the Items</td>
-</tr>
-<tr>
-<td style="text-align: left">Facets.ClassificationAndCategories</td>
-<td style="text-align: left">Array[object]</td>
-<td style="text-align: left">Count of Classification and Categories in results</td>
-</tr>
-<tr>
-<td style="text-align: left">Facets.ClassificationAndCategories.Count</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Number of items in the response with the Classification or Category specified in Item</td>
-</tr>
-<tr>
-<td style="text-align: left">Facets.ClassificationAndCategories.Item</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Identifier of a Classification or Category</td>
-</tr>
-<tr>
-<td style="text-align: left">Facets.Manufacturers</td>
-<td style="text-align: left">Array[<a href='/api/catalog/#manufacturer'>Manufacturer</a>]</td>
-<td style="text-align: left">Manufacturer information for the Items</td>
-</tr>
-<tr>
-<td style="text-align: left">Facets.Vendors</td>
-<td style="text-align: left">Array[<a href='/api/catalog/#manufacturer'>Manufacturer</a>]</td>
-<td style="text-align: left">Vendor information for the Items</td>
-</tr>
-<tr>
-<td style="text-align: left">MetaData</td>
-<td style="text-align: left">object</td>
-<td style="text-align: left">Data representing pagination details</td>
-</tr>
-<tr>
-<td style="text-align: left">MetaData.Page</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Page of Items to be included in the resource</td>
-</tr>
-<tr>
-<td style="text-align: left">MetaData.PageSize</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Number of Items included in the resource</td>
-</tr>
-<tr>
-<td style="text-align: left">MetaData.TotalResults</td>
-<td style="text-align: left">Integer</td>
-<td style="text-align: left">Number of Items matching the search criteria</td>
-</tr>
-</tbody></table>
-
-<h2 id="catalogsearchresult-option-c">CatalogSearchResult - Option C</h2>
+<h2 id="catalogsearchresult">CatalogSearchResult</h2>
 
 <p>A CatalogSearchResult resource is used to return information about Product resources that match a given criteria, defined in the request.</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -1107,271 +458,169 @@
 <h2 id="catalogitem">CatalogItem</h2>
 
 <p>Archived CatalogItem resources can still be updated and retrieved individually, but are excluded from search results</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21Z8F4AQ"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsArchived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateAddedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-09T20:12:05.987"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateUpdatedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-09T20:12:05.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RmsId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
 <th style="text-align: left">Name</th>
-<th style="text-align: left">Data Type</th>
 <th style="text-align: left">Description</th>
-<th style="text-align: left">Example</th>
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">CatalogItemId</td>
-<td style="text-align: left">GUID</td>
+<td style="text-align: left">CatalogItemId (<code class="prettyprint">GUID</code>)</td>
 <td style="text-align: left">Unique identifier</td>
-<td style="text-align: left"><code class="prettyprint">a183f1a9-c58f-426a-930a-9a6357db52ed</code></td>
 </tr>
 <tr>
-<td style="text-align: left">IsArchived</td>
-<td style="text-align: left">Boolean</td>
+<td style="text-align: left">IsArchived (<code class="prettyprint">Boolean</code>)</td>
 <td style="text-align: left">A flag to indicate if this CatalogItem is Archived. When archived, this CatalogItem is excluded from search results</td>
-<td style="text-align: left"><code class="prettyprint">false</code></td>
 </tr>
 <tr>
-<td style="text-align: left">RmsId</td>
-<td style="text-align: left">String</td>
+<td style="text-align: left">RmsId (<code class="prettyprint">String</code>)</td>
 <td style="text-align: left">Identifier for the CatalogItem in an external inventory system</td>
-<td style="text-align: left"><code class="prettyprint">1</code></td>
 </tr>
 <tr>
-<td style="text-align: left">Slug</td>
-<td style="text-align: left">String</td>
+<td style="text-align: left">Slug (<code class="prettyprint">String</code>)</td>
 <td style="text-align: left">Unique identifier for a <a href="#product">Product</a></td>
-<td style="text-align: left"><code class="prettyprint">M1248-V1</code></td>
 </tr>
 <tr>
-<td style="text-align: left">ExtendedAttributes</td>
-<td style="text-align: left">Array[<a href='/api/catalog/#attribute'>Attribute</a>]</td>
+<td style="text-align: left">ExtendedAttributes (<code class="prettyprint">Array</code>[<a href='/api/catalog/#attribute'>Attribute</a>])</td>
 <td style="text-align: left">Attributes</td>
-<td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: left"><em>SourceIds</em></td>
-<td style="text-align: left"><em>GUID</em></td>
+<td style="text-align: left"><em>SourceIds</em> (<code class="prettyprint">*GUID*</code>)</td>
 <td style="text-align: left"><em>Reserved for future use</em></td>
-<td style="text-align: left"></td>
 </tr>
 </tbody></table>
 
 <h2 id="canonicalclassification">CanonicalClassification</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ParentCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Devices"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
 <th style="text-align: left">Name</th>
-<th style="text-align: left">Data Type</th>
 <th style="text-align: left">Description</th>
-<th style="text-align: left">Example</th>
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">Id</td>
-<td style="text-align: left">Integer</td>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
 <td style="text-align: left">Identifier for the <a href="/api/classification-tree/#classification">Classification</a> or <a href="/api/classification-tree/#category">Category</a></td>
-<td style="text-align: left"><code class="prettyprint">4</code></td>
 </tr>
 <tr>
-<td style="text-align: left">Name</td>
-<td style="text-align: left">String</td>
+<td style="text-align: left">Name (<code class="prettyprint">String</code>)</td>
 <td style="text-align: left">Name of the Classification/Category</td>
-<td style="text-align: left"><code class="prettyprint">Smartphones</code></td>
 </tr>
 <tr>
-<td style="text-align: left">ParentCategories</td>
-<td style="text-align: left">Array[object]</td>
+<td style="text-align: left">ParentCategories (<code class="prettyprint">Array[object]</code>)</td>
 <td style="text-align: left">List of Parent Categories</td>
-<td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: left">ParentCategories.Id</td>
-<td style="text-align: left">Integer</td>
+<td style="text-align: left">ParentCategories.Id (<code class="prettyprint">Integer</code>)</td>
 <td style="text-align: left">Identifier</td>
-<td style="text-align: left"><code class="prettyprint">2</code></td>
 </tr>
 <tr>
-<td style="text-align: left">ParentCategories.Name</td>
-<td style="text-align: left">String</td>
+<td style="text-align: left">ParentCategories.Name (<code class="prettyprint">String</code>)</td>
 <td style="text-align: left">Name</td>
-<td style="text-align: left"><code class="prettyprint">Devices</code></td>
 </tr>
 <tr>
-<td style="text-align: left">TreeId</td>
-<td style="text-align: left">Integer</td>
+<td style="text-align: left">TreeId (<code class="prettyprint">Integer</code>)</td>
 <td style="text-align: left">Identifier for the {{ClassificationTree}}</td>
-<td style="text-align: left"><code class="prettyprint">1</code></td>
 </tr>
 </tbody></table>
 
 <h2 id="colordefinition">ColorDefinition</h2>
 
 <p>A ColorDefinition allows you to define the available Colors for a Product</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c6e2779-79d1-4fbd-b6a8-36b81e851b15"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black Sapphire"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ColorTagIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mi">1</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"ColorTags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ColorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#303232"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Swatch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ColorCode"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AssetId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ColorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#C0C8D0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
 <th style="text-align: left">Name</th>
-<th style="text-align: left">Data Type</th>
 <th style="text-align: left">Description</th>
-<th style="text-align: left">Example</th>
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">Id</td>
-<td style="text-align: left">GUID</td>
+<td style="text-align: left">Id (<code class="prettyprint">GUID</code>)</td>
 <td style="text-align: left">Unique identifier</td>
-<td style="text-align: left"><code class="prettyprint">5c6e2779-79d1-4fbd-b6a8-36b81e851b15</code></td>
 </tr>
 <tr>
+<td style="text-align: left">Name (<code class="prettyprint">String</code>)</td>
 <td style="text-align: left">Name</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Name</td>
-<td style="text-align: left"><code class="prettyprint">Black Sapphire</code></td>
 </tr>
 <tr>
-<td style="text-align: left">ColorTagIds</td>
-<td style="text-align: left">Array</td>
+<td style="text-align: left">ColorTagIds (<code class="prettyprint">Array</code>)</td>
 <td style="text-align: left">List of <a href="/api/product-structure/#colortag">ColorTag</a> Identifiers</td>
-<td style="text-align: left"><code class="prettyprint">1</code></td>
 </tr>
 <tr>
-<td style="text-align: left">ColorTags</td>
-<td style="text-align: left">Array[object]</td>
+<td style="text-align: left">ColorTags (<code class="prettyprint">Array[object]</code>)</td>
 <td style="text-align: left">Color information</td>
-<td style="text-align: left"></td>
 </tr>
 <tr>
-<td style="text-align: left">ColorTags.Id</td>
-<td style="text-align: left">Integer</td>
+<td style="text-align: left">ColorTags.Id (<code class="prettyprint">Integer</code>)</td>
 <td style="text-align: left">Identifier</td>
-<td style="text-align: left"><code class="prettyprint">1</code></td>
 </tr>
 <tr>
-<td style="text-align: left">ColorTags.Name</td>
-<td style="text-align: left">String</td>
+<td style="text-align: left">ColorTags.Name (<code class="prettyprint">String</code>)</td>
 <td style="text-align: left">Name</td>
-<td style="text-align: left"><code class="prettyprint">Black</code></td>
 </tr>
 <tr>
-<td style="text-align: left">ColorTags.ColorCode</td>
-<td style="text-align: left">String</td>
+<td style="text-align: left">ColorTags.ColorCode (<code class="prettyprint">String</code>)</td>
 <td style="text-align: left">A valid Hex code representing this color</td>
-<td style="text-align: left"><code class="prettyprint">#303232</code></td>
 </tr>
 <tr>
-<td style="text-align: left">Swatch</td>
-<td style="text-align: left"><a href='/api/catalog/#swatch'>Swatch</a></td>
+<td style="text-align: left">Swatch (<a href='/api/catalog/#swatch'>Swatch</a>)</td>
 <td style="text-align: left">An icon to display on a screen next to a color showing the actual color of the product. Can be provided as an image Asset or hex code</td>
-<td style="text-align: left"></td>
 </tr>
 </tbody></table>
 
 <h1 id="requests">Requests</h1>
 
-<h2 id="a-getting-all-catalog-items">A: Getting All Catalog Items</h2>
+<h2 id="getting-all-catalog-items">Getting All Catalog Items</h2>
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">GET /Companies({CompanyId})/Catalog/Items</code></p>
-
-<h4 id="headers">Headers</h4>
-
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a></li>
-<li><code class="prettyprint">Accept: application/json</code></li>
-</ul>
-
-<h4 id="uri-parameters">URI Parameters</h4>
-
-<ul>
-<li><code class="prettyprint">CompanyId</code> (<strong>Required</strong>) - Identifier for the {{Company}}</li>
-</ul>
-<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Items</span>
-<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
-<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
-</code></pre>
-<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
-</code></pre>
-<pre class="highlight csharp"><code>
-<span class="err">#</span> <span class="n">This</span> <span class="n">code</span> <span class="n">sample</span> <span class="n">uses</span> <span class="p">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="p">=</span><span class="s">"http://restsharp.org/"</span><span class="p">&gt;</span><span class="n">RestSharp</span><span class="p">&lt;/</span><span class="n">a</span><span class="p">&gt;,</span> <span class="n">ensure</span> <span class="n">you</span> <span class="n">install</span> <span class="n">the</span> <span class="n">nuget</span> <span class="n">package</span> <span class="n">and</span> <span class="n">include</span> <span class="err">`</span><span class="n">Using</span> <span class="n">RestSharp</span><span class="p">;</span><span class="err">`</span> <span class="n">at</span> <span class="n">the</span> <span class="n">top</span> <span class="n">of</span> <span class="n">your</span> <span class="n">file</span><span class="p">.</span>
-
-<span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingAllCatalogItems</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items"</span><span class="p">);</span>
-    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
-
-    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
-    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
-
-
-
-    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight java"><code>
-<span class="err">#</span> <span class="n">This</span> <span class="n">code</span> <span class="n">sample</span> <span class="n">uses</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s">"https://hc.apache.org/"</span><span class="o">&gt;</span><span class="n">Apache</span> <span class="n">HttpComponents</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;,</span> <span class="n">ensure</span> <span class="n">you</span> <span class="n">download</span> <span class="n">and</span> <span class="n">include</span> <span class="n">the</span> <span class="n">required</span> <span class="n">Jars</span><span class="o">.</span>
-
-<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingAllCatalogItems</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
-    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
-    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items"</span><span class="o">);</span>
-
-    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
-    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
-
-    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre>
-<pre class="highlight ruby"><code>
-<span class="c1"># This code sample uses &lt;a href="https://github.com/rest-client/rest-client"&gt;rest-client&lt;/a&gt;, ensure you &lt;code&gt;gem install rest-client&lt;/code&gt;.</span>
-
-<span class="nb">require</span> <span class="s1">'rest-client'</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items'</span><span class="p">,</span> <span class="p">{</span>
-     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
-     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
-    <span class="p">}</span> 
-
-<span class="nb">puts</span> <span class="n">response</span>
-</code></pre>
-
-<h3 id="response">Response</h3>
-
-<ul>
-<li><code class="prettyprint">CatalogItemId</code> (Guid)</li>
-<li><code class="prettyprint">CatalogSku</code> (String)</li>
-<li><code class="prettyprint">IsArchived</code> (Boolean)</li>
-<li><code class="prettyprint">DateAddedUtc</code> (Datetime) </li>
-<li><code class="prettyprint">DateUpdatedUtc</code> (Datetime) </li>
-<li><code class="prettyprint">RmsId</code> (String)</li>
-<li><code class="prettyprint">Slug</code> (String) </li>
-<li><code class="prettyprint">SourceIds</code> (Array)</li>
-</ul>
-<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
-[
-    {
-        "CatalogItemId": "a183f1a9-c58f-426a-930a-9a6357db52ed",
-        "CatalogSku": "21Z8F4AQ",
-        "IsArchived": false,
-        "DateAddedUtc": "2016-08-09T20:12:05.987",
-        "DateUpdatedUtc": "2016-08-09T20:12:05.99",
-        "RmsId": "1",
-        "Slug": "M1248-V1"
-    }
-]
-</code></pre>
-
-<h2 id="b-getting-all-catalog-items">B: Getting All Catalog Items</h2>
-
-<h3 id="request">Request</h3>
-
-<p><code class="prettyprint">GET /Companies({CompanyId})/Catalog/Items</code></p>
-<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Items</span>
-<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
-<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<p><code class="prettyprint">GET https://catalogsdemo.iqmetrix.net/v1/Companies({CompanyId})/Catalog/Items</code></p>
+<pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/Companies(14146)/Catalog/Items</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">https://catalogsdemo.iqmetrix.net</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer (Access Token)</span>
+<span class="na">Accept</span><span class="p">:</span> <span class="s">application/json</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
@@ -1437,18 +686,18 @@
 </ul>
 
 <h3 id="response">Response</h3>
-<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
-[
-    {
-        "CatalogItemId": "a183f1a9-c58f-426a-930a-9a6357db52ed",
-        "CatalogSku": "21Z8F4AQ",
-        "IsArchived": false,
-        "DateAddedUtc": "2016-08-09T20:12:05.987",
-        "DateUpdatedUtc": "2016-08-09T20:12:05.99",
-        "RmsId": "1",
-        "Slug": "M1248-V1"
-    }
-]
+<pre class="highlight javascript"><code><span class="nx">HTTP</span> <span class="mi">200</span> <span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">"CatalogItemId"</span><span class="p">:</span> <span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span>
+        <span class="s2">"CatalogSku"</span><span class="p">:</span> <span class="s2">"21Z8F4AQ"</span><span class="p">,</span>
+        <span class="s2">"IsArchived"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s2">"DateAddedUtc"</span><span class="p">:</span> <span class="s2">"2016-08-09T20:12:05.987"</span><span class="p">,</span>
+        <span class="s2">"DateUpdatedUtc"</span><span class="p">:</span> <span class="s2">"2016-08-09T20:12:05.99"</span><span class="p">,</span>
+        <span class="s2">"RmsId"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>
+        <span class="s2">"Slug"</span><span class="p">:</span> <span class="s2">"M1248-V1"</span>
+    <span class="p">}</span>
+<span class="p">]</span>
 </code></pre>
 
 <ul>
@@ -1465,32 +714,13 @@
 <h2 id="adding-a-catalog-item-from-product-library">Adding a Catalog Item from Product Library</h2>
 
 <h3 id="request">Request</h3>
-<pre class="highlight plaintext"><code>POST /Companies({CompanyId})/Catalog/Items/
-</code></pre>
 
-<h4 id="headers">Headers</h4>
-
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a></li>
-<li><code class="prettyprint">Accept: application/json</code></li>
-<li><code class="prettyprint">Content-Type: application/json</code></li>
-</ul>
-
-<h4 id="uri-parameters">URI Parameters</h4>
-
-<ul>
-<li><code class="prettyprint">CompanyId</code> (<strong>Required</strong>) - Identifier for the {{Company}}</li>
-</ul>
-
-<h4 id="request-parameters">Request Parameters</h4>
-
-<ul>
-<li><code class="prettyprint">Slug</code> (<strong>Required</strong>) - Unique identifier for a Product in Product Library</li>
-<li><code class="prettyprint">RmsId</code> (Optional) - Identifier for the CatalogItem in an external inventory system</li>
-</ul>
+<p><code class="prettyprint">
+POST https://catalogsdemo.iqmetrix.net/v1/Companies({CompanyId})/Catalog/Items/
+</code></p>
 <pre class="highlight javascript"><code>
-<span class="nx">POST</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Items</span><span class="o">/</span>
-<span class="nx">Authorization</span><span class="err">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">POST</span> <span class="nx">https</span><span class="err">:</span><span class="c1">//catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items/</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
 <span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
 <span class="p">{</span>
@@ -1559,6 +789,27 @@ curl -X POST <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
+<h4 id="headers">Headers</h4>
+
+<ul>
+<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a></li>
+<li><code class="prettyprint">Accept: application/json</code></li>
+<li><code class="prettyprint">Content-Type: application/json</code></li>
+</ul>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+<li><code class="prettyprint">CompanyId</code> (<strong>Required</strong>) - Identifier for the {{Company}}</li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul>
+<li><code class="prettyprint">Slug</code> (<strong>Required</strong>) - Unique identifier for a Product in Product Library</li>
+<li><code class="prettyprint">RmsId</code> (Optional) - Identifier for the CatalogItem in an external inventory system</li>
+</ul>
+
 <h4 id="response">Response</h4>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
 </code></pre>
@@ -1590,22 +841,8 @@ curl -X POST <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes</code></p>
-
-<h4 id="headers">Headers</h4>
-
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a></li>
-<li><code class="prettyprint">Accept: application/json</code></li>
-</ul>
-
-<h4 id="uri-parameters">URI Parameters</h4>
-
-<ul>
-<li><code class="prettyprint">CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}</li>
-<li><code class="prettyprint">CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the {{CatalogItem}}</li>
-</ul>
-<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Items</span><span class="p">(</span><span class="nx">a183f1a9</span><span class="o">-</span><span class="nx">c58f</span><span class="o">-</span><span class="mi">426</span><span class="nx">a</span><span class="o">-</span><span class="mi">930</span><span class="nx">a</span><span class="o">-</span><span class="mi">9</span><span class="nx">a6357db52ed</span><span class="p">)</span><span class="o">/</span><span class="nx">attributes</span>
+<p><code class="prettyprint">GET https://catalogsdemo.iqmetrix.net/v1/Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes</code></p>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="nx">https</span><span class="err">:</span><span class="c1">//catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
 </code></pre>
@@ -1654,9 +891,21 @@ curl -X POST <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-<h4 id="response">Response</h4>
+<h4 id="headers">Headers</h4>
 
-<p>Array[<a href='#attribute'>Attribute</a>]</p>
+<ul>
+<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a></li>
+<li><code class="prettyprint">Accept: application/json</code></li>
+</ul>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+<li><code class="prettyprint">CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}</li>
+<li><code class="prettyprint">CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the {{CatalogItem}}</li>
+</ul>
+
+<h4 id="response">Response</h4>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
 [
     {
@@ -1665,6 +914,8 @@ curl -X POST <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14
     }
 ]
 </code></pre>
+
+<p>Array[<a href='#attribute'>Attribute</a>]</p>
 
 <h1 id="errors">Errors</h1>
 
@@ -1690,7 +941,7 @@ curl -X POST <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="http">javascript</a>
                 <a href="#" data-language-name="shell">cURL</a>
                 <a href="#" data-language-name="csharp">c#</a>
                 <a href="#" data-language-name="java">java</a>
