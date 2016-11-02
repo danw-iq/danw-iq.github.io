@@ -156,83 +156,7 @@
 
 <h1 id="resources">Resources</h1>
 
-<h2 id="catalogitem">CatalogItem</h2>
-
-<p>Archived CatalogItem resources can still be updated and retrieved individually, but are excluded from search results</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Name</th>
-<th style="text-align: left">Data Type</th>
-<th style="text-align: left">Description</th>
-<th style="text-align: left">Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">CatalogItemId</td>
-<td style="text-align: left">GUID</td>
-<td style="text-align: left">Unique identifier</td>
-<td style="text-align: left"><code class="prettyprint">a183f1a9-c58f-426a-930a-9a6357db52ed</code></td>
-</tr>
-<tr>
-<td style="text-align: left">IsArchived</td>
-<td style="text-align: left">Boolean</td>
-<td style="text-align: left">A flag to indicate if this CatalogItem is Archived. When archived, this CatalogItem is excluded from search results</td>
-<td style="text-align: left"><code class="prettyprint">false</code></td>
-</tr>
-<tr>
-<td style="text-align: left">RmsId</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Identifier for the CatalogItem in an external inventory system</td>
-<td style="text-align: left"><code class="prettyprint">1</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Slug</td>
-<td style="text-align: left">String</td>
-<td style="text-align: left">Unique identifier for a <a href="#product">Product</a></td>
-<td style="text-align: left"><code class="prettyprint">M1248-V1</code></td>
-</tr>
-<tr>
-<td style="text-align: left">ExtendedAttributes</td>
-<td style="text-align: left">Array[<a href='/api/catalog/#attribute'>Attribute</a>]</td>
-<td style="text-align: left">Attributes</td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left"><em>SourceIds</em></td>
-<td style="text-align: left"><em>GUID</em></td>
-<td style="text-align: left"><em>Reserved for future use</em></td>
-<td style="text-align: left"></td>
-</tr>
-</tbody></table>
-
-<h2 id="attribute">Attribute</h2>
-
-<p>Extended attributes are unvalidated extra properties that can be put on a CatalogItem.</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Name</th>
-<th style="text-align: left">Data Type</th>
-<th style="text-align: left">Description</th>
-<th style="text-align: left">Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">Name</td>
-<td style="text-align: left">String(250)</td>
-<td style="text-align: left">Attribute name</td>
-<td style="text-align: left"><code class="prettyprint">Country of Manufacture</code></td>
-</tr>
-<tr>
-<td style="text-align: left">Value</td>
-<td style="text-align: left">String(250)</td>
-<td style="text-align: left">Attribute value</td>
-<td style="text-align: left"><code class="prettyprint">China</code></td>
-</tr>
-</tbody></table>
-
-<h2 id="catalogsearchresult">CatalogSearchResult</h2>
+<h2 id="catalogsearchresult-option-a">CatalogSearchResult - Option A</h2>
 
 <p>A CatalogSearchResult resource is used to return information about Product resources that match a given criteria, defined in the request.</p>
 
@@ -537,6 +461,722 @@
 <td style="text-align: left">Integer</td>
 <td style="text-align: left">Number of Items matching the search criteria</td>
 <td style="text-align: left"><code class="prettyprint">5</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="catalogsearchresult-option-b">CatalogSearchResult - Option B</h2>
+
+<p>A CatalogSearchResult resource is used to return information about Product resources that match a given criteria, defined in the request.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Galaxy S6 edge+ 32GB - Black Sapphire"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CanonicalClassification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"ParentCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Devices"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21Z8F4AQ"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ClassificationTreeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DateAddedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-10-14T12:00:00.000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"HeroShotId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f60963-5515-44bc-9509-71aef6463580"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EM-JE040-RA"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"SkuType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ManufacturerSku"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer SKU"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"IsLinkedToCuratedProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDropShippable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsMasterProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"Msrp"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"ProductVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Next is Now"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14107</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOZAMA Inc."</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Facets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"ClassificationAndCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"Manufacturers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"MetaData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"TotalResults"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Data Type</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Items</td>
+<td style="text-align: left">Array[object]</td>
+<td style="text-align: left">Products matching the search criteria</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Name</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.CanonicalClassification</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">ClassificationTree details</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.CanonicalClassification.Id</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">Identifier for the <a href="/api/classification-tree/#classification">Classification</a> or <a href="/api/classification-tree/#category">Category</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Items.CanonicalClassification.Name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Name of the Classification/Category</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.CanonicalClassification.ParentCategories</td>
+<td style="text-align: left">Array[object]</td>
+<td style="text-align: left">List of Parent Categories</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.CanonicalClassification.ParentCategories.Id</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.CanonicalClassification.ParentCategories.Name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Name</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.CatalogItemId</td>
+<td style="text-align: left">GUID</td>
+<td style="text-align: left">Unique identifier for the CatalogItem</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.CatalogSku</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">SKU</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ClassificationTreeId</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">Identifier for the <a href="/api/classification-tree/#classificationtree">ClassificationTree</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ColorDefinition</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">Information about the color of the Product</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ColorDefinition.Id</td>
+<td style="text-align: left">GUID</td>
+<td style="text-align: left">Unique identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ColorDefinition.Name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Name</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ColorDefinition.ColorTags</td>
+<td style="text-align: left">Array[object]</td>
+<td style="text-align: left">Color information</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ColorDefinition.ColorTags.Id</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ColorDefinition.ColorTags.Name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Name</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ColorDefinition.ColorTags.ColorCode</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">A valid Hex code representing this color</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ColorDefinition.Swatch</td>
+<td style="text-align: left"><a href='/api/catalog/#swatch'>Swatch</a></td>
+<td style="text-align: left">An icon to display on a screen next to a color showing the actual color of the product. Can be provided as an image Asset or hex code</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.CompanyId</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">Identifier for the Company</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.DateAddedUtc</td>
+<td style="text-align: left">DateTime</td>
+<td style="text-align: left">Date this Product was added to the catalog, in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.HeroShotId</td>
+<td style="text-align: left">GUID</td>
+<td style="text-align: left"><a href="/api/glossary/#hero-shot">Hero Shot</a> identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Identifiers</td>
+<td style="text-align: left">Array[<a href='/api/catalog/#identifier'>Identifier</a>]</td>
+<td style="text-align: left">Identifiers</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.IsLinkedToCuratedProduct</td>
+<td style="text-align: left">Boolean</td>
+<td style="text-align: left">A flag to indicate if this version of this Product is publicly accessible (true), or private (false)</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.IsDropShippable</td>
+<td style="text-align: left">Boolean</td>
+<td style="text-align: left">A flag to indicate if this Product can be shipped</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.IsMasterProduct</td>
+<td style="text-align: left">Boolean</td>
+<td style="text-align: left">A flag to indicate if this is a Master Product</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Manufacturer</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left"><a href="/api/entity-store/#manufacturer">Manufacturer</a> information for the Product</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Manufacturer.Id</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">Identifier for the <a href="/api/entity-store/#manufacturer">Manufacturer</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Manufacturer.Name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Name of the <a href="/api/entity-store/#manufacturer">Manufacturer</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Msrp</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">Manufacturer suggested retail price information for the Product</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Msrp.Amount</td>
+<td style="text-align: left">Decimal</td>
+<td style="text-align: left">Manufacturers suggested retail price</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Msrp.CurrencyCode</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Currency. For a list of acceptable values, see <a href='/api/reference/#getting-all-currencies'>Getting All Currencies</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ProductVersion</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">Latest revision number</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ShortDescription</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Short Description</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Slug</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">URL friendly identifier for the Product</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.VariationId</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">Identifier for the <a href="/concepts/product-structure/#Variations">Variation</a> this Product represents</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Vendors</td>
+<td style="text-align: left">Array[object]</td>
+<td style="text-align: left">Vendors for the Product</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Vendors.Id</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">Identifier for the <a href="/api/entity-store/#supplier">Supplier</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Vendors.Name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Name of the <a href="/api/entity-store/#supplier">Supplier</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Facets</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">Summary of Manufacturer and Vendor information for the Items</td>
+</tr>
+<tr>
+<td style="text-align: left">Facets.ClassificationAndCategories</td>
+<td style="text-align: left">Array[object]</td>
+<td style="text-align: left">Count of Classification and Categories in results</td>
+</tr>
+<tr>
+<td style="text-align: left">Facets.ClassificationAndCategories.Count</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">Number of items in the response with the Classification or Category specified in Item</td>
+</tr>
+<tr>
+<td style="text-align: left">Facets.ClassificationAndCategories.Item</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">Identifier of a Classification or Category</td>
+</tr>
+<tr>
+<td style="text-align: left">Facets.Manufacturers</td>
+<td style="text-align: left">Array[<a href='/api/catalog/#manufacturer'>Manufacturer</a>]</td>
+<td style="text-align: left">Manufacturer information for the Items</td>
+</tr>
+<tr>
+<td style="text-align: left">Facets.Vendors</td>
+<td style="text-align: left">Array[<a href='/api/catalog/#manufacturer'>Manufacturer</a>]</td>
+<td style="text-align: left">Vendor information for the Items</td>
+</tr>
+<tr>
+<td style="text-align: left">MetaData</td>
+<td style="text-align: left">object</td>
+<td style="text-align: left">Data representing pagination details</td>
+</tr>
+<tr>
+<td style="text-align: left">MetaData.Page</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">Page of Items to be included in the resource</td>
+</tr>
+<tr>
+<td style="text-align: left">MetaData.PageSize</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">Number of Items included in the resource</td>
+</tr>
+<tr>
+<td style="text-align: left">MetaData.TotalResults</td>
+<td style="text-align: left">Integer</td>
+<td style="text-align: left">Number of Items matching the search criteria</td>
+</tr>
+</tbody></table>
+
+<h2 id="catalogsearchresult-option-c">CatalogSearchResult - Option C</h2>
+
+<p>A CatalogSearchResult resource is used to return information about Product resources that match a given criteria, defined in the request.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Galaxy S6 edge+ 32GB - Black Sapphire"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CanonicalClassification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"ParentCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Devices"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21Z8F4AQ"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ClassificationTreeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DateAddedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-10-14T12:00:00.000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"HeroShotId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f60963-5515-44bc-9509-71aef6463580"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EM-JE040-RA"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"SkuType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ManufacturerSku"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer SKU"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"IsLinkedToCuratedProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDropShippable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsMasterProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"Msrp"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"ProductVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Next is Now"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14107</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOZAMA Inc."</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Facets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"ClassificationAndCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"Manufacturers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"MetaData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"TotalResults"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Items (<code class="prettyprint">Array[object]</code>)</td>
+<td style="text-align: left">Products matching the search criteria</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.CanonicalClassification (<code class="prettyprint">object</code>)</td>
+<td style="text-align: left">ClassificationTree details</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.CanonicalClassification.Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier for the <a href="/api/classification-tree/#classification">Classification</a> or <a href="/api/classification-tree/#category">Category</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Items.CanonicalClassification.Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name of the Classification/Category</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.CanonicalClassification.ParentCategories (<code class="prettyprint">Array[object]</code>)</td>
+<td style="text-align: left">List of Parent Categories</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.CanonicalClassification.ParentCategories.Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.CanonicalClassification.ParentCategories.Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.CatalogItemId (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left">Unique identifier for the CatalogItem</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.CatalogSku (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">SKU</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ClassificationTreeId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier for the <a href="/api/classification-tree/#classificationtree">ClassificationTree</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ColorDefinition (<code class="prettyprint">object</code>)</td>
+<td style="text-align: left">Information about the color of the Product</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ColorDefinition.Id (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left">Unique identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ColorDefinition.Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ColorDefinition.ColorTags (<code class="prettyprint">Array[object]</code>)</td>
+<td style="text-align: left">Color information</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ColorDefinition.ColorTags.Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ColorDefinition.ColorTags.Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ColorDefinition.ColorTags.ColorCode (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">A valid Hex code representing this color</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ColorDefinition.Swatch (<a href="/api/catalog/#swatch">Swatch</a>)</td>
+<td style="text-align: left">An icon to display on a screen next to a color showing the actual color of the product. Can be provided as an image Asset or hex code</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.CompanyId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier for the Company</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.DateAddedUtc (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Date this Product was added to the catalog, in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.HeroShotId (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left"><a href="/api/glossary/#hero-shot">Hero Shot</a> identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Identifiers (<code class="prettyprint">Array</code>[<a href='/api/catalog/#identifier'>Identifier</a>])</td>
+<td style="text-align: left">Identifiers</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.IsLinkedToCuratedProduct (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate if this version of this Product is publicly accessible (true), or private (false)</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.IsDropShippable (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate if this Product can be shipped</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.IsMasterProduct (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate if this is a Master Product</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Manufacturer (<code class="prettyprint">object</code>)</td>
+<td style="text-align: left"><a href="/api/entity-store/#manufacturer">Manufacturer</a> information for the Product</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Manufacturer.Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier for the <a href="/api/entity-store/#manufacturer">Manufacturer</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Manufacturer.Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name of the <a href="/api/entity-store/#manufacturer">Manufacturer</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Msrp (<code class="prettyprint">object</code>)</td>
+<td style="text-align: left">Manufacturer suggested retail price information for the Product</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Msrp.Amount (<code class="prettyprint">Decimal</code>)</td>
+<td style="text-align: left">Manufacturers suggested retail price</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Msrp.CurrencyCode (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Currency. For a list of acceptable values, see <a href='/api/reference/#getting-all-currencies'>Getting All Currencies</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ProductVersion (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Latest revision number</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.ShortDescription (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Short Description</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Slug (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">URL friendly identifier for the Product</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.VariationId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier for the <a href="/concepts/product-structure/#Variations">Variation</a> this Product represents</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Vendors (<code class="prettyprint">Array[object]</code>)</td>
+<td style="text-align: left">Vendors for the Product</td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Vendors.Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier for the <a href="/api/entity-store/#supplier">Supplier</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Items.Vendors.Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name of the <a href="/api/entity-store/#supplier">Supplier</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Facets (<code class="prettyprint">object</code>)</td>
+<td style="text-align: left">Summary of Manufacturer and Vendor information for the Items</td>
+</tr>
+<tr>
+<td style="text-align: left">Facets.ClassificationAndCategories (<code class="prettyprint">Array[object]</code>)</td>
+<td style="text-align: left">Count of Classification and Categories in results</td>
+</tr>
+<tr>
+<td style="text-align: left">Facets.ClassificationAndCategories.Count (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Number of items in the response with the Classification or Category specified in Item</td>
+</tr>
+<tr>
+<td style="text-align: left">Facets.ClassificationAndCategories.Item (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier of a Classification or Category</td>
+</tr>
+<tr>
+<td style="text-align: left">Facets.Manufacturers (<code class="prettyprint">Array</code>[<a href='/api/catalog/#manufacturer'>Manufacturer</a>])</td>
+<td style="text-align: left">Manufacturer information for the Items</td>
+</tr>
+<tr>
+<td style="text-align: left">Facets.Vendors (<code class="prettyprint">Array</code>[<a href='/api/catalog/#vendor'>Vendor</a>])</td>
+<td style="text-align: left">Vendor information for the Items</td>
+</tr>
+<tr>
+<td style="text-align: left">MetaData (<code class="prettyprint">object</code>)</td>
+<td style="text-align: left">Data representing pagination details</td>
+</tr>
+<tr>
+<td style="text-align: left">MetaData.Page (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Page of Items to be included in the resource</td>
+</tr>
+<tr>
+<td style="text-align: left">MetaData.PageSize (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Number of Items included in the resource</td>
+</tr>
+<tr>
+<td style="text-align: left">MetaData.TotalResults (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Number of Items matching the search criteria</td>
+</tr>
+</tbody></table>
+
+<h2 id="catalogitem">CatalogItem</h2>
+
+<p>Archived CatalogItem resources can still be updated and retrieved individually, but are excluded from search results</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Data Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">CatalogItemId</td>
+<td style="text-align: left">GUID</td>
+<td style="text-align: left">Unique identifier</td>
+<td style="text-align: left"><code class="prettyprint">a183f1a9-c58f-426a-930a-9a6357db52ed</code></td>
+</tr>
+<tr>
+<td style="text-align: left">IsArchived</td>
+<td style="text-align: left">Boolean</td>
+<td style="text-align: left">A flag to indicate if this CatalogItem is Archived. When archived, this CatalogItem is excluded from search results</td>
+<td style="text-align: left"><code class="prettyprint">false</code></td>
+</tr>
+<tr>
+<td style="text-align: left">RmsId</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Identifier for the CatalogItem in an external inventory system</td>
+<td style="text-align: left"><code class="prettyprint">1</code></td>
+</tr>
+<tr>
+<td style="text-align: left">Slug</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">Unique identifier for a <a href="#product">Product</a></td>
+<td style="text-align: left"><code class="prettyprint">M1248-V1</code></td>
+</tr>
+<tr>
+<td style="text-align: left">ExtendedAttributes</td>
+<td style="text-align: left">Array[<a href='/api/catalog/#attribute'>Attribute</a>]</td>
+<td style="text-align: left">Attributes</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left"><em>SourceIds</em></td>
+<td style="text-align: left"><em>GUID</em></td>
+<td style="text-align: left"><em>Reserved for future use</em></td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<h2 id="attribute">Attribute</h2>
+
+<p>Extended attributes are unvalidated extra properties that can be put on a CatalogItem.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Data Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Name</td>
+<td style="text-align: left">String(250)</td>
+<td style="text-align: left">Attribute name</td>
+<td style="text-align: left"><code class="prettyprint">Country of Manufacture</code></td>
+</tr>
+<tr>
+<td style="text-align: left">Value</td>
+<td style="text-align: left">String(250)</td>
+<td style="text-align: left">Attribute value</td>
+<td style="text-align: left"><code class="prettyprint">China</code></td>
 </tr>
 </tbody></table>
 
