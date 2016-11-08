@@ -1084,7 +1084,8 @@ td.event {
 
 p,
 .blog-content p {
-  font-family: MuseoSans-300, Arial, sans-serif;
+  font-family: 'Helvetica LT W01 Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /*MuseoSans-300, Arial, sans-serif;*/
   font-size: 16px;
   margin: 1em 0; }
 
@@ -1241,19 +1242,20 @@ ol.unstyled {
 .right-img {
   text-align: right; }
 
-blockquote {
-  background-image: url("//cdn2.hubspot.net/hubfs/519470/images/XQ-Shelf-03-Quote-Left.png?t=1476972798986"), url("//cdn2.hubspot.net/hubfs/519470/images/XQ-Shelf-03-Quote-Right.png?t=1476972798986");
-  background-position: 0 50%, 100% 50%;
-  background-repeat: no-repeat, no-repeat;
-  font: 35px MuseoSans-100, Arial, sans-serif;
-  margin: 15px 0;
-  padding: 0 200px;
-  color: #041c2c; }
-
+/*blockquote {
+    background-image: url("//cdn2.hubspot.net/hubfs/519470/images/XQ-Shelf-03-Quote-Left.png?t=1476972798986"), url("//cdn2.hubspot.net/hubfs/519470/images/XQ-Shelf-03-Quote-Right.png?t=1476972798986");
+    background-position: 0 50%, 100% 50%;
+    background-repeat: no-repeat, no-repeat;
+    font: 35px MuseoSans-100, Arial, sans-serif;
+    margin: 15px 0;
+    padding: 0 200px;
+    color: #041c2c
+}
 blockquote p {
-  font: 35px MuseoSans-100, Arial, sans-serif;
-  color: #041c2c; }
-
+    font: 35px MuseoSans-100, Arial, sans-serif;
+    color: #041c2c
+}
+*/
 .blog-section blockquote {
   font: 30px MuseoSans-100, Arial, sans-serif;
   background-size: 105px auto;
@@ -5572,7 +5574,8 @@ ul.simplePagerNav li.currentPage a {
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   body {
-    font: 16px MuseoSans-300, Arial, sans-serif; }
+    font: 16px 'Helvetica LT W01 Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /*MuseoSans-300, Arial, sans-serif*/ }
 
   .banner-content p {
     font-family: MuseoSans-300, Arial, sans-serif; } }

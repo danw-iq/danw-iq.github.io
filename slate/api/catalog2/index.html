@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Catalog</title>
+    <title>Catalog2</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -91,7 +91,7 @@
       <script src="../../javascripts/all.js"></script>
   </head>
 
-  <body class="api api_catalog api_catalog_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+  <body class="api api_catalog2 api_catalog2_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -1195,11 +1195,17 @@
 
 <h1 id="requests">Requests</h1>
 
-<h2 id="getting-all-catalog-items">Getting All Catalog Items</h2>
+<h2 id="get-all-catalog-items"><span class="get">GET</span> All Catalog Items</h2>
 
-<h3 id="request">Request</h3>
+<blockquote>
+<p>Definition</p>
+</blockquote>
 <pre class="highlight plaintext"><code>GET https://catalogsdemo.iqmetrix.net/v1/Companies({CompanyId})/Catalog/Items
 </code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
 <pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">v1</span><span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Items</span> <span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
 <span class="nl">Host</span><span class="p">:</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//catalogsdemo.iqmetrix.net</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
@@ -1245,22 +1251,10 @@
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-<h4 id="headers">Headers</h4>
-
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a></li>
-<li><code class="prettyprint">Accept: application/json</code></li>
-</ul>
-
-<h4 id="uri-parameters">URI Parameters</h4>
-
-<ul>
-<li><code class="prettyprint">CompanyId</code> (<strong>Required</strong>) - Identifier for the {{Company}}</li>
-</ul>
-
-<h3 id="response">Response</h3>
-<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
-</span><span class="p">[</span><span class="w">
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21Z8F4AQ"</span><span class="p">,</span><span class="w">
@@ -1273,6 +1267,8 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
+<h3 id="response-parameters">Response Parameters</h3>
+
 <ul>
 <li><code class="prettyprint">CatalogItemId</code> (Guid)</li>
 <li><code class="prettyprint">CatalogSku</code> (String)</li>
@@ -1284,13 +1280,17 @@
 <li><code class="prettyprint">SourceIds</code> (Array)</li>
 </ul>
 
-<h2 id="adding-a-catalog-item-from-product-library">Adding a Catalog Item from Product Library</h2>
+<h2 id="post-add-a-catalog-item-from-product-library"><span class="post">POST</span> Add a Catalog Item from Product Library</h2>
 
-<h3 id="request">Request</h3>
+<blockquote>
+<p>Definition </p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST https://catalogsdemo.iqmetrix.net/v1/Companies({CompanyId})/Catalog/Items/
+</code></pre>
 
-<p><code class="prettyprint">
-POST https://catalogsdemo.iqmetrix.net/v1/Companies({CompanyId})/Catalog/Items/
-</code></p>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
 <pre class="highlight javascript"><code><span class="nx">POST</span> <span class="nx">https</span><span class="err">:</span><span class="c1">//catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items/</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
@@ -1322,8 +1322,6 @@ POST https://catalogsdemo.iqmetrix.net/v1/Companies({CompanyId})/Catalog/Items/
 <span class="p">}</span>
 </code></pre>
 <pre class="highlight java"><code>
-
-
 <span class="kn">import</span> <span class="nn">org.apache.http.entity.StringEntity</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpPost</span><span class="o">;</span>
@@ -1359,20 +1357,6 @@ POST https://catalogsdemo.iqmetrix.net/v1/Companies({CompanyId})/Catalog/Items/
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-<h4 id="headers">Headers</h4>
-
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a></li>
-<li><code class="prettyprint">Accept: application/json</code></li>
-<li><code class="prettyprint">Content-Type: application/json</code></li>
-</ul>
-
-<h4 id="uri-parameters">URI Parameters</h4>
-
-<ul>
-<li><code class="prettyprint">CompanyId</code> (<strong>Required</strong>) - Identifier for the {{Company}}</li>
-</ul>
-
 <h4 id="request-parameters">Request Parameters</h4>
 
 <ul>
@@ -1380,9 +1364,9 @@ POST https://catalogsdemo.iqmetrix.net/v1/Companies({CompanyId})/Catalog/Items/
 <li><code class="prettyprint">RmsId</code> (Optional) - Identifier for the CatalogItem in an external inventory system</li>
 </ul>
 
-<h4 id="response">Response</h4>
-<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
-</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21Z8F4AQ"</span><span class="p">,</span><span class="w">
@@ -1393,6 +1377,8 @@ POST https://catalogsdemo.iqmetrix.net/v1/Companies({CompanyId})/Catalog/Items/
     </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<h4 id="response-parameters">Response Parameters</h4>
 
 <ul>
 <li><code class="prettyprint">CatalogItemId</code> (Guid)</li>
@@ -1405,22 +1391,26 @@ POST https://catalogsdemo.iqmetrix.net/v1/Companies({CompanyId})/Catalog/Items/
 <li><code class="prettyprint">SourceIds</code> (Array)</li>
 </ul>
 
-<h2 id="getting-extended-attributes-for-a-catalog-item">Getting Extended Attributes for a Catalog Item</h2>
+<h2 id="get-extended-attributes-for-a-catalog-item"><span class="get">GET</span> Extended Attributes for a Catalog Item</h2>
 
 <p>Extended attributes are unvalidated extra properties that can be put on a CatalogItem. They consist of a unique string key and a string value with a max-length of 250 characters.</p>
 
-<h3 id="request">Request</h3>
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://catalogsdemo.iqmetrix.net/v1/Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes
+</code></pre>
 
-<p><code class="prettyprint">GET https://catalogsdemo.iqmetrix.net/v1/Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes</code></p>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
 <pre class="highlight javascript"><code><span class="nx">GET</span> <span class="nx">https</span><span class="err">:</span><span class="c1">//catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
-<pre class="highlight csharp"><code>
-
-<span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingExtendedAttributesForACatalogItem</span><span class="p">()</span>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingExtendedAttributesForACatalogItem</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes"</span><span class="p">);</span>
     <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
@@ -1431,9 +1421,7 @@ POST https://catalogsdemo.iqmetrix.net/v1/Companies({CompanyId})/Catalog/Items/
     <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight java"><code>
-
-<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<pre class="highlight java"><code><span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
@@ -1461,23 +1449,9 @@ POST https://catalogsdemo.iqmetrix.net/v1/Companies({CompanyId})/Catalog/Items/
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-<h4 id="headers">Headers</h4>
-
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a></li>
-<li><code class="prettyprint">Accept: application/json</code></li>
-</ul>
-
-<h4 id="uri-parameters">URI Parameters</h4>
-
-<ul>
-<li><code class="prettyprint">CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}</li>
-<li><code class="prettyprint">CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the {{CatalogItem}}</li>
-</ul>
-
-<h4 id="response">Response</h4>
-<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
-</code></pre>
+<blockquote>
+<p>Example Response </p>
+</blockquote>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Country of Manufacture"</span><span class="p">,</span><span class="w">
@@ -1486,9 +1460,11 @@ POST https://catalogsdemo.iqmetrix.net/v1/Companies({CompanyId})/Catalog/Items/
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
+<h3 id="response-parameters">Response Parameters</h3>
+
 <p>Array[<a href='#attribute'>Attribute</a>]</p>
 
-<h2 id="adding-or-updating-extended-attributes-for-a-catalog-item">Adding or Updating Extended Attributes for a Catalog Item</h2>
+<h2 id="put-add-or-update-extended-attributes-for-a-catalog-item"><span class="get">PUT</span> Add or Update Extended Attributes for a Catalog Item</h2>
 
 <p>This request returns <strong>all</strong> Attributes for a Catalog Item, not just ones that were added or updated.</p>
 
@@ -1496,11 +1472,15 @@ POST https://catalogsdemo.iqmetrix.net/v1/Companies({CompanyId})/Catalog/Items/
 
 <p>If an attribute with the given name already exists, it will be overwritten with the new value. Otherwise, it will be added to the CatalogItem.</p>
 
-<h4 id="request">Request</h4>
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>PUT /Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes
+</code></pre>
 
-<p><code class="prettyprint">
-PUT /Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes
-</code></p>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
 <pre class="highlight javascript"><code><span class="nx">PUT</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Items</span><span class="p">(</span><span class="nx">a183f1a9</span><span class="o">-</span><span class="nx">c58f</span><span class="o">-</span><span class="mi">426</span><span class="nx">a</span><span class="o">-</span><span class="mi">930</span><span class="nx">a</span><span class="o">-</span><span class="mi">9</span><span class="nx">a6357db52ed</span><span class="p">)</span><span class="o">/</span><span class="nx">attributes</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
@@ -1557,10 +1537,7 @@ PUT /Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes
     <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre>
-<pre class="highlight ruby"><code>
-
-
-<span class="nb">require</span> <span class="s1">'rest-client'</span>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 
 <span class="n">body</span> <span class="o">=</span> <span class="s2">"[{</span><span class="se">\"</span><span class="s2">Name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Country of Manufacture</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Value</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">China</span><span class="se">\"</span><span class="s2">}]"</span><span class="p">;</span>
 
@@ -1573,21 +1550,6 @@ PUT /Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-<h4 id="headers">Headers</h4>
-
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a> </li>
-<li><code class="prettyprint">Accept: application/json</code> </li>
-<li><code class="prettyprint">Content-Type: application/json</code> </li>
-</ul>
-
-<h4 id="uri-parameters">URI Parameters</h4>
-
-<ul>
-<li><code class="prettyprint">CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}<br></li>
-<li><code class="prettyprint">CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the {{CatalogItem}}</li>
-</ul>
-
 <h4 id="request-parameters">Request Parameters</h4>
 
 <ul>
@@ -1595,29 +1557,36 @@ PUT /Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes
 <li><code class="prettyprint">Value</code> (Optional) - Defaults to an empty string </li>
 </ul>
 
-<h4 id="response">Response</h4>
-<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
-[
-    {
-        "Name": "Country of Manufacture",
-        "Value": "China"
-    }
-]
-</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Country of Manufacture"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"China"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h3 id="response-parameters">Response Parameters</h3>
 
 <p>Array[<a href='#attribute'>Attribute</a>]</p>
 
-<h2 id="removing-extended-attributes-from-a-catalog-item">Removing Extended Attributes from a Catalog Item</h2>
+<h2 id="delete-remove-extended-attributes-from-a-catalog-item"><span class="post">DELETE</span> Remove Extended Attributes from a Catalog Item</h2>
 
 <p>This request allows you to remove extended attributes from a Catalog Item. The request body is an array of strings, where each string is the name of an attribute to be removed.</p>
 
 <p>Request is idempotent. Deleting an attribute that doesn&rsquo;t exist on a catalog item is a no-op. </p>
 
-<h4 id="request">Request</h4>
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>DELETE /Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes
+</code></pre>
 
-<p><code class="prettyprint">
-DELETE /Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes
-</code></p>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
 <pre class="highlight javascript"><code><span class="nx">DELETE</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Items</span><span class="p">(</span><span class="nx">a183f1a9</span><span class="o">-</span><span class="nx">c58f</span><span class="o">-</span><span class="mi">426</span><span class="nx">a</span><span class="o">-</span><span class="mi">930</span><span class="nx">a</span><span class="o">-</span><span class="mi">9</span><span class="nx">a6357db52ed</span><span class="p">)</span><span class="o">/</span><span class="nx">attributes</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
@@ -1676,32 +1645,23 @@ response = RestClient.delete 'https://catalogsdemo.iqmetrix.net/v1/Companies(141
 puts response 
 </span></code></pre>
 
-<h4 id="headers">Headers</h4>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">204</span><span class="w">
+</span></code></pre>
 
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a> </li>
-<li><code class="prettyprint">Accept: application/json</code> </li>
-<li><code class="prettyprint">Content-Type: application/json</code> </li>
-</ul>
+<h2 id="get-product-details"><span class="get">GET</span> Product Details</h2>
 
-<h4 id="uri-parameters">URI Parameters</h4>
-
-<ul>
-<li><code class="prettyprint">CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}<br></li>
-<li><code class="prettyprint">CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the {{CatalogItem}}</li>
-</ul>
-
-<h4 id="response">Response</h4>
-<pre class="highlight plaintext"><code>HTTP 204
+<blockquote>
+<p>Defintion</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/ProductDetails
 </code></pre>
 
-<h2 id="getting-product-details">Getting Product Details</h2>
-
-<h4 id="request">Request</h4>
-
-<p><code class="prettyprint">
-GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/ProductDetails
-</code></p>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
 <pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Items</span><span class="p">(</span><span class="nx">a183f1a9</span><span class="o">-</span><span class="nx">c58f</span><span class="o">-</span><span class="mi">426</span><span class="nx">a</span><span class="o">-</span><span class="mi">930</span><span class="nx">a</span><span class="o">-</span><span class="mi">9</span><span class="nx">a6357db52ed</span><span class="p">)</span><span class="o">/</span><span class="nx">ProductDetails</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
@@ -1740,7 +1700,6 @@ GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/ProductDetails
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 
 
-
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/ProductDetails'</span><span class="p">,</span> <span class="p">{</span>
      <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
      <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
@@ -1749,22 +1708,10 @@ GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/ProductDetails
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-<h4 id="headers">Headers</h4>
-
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a> * <code class="prettyprint">Accept: application/json</code> </li>
-</ul>
-
-<h4 id="uri-parameters">URI Parameters</h4>
-
-<ul>
-<li><p><code class="prettyprint">CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}</p></li>
-<li><p><code class="prettyprint">CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the {{CatalogItem}}</p></li>
-</ul>
-
-<h4 id="response">Response</h4>
-<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Galaxy S6 edge+ 32GB - Black Sapphire"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1907,9 +1854,11 @@ GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/ProductDetails
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<h3 id="response-parameters">Response Parameters</h3>
+
 <p><a href='#product'>Product</a></p>
 
-<h2 id="getting-many-product-details-at-once">Getting Many Product Details At Once</h2>
+<h2 id="get-many-product-details-at-once"><span class="get">GET</span> Many Product Details At Once</h2>
 
 <p>This request returns a dictionary of CatalogItemIds and Product Details for the CatalogItem.</p>
 
@@ -2008,8 +1957,7 @@ puts response
 </ul>
 
 <h4 id="response">Response</h4>
-<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"CatalogItems"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"21ac987c-d55a-482a-9450-402976a71563"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M3-V1"</span><span class="p">,</span><span class="w">
@@ -2137,7 +2085,7 @@ puts response
 <li><code class="prettyprint">{CatalogItemId}</code> (<a href="/api/catalog/#product">Product</a>)</li>
 </ul>
 
-<h2 id="getting-compatible-products-for-a-catalog-item">Getting Compatible Products for a Catalog Item</h2>
+<h2 id="get-compatible-products-for-a-catalog-item"><span class="get">GET</span> Compatible Products for a Catalog Item</h2>
 
 <h4 id="request">Request</h4>
 
@@ -2204,8 +2152,7 @@ GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Compatible
 </ul>
 
 <h4 id="response">Response</h4>
-<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JBL Pulse"</span><span class="p">,</span><span class="w">
@@ -2230,7 +2177,7 @@ GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Compatible
 </ul></li>
 </ul>
 
-<h2 id="getting-variations-for-a-catalog-item">Getting Variations for a Catalog Item</h2>
+<h2 id="get-variations-for-a-catalog-item"><span class="get">GET</span> Variations for a Catalog Item</h2>
 
 <p>For more information about Variations, see <a href='/concepts/product-structure/#variations'>Variations</a></p>
 
@@ -2302,24 +2249,23 @@ GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Variations
 <h5 id="example">Example</h5>
 
 <h4 id="response">Response</h4>
-<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
-{
-    "Items": [
-        {
-            "Name": "JBL Pulse",
-            "Slug": "M45",
-            "CatalogItemId": "a183f1a9-c58f-426a-930a-9a6357db52ed",
-            "Revisions": [
-                {
-                    "Name": "Galaxy S6 edge+ 32GB - Black Sapphir",
-                    "Slug": "M1248-V1-E38",
-                    "CatalogItemId": "c8f9cd4f-6889-4791-88ea-df2ada72e4ee"
-                }
-            ]
-        }
-    ]
-}
-</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JBL Pulse"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M45"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Revisions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Galaxy S6 edge+ 32GB - Black Sapphir"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1-E38"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c8f9cd4f-6889-4791-88ea-df2ada72e4ee"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <ul>
 <li><code class="prettyprint">Items</code> (Array)<br>
@@ -2335,7 +2281,7 @@ GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Variations
 </ul></li>
 </ul>
 
-<h2 id="getting-products-by-vendor-sku">Getting Products by Vendor SKU</h2>
+<h2 id="get-products-by-vendor-sku"><span class="get">GET</span> Products by Vendor SKU</h2>
 
 <h4 id="request">Request</h4>
 
@@ -2406,23 +2352,22 @@ GET /Companies({CompanyId})/Catalog/Items/ByVendorSku?vendorsku={VendorSku}&amp;
 </ul>
 
 <h4 id="response">Response</h4>
-<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
-{
-    "Sku": "408853",
-    "VendorId": 1217,
-    "Items": [
-        {
-            "CatalogItemId": "a183f1a9-c58f-426a-930a-9a6357db52ed",
-            "CatalogSku": "21Z8F4AQ",
-            "IsArchived": false,
-            "DateAddedUtc": "2016-08-09T20:12:05.987",
-            "DateUpdatedUtc": "2016-08-09T20:12:05.99",
-            "RmsId": "1",
-            "Slug": "M1248-V1"
-        }
-    ]
-}
-</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"408853"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VendorId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1217</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21Z8F4AQ"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsArchived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DateAddedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-09T20:12:05.987"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DateUpdatedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-09T20:12:05.99"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"RmsId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <ul>
 <li><code class="prettyprint">Sku</code> (String)<br></li>
@@ -2441,7 +2386,7 @@ GET /Companies({CompanyId})/Catalog/Items/ByVendorSku?vendorsku={VendorSku}&amp;
 </ul></li>
 </ul>
 
-<h2 id="getting-products-by-category-or-classification">Getting Products by Category or Classification</h2>
+<h2 id="get-products-by-category-or-classification"><span class="get">GET</span> Products by Category or Classification</h2>
 
 <h4 id="request">Request</h4>
 
@@ -2510,169 +2455,7 @@ GET /Companies({CompanyId})/Catalog/Search?CategoryOrClassificationId={CategoryO
 </ul>
 
 <h4 id="response">Response</h4>
-<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
-{
-    "Items": [
-        {
-            "Name": "Galaxy S6 edge+ 32GB - Black Sapphire",
-            "CanonicalClassification": {
-                "Id": 4,
-                "Name": "Smartphones",
-                "ParentCategories": [
-                    {
-                        "Id": 2,
-                        "Name": "Devices"
-                    }
-                ]
-            },
-            "CatalogItemId": "a183f1a9-c58f-426a-930a-9a6357db52ed",
-            "CatalogSku": "21Z8F4AQ",
-            "ClassificationTreeId": 1,
-            "CompanyId": 14146,
-            "DateAddedUtc": "2011-10-14T12:00:00.000",
-            "HeroShotId": "44f60963-5515-44bc-9509-71aef6463580",
-            "Identifiers": [
-                {
-                    "Sku": "EM-JE040-RA",
-                    "SkuType": "ManufacturerSku",
-                    "Entity": {
-                        "Id": 14146,
-                        "Name": "Kentel Corp"
-                    },
-                    "Description": "Manufacturer SKU"
-                }
-            ],
-            "IsLinkedToCuratedProduct": true,
-            "IsDropShippable": true,
-            "IsMasterProduct": false,
-            "Manufacturer": {
-                "Id": 13149,
-                "Name": "OtterBox"
-            },
-            "Msrp": {
-                "Amount": 100,
-                "CurrencyCode": "USD"
-            },
-            "ProductVersion": 1,
-            "ShortDescription": "Next is Now",
-            "Slug": "M1248-V1",
-            "VariationId": 1,
-            "Vendors": [
-                {
-                    "Id": 14107,
-                    "Name": "NOZAMA Inc."
-                }
-            ]
-        }
-    ],
-    "Facets": {
-        "ClassificationAndCategories": [
-            {
-                "Count": 1,
-                "Item": 4
-            }
-        ],
-        "Manufacturers": [
-            {
-                "Count": 1,
-                "Item": {
-                    "Id": 13149,
-                    "Name": "OtterBox"
-                }
-            }
-        ],
-        "Vendors": [
-            {
-                "Count": 1,
-                "Item": {
-                    "Id": 13149,
-                    "Name": "OtterBox"
-                }
-            }
-        ]
-    },
-    "MetaData": {
-        "Page": 1,
-        "PageSize": 20,
-        "TotalResults": 5
-    }
-}
-</code></pre>
-
-<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
-
-<h2 id="getting-products-by-manufacturer">Getting Products by Manufacturer</h2>
-
-<h4 id="request">Request</h4>
-
-<p><code class="prettyprint">
-GET /Companies({CompanyId})/Catalog/Search?ManufacturerIds={ManufacturerIds}&amp;Page={Page}&amp;PageSize={PageSize}
-</code></p>
-<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Search</span><span class="p">?</span><span class="nx">ManufacturerIds</span><span class="o">=</span><span class="mi">10540</span><span class="o">&amp;</span><span class="nx">Page</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">PageSize</span><span class="o">=</span><span class="mi">10</span>
-<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
-<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
-</code></pre>
-<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?ManufacturerIds=10540&amp;Page=1&amp;PageSize=10"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
-</code></pre>
-<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingProductsByManufacturer</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?ManufacturerIds=10540&amp;Page=1&amp;PageSize=10"</span><span class="p">);</span>
-    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
-
-    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
-    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
-
-
-
-    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<pre class="highlight java"><code><span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingProductsByManufacturer</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
-    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
-    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?ManufacturerIds=10540&amp;Page=1&amp;PageSize=10"</span><span class="o">);</span>
-
-    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
-    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
-
-    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
-
-
-<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?ManufacturerIds=10540&amp;Page=1&amp;PageSize=10'</span><span class="p">,</span> <span class="p">{</span>
-     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
-     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
-    <span class="p">}</span> 
-
-<span class="nb">puts</span> <span class="n">response</span>
-</code></pre>
-
-<h4 id="headers">Headers</h4>
-
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a> </li>
-<li><code class="prettyprint">Accept: application/json</code> </li>
-</ul>
-
-<h4 id="uri-parameters">URI Parameters</h4>
-
-<ul>
-<li><code class="prettyprint">CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}<br></li>
-<li><code class="prettyprint">ManufacturerIds</code> (Optional)  - Array of integers representing identifiers for {{Manufacturers}}</li>
-<li> <code class="prettyprint">Page</code> (Optional)  - Page to display, if not specified defaults to 1 </li>
-<li>  <code class="prettyprint">PageSize</code> (Optional)  - Number of results that will be returned, if not specified defaults to 20</li>
-</ul>
-
-<h4 id="response">Response</h4>
-<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Galaxy S6 edge+ 32GB - Black Sapphire"</span><span class="p">,</span><span class="w">
@@ -2762,7 +2545,167 @@ GET /Companies({CompanyId})/Catalog/Search?ManufacturerIds={ManufacturerIds}&amp
 
 <p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
 
-<h2 id="getting-products-by-supplier">Getting Products by Supplier</h2>
+<h2 id="get-products-by-manufacturer"><span class="get">GET</span> Products by Manufacturer</h2>
+
+<h4 id="request">Request</h4>
+
+<p><code class="prettyprint">
+GET /Companies({CompanyId})/Catalog/Search?ManufacturerIds={ManufacturerIds}&amp;Page={Page}&amp;PageSize={PageSize}
+</code></p>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Search</span><span class="p">?</span><span class="nx">ManufacturerIds</span><span class="o">=</span><span class="mi">10540</span><span class="o">&amp;</span><span class="nx">Page</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">PageSize</span><span class="o">=</span><span class="mi">10</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?ManufacturerIds=10540&amp;Page=1&amp;PageSize=10"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingProductsByManufacturer</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?ManufacturerIds=10540&amp;Page=1&amp;PageSize=10"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code><span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingProductsByManufacturer</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?ManufacturerIds=10540&amp;Page=1&amp;PageSize=10"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?ManufacturerIds=10540&amp;Page=1&amp;PageSize=10'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="headers">Headers</h4>
+
+<ul>
+<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a> </li>
+<li><code class="prettyprint">Accept: application/json</code> </li>
+</ul>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+<li><code class="prettyprint">CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}<br></li>
+<li><code class="prettyprint">ManufacturerIds</code> (Optional)  - Array of integers representing identifiers for {{Manufacturers}}</li>
+<li> <code class="prettyprint">Page</code> (Optional)  - Page to display, if not specified defaults to 1 </li>
+<li>  <code class="prettyprint">PageSize</code> (Optional)  - Number of results that will be returned, if not specified defaults to 20</li>
+</ul>
+
+<h4 id="response">Response</h4>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Galaxy S6 edge+ 32GB - Black Sapphire"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CanonicalClassification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"ParentCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Devices"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21Z8F4AQ"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ClassificationTreeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DateAddedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-10-14T12:00:00.000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"HeroShotId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f60963-5515-44bc-9509-71aef6463580"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EM-JE040-RA"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"SkuType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ManufacturerSku"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer SKU"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"IsLinkedToCuratedProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDropShippable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsMasterProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"Msrp"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"ProductVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Next is Now"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14107</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOZAMA Inc."</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Facets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"ClassificationAndCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"Manufacturers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"MetaData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"TotalResults"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
+
+<h2 id="get-products-by-supplier"><span class="get">GET</span> Products by Supplier</h2>
 
 <h4 id="request">Request</h4>
 
@@ -2832,98 +2775,97 @@ GET /Companies({CompanyId})/Catalog/Search?VendorIds={VendorIds}&amp;Page={Page}
 </ul>
 
 <h4 id="response">Response</h4>
-<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
-{
-    "Items": [
-        {
-            "Name": "Galaxy S6 edge+ 32GB - Black Sapphire",
-            "CanonicalClassification": {
-                "Id": 4,
-                "Name": "Smartphones",
-                "ParentCategories": [
-                    {
-                        "Id": 2,
-                        "Name": "Devices"
-                    }
-                ]
-            },
-            "CatalogItemId": "a183f1a9-c58f-426a-930a-9a6357db52ed",
-            "CatalogSku": "21Z8F4AQ",
-            "ClassificationTreeId": 1,
-            "CompanyId": 14146,
-            "DateAddedUtc": "2011-10-14T12:00:00.000",
-            "HeroShotId": "44f60963-5515-44bc-9509-71aef6463580",
-            "Identifiers": [
-                {
-                    "Sku": "EM-JE040-RA",
-                    "SkuType": "ManufacturerSku",
-                    "Entity": {
-                        "Id": 14146,
-                        "Name": "Kentel Corp"
-                    },
-                    "Description": "Manufacturer SKU"
-                }
-            ],
-            "IsLinkedToCuratedProduct": true,
-            "IsDropShippable": true,
-            "IsMasterProduct": false,
-            "Manufacturer": {
-                "Id": 13149,
-                "Name": "OtterBox"
-            },
-            "Msrp": {
-                "Amount": 100,
-                "CurrencyCode": "USD"
-            },
-            "ProductVersion": 1,
-            "ShortDescription": "Next is Now",
-            "Slug": "M1248-V1",
-            "VariationId": 1,
-            "Vendors": [
-                {
-                    "Id": 14107,
-                    "Name": "NOZAMA Inc."
-                }
-            ]
-        }
-    ],
-    "Facets": {
-        "ClassificationAndCategories": [
-            {
-                "Count": 1,
-                "Item": 4
-            }
-        ],
-        "Manufacturers": [
-            {
-                "Count": 1,
-                "Item": {
-                    "Id": 13149,
-                    "Name": "OtterBox"
-                }
-            }
-        ],
-        "Vendors": [
-            {
-                "Count": 1,
-                "Item": {
-                    "Id": 13149,
-                    "Name": "OtterBox"
-                }
-            }
-        ]
-    },
-    "MetaData": {
-        "Page": 1,
-        "PageSize": 20,
-        "TotalResults": 5
-    }
-}
-</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Galaxy S6 edge+ 32GB - Black Sapphire"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CanonicalClassification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"ParentCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Devices"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21Z8F4AQ"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ClassificationTreeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DateAddedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-10-14T12:00:00.000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"HeroShotId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f60963-5515-44bc-9509-71aef6463580"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EM-JE040-RA"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"SkuType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ManufacturerSku"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer SKU"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"IsLinkedToCuratedProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDropShippable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsMasterProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"Msrp"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"ProductVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Next is Now"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14107</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOZAMA Inc."</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Facets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"ClassificationAndCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"Manufacturers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"MetaData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"TotalResults"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
 
-<h2 id="getting-products-available-for-shipping">Getting Products Available for Shipping</h2>
+<h2 id="get-products-available-for-shipping"><span class="get">GET</span> Products Available for Shipping</h2>
 
 <h4 id="request">Request</h4>
 
@@ -2994,98 +2936,97 @@ GET /Companies({CompanyId})/Catalog/Search?IsDropshippable={IsDropShippable}&amp
 </ul>
 
 <h4 id="response">Response</h4>
-<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
-{
-    "Items": [
-        {
-            "Name": "Galaxy S6 edge+ 32GB - Black Sapphire",
-            "CanonicalClassification": {
-                "Id": 4,
-                "Name": "Smartphones",
-                "ParentCategories": [
-                    {
-                        "Id": 2,
-                        "Name": "Devices"
-                    }
-                ]
-            },
-            "CatalogItemId": "a183f1a9-c58f-426a-930a-9a6357db52ed",
-            "CatalogSku": "21Z8F4AQ",
-            "ClassificationTreeId": 1,
-            "CompanyId": 14146,
-            "DateAddedUtc": "2011-10-14T12:00:00.000",
-            "HeroShotId": "44f60963-5515-44bc-9509-71aef6463580",
-            "Identifiers": [
-                {
-                    "Sku": "EM-JE040-RA",
-                    "SkuType": "ManufacturerSku",
-                    "Entity": {
-                        "Id": 14146,
-                        "Name": "Kentel Corp"
-                    },
-                    "Description": "Manufacturer SKU"
-                }
-            ],
-            "IsLinkedToCuratedProduct": true,
-            "IsDropShippable": true,
-            "IsMasterProduct": false,
-            "Manufacturer": {
-                "Id": 13149,
-                "Name": "OtterBox"
-            },
-            "Msrp": {
-                "Amount": 100,
-                "CurrencyCode": "USD"
-            },
-            "ProductVersion": 1,
-            "ShortDescription": "Next is Now",
-            "Slug": "M1248-V1",
-            "VariationId": 1,
-            "Vendors": [
-                {
-                    "Id": 14107,
-                    "Name": "NOZAMA Inc."
-                }
-            ]
-        }
-    ],
-    "Facets": {
-        "ClassificationAndCategories": [
-            {
-                "Count": 1,
-                "Item": 4
-            }
-        ],
-        "Manufacturers": [
-            {
-                "Count": 1,
-                "Item": {
-                    "Id": 13149,
-                    "Name": "OtterBox"
-                }
-            }
-        ],
-        "Vendors": [
-            {
-                "Count": 1,
-                "Item": {
-                    "Id": 13149,
-                    "Name": "OtterBox"
-                }
-            }
-        ]
-    },
-    "MetaData": {
-        "Page": 1,
-        "PageSize": 20,
-        "TotalResults": 5
-    }
-}
-</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Galaxy S6 edge+ 32GB - Black Sapphire"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CanonicalClassification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"ParentCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Devices"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21Z8F4AQ"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ClassificationTreeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DateAddedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-10-14T12:00:00.000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"HeroShotId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f60963-5515-44bc-9509-71aef6463580"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EM-JE040-RA"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"SkuType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ManufacturerSku"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer SKU"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"IsLinkedToCuratedProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDropShippable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsMasterProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"Msrp"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"ProductVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Next is Now"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14107</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOZAMA Inc."</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Facets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"ClassificationAndCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"Manufacturers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"MetaData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"TotalResults"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
 
-<h2 id="searching-for-products">Searching For Products</h2>
+<h2 id="get-search-for-products"><span class="get">GET</span> Search For Products</h2>
 
 <aside class="notice">
 SearchTerms specified in the URI are compared against the following Product fields: `Name`, `Manufacturer.Name`, `ManufacturerSkus`, `UpcCodes` and `VendorSkus` and may return *partial* results.
@@ -3161,94 +3102,93 @@ GET /Companies({CompanyId})/Catalog/Search?SearchTerms={SearchTerms}&amp;OrderBy
 </ul>
 
 <h4 id="response">Response</h4>
-<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
-{
-    "Items": [
-        {
-            "Name": "Galaxy S6 edge+ 32GB - Black Sapphire",
-            "CanonicalClassification": {
-                "Id": 4,
-                "Name": "Smartphones",
-                "ParentCategories": [
-                    {
-                        "Id": 2,
-                        "Name": "Devices"
-                    }
-                ]
-            },
-            "CatalogItemId": "a183f1a9-c58f-426a-930a-9a6357db52ed",
-            "CatalogSku": "21Z8F4AQ",
-            "ClassificationTreeId": 1,
-            "CompanyId": 14146,
-            "DateAddedUtc": "2011-10-14T12:00:00.000",
-            "HeroShotId": "44f60963-5515-44bc-9509-71aef6463580",
-            "Identifiers": [
-                {
-                    "Sku": "EM-JE040-RA",
-                    "SkuType": "ManufacturerSku",
-                    "Entity": {
-                        "Id": 14146,
-                        "Name": "Kentel Corp"
-                    },
-                    "Description": "Manufacturer SKU"
-                }
-            ],
-            "IsLinkedToCuratedProduct": true,
-            "IsDropShippable": true,
-            "IsMasterProduct": false,
-            "Manufacturer": {
-                "Id": 13149,
-                "Name": "OtterBox"
-            },
-            "Msrp": {
-                "Amount": 100,
-                "CurrencyCode": "USD"
-            },
-            "ProductVersion": 1,
-            "ShortDescription": "Next is Now",
-            "Slug": "M1248-V1",
-            "VariationId": 1,
-            "Vendors": [
-                {
-                    "Id": 14107,
-                    "Name": "NOZAMA Inc."
-                }
-            ]
-        }
-    ],
-    "Facets": {
-        "ClassificationAndCategories": [
-            {
-                "Count": 1,
-                "Item": 4
-            }
-        ],
-        "Manufacturers": [
-            {
-                "Count": 1,
-                "Item": {
-                    "Id": 13149,
-                    "Name": "OtterBox"
-                }
-            }
-        ],
-        "Vendors": [
-            {
-                "Count": 1,
-                "Item": {
-                    "Id": 13149,
-                    "Name": "OtterBox"
-                }
-            }
-        ]
-    },
-    "MetaData": {
-        "Page": 1,
-        "PageSize": 20,
-        "TotalResults": 5
-    }
-}
-</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Galaxy S6 edge+ 32GB - Black Sapphire"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CanonicalClassification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"ParentCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Devices"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21Z8F4AQ"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ClassificationTreeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DateAddedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-10-14T12:00:00.000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"HeroShotId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f60963-5515-44bc-9509-71aef6463580"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EM-JE040-RA"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"SkuType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ManufacturerSku"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer SKU"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"IsLinkedToCuratedProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDropShippable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsMasterProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"Msrp"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"ProductVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Next is Now"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14107</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOZAMA Inc."</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Facets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"ClassificationAndCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"Manufacturers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"MetaData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"TotalResults"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
 
@@ -3335,94 +3275,93 @@ GET /Companies({CompanyId})/Catalog/Search?VendorIds={VendorIds}&amp;Manufacture
 </ul>
 
 <h4 id="response">Response</h4>
-<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
-{
-    "Items": [
-        {
-            "Name": "Galaxy S6 edge+ 32GB - Black Sapphire",
-            "CanonicalClassification": {
-                "Id": 4,
-                "Name": "Smartphones",
-                "ParentCategories": [
-                    {
-                        "Id": 2,
-                        "Name": "Devices"
-                    }
-                ]
-            },
-            "CatalogItemId": "a183f1a9-c58f-426a-930a-9a6357db52ed",
-            "CatalogSku": "21Z8F4AQ",
-            "ClassificationTreeId": 1,
-            "CompanyId": 14146,
-            "DateAddedUtc": "2011-10-14T12:00:00.000",
-            "HeroShotId": "44f60963-5515-44bc-9509-71aef6463580",
-            "Identifiers": [
-                {
-                    "Sku": "EM-JE040-RA",
-                    "SkuType": "ManufacturerSku",
-                    "Entity": {
-                        "Id": 14146,
-                        "Name": "Kentel Corp"
-                    },
-                    "Description": "Manufacturer SKU"
-                }
-            ],
-            "IsLinkedToCuratedProduct": true,
-            "IsDropShippable": true,
-            "IsMasterProduct": false,
-            "Manufacturer": {
-                "Id": 13149,
-                "Name": "OtterBox"
-            },
-            "Msrp": {
-                "Amount": 100,
-                "CurrencyCode": "USD"
-            },
-            "ProductVersion": 1,
-            "ShortDescription": "Next is Now",
-            "Slug": "M1248-V1",
-            "VariationId": 1,
-            "Vendors": [
-                {
-                    "Id": 14107,
-                    "Name": "NOZAMA Inc."
-                }
-            ]
-        }
-    ],
-    "Facets": {
-        "ClassificationAndCategories": [
-            {
-                "Count": 1,
-                "Item": 4
-            }
-        ],
-        "Manufacturers": [
-            {
-                "Count": 1,
-                "Item": {
-                    "Id": 13149,
-                    "Name": "OtterBox"
-                }
-            }
-        ],
-        "Vendors": [
-            {
-                "Count": 1,
-                "Item": {
-                    "Id": 13149,
-                    "Name": "OtterBox"
-                }
-            }
-        ]
-    },
-    "MetaData": {
-        "Page": 1,
-        "PageSize": 20,
-        "TotalResults": 5
-    }
-}
-</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Galaxy S6 edge+ 32GB - Black Sapphire"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CanonicalClassification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"ParentCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Devices"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21Z8F4AQ"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ClassificationTreeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DateAddedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-10-14T12:00:00.000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"HeroShotId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f60963-5515-44bc-9509-71aef6463580"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EM-JE040-RA"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"SkuType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ManufacturerSku"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer SKU"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"IsLinkedToCuratedProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsDropShippable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsMasterProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"Msrp"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"ProductVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Next is Now"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VariationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14107</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOZAMA Inc."</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Facets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"ClassificationAndCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"Manufacturers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"MetaData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"TotalResults"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
 
