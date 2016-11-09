@@ -1247,6 +1247,12 @@
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+<li><code class="prettyprint">CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}<br></li>
+</ul>
+
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -1353,6 +1359,12 @@
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+<li><code class="prettyprint">CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}<br></li>
+</ul>
+
 <h4 id="request-parameters">Request Parameters</h4>
 
 <ul>
@@ -1444,6 +1456,13 @@
 
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+<li><code class="prettyprint">CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}<br></li>
+<li><code class="prettyprint">CatalogItemId</code> (<strong>Required</strong>) - Unique identifier for the CatalogItem</li>
+</ul>
 
 <blockquote>
 <p>Example Response </p>
@@ -1546,6 +1565,12 @@
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+<li><code class="prettyprint">CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}<br></li>
+</ul>
+
 <h4 id="request-parameters">Request Parameters</h4>
 
 <ul>
@@ -1568,7 +1593,7 @@
 
 <p>Array[<a href='#attribute'>Attribute</a>]</p>
 
-<h2 id="delete-remove-extended-attributes-from-a-catalog-item"><span class="post">DELETE</span> Remove Extended Attributes from a Catalog Item</h2>
+<h2 id="delete-extended-attributes-from-a-catalog-item"><span class="post">DELETE</span> Extended Attributes from a Catalog Item</h2>
 
 <p>This request allows you to remove extended attributes from a Catalog Item. The request body is an array of strings, where each string is the name of an attribute to be removed.</p>
 
@@ -1641,6 +1666,13 @@ response = RestClient.delete 'https://catalogsdemo.iqmetrix.net/v1/Companies(141
 puts response 
 </span></code></pre>
 
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+<li><code class="prettyprint">CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}<br></li>
+<li><code class="prettyprint">CatalogItemId</code> (<strong>Required</strong>) - Unique identifier for the CatalogItem</li>
+</ul>
+
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -1703,6 +1735,13 @@ puts response
 
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+<li><code class="prettyprint">CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}<br></li>
+<li><code class="prettyprint">CatalogItemId</code> (<strong>Required</strong>) - Unique identifier for the CatalogItem</li>
+</ul>
 
 <blockquote>
 <p>Example Response</p>
@@ -1862,11 +1901,15 @@ puts response
 
 <p>If a requested CatalogItemId is not found, it will be omitted from the response.</p>
 
-<h4 id="request">Request</h4>
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST /Companies({CompanyId})/Catalog/Items/ProductDetails/Bulk
+</code></pre>
 
-<p><code class="prettyprint">
-POST /Companies({CompanyId})/Catalog/Items/ProductDetails/Bulk
-</code></p>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
 <pre class="highlight javascript"><code><span class="nx">POST</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Items</span><span class="o">/</span><span class="nx">ProductDetails</span><span class="o">/</span><span class="nx">Bulk</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
@@ -1932,14 +1975,6 @@ response = RestClient.post 'https://catalogsdemo.iqmetrix.net/v1/Companies(14146
 puts response
 </span></code></pre>
 
-<h4 id="headers">Headers</h4>
-
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a> </li>
-<li><code class="prettyprint">Accept: application/json</code> </li>
-<li><code class="prettyprint">Content-Type: application/json</code> </li>
-</ul>
-
 <h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
@@ -1952,7 +1987,9 @@ puts response
 <li><code class="prettyprint">CatalogItemIds</code> (<strong>Required</strong>) - Array of {{CatalogItem}} identifiers </li>
 </ul>
 
-<h4 id="response">Response</h4>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"CatalogItems"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"21ac987c-d55a-482a-9450-402976a71563"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2076,6 +2113,8 @@ puts response
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<h4 id="response-parameters">Response Parameters</h4>
+
 <ul>
 <li><code class="prettyprint">CatalogItems</code> (Array) - JSON object/Dictionary </li>
 <li><code class="prettyprint">{CatalogItemId}</code> (<a href="/api/catalog/#product">Product</a>)</li>
@@ -2083,11 +2122,15 @@ puts response
 
 <h2 id="get-compatible-products-for-a-catalog-item"><span class="get">GET</span> Compatible Products for a Catalog Item</h2>
 
-<h4 id="request">Request</h4>
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Compatible
+</code></pre>
 
-<p><code class="prettyprint">
-GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Compatible
-</code></p>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
 <pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Items</span><span class="p">(</span><span class="nx">a183f1a9</span><span class="o">-</span><span class="nx">c58f</span><span class="o">-</span><span class="mi">426</span><span class="nx">a</span><span class="o">-</span><span class="mi">930</span><span class="nx">a</span><span class="o">-</span><span class="mi">9</span><span class="nx">a6357db52ed</span><span class="p">)</span><span class="o">/</span><span class="nx">Compatible</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
@@ -2133,13 +2176,6 @@ GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Compatible
 <span class="nb">puts</span> <span class="n">response</span> 
 </code></pre>
 
-<h4 id="headers">Headers</h4>
-
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a> </li>
-<li><code class="prettyprint">Accept: application/json</code> </li>
-</ul>
-
 <h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
@@ -2147,7 +2183,9 @@ GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Compatible
 <li><p><code class="prettyprint">CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the {{CatalogItem}}</p></li>
 </ul>
 
-<h4 id="response">Response</h4>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -2160,6 +2198,8 @@ GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Compatible
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<h4 id="response-parameters">Response Parameters</h4>
 
 <ul>
 <li><code class="prettyprint">Items</code> (Array)<br>
@@ -2177,11 +2217,15 @@ GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Compatible
 
 <p>For more information about Variations, see <a href='/concepts/product-structure/#variations'>Variations</a></p>
 
-<h4 id="request">Request</h4>
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Variations
+</code></pre>
 
-<p><code class="prettyprint">
-GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Variations
-</code></p>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
 <pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Items</span><span class="p">(</span><span class="nx">a183f1a9</span><span class="o">-</span><span class="nx">c58f</span><span class="o">-</span><span class="mi">426</span><span class="nx">a</span><span class="o">-</span><span class="mi">930</span><span class="nx">a</span><span class="o">-</span><span class="mi">9</span><span class="nx">a6357db52ed</span><span class="p">)</span><span class="o">/</span><span class="nx">Variations</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
@@ -2228,13 +2272,6 @@ GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Variations
 <span class="nb">puts</span> <span class="n">response</span> 
 </code></pre>
 
-<h4 id="headers">Headers</h4>
-
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a> </li>
-<li><code class="prettyprint">Accept: application/json</code> </li>
-</ul>
-
 <h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
@@ -2242,9 +2279,9 @@ GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Variations
 <li><p><code class="prettyprint">CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the {{CatalogItem}}</p></li>
 </ul>
 
-<h5 id="example">Example</h5>
-
-<h4 id="response">Response</h4>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -2263,6 +2300,8 @@ GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Variations
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<h4 id="response-parameters">Response Parameters</h4>
+
 <ul>
 <li><code class="prettyprint">Items</code> (Array)<br>
 
@@ -2279,11 +2318,15 @@ GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Variations
 
 <h2 id="get-products-by-vendor-sku"><span class="get">GET</span> Products by Vendor SKU</h2>
 
-<h4 id="request">Request</h4>
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/Catalog/Items/ByVendorSku?vendorsku={VendorSku}&amp;vendorid={VendorId}
+</code></pre>
 
-<p><code class="prettyprint">
-GET /Companies({CompanyId})/Catalog/Items/ByVendorSku?vendorsku={VendorSku}&amp;vendorid={VendorId}
-</code></p>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
 <pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Items</span><span class="o">/</span><span class="nx">ByVendorSku</span><span class="p">?</span><span class="nx">vendorsku</span><span class="o">=</span><span class="mi">408853</span><span class="o">&amp;</span><span class="nx">vendorid</span><span class="o">=</span><span class="mi">1217</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
@@ -2332,13 +2375,6 @@ GET /Companies({CompanyId})/Catalog/Items/ByVendorSku?vendorsku={VendorSku}&amp;
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-<h4 id="headers">Headers</h4>
-
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a> </li>
-<li><code class="prettyprint">Accept: application/json</code> </li>
-</ul>
-
 <h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
@@ -2347,7 +2383,9 @@ GET /Companies({CompanyId})/Catalog/Items/ByVendorSku?vendorsku={VendorSku}&amp;
 <li><p><code class="prettyprint">VendorId</code> (Optional)  - Identifier for a {{Vendor}} to search for</p></li>
 </ul>
 
-<h4 id="response">Response</h4>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"408853"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"VendorId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1217</span><span class="p">,</span><span class="w">
@@ -2364,6 +2402,8 @@ GET /Companies({CompanyId})/Catalog/Items/ByVendorSku?vendorsku={VendorSku}&amp;
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<h4 id="response-parameters">Response Parameters</h4>
 
 <ul>
 <li><code class="prettyprint">Sku</code> (String)<br></li>
@@ -2384,11 +2424,15 @@ GET /Companies({CompanyId})/Catalog/Items/ByVendorSku?vendorsku={VendorSku}&amp;
 
 <h2 id="get-products-by-category-or-classification"><span class="get">GET</span> Products by Category or Classification</h2>
 
-<h4 id="request">Request</h4>
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/Catalog/Search?CategoryOrClassificationId={CategoryOrClassificationId}&amp;Page={Page}&amp;PageSize={PageSize}
+</code></pre>
 
-<p><code class="prettyprint">
-GET /Companies({CompanyId})/Catalog/Search?CategoryOrClassificationId={CategoryOrClassificationId}&amp;Page={Page}&amp;PageSize={PageSize}
-</code></p>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
 <pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Search</span><span class="p">?</span><span class="nx">CategoryOrClassificationId</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">Page</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">PageSize</span><span class="o">=</span><span class="mi">10</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
@@ -2434,13 +2478,6 @@ GET /Companies({CompanyId})/Catalog/Search?CategoryOrClassificationId={CategoryO
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-<h4 id="headers">Headers</h4>
-
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a> </li>
-<li><code class="prettyprint">Accept: application/json</code> </li>
-</ul>
-
 <h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
@@ -2450,7 +2487,9 @@ GET /Companies({CompanyId})/Catalog/Search?CategoryOrClassificationId={CategoryO
 <li><p><code class="prettyprint">PageSize</code> (Optional)  - Number of results that will be returned, if not specified defaults to 20</p></li>
 </ul>
 
-<h4 id="response">Response</h4>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -2539,15 +2578,21 @@ GET /Companies({CompanyId})/Catalog/Search?CategoryOrClassificationId={CategoryO
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<h4 id="response-parameters">Response Parameters</h4>
+
 <p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
 
 <h2 id="get-products-by-manufacturer"><span class="get">GET</span> Products by Manufacturer</h2>
 
-<h4 id="request">Request</h4>
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/Catalog/Search?ManufacturerIds={ManufacturerIds}&amp;Page={Page}&amp;PageSize={PageSize}
+</code></pre>
 
-<p><code class="prettyprint">
-GET /Companies({CompanyId})/Catalog/Search?ManufacturerIds={ManufacturerIds}&amp;Page={Page}&amp;PageSize={PageSize}
-</code></p>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
 <pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Search</span><span class="p">?</span><span class="nx">ManufacturerIds</span><span class="o">=</span><span class="mi">10540</span><span class="o">&amp;</span><span class="nx">Page</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">PageSize</span><span class="o">=</span><span class="mi">10</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
@@ -2594,13 +2639,6 @@ GET /Companies({CompanyId})/Catalog/Search?ManufacturerIds={ManufacturerIds}&amp
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-<h4 id="headers">Headers</h4>
-
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a> </li>
-<li><code class="prettyprint">Accept: application/json</code> </li>
-</ul>
-
 <h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
@@ -2610,7 +2648,9 @@ GET /Companies({CompanyId})/Catalog/Search?ManufacturerIds={ManufacturerIds}&amp
 <li>  <code class="prettyprint">PageSize</code> (Optional)  - Number of results that will be returned, if not specified defaults to 20</li>
 </ul>
 
-<h4 id="response">Response</h4>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -2699,15 +2739,21 @@ GET /Companies({CompanyId})/Catalog/Search?ManufacturerIds={ManufacturerIds}&amp
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<h4 id="response-parameters">Response Parameters</h4>
+
 <p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
 
 <h2 id="get-products-by-supplier"><span class="get">GET</span> Products by Supplier</h2>
 
-<h4 id="request">Request</h4>
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/Catalog/Search?VendorIds={VendorIds}&amp;Page={Page}&amp;PageSize={PageSize}
+</code></pre>
 
-<p><code class="prettyprint">
-GET /Companies({CompanyId})/Catalog/Search?VendorIds={VendorIds}&amp;Page={Page}&amp;PageSize={PageSize}
-</code></p>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
 <pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Search</span><span class="p">?</span><span class="nx">VendorIds</span><span class="o">=</span><span class="mi">1217</span><span class="o">&amp;</span><span class="nx">Page</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">PageSize</span><span class="o">=</span><span class="mi">10</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
@@ -2755,12 +2801,6 @@ GET /Companies({CompanyId})/Catalog/Search?VendorIds={VendorIds}&amp;Page={Page}
 <span class="nb">puts</span> <span class="n">response</span> 
 </code></pre>
 
-<h4 id="headers">Headers</h4>
-
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a> * <code class="prettyprint">Accept: application/json</code> </li>
-</ul>
-
 <h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
@@ -2770,7 +2810,9 @@ GET /Companies({CompanyId})/Catalog/Search?VendorIds={VendorIds}&amp;Page={Page}
 <li><p><code class="prettyprint">PageSize</code> (Optional)  - Number of results that will be returned, if not specified defaults to 20</p></li>
 </ul>
 
-<h4 id="response">Response</h4>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -2859,15 +2901,21 @@ GET /Companies({CompanyId})/Catalog/Search?VendorIds={VendorIds}&amp;Page={Page}
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<h4 id="response-parameters">Response Parameters</h4>
+
 <p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
 
 <h2 id="get-products-available-for-shipping"><span class="get">GET</span> Products Available for Shipping</h2>
 
-<h4 id="request">Request</h4>
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/Catalog/Search?IsDropshippable={IsDropShippable}&amp;Page={Page}&amp;PageSize={PageSize}
+</code></pre>
 
-<p><code class="prettyprint">
-GET /Companies({CompanyId})/Catalog/Search?IsDropshippable={IsDropShippable}&amp;Page={Page}&amp;PageSize={PageSize}
-</code></p>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
 <pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Search</span><span class="p">?</span><span class="nx">IsDropshippable</span><span class="o">=</span><span class="kc">true</span><span class="o">&amp;</span><span class="nx">Page</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">PageSize</span><span class="o">=</span><span class="mi">10</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
@@ -2915,13 +2963,6 @@ GET /Companies({CompanyId})/Catalog/Search?IsDropshippable={IsDropShippable}&amp
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-<h4 id="headers">Headers</h4>
-
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a> </li>
-<li><code class="prettyprint">Accept: application/json</code> </li>
-</ul>
-
 <h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
@@ -2931,7 +2972,9 @@ GET /Companies({CompanyId})/Catalog/Search?IsDropshippable={IsDropShippable}&amp
 <li><p><code class="prettyprint">PageSize</code> (Optional)  - Number of results that will be returned, if not specified defaults to 20</p></li>
 </ul>
 
-<h4 id="response">Response</h4>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -3020,6 +3063,8 @@ GET /Companies({CompanyId})/Catalog/Search?IsDropshippable={IsDropShippable}&amp
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
+<h4 id="response-parameters">Response Parameters</h4>
+
 <p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
 
 <h2 id="get-search-for-products"><span class="get">GET</span> Search For Products</h2>
@@ -3028,11 +3073,15 @@ GET /Companies({CompanyId})/Catalog/Search?IsDropshippable={IsDropShippable}&amp
 SearchTerms specified in the URI are compared against the following Product fields: `Name`, `Manufacturer.Name`, `ManufacturerSkus`, `UpcCodes` and `VendorSkus` and may return *partial* results.
 </aside>
 
-<h4 id="request">Request</h4>
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/Catalog/Search?SearchTerms={SearchTerms}&amp;OrderBy={OrderBy}&amp;OrderDir={OrderDir}&amp;Page={Page}&amp;PageSize={PageSize}
+</code></pre>
 
-<p><code class="prettyprint">
-GET /Companies({CompanyId})/Catalog/Search?SearchTerms={SearchTerms}&amp;OrderBy={OrderBy}&amp;OrderDir={OrderDir}&amp;Page={Page}&amp;PageSize={PageSize}
-</code></p>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
 <pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Search</span><span class="p">?</span><span class="nx">SearchTerms</span><span class="o">=</span><span class="nx">iPhone</span><span class="o">&amp;</span><span class="nx">OrderBy</span><span class="o">=</span><span class="nx">name</span><span class="o">&amp;</span><span class="nx">OrderDir</span><span class="o">=</span><span class="nx">asc</span><span class="o">&amp;</span><span class="nx">Page</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">PageSize</span><span class="o">=</span><span class="mi">10</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
@@ -3079,13 +3128,6 @@ GET /Companies({CompanyId})/Catalog/Search?SearchTerms={SearchTerms}&amp;OrderBy
 <span class="nb">puts</span> <span class="n">response</span> 
 </code></pre>
 
-<h4 id="headers">Headers</h4>
-
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a> </li>
-<li><code class="prettyprint">Accept: application/json</code> </li>
-</ul>
-
 <h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
@@ -3097,7 +3139,9 @@ GET /Companies({CompanyId})/Catalog/Search?SearchTerms={SearchTerms}&amp;OrderBy
 <li><p><code class="prettyprint">PageSize</code> (Optional)  - Number of results that will be returned, if not specified defaults to 20</p></li>
 </ul>
 
-<h4 id="response">Response</h4>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -3192,11 +3236,15 @@ GET /Companies({CompanyId})/Catalog/Search?SearchTerms={SearchTerms}&amp;OrderBy
 
 <p>Search filters can be combined to narrow down results. The example below illustrates a search request using every possible filter.</p>
 
-<h4 id="request">Request</h4>
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/Catalog/Search?VendorIds={VendorIds}&amp;ManufacturerIds={ManufacturerIds}&amp;IsDropshippable={IsDropShippable}&amp;CategoryOrClassificationId={CategoryOrClassificationId}&amp;ClassificationTreeId={ClassificationTreeId}&amp;SearchTerms={SearchTerms}&amp;OrderBy={OrderBy}&amp;OrderDir={OrderDir}&amp;IsLinkedToCuratedProduct={IsLinkedToCuratedProduct}&amp;ColorTagIds={ColorTagIds}&amp;Page={Page}&amp;PageSize={PageSize}
+</code></pre>
 
-<p><code class="prettyprint">
-GET /Companies({CompanyId})/Catalog/Search?VendorIds={VendorIds}&amp;ManufacturerIds={ManufacturerIds}&amp;IsDropshippable={IsDropShippable}&amp;CategoryOrClassificationId={CategoryOrClassificationId}&amp;ClassificationTreeId={ClassificationTreeId}&amp;SearchTerms={SearchTerms}&amp;OrderBy={OrderBy}&amp;OrderDir={OrderDir}&amp;IsLinkedToCuratedProduct={IsLinkedToCuratedProduct}&amp;ColorTagIds={ColorTagIds}&amp;Page={Page}&amp;PageSize={PageSize}
-</code></p>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
 <pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Catalog</span><span class="o">/</span><span class="nx">Search</span><span class="p">?</span><span class="nx">VendorIds</span><span class="o">=</span><span class="mi">1217</span><span class="o">&amp;</span><span class="nx">ManufacturerIds</span><span class="o">=</span><span class="mi">10540</span><span class="o">&amp;</span><span class="nx">IsDropshippable</span><span class="o">=</span><span class="kc">true</span><span class="o">&amp;</span><span class="nx">CategoryOrClassificationId</span><span class="o">=</span><span class="mi">4</span><span class="o">&amp;</span><span class="nx">ClassificationTreeId</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">SearchTerms</span><span class="o">=</span><span class="nx">iPhone</span><span class="o">&amp;</span><span class="nx">OrderBy</span><span class="o">=</span><span class="nx">name</span><span class="o">&amp;</span><span class="nx">OrderDir</span><span class="o">=</span><span class="nx">asc</span><span class="o">&amp;</span><span class="nx">IsLinkedToCuratedProduct</span><span class="o">=</span><span class="kc">false</span><span class="o">&amp;</span><span class="nx">ColorTagIds</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">Page</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">PageSize</span><span class="o">=</span><span class="mi">10</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
@@ -3245,13 +3293,6 @@ GET /Companies({CompanyId})/Catalog/Search?VendorIds={VendorIds}&amp;Manufacture
 <span class="nb">puts</span> <span class="n">response</span> 
 </code></pre>
 
-<h4 id="headers">Headers</h4>
-
-<ul>
-<li><code class="prettyprint">Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a> </li>
-<li><code class="prettyprint">Accept: application/json</code> </li>
-</ul>
-
 <h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
@@ -3270,7 +3311,9 @@ GET /Companies({CompanyId})/Catalog/Search?VendorIds={VendorIds}&amp;Manufacture
 <li><p><code class="prettyprint">PageSize</code> (Optional)  - Number of results that will be returned, if not specified defaults to 20</p></li>
 </ul>
 
-<h4 id="response">Response</h4>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -3358,6 +3401,8 @@ GET /Companies({CompanyId})/Catalog/Search?VendorIds={VendorIds}&amp;Manufacture
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<h4 id="response-parameters">Response Parameters</h4>
 
 <p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
 
