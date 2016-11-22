@@ -1,647 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
- <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=",  ">
-<title>Security Roles  | iQmetrix Developer Portal</title>
-<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/modern-business.css">
-<link rel="stylesheet" type="text/css" href="../../css/customstyles.css">
-<!-- <link rel="stylesheet" type="text/css" href="" | prepend:site.pagefileurl }}"> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script src="../../js/jquery.navgoco.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
-<script src="../../js/toc.js"></script>
-<script src="../../js/customscripts.js"></script>
-<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <title>Security Roles | iQmetrix Developer Portal</title>
+    <link href="../../css/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../css/print.css" rel="stylesheet" media="print" />
+    <script src="../../js/all.js"></script>
 
-
-<!-- Image popup source files -->
-<!-- http://dimsemenov.com/plugins/magnific-popup/ -->
-<link rel="stylesheet" type="text/css" href="../../css/magnific-popup.css">
-<script src="../../js/jquery.magnific-popup.js"></script>
-
-
-<script>
-    $(document).ready(function() {
-
-        // surround each image with an anchor class  for image popup
-        $('img').each( function() {
-            var $img = $(this),
-            href = $img.attr('src');
-            $img.wrap('<a class="image-link" href=' + href + '></a>');
-             
-        });
-
-        // make each image with image-link class popup "on click"
-        // !! Drawback -- all images could popup :(
-        $('.image-link').magnificPopup({
-            type:'image',
-            closeOnContentClick: true
-        });
-                
-    });    
-</script>
-
-
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-<script type="text/javascript">
-    //Hacky code to make sure they don't go to a bad page
-    $( window ).load(function() {
-
-        if (document.baseURI.indexOf("api/generalledger.html") > 0) {
-            window.location.href = 'http://developers.iqmetrix.com/api/general-ledger/';
-        }
-        else if (document.baseURI.indexOf("api/productlibrary.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/product-library/';
-        }
-        else if (document.baseURI.indexOf("api/entitystore.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/entity-store/';
-        }
-        else if(document.baseURI.indexOf(".html") > 0) {
-           window.location.href = document.baseURI.substring(0, document.baseURI.indexOf(".html"));
-        }
-    });
-</script>
-
-
-
-
-
- 
-
-<script>
-  $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
-
-
-
-
-
-
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
 
-<body>
-
-   <!-- Send feedback function -->
-<script>
-    function SendLinkByMail(href) {
-        var subject= " all documentation feedback";
-        var body = "I have some feedback about the Security Roles page: ";
-        body += window.location.href;
-        body += "";
-        var uri = "mailto:apidesign@iqmetrix.com?subject=";
-        uri += encodeURIComponent(subject);
-        uri += "&body=";
-        uri += encodeURIComponent(body);
-        window.location.href = uri;
-    }
-</script>
-
-<!-- Navigation -->
-<nav id="navbar-custom" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-   <div class="container topnavlinks">
-   <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      </button>
-      <a href="http://localhost:4006/">
-        <span id="top-iq-logo"><img src="http://melissakendall.github.io/documentation-testing/images/iq-logo-white.png"></span>
-        <span id="projectTitle">iQmetrix Developer Portal</span>
-      </a>
-   </div>
-   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul id="top-bar-categories" class="nav navbar-nav navbar-right">
-      
-      <!-- entries without drop-downs appear here -->
-      <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
-      <!-- 
-
-Hard coding for now, so no longer uses topnav config
-
-
-
-
-
-
-
-
-
-  
-      
-      
-          <li><a href="/api/changelog/">CHANGELOG</a></li>
-      
-    
-  
-      
-      
-          <li class="active"><a href="//">API REFERENCE</a></li>
-       
-    
-  
-      
-      
-          <li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
-      
-    
-  
-
-
--->
-
-<li><a href="/api/">DOCUMENTATION</a></li>
-<li><a href="/api/changelog">CHANGELOG</a></li>
-<li><a href="mailto:?subject=Support">SUPPORT</a></li>
-
-
-         <!--
-      <li>
-         <div id="search-demo-container">
-            <input type="text" id="search-input" placeholder="">
-            <ul id="results-container"></ul>
-         </div>
-         <script src="../..//js/jekyll-search.js" type="text/javascript"></script>
-         <script type="text/javascript">
-            SimpleJekyllSearch({
-              searchInput: document.getElementById('search-input'),
-              resultsContainer: document.getElementById('results-container'),
-              json: '../../search.json',
-              searchResultTemplate: '<li><a href="{url}" title="Security Roles">{title}</a></li>',
-              noResultsText: '',
-              exclude: '404'
-            })
-         </script>
-      </li>
-         -->
-    
-
-   </div>
-   <!-- /.container -->
-</nav>
-
-    <!-- Page Content -->
-    <div class="container">
-        <div class="col-lg-12">&nbsp;</div>
-
-            <!-- Col-md-3 -->
-            <!-- Content Row -->
-<div class="row">
-    <!-- Sidebar Column -->
-    <div class="col-md-3">
-
-        <script>
-            $(document).ready(function() {
-
-                // Initialize navgoco with default options
-                $("#mysidebar").navgoco({
-                    caretHtml: '',
-                    accordion: true,
-                    openClass: 'active', // open
-                    save: false, // leave false or nav higlighting doesn't work right
-                    cookie: {
-                        name: 'navgoco',
-                        expires: false,
-                        path: '/'
-                    },
-                    slide: {
-                        duration: 400,
-                        easing: 'swing'
-                    }
-                });
-
-                $("#collapseAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', false);
-                });
-
-                $("#expandAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', true);
-                });
-
-                if(window.location.hostname == "apidocumentation-dev-westus.azurewebsites.net")
-                {
-                    $("a").each(function(e) {
-                        var url = $(this).attr("href");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("href", url);
-                    });
-
-                    $("img").each(function(e) {
-                        var url = $(this).attr("src");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("src", url);
-                    });                    
-                }
-
-                if(window.location.search != "" && window.location.search != null && window.location.search.indexOf("=") > -1) {
-
-                    var entityValue = window.location.search.split("=")[1];
-
-                    $("."+entityValue).hide();
-                }
-            });
-
-        </script>
-
-        <ul id="mysidebar" class="nav affix">
-            
-                
-                    
-                        <li class=""><a href="#">API Reference</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/authentication/">Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/assets/">Assets</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/catalog/">Catalog</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/crm/">Customers</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cost-feed/">Cost Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-feed/">Product Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-subscription/">Product Subscription</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/saccs/">Shipping Aggregator</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/shipping-options/">Shipping Options</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-availability/">Supplier Availability</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-orders/">Supplier Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/entity-store/">Entities</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/general-ledger/">General Ledger</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/availability/">Inventory Availability</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/orders/">Orders</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Partners</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-reporting/">Partner Reporting</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-relationships/">Relationships</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/pricing">Pricing</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Product Library</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/classification-tree/">Classification Tree</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/field-definitions/">Field Definitions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-library/">Products</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-structure/">Product Structure</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/reference/">Reference</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">RQ</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/carrier-integration/">Carrier Integration</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cmi/">Customer Managed Inventory (CMI)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/commissions/">Commissions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/epc/">Electronic Product Catalog (EPC)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/punch-clock/">Punch Clock</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/vmi/">Vendor Managed Inventory (VMI)</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class="active "><a href="/api/security-roles/">Security Roles</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Guides</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-an-in-store-order/">Creating an In Store Order</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-a-user-for-rq/">Creating a User for RQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Client Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-pos-guide/">Dropship Point of Sale Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Partner Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-onboarding-guide/">Dropship Onboarding Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-order-guide/">Dropship Order Management Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-test-order-guide/">Dropship Test Order Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/commerce-guide/">eCommerce Integration Guide</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Endless Aisle Integration Guide</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/overview">Overview</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/corporate-hierarchy">Corporate Hierarchy</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/content">Content</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/inventory">Inventory</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/orders">Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/3pa/">Third Party Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/vmi-onboarding-guide/">VMI Onboarding Guide</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Core Concepts</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/classification-tree/">Classification Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-library/">Product Library</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-structure/">Product Structure</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">FAQ</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/auth-faq/">Authentication FAQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/dropship-faq/">Dropship FAQ</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="/reference-applications/">Reference Applications</a>
-                    
-                
-            
-        </ul>
-
-        
+    <body class="api api_catalog2 api_catalog2_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../../images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="csharp">c#</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
     </div>
-<!-- div missing here is intentional -->
 
-<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
-<script>$("li.active").parents('li').toggleClass("active");</script>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
 
-
-
-            
-              <div class="col-md-7"><link rel="stylesheet" type="text/css" href="../../css/prism.css" />
+      <link rel="stylesheet" type="text/css" href="../../css/prism.css" />
 
 <script src="../../js/prism.js"></script>
 
@@ -653,7 +140,7 @@ Hard coding for now, so no longer uses topnav config
 
 <p>To learn more about Users, Security Roles and Permissions see <a href="/user-manager/">User Manager</a>.</p>
 
-<p><img src="http://localhost:4006//images/user-manager-uml.png" style="height: 80%; width: 80%" /></p>
+<p><img src="http://localhost:4006/images/user-manager-uml.png" style="height: 80%; width: 80%" /></p>
 
 <div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note: </b>
 Changes within the Security Roles API involve complex actions behind the scenes and <b>are not always immediate</b>.
@@ -686,13 +173,13 @@ Changes within the Security Roles API involve complex actions behind the scenes 
       <td style="text-align: left">Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code>316</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">316</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>Store Manager</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Store Manager</code></td>
     </tr>
   </tbody>
 </table>
@@ -715,25 +202,25 @@ Changes within the Security Roles API involve complex actions behind the scenes 
       <td style="text-align: left">Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code>6548</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">6548</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EntityId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of a <a href="/api/company-tree/#companytreenode">CompanyTreeNode</a></td>
-      <td style="text-align: left"><code>14202</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">14202</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SecurityRoleId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of a <a href="#securityrole">SecurityRole</a></td>
-      <td style="text-align: left"><code>316</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">316</code></td>
     </tr>
     <tr>
       <td style="text-align: left">UserId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of a <a href="/api/usermanager/#user">User</a></td>
-      <td style="text-align: left"><code>2576</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2576</code></td>
     </tr>
   </tbody>
 </table>
@@ -745,7 +232,7 @@ Changes within the Security Roles API involve complex actions behind the scenes 
 <ul>
   <li>Assigning a Permission to a Security Role always <strong>grants</strong> an action</li>
   <li>A Permission will never overrule another Permission</li>
-  <li>When <code>IsAssignable</code> is set to <code>false</code>, the Permission is Restricted by iQmetrix. If you require access to a Restricted Permission, contact <a href="mailto:?subject=Support">Support</a></li>
+  <li>When <code class="highlighter-rouge">IsAssignable</code> is set to <code class="highlighter-rouge">false</code>, the Permission is Restricted by iQmetrix. If you require access to a Restricted Permission, contact <a href="mailto:?subject=Support">Support</a></li>
 </ul>
 
 <table>
@@ -762,43 +249,43 @@ Changes within the Security Roles API involve complex actions behind the scenes 
       <td style="text-align: left">Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code>101</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">101</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Descriptive name</td>
-      <td style="text-align: left"><code>Edit Products</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Edit Products</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Category</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">This field is used internally to group Permissions by how they impact the iQmetrix ecosystem</td>
-      <td style="text-align: left"><code>Products</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Products</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Code</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Unique, system generated name used for sorting Permissions</td>
-      <td style="text-align: left"><code>editproducts</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">editproducts</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Description</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Describes the function of the Permission</td>
-      <td style="text-align: left"><code>Enables the user to create, update and archive their private products and retailer revisions.</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Enables the user to create, update and archive their private products and retailer revisions.</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IsAssignable</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this Permission is Restricted, see Notes above</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ParentPermissionId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of a similar Permission, used for organizing Permissions into groups</td>
-      <td style="text-align: left"><code>99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">99</code></td>
     </tr>
   </tbody>
 </table>
@@ -1459,7 +946,7 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="assigning-a-security-role-to-a-user" class="clickable-header top-level-header">Assigning a Security Role to a User</h3>
 
-<p>If the User is assigned a SecurityRole they already have, the result will be a <code>HTTP 200</code> with the <a href="http://developers.iqmetrix.com/api/security-roles/#assignedrole">AssignedRole</a>, the same response as assigning a new SecurityRole to a User.</p>
+<p>If the User is assigned a SecurityRole they already have, the result will be a <code class="highlighter-rouge">HTTP 200</code> with the <a href="http://developers.iqmetrix.com/api/security-roles/#assignedrole">AssignedRole</a>, the same response as assigning a new SecurityRole to a User.</p>
 
 <h4>Request</h4>
 
@@ -1793,88 +1280,45 @@ HTTP 204 Content-Type: application/json
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>The field {x} is a required field </code><br /><code>but was not found in the request</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">The field {x} is a required field </code><br /><code class="highlighter-rouge">but was not found in the request</code></td>
       <td style="text-align: left">Ensure all required parameters are included</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Expected {x} to contain {y}</code><br /><code> but found {z}</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Expected {x} to contain {y}</code><br /><code class="highlighter-rouge"> but found {z}</code></td>
       <td style="text-align: left">Ensure parameters that are in both Request URI and body match</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 404</code></td>
-      <td style="text-align: left"><code>{x} not found</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 404</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge"><span class="p">{</span><span class="err">x</span><span class="p">}</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">found</span></code></td>
       <td style="text-align: left">Ensure URI parameters are correct</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 409</code></td>
-      <td style="text-align: left"><code>The SecurityRole name {x} </code><br /><code>already exists for entity {y}</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 409</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">The SecurityRole name {x} </code><br /><code class="highlighter-rouge">already exists for entity {y}</code></td>
       <td style="text-align: left">SecurityRole names must be unique across the Company</td>
     </tr>
   </tbody>
 </table>
-</div>
-              <div class="col-lg-1 hidden-md hidden-sm hidden-xs"><!-- start page metadata -->
 
 
-<div class="pageMetadata affix">
-    <div class="pageMetadataTitle">Table of Contents</div>
-    
-<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
-<script>
-$( document ).ready(function() {
-
-    $('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2, h3' });
-
-    //Resize once
-    resizeWindow();
-
-    //Resize whenever window changes
-    $(window).resize(function () {
-        resizeWindow();
-    });
-
-});
-
-function resizeWindow() {
-
-    var windowHeight = $(window).height();
-    var windowWidth = $(window).width();
-
-    var tocHeight = $(".pageMetadata").height();
-
-    if(windowWidth < 1560 || windowHeight < tocHeight) {        
-        //Grab "pageMetadata" and move it to first  child of .post-header
-        $(".pageMetadata").prependTo(".post-header");
-        $(".pageMetadata").removeClass("affix");        
-    } else if(windowWidth > 1560) {
-        //Grab "pageMetadata" and move it back to where it was
-        $(".pageMetadata").appendTo(".col-lg-1.hidden-md.hidden-sm.hidden-xs");
-        $(".pageMetadata" ).addClass("affix");
-    }      
-}
-
-</script>
-
-<div id="toc"></div>
-
-    
-    <p><div class="metadataRow"><span class="tagTitle">Last updated:</span> 13-7-2016</div></p>
-    
-
-</div>
-
-
-
-
-<!-- end pageMetadata --></div>
-            
+      </div>
+      <div class="dark-box">
+            <div class="lang-selector">
+               <a href="#" data-language-name="javascript">javascript</a>
+               <a href="#" data-language-name="shell">cURL</a>
+               <a href="#" data-language-name="csharp">c#</a>
+               <a href="#" data-language-name="java">java</a>
+               <a href="#" data-language-name="ruby">ruby</a>
+            </div>
+         </div>
     </div>
 
-</body>
+  </body>
 
-<!-- the google_analytics_id gets auto inserted from the config file -->
+
+  <!-- the google_analytics_id gets auto inserted from the config file -->
 
 
 <script>
@@ -1889,4 +1333,3 @@ function resizeWindow() {
 
 
 </html>
-

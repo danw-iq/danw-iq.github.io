@@ -1,647 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
- <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=",  ">
-<title>Catalog  | iQmetrix Developer Portal</title>
-<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/modern-business.css">
-<link rel="stylesheet" type="text/css" href="../../css/customstyles.css">
-<!-- <link rel="stylesheet" type="text/css" href="" | prepend:site.pagefileurl }}"> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script src="../../js/jquery.navgoco.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
-<script src="../../js/toc.js"></script>
-<script src="../../js/customscripts.js"></script>
-<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <title>Catalog | iQmetrix Developer Portal</title>
+    <link href="../../css/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../css/print.css" rel="stylesheet" media="print" />
+    <script src="../../js/all.js"></script>
 
-
-<!-- Image popup source files -->
-<!-- http://dimsemenov.com/plugins/magnific-popup/ -->
-<link rel="stylesheet" type="text/css" href="../../css/magnific-popup.css">
-<script src="../../js/jquery.magnific-popup.js"></script>
-
-
-<script>
-    $(document).ready(function() {
-
-        // surround each image with an anchor class  for image popup
-        $('img').each( function() {
-            var $img = $(this),
-            href = $img.attr('src');
-            $img.wrap('<a class="image-link" href=' + href + '></a>');
-             
-        });
-
-        // make each image with image-link class popup "on click"
-        // !! Drawback -- all images could popup :(
-        $('.image-link').magnificPopup({
-            type:'image',
-            closeOnContentClick: true
-        });
-                
-    });    
-</script>
-
-
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-<script type="text/javascript">
-    //Hacky code to make sure they don't go to a bad page
-    $( window ).load(function() {
-
-        if (document.baseURI.indexOf("api/generalledger.html") > 0) {
-            window.location.href = 'http://developers.iqmetrix.com/api/general-ledger/';
-        }
-        else if (document.baseURI.indexOf("api/productlibrary.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/product-library/';
-        }
-        else if (document.baseURI.indexOf("api/entitystore.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/entity-store/';
-        }
-        else if(document.baseURI.indexOf(".html") > 0) {
-           window.location.href = document.baseURI.substring(0, document.baseURI.indexOf(".html"));
-        }
-    });
-</script>
-
-
-
-
-
- 
-
-<script>
-  $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
-
-
-
-
-
-
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
 
-<body>
-
-   <!-- Send feedback function -->
-<script>
-    function SendLinkByMail(href) {
-        var subject= " all documentation feedback";
-        var body = "I have some feedback about the Catalog page: ";
-        body += window.location.href;
-        body += "";
-        var uri = "mailto:apidesign@iqmetrix.com?subject=";
-        uri += encodeURIComponent(subject);
-        uri += "&body=";
-        uri += encodeURIComponent(body);
-        window.location.href = uri;
-    }
-</script>
-
-<!-- Navigation -->
-<nav id="navbar-custom" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-   <div class="container topnavlinks">
-   <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      </button>
-      <a href="http://localhost:4006/">
-        <span id="top-iq-logo"><img src="http://melissakendall.github.io/documentation-testing/images/iq-logo-white.png"></span>
-        <span id="projectTitle">iQmetrix Developer Portal</span>
-      </a>
-   </div>
-   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul id="top-bar-categories" class="nav navbar-nav navbar-right">
-      
-      <!-- entries without drop-downs appear here -->
-      <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
-      <!-- 
-
-Hard coding for now, so no longer uses topnav config
-
-
-
-
-
-
-
-
-
-  
-      
-      
-          <li><a href="/api/changelog/">CHANGELOG</a></li>
-      
-    
-  
-      
-      
-          <li class="active"><a href="//">API REFERENCE</a></li>
-       
-    
-  
-      
-      
-          <li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
-      
-    
-  
-
-
--->
-
-<li><a href="/api/">DOCUMENTATION</a></li>
-<li><a href="/api/changelog">CHANGELOG</a></li>
-<li><a href="mailto:?subject=Support">SUPPORT</a></li>
-
-
-         <!--
-      <li>
-         <div id="search-demo-container">
-            <input type="text" id="search-input" placeholder="">
-            <ul id="results-container"></ul>
-         </div>
-         <script src="../..//js/jekyll-search.js" type="text/javascript"></script>
-         <script type="text/javascript">
-            SimpleJekyllSearch({
-              searchInput: document.getElementById('search-input'),
-              resultsContainer: document.getElementById('results-container'),
-              json: '../../search.json',
-              searchResultTemplate: '<li><a href="{url}" title="Catalog">{title}</a></li>',
-              noResultsText: '',
-              exclude: '404'
-            })
-         </script>
-      </li>
-         -->
-    
-
-   </div>
-   <!-- /.container -->
-</nav>
-
-    <!-- Page Content -->
-    <div class="container">
-        <div class="col-lg-12">&nbsp;</div>
-
-            <!-- Col-md-3 -->
-            <!-- Content Row -->
-<div class="row">
-    <!-- Sidebar Column -->
-    <div class="col-md-3">
-
-        <script>
-            $(document).ready(function() {
-
-                // Initialize navgoco with default options
-                $("#mysidebar").navgoco({
-                    caretHtml: '',
-                    accordion: true,
-                    openClass: 'active', // open
-                    save: false, // leave false or nav higlighting doesn't work right
-                    cookie: {
-                        name: 'navgoco',
-                        expires: false,
-                        path: '/'
-                    },
-                    slide: {
-                        duration: 400,
-                        easing: 'swing'
-                    }
-                });
-
-                $("#collapseAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', false);
-                });
-
-                $("#expandAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', true);
-                });
-
-                if(window.location.hostname == "apidocumentation-dev-westus.azurewebsites.net")
-                {
-                    $("a").each(function(e) {
-                        var url = $(this).attr("href");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("href", url);
-                    });
-
-                    $("img").each(function(e) {
-                        var url = $(this).attr("src");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("src", url);
-                    });                    
-                }
-
-                if(window.location.search != "" && window.location.search != null && window.location.search.indexOf("=") > -1) {
-
-                    var entityValue = window.location.search.split("=")[1];
-
-                    $("."+entityValue).hide();
-                }
-            });
-
-        </script>
-
-        <ul id="mysidebar" class="nav affix">
-            
-                
-                    
-                        <li class=""><a href="#">API Reference</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/authentication/">Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/assets/">Assets</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class="active "><a href="/api/catalog/">Catalog</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/crm/">Customers</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cost-feed/">Cost Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-feed/">Product Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-subscription/">Product Subscription</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/saccs/">Shipping Aggregator</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/shipping-options/">Shipping Options</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-availability/">Supplier Availability</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-orders/">Supplier Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/entity-store/">Entities</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/general-ledger/">General Ledger</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/availability/">Inventory Availability</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/orders/">Orders</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Partners</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-reporting/">Partner Reporting</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-relationships/">Relationships</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/pricing">Pricing</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Product Library</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/classification-tree/">Classification Tree</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/field-definitions/">Field Definitions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-library/">Products</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-structure/">Product Structure</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/reference/">Reference</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">RQ</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/carrier-integration/">Carrier Integration</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cmi/">Customer Managed Inventory (CMI)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/commissions/">Commissions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/epc/">Electronic Product Catalog (EPC)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/punch-clock/">Punch Clock</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/vmi/">Vendor Managed Inventory (VMI)</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/security-roles/">Security Roles</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Guides</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-an-in-store-order/">Creating an In Store Order</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-a-user-for-rq/">Creating a User for RQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Client Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-pos-guide/">Dropship Point of Sale Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Partner Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-onboarding-guide/">Dropship Onboarding Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-order-guide/">Dropship Order Management Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-test-order-guide/">Dropship Test Order Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/commerce-guide/">eCommerce Integration Guide</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Endless Aisle Integration Guide</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/overview">Overview</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/corporate-hierarchy">Corporate Hierarchy</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/content">Content</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/inventory">Inventory</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/orders">Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/3pa/">Third Party Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/vmi-onboarding-guide/">VMI Onboarding Guide</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Core Concepts</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/classification-tree/">Classification Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-library/">Product Library</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-structure/">Product Structure</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">FAQ</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/auth-faq/">Authentication FAQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/dropship-faq/">Dropship FAQ</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="/reference-applications/">Reference Applications</a>
-                    
-                
-            
-        </ul>
-
-        
+    <body class="api api_catalog2 api_catalog2_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../../images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="csharp">c#</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
     </div>
-<!-- div missing here is intentional -->
 
-<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
-<script>$("li.active").parents('li').toggleClass("active");</script>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
 
-
-
-            
-              <div class="col-md-7"><link rel="stylesheet" type="text/css" href="../../css/prism.css" />
+      <link rel="stylesheet" type="text/css" href="../../css/prism.css" />
 
 <script src="../../js/prism.js"></script>
 
@@ -653,9 +140,9 @@ Hard coding for now, so no longer uses topnav config
 
 <p>A <strong>slug</strong> is a generated identifier for a Product within the Product Library, determined using its <a href="/product-structure">Product Structure</a> and the following formula:</p>
 
-<p><code>
-M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
+</code></pre>
+</div>
 
 <ul>
   <li>ProductDocumentId - Identifier for a <a href="http://developers.iqmetrix.com/api/product-structure/#productdocument">ProductDocument</a></li>
@@ -666,16 +153,17 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
 
 <h5 id="example">Example</h5>
 
-<pre><code>M1-V2-E3-RCABC
+<div class="highlighter-rouge"><pre class="highlight"><code>M1-V2-E3-RCABC
 </code></pre>
+</div>
 
 <p>Using the slug in the example above, we can determine the following:</p>
 
 <ul>
   <li>The identifier for the <a href="http://developers.iqmetrix.com/api/product-structure/#productdocument">ProductDocument</a> for this Product is <strong>1</strong></li>
   <li>This Revision was made from a Variation, as there is a <strong>V</strong> present</li>
-  <li>The Company or Carrier that owns this Revision has an Id of <code>3</code></li>
-  <li>This Revision is specific to British Columbia (<code>BC</code>), Canada (<code>CA</code>)</li>
+  <li>The Company or Carrier that owns this Revision has an Id of <code class="highlighter-rouge">3</code></li>
+  <li>This Revision is specific to British Columbia (<code class="highlighter-rouge">BC</code>), Canada (<code class="highlighter-rouge">CA</code>)</li>
 </ul>
 
 <h2 id="endpoints">Endpoints</h2>
@@ -705,25 +193,25 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">CatalogItemId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code>a183f1a9-c58f-426a-930a-9a6357db52ed</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">a183f1a9-c58f-426a-930a-9a6357db52ed</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IsArchived</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this CatalogItem is Archived. When archived, this CatalogItem is excluded from search results</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RmsId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier for the CatalogItem in an external inventory system</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Slug</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Unique identifier for a <a href="#product">Product</a></td>
-      <td style="text-align: left"><code>M1248-V1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">M1248-V1</code></td>
     </tr>
     <tr>
       <td style="text-align: left"><em>SourceIds</em></td>
@@ -758,7 +246,7 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Items.Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>Galaxy S6 edge+ 32GB - Black Sapphire</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Galaxy S6 edge+ 32GB - Black Sapphire</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items.CanonicalClassification</td>
@@ -770,13 +258,13 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Items.CatalogItemId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier for the CatalogItem</td>
-      <td style="text-align: left"><code>a183f1a9-c58f-426a-930a-9a6357db52ed</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">a183f1a9-c58f-426a-930a-9a6357db52ed</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items.ClassificationTreeId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the <a href="/api/classification-tree/#classificationtree">ClassificationTree</a></td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items.ColorDefinition</td>
@@ -788,19 +276,19 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Items.CompanyId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the Company</td>
-      <td style="text-align: left"><code>14146</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">14146</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items.DateAddedUtc</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Date this Product was added to the catalog, in UTC</td>
-      <td style="text-align: left"><code>2011-10-14T12:00:00.000</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2011-10-14T12:00:00.000</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items.HeroShotId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left"><a href="/api/glossary/#hero-shot">Hero Shot</a> identifier</td>
-      <td style="text-align: left"><code>44f60963-5515-44bc-9509-71aef6463580</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">44f60963-5515-44bc-9509-71aef6463580</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items.Identifiers</td>
@@ -812,13 +300,13 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Items.IsLinkedToCuratedProduct</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this version of this Product is publicly accessible (true), or private (false)</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items.IsDropShippable</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this Product can be shipped</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items.Manufacturer</td>
@@ -830,19 +318,19 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Items.Manufacturer.Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the <a href="/api/entity-store/#manufacturer">Manufacturer</a></td>
-      <td style="text-align: left"><code>13149</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">13149</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items.Manufacturer.Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of the <a href="/api/entity-store/#manufacturer">Manufacturer</a></td>
-      <td style="text-align: left"><code>OtterBox</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">OtterBox</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items.Manufacturer.MasterProductId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the Master Product</td>
-      <td style="text-align: left"><code>1248</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1248</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items.Manufacturer.Msrp</td>
@@ -854,37 +342,37 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Items.Manufacturer.Msrp.Amount</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Manufacturers suggested retail price</td>
-      <td style="text-align: left"><code>100</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">100</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items.Manufacturer.Msrp.CurrencyCode</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Currency. For a list of acceptable values, see <a href="/api/reference/#getting-all-currencies">Getting All Currencies</a></td>
-      <td style="text-align: left"><code>USD</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">USD</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items.Manufacturer.Msrp.ProductVersion</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Latest revision number</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items.Manufacturer.Msrp.ShortDescription</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Short Description</td>
-      <td style="text-align: left"><code>Next is Now</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Next is Now</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items.Manufacturer.Msrp.Slug</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">URL friendly identifier for the Product</td>
-      <td style="text-align: left"><code>M1248-V1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">M1248-V1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items.Manufacturer.Msrp.VariationId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the <a href="/concepts/product-structure/#Variations">Variation</a> this Product represents</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items.Manufacturer.Msrp.Vendors</td>
@@ -896,13 +384,13 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Items.Manufacturer.Msrp.Vendors.Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the <a href="/api/entity-store/#supplier">Supplier</a></td>
-      <td style="text-align: left"><code>14107</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">14107</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items.Manufacturer.Msrp.Vendors.Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of the <a href="/api/entity-store/#supplier">Supplier</a></td>
-      <td style="text-align: left"><code>NOZAMA Inc.</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">NOZAMA Inc.</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Facets</td>
@@ -920,13 +408,13 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Facets.ClassificationAndCategories.Count</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Number of items in the response with the Classification or Category specified in Item</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Facets.ClassificationAndCategories.Item</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of a Classification or Category</td>
-      <td style="text-align: left"><code>4</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">4</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Facets.ClassificationAndCategories.Manufacturers</td>
@@ -950,19 +438,19 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">MetaData.Page</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Page of Items to be included in the resource</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MetaData.PageSize</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Number of Items included in the resource</td>
-      <td style="text-align: left"><code>20</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">20</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MetaData.TotalResults</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Number of Items matching the search criteria</td>
-      <td style="text-align: left"><code>5</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">5</code></td>
     </tr>
   </tbody>
 </table>
@@ -983,13 +471,13 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Id</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code>M1248-V1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">M1248-V1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>Galaxy S6 edge+ 32GB - Black Sapphire</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Galaxy S6 edge+ 32GB - Black Sapphire</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ColorDefinition</td>
@@ -1019,43 +507,43 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Entity.Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of an Entity used for Entity Revisions. See <a href="/concepts/product-structure/#carrier-revisions">Carrier Revisions</a> for more information</td>
-      <td style="text-align: left"><code>14146</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">14146</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Entity.Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Entity name</td>
-      <td style="text-align: left"><code>Kentel Corp</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Kentel Corp</code></td>
     </tr>
     <tr>
       <td style="text-align: left">HeroShotId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left"><a href="/api/glossary/#hero-shot">Hero Shot</a> identifier</td>
-      <td style="text-align: left"><code>44f60963-5515-44bc-9509-71aef6463580</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">44f60963-5515-44bc-9509-71aef6463580</code></td>
     </tr>
     <tr>
       <td style="text-align: left">HeroShotUri</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">URI to a Hero Shot Asset</td>
-      <td style="text-align: left"><code>https://imagehost/images/44f60963-5515-44bc-9509-71aef6463580</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">https://imagehost/images/44f60963-5515-44bc-9509-71aef6463580</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IsLinkedToCuratedProduct</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this version of this Product is publicly accessible (true), or private (false)</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IsSaleable</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this product can be sold</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">LongDescription</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Long Description</td>
-      <td style="text-align: left"><code>The world’s first dual-edge display was born from a need to create something new...</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">The world’s first dual-edge display was born from a need to create something new...</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Manufacturer</td>
@@ -1067,13 +555,13 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Manufacturer.Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the <a href="/api/entity-store/#manufacturer">Manufacturer</a></td>
-      <td style="text-align: left"><code>13149</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">13149</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Manufacturer.Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of the <a href="/api/entity-store/#manufacturer">Manufacturer</a></td>
-      <td style="text-align: left"><code>OtterBox</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">OtterBox</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ManufacturerSkus</td>
@@ -1085,7 +573,7 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">MasterProductId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the <a href="/api/product-structure/#masterproduct">Master Product</a></td>
-      <td style="text-align: left"><code>1248</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1248</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MSRP</td>
@@ -1097,13 +585,13 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">MSRP.Amount</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Manufacturers suggested retail price</td>
-      <td style="text-align: left"><code>100</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">100</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MSRP.CurrencyCode</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Currency. For a list of acceptable values, see <a href="/api/reference/#getting-all-currencies">Getting All Currencies</a></td>
-      <td style="text-align: left"><code>USD</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">USD</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Owner</td>
@@ -1115,13 +603,13 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Owner.Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">For private products, Identifier of the Company that owns this Product</td>
-      <td style="text-align: left"><code>14146</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">14146</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Owner.Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">For private products, Name of the Company that owns this Product</td>
-      <td style="text-align: left"><code>Kentel Corp</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Kentel Corp</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Region</td>
@@ -1133,13 +621,13 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">ReleaseDate</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Release Date, in UTC</td>
-      <td style="text-align: left"><code>2011-10-14T12:00:00.000</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2011-10-14T12:00:00.000</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShortDescription</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Short Description</td>
-      <td style="text-align: left"><code>Next is Now</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Next is Now</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Specifications</td>
@@ -1151,7 +639,7 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Specifications.Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>Color</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Color</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Specifications.Fields</td>
@@ -1169,25 +657,25 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">UpcCodes.Value</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>874688002478/16W</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">874688002478/16W</code></td>
     </tr>
     <tr>
       <td style="text-align: left">UpcCodes.Description</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Description</td>
-      <td style="text-align: left"><code>UPC</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">UPC</code></td>
     </tr>
     <tr>
       <td style="text-align: left">UpcCodes.Entity</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of an Entity associated with this UPC code</td>
-      <td style="text-align: left"><code>2</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VariationId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the Variation</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VariationInfo</td>
@@ -1205,7 +693,7 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Version</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Latest revision number</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
   </tbody>
 </table>
@@ -1226,13 +714,13 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the <a href="/api/classification-tree/#classification">Classification</a> or <a href="/api/classification-tree/#category">Category</a></td>
-      <td style="text-align: left"><code>4</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">4</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of the Classification/Category</td>
-      <td style="text-align: left"><code>Smartphones</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Smartphones</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ParentCategories</td>
@@ -1244,13 +732,13 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">ParentCategories.Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code>2</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ParentCategories.Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>Devices</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Devices</code></td>
     </tr>
   </tbody>
 </table>
@@ -1273,19 +761,19 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Id</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code>5c6e2779-79d1-4fbd-b6a8-36b81e851b15</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">5c6e2779-79d1-4fbd-b6a8-36b81e851b15</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>Black Sapphire</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Black Sapphire</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ColorTagIds</td>
       <td style="text-align: left">Array</td>
       <td style="text-align: left">List of <a href="/api/product-structure/#colortag">ColorTag</a> Identifiers</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ColorTags</td>
@@ -1297,19 +785,19 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">ColorTags.Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ColorTags.Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>Black</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Black</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ColorTags.ColorCode</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">A valid Hex code representing this color</td>
-      <td style="text-align: left"><code>#303232</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">#303232</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Swatch</td>
@@ -1336,19 +824,19 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Type</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Acceptable values are Asset, ColorCodes or Empty</td>
-      <td style="text-align: left"><code>ColorCode</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ColorCode</code></td>
     </tr>
     <tr>
       <td style="text-align: left">AssetId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">If Type is Asset, an identifier for an Asset. Otherwise, this property is ignored</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ColorCode</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">If Type is ColorCode, a valid hex code for a color. Otherwise, this propety is ignored</td>
-      <td style="text-align: left"><code>#C0C8D0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">#C0C8D0</code></td>
     </tr>
   </tbody>
 </table>
@@ -1369,31 +857,31 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Id</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code>732130d2-b673-461c-812b-f2b614d6076e</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">732130d2-b673-461c-812b-f2b614d6076e</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">File name</td>
-      <td style="text-align: left"><code>iqmetrix.jpg</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iqmetrix.jpg</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Uri</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">URL that points to an actual file where the digital asset is stored</td>
-      <td style="text-align: left"><code>https://amsdemostorage.blob.core.windows.net/assets/732130d2-b673-461c-812b-f2b614d6076e.jpg</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">https://amsdemostorage.blob.core.windows.net/assets/732130d2-b673-461c-812b-f2b614d6076e.jpg</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Type</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Type of asset</td>
-      <td style="text-align: left"><code>Image</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Image</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IsHidden</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate that this Asset exists on the product but should not be seen on a UI</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
   </tbody>
 </table>
@@ -1414,7 +902,7 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Value</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Value</td>
-      <td style="text-align: left"><code>JBLPULSEBLKAM</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">JBLPULSEBLKAM</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Description</td>
@@ -1432,13 +920,13 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Entity.Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of an Entity used for Entity Revisions. See <a href="/concepts/product-structure/#carrier-revisions">Carrier Revisions</a> for more information</td>
-      <td style="text-align: left"><code>14146</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">14146</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Entity.Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Entity name</td>
-      <td style="text-align: left"><code>Kentel Corp</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Kentel Corp</code></td>
     </tr>
   </tbody>
 </table>
@@ -1459,25 +947,25 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">CountryCode</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Country in which this address resides. Uses the ISO 3166-1 alpha-2 standard. For a list of acceptable codes, see <a href="/api/reference/#getting-all-countries">Getting All Countries</a></td>
-      <td style="text-align: left"><code>CA</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">CA</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CountryName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Country name</td>
-      <td style="text-align: left"><code>Canada</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Canada</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StateCode</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Code for the State in which this address resides. Based off the ISO 3166-2 standard. For a list of acceptable codes, see <a href="/api/reference/#getting-all-countries">Getting All Countries</a></td>
-      <td style="text-align: left"><code>AB</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">AB</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StateName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">State name</td>
-      <td style="text-align: left"><code>British Columbia</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">British Columbia</code></td>
     </tr>
   </tbody>
 </table>
@@ -1498,13 +986,13 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">VariationId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for a Variation</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Slug</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier for the Variation</td>
-      <td style="text-align: left"><code>M1248-V1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">M1248-V1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Fields</td>
@@ -1516,19 +1004,19 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Fields.FieldId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for a <a href="/api/field-definitions/#fielddefinition">FieldDefinition</a></td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Fields.Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>Product Name</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Product Name</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Fields.Value</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Value to be used for this Field</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
   </tbody>
 </table>
@@ -1549,13 +1037,13 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Sku</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Sku</td>
-      <td style="text-align: left"><code>EM-JE040-RA</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">EM-JE040-RA</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SkuType</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">A string to indicate the type of Entity this Identifier is for. Acceptable values are: ManufacturerSku, VendorSku or UPC</td>
-      <td style="text-align: left"><code>ManufacturerSku</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ManufacturerSku</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Entity</td>
@@ -1567,19 +1055,19 @@ M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
       <td style="text-align: left">Entity.Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of an Entity used for Entity Revisions. See <a href="/concepts/product-structure/#carrier-revisions">Carrier Revisions</a> for more information</td>
-      <td style="text-align: left"><code>14146</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">14146</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Entity.Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Entity name</td>
-      <td style="text-align: left"><code>Kentel Corp</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Kentel Corp</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Description</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Description</td>
-      <td style="text-align: left"><code>Manufacturer SKU</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Manufacturer SKU</code></td>
     </tr>
   </tbody>
 </table>
@@ -3601,78 +3089,35 @@ HTTP 200 Content-Type: application/json
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Cannot add product to catalog</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Cannot add product to catalog</code></td>
       <td style="text-align: left">Ensure  is valid</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 404</code></td>
-      <td style="text-align: left"><code>Catalog Item not found</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 404</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Catalog Item not found</code></td>
       <td style="text-align: left">Ensure CatalogItem GUID is valid and the CatalogItem exists</td>
     </tr>
   </tbody>
 </table>
-</div>
-              <div class="col-lg-1 hidden-md hidden-sm hidden-xs"><!-- start page metadata -->
 
 
-<div class="pageMetadata affix">
-    <div class="pageMetadataTitle">Table of Contents</div>
-    
-<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
-<script>
-$( document ).ready(function() {
-
-    $('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2, h3' });
-
-    //Resize once
-    resizeWindow();
-
-    //Resize whenever window changes
-    $(window).resize(function () {
-        resizeWindow();
-    });
-
-});
-
-function resizeWindow() {
-
-    var windowHeight = $(window).height();
-    var windowWidth = $(window).width();
-
-    var tocHeight = $(".pageMetadata").height();
-
-    if(windowWidth < 1560 || windowHeight < tocHeight) {        
-        //Grab "pageMetadata" and move it to first  child of .post-header
-        $(".pageMetadata").prependTo(".post-header");
-        $(".pageMetadata").removeClass("affix");        
-    } else if(windowWidth > 1560) {
-        //Grab "pageMetadata" and move it back to where it was
-        $(".pageMetadata").appendTo(".col-lg-1.hidden-md.hidden-sm.hidden-xs");
-        $(".pageMetadata" ).addClass("affix");
-    }      
-}
-
-</script>
-
-<div id="toc"></div>
-
-    
-    <p><div class="metadataRow"><span class="tagTitle">Last updated:</span> 13-7-2016</div></p>
-    
-
-</div>
-
-
-
-
-<!-- end pageMetadata --></div>
-            
+      </div>
+      <div class="dark-box">
+            <div class="lang-selector">
+               <a href="#" data-language-name="javascript">javascript</a>
+               <a href="#" data-language-name="shell">cURL</a>
+               <a href="#" data-language-name="csharp">c#</a>
+               <a href="#" data-language-name="java">java</a>
+               <a href="#" data-language-name="ruby">ruby</a>
+            </div>
+         </div>
     </div>
 
-</body>
+  </body>
 
-<!-- the google_analytics_id gets auto inserted from the config file -->
+
+  <!-- the google_analytics_id gets auto inserted from the config file -->
 
 
 <script>
@@ -3687,4 +3132,3 @@ function resizeWindow() {
 
 
 </html>
-

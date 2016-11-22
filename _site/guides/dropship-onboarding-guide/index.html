@@ -1,647 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
- <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=",  ">
-<title>Dropship Onboarding Guide  | iQmetrix Developer Portal</title>
-<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/modern-business.css">
-<link rel="stylesheet" type="text/css" href="../../css/customstyles.css">
-<!-- <link rel="stylesheet" type="text/css" href="" | prepend:site.pagefileurl }}"> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script src="../../js/jquery.navgoco.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
-<script src="../../js/toc.js"></script>
-<script src="../../js/customscripts.js"></script>
-<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <title>Dropship Onboarding Guide | iQmetrix Developer Portal</title>
+    <link href="../../css/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../css/print.css" rel="stylesheet" media="print" />
+    <script src="../../js/all.js"></script>
 
-
-<!-- Image popup source files -->
-<!-- http://dimsemenov.com/plugins/magnific-popup/ -->
-<link rel="stylesheet" type="text/css" href="../../css/magnific-popup.css">
-<script src="../../js/jquery.magnific-popup.js"></script>
-
-
-<script>
-    $(document).ready(function() {
-
-        // surround each image with an anchor class  for image popup
-        $('img').each( function() {
-            var $img = $(this),
-            href = $img.attr('src');
-            $img.wrap('<a class="image-link" href=' + href + '></a>');
-             
-        });
-
-        // make each image with image-link class popup "on click"
-        // !! Drawback -- all images could popup :(
-        $('.image-link').magnificPopup({
-            type:'image',
-            closeOnContentClick: true
-        });
-                
-    });    
-</script>
-
-
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-<script type="text/javascript">
-    //Hacky code to make sure they don't go to a bad page
-    $( window ).load(function() {
-
-        if (document.baseURI.indexOf("api/generalledger.html") > 0) {
-            window.location.href = 'http://developers.iqmetrix.com/api/general-ledger/';
-        }
-        else if (document.baseURI.indexOf("api/productlibrary.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/product-library/';
-        }
-        else if (document.baseURI.indexOf("api/entitystore.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/entity-store/';
-        }
-        else if(document.baseURI.indexOf(".html") > 0) {
-           window.location.href = document.baseURI.substring(0, document.baseURI.indexOf(".html"));
-        }
-    });
-</script>
-
-
-
-
-
- 
-
-<script>
-  $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
-
-
-
-
-
-
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
 
-<body>
-
-   <!-- Send feedback function -->
-<script>
-    function SendLinkByMail(href) {
-        var subject= " all documentation feedback";
-        var body = "I have some feedback about the Dropship Onboarding Guide page: ";
-        body += window.location.href;
-        body += "";
-        var uri = "mailto:apidesign@iqmetrix.com?subject=";
-        uri += encodeURIComponent(subject);
-        uri += "&body=";
-        uri += encodeURIComponent(body);
-        window.location.href = uri;
-    }
-</script>
-
-<!-- Navigation -->
-<nav id="navbar-custom" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-   <div class="container topnavlinks">
-   <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      </button>
-      <a href="http://localhost:4006/">
-        <span id="top-iq-logo"><img src="http://melissakendall.github.io/documentation-testing/images/iq-logo-white.png"></span>
-        <span id="projectTitle">iQmetrix Developer Portal</span>
-      </a>
-   </div>
-   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul id="top-bar-categories" class="nav navbar-nav navbar-right">
-      
-      <!-- entries without drop-downs appear here -->
-      <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
-      <!-- 
-
-Hard coding for now, so no longer uses topnav config
-
-
-
-
-
-
-
-
-
-  
-      
-      
-          <li><a href="/api/changelog/">CHANGELOG</a></li>
-      
-    
-  
-      
-      
-          <li class="active"><a href="//">API REFERENCE</a></li>
-       
-    
-  
-      
-      
-          <li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
-      
-    
-  
-
-
--->
-
-<li><a href="/api/">DOCUMENTATION</a></li>
-<li><a href="/api/changelog">CHANGELOG</a></li>
-<li><a href="mailto:?subject=Support">SUPPORT</a></li>
-
-
-         <!--
-      <li>
-         <div id="search-demo-container">
-            <input type="text" id="search-input" placeholder="">
-            <ul id="results-container"></ul>
-         </div>
-         <script src="../..//js/jekyll-search.js" type="text/javascript"></script>
-         <script type="text/javascript">
-            SimpleJekyllSearch({
-              searchInput: document.getElementById('search-input'),
-              resultsContainer: document.getElementById('results-container'),
-              json: '../../search.json',
-              searchResultTemplate: '<li><a href="{url}" title="Dropship Onboarding Guide">{title}</a></li>',
-              noResultsText: '',
-              exclude: '404'
-            })
-         </script>
-      </li>
-         -->
-    
-
-   </div>
-   <!-- /.container -->
-</nav>
-
-    <!-- Page Content -->
-    <div class="container">
-        <div class="col-lg-12">&nbsp;</div>
-
-            <!-- Col-md-3 -->
-            <!-- Content Row -->
-<div class="row">
-    <!-- Sidebar Column -->
-    <div class="col-md-3">
-
-        <script>
-            $(document).ready(function() {
-
-                // Initialize navgoco with default options
-                $("#mysidebar").navgoco({
-                    caretHtml: '',
-                    accordion: true,
-                    openClass: 'active', // open
-                    save: false, // leave false or nav higlighting doesn't work right
-                    cookie: {
-                        name: 'navgoco',
-                        expires: false,
-                        path: '/'
-                    },
-                    slide: {
-                        duration: 400,
-                        easing: 'swing'
-                    }
-                });
-
-                $("#collapseAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', false);
-                });
-
-                $("#expandAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', true);
-                });
-
-                if(window.location.hostname == "apidocumentation-dev-westus.azurewebsites.net")
-                {
-                    $("a").each(function(e) {
-                        var url = $(this).attr("href");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("href", url);
-                    });
-
-                    $("img").each(function(e) {
-                        var url = $(this).attr("src");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("src", url);
-                    });                    
-                }
-
-                if(window.location.search != "" && window.location.search != null && window.location.search.indexOf("=") > -1) {
-
-                    var entityValue = window.location.search.split("=")[1];
-
-                    $("."+entityValue).hide();
-                }
-            });
-
-        </script>
-
-        <ul id="mysidebar" class="nav affix">
-            
-                
-                    
-                        <li class=""><a href="#">API Reference</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/authentication/">Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/assets/">Assets</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/catalog/">Catalog</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/crm/">Customers</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cost-feed/">Cost Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-feed/">Product Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-subscription/">Product Subscription</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/saccs/">Shipping Aggregator</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/shipping-options/">Shipping Options</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-availability/">Supplier Availability</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-orders/">Supplier Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/entity-store/">Entities</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/general-ledger/">General Ledger</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/availability/">Inventory Availability</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/orders/">Orders</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Partners</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-reporting/">Partner Reporting</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-relationships/">Relationships</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/pricing">Pricing</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Product Library</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/classification-tree/">Classification Tree</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/field-definitions/">Field Definitions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-library/">Products</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-structure/">Product Structure</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/reference/">Reference</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">RQ</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/carrier-integration/">Carrier Integration</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cmi/">Customer Managed Inventory (CMI)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/commissions/">Commissions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/epc/">Electronic Product Catalog (EPC)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/punch-clock/">Punch Clock</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/vmi/">Vendor Managed Inventory (VMI)</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/security-roles/">Security Roles</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Guides</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-an-in-store-order/">Creating an In Store Order</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-a-user-for-rq/">Creating a User for RQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Client Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-pos-guide/">Dropship Point of Sale Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Partner Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class="active "><a href="/guides/dropship-onboarding-guide/">Dropship Onboarding Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-order-guide/">Dropship Order Management Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-test-order-guide/">Dropship Test Order Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/commerce-guide/">eCommerce Integration Guide</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Endless Aisle Integration Guide</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/overview">Overview</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/corporate-hierarchy">Corporate Hierarchy</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/content">Content</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/inventory">Inventory</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/orders">Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/3pa/">Third Party Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/vmi-onboarding-guide/">VMI Onboarding Guide</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Core Concepts</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/classification-tree/">Classification Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-library/">Product Library</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-structure/">Product Structure</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">FAQ</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/auth-faq/">Authentication FAQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/dropship-faq/">Dropship FAQ</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="/reference-applications/">Reference Applications</a>
-                    
-                
-            
-        </ul>
-
-        
+    <body class="api api_catalog2 api_catalog2_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../../images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="csharp">c#</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
     </div>
-<!-- div missing here is intentional -->
 
-<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
-<script>$("li.active").parents('li').toggleClass("active");</script>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
 
-
-
-            
-              <div class="col-md-7">
+      
 <h2 id="overview">Overview</h2>
 
 <p>The following document outlines the APIs and calls required for a dropship integration with iQmetrix. The steps outlined in this guide are focused on onboarding and are meant to be performed sequentially.</p>
@@ -650,7 +137,7 @@ Hard coding for now, so no longer uses topnav config
 
 <p><br />
 <strong>Figure 1:</strong> Illustrates the interactions between supplier and iQmetrix APIs.
-<img src="http://localhost:4006//images/dropship-flow.jpg" alt="dropship flow diagram" /></p>
+<img src="http://localhost:4006/images/dropship-flow.jpg" alt="dropship flow diagram" /></p>
 
 <p>The following APIs will be covered in this guide:</p>
 
@@ -734,25 +221,26 @@ Alternatively, you can download the collection by clicking <a href="https://www.
   </tbody>
 </table>
 
-<p>The token is placed in the <code>Authorization</code> header of requests to iQmetrix APIs, prefixed by the word <code>Bearer</code>.</p>
+<p>The token is placed in the <code class="highlighter-rouge">Authorization</code> header of requests to iQmetrix APIs, prefixed by the word <code class="highlighter-rouge">Bearer</code>.</p>
 
 <h5 id="example-request">Example Request</h5>
 
-<pre><code>Authorization: Bearer (Access Token)
+<div class="highlighter-rouge"><pre class="highlight"><code>Authorization: Bearer (Access Token)
 </code></pre>
+</div>
 
 <h2 id="step-2---product-feed">Step 2 - Product Feed</h2>
 
 <p>A <a href="/api/product-feed">Product Feed</a> allows you to continuously channel all of your products’ information into a single source within the iQmetrix system. The product feed you provide will be curated by iQmetrix into the Product Library and made available to retailers.</p>
 
-<p>Each product that has been curated will be <strong>removed from the feed</strong>, leaving the delta from your last push. It’s recommended to update the <code>LastModifiedByVendorUtc</code> field for this product feed lifecycle, as it gives visibility to the curation team should there be any new products added to the feed or any product information updates.</p>
+<p>Each product that has been curated will be <strong>removed from the feed</strong>, leaving the delta from your last push. It’s recommended to update the <code class="highlighter-rouge">LastModifiedByVendorUtc</code> field for this product feed lifecycle, as it gives visibility to the curation team should there be any new products added to the feed or any product information updates.</p>
 
 <p><br />
 <strong>Figure 2:</strong> Illustrates supplier pushing products to be curated.</p>
 
-<p><img src="http://localhost:4006//images/product-feed.jpg" alt="product feed diagram" /></p>
+<p><img src="http://localhost:4006/images/product-feed.jpg" alt="product feed diagram" /></p>
 
-<h3 id="get-classification-tree-by-id">2.1 Get Classification Tree by ID</h3>
+<h3 id="21-get-classification-tree-by-id">2.1 Get Classification Tree by ID</h3>
 
 <p>iQmetrix organizes retail products in a hierarchical structure using Classification Trees, which represent different product taxonomies. Classification Trees are made up of Categories, which group similar products together, and Classifications which act as a template for Product information.</p>
 
@@ -764,12 +252,13 @@ Alternatively, you can download the collection by clicking <a href="https://www.
 
 <h5 id="example-request-1">Example Request</h5>
 
-<pre><code>GET https://productlibrarydemo.iqmetrix.net/v1/ClassificationTrees(1)
+<div class="highlighter-rouge"><pre class="highlight"><code>GET https://productlibrarydemo.iqmetrix.net/v1/ClassificationTrees(1)
 </code></pre>
+</div>
 
 <h5 id="example-response">Example Response</h5>
 
-<pre><code>HTTP 200 Content-Type: application/json
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP 200 Content-Type: application/json
 {
     "Id": 1,
     "Name": "Cellular &amp; Accessories",
@@ -804,8 +293,9 @@ Alternatively, you can download the collection by clicking <a href="https://www.
     "Version": 148
 }
 </code></pre>
+</div>
 
-<h3 id="get-all-field-definitions">2.2 Get All Field Definitions</h3>
+<h3 id="22-get-all-field-definitions">2.2 Get All Field Definitions</h3>
 
 <p>A field definition contains all the metadata about a product’s attributes, such as name, units, and how it should be displayed. A field is an instance of a field definition. Each product field has a definition and a value. Field definitions are agnostic of industry and are considered global attributes.</p>
 
@@ -870,12 +360,13 @@ Alternatively, you can download the collection by clicking <a href="https://www.
 
 <h5 id="example-request-2">Example Request</h5>
 
-<pre><code>GET https://productlibrarydemo.iqmetrix.net/v1/FieldDefinitions
+<div class="highlighter-rouge"><pre class="highlight"><code>GET https://productlibrarydemo.iqmetrix.net/v1/FieldDefinitions
 </code></pre>
+</div>
 
 <h5 id="example-response-1">Example Response</h5>
 
-<pre><code>HTTP 200 Content-Type: application/json
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP 200 Content-Type: application/json
 [
     {
         "Id": 139,
@@ -974,8 +465,9 @@ Alternatively, you can download the collection by clicking <a href="https://www.
     ...
 ]
 </code></pre>
+</div>
 
-<h3 id="add-a-product">2.3 Add a Product</h3>
+<h3 id="23-add-a-product">2.3 Add a Product</h3>
 
 <p>Now that you have a list of Field Definitions and Classifications, there are also optional parameters to enter for your Products. Ensure your products have, at minimum, a ModelName as this field will be used to import your products into the iQmetrix platform.</p>
 
@@ -985,7 +477,7 @@ Alternatively, you can download the collection by clicking <a href="https://www.
 
 <p><strong>ModelName Mapping:</strong></p>
 
-<p>The <code>ModelName</code> field should be specific enough that variations of one product should be able to be grouped together, but different products wouldn’t be grouped together.</p>
+<p>The <code class="highlighter-rouge">ModelName</code> field should be specific enough that variations of one product should be able to be grouped together, but different products wouldn’t be grouped together.</p>
 
 <p>The table below shows results from actual entries versus the expected entry.</p>
 
@@ -1024,9 +516,9 @@ Alternatively, you can download the collection by clicking <a href="https://www.
 <p><strong>Required Fields:</strong></p>
 
 <ul>
-  <li><code>Product Name</code> - Since there is a Manufacturer field, the manufacturer doesn’t need to be apart of the product name.</li>
-  <li><code>Long Description</code> - Supports up to ~20,000 characters, but products typically use 2,000 characters at most. Formatting should be handled with HTML tags.</li>
-  <li><code>MSRP</code> - Requires value and currency code (e.g. 35.99 CAD, 24.00 USD).</li>
+  <li><code class="highlighter-rouge">Product Name</code> - Since there is a Manufacturer field, the manufacturer doesn’t need to be apart of the product name.</li>
+  <li><code class="highlighter-rouge">Long Description</code> - Supports up to ~20,000 characters, but products typically use 2,000 characters at most. Formatting should be handled with HTML tags.</li>
+  <li><code class="highlighter-rouge">MSRP</code> - Requires value and currency code (e.g. 35.99 CAD, 24.00 USD).</li>
 </ul>
 
 <hr />
@@ -1037,10 +529,10 @@ Alternatively, you can download the collection by clicking <a href="https://www.
   <li>Ensure your product images (assets) have a transparent background. We crop out any backgrounds so that we can create a clean reflection in XQ.</li>
   <li>Ensure your product images are of high quality, as these images will be projected on high-resolution displays.</li>
   <li>Ensure dimensions are in separate fields, and <strong>not</strong> as a string, such as “5x5x5”.</li>
-  <li>Ensure <code>MSRP</code> includes currency code, such as “14.99 USD”.</li>
-  <li>Ensure <code>Classification</code> is not null.</li>
-  <li>Ensure the <code>color</code> definition uses model descriptions, such as Space Gray</li>
-  <li>Ensure the <code>color tag</code> definition uses multiple of the following palette:</li>
+  <li>Ensure <code class="highlighter-rouge">MSRP</code> includes currency code, such as “14.99 USD”.</li>
+  <li>Ensure <code class="highlighter-rouge">Classification</code> is not null.</li>
+  <li>Ensure the <code class="highlighter-rouge">color</code> definition uses model descriptions, such as Space Gray</li>
+  <li>Ensure the <code class="highlighter-rouge">color tag</code> definition uses multiple of the following palette:</li>
   <li>Black, Blue, Brown, Gray, Green, Orange, Pink, Purple, Red, Translucent, Turquoise, White, Yellow, Gold, Silver, Bronze, Multicolor, Pattern</li>
 </ul>
 
@@ -1048,7 +540,7 @@ Alternatively, you can download the collection by clicking <a href="https://www.
 
 <h5 id="example-request-3">Example Request</h5>
 
-<pre><code>POST https://productlibrarydemo.iqmetrix.net/v1/ProductFeeds(34)/Products 
+<div class="highlighter-rouge"><pre class="highlight"><code>POST https://productlibrarydemo.iqmetrix.net/v1/ProductFeeds(34)/Products 
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
@@ -1109,10 +601,11 @@ Content-Type: application/json
     ]
 }
 </code></pre>
+</div>
 
 <h5 id="example-response-2">Example Response</h5>
 
-<pre><code>HTTP 200 OK Content-Type: application/json
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP 200 OK Content-Type: application/json
 {
     "Id": 17,
     "Classification": {
@@ -1145,6 +638,7 @@ Content-Type: application/json
     "ModelName": "Agent18 SlimShield Case for iPhone 6"
 }
 </code></pre>
+</div>
 
 <h3 id="optional-removeupdate-a-product">Optional: Remove/Update a Product</h3>
 
@@ -1159,15 +653,17 @@ Content-Type: application/json
 
 <h5 id="example-request-4">Example Request</h5>
 
-<pre><code>DELETE https://productlibrarydemo.iqmetrix.net/v1/ProductFeeds(34)/Products(17)
+<div class="highlighter-rouge"><pre class="highlight"><code>DELETE https://productlibrarydemo.iqmetrix.net/v1/ProductFeeds(34)/Products(17)
 Authorization: Bearer (Access Token)
 Accept: application/json
 </code></pre>
+</div>
 
 <h5 id="example-response-3">Example Response</h5>
 
-<pre><code>HTTP 204 No Content
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP 204 No Content
 </code></pre>
+</div>
 
 <h2 id="step-3---product-subscription">Step 3 - Product Subscription</h2>
 
@@ -1183,7 +679,7 @@ Accept: application/json
 
 <p><br />
 <strong>Figure 3:</strong> Illustrates supplier pushing product rules to their various companies. 
-<img src="http://localhost:4006//images/product-subscription.jpg" alt="product subscription" /></p>
+<img src="http://localhost:4006/images/product-subscription.jpg" alt="product subscription" /></p>
 
 <h4 id="example-scenario">Example Scenario</h4>
 
@@ -1203,7 +699,7 @@ Accept: application/json
 
 <p>The following morning, subscribed retailers now have 9 products.</p>
 
-<h3 id="add-products">3.1 Add Products</h3>
+<h3 id="31-add-products">3.1 Add Products</h3>
 
 <div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note: </b>The new product list in the payload replaces the old product list. Any matching old products (determined by Vendor SKU) will have their slug and version data copied over into the new products.</div>
 
@@ -1249,7 +745,7 @@ Accept: application/json
 
 <h5 id="example-request-5">Example Request</h5>
 
-<pre><code>PUT https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(2c7dccd9-49ba-42ac-bffb-edcc08f40773)
+<div class="highlighter-rouge"><pre class="highlight"><code>PUT https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(2c7dccd9-49ba-42ac-bffb-edcc08f40773)
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
@@ -1267,10 +763,11 @@ Content-Type: application/json
     ]
 }
 </code></pre>
+</div>
 
 <h5 id="example-response-4">Example Response</h5>
 
-<pre><code>HTTP 200 OK Content-Type: application/json
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP 200 OK Content-Type: application/json
 {
     "Id": "2c7dccd9-49ba-42ac-bffb-edcc08f40773",
     "EntityId": 60455,
@@ -1288,8 +785,9 @@ Content-Type: application/json
     "Version": 2
 }
 </code></pre>
+</div>
 
-<h3 id="get-your-company-ids">3.2 Get Your Company IDs</h3>
+<h3 id="32-get-your-company-ids">3.2 Get Your Company IDs</h3>
 
 <p>For the remaining steps, you <strong>must</strong> know the Company IDs for the companies you will be interacting with.</p>
 
@@ -1297,14 +795,15 @@ Content-Type: application/json
 
 <h5 id="example-request-6">Example Request</h5>
 
-<pre><code>GET https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(2c7dccd9-49ba-42ac-bffb-edcc08f40773)
+<div class="highlighter-rouge"><pre class="highlight"><code>GET https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(2c7dccd9-49ba-42ac-bffb-edcc08f40773)
 Authorization: Bearer (Access Token)
 Accept: application/json
 </code></pre>
+</div>
 
 <h5 id="example-response-5">Example Response</h5>
 
-<pre><code>HTTP 200 OK Content-Type: application/json
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP 200 OK Content-Type: application/json
 {
     "ListId": "2c7dccd9-49ba-42ac-bffb-edcc08f40773",
     "Companies": [
@@ -1317,6 +816,7 @@ Accept: application/json
     ]
 }
 </code></pre>
+</div>
 
 <h2 id="step-4---supplier-availability">Step 4 - Supplier Availability</h2>
 
@@ -1325,15 +825,15 @@ Accept: application/json
 <p><br />
 <strong>Figure 4:</strong> Illustrates supplier pushing their product availability to be viewed by companies.</p>
 
-<p><img src="http://localhost:4006//images/supplier-availability.jpg" alt="supplier availability" /></p>
+<p><img src="http://localhost:4006/images/supplier-availability.jpg" alt="supplier availability" /></p>
 
-<h3 id="configure-availability">4.1 Configure Availability</h3>
+<h3 id="41-configure-availability">4.1 Configure Availability</h3>
 
 <p>To configure product availability, see <a href="/api/supplier-availability/#configuring-product-availability">Configuring Product Availability</a>.</p>
 
 <h5 id="example-request-7">Example Request</h5>
 
-<pre><code>POST https://dropshipsdemo.iqmetrix.net/v1/Suppliers(60455)/Availability
+<div class="highlighter-rouge"><pre class="highlight"><code>POST https://dropshipsdemo.iqmetrix.net/v1/Suppliers(60455)/Availability
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
@@ -1348,10 +848,11 @@ Content-Type: application/json
     ]
 }
 </code></pre>
+</div>
 
 <h5 id="example-response-6">Example Response</h5>
 
-<pre><code>HTTP 200 OK Content-Type: application/json
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP 200 OK Content-Type: application/json
 {
     "Id": "a84549a1-3b0d-4ca6-b27f-65136957309b",
     "Products": [
@@ -1363,6 +864,7 @@ Content-Type: application/json
     ]
 }
 </code></pre>
+</div>
 
 <h2 id="step-5---cost-feed">Step 5 - Cost Feed</h2>
 
@@ -1371,9 +873,9 @@ Content-Type: application/json
 <p><br />
 <strong>Figure 5:</strong> Illustrates supplier pushing their product cost to be viewed by companies.</p>
 
-<p><img src="http://localhost:4006//images/cost-feed.jpg" class=".img-responsive" alt="cost feed" /></p>
+<p><img src="http://localhost:4006/images/cost-feed.jpg" class=".img-responsive" alt="cost feed" /></p>
 
-<h3 id="add-product-cost">5.1 Add Product Cost</h3>
+<h3 id="51-add-product-cost">5.1 Add Product Cost</h3>
 
 <p>Every Product must have an associated cost and a list of companies to apply the cost.</p>
 
@@ -1381,7 +883,7 @@ Content-Type: application/json
 
 <h5 id="example-request-8">Example Request</h5>
 
-<pre><code>POST https://dropshipdemo.iqmetrix.net/v1/Suppliers(1324)/Cost
+<div class="highlighter-rouge"><pre class="highlight"><code>POST https://dropshipdemo.iqmetrix.net/v1/Suppliers(1324)/Cost
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
@@ -1399,10 +901,11 @@ Content-Type: application/json
     ]
 }
 </code></pre>
+</div>
 
 <h5 id="example-response-7">Example Response</h5>
 
-<pre><code>HTTP 202 Accepted Content-Type: application/json
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP 202 Accepted Content-Type: application/json
 {
     "Id": "91a57ddb-2d42-402b-85b4-fe327a347313",
     "Products": [
@@ -1418,6 +921,7 @@ Content-Type: application/json
     ]
 }
 </code></pre>
+</div>
 
 <h2 id="step-6---provide-shipping-options">Step 6 - Provide Shipping Options</h2>
 
@@ -1430,11 +934,11 @@ Content-Type: application/json
 <p><br />
 <strong>Figure 6:</strong> Illustrates high-level interaction diagram of an iQmetrix product attempting to obtain a supplier’s shipping options.</p>
 
-<p><img src="http://localhost:4006//images/shipping-options.jpg" class=".img-responsive" alt="shipping options" /></p>
+<p><img src="http://localhost:4006/images/shipping-options.jpg" class=".img-responsive" alt="shipping options" /></p>
 
 <h5 id="example-request-9">Example Request</h5>
 
-<pre><code>POST /ShippingOptions HTTP/1.1
+<div class="highlighter-rouge"><pre class="highlight"><code>POST /ShippingOptions HTTP/1.1
 Host: https://api.supplier.com
 Content-Type: application/json
 
@@ -1450,10 +954,11 @@ Content-Type: application/json
     ]
 }
 </code></pre>
+</div>
 
 <h5 id="example-response-8">Example Response</h5>
 
-<pre><code>HTTP 200 OK Content-Type: application/json
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP 200 OK Content-Type: application/json
 {
     "ShippingOptions": [
         {
@@ -1467,73 +972,29 @@ Content-Type: application/json
     ]
 }
 </code></pre>
+</div>
 
 <h2 id="step-7---next-steps">Step 7 - Next Steps</h2>
 
 <p>Now that you have completed the basic steps for working with feeds in the iQmetrix API, you can start the integration process from the <a href="/guides/dropship-order-guide">Dropship Order Management Guide</a>.</p>
-</div>
-              <div class="col-lg-1 hidden-md hidden-sm hidden-xs"><!-- start page metadata -->
 
 
-<div class="pageMetadata affix">
-    <div class="pageMetadataTitle">Table of Contents</div>
-    
-<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
-<script>
-$( document ).ready(function() {
-
-    $('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2, h3' });
-
-    //Resize once
-    resizeWindow();
-
-    //Resize whenever window changes
-    $(window).resize(function () {
-        resizeWindow();
-    });
-
-});
-
-function resizeWindow() {
-
-    var windowHeight = $(window).height();
-    var windowWidth = $(window).width();
-
-    var tocHeight = $(".pageMetadata").height();
-
-    if(windowWidth < 1560 || windowHeight < tocHeight) {        
-        //Grab "pageMetadata" and move it to first  child of .post-header
-        $(".pageMetadata").prependTo(".post-header");
-        $(".pageMetadata").removeClass("affix");        
-    } else if(windowWidth > 1560) {
-        //Grab "pageMetadata" and move it back to where it was
-        $(".pageMetadata").appendTo(".col-lg-1.hidden-md.hidden-sm.hidden-xs");
-        $(".pageMetadata" ).addClass("affix");
-    }      
-}
-
-</script>
-
-<div id="toc"></div>
-
-    
-    <p><div class="metadataRow"><span class="tagTitle">Last updated:</span> 18-04-2016</div></p>
-    
-
-</div>
-
-
-
-
-<link rel="stylesheet" type="text/css" href="../../css/syntax.css">
-
-<!-- end pageMetadata --></div>
-            
+      </div>
+      <div class="dark-box">
+            <div class="lang-selector">
+               <a href="#" data-language-name="javascript">javascript</a>
+               <a href="#" data-language-name="shell">cURL</a>
+               <a href="#" data-language-name="csharp">c#</a>
+               <a href="#" data-language-name="java">java</a>
+               <a href="#" data-language-name="ruby">ruby</a>
+            </div>
+         </div>
     </div>
 
-</body>
+  </body>
 
-<!-- the google_analytics_id gets auto inserted from the config file -->
+
+  <!-- the google_analytics_id gets auto inserted from the config file -->
 
 
 <script>
@@ -1548,4 +1009,3 @@ function resizeWindow() {
 
 
 </html>
-

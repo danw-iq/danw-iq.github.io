@@ -1,5 +1,5 @@
 ---
-layout: frontpage
+layout: splash-temp
 title: Index
 permalink: "/"
 metadata: false

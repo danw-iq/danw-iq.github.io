@@ -1,647 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
- <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=",  ">
-<title>Carrier Integration  | iQmetrix Developer Portal</title>
-<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/modern-business.css">
-<link rel="stylesheet" type="text/css" href="../../css/customstyles.css">
-<!-- <link rel="stylesheet" type="text/css" href="" | prepend:site.pagefileurl }}"> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script src="../../js/jquery.navgoco.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
-<script src="../../js/toc.js"></script>
-<script src="../../js/customscripts.js"></script>
-<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <title>Carrier Integration | iQmetrix Developer Portal</title>
+    <link href="../../css/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../css/print.css" rel="stylesheet" media="print" />
+    <script src="../../js/all.js"></script>
 
-
-<!-- Image popup source files -->
-<!-- http://dimsemenov.com/plugins/magnific-popup/ -->
-<link rel="stylesheet" type="text/css" href="../../css/magnific-popup.css">
-<script src="../../js/jquery.magnific-popup.js"></script>
-
-
-<script>
-    $(document).ready(function() {
-
-        // surround each image with an anchor class  for image popup
-        $('img').each( function() {
-            var $img = $(this),
-            href = $img.attr('src');
-            $img.wrap('<a class="image-link" href=' + href + '></a>');
-             
-        });
-
-        // make each image with image-link class popup "on click"
-        // !! Drawback -- all images could popup :(
-        $('.image-link').magnificPopup({
-            type:'image',
-            closeOnContentClick: true
-        });
-                
-    });    
-</script>
-
-
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-<script type="text/javascript">
-    //Hacky code to make sure they don't go to a bad page
-    $( window ).load(function() {
-
-        if (document.baseURI.indexOf("api/generalledger.html") > 0) {
-            window.location.href = 'http://developers.iqmetrix.com/api/general-ledger/';
-        }
-        else if (document.baseURI.indexOf("api/productlibrary.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/product-library/';
-        }
-        else if (document.baseURI.indexOf("api/entitystore.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/entity-store/';
-        }
-        else if(document.baseURI.indexOf(".html") > 0) {
-           window.location.href = document.baseURI.substring(0, document.baseURI.indexOf(".html"));
-        }
-    });
-</script>
-
-
-
-
-
- 
-
-<script>
-  $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
-
-
-
-
-
-
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
 
-<body>
-
-   <!-- Send feedback function -->
-<script>
-    function SendLinkByMail(href) {
-        var subject= " all documentation feedback";
-        var body = "I have some feedback about the Carrier Integration page: ";
-        body += window.location.href;
-        body += "";
-        var uri = "mailto:apidesign@iqmetrix.com?subject=";
-        uri += encodeURIComponent(subject);
-        uri += "&body=";
-        uri += encodeURIComponent(body);
-        window.location.href = uri;
-    }
-</script>
-
-<!-- Navigation -->
-<nav id="navbar-custom" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-   <div class="container topnavlinks">
-   <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      </button>
-      <a href="http://localhost:4006/">
-        <span id="top-iq-logo"><img src="http://melissakendall.github.io/documentation-testing/images/iq-logo-white.png"></span>
-        <span id="projectTitle">iQmetrix Developer Portal</span>
-      </a>
-   </div>
-   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul id="top-bar-categories" class="nav navbar-nav navbar-right">
-      
-      <!-- entries without drop-downs appear here -->
-      <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
-      <!-- 
-
-Hard coding for now, so no longer uses topnav config
-
-
-
-
-
-
-
-
-
-  
-      
-      
-          <li><a href="/api/changelog/">CHANGELOG</a></li>
-      
-    
-  
-      
-      
-          <li class="active"><a href="//">API REFERENCE</a></li>
-       
-    
-  
-      
-      
-          <li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
-      
-    
-  
-
-
--->
-
-<li><a href="/api/">DOCUMENTATION</a></li>
-<li><a href="/api/changelog">CHANGELOG</a></li>
-<li><a href="mailto:?subject=Support">SUPPORT</a></li>
-
-
-         <!--
-      <li>
-         <div id="search-demo-container">
-            <input type="text" id="search-input" placeholder="">
-            <ul id="results-container"></ul>
-         </div>
-         <script src="../..//js/jekyll-search.js" type="text/javascript"></script>
-         <script type="text/javascript">
-            SimpleJekyllSearch({
-              searchInput: document.getElementById('search-input'),
-              resultsContainer: document.getElementById('results-container'),
-              json: '../../search.json',
-              searchResultTemplate: '<li><a href="{url}" title="Carrier Integration">{title}</a></li>',
-              noResultsText: '',
-              exclude: '404'
-            })
-         </script>
-      </li>
-         -->
-    
-
-   </div>
-   <!-- /.container -->
-</nav>
-
-    <!-- Page Content -->
-    <div class="container">
-        <div class="col-lg-12">&nbsp;</div>
-
-            <!-- Col-md-3 -->
-            <!-- Content Row -->
-<div class="row">
-    <!-- Sidebar Column -->
-    <div class="col-md-3">
-
-        <script>
-            $(document).ready(function() {
-
-                // Initialize navgoco with default options
-                $("#mysidebar").navgoco({
-                    caretHtml: '',
-                    accordion: true,
-                    openClass: 'active', // open
-                    save: false, // leave false or nav higlighting doesn't work right
-                    cookie: {
-                        name: 'navgoco',
-                        expires: false,
-                        path: '/'
-                    },
-                    slide: {
-                        duration: 400,
-                        easing: 'swing'
-                    }
-                });
-
-                $("#collapseAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', false);
-                });
-
-                $("#expandAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', true);
-                });
-
-                if(window.location.hostname == "apidocumentation-dev-westus.azurewebsites.net")
-                {
-                    $("a").each(function(e) {
-                        var url = $(this).attr("href");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("href", url);
-                    });
-
-                    $("img").each(function(e) {
-                        var url = $(this).attr("src");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("src", url);
-                    });                    
-                }
-
-                if(window.location.search != "" && window.location.search != null && window.location.search.indexOf("=") > -1) {
-
-                    var entityValue = window.location.search.split("=")[1];
-
-                    $("."+entityValue).hide();
-                }
-            });
-
-        </script>
-
-        <ul id="mysidebar" class="nav affix">
-            
-                
-                    
-                        <li class=""><a href="#">API Reference</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/authentication/">Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/assets/">Assets</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/catalog/">Catalog</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/crm/">Customers</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cost-feed/">Cost Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-feed/">Product Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-subscription/">Product Subscription</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/saccs/">Shipping Aggregator</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/shipping-options/">Shipping Options</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-availability/">Supplier Availability</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-orders/">Supplier Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/entity-store/">Entities</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/general-ledger/">General Ledger</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/availability/">Inventory Availability</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/orders/">Orders</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Partners</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-reporting/">Partner Reporting</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-relationships/">Relationships</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/pricing">Pricing</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Product Library</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/classification-tree/">Classification Tree</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/field-definitions/">Field Definitions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-library/">Products</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-structure/">Product Structure</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/reference/">Reference</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">RQ</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class="active "><a href="/api/carrier-integration/">Carrier Integration</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cmi/">Customer Managed Inventory (CMI)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/commissions/">Commissions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/epc/">Electronic Product Catalog (EPC)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/punch-clock/">Punch Clock</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/vmi/">Vendor Managed Inventory (VMI)</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/security-roles/">Security Roles</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Guides</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-an-in-store-order/">Creating an In Store Order</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-a-user-for-rq/">Creating a User for RQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Client Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-pos-guide/">Dropship Point of Sale Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Partner Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-onboarding-guide/">Dropship Onboarding Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-order-guide/">Dropship Order Management Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-test-order-guide/">Dropship Test Order Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/commerce-guide/">eCommerce Integration Guide</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Endless Aisle Integration Guide</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/overview">Overview</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/corporate-hierarchy">Corporate Hierarchy</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/content">Content</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/inventory">Inventory</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/orders">Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/3pa/">Third Party Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/vmi-onboarding-guide/">VMI Onboarding Guide</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Core Concepts</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/classification-tree/">Classification Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-library/">Product Library</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-structure/">Product Structure</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">FAQ</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/auth-faq/">Authentication FAQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/dropship-faq/">Dropship FAQ</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="/reference-applications/">Reference Applications</a>
-                    
-                
-            
-        </ul>
-
-        
+    <body class="api api_catalog2 api_catalog2_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../../images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="csharp">c#</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
     </div>
-<!-- div missing here is intentional -->
 
-<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
-<script>$("li.active").parents('li').toggleClass("active");</script>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
 
-
-
-            
-              <div class="col-md-7"><link rel="stylesheet" type="text/css" href="../../css/prism.css" />
+      <link rel="stylesheet" type="text/css" href="../../css/prism.css" />
 
 <script src="../../js/prism.js"></script>
 
@@ -779,7 +266,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code>6=1115550123</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">6=1115550123</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CarrierActivationDetails</td>
@@ -791,19 +278,19 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">CarrierId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of the carrier for this request. This is not an entity ID; it is specific to the Carrier Integration Service</td>
-      <td style="text-align: left"><code>41</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">41</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CompanyId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of the <a href="/api/company-tree/#company">Company</a> making this request</td>
-      <td style="text-align: left"><code>1234</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1234</code></td>
     </tr>
     <tr>
       <td style="text-align: left">LocationId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of the <a href="/api/company-tree/#location">Location</a> making this request</td>
-      <td style="text-align: left"><code>5678</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">5678</code></td>
     </tr>
   </tbody>
 </table>
@@ -826,13 +313,13 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ActivationId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">System-generated identifier</td>
-      <td style="text-align: left"><code>354</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">354</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ActivationDate</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Date the <a href="#activation">Activation</a> occurred (in UTC). This value is system generated and immutable</td>
-      <td style="text-align: left"><code>2015-06-19T05:44:39.7163989Z</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-06-19T05:44:39.7163989Z</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ActivatedProduct</td>
@@ -844,19 +331,19 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ActivationState</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">State of the <a href="#activation">Activation</a>. See <a href="#activationstate">ActivationState</a> for a list of acceptable values</td>
-      <td style="text-align: left"><code>Pending</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Pending</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ActivationTermCode</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Type of term for the contract. Possible values vary by carrier</td>
-      <td style="text-align: left"><code>EarlyUpgrade</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">EarlyUpgrade</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ActivationType</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">The type of this <a href="#activation">Activation</a>, such as a new <a href="#activation">Activation</a> or an upgrade. See <a href="#activationtype">ActivationType</a> for a list of acceptable values</td>
-      <td style="text-align: left"><code>NewActivation</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">NewActivation</code></td>
     </tr>
     <tr>
       <td style="text-align: left">AdditionalFees</td>
@@ -868,25 +355,25 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ContractLengthInMonths</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Number of months the <a href="#activation">Activation</a> has been contracted for. ContractTerm in RQ. For a list of acceptable values, see <a href="#contractterms">ContractTerms</a></td>
-      <td style="text-align: left"><code>24</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">24</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ContractNumberIsAccountNumber</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the contract number of the <a href="#activation">Activation</a> can be represented by the account number. IsAccountNumberLocked in RQ</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DealerName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Carrier-specific dealer name</td>
-      <td style="text-align: left"><code>IAPR</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">IAPR</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DealerCode</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Carrier-specific dealer code</td>
-      <td style="text-align: left"><code>IAPR</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">IAPR</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Deposit</td>
@@ -898,13 +385,13 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Notes</td>
       <td style="text-align: left">String(256)</td>
       <td style="text-align: left">Free form text with any additional notes related to the <a href="#activation">Activation</a></td>
-      <td style="text-align: left"><code>Notes go here!</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Notes go here!</code></td>
     </tr>
     <tr>
       <td style="text-align: left">OrderNumber</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Carrier-specific identifier for the order this activation is associated with. Activations may have the same order number if they were part of a multi-line activation in the carrier system</td>
-      <td style="text-align: left"><code>ORD1234</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ORD1234</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RatePlans</td>
@@ -916,7 +403,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">RemoteActivationID</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Carrier-specific identifier for the <a href="#activation">Activation</a></td>
-      <td style="text-align: left"><code>3023997373</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">3023997373</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Subscriber</td>
@@ -928,7 +415,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">TrackingNumber</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Carrier-specific tracking number for this <a href="#activation">Activation</a></td>
-      <td style="text-align: left"><code>3023997373</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">3023997373</code></td>
     </tr>
     <tr>
       <td style="text-align: left"><em>BillingCode</em></td>
@@ -1034,19 +521,19 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">SubscriberId</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Carrier-specific identifier for the Subscriber</td>
-      <td style="text-align: left"><code>12121212121</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">12121212121</code></td>
     </tr>
     <tr>
       <td style="text-align: left">FirstName</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">If IsIndividual is true, the first name of the Subscriber</td>
-      <td style="text-align: left"><code>Joe</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Joe</code></td>
     </tr>
     <tr>
       <td style="text-align: left">LastName</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">If IsIndividual is true, the last name of the Subscriber</td>
-      <td style="text-align: left"><code>Smith</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Smith</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Addresses</td>
@@ -1064,7 +551,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">BirthDate</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Date of birth in MM/DD/YYYY format</td>
-      <td style="text-align: left"><code>5/16/1980</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">5/16/1980</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CompanyName</td>
@@ -1076,19 +563,19 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Email</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Email address</td>
-      <td style="text-align: left"><code>subscriber@example.com</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">subscriber@example.com</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IsIndividual</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the Subscriber is an individual (true) or a  business (false)</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Notes</td>
       <td style="text-align: left">String(128)</td>
       <td style="text-align: left">Notes</td>
-      <td style="text-align: left"><code>24 Month Term</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">24 Month Term</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PhoneNumbers</td>
@@ -1100,13 +587,13 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">SSN</td>
       <td style="text-align: left">String(4)</td>
       <td style="text-align: left">Last 4 digits of a SSN</td>
-      <td style="text-align: left"><code>6789</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">6789</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TrackingNumber</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Carrier-specific tracking number</td>
-      <td style="text-align: left"><code>2121212121</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2121212121</code></td>
     </tr>
     <tr>
       <td style="text-align: left"><em>SecondName</em></td>
@@ -1139,7 +626,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">AccountId</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Carrier-specific identifier for the associated account</td>
-      <td style="text-align: left"><code>343434343</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">343434343</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Notes</td>
@@ -1151,7 +638,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">TrackingNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Carrier-specific tracking number for the associated account</td>
-      <td style="text-align: left"><code>5656565656</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">5656565656</code></td>
     </tr>
   </tbody>
 </table>
@@ -1172,13 +659,13 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Type</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">The type of phone number. See <a href="#phonenumbertype">PhoneNumberType</a> for the list of acceptable values</td>
-      <td style="text-align: left"><code>Home</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Home</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Value</td>
       <td style="text-align: left">String(32)</td>
       <td style="text-align: left">Phone number</td>
-      <td style="text-align: left"><code>1234561234</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1234561234</code></td>
     </tr>
   </tbody>
 </table>
@@ -1189,7 +676,7 @@ Hard coding for now, so no longer uses topnav config
 
 <ul>
   <li>
-    <p>A maximum of 1 work Address (type set to <code>Commercial</code>) will be accepted</p>
+    <p>A maximum of 1 work Address (type set to <code class="highlighter-rouge">Commercial</code>) will be accepted</p>
   </li>
   <li>
     <p>A maximum of 2 additional Addresses (excluding Work address) will be accepted</p>
@@ -1210,61 +697,61 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">AddressLine1</td>
       <td style="text-align: left">String(128)</td>
       <td style="text-align: left">Line 1 of the Address</td>
-      <td style="text-align: left"><code>123 Main Street</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">123 Main Street</code></td>
     </tr>
     <tr>
       <td style="text-align: left">AddressLine2</td>
       <td style="text-align: left">String(128)</td>
       <td style="text-align: left">Line 2 of the Address</td>
-      <td style="text-align: left"><code>Apt 200</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Apt 200</code></td>
     </tr>
     <tr>
       <td style="text-align: left">City</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">City</td>
-      <td style="text-align: left"><code>Dover</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Dover</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Country</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Country</td>
-      <td style="text-align: left"><code>USA</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">USA</code></td>
     </tr>
     <tr>
       <td style="text-align: left">County</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">County</td>
-      <td style="text-align: left"><code>Fairfield</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Fairfield</code></td>
     </tr>
     <tr>
       <td style="text-align: left">POBox</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Post office box</td>
-      <td style="text-align: left"><code>PO Box 123</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">PO Box 123</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PostalCode</td>
       <td style="text-align: left">String(32)</td>
       <td style="text-align: left">Postal code or zip code</td>
-      <td style="text-align: left"><code>19901</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">19901</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Province</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Province or state</td>
-      <td style="text-align: left"><code>DE</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">DE</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SuiteNumber</td>
       <td style="text-align: left">String(32)</td>
       <td style="text-align: left">Suite number</td>
-      <td style="text-align: left"><code>100</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">100</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Type</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">The type of this Address. See <a href="#addresstype">AddressType</a> for a list of acceptable values</td>
-      <td style="text-align: left"><code>Residential</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Residential</code></td>
     </tr>
   </tbody>
 </table>
@@ -1291,25 +778,25 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">RatePlanId</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Carrier-specific identifier for the RatePlan</td>
-      <td style="text-align: left"><code>ABC1234</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ABC1234</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Name</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>Country-wide Unlimited</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Country-wide Unlimited</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ContractTerms</td>
       <td style="text-align: left">String(256)</td>
       <td style="text-align: left">Terms and conditions</td>
-      <td style="text-align: left"><code>Some terms</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Some terms</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Description</td>
       <td style="text-align: left">String(128)</td>
       <td style="text-align: left">Description. May be set to an empty string</td>
-      <td style="text-align: left"><code>The perfect plan for lots of calling!</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">The perfect plan for lots of calling!</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IncludedRatePlanFeatures</td>
@@ -1321,7 +808,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">MonthlyRecurringCharges</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Monthly cost</td>
-      <td style="text-align: left"><code>55</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">55</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RatePlanFeatureAddons</td>
@@ -1333,7 +820,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">SOCCode</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Carrier-specific SOC code</td>
-      <td style="text-align: left"><code>ABC1234</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ABC1234</code></td>
     </tr>
     <tr>
       <td style="text-align: left"><em>CommissionAmount</em></td>
@@ -1366,31 +853,31 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">RatePlanAddonId</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Carrier-specific identifier for the RatePlanFeature</td>
-      <td style="text-align: left"><code>XYZ5678</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">XYZ5678</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Name</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>TEXT100</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">TEXT100</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Description</td>
       <td style="text-align: left">String(128)</td>
       <td style="text-align: left">Description</td>
-      <td style="text-align: left"><code>One hundred additional text messages.</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">One hundred additional text messages.</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MonthlyRecurringCharges</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Monthly cost</td>
-      <td style="text-align: left"><code>5</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">5</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SOCCode</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Carrier-specific SOC code</td>
-      <td style="text-align: left"><code>XYZ5678</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">XYZ5678</code></td>
     </tr>
     <tr>
       <td style="text-align: left"><em>CommissionAmount</em></td>
@@ -1417,43 +904,43 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Description</td>
       <td style="text-align: left">String(128)</td>
       <td style="text-align: left">Description</td>
-      <td style="text-align: left"><code>Samsung Galaxy S5</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Samsung Galaxy S5</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ESN</td>
       <td style="text-align: left">String(32)</td>
       <td style="text-align: left">Electronic Serial Number. This is the first value used to search for a product in your inventory when importing a new activation</td>
-      <td style="text-align: left"><code>35854205829867</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">35854205829867</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IMEI</td>
       <td style="text-align: left">String(32)</td>
       <td style="text-align: left">International Mobile Station Equipment Identity</td>
-      <td style="text-align: left"><code>351756051523999</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">351756051523999</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Make</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Make</td>
-      <td style="text-align: left"><code>Samsung</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Samsung</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MobileDeviceNumber</td>
       <td style="text-align: left">String(32)</td>
       <td style="text-align: left">Phone number. Customer Telephone Number and MDN in RQ</td>
-      <td style="text-align: left"><code>1115550123</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1115550123</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Model</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Model</td>
-      <td style="text-align: left"><code>Galaxy S5</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Galaxy S5</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Price</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Price</td>
-      <td style="text-align: left"><code>499</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">499</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductId</td>
@@ -1465,25 +952,25 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">SerialNumber</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Serial number</td>
-      <td style="text-align: left"><code>98769456321</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">98769456321</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SIM</td>
       <td style="text-align: left">String(32)</td>
       <td style="text-align: left">Subscriber identity module</td>
-      <td style="text-align: left"><code>89000000000000001234</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">89000000000000001234</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SKU</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Stockkeeping Unit. This value is used when activating a customer-owned phone</td>
-      <td style="text-align: left"><code>DEF987</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">DEF987</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SOCCode</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Carrier-specific SOC</td>
-      <td style="text-align: left"><code>DEF987</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">DEF987</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Tab</td>
@@ -1522,7 +1009,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Amount</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Amount</td>
-      <td style="text-align: left"><code>50</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">50</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Commission</td>
@@ -1534,7 +1021,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ReferenceNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Carrier reference number, identifier in an external system</td>
-      <td style="text-align: left"><code>abc123</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">abc123</code></td>
     </tr>
   </tbody>
 </table>
@@ -1555,25 +1042,25 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Name</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>Roaming</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Roaming</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Description</td>
       <td style="text-align: left">String(128)</td>
       <td style="text-align: left">Description</td>
-      <td style="text-align: left"><code>Roam like home</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Roam like home</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Amount</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Amount</td>
-      <td style="text-align: left"><code>55</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">55</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Notes</td>
       <td style="text-align: left">String(512)</td>
       <td style="text-align: left">Notes</td>
-      <td style="text-align: left"><code>US</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">US</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Rebate</td>
@@ -1585,13 +1072,13 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ReferenceNumber</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Carrier reference number, identifier in an external system</td>
-      <td style="text-align: left"><code>abc123</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">abc123</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SOCCode</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Carrier-specific SOC code</td>
-      <td style="text-align: left"><code>BB3221</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">BB3221</code></td>
     </tr>
   </tbody>
 </table>
@@ -1612,37 +1099,37 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Name</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>Promo</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Promo</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Description</td>
       <td style="text-align: left">String(128)</td>
       <td style="text-align: left">Description</td>
-      <td style="text-align: left"><code>FREE Roam Like Home</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">FREE Roam Like Home</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Amount</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Amount</td>
-      <td style="text-align: left"><code>55</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">55</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Notes</td>
       <td style="text-align: left">String(512)</td>
       <td style="text-align: left">Notes</td>
-      <td style="text-align: left"><code>US</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">US</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ReferenceNumber</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Carrier reference number, identifier in an external system</td>
-      <td style="text-align: left"><code>abc123</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">abc123</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SOCCode</td>
       <td style="text-align: left">String(64)</td>
       <td style="text-align: left">Carrier-specific SOC code</td>
-      <td style="text-align: left"><code>AGG242</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">AGG242</code></td>
     </tr>
   </tbody>
 </table>
@@ -1665,7 +1152,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Service-generated identifier for the activation confirmation</td>
-      <td style="text-align: left"><code>58</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">58</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ActivationConfirmationDetails</td>
@@ -1677,37 +1164,37 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ConfirmationDateUTC</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">System generated time the activation confirmation occurred</td>
-      <td style="text-align: left"><code>2015-07-21T15:25:45.323</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-07-21T15:25:45.323</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoiceId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier of the invoice that caused these activations to be confirmed</td>
-      <td style="text-align: left"><code>INV0001</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">INV0001</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoiceSubtotal</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">The subtotal amount from the invoice</td>
-      <td style="text-align: left"><code>53.38</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">53.38</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoiceTotal</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">The total amount from the invoice</td>
-      <td style="text-align: left"><code>61.54</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">61.54</code></td>
     </tr>
     <tr>
       <td style="text-align: left">LocationId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of the <a href="/api/company-tree/#location">Location</a> where the transaction occurred</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Taxes</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">The taxes from the invoice</td>
-      <td style="text-align: left"><code>8.16</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">8.16</code></td>
     </tr>
   </tbody>
 </table>
@@ -1728,37 +1215,37 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ActivationID</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of the activation that is being confirmed (see CarrierActivationDetails.ActivationId)</td>
-      <td style="text-align: left"><code>153</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">153</code></td>
     </tr>
     <tr>
       <td style="text-align: left">BAN</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">The billing account number of the account associated with this line</td>
-      <td style="text-align: left"><code>681883059</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">681883059</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IMEI</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">The IMEI of the device that was activated</td>
-      <td style="text-align: left"><code>990000862471854</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">990000862471854</code></td>
     </tr>
     <tr>
       <td style="text-align: left">OrderNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">The order number of the activation that is being confirmed (see CarrierActivationDetails.OrderNumber)</td>
-      <td style="text-align: left"><code>ORD1234</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ORD1234</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PhoneNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">The phone number of the device that was activated</td>
-      <td style="text-align: left"><code>3023997373</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">3023997373</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RemoteActivationID</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Carrier-specific identifier for the activation that is being confirmed (see CarrierActivationDetails.RemoteActivationID)</td>
-      <td style="text-align: left"><code>3023997373</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">3023997373</code></td>
     </tr>
   </tbody>
 </table>
@@ -1779,13 +1266,13 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>41</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">41</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ClientID</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>123</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">123</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CompanyWideSettingsResource</td>
@@ -1824,19 +1311,19 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">CompanyWideIntegrationSettings.Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of a configurable setting</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CompanyWideIntegrationSettings.Value</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Value for the setting</td>
-      <td style="text-align: left"><code>True</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">True</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CompanyWideIntegrationSettings.ValueOptions</td>
       <td style="text-align: left">Array[string]</td>
       <td style="text-align: left">Set of possible values this setting could be</td>
-      <td style="text-align: left"><code>True</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">True</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MetaData</td>
@@ -1854,19 +1341,19 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">MetaData.ConfigurableSettings.SettingId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MetaData.ConfigurableSettings.SettingName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Type of HTML element this setting represents</td>
-      <td style="text-align: left"><code>YesNo</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">YesNo</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MetaData.ConfigurableSettings.InputType</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Value of the setting</td>
-      <td style="text-align: left"><code>Enabled</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Enabled</code></td>
     </tr>
   </tbody>
 </table>
@@ -1893,7 +1380,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Locations.LocationId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>5678</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">5678</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Locations.IntegrationSettings</td>
@@ -1917,19 +1404,19 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">MetaData.ConfigurableSettings.SettingId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MetaData.ConfigurableSettings.SettingName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Type of HTML element this setting represents</td>
-      <td style="text-align: left"><code>YesNo</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">YesNo</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MetaData.ConfigurableSettings.InputType</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Value of the setting</td>
-      <td style="text-align: left"><code>Enabled</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Enabled</code></td>
     </tr>
   </tbody>
 </table>
@@ -1950,31 +1437,31 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code>6</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">6</code></td>
     </tr>
     <tr>
       <td style="text-align: left">FieldName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Description of this field</td>
-      <td style="text-align: left"><code>North American Mobile Number</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">North American Mobile Number</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InputType</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Type of input this field requires</td>
-      <td style="text-align: left"><code>Text</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Text</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Prompt</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Prompt for this field</td>
-      <td style="text-align: left"><code>Please Enter Customer 10 Digit Mobile Number</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Please Enter Customer 10 Digit Mobile Number</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Value</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Value of the field, such as a phone number or ESN</td>
-      <td style="text-align: left"><code>2562788972</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2562788972</code></td>
     </tr>
   </tbody>
 </table>
@@ -3796,23 +3283,23 @@ HTTP 200 Content-Type: application/hal+json
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Invalid Request: The field {x} must be greater than or equal to 1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Invalid Request: The field {x} must be greater than or equal to 1</code></td>
       <td style="text-align: left">Ensure CarrierId in request matches CarrierId in URI</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Carrier {x} not found</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Carrier {x} not found</code></td>
       <td style="text-align: left">Ensure Carrier provided in URI is correct</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Invalid Request: the {x}  field is required</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Invalid Request: the {x}  field is required</code></td>
       <td style="text-align: left">Ensure all required fields are provided</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Invalid Request: Type field must  be one of the following values: {x}</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Invalid Request: Type field must  be one of the following values: {x}</code></td>
       <td style="text-align: left">Ensure AddressType is one of the values in <a href="#addresstype">AddressType</a></td>
     </tr>
   </tbody>
@@ -3826,9 +3313,9 @@ HTTP 200 Content-Type: application/hal+json
 
 <p>Pagination is done through the use of $skip and $top query string parameters.</p>
 
-<p><code>$skip</code> denotes the number of items in the collection to skip, defaults to 0 if no value is provided.</p>
+<p><code class="highlighter-rouge">$skip</code> denotes the number of items in the collection to skip, defaults to 0 if no value is provided.</p>
 
-<p><code>$top</code> denotes the number of items to take, defaults to 100 if no value is provided.</p>
+<p><code class="highlighter-rouge">$top</code> denotes the number of items to take, defaults to 100 if no value is provided.</p>
 
 <p>The maximum value of 200 will be used if the value provided is outside the acceptable range [0-200].</p>
 
@@ -3861,74 +3348,31 @@ HTTP 200 Content-Type: application/hal+json
 }
 </pre>
 
-<p>In the example above, the <code>_links</code> section is included in the data returned from an API request to get confirmed activations, where <code>$skip=10</code> and <code>$top=10</code>.</p>
+<p>In the example above, the <code class="highlighter-rouge">_links</code> section is included in the data returned from an API request to get confirmed activations, where <code class="highlighter-rouge">$skip=10</code> and <code class="highlighter-rouge">$top=10</code>.</p>
 
-<p>The <code>self</code>.<code>href</code> value is the encoded version of the API request that returned these results.</p>
+<p>The <code class="highlighter-rouge">self</code>.<code class="highlighter-rouge">href</code> value is the encoded version of the API request that returned these results.</p>
 
-<p>The <code>next</code>.<code>href</code> refers to a resource containing a page with the <strong>next</strong> 10 items.</p>
+<p>The <code class="highlighter-rouge">next</code>.<code class="highlighter-rouge">href</code> refers to a resource containing a page with the <strong>next</strong> 10 items.</p>
 
-<p>The <code>prev</code>.<code>href</code> refers to a resource containing a page with the <strong>previous</strong> 10 items.</p>
-</div>
-              <div class="col-lg-1 hidden-md hidden-sm hidden-xs"><!-- start page metadata -->
+<p>The <code class="highlighter-rouge">prev</code>.<code class="highlighter-rouge">href</code> refers to a resource containing a page with the <strong>previous</strong> 10 items.</p>
 
 
-<div class="pageMetadata affix">
-    <div class="pageMetadataTitle">Table of Contents</div>
-    
-<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
-<script>
-$( document ).ready(function() {
-
-    $('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2, h3' });
-
-    //Resize once
-    resizeWindow();
-
-    //Resize whenever window changes
-    $(window).resize(function () {
-        resizeWindow();
-    });
-
-});
-
-function resizeWindow() {
-
-    var windowHeight = $(window).height();
-    var windowWidth = $(window).width();
-
-    var tocHeight = $(".pageMetadata").height();
-
-    if(windowWidth < 1560 || windowHeight < tocHeight) {        
-        //Grab "pageMetadata" and move it to first  child of .post-header
-        $(".pageMetadata").prependTo(".post-header");
-        $(".pageMetadata").removeClass("affix");        
-    } else if(windowWidth > 1560) {
-        //Grab "pageMetadata" and move it back to where it was
-        $(".pageMetadata").appendTo(".col-lg-1.hidden-md.hidden-sm.hidden-xs");
-        $(".pageMetadata" ).addClass("affix");
-    }      
-}
-
-</script>
-
-<div id="toc"></div>
-
-    
-    <p><div class="metadataRow"><span class="tagTitle">Last updated:</span> 13-7-2016</div></p>
-    
-
-</div>
-
-
-
-
-<!-- end pageMetadata --></div>
-            
+      </div>
+      <div class="dark-box">
+            <div class="lang-selector">
+               <a href="#" data-language-name="javascript">javascript</a>
+               <a href="#" data-language-name="shell">cURL</a>
+               <a href="#" data-language-name="csharp">c#</a>
+               <a href="#" data-language-name="java">java</a>
+               <a href="#" data-language-name="ruby">ruby</a>
+            </div>
+         </div>
     </div>
 
-</body>
+  </body>
 
-<!-- the google_analytics_id gets auto inserted from the config file -->
+
+  <!-- the google_analytics_id gets auto inserted from the config file -->
 
 
 <script>
@@ -3943,4 +3387,3 @@ function resizeWindow() {
 
 
 </html>
-

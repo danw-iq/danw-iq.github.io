@@ -1,647 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
- <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=",  ">
-<title>Invoice  | iQmetrix Developer Portal</title>
-<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/modern-business.css">
-<link rel="stylesheet" type="text/css" href="../../css/customstyles.css">
-<!-- <link rel="stylesheet" type="text/css" href="" | prepend:site.pagefileurl }}"> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script src="../../js/jquery.navgoco.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
-<script src="../../js/toc.js"></script>
-<script src="../../js/customscripts.js"></script>
-<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <title>Invoice | iQmetrix Developer Portal</title>
+    <link href="../../css/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../css/print.css" rel="stylesheet" media="print" />
+    <script src="../../js/all.js"></script>
 
-
-<!-- Image popup source files -->
-<!-- http://dimsemenov.com/plugins/magnific-popup/ -->
-<link rel="stylesheet" type="text/css" href="../../css/magnific-popup.css">
-<script src="../../js/jquery.magnific-popup.js"></script>
-
-
-<script>
-    $(document).ready(function() {
-
-        // surround each image with an anchor class  for image popup
-        $('img').each( function() {
-            var $img = $(this),
-            href = $img.attr('src');
-            $img.wrap('<a class="image-link" href=' + href + '></a>');
-             
-        });
-
-        // make each image with image-link class popup "on click"
-        // !! Drawback -- all images could popup :(
-        $('.image-link').magnificPopup({
-            type:'image',
-            closeOnContentClick: true
-        });
-                
-    });    
-</script>
-
-
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-<script type="text/javascript">
-    //Hacky code to make sure they don't go to a bad page
-    $( window ).load(function() {
-
-        if (document.baseURI.indexOf("api/generalledger.html") > 0) {
-            window.location.href = 'http://developers.iqmetrix.com/api/general-ledger/';
-        }
-        else if (document.baseURI.indexOf("api/productlibrary.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/product-library/';
-        }
-        else if (document.baseURI.indexOf("api/entitystore.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/entity-store/';
-        }
-        else if(document.baseURI.indexOf(".html") > 0) {
-           window.location.href = document.baseURI.substring(0, document.baseURI.indexOf(".html"));
-        }
-    });
-</script>
-
-
-
-
-
- 
-
-<script>
-  $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
-
-
-
-
-
-
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
 
-<body>
-
-   <!-- Send feedback function -->
-<script>
-    function SendLinkByMail(href) {
-        var subject= " all documentation feedback";
-        var body = "I have some feedback about the Invoice page: ";
-        body += window.location.href;
-        body += "";
-        var uri = "mailto:apidesign@iqmetrix.com?subject=";
-        uri += encodeURIComponent(subject);
-        uri += "&body=";
-        uri += encodeURIComponent(body);
-        window.location.href = uri;
-    }
-</script>
-
-<!-- Navigation -->
-<nav id="navbar-custom" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-   <div class="container topnavlinks">
-   <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      </button>
-      <a href="http://localhost:4006/">
-        <span id="top-iq-logo"><img src="http://melissakendall.github.io/documentation-testing/images/iq-logo-white.png"></span>
-        <span id="projectTitle">iQmetrix Developer Portal</span>
-      </a>
-   </div>
-   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul id="top-bar-categories" class="nav navbar-nav navbar-right">
-      
-      <!-- entries without drop-downs appear here -->
-      <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
-      <!-- 
-
-Hard coding for now, so no longer uses topnav config
-
-
-
-
-
-
-
-
-
-  
-      
-      
-          <li><a href="/api/changelog/">CHANGELOG</a></li>
-      
-    
-  
-      
-      
-          <li class="active"><a href="//">API REFERENCE</a></li>
-       
-    
-  
-      
-      
-          <li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
-      
-    
-  
-
-
--->
-
-<li><a href="/api/">DOCUMENTATION</a></li>
-<li><a href="/api/changelog">CHANGELOG</a></li>
-<li><a href="mailto:?subject=Support">SUPPORT</a></li>
-
-
-         <!--
-      <li>
-         <div id="search-demo-container">
-            <input type="text" id="search-input" placeholder="">
-            <ul id="results-container"></ul>
-         </div>
-         <script src="../..//js/jekyll-search.js" type="text/javascript"></script>
-         <script type="text/javascript">
-            SimpleJekyllSearch({
-              searchInput: document.getElementById('search-input'),
-              resultsContainer: document.getElementById('results-container'),
-              json: '../../search.json',
-              searchResultTemplate: '<li><a href="{url}" title="Invoice">{title}</a></li>',
-              noResultsText: '',
-              exclude: '404'
-            })
-         </script>
-      </li>
-         -->
-    
-
-   </div>
-   <!-- /.container -->
-</nav>
-
-    <!-- Page Content -->
-    <div class="container">
-        <div class="col-lg-12">&nbsp;</div>
-
-            <!-- Col-md-3 -->
-            <!-- Content Row -->
-<div class="row">
-    <!-- Sidebar Column -->
-    <div class="col-md-3">
-
-        <script>
-            $(document).ready(function() {
-
-                // Initialize navgoco with default options
-                $("#mysidebar").navgoco({
-                    caretHtml: '',
-                    accordion: true,
-                    openClass: 'active', // open
-                    save: false, // leave false or nav higlighting doesn't work right
-                    cookie: {
-                        name: 'navgoco',
-                        expires: false,
-                        path: '/'
-                    },
-                    slide: {
-                        duration: 400,
-                        easing: 'swing'
-                    }
-                });
-
-                $("#collapseAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', false);
-                });
-
-                $("#expandAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', true);
-                });
-
-                if(window.location.hostname == "apidocumentation-dev-westus.azurewebsites.net")
-                {
-                    $("a").each(function(e) {
-                        var url = $(this).attr("href");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("href", url);
-                    });
-
-                    $("img").each(function(e) {
-                        var url = $(this).attr("src");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("src", url);
-                    });                    
-                }
-
-                if(window.location.search != "" && window.location.search != null && window.location.search.indexOf("=") > -1) {
-
-                    var entityValue = window.location.search.split("=")[1];
-
-                    $("."+entityValue).hide();
-                }
-            });
-
-        </script>
-
-        <ul id="mysidebar" class="nav affix">
-            
-                
-                    
-                        <li class=""><a href="#">API Reference</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/authentication/">Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/assets/">Assets</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/catalog/">Catalog</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/crm/">Customers</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cost-feed/">Cost Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-feed/">Product Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-subscription/">Product Subscription</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/saccs/">Shipping Aggregator</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/shipping-options/">Shipping Options</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-availability/">Supplier Availability</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-orders/">Supplier Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/entity-store/">Entities</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/general-ledger/">General Ledger</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/availability/">Inventory Availability</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/orders/">Orders</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Partners</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-reporting/">Partner Reporting</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-relationships/">Relationships</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/pricing">Pricing</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Product Library</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/classification-tree/">Classification Tree</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/field-definitions/">Field Definitions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-library/">Products</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-structure/">Product Structure</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/reference/">Reference</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">RQ</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/carrier-integration/">Carrier Integration</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cmi/">Customer Managed Inventory (CMI)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/commissions/">Commissions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/epc/">Electronic Product Catalog (EPC)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/punch-clock/">Punch Clock</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/vmi/">Vendor Managed Inventory (VMI)</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/security-roles/">Security Roles</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Guides</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-an-in-store-order/">Creating an In Store Order</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-a-user-for-rq/">Creating a User for RQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Client Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-pos-guide/">Dropship Point of Sale Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Partner Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-onboarding-guide/">Dropship Onboarding Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-order-guide/">Dropship Order Management Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-test-order-guide/">Dropship Test Order Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/commerce-guide/">eCommerce Integration Guide</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Endless Aisle Integration Guide</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/overview">Overview</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/corporate-hierarchy">Corporate Hierarchy</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/content">Content</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/inventory">Inventory</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/orders">Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/3pa/">Third Party Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/vmi-onboarding-guide/">VMI Onboarding Guide</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Core Concepts</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/classification-tree/">Classification Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-library/">Product Library</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-structure/">Product Structure</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">FAQ</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/auth-faq/">Authentication FAQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/dropship-faq/">Dropship FAQ</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="/reference-applications/">Reference Applications</a>
-                    
-                
-            
-        </ul>
-
-        
+    <body class="api api_catalog2 api_catalog2_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../../images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="csharp">c#</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
     </div>
-<!-- div missing here is intentional -->
 
-<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
-<script>$("li.active").parents('li').toggleClass("active");</script>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
 
-
-
-            
-              <div class="col-md-7"><link rel="stylesheet" type="text/css" href="../../css/prism.css" />
+      <link rel="stylesheet" type="text/css" href="../../css/prism.css" />
 
 <script src="../../js/prism.js"></script>
 
@@ -654,7 +141,7 @@ Hard coding for now, so no longer uses topnav config
 
 <h2 id="resources">Resources</h2>
 
-<h3 id="invoice">Invoice</h3>
+<p>###Invoice</p>
 
 <table>
   <thead>
@@ -670,19 +157,19 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code>418938fe-e3e2-4f66-af01-a485a02a6b09</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">418938fe-e3e2-4f66-af01-a485a02a6b09</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CreatedByUser</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Auditing column, the identifier of the <a href="/api/user-manager/#user">User</a> that created this Invoice</td>
-      <td style="text-align: left"><code>22212</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">22212</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CreatedDateUtc</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Date the invoice was created, in UTC</td>
-      <td style="text-align: left"><code>2015-04-23T13:14:12.997</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-04-23T13:14:12.997</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Customer</td>
@@ -700,25 +187,25 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">EmployeeId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of the Employee associated with the invoice</td>
-      <td style="text-align: left"><code>15</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">15</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IsRefund</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this is a Refund</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">LocationId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of the <a href="/api/company-tree/#location">Location</a> associated with this Invoice</td>
-      <td style="text-align: left"><code>4</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">4</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Notes</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Notes</td>
-      <td style="text-align: left"><code>Trade in iPhone</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Trade in iPhone</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Orders</td>
@@ -730,7 +217,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">OriginalInvoiceId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier for the original invoice, in the case of a refund</td>
-      <td style="text-align: left"><code>7832c7e8-6b3e-4538-9414-e3ca68058d9f</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">7832c7e8-6b3e-4538-9414-e3ca68058d9f</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Payments</td>
@@ -742,7 +229,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">PrintableId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">An identifier that can used to print on invoices</td>
-      <td style="text-align: left"><code>8765-1234-987</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">8765-1234-987</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TaxCalculationResult</td>
@@ -753,7 +240,7 @@ Hard coding for now, so no longer uses topnav config
   </tbody>
 </table>
 
-<h3 id="invoicesummary">InvoiceSummary</h3>
+<p>###InvoiceSummary</p>
 
 <table>
   <thead>
@@ -769,49 +256,49 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier for an Invoice</td>
-      <td style="text-align: left"><code>418938fe-e3e2-4f66-af01-a485a02a6b09</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">418938fe-e3e2-4f66-af01-a485a02a6b09</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CreatedDateUtc</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Date the invoice was created, in UTC</td>
-      <td style="text-align: left"><code>2016-01-18T15:56:23.2526213Z</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2016-01-18T15:56:23.2526213Z</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CustomerId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Identifier for the Customer</td>
-      <td style="text-align: left"><code>503d1d4a-c974-4286-b4a2-002699e60ad6</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">503d1d4a-c974-4286-b4a2-002699e60ad6</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EmployeeId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of the Employee associated with the invoice</td>
-      <td style="text-align: left"><code>15</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">15</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoiceTotal</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Total amount on the Invoice</td>
-      <td style="text-align: left"><code>59.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">59.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoiceType</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">A string describing Invoice. Acceptable values are: None, Purchase, Refund</td>
-      <td style="text-align: left"><code>None</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">None</code></td>
     </tr>
     <tr>
       <td style="text-align: left">LocationId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of the <a href="/api/company-tree/#location">Location</a> associated with this Invoice</td>
-      <td style="text-align: left"><code>4</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">4</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PrintableId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">An identifier for this Order that can used to print on invoices</td>
-      <td style="text-align: left"><code>8765-1234-987</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">8765-1234-987</code></td>
     </tr>
     <tr>
       <td style="text-align: left"><em>PaymentTypes</em></td>
@@ -822,7 +309,7 @@ Hard coding for now, so no longer uses topnav config
   </tbody>
 </table>
 
-<h3 id="customer">Customer</h3>
+<p>###Customer</p>
 
 <table>
   <thead>
@@ -838,13 +325,13 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code>503d1d4a-c974-4286-b4a2-002699e60ad6</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">503d1d4a-c974-4286-b4a2-002699e60ad6</code></td>
     </tr>
     <tr>
       <td style="text-align: left">AlternateName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Alias or preferred name</td>
-      <td style="text-align: left"><code>Bob</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Bob</code></td>
     </tr>
     <tr>
       <td style="text-align: left">BillingAddress</td>
@@ -856,49 +343,49 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">CustomerType</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of the <a href="#customertype">CustomerType</a></td>
-      <td style="text-align: left"><code>Person</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Person</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CustomerTypeId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">See <a href="/api/crm#customertype">CustomerType</a> for a list of acceptable values</td>
-      <td style="text-align: left"><code>2</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateOfBirth</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Customer’s birth date, stored in UTC but can be provided in shortened form (yyyy-mm-dd)</td>
-      <td style="text-align: left"><code>1952-07-23T12:00:00.000</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1952-07-23T12:00:00.000</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DoNotContact</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this Customer is private and not to be used by external systems (such as a marketing system), defaults to false</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">FamilyName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Family name. In the U.S., the last name of a Person</td>
-      <td style="text-align: left"><code>Smith</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Smith</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MiddleName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Middle name. Could also be referred to as Additional name</td>
-      <td style="text-align: left"><code>Lee</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Lee</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Notes</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Any notes related to this Customer</td>
-      <td style="text-align: left"><code>Interested in iPhone 6</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Interested in iPhone 6</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PrimaryName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">First name of a given person or the full name of the business, division, organization, etc</td>
-      <td style="text-align: left"><code>Robert</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Robert</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingAddress</td>
@@ -910,12 +397,12 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Title</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Title</td>
-      <td style="text-align: left"><code>Mr</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Mr</code></td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="address">Address</h3>
+<p>###Address</p>
 
 <table>
   <thead>
@@ -931,66 +418,66 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code>e68a5c8c-eadc-484c-9139-8437d2e0859a</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">e68a5c8c-eadc-484c-9139-8437d2e0859a</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CountryCode</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Country in which this address resides. Uses the ISO 3166-1 alpha-2 standard. For a list of acceptable codes, see <a href="/api/reference/#getting-all-countries">Getting All Countries</a></td>
-      <td style="text-align: left"><code>CA</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">CA</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DoNotContact</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the address is private and not to be used by any external systems (such as a marketing system)</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Locality</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">City, Town, Hamlet</td>
-      <td style="text-align: left"><code>Mountain View</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Mountain View</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Notes</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Notes related to this Address</td>
-      <td style="text-align: left"><code>New residence</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">New residence</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PostalCode</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">The postal code/zip code</td>
-      <td style="text-align: left"><code>94043</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">94043</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PostOfficeBoxNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">The post office box number for PO box addresses</td>
-      <td style="text-align: left"><code>P.O. Box 1022</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">P.O. Box 1022</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StateCode</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Code for the State in which this address resides. Based off the ISO 3166-2 standard. For a list of acceptable codes, see <a href="/api/reference/#getting-all-countries">Getting All Countries</a></td>
-      <td style="text-align: left"><code>AB</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">AB</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StreetAddress1</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">The street address</td>
-      <td style="text-align: left"><code>1600 Amphitheatre Pkwy</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1600 Amphitheatre Pkwy</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StreetAddress2</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">The street address</td>
-      <td style="text-align: left"><code>Suite 500</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Suite 500</code></td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="order">Order</h3>
+<p>###Order</p>
 
 <table>
   <thead>
@@ -1006,7 +493,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code>216f7424-ae18-4c69-9597-984b430d0759</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">216f7424-ae18-4c69-9597-984b430d0759</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items</td>
@@ -1018,18 +505,18 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">PrintableId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">An identifier that can used to print on invoices</td>
-      <td style="text-align: left"><code>8765-1234-987</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">8765-1234-987</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ReferenceId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier for an Order in an external system</td>
-      <td style="text-align: left"><code>INV112</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">INV112</code></td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="orderitem">OrderItem</h3>
+<p>###OrderItem</p>
 
 <table>
   <thead>
@@ -1045,48 +532,48 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code>0fff7fb5-4620-4b81-8199-ec41ba6f0451</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0fff7fb5-4620-4b81-8199-ec41ba6f0451</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Description</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Description</td>
-      <td style="text-align: left"><code>iPhone 4s</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iPhone 4s</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Identifier of a <a href="/api/catalog#catalogitem">CatalogItem</a></td>
-      <td style="text-align: left"><code>a183f1a9-c58f-426a-930a-9a6357db52ed</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">a183f1a9-c58f-426a-930a-9a6357db52ed</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Quantity</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Quantity</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SellingPrice</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Selling price for a single item</td>
-      <td style="text-align: left"><code>499</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">499</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SerialNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Serial Number for the Item</td>
-      <td style="text-align: left"><code>B7FQ-RANC</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">B7FQ-RANC</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Sku</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">SKU</td>
-      <td style="text-align: left"><code>403405</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">403405</code></td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="dropshiporder">DropshipOrder</h3>
+<p>###DropshipOrder</p>
 
 <table>
   <thead>
@@ -1102,7 +589,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code>216f7424-ae18-4c69-9597-984b430d0759</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">216f7424-ae18-4c69-9597-984b430d0759</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items</td>
@@ -1114,36 +601,36 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">PrintableId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">An identifier for this Order that can used to print on invoices</td>
-      <td style="text-align: left"><code>8765-1234-987</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">8765-1234-987</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ReferenceId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier for an Order in an external system</td>
-      <td style="text-align: left"><code>INV112</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">INV112</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingEntityId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of the EntityId this Order will be Shipped to, for pick up in store</td>
-      <td style="text-align: left"><code>4</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">4</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingMethod</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Shipping Method chosen, provided by Supplier. See <a href="/api/shipping-options/#get-shipping-options">Getting Shipping Options</a></td>
-      <td style="text-align: left"><code>350</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">350</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SupplierId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the <a href="/api/entities/#supplier">Supplier</a></td>
-      <td style="text-align: left"><code>14107</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">14107</code></td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="dropshiporderitem">DropshipOrderItem</h3>
+<p>###DropshipOrderItem</p>
 
 <table>
   <thead>
@@ -1159,42 +646,42 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique Identifier</td>
-      <td style="text-align: left"><code>a08f1363-514f-4268-8e4c-cddd3ab347d8</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">a08f1363-514f-4268-8e4c-cddd3ab347d8</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Description</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Description</td>
-      <td style="text-align: left"><code>iPhone 4s</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iPhone 4s</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Identifier of a <a href="/api/catalog#catalogitem">CatalogItem</a></td>
-      <td style="text-align: left"><code>a183f1a9-c58f-426a-930a-9a6357db52ed</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">a183f1a9-c58f-426a-930a-9a6357db52ed</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Quantity</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Quantity</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SellingPrice</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Selling price for a single item</td>
-      <td style="text-align: left"><code>499</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">499</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Sku</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">SKU</td>
-      <td style="text-align: left"><code>403405</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">403405</code></td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="taxcalculationresult">TaxCalculationResult</h3>
+<p>###TaxCalculationResult</p>
 
 <table>
   <thead>
@@ -1210,7 +697,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code>da7409e3-060d-4c98-b3bd-b0cb7a0efa0d</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">da7409e3-060d-4c98-b3bd-b0cb7a0efa0d</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Lines</td>
@@ -1221,7 +708,7 @@ Hard coding for now, so no longer uses topnav config
   </tbody>
 </table>
 
-<h3 id="taxlineitem">TaxLineItem</h3>
+<p>###TaxLineItem</p>
 
 <p>A tax line item, including the tax calculation results.</p>
 
@@ -1239,37 +726,37 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">LineNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier of the Line Item</td>
-      <td style="text-align: left"><code>Line1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Line1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Discount</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Discount</td>
-      <td style="text-align: left"><code>0.51</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0.51</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Rate</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Effective tax rate</td>
-      <td style="text-align: left"><code>15</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">15</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Tax</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Tax to be charged</td>
-      <td style="text-align: left"><code>0.85</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0.85</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Taxability</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate the Item is taxable</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Taxable</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Taxable amount</td>
-      <td style="text-align: left"><code>3.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">3.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TaxDetails</td>
@@ -1280,7 +767,7 @@ Hard coding for now, so no longer uses topnav config
   </tbody>
 </table>
 
-<h3 id="taxdetail">TaxDetail</h3>
+<p>###TaxDetail</p>
 
 <table>
   <thead>
@@ -1296,72 +783,72 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">TaxId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique Identifier</td>
-      <td style="text-align: left"><code>a08f1363-514f-4268-8e4c-cddd3ab347d8</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">a08f1363-514f-4268-8e4c-cddd3ab347d8</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TaxName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Tax name</td>
-      <td style="text-align: left"><code>GST</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">GST</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CountryCode</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Country. Uses the ISO 3166-1 alpha-2 standard. For a list of acceptable codes, see <a href="/api/reference/#getting-all-countries">Getting All Countries</a></td>
-      <td style="text-align: left"><code>CA</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">CA</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Rate</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Effective tax rate for this tax juristiction</td>
-      <td style="text-align: left"><code>15</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">15</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RegionCode</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Code for the State/Province in which this address resides. Based off the ISO 3166-2 standard. For a list of acceptable codes, see <a href="/api/reference/#getting-all-countries">Getting All Countries</a></td>
-      <td style="text-align: left"><code>AB</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">AB</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Tax</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Taxable amount for tax juristiction</td>
-      <td style="text-align: left"><code>3.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">3.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Taxable</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Taxable amount on the line</td>
-      <td style="text-align: left"><code>3.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">3.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TaxAuthority</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Tax Authority</td>
-      <td style="text-align: left"><code>CRA</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">CRA</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TaxAuthorityType</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Description of Tax Authority</td>
-      <td style="text-align: left"><code>Canada</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Canada</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TaxCategory</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Category for the Tax</td>
-      <td style="text-align: left"><code>Goods and Sales</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Goods and Sales</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TaxType</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Description of the Tax</td>
-      <td style="text-align: left"><code>Provincial</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Provincial</code></td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="payment">Payment</h3>
+<p>###Payment</p>
 
 <table>
   <thead>
@@ -1377,43 +864,43 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier for the Payment</td>
-      <td style="text-align: left"><code>15215</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">15215</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Amount</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Transaction amount</td>
-      <td style="text-align: left"><code>15</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">15</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DrawerId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Identifier for the Drawer the Payment affects</td>
-      <td style="text-align: left"><code>f41b20b2-31cb-4585-aca2-e17b1b1de41e</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">f41b20b2-31cb-4585-aca2-e17b1b1de41e</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PaymentMethodId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the Payment Method</td>
-      <td style="text-align: left"><code>4</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">4</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ReferenceId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier for the Payment in an external system</td>
-      <td style="text-align: left"><code>Pay5531</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Pay5531</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TransactionDate</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Date the transaction occured</td>
-      <td style="text-align: left"><code>2016-01-06T16:22:41.1236641+00:00</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2016-01-06T16:22:41.1236641+00:00</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TransactionType</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">See <a href="#paymenttransactiontype">PaymentTransactionType</a></td>
-      <td style="text-align: left"><code>Purchase</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Purchase</code></td>
     </tr>
   </tbody>
 </table>
@@ -1443,7 +930,7 @@ Hard coding for now, so no longer uses topnav config
 
 <h2 id="getting-invoice-summaries-for-a-company" class="clickable-header top-level-header">Getting Invoice Summaries for a Company</h2>
 
-<p>The sorting order of the response will be <strong>descending</strong> order by <code>CreatedDateUtc</code> with the most recent invoices listed first.</p>
+<p>The sorting order of the response will be <strong>descending</strong> order by <code class="highlighter-rouge">CreatedDateUtc</code> with the most recent invoices listed first.</p>
 
 <p>See <a href="#filtering">Filtering</a> to learn more about filtering resources.</p>
 
@@ -2272,7 +1759,7 @@ HTTP 201 Content-Type: application/json
 
 <p>The Invoice API supports filtering of <a href="#invoicesummary">InvoiceSummary</a> resources through the use of filters.</p>
 
-<p>The <code>$filter</code> query parameter is used for specifying filtering criteria.</p>
+<p>The <code class="highlighter-rouge">$filter</code> query parameter is used for specifying filtering criteria.</p>
 
 <p>The type of filters available depend on the Data Type of the property being filtered on.</p>
 
@@ -2301,52 +1788,53 @@ HTTP 201 Content-Type: application/json
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code>eq</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">eq</code></td>
       <td style="text-align: left">Property is equal to value</td>
       <td style="text-align: left">Integer, Boolean, String, Date</td>
-      <td style="text-align: left"><code>EmployeeId eq 15</code> <br /> <code>CustomerId eq guid'503d1d4a-c974-4286-b4a2-002699e60ad6'</code> <br /> <code>CreatedDateUtc eq DateTime'2016-01-10'</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">EmployeeId eq 15</code> <br /> <code class="highlighter-rouge">CustomerId eq guid'503d1d4a-c974-4286-b4a2-002699e60ad6'</code> <br /> <code class="highlighter-rouge">CreatedDateUtc eq DateTime'2016-01-10'</code></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>gt</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">gt</code></td>
       <td style="text-align: left">Property is greater than value(s)</td>
       <td style="text-align: left">Integer, Date</td>
-      <td style="text-align: left"><code>CreatedDateUtc gt DateTime'2016-01-10'</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">CreatedDateUtc gt DateTime'2016-01-10'</code></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>lt</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">lt</code></td>
       <td style="text-align: left">Property is less than value(s)</td>
       <td style="text-align: left">Integer, Date</td>
-      <td style="text-align: left"><code>CreatedDateUtc lt DateTime'2016-01-10'</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">CreatedDateUtc lt DateTime'2016-01-10'</code></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>ge</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ge</code></td>
       <td style="text-align: left">Property is greater than or equal to value(s)</td>
       <td style="text-align: left">Integer, Date</td>
-      <td style="text-align: left"><code>CreatedDateUtc ge DateTime'2016-01-10'</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">CreatedDateUtc ge DateTime'2016-01-10'</code></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>le</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">le</code></td>
       <td style="text-align: left">Property is less than or equal to value(s)</td>
       <td style="text-align: left">Integer, Date</td>
-      <td style="text-align: left"><code>CreatedDateUtc le DateTime'2016-01-10'</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">CreatedDateUtc le DateTime'2016-01-10'</code></td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>substringof</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">substringof</code></td>
       <td style="text-align: left">Property contains value</td>
       <td style="text-align: left">String</td>
-      <td style="text-align: left"><code>substringof('iPhone', Notes)</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">substringof('iPhone', Notes)</code></td>
     </tr>
   </tbody>
 </table>
 
 <h4 id="combining-filters">Combining Filters</h4>
 
-<p>Filters can be combined using the keyword <code>and</code> as shown below.</p>
+<p>Filters can be combined using the keyword <code class="highlighter-rouge">and</code> as shown below.</p>
 
 <h6 id="example">Example</h6>
 
-<pre><code>EmployeeId eq 15 and LocationId eq 4
+<div class="highlighter-rouge"><pre class="highlight"><code>EmployeeId eq 15 and LocationId eq 4
 </code></pre>
+</div>
 
 <h4 id="case-sensitivity">Case Sensitivity</h4>
 
@@ -2356,71 +1844,27 @@ HTTP 201 Content-Type: application/json
 
 <h6 id="example-1">Example</h6>
 
-<pre><code>GET /Companies(14146)/InvoiceSummaries?$filter=substringof('iPhone', tolower(Notes))        
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies(14146)/InvoiceSummaries?$filter=substringof('iPhone', tolower(Notes))        
 </code></pre>
 </div>
-              <div class="col-lg-1 hidden-md hidden-sm hidden-xs"><!-- start page metadata -->
 
 
-<div class="pageMetadata affix">
-    <div class="pageMetadataTitle">Table of Contents</div>
-    
-<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
-<script>
-$( document ).ready(function() {
-
-    $('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2, h3' });
-
-    //Resize once
-    resizeWindow();
-
-    //Resize whenever window changes
-    $(window).resize(function () {
-        resizeWindow();
-    });
-
-});
-
-function resizeWindow() {
-
-    var windowHeight = $(window).height();
-    var windowWidth = $(window).width();
-
-    var tocHeight = $(".pageMetadata").height();
-
-    if(windowWidth < 1560 || windowHeight < tocHeight) {        
-        //Grab "pageMetadata" and move it to first  child of .post-header
-        $(".pageMetadata").prependTo(".post-header");
-        $(".pageMetadata").removeClass("affix");        
-    } else if(windowWidth > 1560) {
-        //Grab "pageMetadata" and move it back to where it was
-        $(".pageMetadata").appendTo(".col-lg-1.hidden-md.hidden-sm.hidden-xs");
-        $(".pageMetadata" ).addClass("affix");
-    }      
-}
-
-</script>
-
-<div id="toc"></div>
-
-    
-    <p><div class="metadataRow"><span class="tagTitle">Last updated:</span> 18-02-2016</div></p>
-    
-
-</div>
-
-
-
-
-<link rel="stylesheet" type="text/css" href="../../css/syntax.css">
-
-<!-- end pageMetadata --></div>
-            
+      </div>
+      <div class="dark-box">
+            <div class="lang-selector">
+               <a href="#" data-language-name="javascript">javascript</a>
+               <a href="#" data-language-name="shell">cURL</a>
+               <a href="#" data-language-name="csharp">c#</a>
+               <a href="#" data-language-name="java">java</a>
+               <a href="#" data-language-name="ruby">ruby</a>
+            </div>
+         </div>
     </div>
 
-</body>
+  </body>
 
-<!-- the google_analytics_id gets auto inserted from the config file -->
+
+  <!-- the google_analytics_id gets auto inserted from the config file -->
 
 
 <script>
@@ -2435,4 +1879,3 @@ function resizeWindow() {
 
 
 </html>
-

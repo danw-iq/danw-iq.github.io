@@ -1,647 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
- <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=",  ">
-<title>Electronic Product Catalog  | iQmetrix Developer Portal</title>
-<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/modern-business.css">
-<link rel="stylesheet" type="text/css" href="../../css/customstyles.css">
-<!-- <link rel="stylesheet" type="text/css" href="" | prepend:site.pagefileurl }}"> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script src="../../js/jquery.navgoco.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
-<script src="../../js/toc.js"></script>
-<script src="../../js/customscripts.js"></script>
-<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <title>Electronic Product Catalog | iQmetrix Developer Portal</title>
+    <link href="../../css/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../css/print.css" rel="stylesheet" media="print" />
+    <script src="../../js/all.js"></script>
 
-
-<!-- Image popup source files -->
-<!-- http://dimsemenov.com/plugins/magnific-popup/ -->
-<link rel="stylesheet" type="text/css" href="../../css/magnific-popup.css">
-<script src="../../js/jquery.magnific-popup.js"></script>
-
-
-<script>
-    $(document).ready(function() {
-
-        // surround each image with an anchor class  for image popup
-        $('img').each( function() {
-            var $img = $(this),
-            href = $img.attr('src');
-            $img.wrap('<a class="image-link" href=' + href + '></a>');
-             
-        });
-
-        // make each image with image-link class popup "on click"
-        // !! Drawback -- all images could popup :(
-        $('.image-link').magnificPopup({
-            type:'image',
-            closeOnContentClick: true
-        });
-                
-    });    
-</script>
-
-
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-<script type="text/javascript">
-    //Hacky code to make sure they don't go to a bad page
-    $( window ).load(function() {
-
-        if (document.baseURI.indexOf("api/generalledger.html") > 0) {
-            window.location.href = 'http://developers.iqmetrix.com/api/general-ledger/';
-        }
-        else if (document.baseURI.indexOf("api/productlibrary.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/product-library/';
-        }
-        else if (document.baseURI.indexOf("api/entitystore.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/entity-store/';
-        }
-        else if(document.baseURI.indexOf(".html") > 0) {
-           window.location.href = document.baseURI.substring(0, document.baseURI.indexOf(".html"));
-        }
-    });
-</script>
-
-
-
-
-
- 
-
-<script>
-  $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
-
-
-
-
-
-
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
 
-<body>
-
-   <!-- Send feedback function -->
-<script>
-    function SendLinkByMail(href) {
-        var subject= " all documentation feedback";
-        var body = "I have some feedback about the Electronic Product Catalog page: ";
-        body += window.location.href;
-        body += "";
-        var uri = "mailto:apidesign@iqmetrix.com?subject=";
-        uri += encodeURIComponent(subject);
-        uri += "&body=";
-        uri += encodeURIComponent(body);
-        window.location.href = uri;
-    }
-</script>
-
-<!-- Navigation -->
-<nav id="navbar-custom" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-   <div class="container topnavlinks">
-   <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      </button>
-      <a href="http://localhost:4006/">
-        <span id="top-iq-logo"><img src="http://melissakendall.github.io/documentation-testing/images/iq-logo-white.png"></span>
-        <span id="projectTitle">iQmetrix Developer Portal</span>
-      </a>
-   </div>
-   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul id="top-bar-categories" class="nav navbar-nav navbar-right">
-      
-      <!-- entries without drop-downs appear here -->
-      <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
-      <!-- 
-
-Hard coding for now, so no longer uses topnav config
-
-
-
-
-
-
-
-
-
-  
-      
-      
-          <li><a href="/api/changelog/">CHANGELOG</a></li>
-      
-    
-  
-      
-      
-          <li class="active"><a href="//">API REFERENCE</a></li>
-       
-    
-  
-      
-      
-          <li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
-      
-    
-  
-
-
--->
-
-<li><a href="/api/">DOCUMENTATION</a></li>
-<li><a href="/api/changelog">CHANGELOG</a></li>
-<li><a href="mailto:?subject=Support">SUPPORT</a></li>
-
-
-         <!--
-      <li>
-         <div id="search-demo-container">
-            <input type="text" id="search-input" placeholder="">
-            <ul id="results-container"></ul>
-         </div>
-         <script src="../..//js/jekyll-search.js" type="text/javascript"></script>
-         <script type="text/javascript">
-            SimpleJekyllSearch({
-              searchInput: document.getElementById('search-input'),
-              resultsContainer: document.getElementById('results-container'),
-              json: '../../search.json',
-              searchResultTemplate: '<li><a href="{url}" title="Electronic Product Catalog">{title}</a></li>',
-              noResultsText: '',
-              exclude: '404'
-            })
-         </script>
-      </li>
-         -->
-    
-
-   </div>
-   <!-- /.container -->
-</nav>
-
-    <!-- Page Content -->
-    <div class="container">
-        <div class="col-lg-12">&nbsp;</div>
-
-            <!-- Col-md-3 -->
-            <!-- Content Row -->
-<div class="row">
-    <!-- Sidebar Column -->
-    <div class="col-md-3">
-
-        <script>
-            $(document).ready(function() {
-
-                // Initialize navgoco with default options
-                $("#mysidebar").navgoco({
-                    caretHtml: '',
-                    accordion: true,
-                    openClass: 'active', // open
-                    save: false, // leave false or nav higlighting doesn't work right
-                    cookie: {
-                        name: 'navgoco',
-                        expires: false,
-                        path: '/'
-                    },
-                    slide: {
-                        duration: 400,
-                        easing: 'swing'
-                    }
-                });
-
-                $("#collapseAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', false);
-                });
-
-                $("#expandAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', true);
-                });
-
-                if(window.location.hostname == "apidocumentation-dev-westus.azurewebsites.net")
-                {
-                    $("a").each(function(e) {
-                        var url = $(this).attr("href");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("href", url);
-                    });
-
-                    $("img").each(function(e) {
-                        var url = $(this).attr("src");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("src", url);
-                    });                    
-                }
-
-                if(window.location.search != "" && window.location.search != null && window.location.search.indexOf("=") > -1) {
-
-                    var entityValue = window.location.search.split("=")[1];
-
-                    $("."+entityValue).hide();
-                }
-            });
-
-        </script>
-
-        <ul id="mysidebar" class="nav affix">
-            
-                
-                    
-                        <li class=""><a href="#">API Reference</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/authentication/">Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/assets/">Assets</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/catalog/">Catalog</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/crm/">Customers</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cost-feed/">Cost Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-feed/">Product Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-subscription/">Product Subscription</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/saccs/">Shipping Aggregator</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/shipping-options/">Shipping Options</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-availability/">Supplier Availability</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-orders/">Supplier Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/entity-store/">Entities</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/general-ledger/">General Ledger</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/availability/">Inventory Availability</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/orders/">Orders</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Partners</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-reporting/">Partner Reporting</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-relationships/">Relationships</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/pricing">Pricing</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Product Library</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/classification-tree/">Classification Tree</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/field-definitions/">Field Definitions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-library/">Products</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-structure/">Product Structure</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/reference/">Reference</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">RQ</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/carrier-integration/">Carrier Integration</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cmi/">Customer Managed Inventory (CMI)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/commissions/">Commissions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class="active "><a href="/api/epc/">Electronic Product Catalog (EPC)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/punch-clock/">Punch Clock</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/vmi/">Vendor Managed Inventory (VMI)</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/security-roles/">Security Roles</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Guides</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-an-in-store-order/">Creating an In Store Order</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-a-user-for-rq/">Creating a User for RQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Client Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-pos-guide/">Dropship Point of Sale Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Partner Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-onboarding-guide/">Dropship Onboarding Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-order-guide/">Dropship Order Management Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-test-order-guide/">Dropship Test Order Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/commerce-guide/">eCommerce Integration Guide</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Endless Aisle Integration Guide</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/overview">Overview</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/corporate-hierarchy">Corporate Hierarchy</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/content">Content</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/inventory">Inventory</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/orders">Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/3pa/">Third Party Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/vmi-onboarding-guide/">VMI Onboarding Guide</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Core Concepts</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/classification-tree/">Classification Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-library/">Product Library</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-structure/">Product Structure</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">FAQ</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/auth-faq/">Authentication FAQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/dropship-faq/">Dropship FAQ</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="/reference-applications/">Reference Applications</a>
-                    
-                
-            
-        </ul>
-
-        
+    <body class="api api_catalog2 api_catalog2_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../../images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="csharp">c#</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
     </div>
-<!-- div missing here is intentional -->
 
-<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
-<script>$("li.active").parents('li').toggleClass("active");</script>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
 
-
-
-            
-              <div class="col-md-7"><link rel="stylesheet" type="text/css" href="../../css/prism.css" />
+      <link rel="stylesheet" type="text/css" href="../../css/prism.css" />
 
 <script src="../../js/prism.js"></script>
 
@@ -676,31 +163,31 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code>12</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">12</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Barcodes</td>
       <td style="text-align: left">Array[string]</td>
       <td style="text-align: left">Barcodes for this Product</td>
-      <td style="text-align: left"><code>BARCODE123</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">BARCODE123</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>iPhone 4S 16GB White</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iPhone 4S 16GB White</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CategoryName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Path to the Category, delimited by &gt;</td>
-      <td style="text-align: left"><code>Products &gt; Phones &gt; Smartphones</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Products &gt; Phones &gt; Smartphones</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DaysKeptInStock</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Number of days the Product can remain in stock</td>
-      <td style="text-align: left"><code>10</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">10</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DefaultPricing</td>
@@ -712,13 +199,13 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Enabled</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this Product is Enabled. Defaults to true</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EnforcedTrackingNumberLength</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">A value that restricts tracking number length</td>
-      <td style="text-align: left"><code>50</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">50</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ExtendedAttributes</td>
@@ -730,43 +217,43 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ExtendedAttributes.Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>ProductId</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProductId</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ExtendedAttributes.Value</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Value</td>
-      <td style="text-align: left"><code>66</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">66</code></td>
     </tr>
     <tr>
       <td style="text-align: left">GlCostOfSalesAccountNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Account number for Cost of Sales, see <a href="http://iqmetrix.helpdocsonline.com/g-l-account-setup">G/L Account Setup</a> for more information</td>
-      <td style="text-align: left"><code>1001</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1001</code></td>
     </tr>
     <tr>
       <td style="text-align: left">GlInventoryAccountNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Account number for Inventory, see <a href="http://iqmetrix.helpdocsonline.com/g-l-account-setup">G/L Account Setup</a> for more information</td>
-      <td style="text-align: left"><code>1002</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1002</code></td>
     </tr>
     <tr>
       <td style="text-align: left">GlInventoryCorrectionsAccountNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Account number for Inventory Corrections, see <a href="http://iqmetrix.helpdocsonline.com/g-l-account-setup">G/L Account Setup</a> for more information</td>
-      <td style="text-align: left"><code>1001</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1001</code></td>
     </tr>
     <tr>
       <td style="text-align: left">GlSalesAccountNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Account number for Sales, see <a href="http://iqmetrix.helpdocsonline.com/g-l-account-setup">G/L Account Setup</a> for more information</td>
-      <td style="text-align: left"><code>1003</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1003</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IgnoreAutomaticTaxAddition</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">Ensures that taxes will not be added as part of the automatic tax process. Defaults to false</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">LocationVendors</td>
@@ -778,25 +265,25 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">LongDescription</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Long description</td>
-      <td style="text-align: left"><code>The iPhone 4S is a gradualstep over the iPhone 4.</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">The iPhone 4S is a gradualstep over the iPhone 4.</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ManufacturerName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of a Manufacturer</td>
-      <td style="text-align: left"><code>Apple</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Apple</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ManufacturerSku</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Manufacturer SKU</td>
-      <td style="text-align: left"><code>ABC123</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ABC123</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Model</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Model</td>
-      <td style="text-align: left"><code>iPhone 6</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iPhone 6</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PricingAndPurchasingLocations</td>
@@ -808,7 +295,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">PricingMethod</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">See <a href="#pricingmethods">PricingMethods</a> for a list of acceptable values</td>
-      <td style="text-align: left"><code>Fixed</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Fixed</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductLabel</td>
@@ -820,31 +307,31 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ProductReferenceId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier from an external system</td>
-      <td style="text-align: left"><code>PRO123</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">PRO123</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ReleaseDate</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Release Date, in UTC</td>
-      <td style="text-align: left"><code>2011-10-14T12:00:00.000</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2011-10-14T12:00:00.000</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Serialized</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this Product is serialized, meaning a serial number must be entered when the Product is purchased. Defaults to false. Once selected, this cannot be changed.</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SerialNumberPromptText</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Text displayed when user is prompted to enter a serial number for the product</td>
-      <td style="text-align: left"><code>Serial prompt text here</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Serial prompt text here</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShortDescription</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Short description</td>
-      <td style="text-align: left"><code>Better than the iPhone 3G</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Better than the iPhone 3G</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Vendors</td>
@@ -856,7 +343,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">WarehouseLocation</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of the Warehouse location</td>
-      <td style="text-align: left"><code>Cornwall</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Cornwall</code></td>
     </tr>
   </tbody>
 </table>
@@ -879,103 +366,103 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">AllowReturns</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the Product can be returned</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Discountable</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the Product can be discounted, defaults to true</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">FloorPrice</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Floor pricing allows you to keep a product as Discountable but set a minimum price that it can be sold at to ensure margins.  Will default to 0 and cannot be negative. See <a href="http://iqmetrix.helpdocsonline.com/floor-pricing">Floor Pricing</a> for more details.</td>
-      <td style="text-align: left"><code>0.0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0.0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ForSale</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the product can be sold. Defaults to true</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoiceComments</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Comments that will be printed on the invoice every time the Product is sold</td>
-      <td style="text-align: left"><code>Invoice comment</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Invoice comment</code></td>
     </tr>
     <tr>
       <td style="text-align: left">LockMinMaxed</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the MinimumQuantity/MaximumQuantity amounts are locked (true) which prevents them from being updated by mass updates. Defaults to false</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Margin</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Margin automatically applied to this Product</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MaximumQuantity</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Maximum quantity that should be on hand at any time. Defaults to 0</td>
-      <td style="text-align: left"><code>10</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">10</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MinimumQuantity</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Minimum quantity that should be on hand at any time. Defaults to 0</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MsrpAmount</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Manufacturer’s suggested retail price. Defaults to 0</td>
-      <td style="text-align: left"><code>499.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">499.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MsrpCurrencyCode</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Currency</td>
-      <td style="text-align: left"><code>USD</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">USD</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Price</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Company-wide default unit price</td>
-      <td style="text-align: left"><code>499.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">499.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PrimaryVendorName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of the primary vendor for this Product</td>
-      <td style="text-align: left"><code>Apple</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Apple</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RefundPeriod</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Number of days the Product can be refunded before an override is required to refund. Defaults to 0</td>
-      <td style="text-align: left"><code>10</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">10</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RefundToUsed</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate that this Product can be refunded and then tagged as used. Defaults to true</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShowOnInvoice</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the price should be shown on the invoice</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreInStorePrice</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Store in Store price. See <a href="http://iqmetrix.helpdocsonline.com/store-in-store-sis">Store In Store</a> for more information</td>
-      <td style="text-align: left"><code>399.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">399.99</code></td>
     </tr>
   </tbody>
 </table>
@@ -996,133 +483,133 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">AllowReturns</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the Product can be returned</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Discountable</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the Product can be discounted, defaults to true</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">FloorPrice</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Floor pricing allows you to keep a product as Discountable but set a minimum price that it can be sold at to ensure margins.  Will default to 0 and cannot be negative. See <a href="http://iqmetrix.helpdocsonline.com/floor-pricing">Floor Pricing</a> for more details.</td>
-      <td style="text-align: left"><code>0.0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0.0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ForSale</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the product can be sold. Defaults to true</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoiceComments</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Comments that will be printed on the invoice every time the Product is sold</td>
-      <td style="text-align: left"><code>Invoice comment</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Invoice comment</code></td>
     </tr>
     <tr>
       <td style="text-align: left">LockMinMaxed</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the MinimumQuantity/MaximumQuantity amounts are locked (true) which prevents them from being updated by mass updates. Defaults to false</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Margin</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Margin automatically applied to this Product</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MaximumQuantity</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Maximum quantity that should be on hand at any time. Defaults to 0</td>
-      <td style="text-align: left"><code>10</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">10</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MinimumQuantity</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Minimum quantity that should be on hand at any time. Defaults to 0</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MsrpAmount</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Manufacturer’s suggested retail price. Defaults to 0</td>
-      <td style="text-align: left"><code>499.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">499.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MsrpCurrencyCode</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Currency</td>
-      <td style="text-align: left"><code>USD</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">USD</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Price</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Company-wide default unit price</td>
-      <td style="text-align: left"><code>499.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">499.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PrimaryVendorName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of the primary vendor for this Product</td>
-      <td style="text-align: left"><code>Apple</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Apple</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RefundPeriod</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Number of days the Product can be refunded before an override is required to refund. Defaults to 0</td>
-      <td style="text-align: left"><code>10</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">10</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RefundToUsed</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate that this Product can be refunded and then tagged as used. Defaults to true</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SaleBeginDate</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Sale begin date</td>
-      <td style="text-align: left"><code>2015-10-14T12:00:00.000</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-10-14T12:00:00.000</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SaleEndDate</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Sale end date</td>
-      <td style="text-align: left"><code>2015-10-18T12:00:00.000</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-10-18T12:00:00.000</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SalePrice</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Sale price will override FloorPrice if it is lower. Defaults to 0</td>
-      <td style="text-align: left"><code>399.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">399.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShowOnInvoice</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the price should be shown on the invoice</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreInStorePrice</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Store in Store price. See <a href="http://iqmetrix.helpdocsonline.com/store-in-store-sis">Store In Store</a> for more information</td>
-      <td style="text-align: left"><code>399.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">399.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TargetLocationName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of a channel, region, district or location to apply this pricing to. To select the entire Company, leave this value empty and select All for TargetLocationType</td>
-      <td style="text-align: left"><code>Saskatchewan</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Saskatchewan</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TargetLocationType</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">See <a href="#targetlocations">TargetLocations</a> for a list of acceptable values</td>
-      <td style="text-align: left"><code>RegionName</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">RegionName</code></td>
     </tr>
   </tbody>
 </table>
@@ -1145,19 +632,19 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code>14</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">14</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>Prepaid Rate Plan</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Prepaid Rate Plan</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CategoryName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of the Category/Classification for this Product</td>
-      <td style="text-align: left"><code>Rate Plans &gt; Rate Plans</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Rate Plans &gt; Rate Plans</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DefaultPricing</td>
@@ -1169,13 +656,13 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Enabled</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this Product is Enabled. Defaults to true</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EnforcedTrackingNumberLength</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">A value that restricts tracking number length</td>
-      <td style="text-align: left"><code>50</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">50</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ExtendedAttributes</td>
@@ -1187,43 +674,43 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ExtendedAttributes.Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>ProductId</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProductId</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ExtendedAttributes.Value</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Value</td>
-      <td style="text-align: left"><code>66</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">66</code></td>
     </tr>
     <tr>
       <td style="text-align: left">GlCostOfSalesAccountNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Account number for Cost of Sales, see <a href="http://iqmetrix.helpdocsonline.com/g-l-account-setup">G/L Account Setup</a> for more information</td>
-      <td style="text-align: left"><code>1001</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1001</code></td>
     </tr>
     <tr>
       <td style="text-align: left">GlInventoryAccountNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Account number for Inventory, see <a href="http://iqmetrix.helpdocsonline.com/g-l-account-setup">G/L Account Setup</a> for more information</td>
-      <td style="text-align: left"><code>1002</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1002</code></td>
     </tr>
     <tr>
       <td style="text-align: left">GlSalesAccountNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Account number for Sales, see <a href="http://iqmetrix.helpdocsonline.com/g-l-account-setup">G/L Account Setup</a> for more information</td>
-      <td style="text-align: left"><code>1003</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1003</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IgnoreAutomaticTaxAddition</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">Ensures that taxes will not be added as part of the automatic tax process. Defaults to false</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">LongDescription</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Long description</td>
-      <td style="text-align: left"><code>Prepaid plan forpeople on the go</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Prepaid plan forpeople on the go</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PricingLocations</td>
@@ -1235,43 +722,43 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">PricingMethod</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">See <a href="#pricingmethods">PricingMethods</a> for a list of acceptable values</td>
-      <td style="text-align: left"><code>Fixed</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Fixed</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductLabel</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Defaults to first 30 characters of the ProductName, but can be edited</td>
-      <td style="text-align: left"><code>Prepaid Rate Plan</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Prepaid Rate Plan</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductReferenceId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier from an external system</td>
-      <td style="text-align: left"><code>PRO123A</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">PRO123A</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RefundPeriod</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Number of days before the Product can be refunded, in days</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Serialized</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this Product is serialized, meaning a serial number must be entered when the Product is purchased. Defaults to false. Once selected, this cannot be changed.</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SerialNumberPromptText</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Text displayed when user is prompted to enter a serial number for the product</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShortDescription</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Short description</td>
-      <td style="text-align: left"><code>Prepaid plan</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Prepaid plan</code></td>
     </tr>
   </tbody>
 </table>
@@ -1294,73 +781,73 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">AllowReturns</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the Product can be returned. Defaults to true</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CarrierPrice</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Carrier price</td>
-      <td style="text-align: left"><code>0.0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0.0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Cost</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Cost of the Item from the Vendor. Defaults to 0</td>
-      <td style="text-align: left"><code>0.0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0.0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Discountable</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the Product can be discounted. Defaults to true</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">FloorPrice</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Floor pricing allows you to keep a product as Discountable but set a minimum price that it can be sold at to ensure margins.  Will default to 0 and cannot be negative. See <a href="http://iqmetrix.helpdocsonline.com/floor-pricing">Floor Pricing</a> for more details.</td>
-      <td style="text-align: left"><code>0.0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0.0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ForSale</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the product can be sold. Defaults to true</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoiceComments</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Comments that will be printed on the invoice every time the Product is sold</td>
-      <td style="text-align: left"><code>Invoice comment</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Invoice comment</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Margin</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Margin automatically applied to this Product</td>
-      <td style="text-align: left"><code>0.0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0.0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Price</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Company-wide default unit price</td>
-      <td style="text-align: left"><code>0.0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0.0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RefundPeriod</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Number of days before the Product can be refunded, in days</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShowOnInvoice</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the price should be shown on the invoice</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreInStorePrice</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Store in Store price. See <a href="http://iqmetrix.helpdocsonline.com/store-in-store-sis">Store In Store</a> for more information</td>
-      <td style="text-align: left"><code>399.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">399.99</code></td>
     </tr>
   </tbody>
 </table>
@@ -1381,103 +868,103 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">AllowReturns</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the Product can be returned. Defaults to true</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CarrierPrice</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Carrier price</td>
-      <td style="text-align: left"><code>0.0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0.0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Cost</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Cost of the Item from the Vendor. Defaults to 0</td>
-      <td style="text-align: left"><code>0.0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0.0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Discountable</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the Product can be discounted. Defaults to true</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">FloorPrice</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Floor pricing allows you to keep a product as Discountable but set a minimum price that it can be sold at to ensure margins.  Will default to 0 and cannot be negative. See <a href="http://iqmetrix.helpdocsonline.com/floor-pricing">Floor Pricing</a> for more details.</td>
-      <td style="text-align: left"><code>0.0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0.0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ForSale</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the product can be sold. Defaults to true</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoiceComments</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Comments that will be printed on the invoice every time the Product is sold</td>
-      <td style="text-align: left"><code>Invoice comment</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Invoice comment</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Margin</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Margin automatically applied to this Product</td>
-      <td style="text-align: left"><code>0.0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0.0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Price</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Company-wide default unit price</td>
-      <td style="text-align: left"><code>0.0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0.0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SalePrice</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Sale price, will override Floor Price if it is lower. Defaults to 0</td>
-      <td style="text-align: left"><code>0.0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0.0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SaleBeginDate</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Sale begin date</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SaleEndDate</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Sale end date</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShowOnInvoice</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the price should be shown on the invoice</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RefundPeriod</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Number of days before the Product can be refunded, in days</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreInStorePrice</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Store in Store price. See <a href="http://iqmetrix.helpdocsonline.com/store-in-store-sis">Store In Store</a> for more information</td>
-      <td style="text-align: left"><code>399.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">399.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TargetLocationName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Applies pricing to a single location, or all locations in a company, channel, region or district</td>
-      <td style="text-align: left"><code>Saskatchewan</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Saskatchewan</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TargetLocationType</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Where to apply the pricing, see <a href="#targetlocations">TargetLocations</a> for a list of acceptable values</td>
-      <td style="text-align: left"><code>RegionName</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">RegionName</code></td>
     </tr>
   </tbody>
 </table>
@@ -1500,25 +987,25 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code>16</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">16</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Vendor name</td>
-      <td style="text-align: left"><code>SampleVendor</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">SampleVendor</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>2 YR New Act</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2 YR New Act</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CategoryName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of the Category/Classification for this Product</td>
-      <td style="text-align: left"><code>Rate Plans &gt; Rate Plan Rebates</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Rate Plans &gt; Rate Plan Rebates</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DefaultPricing</td>
@@ -1530,13 +1017,13 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Enabled</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this Product is Enabled. Defaults to true</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EnforcedTrackingNumberLength</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">A value that restricts tracking number length</td>
-      <td style="text-align: left"><code>50</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">50</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ExtendedAttributes</td>
@@ -1548,43 +1035,43 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ExtendedAttributes.Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>ProductId</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProductId</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ExtendedAttributes.Value</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Value</td>
-      <td style="text-align: left"><code>66</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">66</code></td>
     </tr>
     <tr>
       <td style="text-align: left">GlCostOfSalesAccountNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Account number for Cost of Sales, see <a href="http://iqmetrix.helpdocsonline.com/g-l-account-setup">G/L Account Setup</a> for more information</td>
-      <td style="text-align: left"><code>1001</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1001</code></td>
     </tr>
     <tr>
       <td style="text-align: left">GlInventoryAccountNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Account number for Inventory, see <a href="http://iqmetrix.helpdocsonline.com/g-l-account-setup">G/L Account Setup</a> for more information</td>
-      <td style="text-align: left"><code>1002</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1002</code></td>
     </tr>
     <tr>
       <td style="text-align: left">GlSalesAccountNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Account number for Sales, see <a href="http://iqmetrix.helpdocsonline.com/g-l-account-setup">G/L Account Setup</a> for more information</td>
-      <td style="text-align: left"><code>1003</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1003</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IgnoreAutomaticTaxAddition</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">Ensures that taxes will not be added as part of the automatic tax process. Defaults to false</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">LongDescription</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Long description</td>
-      <td style="text-align: left"><code>Rebate on 2 year actiations</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Rebate on 2 year actiations</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PricingLocations</td>
@@ -1596,43 +1083,43 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">PricingMethod</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">See PricingMethods for a list of acceptable values</td>
-      <td style="text-align: left"><code>Fixed</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Fixed</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductLabel</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Defaults to first 30 characters of the ProductName, but can be edited</td>
-      <td style="text-align: left"><code>2 YR New Act</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2 YR New Act</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductReferenceId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier from an external system</td>
-      <td style="text-align: left"><code>PRO123B</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">PRO123B</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Serialized</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this Product is serialized, meaning a serial number must be entered when the Product is purchased. Defaults to false. Once selected, this cannot be changed.</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SerialNumberPromptText</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Text displayed when user is prompted to enter a serial number for the product</td>
-      <td style="text-align: left"><code>Serial prompt text here</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Serial prompt text here</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShortDescription</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Short description</td>
-      <td style="text-align: left"><code>2 yr rebate</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2 yr rebate</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorAccountName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Vendor name</td>
-      <td style="text-align: left"><code>Verizon</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Verizon</code></td>
     </tr>
   </tbody>
 </table>
@@ -1657,19 +1144,19 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code>18</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">18</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>Recycling Fee</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Recycling Fee</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CategoryName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of the Category/Classification for this Product</td>
-      <td style="text-align: left"><code>Misc &gt; Misc. Fees</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Misc &gt; Misc. Fees</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DefaultPricing</td>
@@ -1681,13 +1168,13 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Enabled</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this Product is Enabled. Defaults to true</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EnforcedTrackingNumberLength</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">A value that restricts tracking number length</td>
-      <td style="text-align: left"><code>50</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">50</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ExtendedAttributes</td>
@@ -1699,43 +1186,43 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ExtendedAttributes.Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>ProductId</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ProductId</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ExtendedAttributes.Value</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Value</td>
-      <td style="text-align: left"><code>66</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">66</code></td>
     </tr>
     <tr>
       <td style="text-align: left">GlCostOfSalesAccountNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Account number for Cost of Sales, see <a href="http://iqmetrix.helpdocsonline.com/g-l-account-setup">G/L Account Setup</a> for more information</td>
-      <td style="text-align: left"><code>1001</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1001</code></td>
     </tr>
     <tr>
       <td style="text-align: left">GlInventoryAccountNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Account number for Inventory, see <a href="http://iqmetrix.helpdocsonline.com/g-l-account-setup">G/L Account Setup</a> for more information</td>
-      <td style="text-align: left"><code>1002</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1002</code></td>
     </tr>
     <tr>
       <td style="text-align: left">GlSalesAccountNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Account number for Sales, see <a href="http://iqmetrix.helpdocsonline.com/g-l-account-setup">G/L Account Setup</a> for more information</td>
-      <td style="text-align: left"><code>1003</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1003</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IgnoreAutomaticTaxAddition</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">Ensures that taxes will not be added as part of the automatic tax process. Defaults to false</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">LongDescription</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Long description</td>
-      <td style="text-align: left"><code>Recycling fee to disposeof old handset</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Recycling fee to disposeof old handset</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PricingLocations</td>
@@ -1747,37 +1234,37 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">PricingMethod</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">See PricingMethods for a list of acceptable values</td>
-      <td style="text-align: left"><code>Fixed</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Fixed</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductLabel</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Defaults to first 30 characters of the ProductName, but can be edited</td>
-      <td style="text-align: left"><code>Recycling Fee</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Recycling Fee</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductReferenceId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier from an external system</td>
-      <td style="text-align: left"><code>PRO123C</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">PRO123C</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Serialized</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this Product is serialized, meaning a serial number must be entered when the Product is purchased. Defaults to false. Once selected, this cannot be changed.</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SerialNumberPromptText</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Text displayed when user is prompted to enter a serial number for the product</td>
-      <td style="text-align: left"><code>Serial prompt text here</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Serial prompt text here</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShortDescription</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Short description</td>
-      <td style="text-align: left"><code>Recycling fee</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Recycling fee</code></td>
     </tr>
   </tbody>
 </table>
@@ -1798,55 +1285,55 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Cost</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Vendor cost. Defaults to 0</td>
-      <td style="text-align: left"><code>99.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">99.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DiscontinuedDate</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Date the Product will no longer be sold, in UTC</td>
-      <td style="text-align: left"><code>2016-01-01T12:00:00.000</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2016-01-01T12:00:00.000</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DoNotOrder</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate the Product can not be ordered from this Location. Defaults to false</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EndOfLife</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Date for the Product as appropriate</td>
-      <td style="text-align: left"><code>2016-01-01T12:00:00.000</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2016-01-01T12:00:00.000</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SpecialOrder</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate that the Product is a special order. Defaults to false</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TargetLocationName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Applies pricing to a single location, or all locations in a company, channel, region or district</td>
-      <td style="text-align: left"><code>Saskatchewan</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Saskatchewan</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TargetLocationType</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Where to apply the pricing, see <a href="#targetlocations">TargetLocations</a> for a list of acceptable values</td>
-      <td style="text-align: left"><code>RegionName</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">RegionName</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Vendor name</td>
-      <td style="text-align: left"><code>SampleVendor</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">SampleVendor</code></td>
     </tr>
     <tr>
       <td style="text-align: left">WriteOff</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate that the Product is a write-off. Defaults to false</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
   </tbody>
 </table>
@@ -1867,49 +1354,49 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Cost</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Vendor cost. Defaults to 0</td>
-      <td style="text-align: left"><code>99.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">99.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DiscontinuedDate</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Date the Product will no longer be sold, in UTC</td>
-      <td style="text-align: left"><code>2016-01-01T12:00:00.000</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2016-01-01T12:00:00.000</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DoNotOrder</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate the Product can not be ordered from this Location. Defaults to false</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EndOfLife</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Date for the Product as appropriate</td>
-      <td style="text-align: left"><code>2016-01-01T12:00:00.000</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2016-01-01T12:00:00.000</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SpecialOrder</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate that the Product is a special order. Defaults to false</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Vendor name</td>
-      <td style="text-align: left"><code>SampleVendor</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">SampleVendor</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorSku</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Vendor sku</td>
-      <td style="text-align: left"><code>DEF987</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">DEF987</code></td>
     </tr>
     <tr>
       <td style="text-align: left">WriteOff</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate that the Product is a write-off. Defaults to false</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
   </tbody>
 </table>
@@ -1930,19 +1417,19 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">BatchId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of the Batch</td>
-      <td style="text-align: left"><code>3</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">3</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateCreated</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Date this Batch was created</td>
-      <td style="text-align: left"><code>2015-09-14T22:11:16.5670000Z</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-09-14T22:11:16.5670000Z</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProcessedProducts</td>
       <td style="text-align: left">Object</td>
       <td style="text-align: left">Number of Products processed</td>
-      <td style="text-align: left"><code>2</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductErrors</td>
@@ -1960,19 +1447,19 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">StatusCode</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Status of the Batch, see <a href="#batchstatuscode">BatchStatusCode</a> for a list of possible values</td>
-      <td style="text-align: left"><code>3</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">3</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StatusName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of the associated BatchStatus</td>
-      <td style="text-align: left"><code>Completed</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Completed</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalProducts</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Total number of Products in the Batch</td>
-      <td style="text-align: left"><code>2</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2</code></td>
     </tr>
   </tbody>
 </table>
@@ -1993,31 +1480,31 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ProductReferenceId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier of the Product in an external system</td>
-      <td style="text-align: left"><code>PRO123D</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">PRO123D</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductDefinition</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">If this is a failed Product, description of the Product in XML</td>
-      <td style="text-align: left"><code>&lt;RegularProductxmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'xmlns:xsd='http://www.w3.org/2001/XMLSchema'&gt;…</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">&lt;RegularProductxmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'xmlns:xsd='http://www.w3.org/2001/XMLSchema'&gt;…</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StatusCode</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Status of the import, see <a href="#statuscode">StatusCode</a> for a list of possible values</td>
-      <td style="text-align: left"><code>2</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StatusName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of the associated StatusCode</td>
-      <td style="text-align: left"><code>Error</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Error</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ErrorMessage</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Error message</td>
-      <td style="text-align: left"><code>No matching RQ manufacturer found with the name appple</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">No matching RQ manufacturer found with the name appple</code></td>
     </tr>
   </tbody>
 </table>
@@ -2960,67 +2447,24 @@ HTTP 200 Content-Type: application/json
     "StatusName": "Completed",
     "TotalProducts": 2
 }</pre>
-</div>
-              <div class="col-lg-1 hidden-md hidden-sm hidden-xs"><!-- start page metadata -->
 
 
-<div class="pageMetadata affix">
-    <div class="pageMetadataTitle">Table of Contents</div>
-    
-<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
-<script>
-$( document ).ready(function() {
-
-    $('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2, h3' });
-
-    //Resize once
-    resizeWindow();
-
-    //Resize whenever window changes
-    $(window).resize(function () {
-        resizeWindow();
-    });
-
-});
-
-function resizeWindow() {
-
-    var windowHeight = $(window).height();
-    var windowWidth = $(window).width();
-
-    var tocHeight = $(".pageMetadata").height();
-
-    if(windowWidth < 1560 || windowHeight < tocHeight) {        
-        //Grab "pageMetadata" and move it to first  child of .post-header
-        $(".pageMetadata").prependTo(".post-header");
-        $(".pageMetadata").removeClass("affix");        
-    } else if(windowWidth > 1560) {
-        //Grab "pageMetadata" and move it back to where it was
-        $(".pageMetadata").appendTo(".col-lg-1.hidden-md.hidden-sm.hidden-xs");
-        $(".pageMetadata" ).addClass("affix");
-    }      
-}
-
-</script>
-
-<div id="toc"></div>
-
-    
-    <p><div class="metadataRow"><span class="tagTitle">Last updated:</span> 13-7-2016</div></p>
-    
-
-</div>
-
-
-
-
-<!-- end pageMetadata --></div>
-            
+      </div>
+      <div class="dark-box">
+            <div class="lang-selector">
+               <a href="#" data-language-name="javascript">javascript</a>
+               <a href="#" data-language-name="shell">cURL</a>
+               <a href="#" data-language-name="csharp">c#</a>
+               <a href="#" data-language-name="java">java</a>
+               <a href="#" data-language-name="ruby">ruby</a>
+            </div>
+         </div>
     </div>
 
-</body>
+  </body>
 
-<!-- the google_analytics_id gets auto inserted from the config file -->
+
+  <!-- the google_analytics_id gets auto inserted from the config file -->
 
 
 <script>
@@ -3035,4 +2479,3 @@ function resizeWindow() {
 
 
 </html>
-

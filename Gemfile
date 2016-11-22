@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-gem 'github-pages'
+gem "jekyll", "3.3.1"
+#gem 'github-pages'
 
 source 'http://rubygems.iqmetrix.net' do
   # Define iQ-published dependencies here

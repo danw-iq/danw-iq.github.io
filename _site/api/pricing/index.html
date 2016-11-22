@@ -1,647 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
- <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=",  ">
-<title>Pricing  | iQmetrix Developer Portal</title>
-<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/modern-business.css">
-<link rel="stylesheet" type="text/css" href="../../css/customstyles.css">
-<!-- <link rel="stylesheet" type="text/css" href="" | prepend:site.pagefileurl }}"> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script src="../../js/jquery.navgoco.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
-<script src="../../js/toc.js"></script>
-<script src="../../js/customscripts.js"></script>
-<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <title>Pricing | iQmetrix Developer Portal</title>
+    <link href="../../css/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../css/print.css" rel="stylesheet" media="print" />
+    <script src="../../js/all.js"></script>
 
-
-<!-- Image popup source files -->
-<!-- http://dimsemenov.com/plugins/magnific-popup/ -->
-<link rel="stylesheet" type="text/css" href="../../css/magnific-popup.css">
-<script src="../../js/jquery.magnific-popup.js"></script>
-
-
-<script>
-    $(document).ready(function() {
-
-        // surround each image with an anchor class  for image popup
-        $('img').each( function() {
-            var $img = $(this),
-            href = $img.attr('src');
-            $img.wrap('<a class="image-link" href=' + href + '></a>');
-             
-        });
-
-        // make each image with image-link class popup "on click"
-        // !! Drawback -- all images could popup :(
-        $('.image-link').magnificPopup({
-            type:'image',
-            closeOnContentClick: true
-        });
-                
-    });    
-</script>
-
-
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-<script type="text/javascript">
-    //Hacky code to make sure they don't go to a bad page
-    $( window ).load(function() {
-
-        if (document.baseURI.indexOf("api/generalledger.html") > 0) {
-            window.location.href = 'http://developers.iqmetrix.com/api/general-ledger/';
-        }
-        else if (document.baseURI.indexOf("api/productlibrary.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/product-library/';
-        }
-        else if (document.baseURI.indexOf("api/entitystore.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/entity-store/';
-        }
-        else if(document.baseURI.indexOf(".html") > 0) {
-           window.location.href = document.baseURI.substring(0, document.baseURI.indexOf(".html"));
-        }
-    });
-</script>
-
-
-
-
-
- 
-
-<script>
-  $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
-
-
-
-
-
-
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
 
-<body>
-
-   <!-- Send feedback function -->
-<script>
-    function SendLinkByMail(href) {
-        var subject= " all documentation feedback";
-        var body = "I have some feedback about the Pricing page: ";
-        body += window.location.href;
-        body += "";
-        var uri = "mailto:apidesign@iqmetrix.com?subject=";
-        uri += encodeURIComponent(subject);
-        uri += "&body=";
-        uri += encodeURIComponent(body);
-        window.location.href = uri;
-    }
-</script>
-
-<!-- Navigation -->
-<nav id="navbar-custom" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-   <div class="container topnavlinks">
-   <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      </button>
-      <a href="http://localhost:4006/">
-        <span id="top-iq-logo"><img src="http://melissakendall.github.io/documentation-testing/images/iq-logo-white.png"></span>
-        <span id="projectTitle">iQmetrix Developer Portal</span>
-      </a>
-   </div>
-   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul id="top-bar-categories" class="nav navbar-nav navbar-right">
-      
-      <!-- entries without drop-downs appear here -->
-      <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
-      <!-- 
-
-Hard coding for now, so no longer uses topnav config
-
-
-
-
-
-
-
-
-
-  
-      
-      
-          <li><a href="/api/changelog/">CHANGELOG</a></li>
-      
-    
-  
-      
-      
-          <li class="active"><a href="//">API REFERENCE</a></li>
-       
-    
-  
-      
-      
-          <li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
-      
-    
-  
-
-
--->
-
-<li><a href="/api/">DOCUMENTATION</a></li>
-<li><a href="/api/changelog">CHANGELOG</a></li>
-<li><a href="mailto:?subject=Support">SUPPORT</a></li>
-
-
-         <!--
-      <li>
-         <div id="search-demo-container">
-            <input type="text" id="search-input" placeholder="">
-            <ul id="results-container"></ul>
-         </div>
-         <script src="../..//js/jekyll-search.js" type="text/javascript"></script>
-         <script type="text/javascript">
-            SimpleJekyllSearch({
-              searchInput: document.getElementById('search-input'),
-              resultsContainer: document.getElementById('results-container'),
-              json: '../../search.json',
-              searchResultTemplate: '<li><a href="{url}" title="Pricing">{title}</a></li>',
-              noResultsText: '',
-              exclude: '404'
-            })
-         </script>
-      </li>
-         -->
-    
-
-   </div>
-   <!-- /.container -->
-</nav>
-
-    <!-- Page Content -->
-    <div class="container">
-        <div class="col-lg-12">&nbsp;</div>
-
-            <!-- Col-md-3 -->
-            <!-- Content Row -->
-<div class="row">
-    <!-- Sidebar Column -->
-    <div class="col-md-3">
-
-        <script>
-            $(document).ready(function() {
-
-                // Initialize navgoco with default options
-                $("#mysidebar").navgoco({
-                    caretHtml: '',
-                    accordion: true,
-                    openClass: 'active', // open
-                    save: false, // leave false or nav higlighting doesn't work right
-                    cookie: {
-                        name: 'navgoco',
-                        expires: false,
-                        path: '/'
-                    },
-                    slide: {
-                        duration: 400,
-                        easing: 'swing'
-                    }
-                });
-
-                $("#collapseAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', false);
-                });
-
-                $("#expandAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', true);
-                });
-
-                if(window.location.hostname == "apidocumentation-dev-westus.azurewebsites.net")
-                {
-                    $("a").each(function(e) {
-                        var url = $(this).attr("href");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("href", url);
-                    });
-
-                    $("img").each(function(e) {
-                        var url = $(this).attr("src");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("src", url);
-                    });                    
-                }
-
-                if(window.location.search != "" && window.location.search != null && window.location.search.indexOf("=") > -1) {
-
-                    var entityValue = window.location.search.split("=")[1];
-
-                    $("."+entityValue).hide();
-                }
-            });
-
-        </script>
-
-        <ul id="mysidebar" class="nav affix">
-            
-                
-                    
-                        <li class=""><a href="#">API Reference</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/authentication/">Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/assets/">Assets</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/catalog/">Catalog</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/crm/">Customers</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cost-feed/">Cost Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-feed/">Product Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-subscription/">Product Subscription</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/saccs/">Shipping Aggregator</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/shipping-options/">Shipping Options</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-availability/">Supplier Availability</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-orders/">Supplier Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/entity-store/">Entities</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/general-ledger/">General Ledger</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/availability/">Inventory Availability</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/orders/">Orders</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Partners</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-reporting/">Partner Reporting</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-relationships/">Relationships</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class="active "><a href="/api/pricing">Pricing</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Product Library</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/classification-tree/">Classification Tree</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/field-definitions/">Field Definitions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-library/">Products</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-structure/">Product Structure</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/reference/">Reference</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">RQ</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/carrier-integration/">Carrier Integration</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cmi/">Customer Managed Inventory (CMI)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/commissions/">Commissions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/epc/">Electronic Product Catalog (EPC)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/punch-clock/">Punch Clock</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/vmi/">Vendor Managed Inventory (VMI)</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/security-roles/">Security Roles</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Guides</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-an-in-store-order/">Creating an In Store Order</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-a-user-for-rq/">Creating a User for RQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Client Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-pos-guide/">Dropship Point of Sale Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Partner Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-onboarding-guide/">Dropship Onboarding Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-order-guide/">Dropship Order Management Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-test-order-guide/">Dropship Test Order Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/commerce-guide/">eCommerce Integration Guide</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Endless Aisle Integration Guide</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/overview">Overview</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/corporate-hierarchy">Corporate Hierarchy</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/content">Content</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/inventory">Inventory</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/orders">Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/3pa/">Third Party Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/vmi-onboarding-guide/">VMI Onboarding Guide</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Core Concepts</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/classification-tree/">Classification Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-library/">Product Library</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-structure/">Product Structure</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">FAQ</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/auth-faq/">Authentication FAQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/dropship-faq/">Dropship FAQ</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="/reference-applications/">Reference Applications</a>
-                    
-                
-            
-        </ul>
-
-        
+    <body class="api api_catalog2 api_catalog2_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../../images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="csharp">c#</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
     </div>
-<!-- div missing here is intentional -->
 
-<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
-<script>$("li.active").parents('li').toggleClass("active");</script>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
 
-
-
-            
-              <div class="col-md-7"><link rel="stylesheet" type="text/css" href="../../css/prism.css" />
+      <link rel="stylesheet" type="text/css" href="../../css/prism.css" />
 
 <script src="../../js/prism.js"></script>
 
@@ -685,61 +172,61 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code>16446</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">16446</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CatalogItemId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left"><a href="/api/catalog/#catalogitem">CatalogItem</a> identifier</td>
-      <td style="text-align: left"><code>a183f1a9-c58f-426a-930a-9a6357db52ed</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">a183f1a9-c58f-426a-930a-9a6357db52ed</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CompanyId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the Company associated with this Pricing</td>
-      <td style="text-align: left"><code>14146</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">14146</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EntityId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left"><a href="/api/company-tree/#companytreenode">CompanyTreeNode</a> identifier at which the price is set</td>
-      <td style="text-align: left"><code>14202</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">14202</code></td>
     </tr>
     <tr>
       <td style="text-align: left">FloorPrice</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">The minimum amount the CatalogItem should be sold for</td>
-      <td style="text-align: left"><code>3.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">3.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IsDiscountable</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this Pricing allows discounting. This is not enforced by the API</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">OriginalPrice</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Value used to explicitly show the original price of an item, should it need to be displayed with the regular and sale/override prices</td>
-      <td style="text-align: left"><code>4.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">4.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">OverridePrice</td>
       <td style="text-align: left">Decimal</td>
-      <td style="text-align: left">This value is retrieved from the <code>SalePrice</code> of the current or default <a href="#SaleOverridePrice">SaleOverridePrice</a></td>
-      <td style="text-align: left"><code>3.99</code></td>
+      <td style="text-align: left">This value is retrieved from the <code class="highlighter-rouge">SalePrice</code> of the current or default <a href="#SaleOverridePrice">SaleOverridePrice</a></td>
+      <td style="text-align: left"><code class="highlighter-rouge">3.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PricingTermId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left"><a href="#pricingterm">PricingTerm</a> identifier</td>
-      <td style="text-align: left"><code>78</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">78</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RegularPrice</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">The regular price, must be greater than or equal to 0</td>
-      <td style="text-align: left"><code>10.0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">10.0</code></td>
     </tr>
   </tbody>
 </table>
@@ -764,43 +251,43 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code>1177</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1177</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CompanyId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the Company associated with this Pricing</td>
-      <td style="text-align: left"><code>14146</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">14146</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IsDefault</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate that this is the default SaleOverridePrice</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PricingInformationId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for a <a href="#pricing">Pricing</a></td>
-      <td style="text-align: left"><code>16446</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">16446</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SalePrice</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Sale price</td>
-      <td style="text-align: left"><code>3.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">3.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StartDateUTC</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Date and time the sale pricing begins, in UTC</td>
-      <td style="text-align: left"><code>2015-12-02T00:00:00</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-12-02T00:00:00</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StopDateUTC</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Date and time the sale pricing ends, in UTC</td>
-      <td style="text-align: left"><code>2015-12-31T00:00:00</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-12-31T00:00:00</code></td>
     </tr>
   </tbody>
 </table>
@@ -821,55 +308,55 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code>78</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">78</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Active</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate of this PricingTerm is active. When set to false, this PricingTerm can still be used, but does not appear in the responses to the Getting All Active Pricing Terms request</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CanFinance</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this PricingTerm can be financed</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CarrierEntityId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of a <a href="/api/entities/#Carrier">Carrier</a></td>
-      <td style="text-align: left"><code>9</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">9</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DisplayName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Localized string</td>
-      <td style="text-align: left"><code>2 Year Plan</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2 Year Plan</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EntityId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the <a href="/api/company-tree/#company">Company</a></td>
-      <td style="text-align: left"><code>14146</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">14146</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Name</td>
       <td style="text-align: left">String(255)</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>2 Year Plan</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2 Year Plan</code></td>
     </tr>
     <tr>
       <td style="text-align: left">NumberOfPayments</td>
       <td style="text-align: left">Integer</td>
-      <td style="text-align: left">If <code>CanFinance</code> is true, the number of payments for financing, otherwise this value is <code>null</code></td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left">If <code class="highlighter-rouge">CanFinance</code> is true, the number of payments for financing, otherwise this value is <code class="highlighter-rouge">null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TermLengthInYears</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Length of the PricingTerm in years</td>
-      <td style="text-align: left"><code>3</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">3</code></td>
     </tr>
   </tbody>
 </table>
@@ -2257,128 +1744,85 @@ HTTP 200 Content-Type: application/json
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>A non-default sale override price must have</code><br /><code>start and stop dates associated with it.</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">A non-default sale override price must have</code><br /><code class="highlighter-rouge">start and stop dates associated with it.</code></td>
       <td style="text-align: left">StartDate and StopDate must either both be set or both be null</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>The start date is after, or equal to the end date.</code><br /><code> The start date must come before the end date.</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">The start date is after, or equal to the end date.</code><br /><code class="highlighter-rouge"> The start date must come before the end date.</code></td>
       <td style="text-align: left">StartDate must be before StopDate</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Uri parameter representing resource id and resource</code><br /><code> id found in the request content don't match.</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Uri parameter representing resource id and resource</code><br /><code class="highlighter-rouge"> id found in the request content don't match.</code></td>
       <td style="text-align: left">When performing a PUT, ensure any URI parameters also in the request body match</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>The date range overlaps with another sale period for</code><br /><code> this pricing record.</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">The date range overlaps with another sale period for</code><br /><code class="highlighter-rouge"> this pricing record.</code></td>
       <td style="text-align: left">Update or delelete the existing SaleOverridePrice that overlaps with the date range</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>A default sale override price cannot have start </code><br /><code>or stop dates associated with it.</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">A default sale override price cannot have start </code><br /><code class="highlighter-rouge">or stop dates associated with it.</code></td>
       <td style="text-align: left">Ensure StartDate and StopDate are not set if IsDefault is true</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>The sale price must be greater or equal to zero.</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">The sale price must be greater or equal to zero.</code></td>
       <td style="text-align: left">Ensure SalePrice is non-negative</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>There is already a default sales overide for this pricing record.</code><br /><code> Either delete it first, or modify that record.</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">There is already a default sales overide for this pricing record.</code><br /><code class="highlighter-rouge"> Either delete it first, or modify that record.</code></td>
       <td style="text-align: left">Delete or modify the existing default SaleOverridePrice</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Entity is not related to company</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Entity is not related to company</code></td>
       <td style="text-align: left">Ensure the <a href="/api/company-tree/#location">Location</a> belongs to the <a href="/api/company-tree/#company">Company</a> specified in the URI</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Error while extracting the request query...</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Error while extracting the request query...</code></td>
       <td style="text-align: left">Ensure $filter query parameter is formatted correctly</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 404</code></td>
-      <td style="text-align: left"><code>Cannot find matching records</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 404</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Cannot find matching records</code></td>
       <td style="text-align: left">Ensure <a href="/api/catalog/#catalogitem">CatalogItem</a> ID is valid, CatalogItem exists and belongs to the Company specified in the URI</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 404</code></td>
-      <td style="text-align: left"><code>That term does not exist</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 404</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">That term does not exist</code></td>
       <td style="text-align: left">Ensure <a href="#pricingterm">PricingTerm</a> ID is valid</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 500</code></td>
-      <td style="text-align: left"><code>An error occurred while updating the entries</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 500</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">An error occurred while updating the entries</code></td>
       <td style="text-align: left">Ensure request body is correct, ensure Name property does not contain more then 255 characters</td>
     </tr>
   </tbody>
 </table>
-</div>
-              <div class="col-lg-1 hidden-md hidden-sm hidden-xs"><!-- start page metadata -->
 
 
-<div class="pageMetadata affix">
-    <div class="pageMetadataTitle">Table of Contents</div>
-    
-<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
-<script>
-$( document ).ready(function() {
-
-    $('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2, h3' });
-
-    //Resize once
-    resizeWindow();
-
-    //Resize whenever window changes
-    $(window).resize(function () {
-        resizeWindow();
-    });
-
-});
-
-function resizeWindow() {
-
-    var windowHeight = $(window).height();
-    var windowWidth = $(window).width();
-
-    var tocHeight = $(".pageMetadata").height();
-
-    if(windowWidth < 1560 || windowHeight < tocHeight) {        
-        //Grab "pageMetadata" and move it to first  child of .post-header
-        $(".pageMetadata").prependTo(".post-header");
-        $(".pageMetadata").removeClass("affix");        
-    } else if(windowWidth > 1560) {
-        //Grab "pageMetadata" and move it back to where it was
-        $(".pageMetadata").appendTo(".col-lg-1.hidden-md.hidden-sm.hidden-xs");
-        $(".pageMetadata" ).addClass("affix");
-    }      
-}
-
-</script>
-
-<div id="toc"></div>
-
-    
-    <p><div class="metadataRow"><span class="tagTitle">Last updated:</span> 13-7-2016</div></p>
-    
-
-</div>
-
-
-
-
-<!-- end pageMetadata --></div>
-            
+      </div>
+      <div class="dark-box">
+            <div class="lang-selector">
+               <a href="#" data-language-name="javascript">javascript</a>
+               <a href="#" data-language-name="shell">cURL</a>
+               <a href="#" data-language-name="csharp">c#</a>
+               <a href="#" data-language-name="java">java</a>
+               <a href="#" data-language-name="ruby">ruby</a>
+            </div>
+         </div>
     </div>
 
-</body>
+  </body>
 
-<!-- the google_analytics_id gets auto inserted from the config file -->
+
+  <!-- the google_analytics_id gets auto inserted from the config file -->
 
 
 <script>
@@ -2393,4 +1837,3 @@ function resizeWindow() {
 
 
 </html>
-

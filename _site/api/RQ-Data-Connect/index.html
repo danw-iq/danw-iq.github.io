@@ -1,647 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
- <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=",  ">
-<title>RQ Data Connect  | iQmetrix Developer Portal</title>
-<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/modern-business.css">
-<link rel="stylesheet" type="text/css" href="../../css/customstyles.css">
-<!-- <link rel="stylesheet" type="text/css" href="" | prepend:site.pagefileurl }}"> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script src="../../js/jquery.navgoco.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
-<script src="../../js/toc.js"></script>
-<script src="../../js/customscripts.js"></script>
-<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <title>RQ Data Connect | iQmetrix Developer Portal</title>
+    <link href="../../css/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../css/print.css" rel="stylesheet" media="print" />
+    <script src="../../js/all.js"></script>
 
-
-<!-- Image popup source files -->
-<!-- http://dimsemenov.com/plugins/magnific-popup/ -->
-<link rel="stylesheet" type="text/css" href="../../css/magnific-popup.css">
-<script src="../../js/jquery.magnific-popup.js"></script>
-
-
-<script>
-    $(document).ready(function() {
-
-        // surround each image with an anchor class  for image popup
-        $('img').each( function() {
-            var $img = $(this),
-            href = $img.attr('src');
-            $img.wrap('<a class="image-link" href=' + href + '></a>');
-             
-        });
-
-        // make each image with image-link class popup "on click"
-        // !! Drawback -- all images could popup :(
-        $('.image-link').magnificPopup({
-            type:'image',
-            closeOnContentClick: true
-        });
-                
-    });    
-</script>
-
-
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-<script type="text/javascript">
-    //Hacky code to make sure they don't go to a bad page
-    $( window ).load(function() {
-
-        if (document.baseURI.indexOf("api/generalledger.html") > 0) {
-            window.location.href = 'http://developers.iqmetrix.com/api/general-ledger/';
-        }
-        else if (document.baseURI.indexOf("api/productlibrary.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/product-library/';
-        }
-        else if (document.baseURI.indexOf("api/entitystore.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/entity-store/';
-        }
-        else if(document.baseURI.indexOf(".html") > 0) {
-           window.location.href = document.baseURI.substring(0, document.baseURI.indexOf(".html"));
-        }
-    });
-</script>
-
-
-
-
-
- 
-
-<script>
-  $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
-
-
-
-
-
-
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
 
-<body>
-
-   <!-- Send feedback function -->
-<script>
-    function SendLinkByMail(href) {
-        var subject= " all documentation feedback";
-        var body = "I have some feedback about the RQ Data Connect page: ";
-        body += window.location.href;
-        body += "";
-        var uri = "mailto:apidesign@iqmetrix.com?subject=";
-        uri += encodeURIComponent(subject);
-        uri += "&body=";
-        uri += encodeURIComponent(body);
-        window.location.href = uri;
-    }
-</script>
-
-<!-- Navigation -->
-<nav id="navbar-custom" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-   <div class="container topnavlinks">
-   <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      </button>
-      <a href="http://localhost:4006/">
-        <span id="top-iq-logo"><img src="http://melissakendall.github.io/documentation-testing/images/iq-logo-white.png"></span>
-        <span id="projectTitle">iQmetrix Developer Portal</span>
-      </a>
-   </div>
-   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul id="top-bar-categories" class="nav navbar-nav navbar-right">
-      
-      <!-- entries without drop-downs appear here -->
-      <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
-      <!-- 
-
-Hard coding for now, so no longer uses topnav config
-
-
-
-
-
-
-
-
-
-  
-      
-      
-          <li><a href="/api/changelog/">CHANGELOG</a></li>
-      
-    
-  
-      
-      
-          <li class="active"><a href="//">API REFERENCE</a></li>
-       
-    
-  
-      
-      
-          <li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
-      
-    
-  
-
-
--->
-
-<li><a href="/api/">DOCUMENTATION</a></li>
-<li><a href="/api/changelog">CHANGELOG</a></li>
-<li><a href="mailto:?subject=Support">SUPPORT</a></li>
-
-
-         <!--
-      <li>
-         <div id="search-demo-container">
-            <input type="text" id="search-input" placeholder="">
-            <ul id="results-container"></ul>
-         </div>
-         <script src="../..//js/jekyll-search.js" type="text/javascript"></script>
-         <script type="text/javascript">
-            SimpleJekyllSearch({
-              searchInput: document.getElementById('search-input'),
-              resultsContainer: document.getElementById('results-container'),
-              json: '../../search.json',
-              searchResultTemplate: '<li><a href="{url}" title="RQ Data Connect">{title}</a></li>',
-              noResultsText: '',
-              exclude: '404'
-            })
-         </script>
-      </li>
-         -->
-    
-
-   </div>
-   <!-- /.container -->
-</nav>
-
-    <!-- Page Content -->
-    <div class="container">
-        <div class="col-lg-12">&nbsp;</div>
-
-            <!-- Col-md-3 -->
-            <!-- Content Row -->
-<div class="row">
-    <!-- Sidebar Column -->
-    <div class="col-md-3">
-
-        <script>
-            $(document).ready(function() {
-
-                // Initialize navgoco with default options
-                $("#mysidebar").navgoco({
-                    caretHtml: '',
-                    accordion: true,
-                    openClass: 'active', // open
-                    save: false, // leave false or nav higlighting doesn't work right
-                    cookie: {
-                        name: 'navgoco',
-                        expires: false,
-                        path: '/'
-                    },
-                    slide: {
-                        duration: 400,
-                        easing: 'swing'
-                    }
-                });
-
-                $("#collapseAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', false);
-                });
-
-                $("#expandAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', true);
-                });
-
-                if(window.location.hostname == "apidocumentation-dev-westus.azurewebsites.net")
-                {
-                    $("a").each(function(e) {
-                        var url = $(this).attr("href");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("href", url);
-                    });
-
-                    $("img").each(function(e) {
-                        var url = $(this).attr("src");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("src", url);
-                    });                    
-                }
-
-                if(window.location.search != "" && window.location.search != null && window.location.search.indexOf("=") > -1) {
-
-                    var entityValue = window.location.search.split("=")[1];
-
-                    $("."+entityValue).hide();
-                }
-            });
-
-        </script>
-
-        <ul id="mysidebar" class="nav affix">
-            
-                
-                    
-                        <li class=""><a href="#">API Reference</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/authentication/">Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/assets/">Assets</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/catalog/">Catalog</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/crm/">Customers</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cost-feed/">Cost Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-feed/">Product Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-subscription/">Product Subscription</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/saccs/">Shipping Aggregator</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/shipping-options/">Shipping Options</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-availability/">Supplier Availability</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-orders/">Supplier Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/entity-store/">Entities</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/general-ledger/">General Ledger</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/availability/">Inventory Availability</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/orders/">Orders</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Partners</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-reporting/">Partner Reporting</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-relationships/">Relationships</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/pricing">Pricing</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Product Library</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/classification-tree/">Classification Tree</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/field-definitions/">Field Definitions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-library/">Products</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-structure/">Product Structure</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/reference/">Reference</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">RQ</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/carrier-integration/">Carrier Integration</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cmi/">Customer Managed Inventory (CMI)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/commissions/">Commissions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/epc/">Electronic Product Catalog (EPC)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/punch-clock/">Punch Clock</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/vmi/">Vendor Managed Inventory (VMI)</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/security-roles/">Security Roles</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Guides</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-an-in-store-order/">Creating an In Store Order</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-a-user-for-rq/">Creating a User for RQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Client Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-pos-guide/">Dropship Point of Sale Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Partner Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-onboarding-guide/">Dropship Onboarding Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-order-guide/">Dropship Order Management Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-test-order-guide/">Dropship Test Order Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/commerce-guide/">eCommerce Integration Guide</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Endless Aisle Integration Guide</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/overview">Overview</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/corporate-hierarchy">Corporate Hierarchy</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/content">Content</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/inventory">Inventory</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/orders">Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/3pa/">Third Party Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/vmi-onboarding-guide/">VMI Onboarding Guide</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Core Concepts</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/classification-tree/">Classification Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-library/">Product Library</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-structure/">Product Structure</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">FAQ</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/auth-faq/">Authentication FAQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/dropship-faq/">Dropship FAQ</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="/reference-applications/">Reference Applications</a>
-                    
-                
-            
-        </ul>
-
-        
+    <body class="api api_catalog2 api_catalog2_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../../images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="csharp">c#</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
     </div>
-<!-- div missing here is intentional -->
 
-<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
-<script>$("li.active").parents('li').toggleClass("active");</script>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
 
-
-
-            
-              <div class="col-md-7"><link rel="stylesheet" type="text/css" href="../../css/prism.css" />
+      <link rel="stylesheet" type="text/css" href="../../css/prism.css" />
 
 <script src="../../js/prism.js"></script>
 
@@ -724,67 +211,67 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">AdjustmentType</td>
       <td style="text-align: left">TINYINT</td>
       <td style="text-align: left">Type: 0 = Not Set : 1 = Quantity : 2 = Unit Cost : 3 = New Product : 4 = Delete Product</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Comments</td>
       <td style="text-align: left">VARCHAR (1000)</td>
       <td style="text-align: left">Comments - any comments entered regarding the adjustment; if the adjustment was done via the reconcile receiving invoices screen, it will be noted here automatically</td>
-      <td style="text-align: left"><code>Comment</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Comment</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CountSheetID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CountSheetIDByStore</td>
       <td style="text-align: left">VARCHAR (14)</td>
       <td style="text-align: left">Count Sheet # - if an adjustment is generated from an inventory count sheet it will be noted here</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateCreated</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Adjusted On - date and time the adjustment was made</td>
-      <td style="text-align: left"><code>2015-12-16T07:39:39.49</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-12-16T07:39:39.49</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EmployeeName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Created By - name of the employee who did the adjustment</td>
-      <td style="text-align: left"><code>iQmetrix User</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix User</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IsReceiving</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left">Is Adjustment from receiving Products or not (adjustments made either made through receiving, or manual adjustment)</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Location - where the adjustment was made</td>
-      <td style="text-align: left"><code>100: My Network LLC - Anchorage</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">100: My Network LLC - Anchorage</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalInvoice</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Total Invoice - total dollar amount of the adjustment invoice</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TransactionID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>19240</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">19240</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TransactionIDByStore</td>
       <td style="text-align: left">VARCHAR (14)</td>
       <td style="text-align: left">Transaction # - transaction number, including corrected purchase orders</td>
-      <td style="text-align: left"><code>84WEAIA1187</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">84WEAIA1187</code></td>
     </tr>
   </tbody>
 </table>
@@ -805,13 +292,13 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Comments</td>
       <td style="text-align: left">VARCHAR (100)</td>
       <td style="text-align: left">Comments - any comments entered regarding the adjustment; if an adjustment was made via the reconcile receiving invoices screen, it will automatically be entered in comments</td>
-      <td style="text-align: left"><code>Comment</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Comment</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CountSheetID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CountSheetIDByStore</td>
@@ -823,79 +310,79 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">DateCreated</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Adjusted On - date and time the adjustment was made</td>
-      <td style="text-align: left"><code>2015-12-16T07:39:39.49</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-12-16T07:39:39.49</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EmployeeName</td>
       <td style="text-align: left">VARCHAR (51)</td>
       <td style="text-align: left">Created By - name of the employee who did the adjustment</td>
-      <td style="text-align: left"><code>iQmetrix User</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix User</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IsReceiving</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left">Is Adjustment from receiving Products or not (adjustments made either made through receiving, or manual adjustment)</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductIdentifier</td>
       <td style="text-align: left">VARCHAR (12)</td>
       <td style="text-align: left">Product SKU - RQ generated SKU for the product adjusted</td>
-      <td style="text-align: left"><code>ASMAAP000017</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ASMAAP000017</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Product Name - name of the product as it appears in inventory</td>
-      <td style="text-align: left"><code>Samsung Galaxy S4</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Samsung Galaxy S4</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Quantity</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Quantity - total quantity of the product adjusted</td>
-      <td style="text-align: left"><code>5</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">5</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ReasonCode</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Reason Code - reason code selected from the drop down list at the time of adjustment</td>
-      <td style="text-align: left"><code>Unexplained Shrinkage</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Unexplained Shrinkage</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SerialNumber</td>
       <td style="text-align: left">VARCHAR (100)</td>
       <td style="text-align: left">Tracking # - tracking number, if there is one</td>
-      <td style="text-align: left"><code>123457000000000</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">123457000000000</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Location - where the adjustment was made</td>
-      <td style="text-align: left"><code>100: My Network LLC - Anchorage</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">100: My Network LLC - Anchorage</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalCost</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Total Cost - total cost for that product calculated as Quantity X Unit Cost</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TransactionID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>19240</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">19240</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TransactionIDByStore</td>
       <td style="text-align: left">VARCHAR (14)</td>
       <td style="text-align: left">Transaction # - transaction number, including corrected purchase orders</td>
-      <td style="text-align: left"><code>84WEAIA1187</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">84WEAIA1187</code></td>
     </tr>
     <tr>
       <td style="text-align: left">UnitCost</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Unit Cost - purchase cost per unit; weighted average cost for non-serialized products and true cost for serialized products, see Inventory Valuation in RQ for more information</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorName</td>
@@ -928,25 +415,25 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Quantity</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Qty</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>6679</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">6679</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Location</td>
-      <td style="text-align: left"><code>100: My Network LLC - Anchorage</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">100: My Network LLC - Anchorage</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalValue</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Total Value - dollar value of the charge backs</td>
-      <td style="text-align: left"><code>-100</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">-100</code></td>
     </tr>
   </tbody>
 </table>
@@ -967,31 +454,31 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">CategoryName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Category Name</td>
-      <td style="text-align: left"><code>Financing</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Financing</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CategoryNumber</td>
       <td style="text-align: left">NVARCHAR (100)</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>10101012</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">10101012</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CategoryPath</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Category</td>
-      <td style="text-align: left"><code>&gt;&gt; Activations &gt;&gt; Financing</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">&gt;&gt; Activations &gt;&gt; Financing</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Quantity</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Qty</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalValue</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Total Value - dollar value of the charge backs</td>
-      <td style="text-align: left"><code>-100</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">-100</code></td>
     </tr>
   </tbody>
 </table>
@@ -1012,31 +499,31 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">GlobalProductID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>9809</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">9809</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductIdentifier</td>
       <td style="text-align: left">VARCHAR (12)</td>
       <td style="text-align: left">Product SKU</td>
-      <td style="text-align: left"><code>ACFNRB000008</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ACFNRB000008</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Product Name</td>
-      <td style="text-align: left"><code>Vendor Rebate</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Vendor Rebate</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Quantity</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Qty</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalValue</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Total Value - dollar value of the charge backs</td>
-      <td style="text-align: left"><code>-100</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">-100</code></td>
     </tr>
   </tbody>
 </table>
@@ -1057,43 +544,43 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">AssociationNumber</td>
       <td style="text-align: left">SMALLINT</td>
       <td style="text-align: left">When adding products with PAW all associated products from the sale have the same association number tied together, this value increments based on how many sales are made on that order</td>
-      <td style="text-align: left"><code>7</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">7</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CarrierPrice</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Carrier Price - value or revenue assigned by the carrier</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CategoryName</td>
       <td style="text-align: left">VARCHAR(100)</td>
       <td style="text-align: left">Category - inventory category to which the SKU belongs</td>
-      <td style="text-align: left"><code>10101012</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">10101012</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CategoryNumber</td>
       <td style="text-align: left">VARCHAR(100)</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>Financing</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Financing</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ChargeBackCode</td>
       <td style="text-align: left">VARCHAR(500)</td>
       <td style="text-align: left">Charge Back Code - specific code for this charge back</td>
-      <td style="text-align: left"><code>iQmetrix User</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix User</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ChargedBackByEmployee</td>
       <td style="text-align: left">VARCHAR(160)</td>
       <td style="text-align: left">Sales Person - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ChargedBackByEmployeeID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Tendered By - name of the employee logged into RQ when the invoice was tendered</td>
-      <td style="text-align: left"><code>Warning</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Warning</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Comments</td>
@@ -1105,73 +592,73 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">CustomerID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CustomerName</td>
       <td style="text-align: left">VARCHAR(160)</td>
       <td style="text-align: left">Customer Name - name of the customer as entered on their profile</td>
-      <td style="text-align: left"><code>No Customer</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">No Customer</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateChargedBack</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Charged Back - date of the charge back</td>
-      <td style="text-align: left"><code>2016-05-20T07:57:42.417</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2016-05-20T07:57:42.417</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateInvoiced</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Invoiced - date originally invoiced</td>
-      <td style="text-align: left"><code>2016-05-20T06:47:10.543</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2016-05-20T06:47:10.543</code></td>
     </tr>
     <tr>
       <td style="text-align: left">FullChargeBack</td>
       <td style="text-align: left">IDUNIQUEIDENTIFIER</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>322aa012-82dc-4373-a7d6-82faa2b4738b</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">322aa012-82dc-4373-a7d6-82faa2b4738b</code></td>
     </tr>
     <tr>
       <td style="text-align: left">FullChargeBackIDByStore</td>
       <td style="text-align: left">VARCHAR(30)</td>
       <td style="text-align: left">Charge Back # - invoice number for the charge back</td>
-      <td style="text-align: left"><code>77224FC1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">77224FC1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">GlobalProductID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>9809</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">9809</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoicedByEmployee</td>
       <td style="text-align: left">VARCHAR(160)</td>
       <td style="text-align: left">Tendered By - name of the employee logged into RQ when the invoice was tendered</td>
-      <td style="text-align: left"><code>iQmetrix User</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix User</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoicedByEmployeeID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductIdentifier</td>
       <td style="text-align: left">VARCHAR(12)</td>
       <td style="text-align: left">Product SKU - SKU of the product charged back</td>
-      <td style="text-align: left"><code>ACFNRB000008</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ACFNRB000008</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductName</td>
       <td style="text-align: left">VARCHAR(100)</td>
       <td style="text-align: left">Product Name - description of the product charged back</td>
-      <td style="text-align: left"><code>Vendor Rebate</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Vendor Rebate</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Quantity</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Qty - total count of charge backs</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RelatedProduct</td>
@@ -1183,31 +670,31 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">RelatedProductID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SaleInvoiceID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>129036</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">129036</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SaleInvoiceIDByStore</td>
       <td style="text-align: left">VARCHAR(30)</td>
       <td style="text-align: left">Invoice # - original invoice number</td>
-      <td style="text-align: left"><code>77224IN5</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">77224IN5</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SerialNumber</td>
       <td style="text-align: left">VARCHAR(100)</td>
       <td style="text-align: left">Tracking Number - tracking number associated with the product charged back</td>
-      <td style="text-align: left"><code>1123123132</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1123123132</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalValue</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Total Value - dollar value of the charge backs</td>
-      <td style="text-align: left"><code>-100</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">-100</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorName</td>
@@ -1240,31 +727,31 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Commission</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Commission</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoicedByEmployee</td>
       <td style="text-align: left">VARCHAR (51)</td>
       <td style="text-align: left">Employee</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoicedByEmployeeID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>iQmetrix User</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix User</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Quantity</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Qty</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalValue</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Total Value - dollar value of the charge backs</td>
-      <td style="text-align: left"><code>5</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">5</code></td>
     </tr>
   </tbody>
 </table>
@@ -1285,13 +772,13 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">AssociationNumber</td>
       <td style="text-align: left">SMALLINT</td>
       <td style="text-align: left">Sales Person - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box</td>
-      <td style="text-align: left"><code>7</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">7</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CommissionRebate1</td>
       <td style="text-align: left">NVARCHAR(1000)</td>
       <td style="text-align: left">Commission Rebate 1 - name of the first commission rebate</td>
-      <td style="text-align: left"><code>SaslTel New Activation</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">SaslTel New Activation</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CommissionRebate2</td>
@@ -1303,19 +790,19 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">CustomerID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">When adding products with PAW all associated products from the sale have the same association number tied together, this value increments based on how many sales are made on that order</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CustomerName</td>
       <td style="text-align: left">VARCHAR(160)</td>
       <td style="text-align: left">Customer Name - name of the customer as entered on their profile</td>
-      <td style="text-align: left"><code>No Customer</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">No Customer</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateInvoiced</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Tendered On - date tendered</td>
-      <td style="text-align: left"><code>2016-05-20T06:47:10.543</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2016-05-20T06:47:10.543</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EquipmentRebate</td>
@@ -1333,19 +820,19 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">HardwareRebateSKU</td>
       <td style="text-align: left">VARCHAR(12)</td>
       <td style="text-align: left">Equipment Rebate SKU - SKU of the equipment rebate</td>
-      <td style="text-align: left"><code>CPCCRB000104</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">CPCCRB000104</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoicedByEmployee</td>
       <td style="text-align: left">VARCHAR(160)</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoicedByEmployeeID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Sales Person - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box</td>
-      <td style="text-align: left"><code>iQmetrix User</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix User</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IsFullChargedBack1</td>
@@ -1375,7 +862,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Price</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Price - actual invoiced price</td>
-      <td style="text-align: left"><code>99.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">99.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RatePlanRebate2GlobalProductID</td>
@@ -1411,7 +898,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">RelatedProductID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SaleInvoiceID</td>
@@ -1435,13 +922,13 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">StoreID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Collection Date - date collected</td>
-      <td style="text-align: left"><code>6679</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">6679</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreName</td>
       <td style="text-align: left">VARCHAR(100)</td>
       <td style="text-align: left">Tendered At - location where tendered</td>
-      <td style="text-align: left"><code>100: My Network LLC - Anchorage</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">100: My Network LLC - Anchorage</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorName</td>
@@ -1480,49 +967,49 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">BinStatus</td>
       <td style="text-align: left">VARCHAR(100)</td>
       <td style="text-align: left">Status - dependent on the Status setting in the search criteria but can be In Stock, On RMA, Transfer In, Transfer Out, On Order, On Loan or Non Sellable</td>
-      <td style="text-align: left"><code>String_InStock</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">String_InStock</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CategoryPath</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Category - inventory category</td>
-      <td style="text-align: left"><code>&gt;&gt; @ Activations (Price Sheets) &gt;&gt; AT&amp;T Price Sheet &gt;&gt; Equipment</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">&gt;&gt; @ Activations (Price Sheets) &gt;&gt; AT&amp;T Price Sheet &gt;&gt; Equipment</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ChannelName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Channel - channel for the rows location</td>
-      <td style="text-align: left"><code>English Channel</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">English Channel</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateEOL</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">EOL - date this product will be End of Life</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DiscontinuedDate</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Discontinued Date - date that this product was, or will be, discontinued</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DistrictName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">District - district for the rows location</td>
-      <td style="text-align: left"><code>Westminster</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Westminster</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DoNotOrder</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left">Do Not Order - yes/no field noting whether this product has been marked Do Not Order</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IsUsed</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left">Used - this will show checked if the product is in a used status</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ManufacturerPartNumber</td>
@@ -1534,79 +1021,79 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">NoSale</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left">Do Not Sell - yes/no field noting whether this product has been marked Do Not Sell</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductIdentifier</td>
       <td style="text-align: left">VARCHAR (12)</td>
       <td style="text-align: left">Product SKU - RQ generated SKU</td>
-      <td style="text-align: left"><code>AAATAP000093</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">AAATAP000093</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Product Name - name of the product as it appears in the inventory</td>
-      <td style="text-align: left"><code>Apple iPhone 6 Plus 16GB Space Gray - AT&amp;T</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Apple iPhone 6 Plus 16GB Space Gray - AT&amp;T</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Quantity</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Quantity - total number in stock at the location</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RefundPeriodLength</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Refund Period (days) - number of days that product can be refunded in</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RegionName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Region - region for the rows location</td>
-      <td style="text-align: left"><code>London</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">London</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SerialNumber</td>
       <td style="text-align: left">VARCHAR(100)</td>
       <td style="text-align: left">Tracking # - any serial number attached to the particular product</td>
-      <td style="text-align: left"><code>2342342341</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2342342341</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SpecialOrder</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left">Special Order - yes/no field noting this product as a Special Order</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Location - where the product is in stock</td>
-      <td style="text-align: left"><code>100: My Network LLC - Anchorage</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">100: My Network LLC - Anchorage</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreTypeName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Location Type - location type where the product is in stock</td>
-      <td style="text-align: left"><code>Costco</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Costco</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalCost</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Total Cost - Quantity X Unit Cost</td>
-      <td style="text-align: left"><code>699</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">699</code></td>
     </tr>
     <tr>
       <td style="text-align: left">UnitCost</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Unit Cost - purchase cost per unit; weighted average cost for non-serialized products and true cost for serialized products, see Inventory Valuation in RQ for more information</td>
-      <td style="text-align: left"><code>699</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">699</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Vendor - vendor from whom the individual product was purchased</td>
-      <td style="text-align: left"><code>Offwire</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Offwire</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorPartNumber</td>
@@ -1624,7 +1111,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">WriteOff</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left">Write Off - yes/no field noting this product as a Write Off</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
   </tbody>
 </table>
@@ -1645,97 +1132,97 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">CarrierPrice</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Carrier Price - value or revenue that a carrier assigns this feature</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ChargeBack</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Charge Back - amount the carrier is charging back</td>
-      <td style="text-align: left"><code>-1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">-1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ChargeBackID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Charge Back # - charge back invoice number assigned by RQ</td>
-      <td style="text-align: left"><code>25</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">25</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ChargeBackIDByStore</td>
       <td style="text-align: left">VARCHAR (30)</td>
       <td style="text-align: left">Charge Back # - charge back invoice number assigned by RQ</td>
-      <td style="text-align: left"><code>REDSTCB10</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">REDSTCB10</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateAdjusted</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Applied Date - date the charge back was applied</td>
-      <td style="text-align: left"><code>2016-05-10T00:00:00</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2016-05-10T00:00:00</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateCreated</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Invoice Date - date of the original sale invoice</td>
-      <td style="text-align: left"><code>2016-05-10T08:18:57.377</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2016-05-10T08:18:57.377</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EmployeeName</td>
       <td style="text-align: left">VARCHAR (51)</td>
       <td style="text-align: left">Charged Back By - name of the employee logged into RQ when the Charge Back was done</td>
-      <td style="text-align: left"><code>iQmetrix User</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix User</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoiceDate</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Charge Back Date - date the charge back took effect</td>
-      <td style="text-align: left"><code>2016-03-16T00:00:00</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2016-03-16T00:00:00</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoiceIDByStore</td>
       <td style="text-align: left">VARCHAR (14)</td>
       <td style="text-align: left">Invoice Date - date of the original sale invoice</td>
-      <td style="text-align: left"><code>REDSTIN916</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">REDSTIN916</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductIdentifier</td>
       <td style="text-align: left">VARCHAR (12)</td>
       <td style="text-align: left">Product SKU - the RQ generated SKU</td>
-      <td style="text-align: left"><code>ASBORB000098</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ASBORB000098</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Product Name - description of the product as it appears in the inventory</td>
-      <td style="text-align: left"><code>Apple iPhone 6 Plus 16GB Space Gray - AT&amp;T</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Apple iPhone 6 Plus 16GB Space Gray - AT&amp;T</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Quantity</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Qty - total count of particular charged back SKUs on the charge back invoice</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SaleInvoiceID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Invoice # - invoice number assigned by RQ</td>
-      <td style="text-align: left"><code>127354</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">127354</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SerialNumber</td>
       <td style="text-align: left">VARCHAR (100)</td>
       <td style="text-align: left">Tracking # - the tracking number associated with this entry, most frequently the customers mobile number</td>
-      <td style="text-align: left"><code>123</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">123</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalPrice</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Total Rebate - original rebate less the return amount</td>
-      <td style="text-align: left"><code>699</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">699</code></td>
     </tr>
     <tr>
       <td style="text-align: left">UnitPrice</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Unit Rebate - reconciled amount, either the actual original amount or the adjusted from reconciliation amount</td>
-      <td style="text-align: left"><code>700</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">700</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorName</td>
@@ -1768,31 +1255,31 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Activation_RowID</td>
       <td style="text-align: left">UNIQUEIDENTIFIER</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>d3d65281-5201-4927-9bac-6f3a47ddf56b</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">d3d65281-5201-4927-9bac-6f3a47ddf56b</code></td>
     </tr>
     <tr>
       <td style="text-align: left">AdjustedUnitPrice</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Adjusted Unit Price - price that the product was actually sold for</td>
-      <td style="text-align: left"><code>25</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">25</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CarrierPrice</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Carrier Price - value or revenue that a carrier assigns this feature</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CategoryPath</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Category - the category the product belongs to</td>
-      <td style="text-align: left"><code>&gt;&gt; Phones &gt;&gt; Galaxies</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">&gt;&gt; Phones &gt;&gt; Galaxies</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ChannelName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Channel - channel for the rows location</td>
-      <td style="text-align: left"><code>English Channel</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">English Channel</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Comments</td>
@@ -1804,235 +1291,235 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ContractNumber</td>
       <td style="text-align: left">VARCHAR (50)</td>
       <td style="text-align: left">Contract # - number of the contract, recorded at the time of sale</td>
-      <td style="text-align: left"><code>12345</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">12345</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CustomerID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>131149</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">131149</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CustomerName</td>
       <td style="text-align: left">VARCHAR (101)</td>
       <td style="text-align: left">Customer - name of the customer as entered on their profile</td>
-      <td style="text-align: left"><code>Bob Jones</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Bob Jones</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateCreated</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Sold On - date and time the invoice was tendered</td>
-      <td style="text-align: left"><code>2016-05-13T12:18:08.723</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2016-05-13T12:18:08.723</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DistrictName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">District - district for the rows location</td>
-      <td style="text-align: left"><code>Westminster</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Westminster</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EmployeeName</td>
       <td style="text-align: left">VARCHAR (51)</td>
       <td style="text-align: left">Sold By - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box</td>
-      <td style="text-align: left"><code>iQmetrix User</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix User</code></td>
     </tr>
     <tr>
       <td style="text-align: left">GlobalProductID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>5179</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">5179</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoicedAt</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Invoiced At - name of the location which takes the inventory on a refund, usually the same as Invoiced By but will be different if a second location process a refund</td>
-      <td style="text-align: left"><code>100: My Network LLC - Anchorage</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">100: My Network LLC - Anchorage</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoicedBy</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Invoiced By - name of the location which credited with the sale, usually the same as Invoiced At but will be different if a second location process a refund</td>
-      <td style="text-align: left"><code>100: My Network LLC - Anchorage</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">100: My Network LLC - Anchorage</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoiceIDByStore</td>
       <td style="text-align: left">VARCHAR (14)</td>
       <td style="text-align: left">Invoice # - invoice number assigned by RQ</td>
-      <td style="text-align: left"><code>77224IN3</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">77224IN3</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IsOrderServiceDropShipProduct</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IsOrderServiceShippingProduct</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ListPrice</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">List Price - current price as noted on the pricing tab in the inventory console for the product</td>
-      <td style="text-align: left"><code>449.95</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">449.95</code></td>
     </tr>
     <tr>
       <td style="text-align: left">OriginalUnitPrice</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Orig. Unit Price - original price on the invoice</td>
-      <td style="text-align: left"><code>25</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">25</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Priority</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">The order that the products were saved in on an Invoice</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductCouponDiscount</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductIdentifier</td>
       <td style="text-align: left">VARCHAR(12)</td>
       <td style="text-align: left">Product SKU - the RQ generated SKU</td>
-      <td style="text-align: left"><code>ASHCSA000120</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ASHCSA000120</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Product Name - name of the product as it appears in the inventory</td>
-      <td style="text-align: left"><code>Samsung Galaxy Rugby LTE</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Samsung Galaxy Rugby LTE</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Quantity</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Qty - total number of times the Product SKU appears on the invoice</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Refund</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left">Refund - indicates if a negative quantity of this item was sold</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RegionName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Region - region for the rows location</td>
-      <td style="text-align: left"><code>London</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">London</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RetailerCatalogID</td>
       <td style="text-align: left">VARCHAR (50)</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SaleInvoice_RowID</td>
       <td style="text-align: left">UNIQUEIDENTIFIER</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>8c6537ae-75a5-4155-82b2-c8647ed05f3d</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">8c6537ae-75a5-4155-82b2-c8647ed05f3d</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SaleInvoiceID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Invoice # - invoice number assigned by RQ</td>
-      <td style="text-align: left"><code>128962</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">128962</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SaleInvoiceProduct_RowID</td>
       <td style="text-align: left">UNIQUEIDENTIFIER</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>0099b78f-ba02-4a91-afd4-2f7eb0fbbb06</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0099b78f-ba02-4a91-afd4-2f7eb0fbbb06</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SerialNumber</td>
       <td style="text-align: left">VARCHAR (100)</td>
       <td style="text-align: left">Tracking # - tracking number associated with this product, serialized products only</td>
-      <td style="text-align: left"><code>1111111</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1111111</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SoldAsUsed</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left">Sold As Used - indicates the product was used when sold</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SpecialProductID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreInStoreFlowIsEnabledForStore</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreInStoreGrossProfit</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">SIS Gross Profit - profit, calculated as Total Sales - Cost for a SIS location.</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreInStoreListPrice</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">SIS List Price - Price from the store-in-store setup of the product</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreInStorePrice</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Sold For - price that appeared on the invoice (including hide on invoice items), i.e. negative if a refund</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreTypeName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Location Type - the location type the the transaction was performed at</td>
-      <td style="text-align: left"><code>Costco</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Costco</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TenderedBy</td>
       <td style="text-align: left">VARCHAR (51)</td>
       <td style="text-align: left">Tendered By - name of the employee logged into RQ when the invoice was tendered</td>
-      <td style="text-align: left"><code>iQmetrix User</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix User</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalCost</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Total Cost - total purchase cost for the product(s) on the invoice</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalDiscount</td>
       <td style="text-align: left">DECIMAL (8, 4)</td>
       <td style="text-align: left">Total Discount - net discount amount for the Product SKU on the particular invoice</td>
-      <td style="text-align: left"><code>424.95</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">424.95</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalPrice</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Total Sales - net dollar amount for the Product SKU on the particular invoice</td>
-      <td style="text-align: left"><code>25</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">25</code></td>
     </tr>
     <tr>
       <td style="text-align: left">UnitCost</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Unit Cost - purchase cost per unit</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">UnitPrice</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Sold For - price that appeared on the invoice (including hide on invoice items), i.e. negative if a refund</td>
-      <td style="text-align: left"><code>25</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">25</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorName</td>
@@ -2065,19 +1552,19 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ColName</td>
       <td style="text-align: left">VARCHAR</td>
       <td style="text-align: left">Tax name</td>
-      <td style="text-align: left"><code>T102</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">T102</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ColCaption</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Description</td>
-      <td style="text-align: left"><code>Flat tax</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Flat tax</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CreditCardPaymentType</td>
       <td style="text-align: left">VARCHAR (20)(20)</td>
       <td style="text-align: left">Credit card information</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
   </tbody>
 </table>
@@ -2098,43 +1585,43 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Amount</td>
       <td style="text-align: left">MONEY </td>
       <td style="text-align: left">Amount</td>
-      <td style="text-align: left"><code>22.5</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">22.5</code></td>
     </tr>
     <tr>
       <td style="text-align: left">GlobalProductID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Identifier of a Product in RQ</td>
-      <td style="text-align: left"><code>5179</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">5179</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Priority</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Priority</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SaleInvoiceID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Identifier of a sale invoice in RQ</td>
-      <td style="text-align: left"><code>128996</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">128996</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SerialNumber</td>
       <td style="text-align: left">VARCHAR (100) </td>
       <td style="text-align: left">Serial number</td>
-      <td style="text-align: left"><code>2222222</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2222222</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TaxID</td>
       <td style="text-align: left">VARCHAR</td>
       <td style="text-align: left">Tax identifier</td>
-      <td style="text-align: left"><code>T102</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">T102</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TaxName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Tax name</td>
-      <td style="text-align: left"><code>Brad flat tax</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Brad flat tax</code></td>
     </tr>
   </tbody>
 </table>
@@ -2155,25 +1642,25 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ChannelName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Channel - channel for the rows location</td>
-      <td style="text-align: left"><code>English Channel</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">English Channel</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Comments</td>
       <td style="text-align: left">VARCHAR (1000)</td>
       <td style="text-align: left">Comments - comments entered on the RMA form will be displayed here</td>
-      <td style="text-align: left"><code>Phone missing from package delivered on invoice #87742</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Phone missing from package delivered on invoice #87742</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Committed</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left">Committed On - date and time committed</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Completed</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left">Completed - indicates if the RMA is completed</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CreditInvoiceNumber</td>
@@ -2185,7 +1672,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">CustomerID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Committed - indicates if the RMA is committed or non-committed</td>
-      <td style="text-align: left"><code>-1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">-1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CustomerName</td>
@@ -2197,97 +1684,97 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">DateCommitted</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Committed - indicates if the RMA is committed or non-committed</td>
-      <td style="text-align: left"><code>2011-03-02T17:10:11.78</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2011-03-02T17:10:11.78</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateCreated</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Created On - date and time the RMA was created</td>
-      <td style="text-align: left"><code>2011-03-02T17:10:11.78</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2011-03-02T17:10:11.78</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DistrictName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">District - district for the rows location</td>
-      <td style="text-align: left"><code>Valley Area District</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Valley Area District</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EmployeeName</td>
       <td style="text-align: left">VARCHAR (51)</td>
       <td style="text-align: left">Created By - name of the employee logged into RQ when the RMA was created</td>
-      <td style="text-align: left"><code>iQmetrix User</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix User</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ReceivingComments</td>
       <td style="text-align: left">VARCHAR (1000)</td>
       <td style="text-align: left">Receiving Comments - comments entered during the RMA completion process will be displayed here</td>
-      <td style="text-align: left"><code>Received Credit on 2/22/11.</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Received Credit on 2/22/11.</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RegionName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Region - region for the rows location</td>
-      <td style="text-align: left"><code>Region A</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Region A</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RMANumber</td>
       <td style="text-align: left">VARCHAR (15)</td>
       <td style="text-align: left">RMA # - RMA number assigned by RQ</td>
-      <td style="text-align: left"><code>112482</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">112482</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippedAway</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left">Shipped Away - indicates if the Shipped box on the RMA has been checked</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingCost</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Shipping Cost - total of the cost to return the product</td>
-      <td style="text-align: left"><code>8.5</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">8.5</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingMethod</td>
       <td style="text-align: left">VARCHAR (30)</td>
       <td style="text-align: left">Shipping Method - shipping company name will appear here</td>
-      <td style="text-align: left"><code>Regular</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Regular</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StockBalanceID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Way Bill # - tracking number provided by shipping company, e.g. UPS, Purolator, etc.</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StockBalanceIDByStore</td>
       <td style="text-align: left">VARCHAR (14)</td>
       <td style="text-align: left">RMA # - RMA number assigned by RQ</td>
-      <td style="text-align: left"><code>84WEASB1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">84WEASB1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Location - location that created the RMA</td>
-      <td style="text-align: left"><code>84 West</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">84 West</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalCost</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Total Cost - total cost of items sent away on RMA</td>
-      <td style="text-align: left"><code>460</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">460</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalCostCredited</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Total Cost Credited - amount credited by vendor for products on the RMA. It grabs the average cost under the product.</td>
-      <td style="text-align: left"><code>459</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">459</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Vendor RMA # - RMA # provided by the vendor, should be noted to provide an audit trail.</td>
-      <td style="text-align: left"><code>Reliance</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Reliance</code></td>
     </tr>
     <tr>
       <td style="text-align: left">WaybillNumber</td>
@@ -2314,79 +1801,79 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ActionTaken</td>
       <td style="text-align: left">TINYINT</td>
       <td style="text-align: left">Type - indicated the type of RMA: Credit, Replacement, Rejected or Repaired (1:Credit, 2:Replacement, 3:Rejected, 4:Repaired)</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ChannelName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Channel - channel for the rows location</td>
-      <td style="text-align: left"><code>English Channel</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">English Channel</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateCreated</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Vendor RMA # - RMA # provided by the vendor, should be noted to provide an audit trail</td>
-      <td style="text-align: left"><code>2011-03-02T17:10:11.78</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2011-03-02T17:10:11.78</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateReceived</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Received On - date and time the RMA was received</td>
-      <td style="text-align: left"><code>2011-03-02T17:18:44.913</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2011-03-02T17:18:44.913</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateShipped</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Shipped On - date and time the Shipped box was checked</td>
-      <td style="text-align: left"><code>2011-03-02T17:10:12.17</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2011-03-02T17:10:12.17</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DistrictName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">District - district for the rows location</td>
-      <td style="text-align: left"><code>Valley Area District</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Valley Area District</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EmployeeName1</td>
       <td style="text-align: left">VARCHAR (51)</td>
       <td style="text-align: left">Shipped By - name of the employee logged into RQ when the RMA was shipped</td>
-      <td style="text-align: left"><code>iQmetrix User</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix User</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EmployeeName2</td>
       <td style="text-align: left">VARCHAR (51)</td>
       <td style="text-align: left">Received By - name of the employee logged into RQ when the RMA was received</td>
-      <td style="text-align: left"><code>iQmetrix User</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix User</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductIdentifier</td>
       <td style="text-align: left">VARCHAR (12)</td>
       <td style="text-align: left">Product SKU - RQ generated SKU</td>
-      <td style="text-align: left"><code>ACPHUT000163</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ACPHUT000163</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Product Name - name of the product as it appears in the inventory</td>
-      <td style="text-align: left"><code>HTC Droid Incredible</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTC Droid Incredible</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Quantity</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Quantity - total number of that product SKU on the purchase order</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RegionName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Region - region for the rows location</td>
-      <td style="text-align: left"><code>Region A</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Region A</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RMANumber</td>
       <td style="text-align: left">VARCHAR (15)</td>
       <td style="text-align: left">RMA # - RMA number assigned by RQ</td>
-      <td style="text-align: left"><code>112482</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">112482</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SerialNumberAdded</td>
@@ -2398,49 +1885,49 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">SerialNumberRemoved</td>
       <td style="text-align: left">VARCHAR (100)</td>
       <td style="text-align: left">Tracking # Shipped - tracking number shipped from inventory</td>
-      <td style="text-align: left"><code>A1000017AB0E93</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">A1000017AB0E93</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StockBalanceID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">RMA # - RMA number assigned by RQ</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StockBalanceIDByStore</td>
       <td style="text-align: left">VARCHAR (14)</td>
       <td style="text-align: left">Vendor RMA # - RMA # provided by the vendor, should be noted to provide an audit trail</td>
-      <td style="text-align: left"><code>84WEASB1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">84WEASB1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Location - location that created the RMA</td>
-      <td style="text-align: left"><code>84 West</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">84 West</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalCost</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Total Cost - total cost of items sent away on RMA</td>
-      <td style="text-align: left"><code>460</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">460</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalCostCredited</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Total Cost Credited - dollar amount credited by vendor for products on the RMA</td>
-      <td style="text-align: left"><code>459</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">459</code></td>
     </tr>
     <tr>
       <td style="text-align: left">UnitCost</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Unit Cost - purchase cost per unit sent away on RMA; weighted average cost for non-serialized products and true cost for serialized products, click Inventory Valuation in RQ for more information</td>
-      <td style="text-align: left"><code>460</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">460</code></td>
     </tr>
     <tr>
       <td style="text-align: left">UnitCostCredited</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Unit Cost Credited - dollar amount of the credit granted by the vendor per unit</td>
-      <td style="text-align: left"><code>459</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">459</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorInvoiceNumber</td>
@@ -2452,7 +1939,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">VendorName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">RMA Vendor - vendor to whom the product was returned</td>
-      <td style="text-align: left"><code>Reliance</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Reliance</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorPartNumber</td>
@@ -2479,61 +1966,61 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">BillingStoreName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Bill To - location to be billed</td>
-      <td style="text-align: left"><code>100: My Network LLC - Anchorage</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">100: My Network LLC - Anchorage</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CancelledByID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CancelledByName</td>
       <td style="text-align: left">VARCHAR (51)</td>
       <td style="text-align: left">Cancelled By - employee logged into RQ when the transfer was cancelled</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CancelledDate</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Cancelled On - date and time the transfer was cancelled</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Committed</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left">Committed - indicates if the transfer has been committed or not</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Completed</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left">Completed - indicates if the transfer has been completed, i.e. received by the requesting location</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateCommitted</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Committed On - date and time the transfer was committed</td>
-      <td style="text-align: left"><code>2016-04-19T14:57:20.32</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2016-04-19T14:57:20.32</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateRequested</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Requested On - date and time the product(s) were requested</td>
-      <td style="text-align: left"><code>2016-04-19T14:57:20.32</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2016-04-19T14:57:20.32</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EstimatedArrivalDate</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">ETA - original estimate of date of delivery</td>
-      <td style="text-align: left"><code>2016-04-20T00:00:00</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2016-04-20T00:00:00</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ReceivingChannelName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Received At Channel - channel that received the inventory</td>
-      <td style="text-align: left"><code>English Channel</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">English Channel</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ReceivingComments</td>
@@ -2545,19 +2032,19 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ReceivingDistrictName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Received At District - district that received the inventory</td>
-      <td style="text-align: left"><code>Westminster</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Westminster</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ReceivingRegionName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Received At Region - region that received the inventory</td>
-      <td style="text-align: left"><code>London</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">London</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ReceivingStoreName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Received At - location that received the product(s) shipped from another location</td>
-      <td style="text-align: left"><code>100: My Network LLC - Anchorage</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">100: My Network LLC - Anchorage</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RequestingComments</td>
@@ -2569,13 +2056,13 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">RequestingEmployeeName</td>
       <td style="text-align: left">VARCHAR (51)</td>
       <td style="text-align: left">Requested By - employee logged into RQ when the request was made</td>
-      <td style="text-align: left"><code>iQmetrix User</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix User</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingChannelName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Shipped From Channel - channel that shipped the inventory</td>
-      <td style="text-align: left"><code>English Channel</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">English Channel</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingComments</td>
@@ -2587,55 +2074,55 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ShippingCost</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Shipping Cost - total cost to ship the product(s)</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingDistrictName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Shipped From District - district that shipped the inventory</td>
-      <td style="text-align: left"><code>Valley Area District</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Valley Area District</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingMethod</td>
       <td style="text-align: left">VARCHAR (30)</td>
       <td style="text-align: left">Shipping Method - selected at the time of shipping</td>
-      <td style="text-align: left"><code>Regular</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Regular</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingRegionName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Shipped From Region - region that shipped the inventory</td>
-      <td style="text-align: left"><code>Region A</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Region A</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingStoreName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Shipped From - location that shipped the product(s) to another location</td>
-      <td style="text-align: left"><code>84 West</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">84 West</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalInvoice</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Total Invoice - total dollar amount of the cost of the product(s) on being transferred</td>
-      <td style="text-align: left"><code>500</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">500</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TransferID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Transfer # - transfer number generated by RQ</td>
-      <td style="text-align: left"><code>4326</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">4326</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TransferIDByStore</td>
       <td style="text-align: left">VARCHAR (14)</td>
       <td style="text-align: left">Transfer # - transfer number generated by RQ</td>
-      <td style="text-align: left"><code>77224TR1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">77224TR1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">WaybillNumber</td>
       <td style="text-align: left">VARCHAR (100)</td>
       <td style="text-align: left">Way Bill # - tracking number provided by shipping company, e.g. UPS, Purolator, etc.</td>
-      <td style="text-align: left"><code>53454354</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">53454354</code></td>
     </tr>
   </tbody>
 </table>
@@ -2656,91 +2143,91 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">CancelledByID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CancelledByName</td>
       <td style="text-align: left">VARCHAR (51)</td>
       <td style="text-align: left">Cancelled By - cancelling employee</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CancelledDate</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Cancelled On - date the transfer was cancelled</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CategoryPath</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Category - inventory category this product lives in</td>
-      <td style="text-align: left"><code>&gt;&gt; Phones &gt;&gt; Galaxies</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">&gt;&gt; Phones &gt;&gt; Galaxies</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateReceived</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Received On - date the item(s) were received on</td>
-      <td style="text-align: left"><code>2011-06-02T10:04:51.59</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2011-06-02T10:04:51.59</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateShipped</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Shipped On - date the item(s) was shipped</td>
-      <td style="text-align: left"><code>2011-06-02T09:41:08.027</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2011-06-02T09:41:08.027</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductIdentifier</td>
       <td style="text-align: left">VARCHAR(12)</td>
       <td style="text-align: left">Product SKU - RQ generated SKU</td>
-      <td style="text-align: left"><code>ASBORI000028</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ASBORI000028</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Product Name - name of this product as it appears in inventory</td>
-      <td style="text-align: left"><code>BG Curve2 Posh PK</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">BG Curve2 Posh PK</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Quantity</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Quantity - quantity of item transferred</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ReceivingChannelName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Received At Channel - channel that received the inventory</td>
-      <td style="text-align: left"><code>English Channel</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">English Channel</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ReceivingDistrictName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Received At District - district that received the inventory</td>
-      <td style="text-align: left"><code>Westminster</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Westminster</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ReceivingEmployeeName</td>
       <td style="text-align: left">VARCHAR (51)</td>
       <td style="text-align: left">Received By - employee who received the transfer</td>
-      <td style="text-align: left"><code>Courtney Noon</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Courtney Noon</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ReceivingRegionName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Received At Region - region that received the inventory</td>
-      <td style="text-align: left"><code>London</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">London</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ReceivingStoreName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Received At - location that received the product(s) shipped from another location</td>
-      <td style="text-align: left"><code>100: My Network LLC - Anchorage</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">100: My Network LLC - Anchorage</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RequestingEmployeeName</td>
       <td style="text-align: left">VARCHAR (51)</td>
       <td style="text-align: left">Requested By - employee who requested the transfer</td>
-      <td style="text-align: left"><code>iQmetrix User</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix User</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SerialNumber</td>
@@ -2752,73 +2239,73 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ShippingChannelName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Shipped From Channel - channel that shipped the inventory</td>
-      <td style="text-align: left"><code>English Channel</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">English Channel</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingDistrictName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Shipped From District - district that shipped the inventory</td>
-      <td style="text-align: left"><code>Valley Area District</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Valley Area District</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingEmployeeName</td>
       <td style="text-align: left">VARCHAR (51)</td>
       <td style="text-align: left">Shipped By - employee who shipped the transfer</td>
-      <td style="text-align: left"><code>Courtney Noon</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Courtney Noon</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingRegionName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Shipped From Region - region that shipped the inventory</td>
-      <td style="text-align: left"><code>Region A</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Region A</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingStoreName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Shipped From - location that shipped the product(s) to another location</td>
-      <td style="text-align: left"><code>84 West</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">84 West</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalCost</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Total Cost - cost per item multiplied by how many of the item were transferred</td>
-      <td style="text-align: left"><code>9.6705</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">9.6705</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TransferID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>718</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">718</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TransferIDByStore</td>
       <td style="text-align: left">VARCHAR(14)</td>
       <td style="text-align: left">Transfer # - transfer number generated by RQ</td>
-      <td style="text-align: left"><code>WIREGTR73</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">WIREGTR73</code></td>
     </tr>
     <tr>
       <td style="text-align: left">UnitCost</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Unit Cost - cost per item</td>
-      <td style="text-align: left"><code>9.6705</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">9.6705</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Vendor - vendor the item was purchased from</td>
-      <td style="text-align: left"><code>LTD Wireless</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">LTD Wireless</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorPartNumber</td>
       <td style="text-align: left">VARCHAR (25)</td>
       <td style="text-align: left">Vendor SKU - vendor SKU</td>
-      <td style="text-align: left"><code>bgcrv2poshpk</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">bgcrv2poshpk</code></td>
     </tr>
     <tr>
       <td style="text-align: left">WaybillNumber</td>
       <td style="text-align: left">VARCHAR (100)</td>
       <td style="text-align: left">Way Bill # - tracking number provided by shipping company, e.g. UPS, Purolator, etc.</td>
-      <td style="text-align: left"><code>53454354</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">53454354</code></td>
     </tr>
   </tbody>
 </table>
@@ -2839,49 +2326,49 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ActivationAssociationNumber</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Balance - amount still outstanding to be received from the carrier (TotalPrice - Collected, not returned directly but calculated in RQ)</td>
-      <td style="text-align: left"><code>2</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ActivationRowID</td>
       <td style="text-align: left">UNIQUEIDENTIFIER</td>
       <td style="text-align: left">Balance - amount still outstanding to be received from the carrier (TotalPrice - Collected, not returned directly but calculated in RQ)</td>
-      <td style="text-align: left"><code>0d4652a7-a673-437a-817e-4641961ba3e6</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0d4652a7-a673-437a-817e-4641961ba3e6</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Adjusted</td>
       <td style="text-align: left">VARCHAR(3)</td>
       <td style="text-align: left">Adjusted - indicates if the rebate was adjusted</td>
-      <td style="text-align: left"><code>No</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">No</code></td>
     </tr>
     <tr>
       <td style="text-align: left">AssociationNumber</td>
       <td style="text-align: left">SMALLINT</td>
       <td style="text-align: left">When adding products with PAW all associated products from the sale have the same association number tied together, this value increments based on how many sales are made on that order</td>
-      <td style="text-align: left"><code>3</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">3</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CarrierPrice</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Carrier Price - value or revenue that a carrier assigns this feature</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ChannelName</td>
       <td style="text-align: left">VARCHAR(100)</td>
       <td style="text-align: left">Channel - channel for the rows location</td>
-      <td style="text-align: left"><code>English Channel</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">English Channel</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ChargeBack</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Charge Back - Yes or No column for if it is a Charge Back or not</td>
-      <td style="text-align: left"><code>No</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">No</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Collected</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Collected - amount received from the carrier</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Comments</td>
@@ -2893,43 +2380,43 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Comments2</td>
       <td style="text-align: left">VARCHAR(500)</td>
       <td style="text-align: left">Comments2 - any comments that were added as part of the reconciliation process</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ContractNumber</td>
       <td style="text-align: left">VARCHAR(50)</td>
       <td style="text-align: left">Contract # - number of the contract, recorded at the time of sale</td>
-      <td style="text-align: left"><code>123456789</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">123456789</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CustomerID1</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Customer Identifier - customer identifier as entered on the customers profile</td>
-      <td style="text-align: left"><code>130834</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">130834</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CustomerName1</td>
       <td style="text-align: left">VARCHAR(101)</td>
       <td style="text-align: left">Customer - name of the customer as entered on their profile</td>
-      <td style="text-align: left"><code>Bob Jones</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Bob Jones</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateCreated</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Sold On - date and time the invoice was tendered</td>
-      <td style="text-align: left"><code>2016-01-04T14:33:15.737</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2016-01-04T14:33:15.737</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateReconciled</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Reconciled On - date and time the rebate was reconciled</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DistrictName</td>
       <td style="text-align: left">VARCHAR(100)</td>
       <td style="text-align: left">District - district for the rows location</td>
-      <td style="text-align: left"><code>District B2</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">District B2</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EmployeeName</td>
@@ -2941,25 +2428,25 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">EmployeeName1</td>
       <td style="text-align: left">VARCHAR(51)</td>
       <td style="text-align: left">Sales Person ID - ID number assigned to this sales person and recorded on the Admin tab of their Employee Profile</td>
-      <td style="text-align: left"><code>iQmetrix User</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix User</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ExtraField</td>
       <td style="text-align: left">VARCHAR(30)</td>
       <td style="text-align: left">Extra Field - an optional field, see Vendor Account Setup for more information</td>
-      <td style="text-align: left"><code>1234567890</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1234567890</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Flagged</td>
       <td style="text-align: left">VARCHAR(3)</td>
       <td style="text-align: left">Flagged - flagged in the Vendor Rebate Reconciliation screen</td>
-      <td style="text-align: left"><code>No</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">No</code></td>
     </tr>
     <tr>
       <td style="text-align: left">GlobalProductID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Sales Person - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box</td>
-      <td style="text-align: left"><code>812</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">812</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoiceComments</td>
@@ -2971,25 +2458,25 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">InvoicedAt</td>
       <td style="text-align: left">VARCHAR(100)</td>
       <td style="text-align: left">Invoiced At - name of the location which takes the inventory on a refund, usually the same as Invoiced By but will be different if a second location process a refund</td>
-      <td style="text-align: left"><code>Regina Store</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Regina Store</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoicedBy</td>
       <td style="text-align: left">VARCHAR(100)</td>
       <td style="text-align: left">Invoiced By - name of the location which credited with the sale, usually the same as Invoiced At but will be different if a second location process a refund</td>
-      <td style="text-align: left"><code>Regina Store</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Regina Store</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoiceIDByStore</td>
       <td style="text-align: left">VARCHAR(14)</td>
       <td style="text-align: left">Invoice # - invoice number assigned by RQ</td>
-      <td style="text-align: left"><code>HJKIIIN2</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HJKIIIN2</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoiceRowID</td>
       <td style="text-align: left">UNIQUEIDENTIFIER</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>db8f28cf-5017-47f4-9ccf-b90cff32185d</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">db8f28cf-5017-47f4-9ccf-b90cff32185d</code></td>
     </tr>
     <tr>
       <td style="text-align: left">JournalNumber</td>
@@ -3001,25 +2488,25 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">OriginalSaleDate</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Original Sales Date - date of the original sale</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">OriginalSaleInvoiceID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">OriginalSaleInvoiceIDByStore</td>
       <td style="text-align: left">VARCHAR(14)</td>
       <td style="text-align: left">Original Invoice - invoice number of the original transaction</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PartialCB</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Partial CB - amount the carrier is charging back</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PortNumber</td>
@@ -3031,37 +2518,37 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Postal_code</td>
       <td style="text-align: left">VARCHAR(15)</td>
       <td style="text-align: left">Zip/Postal Code - zip code (USA) or postal code (Canada)</td>
-      <td style="text-align: left"><code>56789</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">56789</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductIdentifier</td>
       <td style="text-align: left">VARCHAR(12)</td>
       <td style="text-align: left">Product SKU - RQ generated SKU</td>
-      <td style="text-align: left"><code>ACVZRB000001</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ACVZRB000001</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductName</td>
       <td style="text-align: left">VARCHAR(100)</td>
       <td style="text-align: left">Product Name - description of the product as it appears in the inventory</td>
-      <td style="text-align: left"><code>Verizon New Act_EquipmentRebate</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Verizon New Act_EquipmentRebate</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductRowID</td>
       <td style="text-align: left">UNIQUEIDENTIFIER</td>
       <td style="text-align: left">Literally no description in the database but originates from [iQclerk_SaleInvoicesAndProducts].[RowID]</td>
-      <td style="text-align: left"><code>27be5c76-b0ba-4a34-ba7d-fa34aba0ab9c</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">27be5c76-b0ba-4a34-ba7d-fa34aba0ab9c</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Quantity</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Qty - total quantity of this product SKU on the invoice</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RatePlan</td>
       <td style="text-align: left">VARCHAR(100)</td>
       <td style="text-align: left">Rate Plan 2 - second rate plan if necessary</td>
-      <td style="text-align: left"><code>Act $9.99 to $20.98</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Act $9.99 to $20.98</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RatePlan2</td>
@@ -3073,67 +2560,67 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Reconciled</td>
       <td style="text-align: left">VARCHAR(3)</td>
       <td style="text-align: left">Reconciled - has been marked as reconciled in the Vendor Rebate Reconciliation screen</td>
-      <td style="text-align: left"><code>No</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">No</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RegionID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Rate Plan - name of the rate plan</td>
-      <td style="text-align: left"><code>9</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">9</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RegionName</td>
       <td style="text-align: left">VARCHAR(100)</td>
       <td style="text-align: left">Region - region for the rows location</td>
-      <td style="text-align: left"><code>Region B</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Region B</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RelatedCost</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Related Cost - purchase cost for the product associated with this rebate</td>
-      <td style="text-align: left"><code>404</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">404</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RelatedPrice</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Related Price - price the customer paid for the product related to this rebate</td>
-      <td style="text-align: left"><code>69.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">69.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RelatedProduct</td>
       <td style="text-align: left">VARCHAR(100)</td>
       <td style="text-align: left">Related Product - product associated with this rebate</td>
-      <td style="text-align: left"><code>Samsung Galaxy S4</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Samsung Galaxy S4</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RelatedProductSerialNumbers</td>
       <td style="text-align: left">VARCHAR(1000)</td>
       <td style="text-align: left">Related SN - serial number associated with this rebate, if any</td>
-      <td style="text-align: left"><code>ACVZCB0026</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ACVZCB0026</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RelatedProductSKU</td>
       <td style="text-align: left">VARCHAR(12)</td>
       <td style="text-align: left">Related SKU - product SKU of the product associated with this rebate</td>
-      <td style="text-align: left"><code>ACVZCB000244</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ACVZCB000244</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SaleInvoiceID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>126526</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">126526</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SerialNumber</td>
       <td style="text-align: left">VARCHAR(100)</td>
       <td style="text-align: left">Tracking # - tracking number associated with this entry</td>
-      <td style="text-align: left"><code>123457000000000</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">123457000000000</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SocCode</td>
       <td style="text-align: left">VARCHAR(50)</td>
       <td style="text-align: left">SOC Code - SOC Code if one was used</td>
-      <td style="text-align: left"><code>123457000000000</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">123457000000000</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SocCode2</td>
@@ -3145,7 +2632,7 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">SpecialIdentifier</td>
       <td style="text-align: left">VARCHAR(25)</td>
       <td style="text-align: left">Reconciled By - name of the employee logged in when the rebate was reconciled</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SpecialIdentifier1</td>
@@ -3163,19 +2650,19 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">TotalPrice</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Total Rebate - total value of the rebate on this invoice calculated as Qty X Unit Rebate</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">UnitPrice</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Unit Rebate - dollar value of this rebate</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorAccountName</td>
       <td style="text-align: left">VARCHAR(100)</td>
       <td style="text-align: left">Vendor Account Name - vendor account for this rebate</td>
-      <td style="text-align: left"><code>Verizon 2</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Verizon 2</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorNumber</td>
@@ -3208,223 +2695,223 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Adjustment</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Adjustment - total dollar value of any adjustments</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ChannelName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">Channel - channel for the rows location</td>
-      <td style="text-align: left"><code>English Channel</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">English Channel</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Comments</td>
       <td style="text-align: left">VARCHAR (1000)</td>
       <td style="text-align: left">Invoice Comments - any comments added to the invoice</td>
-      <td style="text-align: left"><code>Comment</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Comment</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CustomerID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>131149</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">131149</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CustomerName</td>
       <td style="text-align: left">VARCHAR (101)</td>
       <td style="text-align: left">Customer - name of the customer as entered on their profile; if this is a Quick Sale that will be the name of the customer</td>
-      <td style="text-align: left"><code>Bob Jones</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Bob Jones</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateCreated</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Created On - date and time the invoice was created</td>
-      <td style="text-align: left"><code>2016-05-13T12:18:08.723</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2016-05-13T12:18:08.723</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DistrictName</td>
       <td style="text-align: left">NVARCHAR(MAX)</td>
       <td style="text-align: left">District - district for the rows location</td>
-      <td style="text-align: left"><code>Westminster</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Westminster</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Earned</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">FinancedAmount</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Invoice Amount - formally known as Total Invoice - this shows the actual amount paid by the customer including coupons, gift cards, donations and taxes</td>
-      <td style="text-align: left"><code>75</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">75</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoiceEmailed</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left">Emailed - indicates that the invoice was emailed</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">InvoiceIDByStore</td>
       <td style="text-align: left">VARCHAR (14)</td>
       <td style="text-align: left">Invoiced At - name of the location which takes the inventory on a refund, usually the same as Invoiced By but will be different if a second location process a refund</td>
-      <td style="text-align: left"><code>REDSTIN916</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">REDSTIN916</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Redeemed</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left">Ven Reb Act - net dollar amount of vendor rebates for the invoice and the taxes associated to the rebate</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RefundCodeID</td>
       <td style="text-align: left">UNIQUEIDENTIFIER</td>
       <td style="text-align: left">Invoice # - invoice number assigned by RQ</td>
-      <td style="text-align: left"><code>null</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">null</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RegionName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Region - region for the rows location</td>
-      <td style="text-align: left"><code>London</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">London</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RoundingVariance</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Rounding Variance - total dollar value of the rounding variance [may not be present in every database]</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SaleInvoiceID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left">Invoice # - invoice number assigned by RQ</td>
-      <td style="text-align: left"><code>129036</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">129036</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SoldBy</td>
       <td style="text-align: left">NVARCHAR (51)</td>
       <td style="text-align: left">Sold By Username - username of the employee of record for the sale, i.e. the employee whose name is in the Commission box</td>
-      <td style="text-align: left"><code>iQmetrix User</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix User</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SoldByUserName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Sold By - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box</td>
-      <td style="text-align: left"><code>iQmetrix.User</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix.User</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreID</td>
       <td style="text-align: left">INT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>6679</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">6679</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreInStoreFlowIsEnabledForStore</td>
       <td style="text-align: left">BIT</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Invoiced By - name of the location which credited with the sale, usually the same as Invoiced At but will be different if a second location process a refund</td>
-      <td style="text-align: left"><code>100: My Network LLC - Anchorage</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">100: My Network LLC - Anchorage</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreName2</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Invoiced By - name of the location which credited with the sale, usually the same as Invoiced At but will be different if a second location process a refund</td>
-      <td style="text-align: left"><code>100: My Network LLC - Anchorage</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">100: My Network LLC - Anchorage</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TenderedBy</td>
       <td style="text-align: left">VARCHAR (51)</td>
       <td style="text-align: left">Tendered By Username - username of the employee logged into RQ when the invoice was taken</td>
-      <td style="text-align: left"><code>iQmetrix User</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix User</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TenderedByUserName</td>
       <td style="text-align: left">NVARCHAR (MAX)</td>
       <td style="text-align: left">Tendered By - name of the employee logged into RQ when the invoice was taken</td>
-      <td style="text-align: left"><code>iQmetrix.User</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix.User</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalAfterTax</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Tendered By - name of the employee logged into RQ when the invoice was taken</td>
-      <td style="text-align: left"><code>26</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">26</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalCost</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Cost - total purchase cost of the products on the invoice</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalCoupon</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Coupon Used - the sum of the coupons applied to the invoice.</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalDonations</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Donations - total dollar value of the donation</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalDownPayment</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Total invoiced - Financed amount = TotalDownpayment</td>
-      <td style="text-align: left"><code>25</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">25</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalExtraCharges</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Extra Charges - total dollar value of any extra charges added to the invoice</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalGiftCard</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Gift Card Sold - if a gift card was purchased, this is the value of the gift card.</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalInvoiced</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Invoice Subtotal - formally known as Total Invoiced - this represents the invoice subtotal which would include gift cards and extra charges. Coupons and Vendor Rebates are removed from this amount.</td>
-      <td style="text-align: left"><code>26</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">26</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalNRP</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">NRP sold - value of any Non Revenue Products sold</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalProfit</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Gross Profit - total dollar value of profit, calculated as Sales - Cost</td>
-      <td style="text-align: left"><code>164</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">164</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalSales</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Sales - total dollar amount of the invoice after adjustments</td>
-      <td style="text-align: left"><code>164</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">164</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalStoreInStoreProfit</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TotalStoreInStoreSales</td>
       <td style="text-align: left">MONEY</td>
       <td style="text-align: left">Ven Reb Act - net dollar amount of vendor rebates for the invoice and the taxes associated to the rebate</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
   </tbody>
 </table>
@@ -3447,13 +2934,13 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ID</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Description</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Reason</td>
-      <td style="text-align: left"><code>Write Off</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Write Off</code></td>
     </tr>
   </tbody>
 </table>
@@ -3476,13 +2963,13 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ID</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Description</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>Company</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Company</code></td>
     </tr>
   </tbody>
 </table>
@@ -3505,19 +2992,19 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">ID</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier in RQ</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Column1</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>KENTEL Corp</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">KENTEL Corp</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EntityId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of the corresponding <a href="/api/company-tree/#companytreenode">CompanyTreeNode</a></td>
-      <td style="text-align: left"><code>11432</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">11432</code></td>
     </tr>
   </tbody>
 </table>
@@ -7425,67 +6912,24 @@ HTTP 200 Content-Type: application/json
         "StoreName": "Altera Kiosk"
     }
 ]</pre>
-</div>
-              <div class="col-lg-1 hidden-md hidden-sm hidden-xs"><!-- start page metadata -->
 
 
-<div class="pageMetadata affix">
-    <div class="pageMetadataTitle">Table of Contents</div>
-    
-<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
-<script>
-$( document ).ready(function() {
-
-    $('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2, h3' });
-
-    //Resize once
-    resizeWindow();
-
-    //Resize whenever window changes
-    $(window).resize(function () {
-        resizeWindow();
-    });
-
-});
-
-function resizeWindow() {
-
-    var windowHeight = $(window).height();
-    var windowWidth = $(window).width();
-
-    var tocHeight = $(".pageMetadata").height();
-
-    if(windowWidth < 1560 || windowHeight < tocHeight) {        
-        //Grab "pageMetadata" and move it to first  child of .post-header
-        $(".pageMetadata").prependTo(".post-header");
-        $(".pageMetadata").removeClass("affix");        
-    } else if(windowWidth > 1560) {
-        //Grab "pageMetadata" and move it back to where it was
-        $(".pageMetadata").appendTo(".col-lg-1.hidden-md.hidden-sm.hidden-xs");
-        $(".pageMetadata" ).addClass("affix");
-    }      
-}
-
-</script>
-
-<div id="toc"></div>
-
-    
-    <p><div class="metadataRow"><span class="tagTitle">Last updated:</span> 13-7-2016</div></p>
-    
-
-</div>
-
-
-
-
-<!-- end pageMetadata --></div>
-            
+      </div>
+      <div class="dark-box">
+            <div class="lang-selector">
+               <a href="#" data-language-name="javascript">javascript</a>
+               <a href="#" data-language-name="shell">cURL</a>
+               <a href="#" data-language-name="csharp">c#</a>
+               <a href="#" data-language-name="java">java</a>
+               <a href="#" data-language-name="ruby">ruby</a>
+            </div>
+         </div>
     </div>
 
-</body>
+  </body>
 
-<!-- the google_analytics_id gets auto inserted from the config file -->
+
+  <!-- the google_analytics_id gets auto inserted from the config file -->
 
 
 <script>
@@ -7500,4 +6944,3 @@ function resizeWindow() {
 
 
 </html>
-

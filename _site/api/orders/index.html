@@ -1,656 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
- <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=",  ">
-<title>Orders  | iQmetrix Developer Portal</title>
-<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/modern-business.css">
-<link rel="stylesheet" type="text/css" href="../../css/customstyles.css">
-<!-- <link rel="stylesheet" type="text/css" href="" | prepend:site.pagefileurl }}"> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script src="../../js/jquery.navgoco.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
-<script src="../../js/toc.js"></script>
-<script src="../../js/customscripts.js"></script>
-<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <title>Orders | iQmetrix Developer Portal</title>
+    <link href="../../css/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../css/print.css" rel="stylesheet" media="print" />
+    <script src="../../js/all.js"></script>
 
-
-<!-- Image popup source files -->
-<!-- http://dimsemenov.com/plugins/magnific-popup/ -->
-<link rel="stylesheet" type="text/css" href="../../css/magnific-popup.css">
-<script src="../../js/jquery.magnific-popup.js"></script>
-
-
-<script>
-    $(document).ready(function() {
-
-        // surround each image with an anchor class  for image popup
-        $('img').each( function() {
-            var $img = $(this),
-            href = $img.attr('src');
-            $img.wrap('<a class="image-link" href=' + href + '></a>');
-             
-        });
-
-        // make each image with image-link class popup "on click"
-        // !! Drawback -- all images could popup :(
-        $('.image-link').magnificPopup({
-            type:'image',
-            closeOnContentClick: true
-        });
-                
-    });    
-</script>
-
-
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-<script type="text/javascript">
-    //Hacky code to make sure they don't go to a bad page
-    $( window ).load(function() {
-
-        if (document.baseURI.indexOf("api/generalledger.html") > 0) {
-            window.location.href = 'http://developers.iqmetrix.com/api/general-ledger/';
-        }
-        else if (document.baseURI.indexOf("api/productlibrary.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/product-library/';
-        }
-        else if (document.baseURI.indexOf("api/entitystore.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/entity-store/';
-        }
-        else if(document.baseURI.indexOf(".html") > 0) {
-           window.location.href = document.baseURI.substring(0, document.baseURI.indexOf(".html"));
-        }
-    });
-</script>
-
-
-
-
-
- 
-
-<script>
-  $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
-
-
-
-
-
-
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
 
-<body>
-
-   <!-- Send feedback function -->
-<script>
-    function SendLinkByMail(href) {
-        var subject= " all documentation feedback";
-        var body = "I have some feedback about the Orders page: ";
-        body += window.location.href;
-        body += "";
-        var uri = "mailto:apidesign@iqmetrix.com?subject=";
-        uri += encodeURIComponent(subject);
-        uri += "&body=";
-        uri += encodeURIComponent(body);
-        window.location.href = uri;
-    }
-</script>
-
-<!-- Navigation -->
-<nav id="navbar-custom" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-   <div class="container topnavlinks">
-   <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      </button>
-      <a href="http://localhost:4006/">
-        <span id="top-iq-logo"><img src="http://melissakendall.github.io/documentation-testing/images/iq-logo-white.png"></span>
-        <span id="projectTitle">iQmetrix Developer Portal</span>
-      </a>
-   </div>
-   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul id="top-bar-categories" class="nav navbar-nav navbar-right">
-      
-      <!-- entries without drop-downs appear here -->
-      <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
-      <!-- 
-
-Hard coding for now, so no longer uses topnav config
-
-
-
-
-
-
-
-
-
-  
-      
-      
-          <li><a href="/api/changelog/">CHANGELOG</a></li>
-      
-    
-  
-      
-      
-          <li class="active"><a href="//">API REFERENCE</a></li>
-       
-    
-  
-      
-      
-          <li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
-      
-    
-  
-
-
--->
-
-<li><a href="/api/">DOCUMENTATION</a></li>
-<li><a href="/api/changelog">CHANGELOG</a></li>
-<li><a href="mailto:?subject=Support">SUPPORT</a></li>
-
-
-         <!--
-      <li>
-         <div id="search-demo-container">
-            <input type="text" id="search-input" placeholder="">
-            <ul id="results-container"></ul>
-         </div>
-         <script src="../..//js/jekyll-search.js" type="text/javascript"></script>
-         <script type="text/javascript">
-            SimpleJekyllSearch({
-              searchInput: document.getElementById('search-input'),
-              resultsContainer: document.getElementById('results-container'),
-              json: '../../search.json',
-              searchResultTemplate: '<li><a href="{url}" title="Orders">{title}</a></li>',
-              noResultsText: '',
-              exclude: '404'
-            })
-         </script>
-      </li>
-         -->
-    
-
-   </div>
-   <!-- /.container -->
-</nav>
-
-    <!-- Page Content -->
-    <div class="container">
-        <div class="col-lg-12">&nbsp;</div>
-
-            <!-- Col-md-3 -->
-            <!-- Content Row -->
-<div class="row">
-    <!-- Sidebar Column -->
-    <div class="col-md-3">
-
-        <script>
-            $(document).ready(function() {
-
-                // Initialize navgoco with default options
-                $("#mysidebar").navgoco({
-                    caretHtml: '',
-                    accordion: true,
-                    openClass: 'active', // open
-                    save: false, // leave false or nav higlighting doesn't work right
-                    cookie: {
-                        name: 'navgoco',
-                        expires: false,
-                        path: '/'
-                    },
-                    slide: {
-                        duration: 400,
-                        easing: 'swing'
-                    }
-                });
-
-                $("#collapseAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', false);
-                });
-
-                $("#expandAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', true);
-                });
-
-                if(window.location.hostname == "apidocumentation-dev-westus.azurewebsites.net")
-                {
-                    $("a").each(function(e) {
-                        var url = $(this).attr("href");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("href", url);
-                    });
-
-                    $("img").each(function(e) {
-                        var url = $(this).attr("src");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("src", url);
-                    });                    
-                }
-
-                if(window.location.search != "" && window.location.search != null && window.location.search.indexOf("=") > -1) {
-
-                    var entityValue = window.location.search.split("=")[1];
-
-                    $("."+entityValue).hide();
-                }
-            });
-
-        </script>
-
-        <ul id="mysidebar" class="nav affix">
-            
-                
-                    
-                        <li class=""><a href="#">API Reference</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/authentication/">Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/assets/">Assets</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/catalog/">Catalog</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/crm/">Customers</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cost-feed/">Cost Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-feed/">Product Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-subscription/">Product Subscription</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/saccs/">Shipping Aggregator</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/shipping-options/">Shipping Options</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-availability/">Supplier Availability</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-orders/">Supplier Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/entity-store/">Entities</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/general-ledger/">General Ledger</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/availability/">Inventory Availability</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class="active "><a href="/api/orders/">Orders</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Partners</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-reporting/">Partner Reporting</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-relationships/">Relationships</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/pricing">Pricing</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Product Library</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/classification-tree/">Classification Tree</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/field-definitions/">Field Definitions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-library/">Products</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-structure/">Product Structure</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/reference/">Reference</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">RQ</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/carrier-integration/">Carrier Integration</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cmi/">Customer Managed Inventory (CMI)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/commissions/">Commissions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/epc/">Electronic Product Catalog (EPC)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/punch-clock/">Punch Clock</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/vmi/">Vendor Managed Inventory (VMI)</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/security-roles/">Security Roles</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Guides</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-an-in-store-order/">Creating an In Store Order</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-a-user-for-rq/">Creating a User for RQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Client Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-pos-guide/">Dropship Point of Sale Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Partner Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-onboarding-guide/">Dropship Onboarding Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-order-guide/">Dropship Order Management Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-test-order-guide/">Dropship Test Order Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/commerce-guide/">eCommerce Integration Guide</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Endless Aisle Integration Guide</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/overview">Overview</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/corporate-hierarchy">Corporate Hierarchy</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/content">Content</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/inventory">Inventory</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/orders">Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/3pa/">Third Party Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/vmi-onboarding-guide/">VMI Onboarding Guide</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Core Concepts</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/classification-tree/">Classification Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-library/">Product Library</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-structure/">Product Structure</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">FAQ</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/auth-faq/">Authentication FAQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/dropship-faq/">Dropship FAQ</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="/reference-applications/">Reference Applications</a>
-                    
-                
-            
-        </ul>
-
-        
+    <body class="api api_catalog2 api_catalog2_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../../images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="csharp">c#</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
     </div>
-<!-- div missing here is intentional -->
 
-<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
-<script>$("li.active").parents('li').toggleClass("active");</script>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
 
-
-
-            
-              <div class="col-md-7"><link rel="stylesheet" type="text/css" href="../../css/prism.css" />
+      <link rel="stylesheet" type="text/css" href="../../css/prism.css" />
 
 <script src="../../js/prism.js"></script>
 
 <h2 id="overview">Overview</h2>
 
-<p>The Order service is a centralized location for interacting with orders and their items. Each order is assigned an OrderType and OrderStatus, as are the items in the order. For example, an order could have an <code>InStock</code> item that has been <code>Processed</code>.</p>
+<p>The Order service is a centralized location for interacting with orders and their items. Each order is assigned an OrderType and OrderStatus, as are the items in the order. For example, an order could have an <code class="highlighter-rouge">InStock</code> item that has been <code class="highlighter-rouge">Processed</code>.</p>
 
-<p>The state flow illustrated below shows the process from creating an order to its completion. An order can only be cancelled when in the <code>Pending</code> state, and cannot be cancelled otherwise.
-<img src="http://localhost:4006//images/order-state-flow.png" style="height: 80%; width: 80%" /></p>
+<p>The state flow illustrated below shows the process from creating an order to its completion. An order can only be cancelled when in the <code class="highlighter-rouge">Pending</code> state, and cannot be cancelled otherwise.
+<img src="http://localhost:4006/images/order-state-flow.png" style="height: 80%; width: 80%" /></p>
 
 <h2 id="endpoints">Endpoints</h2>
 
@@ -677,121 +164,121 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code>cdd26b8f-4ed1-409d-9984-982e081c425e</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">cdd26b8f-4ed1-409d-9984-982e081c425e</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>iPhone 5 Order</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iPhone 5 Order</code></td>
     </tr>
     <tr>
       <td style="text-align: left">BillingAddressId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier for the billing <a href="/api/crm/#address">Address</a></td>
-      <td style="text-align: left"><code>a08b0640-606a-41f0-901a-facaf50e75dd</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">a08b0640-606a-41f0-901a-facaf50e75dd</code></td>
     </tr>
     <tr>
       <td style="text-align: left">BillingCustomerId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier for the billing <a href="/api/crm/#customer">Customer</a></td>
-      <td style="text-align: left"><code>659c2a38-d083-4421-9330-46d779702f85</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">659c2a38-d083-4421-9330-46d779702f85</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CreatedDateUtc</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">The date and time the Order was created, in UTC</td>
-      <td style="text-align: left"><code>2015-03-27T18:47:29.9012402+00:00</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-03-27T18:47:29.9012402+00:00</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DiscountAmount</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">The value of the discount to be applied at the Order level</td>
-      <td style="text-align: left"><code>15.0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">15.0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DiscountCode</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">The discount code for a discount applied to this Order</td>
-      <td style="text-align: left"><code>MTRY-15</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">MTRY-15</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DiscountDescription</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">A description of the discount</td>
-      <td style="text-align: left"><code>Military discount</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Military discount</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EmployeeId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier for the Employee who created this Order</td>
-      <td style="text-align: left"><code>15</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">15</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EntityId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the <a href="/api/company-tree/#location">Location</a></td>
-      <td style="text-align: left"><code>14202</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">14202</code></td>
     </tr>
     <tr>
       <td style="text-align: left">OrderExpiryDate</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">The date and time this Order expires and can no longer be updated, in UTC</td>
-      <td style="text-align: left"><code>2015-05-05T14:32:05.9140188+00:00</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-05-05T14:32:05.9140188+00:00</code></td>
     </tr>
     <tr>
       <td style="text-align: left">OrderExpiryHours</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">The amount of hours before this Order expires and can no longer be updated. Defaults to 72 hours.</td>
-      <td style="text-align: left"><code>20</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">20</code></td>
     </tr>
     <tr>
       <td style="text-align: left">OrderType</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of the <a href="#ordertype">OrderType</a></td>
-      <td style="text-align: left"><code>Sales</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Sales</code></td>
     </tr>
     <tr>
       <td style="text-align: left">OrderTypeId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">See <a href="#ordertype">OrderType</a> for a list of acceptable values</td>
-      <td style="text-align: left"><code>3</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">3</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PrintableId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">An identifier for this Order that can used to print on invoices. This value is system-generated and read-only</td>
-      <td style="text-align: left"><code>8765-1234-987</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">8765-1234-987</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingAddressId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier for the shipping <a href="/api/crm/#address">Address</a></td>
-      <td style="text-align: left"><code>a08b0640-606a-41f0-901a-facaf50e75dd</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">a08b0640-606a-41f0-901a-facaf50e75dd</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingCustomerId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier for the shipping <a href="/api/crm/#customer">Customer</a>. If this value is provided, ShippingEntityId must be excluded</td>
-      <td style="text-align: left"><code>659c2a38-d083-4421-9330-46d779702f85</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">659c2a38-d083-4421-9330-46d779702f85</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingEntityId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the Location this Order will be shipped to.</td>
-      <td style="text-align: left"><code>14202</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">14202</code></td>
     </tr>
     <tr>
       <td style="text-align: left">State</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">See <a href="#orderstate">OrderState</a> for a list of acceptable values</td>
-      <td style="text-align: left"><code>Created</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Created</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TenderId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">An invoice number from the system that created the Order, Invoice Number in RQ</td>
-      <td style="text-align: left"><code>TT101IN18</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">TT101IN18</code></td>
     </tr>
     <tr>
       <td style="text-align: left"><em>CustomerId</em></td>
@@ -836,115 +323,115 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier for this Item</td>
-      <td style="text-align: left"><code>8592718e-bcca-468c-8009-38678929b693</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">8592718e-bcca-468c-8009-38678929b693</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Cost</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Cost of this Item, defaults to 0</td>
-      <td style="text-align: left"><code>5.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">5.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Description</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Description of this Item</td>
-      <td style="text-align: left"><code>Samsung Galaxy S4 Standard Battery</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Samsung Galaxy S4 Standard Battery</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ItemStatus</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of the <a href="#itemstatus">ItemStatus</a></td>
-      <td style="text-align: left"><code>New</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">New</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ItemStatusId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">See <a href="#itemstatus">ItemStatus</a> for a list of acceptable values</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ItemType</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of the <a href="#itemtype">ItemType</a></td>
-      <td style="text-align: left"><code>DropShip</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">DropShip</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ItemTypeId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">See <a href="#itemtype">ItemType</a> for a list of acceptable values</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Index</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">A value used for sorting Items, such as in a shopping cart</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ListPrice</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">List Price of this Item, defaults to 0</td>
-      <td style="text-align: left"><code>12.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">12.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Notes</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Notes for this Item</td>
-      <td style="text-align: left"><code>Dented corner</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Dented corner</code></td>
     </tr>
     <tr>
       <td style="text-align: left">OrderId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier for the <a href="#order">Order</a>, specified by the OrderId in the URI</td>
-      <td style="text-align: left"><code>cdd26b8f-4ed1-409d-9984-982e081c425e</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">cdd26b8f-4ed1-409d-9984-982e081c425e</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier for the Product. Generally, this is a CatalogItemId</td>
-      <td style="text-align: left"><code>a183f1a9-c58f-426a-930a-9a6357db52ed</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">a183f1a9-c58f-426a-930a-9a6357db52ed</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Quantity</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Amount of this Item In Stock, defaults to 0</td>
-      <td style="text-align: left"><code>2</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SellingPrice</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Selling Price of this Item, defaults to 0</td>
-      <td style="text-align: left"><code>9.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">9.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SerialNumbers</td>
       <td style="text-align: left">Array[string]</td>
       <td style="text-align: left">Serial numbers intended for product serialization</td>
-      <td style="text-align: left"><code>abc321</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">abc321</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SKU</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">SKU for this Item</td>
-      <td style="text-align: left"><code>00001</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">00001</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingOptionId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier for the ShippingOption that this Item will use</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SupplierEntityId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the Supplier of this Item</td>
-      <td style="text-align: left"><code>14107</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">14107</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SupplierReference</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">May be used for additional Supplier reference information</td>
-      <td style="text-align: left"><code>10</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">10</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TrackingInformation</td>
@@ -956,13 +443,13 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">TrackingInformation.Quantity</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Number of items being tracked</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TrackingInformation.TrackingNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Tracking number</td>
-      <td style="text-align: left"><code>1TTTTN4421</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1TTTTN4421</code></td>
     </tr>
     <tr>
       <td style="text-align: left"><em>ItemExtensions</em></td>
@@ -991,121 +478,121 @@ Hard coding for now, so no longer uses topnav config
       <td style="text-align: left">Id</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code>cdd26b8f-4ed1-409d-9984-982e081c425e</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">cdd26b8f-4ed1-409d-9984-982e081c425e</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>iPhone 5 Order</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">iPhone 5 Order</code></td>
     </tr>
     <tr>
       <td style="text-align: left">BillingAddressId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier for the billing <a href="/api/crm/#address">Address</a></td>
-      <td style="text-align: left"><code>a08b0640-606a-41f0-901a-facaf50e75dd</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">a08b0640-606a-41f0-901a-facaf50e75dd</code></td>
     </tr>
     <tr>
       <td style="text-align: left">BillingCustomerId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier for the billing <a href="/api/crm/#customer">Customer</a></td>
-      <td style="text-align: left"><code>659c2a38-d083-4421-9330-46d779702f85</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">659c2a38-d083-4421-9330-46d779702f85</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CreatedDateUtc</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">The date and time the Order was created, in UTC</td>
-      <td style="text-align: left"><code>2015-03-27T18:47:29.9012402+00:00</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-03-27T18:47:29.9012402+00:00</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DiscountAmount</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">The value of the discount to be applied at the Order level</td>
-      <td style="text-align: left"><code>15.0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">15.0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DiscountCode</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">The discount code for a discount applied to this Order</td>
-      <td style="text-align: left"><code>MTRY-15</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">MTRY-15</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DiscountDescription</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">A description of the discount</td>
-      <td style="text-align: left"><code>Military discount</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Military discount</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EmployeeId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier for the Employee who created this Order</td>
-      <td style="text-align: left"><code>15</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">15</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EntityId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the <a href="/api/company-tree/#location">Location</a></td>
-      <td style="text-align: left"><code>14202</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">14202</code></td>
     </tr>
     <tr>
       <td style="text-align: left">OrderExpiryDate</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">The date and time this Order expires and can no longer be updated, in UTC</td>
-      <td style="text-align: left"><code>2015-05-05T14:32:05.9140188+00:00</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-05-05T14:32:05.9140188+00:00</code></td>
     </tr>
     <tr>
       <td style="text-align: left">OrderExpiryHours</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">The amount of hours before this Order expires and can no longer be updated. Defaults to 72 hours.</td>
-      <td style="text-align: left"><code>20</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">20</code></td>
     </tr>
     <tr>
       <td style="text-align: left">OrderType</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of the <a href="#ordertype">OrderType</a></td>
-      <td style="text-align: left"><code>Sales</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Sales</code></td>
     </tr>
     <tr>
       <td style="text-align: left">OrderTypeId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">See <a href="#ordertype">OrderType</a> for a list of acceptable values</td>
-      <td style="text-align: left"><code>3</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">3</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PrintableId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">An identifier for this Order that can used to print on invoices. This value is system-generated and read-only</td>
-      <td style="text-align: left"><code>8765-1234-987</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">8765-1234-987</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingAddressId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier for the shipping <a href="/api/crm/#address">Address</a></td>
-      <td style="text-align: left"><code>a08b0640-606a-41f0-901a-facaf50e75dd</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">a08b0640-606a-41f0-901a-facaf50e75dd</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingCustomerId</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier for the shipping <a href="/api/crm/#customer">Customer</a>. If this value is provided, ShippingEntityId must be excluded</td>
-      <td style="text-align: left"><code>659c2a38-d083-4421-9330-46d779702f85</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">659c2a38-d083-4421-9330-46d779702f85</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingEntityId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the Location this Order will be shipped to.</td>
-      <td style="text-align: left"><code>14202</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">14202</code></td>
     </tr>
     <tr>
       <td style="text-align: left">State</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">See <a href="#orderstate">OrderState</a> for a list of acceptable values</td>
-      <td style="text-align: left"><code>Created</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Created</code></td>
     </tr>
     <tr>
       <td style="text-align: left">TenderId</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">An invoice number from the system that created the Order, Invoice Number in RQ</td>
-      <td style="text-align: left"><code>INV112</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">INV112</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Items</td>
@@ -3484,8 +2971,8 @@ HTTP 200 Content-Type: application/json
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Bad Request</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Bad Request</code></td>
       <td style="text-align: left">Billing Customer (id={x}) not found for company {y}</td>
       <td>Proccessing an Order requires a Billing Customer on the Order</td>
       <td> </td>
@@ -3493,8 +2980,8 @@ HTTP 200 Content-Type: application/json
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Bad Request</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Bad Request</code></td>
       <td style="text-align: left">The request could not be understood by the server. The message returned in the response body will give more details on why the request was invalid</td>
       <td> </td>
       <td> </td>
@@ -3502,35 +2989,35 @@ HTTP 200 Content-Type: application/json
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Entity is not related to company</code></td>
-      <td style="text-align: left">Ensure the <code>EntityId</code> used in the request belongs to the <code>Company</code> specified in the URI</td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Entity is not related to company</code></td>
+      <td style="text-align: left">Ensure the <code class="highlighter-rouge">EntityId</code> used in the request belongs to the <code class="highlighter-rouge">Company</code> specified in the URI</td>
       <td> </td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>The request is invalid</code></td>
-      <td style="text-align: left">Ensure the <code>OrderId</code> used in the request matches the OrderId used in the URI</td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">The request is invalid</code></td>
+      <td style="text-align: left">Ensure the <code class="highlighter-rouge">OrderId</code> used in the request matches the OrderId used in the URI</td>
       <td> </td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Uri parameter representing resource id and resource</code><br /><code>id found in the request content don't match</code></td>
-      <td style="text-align: left">Ensure the <code>OrderId</code> used in the request matches the OrderId used in the URI</td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Uri parameter representing resource id and resource</code><br /><code class="highlighter-rouge">id found in the request content don't match</code></td>
+      <td style="text-align: left">Ensure the <code class="highlighter-rouge">OrderId</code> used in the request matches the OrderId used in the URI</td>
       <td> </td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 404</code></td>
-      <td style="text-align: left"><code>Order resource with id {x} cannot be found</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 404</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Order resource with id {x} cannot be found</code></td>
       <td style="text-align: left">Ensure the provided OrderId is correct</td>
       <td> </td>
       <td> </td>
@@ -3538,8 +3025,8 @@ HTTP 200 Content-Type: application/json
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 409</code></td>
-      <td style="text-align: left"><code>Conflict</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 409</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Conflict</code></td>
       <td style="text-align: left">Order expired and can no longer be updated</td>
       <td> </td>
       <td> </td>
@@ -3547,77 +3034,34 @@ HTTP 200 Content-Type: application/json
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 409</code></td>
-      <td style="text-align: left"><code>Resource state transition from {x} to {y} is invalid</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 409</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Resource state transition from {x} to {y} is invalid</code></td>
       <td style="text-align: left">Order state can only be manually updated from Created to Pending</td>
       <td> </td>
-      <td><code>HTTP 500</code></td>
-      <td><code>An error has occurred</code></td>
+      <td><code class="highlighter-rouge">HTTP 500</code></td>
+      <td><code class="highlighter-rouge">An error has occurred</code></td>
       <td>Ensure the provided Tracking Number is valid</td>
     </tr>
   </tbody>
 </table>
-</div>
-              <div class="col-lg-1 hidden-md hidden-sm hidden-xs"><!-- start page metadata -->
 
 
-<div class="pageMetadata affix">
-    <div class="pageMetadataTitle">Table of Contents</div>
-    
-<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
-<script>
-$( document ).ready(function() {
-
-    $('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2, h3' });
-
-    //Resize once
-    resizeWindow();
-
-    //Resize whenever window changes
-    $(window).resize(function () {
-        resizeWindow();
-    });
-
-});
-
-function resizeWindow() {
-
-    var windowHeight = $(window).height();
-    var windowWidth = $(window).width();
-
-    var tocHeight = $(".pageMetadata").height();
-
-    if(windowWidth < 1560 || windowHeight < tocHeight) {        
-        //Grab "pageMetadata" and move it to first  child of .post-header
-        $(".pageMetadata").prependTo(".post-header");
-        $(".pageMetadata").removeClass("affix");        
-    } else if(windowWidth > 1560) {
-        //Grab "pageMetadata" and move it back to where it was
-        $(".pageMetadata").appendTo(".col-lg-1.hidden-md.hidden-sm.hidden-xs");
-        $(".pageMetadata" ).addClass("affix");
-    }      
-}
-
-</script>
-
-<div id="toc"></div>
-
-    
-    <p><div class="metadataRow"><span class="tagTitle">Last updated:</span> 13-7-2016</div></p>
-    
-
-</div>
-
-
-
-
-<!-- end pageMetadata --></div>
-            
+      </div>
+      <div class="dark-box">
+            <div class="lang-selector">
+               <a href="#" data-language-name="javascript">javascript</a>
+               <a href="#" data-language-name="shell">cURL</a>
+               <a href="#" data-language-name="csharp">c#</a>
+               <a href="#" data-language-name="java">java</a>
+               <a href="#" data-language-name="ruby">ruby</a>
+            </div>
+         </div>
     </div>
 
-</body>
+  </body>
 
-<!-- the google_analytics_id gets auto inserted from the config file -->
+
+  <!-- the google_analytics_id gets auto inserted from the config file -->
 
 
 <script>
@@ -3632,4 +3076,3 @@ function resizeWindow() {
 
 
 </html>
-

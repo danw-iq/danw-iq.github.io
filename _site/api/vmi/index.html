@@ -1,647 +1,134 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
- <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content=",  ">
-<title>Vendor Managed Inventory  | iQmetrix Developer Portal</title>
-<link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/modern-business.css">
-<link rel="stylesheet" type="text/css" href="../../css/customstyles.css">
-<!-- <link rel="stylesheet" type="text/css" href="" | prepend:site.pagefileurl }}"> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script src="../../js/jquery.navgoco.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
-<script src="../../js/toc.js"></script>
-<script src="../../js/customscripts.js"></script>
-<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <title>Vendor Managed Inventory | iQmetrix Developer Portal</title>
+    <link href="../../css/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../css/print.css" rel="stylesheet" media="print" />
+    <script src="../../js/all.js"></script>
 
-
-<!-- Image popup source files -->
-<!-- http://dimsemenov.com/plugins/magnific-popup/ -->
-<link rel="stylesheet" type="text/css" href="../../css/magnific-popup.css">
-<script src="../../js/jquery.magnific-popup.js"></script>
-
-
-<script>
-    $(document).ready(function() {
-
-        // surround each image with an anchor class  for image popup
-        $('img').each( function() {
-            var $img = $(this),
-            href = $img.attr('src');
-            $img.wrap('<a class="image-link" href=' + href + '></a>');
-             
-        });
-
-        // make each image with image-link class popup "on click"
-        // !! Drawback -- all images could popup :(
-        $('.image-link').magnificPopup({
-            type:'image',
-            closeOnContentClick: true
-        });
-                
-    });    
-</script>
-
-
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-<script type="text/javascript">
-    //Hacky code to make sure they don't go to a bad page
-    $( window ).load(function() {
-
-        if (document.baseURI.indexOf("api/generalledger.html") > 0) {
-            window.location.href = 'http://developers.iqmetrix.com/api/general-ledger/';
-        }
-        else if (document.baseURI.indexOf("api/productlibrary.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/product-library/';
-        }
-        else if (document.baseURI.indexOf("api/entitystore.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/entity-store/';
-        }
-        else if(document.baseURI.indexOf(".html") > 0) {
-           window.location.href = document.baseURI.substring(0, document.baseURI.indexOf(".html"));
-        }
-    });
-</script>
-
-
-
-
-
- 
-
-<script>
-  $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
-
-
-
-
-
-
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
 
-<body>
-
-   <!-- Send feedback function -->
-<script>
-    function SendLinkByMail(href) {
-        var subject= " all documentation feedback";
-        var body = "I have some feedback about the Vendor Managed Inventory page: ";
-        body += window.location.href;
-        body += "";
-        var uri = "mailto:apidesign@iqmetrix.com?subject=";
-        uri += encodeURIComponent(subject);
-        uri += "&body=";
-        uri += encodeURIComponent(body);
-        window.location.href = uri;
-    }
-</script>
-
-<!-- Navigation -->
-<nav id="navbar-custom" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-   <div class="container topnavlinks">
-   <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      </button>
-      <a href="http://localhost:4006/">
-        <span id="top-iq-logo"><img src="http://melissakendall.github.io/documentation-testing/images/iq-logo-white.png"></span>
-        <span id="projectTitle">iQmetrix Developer Portal</span>
-      </a>
-   </div>
-   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul id="top-bar-categories" class="nav navbar-nav navbar-right">
-      
-      <!-- entries without drop-downs appear here -->
-      <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
-      <!-- 
-
-Hard coding for now, so no longer uses topnav config
-
-
-
-
-
-
-
-
-
-  
-      
-      
-          <li><a href="/api/changelog/">CHANGELOG</a></li>
-      
-    
-  
-      
-      
-          <li class="active"><a href="//">API REFERENCE</a></li>
-       
-    
-  
-      
-      
-          <li><a href="http://iqmetrix.com" target="_blank">BACK TO iQMETRIX.COM »</a></li>
-      
-    
-  
-
-
--->
-
-<li><a href="/api/">DOCUMENTATION</a></li>
-<li><a href="/api/changelog">CHANGELOG</a></li>
-<li><a href="mailto:?subject=Support">SUPPORT</a></li>
-
-
-         <!--
-      <li>
-         <div id="search-demo-container">
-            <input type="text" id="search-input" placeholder="">
-            <ul id="results-container"></ul>
-         </div>
-         <script src="../..//js/jekyll-search.js" type="text/javascript"></script>
-         <script type="text/javascript">
-            SimpleJekyllSearch({
-              searchInput: document.getElementById('search-input'),
-              resultsContainer: document.getElementById('results-container'),
-              json: '../../search.json',
-              searchResultTemplate: '<li><a href="{url}" title="Vendor Managed Inventory">{title}</a></li>',
-              noResultsText: '',
-              exclude: '404'
-            })
-         </script>
-      </li>
-         -->
-    
-
-   </div>
-   <!-- /.container -->
-</nav>
-
-    <!-- Page Content -->
-    <div class="container">
-        <div class="col-lg-12">&nbsp;</div>
-
-            <!-- Col-md-3 -->
-            <!-- Content Row -->
-<div class="row">
-    <!-- Sidebar Column -->
-    <div class="col-md-3">
-
-        <script>
-            $(document).ready(function() {
-
-                // Initialize navgoco with default options
-                $("#mysidebar").navgoco({
-                    caretHtml: '',
-                    accordion: true,
-                    openClass: 'active', // open
-                    save: false, // leave false or nav higlighting doesn't work right
-                    cookie: {
-                        name: 'navgoco',
-                        expires: false,
-                        path: '/'
-                    },
-                    slide: {
-                        duration: 400,
-                        easing: 'swing'
-                    }
-                });
-
-                $("#collapseAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', false);
-                });
-
-                $("#expandAll").click(function(e) {
-                    e.preventDefault();
-                    $("#mysidebar").navgoco('toggle', true);
-                });
-
-                if(window.location.hostname == "apidocumentation-dev-westus.azurewebsites.net")
-                {
-                    $("a").each(function(e) {
-                        var url = $(this).attr("href");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("href", url);
-                    });
-
-                    $("img").each(function(e) {
-                        var url = $(this).attr("src");
-                        
-                        if(url.indexOf("developers.iqmetrix.com") > -1) {
-                            url = url.replace("developers.iqmetrix.com", "apidocumentation-dev-westus.azurewebsites.net");
-                        }
-
-                        $(this).attr("src", url);
-                    });                    
-                }
-
-                if(window.location.search != "" && window.location.search != null && window.location.search.indexOf("=") > -1) {
-
-                    var entityValue = window.location.search.split("=")[1];
-
-                    $("."+entityValue).hide();
-                }
-            });
-
-        </script>
-
-        <ul id="mysidebar" class="nav affix">
-            
-                
-                    
-                        <li class=""><a href="#">API Reference</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/authentication/">Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/assets/">Assets</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/catalog/">Catalog</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/crm/">Customers</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cost-feed/">Cost Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-feed/">Product Feed</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-subscription/">Product Subscription</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/saccs/">Shipping Aggregator</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/shipping-options/">Shipping Options</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-availability/">Supplier Availability</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/supplier-orders/">Supplier Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/entity-store/">Entities</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/general-ledger/">General Ledger</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/availability/">Inventory Availability</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/orders/">Orders</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Partners</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-reporting/">Partner Reporting</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/partner-relationships/">Relationships</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/pricing">Pricing</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Product Library</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/classification-tree/">Classification Tree</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/field-definitions/">Field Definitions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-library/">Products</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/product-structure/">Product Structure</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/reference/">Reference</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">RQ</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/api/carrier-integration/">Carrier Integration</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/cmi/">Customer Managed Inventory (CMI)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/commissions/">Commissions</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/epc/">Electronic Product Catalog (EPC)</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/api/punch-clock/">Punch Clock</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class="active "><a href="/api/vmi/">Vendor Managed Inventory (VMI)</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/security-roles/">Security Roles</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/api/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Guides</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-an-in-store-order/">Creating an In Store Order</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/creating-a-user-for-rq/">Creating a User for RQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Client Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-pos-guide/">Dropship Point of Sale Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Dropship Partner Integration Guides</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-onboarding-guide/">Dropship Onboarding Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-order-guide/">Dropship Order Management Guide</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/dropship-test-order-guide/">Dropship Test Order Guide</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/commerce-guide/">eCommerce Integration Guide</a></li>
-                                        
-                                    
-                                
-                                    
-                                        <li class="thirdlevel "><a href="#">Endless Aisle Integration Guide</a>
-                                            <ul>
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/overview">Overview</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/corporate-hierarchy">Corporate Hierarchy</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/content">Content</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/inventory">Inventory</a></li>
-                                                    
-                                                
-                                                    
-                                                        <li class=""><a href="/guides/ea-guide/orders">Orders</a></li>
-                                                    
-                                                
-                                            </ul>
-                                        </li>
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/3pa/">Third Party Authentication</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/guides/vmi-onboarding-guide/">VMI Onboarding Guide</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">Core Concepts</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/classification-tree/">Classification Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/company-tree/">Company Tree</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-library/">Product Library</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/product-structure/">Product Structure</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/concepts/user-manager/">User Manager</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="#">FAQ</a>
-                            <ul style="display: none;">
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/auth-faq/">Authentication FAQ</a></li>
-                                        
-                                    
-                                
-                                    
-                                        
-                                            <li class=""><a href="/faq/dropship-faq/">Dropship FAQ</a></li>
-                                        
-                                    
-                                
-                            </ul>
-                        </li>
-                    
-                
-                    
-                        <li class=""><a href="/reference-applications/">Reference Applications</a>
-                    
-                
-            
-        </ul>
-
-        
+    <body class="api api_catalog2 api_catalog2_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../../images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="csharp">c#</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
     </div>
-<!-- div missing here is intentional -->
 
-<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above.-->
-<script>$("li.active").parents('li').toggleClass("active");</script>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
 
-
-
-            
-              <div class="col-md-7"><link rel="stylesheet" type="text/css" href="../../css/prism.css" />
+      <link rel="stylesheet" type="text/css" href="../../css/prism.css" />
 
 <script src="../../js/prism.js"></script>
 
@@ -679,7 +166,7 @@ You should choose a production endpoint that is geographically closest to your d
 
 <h3 id="vendoridentity">VendorIdentity</h3>
 
-<p>Authentication for the VMI API is done by including a VendorIdentity resource in a <code>&lt;vendor&gt;</code> section at the beginning of each request.</p>
+<p>Authentication for the VMI API is done by including a VendorIdentity resource in a <code class="highlighter-rouge">&lt;vendor&gt;</code> section at the beginning of each request.</p>
 
 <p>VendorIdentitiy information is supplied by iQmetrix and used to authenticate requests made to the VMI API.</p>
 <div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note: </b>Please be aware of the subtle difference between <code>&lt;vendor&gt;</code> and <code>&lt;Vendor&gt;</code> in the various requests. This API is case-sensitive and will cause an error should the incorrect tag be used.</div>
@@ -700,19 +187,19 @@ You should choose a production endpoint that is geographically closest to your d
       <td style="text-align: left">VendorID</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Vendor identifier</td>
-      <td style="text-align: left"><code>9DC6AA95-856B-42C9-8AAF-392A2A02AC77</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">9DC6AA95-856B-42C9-8AAF-392A2A02AC77</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Username</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Username</td>
-      <td style="text-align: left"><code>sampleusername</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">sampleusername</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Password</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Password</td>
-      <td style="text-align: left"><code>samplepassword</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">samplepassword</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ClientAgent</td>
@@ -725,7 +212,7 @@ You should choose a production endpoint that is geographically closest to your d
 
 <h3 id="clientagent">ClientAgent</h3>
 
-<p><code>VendorAccountNumber</code> can be used instead of <code>StoreID</code>. Omit or set <code>StoreID</code> to -1 if using <code>VendorAccountNumber</code>.</p>
+<p><code class="highlighter-rouge">VendorAccountNumber</code> can be used instead of <code class="highlighter-rouge">StoreID</code>. Omit or set <code class="highlighter-rouge">StoreID</code> to -1 if using <code class="highlighter-rouge">VendorAccountNumber</code>.</p>
 
 <table>
   <thead>
@@ -741,25 +228,25 @@ You should choose a production endpoint that is geographically closest to your d
       <td style="text-align: left">ClientID</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Database identifier for corresponding client</td>
-      <td style="text-align: left"><code>c46ccb4d-2d44-4289-950a-b9cb51d58ac4</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">c46ccb4d-2d44-4289-950a-b9cb51d58ac4</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Company name</td>
-      <td style="text-align: left"><code>DropshipTestDemo</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">DropshipTestDemo</code></td>
     </tr>
     <tr>
       <td style="text-align: left">StoreId</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Store identifer the vendor is targeting</td>
-      <td style="text-align: left"><code>4</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">4</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorAccountNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Account number assigned by vendor.</td>
-      <td style="text-align: left"><code>-1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">-1</code></td>
     </tr>
   </tbody>
 </table>
@@ -780,13 +267,13 @@ You should choose a production endpoint that is geographically closest to your d
       <td style="text-align: left">CompanyID</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier provided by iQmetrix of a Company in RQ</td>
-      <td style="text-align: left"><code>9DC6AA95-856B-42C9-8AAF-392A2A02AC77</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">9DC6AA95-856B-42C9-8AAF-392A2A02AC77</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Company name</td>
-      <td style="text-align: left"><code>DropshipTestDemo</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">DropshipTestDemo</code></td>
     </tr>
   </tbody>
 </table>
@@ -807,49 +294,49 @@ You should choose a production endpoint that is geographically closest to your d
       <td style="text-align: left">PurchaseOrderID</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code>84DACFD3-4095-4D50-A02E-781B86B7408E</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">84DACFD3-4095-4D50-A02E-781B86B7408E</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductItemID</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">GlobalProductId from RQ</td>
-      <td style="text-align: left"><code>11142</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">11142</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Quantity</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Number of items shipped</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RQPurchaseOrderID</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the Purchase Order in RQ</td>
-      <td style="text-align: left"><code>22073</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">22073</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SerialNumbers</td>
       <td style="text-align: left">Array[string]</td>
       <td style="text-align: left">Serial numbers from serialized products (e.g. Phone or SIM card)</td>
-      <td style="text-align: left"><code>490154203237518</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">490154203237518</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShipmentNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Vendor defined identifier for the shipment</td>
-      <td style="text-align: left"><code>SHIP001</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">SHIP001</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorInvoiceNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Value supplied by the vendor when creating the purchase order</td>
-      <td style="text-align: left"><code>1002</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1002</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorSKU</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">The vendor part number/sku</td>
-      <td style="text-align: left"><code>SSGS5CB</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">SSGS5CB</code></td>
     </tr>
   </tbody>
 </table>
@@ -870,7 +357,7 @@ You should choose a production endpoint that is geographically closest to your d
       <td style="text-align: left">PurchaseOrderID</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code>28890F70-8FC9-4A9B-9458-410A8D08502D</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">28890F70-8FC9-4A9B-9458-410A8D08502D</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PurchaseOrderData</td>
@@ -903,109 +390,109 @@ You should choose a production endpoint that is geographically closest to your d
       <td style="text-align: left">PurchaseOrderID</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code>28890F70-8FC9-4A9B-9458-410A8D08502D</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">28890F70-8FC9-4A9B-9458-410A8D08502D</code></td>
     </tr>
     <tr>
       <td style="text-align: left">BillToStoreID</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">RQ StoreId</td>
-      <td style="text-align: left"><code>55</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">55</code></td>
     </tr>
     <tr>
       <td style="text-align: left">BillToStoreName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">RQ store name</td>
-      <td style="text-align: left"><code>Cornwall west</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Cornwall west</code></td>
     </tr>
     <tr>
       <td style="text-align: left">BillToVendorAccountNumber</td>
       <td style="text-align: left">String</td>
-      <td style="text-align: left">Vendor account number to use for billing. Can be used in place of <code>BillToStoreId</code></td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left">Vendor account number to use for billing. Can be used in place of <code class="highlighter-rouge">BillToStoreId</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">IsDeleted</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this purchase order has been deleted in RQ</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CreatedByVMI</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if this was created by the VMI API (true) or RQ (false)</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CreatedDate</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">The date and time the purchase order was created, if it was created in RQ</td>
-      <td style="text-align: left"><code>3/16/2014 12:00:00 AM</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">3/16/2014 12:00:00 AM</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Comments</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Any comments for the purchase order</td>
-      <td style="text-align: left"><code>comments</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">comments</code></td>
     </tr>
     <tr>
       <td style="text-align: left">EstimatedArrivalDate</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Estimated date of arrival</td>
-      <td style="text-align: left"><code>3/2/2014 12:00:00 AM</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">3/2/2014 12:00:00 AM</code></td>
     </tr>
     <tr>
       <td style="text-align: left">OrderTotal</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Cost of the order, provided by a vendor for informational purposes only</td>
-      <td style="text-align: left"><code>99.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">99.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RetailiQPurchaseOrderID</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of purchase order in RQ</td>
-      <td style="text-align: left"><code>22075</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">22075</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RetailiQPurchaseOrderNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Purchase order number in RQ</td>
-      <td style="text-align: left"><code>DALEKPO5</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">DALEKPO5</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShippingTotal</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Cost of shipping</td>
-      <td style="text-align: left"><code>99.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">99.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShipToStoreID</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier of store to use for shipping</td>
-      <td style="text-align: left"><code>55</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">55</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShipToStoreName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of store to use for shipping</td>
-      <td style="text-align: left"><code>Cornwall west</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Cornwall west</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShipToVendorAccountNumber</td>
       <td style="text-align: left">String</td>
-      <td style="text-align: left">Vendor account number to use for shipping. Can be used in place of <code>ShipToStoreId</code></td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left">Vendor account number to use for shipping. Can be used in place of <code class="highlighter-rouge">ShipToStoreId</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorInvoiceNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Invoice number for the vendor</td>
-      <td style="text-align: left"><code>1</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name of the vendor</td>
-      <td style="text-align: left"><code>SampleVendor</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">SampleVendor</code></td>
     </tr>
   </tbody>
 </table>
@@ -1026,199 +513,199 @@ You should choose a production endpoint that is geographically closest to your d
       <td style="text-align: left">ProductID</td>
       <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code>86EE477F-C6B7-48FA-AA0A-105662D9A3ED</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">86EE477F-C6B7-48FA-AA0A-105662D9A3ED</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductName</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>Samsung Galaxy S6</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Samsung Galaxy S6</code></td>
     </tr>
     <tr>
       <td style="text-align: left">CategoryPath</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Category location of product. path of category delimited by ‘»’</td>
-      <td style="text-align: left"><code>Activation &gt;&gt; Dropship</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Activation &gt;&gt; Dropship</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateEOL</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">End of life date</td>
-      <td style="text-align: left"><code>1/01/2016 12:00:00 AM</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">1/01/2016 12:00:00 AM</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DateReceived</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Product receiving stauts in RQ</td>
-      <td style="text-align: left"><code>01/21/2016 16:58:23</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">01/21/2016 16:58:23</code></td>
     </tr>
     <tr>
       <td style="text-align: left">DoNotOrder</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the product should not be ordered</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Enabled</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if product is enabled</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">GrossQuantitySold</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Gross amount sold</td>
-      <td style="text-align: left"><code>10</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">10</code></td>
     </tr>
     <tr>
       <td style="text-align: left">GrossQuantityReturned</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Gross amount returned</td>
-      <td style="text-align: left"><code>11</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">11</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MaximumLevel</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Maximum number of Products that can be added to the PurchaseOrder</td>
-      <td style="text-align: left"><code>100</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">100</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MinimumLevel</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Minimum number of Products that can be added to the PurchaseOrder</td>
-      <td style="text-align: left"><code>10</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">10</code></td>
     </tr>
     <tr>
       <td style="text-align: left">MinMaxLocked</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the Min and Max values are locked (unchangeable)</td>
-      <td style="text-align: left"><code>true</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductCost</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Required for PO creation or default from RQ will be used</td>
-      <td style="text-align: left"><code>99.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">99.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductItemID</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">GlobalProductId from RQ</td>
-      <td style="text-align: left"><code>11142</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">11142</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductRecieved</td>
       <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if product was recieved</td>
-      <td style="text-align: left"><code>false</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">false</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProductSKU</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">ProductIdentifier in RQ</td>
-      <td style="text-align: left"><code>CECPSM000017</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">CECPSM000017</code></td>
     </tr>
     <tr>
       <td style="text-align: left">QuantityCommittedOnOrderEntry</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Amount committed on an order entry</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">QuantityInStock</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Amount in stock</td>
-      <td style="text-align: left"><code>8</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">8</code></td>
     </tr>
     <tr>
       <td style="text-align: left">QuantityInTransfer</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Amount in transfer</td>
-      <td style="text-align: left"><code>3</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">3</code></td>
     </tr>
     <tr>
       <td style="text-align: left">QuantityOnBackOrder</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Amount on back order</td>
-      <td style="text-align: left"><code>0</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
     <tr>
       <td style="text-align: left">QuantityOnLoan</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Amount on loan</td>
-      <td style="text-align: left"><code>5</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">5</code></td>
     </tr>
     <tr>
       <td style="text-align: left">QuantityOnOrder</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Amount on order</td>
-      <td style="text-align: left"><code>6</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">6</code></td>
     </tr>
     <tr>
       <td style="text-align: left">QuantityOnRMA</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Amount on RMA</td>
-      <td style="text-align: left"><code>9</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">9</code></td>
     </tr>
     <tr>
       <td style="text-align: left">QuantityOnUncommittedOrder</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Amount on uncommitted order</td>
-      <td style="text-align: left"><code>2</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2</code></td>
     </tr>
     <tr>
       <td style="text-align: left">QuantityOrdered</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Amount ordered</td>
-      <td style="text-align: left"><code>4</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">4</code></td>
     </tr>
     <tr>
       <td style="text-align: left">QuantityReceived</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Amount received</td>
-      <td style="text-align: left"><code>4</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">4</code></td>
     </tr>
     <tr>
       <td style="text-align: left">QuantitySold</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Amount sold</td>
-      <td style="text-align: left"><code>30</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">30</code></td>
     </tr>
     <tr>
       <td style="text-align: left">QuantitySuggestedByVendor</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Amount suggested by vendor</td>
-      <td style="text-align: left"><code>50</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">50</code></td>
     </tr>
     <tr>
       <td style="text-align: left">RetailPrice</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Retail price</td>
-      <td style="text-align: left"><code>99.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">99.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SaleBegin</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Sale begin date</td>
-      <td style="text-align: left"><code>01/01/2014 12:00:00 AM</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">01/01/2014 12:00:00 AM</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SaleEnd</td>
       <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Sale end date</td>
-      <td style="text-align: left"><code>01/10/2014 12:00:00 AM</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">01/10/2014 12:00:00 AM</code></td>
     </tr>
     <tr>
       <td style="text-align: left">SalePrice</td>
       <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Sale price</td>
-      <td style="text-align: left"><code>79.99</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">79.99</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorSKU</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Vendor SKU</td>
-      <td style="text-align: left"><code>SSGS5CB</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">SSGS5CB</code></td>
     </tr>
   </tbody>
 </table>
@@ -1239,85 +726,85 @@ You should choose a production endpoint that is geographically closest to your d
       <td style="text-align: left">StoreID</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code>36</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">36</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Name</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code>Cornwall West</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Cornwall West</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Abbreviation</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Abbrevation</td>
-      <td style="text-align: left"><code>CWW</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">CWW</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Address</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Address</td>
-      <td style="text-align: left"><code>2102 11th Ave</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">2102 11th Ave</code></td>
     </tr>
     <tr>
       <td style="text-align: left">City</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">City</td>
-      <td style="text-align: left"><code>Regina</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Regina</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Country</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Country</td>
-      <td style="text-align: left"><code>Canada</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Canada</code></td>
     </tr>
     <tr>
       <td style="text-align: left">District</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">District</td>
-      <td style="text-align: left"><code>Regina</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Regina</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PhoneNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Phone Number</td>
-      <td style="text-align: left"><code>5555555555</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">5555555555</code></td>
     </tr>
     <tr>
       <td style="text-align: left">PostalZipCode</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Postal or Zip Code</td>
-      <td style="text-align: left"><code>S2S 2S2</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">S2S 2S2</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ProvinceState</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Province or State</td>
-      <td style="text-align: left"><code>Saskatchewan</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Saskatchewan</code></td>
     </tr>
     <tr>
       <td style="text-align: left">Region</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Region</td>
-      <td style="text-align: left"><code>Regina</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Regina</code></td>
     </tr>
     <tr>
       <td style="text-align: left">ShipToStoreID</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">Shipping store ID</td>
-      <td style="text-align: left"><code>55</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">55</code></td>
     </tr>
     <tr>
       <td style="text-align: left">BillToStoreID</td>
       <td style="text-align: left">Integer</td>
       <td style="text-align: left">RQ StoreID</td>
-      <td style="text-align: left"><code>55</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">55</code></td>
     </tr>
     <tr>
       <td style="text-align: left">VendorAccountNumber</td>
       <td style="text-align: left">String</td>
       <td style="text-align: left">Account number assigned by vendor.</td>
-      <td style="text-align: left"><code>123</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">123</code></td>
     </tr>
   </tbody>
 </table>
@@ -1339,23 +826,23 @@ POST /?op=GetPendingCompanies
 <h4 id="headers">Headers</h4>
 
 <ul>
-  <li><code>Content-Type: text/xml</code></li>
+  <li><code class="highlighter-rouge">Content-Type: text/xml</code></li>
 </ul>
 
 <h4 id="authorization-parameters">Authorization Parameters</h4>
 
 <ul>
-  <li><code>vendor</code>   (<strong>Required</strong>)
+  <li><code class="highlighter-rouge">vendor</code>   (<strong>Required</strong>)
     <ul>
-      <li><code>VendorID</code> (<strong>Required</strong>)</li>
-      <li><code>Username</code> (<strong>Required</strong>)</li>
-      <li><code>Password</code> (<strong>Required</strong>)</li>
-      <li><code>Client</code>   (Optional)
+      <li><code class="highlighter-rouge">VendorID</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Username</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Password</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Client</code>   (Optional)
         <ul>
-          <li><code>ClientID</code> (Optional)</li>
-          <li><code>Name</code>     (Optional)</li>
-          <li><code>StoreID</code>  (Optional)</li>
-          <li><code>VendorAccountNumber</code> (Optional)</li>
+          <li><code class="highlighter-rouge">ClientID</code> (Optional)</li>
+          <li><code class="highlighter-rouge">Name</code>     (Optional)</li>
+          <li><code class="highlighter-rouge">StoreID</code>  (Optional)</li>
+          <li><code class="highlighter-rouge">VendorAccountNumber</code> (Optional)</li>
         </ul>
       </li>
     </ul>
@@ -1364,38 +851,38 @@ POST /?op=GetPendingCompanies
 
 <h6 id="example">Example</h6>
 
-<p>```xml
-<?xml version="1.0" encoding="utf-8"?></p>
-<soap:envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:body>
-    <getpendingcompanies xmlns="http://www.iqmetrix.com">
-      <vendor>
-        <vendorid>009E800D-10ED-4F4A-B86F-DFB3C2A18C09</vendorid>
-        <username>danssupplies</username>
-        <password>samplepassword</password>
-        <client>
-          <clientid>c46ccb4d-2d44-4289-950a-b9cb51d58ac4</clientid>
-          <name>DropshipTestDemo</name>
-          <storeid>4</storeid>
-        </client>
-      </vendor>
-    </getpendingcompanies>
-  </soap:body>
-</soap:envelope>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;soap:Body&gt;</span>
+    <span class="nt">&lt;GetPendingCompanies</span> <span class="na">xmlns=</span><span class="s">"http://www.iqmetrix.com"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;vendor&gt;</span>
+        <span class="nt">&lt;VendorID&gt;</span>009E800D-10ED-4F4A-B86F-DFB3C2A18C09<span class="nt">&lt;/VendorID&gt;</span>
+        <span class="nt">&lt;Username&gt;</span>danssupplies<span class="nt">&lt;/Username&gt;</span>
+        <span class="nt">&lt;Password&gt;</span>samplepassword<span class="nt">&lt;/Password&gt;</span>
+        <span class="nt">&lt;Client&gt;</span>
+          <span class="nt">&lt;ClientID&gt;</span>c46ccb4d-2d44-4289-950a-b9cb51d58ac4<span class="nt">&lt;/ClientID&gt;</span>
+          <span class="nt">&lt;Name&gt;</span>DropshipTestDemo<span class="nt">&lt;/Name&gt;</span>
+          <span class="nt">&lt;StoreID&gt;</span>4<span class="nt">&lt;/StoreID&gt;</span>
+        <span class="nt">&lt;/Client&gt;</span>
+      <span class="nt">&lt;/vendor&gt;</span>
+    <span class="nt">&lt;/GetPendingCompanies&gt;</span>
+  <span class="nt">&lt;/soap:Body&gt;</span>
+<span class="nt">&lt;/soap:Envelope&gt;</span>          
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h6 id="code-example">Code Example</h6>
 
-<p>```java
-VendorIdentity vendor = new VendorIdentity();
-vendor.VendorID = new Guid(009E800D-10ED-4F4A-B86F-DFB3C2A18C09);
-vendor.Username = “danssupplies”;
-vendor.Password = “samplepassword”;
-VMIServiceSoapClient vmiService = new VMIServiceSoapClient();
-CompanyInformation[] companies = vmiService.GetPendingCompanies(vendor);</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">VendorIdentity</span> <span class="n">vendor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VendorIdentity</span><span class="o">();</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">VendorID</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Guid</span><span class="o">(</span><span class="mi">009</span><span class="n">E800D</span><span class="o">-</span><span class="mi">10</span><span class="n">ED</span><span class="o">-</span><span class="mi">4</span><span class="n">F4A</span><span class="o">-</span><span class="n">B86F</span><span class="o">-</span><span class="n">DFB3C2A18C09</span><span class="o">);</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Username</span> <span class="o">=</span> <span class="s">"danssupplies"</span><span class="o">;</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Password</span> <span class="o">=</span> <span class="s">"samplepassword"</span><span class="o">;</span>
+<span class="n">VMIServiceSoapClient</span> <span class="n">vmiService</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VMIServiceSoapClient</span><span class="o">();</span>
+<span class="n">CompanyInformation</span><span class="o">[]</span> <span class="n">companies</span> <span class="o">=</span> <span class="n">vmiService</span><span class="o">.</span><span class="na">GetPendingCompanies</span><span class="o">(</span><span class="n">vendor</span><span class="o">);</span>
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h4 id="response">Response</h4>
 
@@ -1403,26 +890,26 @@ CompanyInformation[] companies = vmiService.GetPendingCompanies(vendor);</p>
 
 <h6 id="example-1">Example</h6>
 
-<p><code>
-HTTP 200 Content-Type: application/xml
-</code>
-```xml
-<?xml version="1.0" encoding="utf-8"?></p>
-<soap:envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <soap:body>
-        <getpendingcompaniesresponse xmlns="http://www.iqmetrix.com">
-          <getpendingcompaniesresult>
-            <companyinformation>
-              <companyid>c46ccb4d-2d44-4289-950a-b9cb51d58ac4</companyid>
-              <name>DropshipTestDemo_DansSupplies</name>
-            </companyinformation>
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP 200 Content-Type: application/xml
+</code></pre>
+</div>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;soap:Body&gt;</span>
+        <span class="nt">&lt;GetPendingCompaniesResponse</span> <span class="na">xmlns=</span><span class="s">"http://www.iqmetrix.com"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;GetPendingCompaniesResult&gt;</span>
+            <span class="nt">&lt;CompanyInformation&gt;</span>
+              <span class="nt">&lt;CompanyID&gt;</span>c46ccb4d-2d44-4289-950a-b9cb51d58ac4<span class="nt">&lt;/CompanyID&gt;</span>
+              <span class="nt">&lt;Name&gt;</span>DropshipTestDemo_DansSupplies<span class="nt">&lt;/Name&gt;</span>
+            <span class="nt">&lt;/CompanyInformation&gt;</span>
             ...
-          </getpendingcompaniesresult>
-        </getpendingcompaniesresponse>
-    </soap:body>
-</soap:envelope>
+          <span class="nt">&lt;/GetPendingCompaniesResult&gt;</span>
+        <span class="nt">&lt;/GetPendingCompaniesResponse&gt;</span>
+    <span class="nt">&lt;/soap:Body&gt;</span>
+<span class="nt">&lt;/soap:Envelope&gt;</span>
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h3 id="getting-enabled-companies">Getting Enabled Companies</h3>
 
@@ -1437,23 +924,23 @@ POST /?op=GetEnabledCompanies
 <h4 id="headers-1">Headers</h4>
 
 <ul>
-  <li><code>Content-Type: text/xml</code></li>
+  <li><code class="highlighter-rouge">Content-Type: text/xml</code></li>
 </ul>
 
 <h4 id="authorization-parameters-1">Authorization Parameters</h4>
 
 <ul>
-  <li><code>vendor</code>   (<strong>Required</strong>)
+  <li><code class="highlighter-rouge">vendor</code>   (<strong>Required</strong>)
     <ul>
-      <li><code>VendorID</code> (<strong>Required</strong>)</li>
-      <li><code>Username</code> (<strong>Required</strong>)</li>
-      <li><code>Password</code> (<strong>Required</strong>)</li>
-      <li><code>Client</code>   (Optional)
+      <li><code class="highlighter-rouge">VendorID</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Username</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Password</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Client</code>   (Optional)
         <ul>
-          <li><code>ClientID</code> (Optional)</li>
-          <li><code>Name</code>     (Optional)</li>
-          <li><code>StoreID</code>  (Optional)</li>
-          <li><code>VendorAccountNumber</code> (Optional)</li>
+          <li><code class="highlighter-rouge">ClientID</code> (Optional)</li>
+          <li><code class="highlighter-rouge">Name</code>     (Optional)</li>
+          <li><code class="highlighter-rouge">StoreID</code>  (Optional)</li>
+          <li><code class="highlighter-rouge">VendorAccountNumber</code> (Optional)</li>
         </ul>
       </li>
     </ul>
@@ -1462,38 +949,38 @@ POST /?op=GetEnabledCompanies
 
 <h6 id="example-2">Example</h6>
 
-<p>```xml
-<?xml version="1.0" encoding="utf-8"?></p>
-<soap:envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:body>
-    <getenabledcompanies xmlns="http://www.iqmetrix.com">
-      <vendor>
-        <vendorid>009E800D-10ED-4F4A-B86F-DFB3C2A18C09</vendorid>
-        <username>danssupplies</username>
-        <password>samplepassword</password>
-        <client>
-          <clientid>c46ccb4d-2d44-4289-950a-b9cb51d58ac4</clientid>
-          <name>DropshipTestDemo</name>
-          <storeid>4</storeid>
-        </client>
-      </vendor>
-    </getenabledcompanies>
-  </soap:body>
-</soap:envelope>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;soap:Body&gt;</span>
+    <span class="nt">&lt;GetEnabledCompanies</span> <span class="na">xmlns=</span><span class="s">"http://www.iqmetrix.com"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;vendor&gt;</span>
+        <span class="nt">&lt;VendorID&gt;</span>009E800D-10ED-4F4A-B86F-DFB3C2A18C09<span class="nt">&lt;/VendorID&gt;</span>
+        <span class="nt">&lt;Username&gt;</span>danssupplies<span class="nt">&lt;/Username&gt;</span>
+        <span class="nt">&lt;Password&gt;</span>samplepassword<span class="nt">&lt;/Password&gt;</span>
+        <span class="nt">&lt;Client&gt;</span>
+          <span class="nt">&lt;ClientID&gt;</span>c46ccb4d-2d44-4289-950a-b9cb51d58ac4<span class="nt">&lt;/ClientID&gt;</span>
+          <span class="nt">&lt;Name&gt;</span>DropshipTestDemo<span class="nt">&lt;/Name&gt;</span>
+          <span class="nt">&lt;StoreID&gt;</span>4<span class="nt">&lt;/StoreID&gt;</span>
+        <span class="nt">&lt;/Client&gt;</span>
+      <span class="nt">&lt;/vendor&gt;</span>
+    <span class="nt">&lt;/GetEnabledCompanies&gt;</span>
+  <span class="nt">&lt;/soap:Body&gt;</span>
+<span class="nt">&lt;/soap:Envelope&gt;</span>          
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h6 id="code-example-1">Code Example</h6>
 
-<p>```java
-VendorIdentity vendor = new VendorIdentity();
-vendor.VendorID = new Guid(009E800D-10ED-4F4A-B86F-DFB3C2A18C09);
-vendor.Username = “danssupplies”;
-vendor.Password = “samplepassword”;
-VMIServiceSoapClient vmiService = new VMIServiceSoapClient();
-CompanyInformation[] companies = vmiService.GetEnabledCompanies(vendor);</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">VendorIdentity</span> <span class="n">vendor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VendorIdentity</span><span class="o">();</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">VendorID</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Guid</span><span class="o">(</span><span class="mi">009</span><span class="n">E800D</span><span class="o">-</span><span class="mi">10</span><span class="n">ED</span><span class="o">-</span><span class="mi">4</span><span class="n">F4A</span><span class="o">-</span><span class="n">B86F</span><span class="o">-</span><span class="n">DFB3C2A18C09</span><span class="o">);</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Username</span> <span class="o">=</span> <span class="s">"danssupplies"</span><span class="o">;</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Password</span> <span class="o">=</span> <span class="s">"samplepassword"</span><span class="o">;</span>
+<span class="n">VMIServiceSoapClient</span> <span class="n">vmiService</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VMIServiceSoapClient</span><span class="o">();</span>
+<span class="n">CompanyInformation</span><span class="o">[]</span> <span class="n">companies</span> <span class="o">=</span> <span class="n">vmiService</span><span class="o">.</span><span class="na">GetEnabledCompanies</span><span class="o">(</span><span class="n">vendor</span><span class="o">);</span>
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h4 id="response-1">Response</h4>
 
@@ -1501,26 +988,26 @@ CompanyInformation[] companies = vmiService.GetEnabledCompanies(vendor);</p>
 
 <h6 id="example-3">Example</h6>
 
-<p><code>
-HTTP 200 Content-Type: application/xml
-</code>
-```xml
-<?xml version="1.0" encoding="utf-8"?></p>
-<soap:envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <soap:body>
-        <getcompanylistresponse xmlns="http://www.iqmetrix.com">
-          <getcompanylistresult>
-            <companyinformation>
-              <companyid>c46ccb4d-2d44-4289-950a-b9cb51d58ac4</companyid>
-              <name>DropshipTestDemo_DansSupplies</name>
-            </companyinformation>
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP 200 Content-Type: application/xml
+</code></pre>
+</div>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;soap:Body&gt;</span>
+        <span class="nt">&lt;GetCompanyListResponse</span> <span class="na">xmlns=</span><span class="s">"http://www.iqmetrix.com"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;GetCompanyListResult&gt;</span>
+            <span class="nt">&lt;CompanyInformation&gt;</span>
+              <span class="nt">&lt;CompanyID&gt;</span>c46ccb4d-2d44-4289-950a-b9cb51d58ac4<span class="nt">&lt;/CompanyID&gt;</span>
+              <span class="nt">&lt;Name&gt;</span>DropshipTestDemo_DansSupplies<span class="nt">&lt;/Name&gt;</span>
+            <span class="nt">&lt;/CompanyInformation&gt;</span>
             ...
-          </getcompanylistresult>
-        </getcompanylistresponse>
-    </soap:body>
-</soap:envelope>
+          <span class="nt">&lt;/GetCompanyListResult&gt;</span>
+        <span class="nt">&lt;/GetCompanyListResponse&gt;</span>
+    <span class="nt">&lt;/soap:Body&gt;</span>
+<span class="nt">&lt;/soap:Envelope&gt;</span>
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h3 id="enabling-or-disabling-a-company">Enabling or Disabling a Company</h3>
 
@@ -1537,23 +1024,23 @@ POST /?op=EnableCompany
 <h4 id="headers-2">Headers</h4>
 
 <ul>
-  <li><code>Content-Type: text/xml</code></li>
+  <li><code class="highlighter-rouge">Content-Type: text/xml</code></li>
 </ul>
 
 <h4 id="authorization-parameters-2">Authorization Parameters</h4>
 
 <ul>
-  <li><code>vendor</code>   (<strong>Required</strong>)
+  <li><code class="highlighter-rouge">vendor</code>   (<strong>Required</strong>)
     <ul>
-      <li><code>VendorID</code> (<strong>Required</strong>)</li>
-      <li><code>Username</code> (<strong>Required</strong>)</li>
-      <li><code>Password</code> (<strong>Required</strong>)</li>
-      <li><code>Client</code>   (<strong>Required</strong>)
+      <li><code class="highlighter-rouge">VendorID</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Username</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Password</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Client</code>   (<strong>Required</strong>)
         <ul>
-          <li><code>ClientID</code> (<strong>Required</strong>)</li>
-          <li><code>Name</code>     (Optional)</li>
-          <li><code>StoreID</code>  (Optional)</li>
-          <li><code>VendorAccountNumber</code> (Optional)</li>
+          <li><code class="highlighter-rouge">ClientID</code> (<strong>Required</strong>)</li>
+          <li><code class="highlighter-rouge">Name</code>     (Optional)</li>
+          <li><code class="highlighter-rouge">StoreID</code>  (Optional)</li>
+          <li><code class="highlighter-rouge">VendorAccountNumber</code> (Optional)</li>
         </ul>
       </li>
     </ul>
@@ -1563,45 +1050,45 @@ POST /?op=EnableCompany
 <h4 id="request-parameters">Request Parameters</h4>
 
 <ul>
-  <li><code>isEnabled</code> (Optional) - True to enable, if not specified defaults to false</li>
+  <li><code class="highlighter-rouge">isEnabled</code> (Optional) - True to enable, if not specified defaults to false</li>
 </ul>
 
 <h6 id="example-4">Example</h6>
 
-<p>```xml
-<?xml version="1.0" encoding="utf-8"?></p>
-<soap:envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:body>
-    <enablecompany xmlns="http://www.iqmetrix.com">
-      <vendor>
-        <vendorid>009E800D-10ED-4F4A-B86F-DFB3C2A18C09</vendorid>
-        <username>danssupplies</username>
-        <password>samplepassword</password>
-        <client>
-          <clientid>c46ccb4d-2d44-4289-950a-b9cb51d58ac4</clientid>
-          <name>DropshipTestDemo</name>
-          <storeid>14070</storeid>
-        </client>
-      </vendor>
-      <isenabled>true</isenabled>
-    </enablecompany>
-  </soap:body>
-</soap:envelope>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;soap:Body&gt;</span>
+    <span class="nt">&lt;EnableCompany</span> <span class="na">xmlns=</span><span class="s">"http://www.iqmetrix.com"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;vendor&gt;</span>
+        <span class="nt">&lt;VendorID&gt;</span>009E800D-10ED-4F4A-B86F-DFB3C2A18C09<span class="nt">&lt;/VendorID&gt;</span>
+        <span class="nt">&lt;Username&gt;</span>danssupplies<span class="nt">&lt;/Username&gt;</span>
+        <span class="nt">&lt;Password&gt;</span>samplepassword<span class="nt">&lt;/Password&gt;</span>
+        <span class="nt">&lt;Client&gt;</span>
+          <span class="nt">&lt;ClientID&gt;</span>c46ccb4d-2d44-4289-950a-b9cb51d58ac4<span class="nt">&lt;/ClientID&gt;</span>
+          <span class="nt">&lt;Name&gt;</span>DropshipTestDemo<span class="nt">&lt;/Name&gt;</span>
+          <span class="nt">&lt;StoreID&gt;</span>14070<span class="nt">&lt;/StoreID&gt;</span>
+        <span class="nt">&lt;/Client&gt;</span>
+      <span class="nt">&lt;/vendor&gt;</span>
+      <span class="nt">&lt;isEnabled&gt;</span>true<span class="nt">&lt;/isEnabled&gt;</span>
+    <span class="nt">&lt;/EnableCompany&gt;</span>
+  <span class="nt">&lt;/soap:Body&gt;</span>
+<span class="nt">&lt;/soap:Envelope&gt;</span>          
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h6 id="code-example-2">Code Example</h6>
 
-<p>```java
-VendorIdentity vendor = new VendorIdentity();
-vendor.VendorID = new Guid(009E800D-10ED-4F4A-B86F-DFB3C2A18C09);
-vendor.Username = “danssupplies”;
-vendor.Password = “samplepassword”;
-vendor.Client = new ClientAgent();
-vendor.Client.ClientID = companyID;
-vmiService.EnableCompany(vendor, true); // false to disable a company</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">VendorIdentity</span> <span class="n">vendor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VendorIdentity</span><span class="o">();</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">VendorID</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Guid</span><span class="o">(</span><span class="mi">009</span><span class="n">E800D</span><span class="o">-</span><span class="mi">10</span><span class="n">ED</span><span class="o">-</span><span class="mi">4</span><span class="n">F4A</span><span class="o">-</span><span class="n">B86F</span><span class="o">-</span><span class="n">DFB3C2A18C09</span><span class="o">);</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Username</span> <span class="o">=</span> <span class="s">"danssupplies"</span><span class="o">;</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Password</span> <span class="o">=</span> <span class="s">"samplepassword"</span><span class="o">;</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClientAgent</span><span class="o">();</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Client</span><span class="o">.</span><span class="na">ClientID</span> <span class="o">=</span> <span class="n">companyID</span><span class="o">;</span>
+<span class="n">vmiService</span><span class="o">.</span><span class="na">EnableCompany</span><span class="o">(</span><span class="n">vendor</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span> <span class="c1">// false to disable a company</span>
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h4 id="response-2">Response</h4>
 
@@ -1609,19 +1096,19 @@ vmiService.EnableCompany(vendor, true); // false to disable a company</p>
 
 <h6 id="example-5">Example</h6>
 
-<p><code>
-HTTP 200 Content-Type: application/xml
-</code>
-```xml
-<?xml version="1.0" encoding="utf-8"?></p>
-<soap:envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <soap:body>
-        <enablecompanyresponse xmlns="http://www.iqmetrix.com">
-        </enablecompanyresponse>
-    </soap:body>
-</soap:envelope>
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP 200 Content-Type: application/xml
+</code></pre>
+</div>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;soap:Body&gt;</span>
+        <span class="nt">&lt;EnableCompanyResponse</span> <span class="na">xmlns=</span><span class="s">"http://www.iqmetrix.com"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/EnableCompanyResponse&gt;</span>
+    <span class="nt">&lt;/soap:Body&gt;</span>
+<span class="nt">&lt;/soap:Envelope&gt;</span>
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h3 id="getting-a-company-list">Getting a Company List</h3>
 
@@ -1636,23 +1123,23 @@ POST /?op=GetCompanyList
 <h4 id="headers-3">Headers</h4>
 
 <ul>
-  <li><code>Content-Type: text/xml</code></li>
+  <li><code class="highlighter-rouge">Content-Type: text/xml</code></li>
 </ul>
 
 <h4 id="authorization-parameters-3">Authorization Parameters</h4>
 
 <ul>
-  <li><code>Vendor</code>   (<strong>Required</strong>)
+  <li><code class="highlighter-rouge">Vendor</code>   (<strong>Required</strong>)
     <ul>
-      <li><code>VendorID</code> (<strong>Required</strong>)</li>
-      <li><code>Username</code> (<strong>Required</strong>)</li>
-      <li><code>Password</code> (<strong>Required</strong>)</li>
-      <li><code>Client</code>   (Optional)
+      <li><code class="highlighter-rouge">VendorID</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Username</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Password</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Client</code>   (Optional)
         <ul>
-          <li><code>ClientID</code> (Optional)</li>
-          <li><code>Name</code>     (Optional)</li>
-          <li><code>StoreID</code>  (Optional)</li>
-          <li><code>VendorAccountNumber</code> (Optional)</li>
+          <li><code class="highlighter-rouge">ClientID</code> (Optional)</li>
+          <li><code class="highlighter-rouge">Name</code>     (Optional)</li>
+          <li><code class="highlighter-rouge">StoreID</code>  (Optional)</li>
+          <li><code class="highlighter-rouge">VendorAccountNumber</code> (Optional)</li>
         </ul>
       </li>
     </ul>
@@ -1661,38 +1148,38 @@ POST /?op=GetCompanyList
 
 <h6 id="example-6">Example</h6>
 
-<p>```xml
-<?xml version="1.0" encoding="utf-8"?></p>
-<soap:envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:body>
-    <getcompanylist xmlns="http://www.iqmetrix.com">
-      <vendor>
-        <vendorid>009E800D-10ED-4F4A-B86F-DFB3C2A18C09</vendorid>
-        <username>danssupplies</username>
-        <password>samplepassword</password>
-        <client>
-          <clientid>c46ccb4d-2d44-4289-950a-b9cb51d58ac4</clientid>
-          <name>DropshipTestDemo</name>
-          <storeid>4</storeid>
-        </client>
-      </vendor>
-    </getcompanylist>
-  </soap:body>
-</soap:envelope>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;soap:Body&gt;</span>
+    <span class="nt">&lt;GetCompanyList</span> <span class="na">xmlns=</span><span class="s">"http://www.iqmetrix.com"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Vendor&gt;</span>
+        <span class="nt">&lt;VendorID&gt;</span>009E800D-10ED-4F4A-B86F-DFB3C2A18C09<span class="nt">&lt;/VendorID&gt;</span>
+        <span class="nt">&lt;Username&gt;</span>danssupplies<span class="nt">&lt;/Username&gt;</span>
+        <span class="nt">&lt;Password&gt;</span>samplepassword<span class="nt">&lt;/Password&gt;</span>
+        <span class="nt">&lt;Client&gt;</span>
+          <span class="nt">&lt;ClientID&gt;</span>c46ccb4d-2d44-4289-950a-b9cb51d58ac4<span class="nt">&lt;/ClientID&gt;</span>
+          <span class="nt">&lt;Name&gt;</span>DropshipTestDemo<span class="nt">&lt;/Name&gt;</span>
+          <span class="nt">&lt;StoreID&gt;</span>4<span class="nt">&lt;/StoreID&gt;</span>
+        <span class="nt">&lt;/Client&gt;</span>
+      <span class="nt">&lt;/Vendor&gt;</span>
+    <span class="nt">&lt;/GetCompanyList&gt;</span>
+  <span class="nt">&lt;/soap:Body&gt;</span>
+<span class="nt">&lt;/soap:Envelope&gt;</span>          
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h6 id="code-example-3">Code Example</h6>
 
-<p>```java
-VendorIdentity vendor = new VendorIdentity();
-vendor.VendorID = new Guid(009E800D-10ED-4F4A-B86F-DFB3C2A18C09);
-vendor.Username = “danssupplies”;
-vendor.Password = “samplepassword”;
-VMIServiceSoapClient vmiService = new VMIServiceSoapClient();
-CompanyInformation[] companies = vmiService.GetCompanyList(vendor);</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">VendorIdentity</span> <span class="n">vendor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VendorIdentity</span><span class="o">();</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">VendorID</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Guid</span><span class="o">(</span><span class="mi">009</span><span class="n">E800D</span><span class="o">-</span><span class="mi">10</span><span class="n">ED</span><span class="o">-</span><span class="mi">4</span><span class="n">F4A</span><span class="o">-</span><span class="n">B86F</span><span class="o">-</span><span class="n">DFB3C2A18C09</span><span class="o">);</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Username</span> <span class="o">=</span> <span class="s">"danssupplies"</span><span class="o">;</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Password</span> <span class="o">=</span> <span class="s">"samplepassword"</span><span class="o">;</span>
+<span class="n">VMIServiceSoapClient</span> <span class="n">vmiService</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VMIServiceSoapClient</span><span class="o">();</span>
+<span class="n">CompanyInformation</span><span class="o">[]</span> <span class="n">companies</span> <span class="o">=</span> <span class="n">vmiService</span><span class="o">.</span><span class="na">GetCompanyList</span><span class="o">(</span><span class="n">vendor</span><span class="o">);</span>
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h4 id="response-3">Response</h4>
 
@@ -1700,26 +1187,26 @@ CompanyInformation[] companies = vmiService.GetCompanyList(vendor);</p>
 
 <h6 id="example-7">Example</h6>
 
-<p><code>
-HTTP 200 Content-Type: application/xml
-</code>
-```xml
-<?xml version="1.0" encoding="utf-8"?></p>
-<soap:envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <soap:body>
-        <getcompanylistresponse xmlns="http://www.iqmetrix.com">
-          <getcompanylistresult>
-            <companyinformation>
-              <companyid>c46ccb4d-2d44-4289-950a-b9cb51d58ac4</companyid>
-              <name>DropshipTestDemo_DansSupplies</name>
-            </companyinformation>
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP 200 Content-Type: application/xml
+</code></pre>
+</div>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;soap:Body&gt;</span>
+        <span class="nt">&lt;GetCompanyListResponse</span> <span class="na">xmlns=</span><span class="s">"http://www.iqmetrix.com"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;GetCompanyListResult&gt;</span>
+            <span class="nt">&lt;CompanyInformation&gt;</span>
+              <span class="nt">&lt;CompanyID&gt;</span>c46ccb4d-2d44-4289-950a-b9cb51d58ac4<span class="nt">&lt;/CompanyID&gt;</span>
+              <span class="nt">&lt;Name&gt;</span>DropshipTestDemo_DansSupplies<span class="nt">&lt;/Name&gt;</span>
+            <span class="nt">&lt;/CompanyInformation&gt;</span>
             ...
-          </getcompanylistresult>
-        </getcompanylistresponse>
-    </soap:body>
-</soap:envelope>
+          <span class="nt">&lt;/GetCompanyListResult&gt;</span>
+        <span class="nt">&lt;/GetCompanyListResponse&gt;</span>
+    <span class="nt">&lt;/soap:Body&gt;</span>
+<span class="nt">&lt;/soap:Envelope&gt;</span>
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h3 id="getting-a-store-list">Getting a Store List</h3>
 
@@ -1734,23 +1221,23 @@ POST /?op=GetStoreList
 <h4 id="headers-4">Headers</h4>
 
 <ul>
-  <li><code>Content-Type: text/xml</code></li>
+  <li><code class="highlighter-rouge">Content-Type: text/xml</code></li>
 </ul>
 
 <h4 id="authorization-parameters-4">Authorization Parameters</h4>
 
 <ul>
-  <li><code>Vendor</code>   (<strong>Required</strong>)
+  <li><code class="highlighter-rouge">Vendor</code>   (<strong>Required</strong>)
     <ul>
-      <li><code>VendorID</code> (<strong>Required</strong>)</li>
-      <li><code>Username</code> (<strong>Required</strong>)</li>
-      <li><code>Password</code> (<strong>Required</strong>)</li>
-      <li><code>Client</code>   (<strong>Required</strong>)
+      <li><code class="highlighter-rouge">VendorID</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Username</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Password</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Client</code>   (<strong>Required</strong>)
         <ul>
-          <li><code>ClientID</code> (<strong>Required</strong>)</li>
-          <li><code>Name</code>     (Optional)</li>
-          <li><code>StoreID</code>  (Optional)</li>
-          <li><code>VendorAccountNumber</code> (Optional)</li>
+          <li><code class="highlighter-rouge">ClientID</code> (<strong>Required</strong>)</li>
+          <li><code class="highlighter-rouge">Name</code>     (Optional)</li>
+          <li><code class="highlighter-rouge">StoreID</code>  (Optional)</li>
+          <li><code class="highlighter-rouge">VendorAccountNumber</code> (Optional)</li>
         </ul>
       </li>
     </ul>
@@ -1759,40 +1246,40 @@ POST /?op=GetStoreList
 
 <h6 id="example-8">Example</h6>
 
-<p>```xml
-<?xml version="1.0" encoding="utf-8"?></p>
-<soap:envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:body>
-    <getstorelist xmlns="http://www.iqmetrix.com">
-      <vendor>
-        <vendorid>009E800D-10ED-4F4A-B86F-DFB3C2A18C09</vendorid>
-        <username>danssupplies</username>
-        <password>samplepassword</password>
-        <client>
-          <clientid>c46ccb4d-2d44-4289-950a-b9cb51d58ac4</clientid>
-          <name>DropshipTestDemo</name>
-          <storeid>4</storeid>
-        </client>
-      </vendor>
-    </getstorelist>
-  </soap:body>
-</soap:envelope>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;soap:Body&gt;</span>
+    <span class="nt">&lt;GetStoreList</span> <span class="na">xmlns=</span><span class="s">"http://www.iqmetrix.com"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Vendor&gt;</span>
+        <span class="nt">&lt;VendorID&gt;</span>009E800D-10ED-4F4A-B86F-DFB3C2A18C09<span class="nt">&lt;/VendorID&gt;</span>
+        <span class="nt">&lt;Username&gt;</span>danssupplies<span class="nt">&lt;/Username&gt;</span>
+        <span class="nt">&lt;Password&gt;</span>samplepassword<span class="nt">&lt;/Password&gt;</span>
+        <span class="nt">&lt;Client&gt;</span>
+          <span class="nt">&lt;ClientID&gt;</span>c46ccb4d-2d44-4289-950a-b9cb51d58ac4<span class="nt">&lt;/ClientID&gt;</span>
+          <span class="nt">&lt;Name&gt;</span>DropshipTestDemo<span class="nt">&lt;/Name&gt;</span>
+          <span class="nt">&lt;StoreID&gt;</span>4<span class="nt">&lt;/StoreID&gt;</span>
+        <span class="nt">&lt;/Client&gt;</span>
+      <span class="nt">&lt;/Vendor&gt;</span>
+    <span class="nt">&lt;/GetStoreList&gt;</span>
+  <span class="nt">&lt;/soap:Body&gt;</span>
+<span class="nt">&lt;/soap:Envelope&gt;</span>          
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h6 id="code-example-4">Code Example</h6>
 
-<p>```java
-VendorIdentity vendor = new VendorIdentity();
-vendor.VendorID = new Guid(009E800D-10ED-4F4A-B86F-DFB3C2A18C09);
-vendor.Username =  “danssupplies”;
-vendor.Password = “samplepassword”;
-vendor.Client = new ClientAgent();
-vendor.Client.ClientID = companyID;</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">VendorIdentity</span> <span class="n">vendor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VendorIdentity</span><span class="o">();</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">VendorID</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Guid</span><span class="o">(</span><span class="mi">009</span><span class="n">E800D</span><span class="o">-</span><span class="mi">10</span><span class="n">ED</span><span class="o">-</span><span class="mi">4</span><span class="n">F4A</span><span class="o">-</span><span class="n">B86F</span><span class="o">-</span><span class="n">DFB3C2A18C09</span><span class="o">);</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Username</span> <span class="o">=</span>  <span class="s">"danssupplies"</span><span class="o">;</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Password</span> <span class="o">=</span> <span class="s">"samplepassword"</span><span class="o">;</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClientAgent</span><span class="o">();</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Client</span><span class="o">.</span><span class="na">ClientID</span> <span class="o">=</span> <span class="n">companyID</span><span class="o">;</span>
 
-<p>StoreInformation[] stores = vmiService.GetStoreList(vendor);</p>
+<span class="n">StoreInformation</span><span class="o">[]</span> <span class="n">stores</span> <span class="o">=</span> <span class="n">vmiService</span><span class="o">.</span><span class="na">GetStoreList</span><span class="o">(</span><span class="n">vendor</span><span class="o">);</span>
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h4 id="response-4">Response</h4>
 
@@ -1800,38 +1287,38 @@ vendor.Client.ClientID = companyID;</p>
 
 <h6 id="example-9">Example</h6>
 
-<p><code>
-HTTP 200 Content-Type: application/xml
-</code>
-```xml
-<?xml version="1.0" encoding="utf-8"?></p>
-<soap:envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <soap:body>
-        <getstorelistresponse xmlns="http://www.iqmetrix.com">
-            <getstorelistresult>
-                <storeinformation>
-                    <storeid>4</storeid>
-                    <name>Tasha's Test Location</name>
-                    <abbreviation>TT101</abbreviation>
-                    <region>First Region</region>
-                    <district>First District</district>
-                    <address>845 Rue Sherbrooke O</address>
-                    <city>Montréal</city>
-                    <provincestate>QC</provincestate>
-                    <postalzipcode>H3A 0G4</postalzipcode>
-                    <country>Canada</country>
-                    <phonenumber>4215551234</phonenumber>
-                    <shiptostoreid>4</shiptostoreid>
-                    <billtostoreid>4</billtostoreid>
-                    <vendoraccountnumber>-1</vendoraccountnumber>
-                </storeinformation>
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP 200 Content-Type: application/xml
+</code></pre>
+</div>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;soap:Body&gt;</span>
+        <span class="nt">&lt;GetStoreListResponse</span> <span class="na">xmlns=</span><span class="s">"http://www.iqmetrix.com"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;GetStoreListResult&gt;</span>
+                <span class="nt">&lt;StoreInformation&gt;</span>
+                    <span class="nt">&lt;StoreID&gt;</span>4<span class="nt">&lt;/StoreID&gt;</span>
+                    <span class="nt">&lt;Name&gt;</span>Tasha's Test Location<span class="nt">&lt;/Name&gt;</span>
+                    <span class="nt">&lt;Abbreviation&gt;</span>TT101<span class="nt">&lt;/Abbreviation&gt;</span>
+                    <span class="nt">&lt;Region&gt;</span>First Region<span class="nt">&lt;/Region&gt;</span>
+                    <span class="nt">&lt;District&gt;</span>First District<span class="nt">&lt;/District&gt;</span>
+                    <span class="nt">&lt;Address&gt;</span>845 Rue Sherbrooke O<span class="nt">&lt;/Address&gt;</span>
+                    <span class="nt">&lt;City&gt;</span>Montréal<span class="nt">&lt;/City&gt;</span>
+                    <span class="nt">&lt;ProvinceState&gt;</span>QC<span class="nt">&lt;/ProvinceState&gt;</span>
+                    <span class="nt">&lt;PostalZipCode&gt;</span>H3A 0G4<span class="nt">&lt;/PostalZipCode&gt;</span>
+                    <span class="nt">&lt;Country&gt;</span>Canada<span class="nt">&lt;/Country&gt;</span>
+                    <span class="nt">&lt;PhoneNumber&gt;</span>4215551234<span class="nt">&lt;/PhoneNumber&gt;</span>
+                    <span class="nt">&lt;ShipToStoreID&gt;</span>4<span class="nt">&lt;/ShipToStoreID&gt;</span>
+                    <span class="nt">&lt;BillToStoreID&gt;</span>4<span class="nt">&lt;/BillToStoreID&gt;</span>
+                    <span class="nt">&lt;VendorAccountNumber&gt;</span>-1<span class="nt">&lt;/VendorAccountNumber&gt;</span>
+                <span class="nt">&lt;/StoreInformation&gt;</span>
                 ...
-            </getstorelistresult>
-        </getstorelistresponse>
-    </soap:body>
-</soap:envelope>
+            <span class="nt">&lt;/GetStoreListResult&gt;</span>
+        <span class="nt">&lt;/GetStoreListResponse&gt;</span>
+    <span class="nt">&lt;/soap:Body&gt;</span>
+<span class="nt">&lt;/soap:Envelope&gt;</span>              
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h3 id="getting-an-inventory-report">Getting an Inventory Report</h3>
 
@@ -1846,23 +1333,23 @@ POST /?op=GetInventoryReport
 <h4 id="headers-5">Headers</h4>
 
 <ul>
-  <li><code>Content-Type: text/xml</code></li>
+  <li><code class="highlighter-rouge">Content-Type: text/xml</code></li>
 </ul>
 
 <h4 id="authorization-parameters-5">Authorization Parameters</h4>
 
 <ul>
-  <li><code>Vendor</code>   (<strong>Required</strong>)
+  <li><code class="highlighter-rouge">Vendor</code>   (<strong>Required</strong>)
     <ul>
-      <li><code>VendorID</code> (<strong>Required</strong>)</li>
-      <li><code>Username</code> (<strong>Required</strong>)</li>
-      <li><code>Password</code> (<strong>Required</strong>)</li>
-      <li><code>Client</code>   (<strong>Required</strong>)
+      <li><code class="highlighter-rouge">VendorID</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Username</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Password</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Client</code>   (<strong>Required</strong>)
         <ul>
-          <li><code>ClientID</code> (<strong>Required</strong>)</li>
-          <li><code>Name</code>     (Optional)</li>
-          <li><code>StoreID</code>  (<strong>Required</strong>)</li>
-          <li><code>VendorAccountNumber</code> (Optional)</li>
+          <li><code class="highlighter-rouge">ClientID</code> (<strong>Required</strong>)</li>
+          <li><code class="highlighter-rouge">Name</code>     (Optional)</li>
+          <li><code class="highlighter-rouge">StoreID</code>  (<strong>Required</strong>)</li>
+          <li><code class="highlighter-rouge">VendorAccountNumber</code> (Optional)</li>
         </ul>
       </li>
     </ul>
@@ -1872,49 +1359,49 @@ POST /?op=GetInventoryReport
 <h4 id="request-parameters-1">Request Parameters</h4>
 
 <ul>
-  <li><code>StartDate</code> (<strong>Required</strong>)</li>
-  <li><code>EndDate</code> (<strong>Required</strong>)</li>
+  <li><code class="highlighter-rouge">StartDate</code> (<strong>Required</strong>)</li>
+  <li><code class="highlighter-rouge">EndDate</code> (<strong>Required</strong>)</li>
 </ul>
 
 <h6 id="example-10">Example</h6>
 
-<p>```xml
-<?xml version="1.0" encoding="utf-8"?></p>
-<soap:envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:body>
-    <getinventoryreport xmlns="http://www.iqmetrix.com">
-      <vendor>
-        <vendorid>009E800D-10ED-4F4A-B86F-DFB3C2A18C09</vendorid>
-        <username>danssupplies</username>
-        <password>samplepassword</password>
-        <client>
-          <clientid>c46ccb4d-2d44-4289-950a-b9cb51d58ac4</clientid>
-          <name>DropshipTestDemo</name>
-          <storeid>4</storeid>
-        </client>
-      </vendor>
-      <startdate>01/01/2016</startdate>
-      <enddate>10/31/2016</enddate>
-    </getinventoryreport>
-  </soap:body>
-</soap:envelope>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;soap:Body&gt;</span>
+    <span class="nt">&lt;GetInventoryReport</span> <span class="na">xmlns=</span><span class="s">"http://www.iqmetrix.com"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Vendor&gt;</span>
+        <span class="nt">&lt;VendorID&gt;</span>009E800D-10ED-4F4A-B86F-DFB3C2A18C09<span class="nt">&lt;/VendorID&gt;</span>
+        <span class="nt">&lt;Username&gt;</span>danssupplies<span class="nt">&lt;/Username&gt;</span>
+        <span class="nt">&lt;Password&gt;</span>samplepassword<span class="nt">&lt;/Password&gt;</span>
+        <span class="nt">&lt;Client&gt;</span>
+          <span class="nt">&lt;ClientID&gt;</span>c46ccb4d-2d44-4289-950a-b9cb51d58ac4<span class="nt">&lt;/ClientID&gt;</span>
+          <span class="nt">&lt;Name&gt;</span>DropshipTestDemo<span class="nt">&lt;/Name&gt;</span>
+          <span class="nt">&lt;StoreID&gt;</span>4<span class="nt">&lt;/StoreID&gt;</span>
+        <span class="nt">&lt;/Client&gt;</span>
+      <span class="nt">&lt;/Vendor&gt;</span>
+      <span class="nt">&lt;StartDate&gt;</span>01/01/2016<span class="nt">&lt;/StartDate&gt;</span>
+      <span class="nt">&lt;EndDate&gt;</span>10/31/2016<span class="nt">&lt;/EndDate&gt;</span>
+    <span class="nt">&lt;/GetInventoryReport&gt;</span>
+  <span class="nt">&lt;/soap:Body&gt;</span>
+<span class="nt">&lt;/soap:Envelope&gt;</span>          
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h6 id="code-example-5">Code Example</h6>
 
-<p>```java
-VendorIdentity vendor = new VendorIdentity();
-vendor.VendorID = new Guid(009E800D-10ED-4F4A-B86F-DFB3C2A18C09);
-vendor.Username =  “danssupplies”;
-vendor.Password = “samplepassword”;
-vendor.Client = new ClientAgent();
-vendor.Client.ClientID = companyID;</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">VendorIdentity</span> <span class="n">vendor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VendorIdentity</span><span class="o">();</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">VendorID</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Guid</span><span class="o">(</span><span class="mi">009</span><span class="n">E800D</span><span class="o">-</span><span class="mi">10</span><span class="n">ED</span><span class="o">-</span><span class="mi">4</span><span class="n">F4A</span><span class="o">-</span><span class="n">B86F</span><span class="o">-</span><span class="n">DFB3C2A18C09</span><span class="o">);</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Username</span> <span class="o">=</span>  <span class="s">"danssupplies"</span><span class="o">;</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Password</span> <span class="o">=</span> <span class="s">"samplepassword"</span><span class="o">;</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClientAgent</span><span class="o">();</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Client</span><span class="o">.</span><span class="na">ClientID</span> <span class="o">=</span> <span class="n">companyID</span><span class="o">;</span>
 
-<p>vendor.Client.StoreID = 4;
-ProductInformation[] productReport = vmiService.GetInventoryReport(vendor, startDate, endDate);</p>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Client</span><span class="o">.</span><span class="na">StoreID</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+<span class="n">ProductInformation</span><span class="o">[]</span> <span class="n">productReport</span> <span class="o">=</span> <span class="n">vmiService</span><span class="o">.</span><span class="na">GetInventoryReport</span><span class="o">(</span><span class="n">vendor</span><span class="o">,</span> <span class="n">startDate</span><span class="o">,</span> <span class="n">endDate</span><span class="o">);</span>
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h4 id="response-5">Response</h4>
 
@@ -1922,57 +1409,57 @@ ProductInformation[] productReport = vmiService.GetInventoryReport(vendor, start
 
 <h6 id="example-11">Example</h6>
 
-<p><code>
-HTTP 200 Content-Type: application/xml
-</code>
-```xml
-<?xml version="1.0" encoding="utf-8"?></p>
-<soap:envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <soap:body>
-        <getinventoryreportresponse xmlns="http://www.iqmetrix.com">
-          <getinventoryreportresult>
-            <productinformation>
-              <productid>00000000-0000-0000-0000-000000000000</productid>
-              <productsku>ACCRTM000001</productsku>
-              <vendorsku>SSGS5CB</vendorsku>
-              <productitemid>17</productitemid>
-              <categorypath>Activations &gt;&gt; Samsung</categorypath>
-              <productname>Samsung Galaxy S5 - Charcoal Black</productname>
-              <maximumlevel>100</maximumlevel>
-              <minimumlevel>10</minimumlevel>
-              <productcost>100</productcost>
-              <quantityinstock>8</quantityinstock>
-              <quantityonorder>3</quantityonorder>
-              <quantityonuncommittedorder>0</quantityonuncommittedorder>
-              <quantityonbackorder>0</quantityonbackorder>
-              <quantityintransfer>1</quantityintransfer>
-              <quantityonrma>1</quantityonrma>
-              <quantityonloan>0</quantityonloan>
-              <quantitycommittedonorderentry>0</quantitycommittedonorderentry>
-              <quantitysuggestedbyvendor>-1</quantitysuggestedbyvendor>
-              <quantitysold>8</quantitysold>
-              <grossquantitysold>0</grossquantitysold>
-              <grossquantityreturned>0</grossquantityreturned>
-              <quantityordered>3</quantityordered>
-              <quantityreceived>2</quantityreceived>
-              <datereceived>01/21/2016 16:58:23</datereceived>
-              <productreceived>false</productreceived>
-              <enabled>false</enabled>
-              <minmaxlocked>true</minmaxlocked>
-              <donotorder>false</donotorder>
-              <dateeol>2016-06-01T00:00:00</dateeol>
-              <retailprice>685</retailprice>
-              <saleprice>550</saleprice>
-              <salebegin>2016-04-11T00:00:00</salebegin>
-              <saleend>2016-04-15T00:00:00</saleend>
-            </productinformation>
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP 200 Content-Type: application/xml
+</code></pre>
+</div>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;soap:Body&gt;</span>
+        <span class="nt">&lt;GetInventoryReportResponse</span> <span class="na">xmlns=</span><span class="s">"http://www.iqmetrix.com"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;GetInventoryReportResult&gt;</span>
+            <span class="nt">&lt;ProductInformation&gt;</span>
+              <span class="nt">&lt;ProductID&gt;</span>00000000-0000-0000-0000-000000000000<span class="nt">&lt;/ProductID&gt;</span>
+              <span class="nt">&lt;ProductSKU&gt;</span>ACCRTM000001<span class="nt">&lt;/ProductSKU&gt;</span>
+              <span class="nt">&lt;VendorSKU&gt;</span>SSGS5CB<span class="nt">&lt;/VendorSKU&gt;</span>
+              <span class="nt">&lt;ProductItemID&gt;</span>17<span class="nt">&lt;/ProductItemID&gt;</span>
+              <span class="nt">&lt;CategoryPath&gt;</span>Activations &gt;&gt; Samsung<span class="nt">&lt;/CategoryPath&gt;</span>
+              <span class="nt">&lt;ProductName&gt;</span>Samsung Galaxy S5 - Charcoal Black<span class="nt">&lt;/ProductName&gt;</span>
+              <span class="nt">&lt;MaximumLevel&gt;</span>100<span class="nt">&lt;/MaximumLevel&gt;</span>
+              <span class="nt">&lt;MinimumLevel&gt;</span>10<span class="nt">&lt;/MinimumLevel&gt;</span>
+              <span class="nt">&lt;ProductCost&gt;</span>100<span class="nt">&lt;/ProductCost&gt;</span>
+              <span class="nt">&lt;QuantityInStock&gt;</span>8<span class="nt">&lt;/QuantityInStock&gt;</span>
+              <span class="nt">&lt;QuantityOnOrder&gt;</span>3<span class="nt">&lt;/QuantityOnOrder&gt;</span>
+              <span class="nt">&lt;QuantityOnUncommittedOrder&gt;</span>0<span class="nt">&lt;/QuantityOnUncommittedOrder&gt;</span>
+              <span class="nt">&lt;QuantityOnBackOrder&gt;</span>0<span class="nt">&lt;/QuantityOnBackOrder&gt;</span>
+              <span class="nt">&lt;QuantityInTransfer&gt;</span>1<span class="nt">&lt;/QuantityInTransfer&gt;</span>
+              <span class="nt">&lt;QuantityOnRMA&gt;</span>1<span class="nt">&lt;/QuantityOnRMA&gt;</span>
+              <span class="nt">&lt;QuantityOnLoan&gt;</span>0<span class="nt">&lt;/QuantityOnLoan&gt;</span>
+              <span class="nt">&lt;QuantityCommittedOnOrderEntry&gt;</span>0<span class="nt">&lt;/QuantityCommittedOnOrderEntry&gt;</span>
+              <span class="nt">&lt;QuantitySuggestedByVendor&gt;</span>-1<span class="nt">&lt;/QuantitySuggestedByVendor&gt;</span>
+              <span class="nt">&lt;QuantitySold&gt;</span>8<span class="nt">&lt;/QuantitySold&gt;</span>
+              <span class="nt">&lt;GrossQuantitySold&gt;</span>0<span class="nt">&lt;/GrossQuantitySold&gt;</span>
+              <span class="nt">&lt;GrossQuantityReturned&gt;</span>0<span class="nt">&lt;/GrossQuantityReturned&gt;</span>
+              <span class="nt">&lt;QuantityOrdered&gt;</span>3<span class="nt">&lt;/QuantityOrdered&gt;</span>
+              <span class="nt">&lt;QuantityReceived&gt;</span>2<span class="nt">&lt;/QuantityReceived&gt;</span>
+              <span class="nt">&lt;DateReceived&gt;</span>01/21/2016 16:58:23<span class="nt">&lt;/DateReceived&gt;</span>
+              <span class="nt">&lt;ProductReceived&gt;</span>false<span class="nt">&lt;/ProductReceived&gt;</span>
+              <span class="nt">&lt;Enabled&gt;</span>false<span class="nt">&lt;/Enabled&gt;</span>
+              <span class="nt">&lt;MinMaxLocked&gt;</span>true<span class="nt">&lt;/MinMaxLocked&gt;</span>
+              <span class="nt">&lt;DoNotOrder&gt;</span>false<span class="nt">&lt;/DoNotOrder&gt;</span>
+              <span class="nt">&lt;DateEOL&gt;</span>2016-06-01T00:00:00<span class="nt">&lt;/DateEOL&gt;</span>
+              <span class="nt">&lt;RetailPrice&gt;</span>685<span class="nt">&lt;/RetailPrice&gt;</span>
+              <span class="nt">&lt;SalePrice&gt;</span>550<span class="nt">&lt;/SalePrice&gt;</span>
+              <span class="nt">&lt;SaleBegin&gt;</span>2016-04-11T00:00:00<span class="nt">&lt;/SaleBegin&gt;</span>
+              <span class="nt">&lt;SaleEnd&gt;</span>2016-04-15T00:00:00<span class="nt">&lt;/SaleEnd&gt;</span>
+            <span class="nt">&lt;/ProductInformation&gt;</span>
             ...
-          </getinventoryreportresult>
-        </getinventoryreportresponse>
-    </soap:body>
-</soap:envelope>
+          <span class="nt">&lt;/GetInventoryReportResult&gt;</span>
+        <span class="nt">&lt;/GetInventoryReportResponse&gt;</span>
+    <span class="nt">&lt;/soap:Body&gt;</span>
+<span class="nt">&lt;/soap:Envelope&gt;</span>           
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h3 id="creating-a-purchase-order">Creating a Purchase Order</h3>
 
@@ -1987,23 +1474,23 @@ POST /?op=CreatePurchaseOrder
 <h4 id="headers-6">Headers</h4>
 
 <ul>
-  <li><code>Content-Type: text/xml</code></li>
+  <li><code class="highlighter-rouge">Content-Type: text/xml</code></li>
 </ul>
 
 <h4 id="authorization-parameters-6">Authorization Parameters</h4>
 
 <ul>
-  <li><code>vendor</code> (<strong>Required</strong>)
+  <li><code class="highlighter-rouge">vendor</code> (<strong>Required</strong>)
     <ul>
-      <li><code>VendorID</code> (<strong>Required</strong>)</li>
-      <li><code>Username</code> (<strong>Required</strong>)</li>
-      <li><code>Password</code> (<strong>Required</strong>)</li>
-      <li><code>Client</code>   (<strong>Required</strong>)
+      <li><code class="highlighter-rouge">VendorID</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Username</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Password</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Client</code>   (<strong>Required</strong>)
         <ul>
-          <li><code>ClientID</code> (<strong>Required</strong>)</li>
-          <li><code>StoreID</code>  (<strong>Required</strong>)</li>
-          <li><code>Name</code>     (Optional)</li>
-          <li><code>VendorAccountNumber</code> (Optional)</li>
+          <li><code class="highlighter-rouge">ClientID</code> (<strong>Required</strong>)</li>
+          <li><code class="highlighter-rouge">StoreID</code>  (<strong>Required</strong>)</li>
+          <li><code class="highlighter-rouge">Name</code>     (Optional)</li>
+          <li><code class="highlighter-rouge">VendorAccountNumber</code> (Optional)</li>
         </ul>
       </li>
     </ul>
@@ -2013,48 +1500,48 @@ POST /?op=CreatePurchaseOrder
 <h4 id="request-parameters-2">Request Parameters</h4>
 
 <ul>
-  <li><code>PurchaseOrder</code> (<strong>Required</strong>) - the <a href="#purchaseorder">PurchaseOrder</a>
+  <li><code class="highlighter-rouge">PurchaseOrder</code> (<strong>Required</strong>) - the <a href="#purchaseorder">PurchaseOrder</a>
     <ul>
-      <li><code>PurchaseOrderID</code> (<strong>Required</strong>)</li>
-      <li><code>PurchaseOrderData</code> (<strong>Required</strong>)
+      <li><code class="highlighter-rouge">PurchaseOrderID</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">PurchaseOrderData</code> (<strong>Required</strong>)
         <ul>
-          <li><code>BillToStoreID</code> (<strong>Required</strong>) - defaults to -1</li>
-          <li><code>EstimatedArrivalDate</code> (<strong>Required</strong>)</li>
-          <li><code>ShipToStoreID</code> (<strong>Required</strong>) - defaults to -1</li>
-          <li><code>VendorInvoiceNumber</code> (<strong>Required</strong>)</li>
-          <li><code>Comments</code> (Optional)</li>
-          <li><code>CreatedByVMI</code> (Optional) - defaults to false</li>
-          <li><code>CreatedDate</code> (Optional)</li>
-          <li><code>OrderTotal</code> (Optional) - defaults to -1</li>
-          <li><code>ShippingTotal</code> (Optional) - defaults to -1</li>
+          <li><code class="highlighter-rouge">BillToStoreID</code> (<strong>Required</strong>) - defaults to -1</li>
+          <li><code class="highlighter-rouge">EstimatedArrivalDate</code> (<strong>Required</strong>)</li>
+          <li><code class="highlighter-rouge">ShipToStoreID</code> (<strong>Required</strong>) - defaults to -1</li>
+          <li><code class="highlighter-rouge">VendorInvoiceNumber</code> (<strong>Required</strong>)</li>
+          <li><code class="highlighter-rouge">Comments</code> (Optional)</li>
+          <li><code class="highlighter-rouge">CreatedByVMI</code> (Optional) - defaults to false</li>
+          <li><code class="highlighter-rouge">CreatedDate</code> (Optional)</li>
+          <li><code class="highlighter-rouge">OrderTotal</code> (Optional) - defaults to -1</li>
+          <li><code class="highlighter-rouge">ShippingTotal</code> (Optional) - defaults to -1</li>
         </ul>
       </li>
-      <li><code>ProductsOrdered</code> (<strong>Required</strong>)
+      <li><code class="highlighter-rouge">ProductsOrdered</code> (<strong>Required</strong>)
         <ul>
-          <li><code>ProductInformation</code> (<strong>Required</strong>)
+          <li><code class="highlighter-rouge">ProductInformation</code> (<strong>Required</strong>)
             <ul>
-              <li><code>QuantityOrdered</code> (<strong>Required</strong>)</li>
-              <li><code>VendorSKU</code> (<strong>Required</strong>)</li>
-              <li><code>ProductID</code> (Optional)</li>
-              <li><code>ProductSKU</code> (Optional)</li>
-              <li><code>ProductItemID</code> (Optional)</li>
-              <li><code>ProductID</code> (Optional)</li>
-              <li><code>ProductName</code> (Optional)</li>
-              <li><code>MaximumLevel</code> (Optional) - defaults to -1</li>
-              <li><code>MinimumLevel</code> (Optional) - defaults to -1</li>
-              <li><code>ProductCost</code> (Optional) - defaults to -1</li>
-              <li><code>QuantityInStock</code> (Optional) - defaults to -1</li>
-              <li><code>QuantityOnOrder</code> (Optional) - defaults to -1</li>
-              <li><code>QuantityOnBackOrder</code> (Optional) - defaults to -1</li>
-              <li><code>QuantityInTransfer</code> (Optional) - defaults to -1</li>
-              <li><code>QuantityOnRMA</code> (Optional) - defaults to -1</li>
-              <li><code>QuantityOnLoan</code> (Optional) - defaults to -1</li>
-              <li><code>QuantityCommittedOnOrderEntry</code> (Optional) - defaults to -1</li>
-              <li><code>QuantityReceived</code> (Optional) - defaults to -1</li>
-              <li><code>QuantitySold</code> (Optional) - defaults to -1</li>
-              <li><code>DateReceived</code> (Optional)</li>
-              <li><code>ProductReceived</code> (Optional)</li>
-              <li><code>Enabled</code> (Optional)</li>
+              <li><code class="highlighter-rouge">QuantityOrdered</code> (<strong>Required</strong>)</li>
+              <li><code class="highlighter-rouge">VendorSKU</code> (<strong>Required</strong>)</li>
+              <li><code class="highlighter-rouge">ProductID</code> (Optional)</li>
+              <li><code class="highlighter-rouge">ProductSKU</code> (Optional)</li>
+              <li><code class="highlighter-rouge">ProductItemID</code> (Optional)</li>
+              <li><code class="highlighter-rouge">ProductID</code> (Optional)</li>
+              <li><code class="highlighter-rouge">ProductName</code> (Optional)</li>
+              <li><code class="highlighter-rouge">MaximumLevel</code> (Optional) - defaults to -1</li>
+              <li><code class="highlighter-rouge">MinimumLevel</code> (Optional) - defaults to -1</li>
+              <li><code class="highlighter-rouge">ProductCost</code> (Optional) - defaults to -1</li>
+              <li><code class="highlighter-rouge">QuantityInStock</code> (Optional) - defaults to -1</li>
+              <li><code class="highlighter-rouge">QuantityOnOrder</code> (Optional) - defaults to -1</li>
+              <li><code class="highlighter-rouge">QuantityOnBackOrder</code> (Optional) - defaults to -1</li>
+              <li><code class="highlighter-rouge">QuantityInTransfer</code> (Optional) - defaults to -1</li>
+              <li><code class="highlighter-rouge">QuantityOnRMA</code> (Optional) - defaults to -1</li>
+              <li><code class="highlighter-rouge">QuantityOnLoan</code> (Optional) - defaults to -1</li>
+              <li><code class="highlighter-rouge">QuantityCommittedOnOrderEntry</code> (Optional) - defaults to -1</li>
+              <li><code class="highlighter-rouge">QuantityReceived</code> (Optional) - defaults to -1</li>
+              <li><code class="highlighter-rouge">QuantitySold</code> (Optional) - defaults to -1</li>
+              <li><code class="highlighter-rouge">DateReceived</code> (Optional)</li>
+              <li><code class="highlighter-rouge">ProductReceived</code> (Optional)</li>
+              <li><code class="highlighter-rouge">Enabled</code> (Optional)</li>
             </ul>
           </li>
         </ul>
@@ -2065,101 +1552,101 @@ POST /?op=CreatePurchaseOrder
 
 <h6 id="example-12">Example</h6>
 
-<p>```xml
-<?xml version="1.0" encoding="utf-8"?></p>
-<soap:envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:body>
-    <createpurchaseorder xmlns="http://www.iqmetrix.com">
-      <vendor>
-        <vendorid>009E800D-10ED-4F4A-B86F-DFB3C2A18C09</vendorid>
-        <username>danssupplies</username>
-        <password>samplepassword</password>
-        <client>
-          <clientid>c46ccb4d-2d44-4289-950a-b9cb51d58ac4</clientid>
-          <name>DropshipTestDemo</name>
-          <storeid>14070</storeid>
-        </client>
-      </vendor>
-      <purchaseorder>
-        <purchaseorderid>4aca5c49-7efd-4ff3-8bbc-70e2fb5e1cf6</purchaseorderid>
-        <purchaseorderdata>
-          <shiptostoreid>4</shiptostoreid>
-          <billtostoreid>4</billtostoreid>
-          <ordertotal>110.90</ordertotal>
-          <shippingtotal>100.60</shippingtotal>
-          <vendorinvoicenumber>BDP123</vendorinvoicenumber>
-          <estimatedarrivaldate>05/10/2016</estimatedarrivaldate>
-          <comments>Vendor Invoice Number #: BDP123</comments>
-          <createdbyvmi>true</createdbyvmi>
-          <createddate>2016-04-07T00:00:00</createddate>
-        </purchaseorderdata>
-        <productsordered>
-          <productinformation>
-            <productid>00000000-0000-0000-0000-000000000000</productid>
-            <productsku>SSSATM000002</productsku>
-            <vendorsku>SSGS5CB</vendorsku>
-            <productitemid>28</productitemid>
-            <productname>Samsung Galaxy S5 - Charcoal Black</productname>
-            <maximumlevel>100</maximumlevel>
-            <minimumlevel>10</minimumlevel>
-            <productcost>130.00</productcost>
-            <quantityinstock>1</quantityinstock>
-            <quantityonorder>2</quantityonorder>
-            <quantityonbackorder>0</quantityonbackorder>
-            <quantityintransfer>1</quantityintransfer>
-            <quantityonrma>1</quantityonrma>
-            <quantityonloan>0</quantityonloan>
-            <quantitycommittedonorderentry>0</quantitycommittedonorderentry>
-            <quantitysold>20</quantitysold>
-            <quantityordered>11</quantityordered>
-            <quantityreceived>12</quantityreceived>
-            <datereceived>2016-04-07T00:00:00</datereceived>
-            <productreceived>false</productreceived>
-            <enabled>true</enabled>
-          </productinformation>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;soap:Body&gt;</span>
+    <span class="nt">&lt;CreatePurchaseOrder</span> <span class="na">xmlns=</span><span class="s">"http://www.iqmetrix.com"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;vendor&gt;</span>
+        <span class="nt">&lt;VendorID&gt;</span>009E800D-10ED-4F4A-B86F-DFB3C2A18C09<span class="nt">&lt;/VendorID&gt;</span>
+        <span class="nt">&lt;Username&gt;</span>danssupplies<span class="nt">&lt;/Username&gt;</span>
+        <span class="nt">&lt;Password&gt;</span>samplepassword<span class="nt">&lt;/Password&gt;</span>
+        <span class="nt">&lt;Client&gt;</span>
+          <span class="nt">&lt;ClientID&gt;</span>c46ccb4d-2d44-4289-950a-b9cb51d58ac4<span class="nt">&lt;/ClientID&gt;</span>
+          <span class="nt">&lt;Name&gt;</span>DropshipTestDemo<span class="nt">&lt;/Name&gt;</span>
+          <span class="nt">&lt;StoreID&gt;</span>14070<span class="nt">&lt;/StoreID&gt;</span>
+        <span class="nt">&lt;/Client&gt;</span>
+      <span class="nt">&lt;/vendor&gt;</span>
+      <span class="nt">&lt;PurchaseOrder&gt;</span>
+        <span class="nt">&lt;PurchaseOrderID&gt;</span>4aca5c49-7efd-4ff3-8bbc-70e2fb5e1cf6<span class="nt">&lt;/PurchaseOrderID&gt;</span>
+        <span class="nt">&lt;PurchaseOrderData&gt;</span>
+          <span class="nt">&lt;ShipToStoreID&gt;</span>4<span class="nt">&lt;/ShipToStoreID&gt;</span>
+          <span class="nt">&lt;BillToStoreID&gt;</span>4<span class="nt">&lt;/BillToStoreID&gt;</span>
+          <span class="nt">&lt;OrderTotal&gt;</span>110.90<span class="nt">&lt;/OrderTotal&gt;</span>
+          <span class="nt">&lt;ShippingTotal&gt;</span>100.60<span class="nt">&lt;/ShippingTotal&gt;</span>
+          <span class="nt">&lt;VendorInvoiceNumber&gt;</span>BDP123<span class="nt">&lt;/VendorInvoiceNumber&gt;</span>
+          <span class="nt">&lt;EstimatedArrivalDate&gt;</span>05/10/2016<span class="nt">&lt;/EstimatedArrivalDate&gt;</span>
+          <span class="nt">&lt;Comments&gt;</span>Vendor Invoice Number #: BDP123<span class="nt">&lt;/Comments&gt;</span>
+          <span class="nt">&lt;CreatedByVMI&gt;</span>true<span class="nt">&lt;/CreatedByVMI&gt;</span>
+          <span class="nt">&lt;CreatedDate&gt;</span>2016-04-07T00:00:00<span class="nt">&lt;/CreatedDate&gt;</span>
+        <span class="nt">&lt;/PurchaseOrderData&gt;</span>
+        <span class="nt">&lt;ProductsOrdered&gt;</span>
+          <span class="nt">&lt;ProductInformation&gt;</span>
+            <span class="nt">&lt;ProductID&gt;</span>00000000-0000-0000-0000-000000000000<span class="nt">&lt;/ProductID&gt;</span>
+            <span class="nt">&lt;ProductSKU&gt;</span>SSSATM000002<span class="nt">&lt;/ProductSKU&gt;</span>
+            <span class="nt">&lt;VendorSKU&gt;</span>SSGS5CB<span class="nt">&lt;/VendorSKU&gt;</span>
+            <span class="nt">&lt;ProductItemID&gt;</span>28<span class="nt">&lt;/ProductItemID&gt;</span>
+            <span class="nt">&lt;ProductName&gt;</span>Samsung Galaxy S5 - Charcoal Black<span class="nt">&lt;/ProductName&gt;</span>
+            <span class="nt">&lt;MaximumLevel&gt;</span>100<span class="nt">&lt;/MaximumLevel&gt;</span>
+            <span class="nt">&lt;MinimumLevel&gt;</span>10<span class="nt">&lt;/MinimumLevel&gt;</span>
+            <span class="nt">&lt;ProductCost&gt;</span>130.00<span class="nt">&lt;/ProductCost&gt;</span>
+            <span class="nt">&lt;QuantityInStock&gt;</span>1<span class="nt">&lt;/QuantityInStock&gt;</span>
+            <span class="nt">&lt;QuantityOnOrder&gt;</span>2<span class="nt">&lt;/QuantityOnOrder&gt;</span>
+            <span class="nt">&lt;QuantityOnBackOrder&gt;</span>0<span class="nt">&lt;/QuantityOnBackOrder&gt;</span>
+            <span class="nt">&lt;QuantityInTransfer&gt;</span>1<span class="nt">&lt;/QuantityInTransfer&gt;</span>
+            <span class="nt">&lt;QuantityOnRMA&gt;</span>1<span class="nt">&lt;/QuantityOnRMA&gt;</span>
+            <span class="nt">&lt;QuantityOnLoan&gt;</span>0<span class="nt">&lt;/QuantityOnLoan&gt;</span>
+            <span class="nt">&lt;QuantityCommittedOnOrderEntry&gt;</span>0<span class="nt">&lt;/QuantityCommittedOnOrderEntry&gt;</span>
+            <span class="nt">&lt;QuantitySold&gt;</span>20<span class="nt">&lt;/QuantitySold&gt;</span>
+            <span class="nt">&lt;QuantityOrdered&gt;</span>11<span class="nt">&lt;/QuantityOrdered&gt;</span>
+            <span class="nt">&lt;QuantityReceived&gt;</span>12<span class="nt">&lt;/QuantityReceived&gt;</span>
+            <span class="nt">&lt;DateReceived&gt;</span>2016-04-07T00:00:00<span class="nt">&lt;/DateReceived&gt;</span>
+            <span class="nt">&lt;ProductReceived&gt;</span>false<span class="nt">&lt;/ProductReceived&gt;</span>
+            <span class="nt">&lt;Enabled&gt;</span>true<span class="nt">&lt;/Enabled&gt;</span>
+          <span class="nt">&lt;/ProductInformation&gt;</span>
           ...
-        </productsordered>
-      </purchaseorder>
-    </createpurchaseorder>
-  </soap:body>
-</soap:envelope>
+        <span class="nt">&lt;/ProductsOrdered&gt;</span>
+      <span class="nt">&lt;/PurchaseOrder&gt;</span>
+    <span class="nt">&lt;/CreatePurchaseOrder&gt;</span>
+  <span class="nt">&lt;/soap:Body&gt;</span>
+<span class="nt">&lt;/soap:Envelope&gt;</span>
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h6 id="code-example-6">Code Example</h6>
 
-<p>```java
-VendorIdentity vendor = new VendorIdentity();
-vendor.VendorID = new Guid(009E800D-10ED-4F4A-B86F-DFB3C2A18C09);
-vendor.Username =  “danssupplies”;
-vendor.Password = “samplepassword”;
-vendor.Client = new ClientAgent();
-vendor.Client.ClientID = companyID;
-vendor.Client.StoreID = 4;</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">VendorIdentity</span> <span class="n">vendor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VendorIdentity</span><span class="o">();</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">VendorID</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Guid</span><span class="o">(</span><span class="mi">009</span><span class="n">E800D</span><span class="o">-</span><span class="mi">10</span><span class="n">ED</span><span class="o">-</span><span class="mi">4</span><span class="n">F4A</span><span class="o">-</span><span class="n">B86F</span><span class="o">-</span><span class="n">DFB3C2A18C09</span><span class="o">);</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Username</span> <span class="o">=</span>  <span class="s">"danssupplies"</span><span class="o">;</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Password</span> <span class="o">=</span> <span class="s">"samplepassword"</span><span class="o">;</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClientAgent</span><span class="o">();</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Client</span><span class="o">.</span><span class="na">ClientID</span> <span class="o">=</span> <span class="n">companyID</span><span class="o">;</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Client</span><span class="o">.</span><span class="na">StoreID</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
 
-<p>DateTime ead1 = DateTime.Today.AddDays(14);
-string eta = String.Format(“{0:D2}/{1:D2}/{2:D4}”, ead1.Month, ead1.Day, ead1.Year);
-PurchaseOrder po = new PurchaseOrder();
-po.PurchaseOrderID = new Guid();
-po.PurchaseOrderData = new PurchaseOrderData();
-po.PurchaseOrderData.BillToStoreID = stores[0].StoreID;
-po.PurchaseOrderData.Comments = “Vendor Invoice Number #: BDP123”;
-po.PurchaseOrderData.ShipToStoreID = stores[0].StoreID;
-po.PurchaseOrderData.VendorInvoiceNumber = “BDP123”;
-po.PurchaseOrderData.EstimatedArrivalDate = eta;</p>
+<span class="n">DateTime</span> <span class="n">ead1</span> <span class="o">=</span> <span class="n">DateTime</span><span class="o">.</span><span class="na">Today</span><span class="o">.</span><span class="na">AddDays</span><span class="o">(</span><span class="mi">14</span><span class="o">);</span>
+<span class="n">string</span> <span class="n">eta</span> <span class="o">=</span> <span class="n">String</span><span class="o">.</span><span class="na">Format</span><span class="o">(</span><span class="s">"{0:D2}/{1:D2}/{2:D4}"</span><span class="o">,</span> <span class="n">ead1</span><span class="o">.</span><span class="na">Month</span><span class="o">,</span> <span class="n">ead1</span><span class="o">.</span><span class="na">Day</span><span class="o">,</span> <span class="n">ead1</span><span class="o">.</span><span class="na">Year</span><span class="o">);</span>
+<span class="n">PurchaseOrder</span> <span class="n">po</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PurchaseOrder</span><span class="o">();</span>
+<span class="n">po</span><span class="o">.</span><span class="na">PurchaseOrderID</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Guid</span><span class="o">();</span>
+<span class="n">po</span><span class="o">.</span><span class="na">PurchaseOrderData</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PurchaseOrderData</span><span class="o">();</span>
+<span class="n">po</span><span class="o">.</span><span class="na">PurchaseOrderData</span><span class="o">.</span><span class="na">BillToStoreID</span> <span class="o">=</span> <span class="n">stores</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">StoreID</span><span class="o">;</span>
+<span class="n">po</span><span class="o">.</span><span class="na">PurchaseOrderData</span><span class="o">.</span><span class="na">Comments</span> <span class="o">=</span> <span class="s">"Vendor Invoice Number #: BDP123"</span><span class="o">;</span>
+<span class="n">po</span><span class="o">.</span><span class="na">PurchaseOrderData</span><span class="o">.</span><span class="na">ShipToStoreID</span> <span class="o">=</span> <span class="n">stores</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">StoreID</span><span class="o">;</span>
+<span class="n">po</span><span class="o">.</span><span class="na">PurchaseOrderData</span><span class="o">.</span><span class="na">VendorInvoiceNumber</span> <span class="o">=</span> <span class="s">"BDP123"</span><span class="o">;</span>
+<span class="n">po</span><span class="o">.</span><span class="na">PurchaseOrderData</span><span class="o">.</span><span class="na">EstimatedArrivalDate</span> <span class="o">=</span> <span class="n">eta</span><span class="o">;</span>
 
-<p>po.ProductsOrdered = new ProductInformation[1];
-po.ProductsOrdered[0] = new ProductInformation();
-po.ProductsOrdered[0].ProductItemID = productID;
-po.ProductsOrdered[0].ProductName = “Samsung Galaxy S5 - Charcoal Black”;
-po.ProductsOrdered[0].ProductSKU = “SSSATM000002”;
-po.ProductsOrdered[0].VendorSKU = “SSGS5CB”;
-po.ProductsOrdered[0].QuantityOrdered = 1;
-po.ProductsOrdered[0].ProductCost = 130.00;</p>
+<span class="n">po</span><span class="o">.</span><span class="na">ProductsOrdered</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ProductInformation</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
+<span class="n">po</span><span class="o">.</span><span class="na">ProductsOrdered</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ProductInformation</span><span class="o">();</span>
+<span class="n">po</span><span class="o">.</span><span class="na">ProductsOrdered</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">ProductItemID</span> <span class="o">=</span> <span class="n">productID</span><span class="o">;</span>
+<span class="n">po</span><span class="o">.</span><span class="na">ProductsOrdered</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">ProductName</span> <span class="o">=</span> <span class="s">"Samsung Galaxy S5 - Charcoal Black"</span><span class="o">;</span>
+<span class="n">po</span><span class="o">.</span><span class="na">ProductsOrdered</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">ProductSKU</span> <span class="o">=</span> <span class="s">"SSSATM000002"</span><span class="o">;</span>
+<span class="n">po</span><span class="o">.</span><span class="na">ProductsOrdered</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">VendorSKU</span> <span class="o">=</span> <span class="s">"SSGS5CB"</span><span class="o">;</span>
+<span class="n">po</span><span class="o">.</span><span class="na">ProductsOrdered</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">QuantityOrdered</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="n">po</span><span class="o">.</span><span class="na">ProductsOrdered</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">ProductCost</span> <span class="o">=</span> <span class="mf">130.00</span><span class="o">;</span>
 
-<p>PurchaseOrder poCreated = vmiService.CreatePurchaseOrder(vendor, po);</p>
+<span class="n">PurchaseOrder</span> <span class="n">poCreated</span> <span class="o">=</span> <span class="n">vmiService</span><span class="o">.</span><span class="na">CreatePurchaseOrder</span><span class="o">(</span><span class="n">vendor</span><span class="o">,</span> <span class="n">po</span><span class="o">);</span>
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h4 id="response-6">Response</h4>
 
@@ -2167,79 +1654,79 @@ po.ProductsOrdered[0].ProductCost = 130.00;</p>
 
 <h6 id="example-13">Example</h6>
 
-<p><code>
-HTTP 200 Content-Type: application/xml
-</code>
-```xml
-<?xml version="1.0" encoding="utf-8"?></p>
-<soap:envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <soap:body>
-        <createpurchaseorderresponse xmlns="http://www.iqmetrix.com">
-          <createpurchaseorderresult>
-            <purchaseorderid>4aca5c49-7efd-4ff3-8bbc-70e2fb5e1cf6</purchaseorderid>
-            <purchaseorderdata>
-              <purchaseorderid>3be54cae-b132-4995-b32b-67e6d46d9633</purchaseorderid>
-              <retailiqpurchaseorderid>6</retailiqpurchaseorderid>
-              <retailiqpurchaseordernumber>TT101PO5</retailiqpurchaseordernumber>
-              <shiptostoreid>4</shiptostoreid>
-              <shiptovendoraccountnumber />
-              <billtostoreid>4</billtostoreid>
-              <billtovendoraccountnumber />
-              <ordertotal>110.90</ordertotal>
-              <shippingtotal>100.90</shippingtotal>
-              <vendorinvoicenumber>DDS123</vendorinvoicenumber>
-              <estimatedarrivaldate>05/10/2016</estimatedarrivaldate>
-              <comments>Vendor Invoice Number #: DDS123</comments>
-              <shiptostorename />
-              <billtostorename />
-              <vendorname />
-              <createdbyvmi>true</createdbyvmi>
-              <createddate>04/29/2016 14:54:22</createddate>
-              <isdeleted>false</isdeleted>
-            </purchaseorderdata>
-            <productsordered>
-              <productinformation>
-                <productid>00000000-0000-0000-0000-000000000000</productid>
-                <productsku>SSSATM000002</productsku>
-                <vendorsku>SSGS5CB</vendorsku>
-                <productitemid>28</productitemid>
-                <productname>Samsung Galaxy S5 - Charcoal Black</productname>
-                <maximumlevel>100</maximumlevel>
-                <minimumlevel>10</minimumlevel>
-                <productcost>130.00</productcost>
-                <quantityinstock>1</quantityinstock>
-                <quantityonorder>2</quantityonorder>
-                <quantityonuncommittedorder>-1</quantityonuncommittedorder>
-                <quantityonbackorder>0</quantityonbackorder>
-                <quantityintransfer>1</quantityintransfer>
-                <quantityonrma>1</quantityonrma>
-                <quantityonloan>0</quantityonloan>
-                <quantitycommittedonorderentry>0</quantitycommittedonorderentry>
-                <quantitysuggestedbyvendor>-1</quantitysuggestedbyvendor>
-                <quantitysold>20</quantitysold>
-                <grossquantitysold>-1</grossquantitysold>
-                <grossquantityreturned>-1</grossquantityreturned>
-                <quantityordered>11</quantityordered>
-                <quantityreceived>12</quantityreceived>
-                <datereceived>2016-04-07T00:00:00</datereceived>
-                <productreceived>false</productreceived>
-                <enabled>true</enabled>
-                <minmaxlocked>false</minmaxlocked>
-                <donotorder>false</donotorder>
-                <dateeol xsi:nil="true" />
-                <retailprice>0</retailprice>
-                <saleprice xsi:nil="true" />
-                <salebegin xsi:nil="true" />
-                <saleend xsi:nil="true" />
-              </productinformation>
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP 200 Content-Type: application/xml
+</code></pre>
+</div>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;soap:Body&gt;</span>
+        <span class="nt">&lt;CreatePurchaseOrderResponse</span> <span class="na">xmlns=</span><span class="s">"http://www.iqmetrix.com"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;CreatePurchaseOrderResult&gt;</span>
+            <span class="nt">&lt;PurchaseOrderID&gt;</span>4aca5c49-7efd-4ff3-8bbc-70e2fb5e1cf6<span class="nt">&lt;/PurchaseOrderID&gt;</span>
+            <span class="nt">&lt;PurchaseOrderData&gt;</span>
+              <span class="nt">&lt;PurchaseOrderID&gt;</span>3be54cae-b132-4995-b32b-67e6d46d9633<span class="nt">&lt;/PurchaseOrderID&gt;</span>
+              <span class="nt">&lt;RetailiQPurchaseOrderID&gt;</span>6<span class="nt">&lt;/RetailiQPurchaseOrderID&gt;</span>
+              <span class="nt">&lt;RetailiQPurchaseOrderNumber&gt;</span>TT101PO5<span class="nt">&lt;/RetailiQPurchaseOrderNumber&gt;</span>
+              <span class="nt">&lt;ShipToStoreID&gt;</span>4<span class="nt">&lt;/ShipToStoreID&gt;</span>
+              <span class="nt">&lt;ShipToVendorAccountNumber</span> <span class="nt">/&gt;</span>
+              <span class="nt">&lt;BillToStoreID&gt;</span>4<span class="nt">&lt;/BillToStoreID&gt;</span>
+              <span class="nt">&lt;BillToVendorAccountNumber</span> <span class="nt">/&gt;</span>
+              <span class="nt">&lt;OrderTotal&gt;</span>110.90<span class="nt">&lt;/OrderTotal&gt;</span>
+              <span class="nt">&lt;ShippingTotal&gt;</span>100.90<span class="nt">&lt;/ShippingTotal&gt;</span>
+              <span class="nt">&lt;VendorInvoiceNumber&gt;</span>DDS123<span class="nt">&lt;/VendorInvoiceNumber&gt;</span>
+              <span class="nt">&lt;EstimatedArrivalDate&gt;</span>05/10/2016<span class="nt">&lt;/EstimatedArrivalDate&gt;</span>
+              <span class="nt">&lt;Comments&gt;</span>Vendor Invoice Number #: DDS123<span class="nt">&lt;/Comments&gt;</span>
+              <span class="nt">&lt;ShipToStoreName</span> <span class="nt">/&gt;</span>
+              <span class="nt">&lt;BillToStoreName</span> <span class="nt">/&gt;</span>
+              <span class="nt">&lt;VendorName</span> <span class="nt">/&gt;</span>
+              <span class="nt">&lt;CreatedByVMI&gt;</span>true<span class="nt">&lt;/CreatedByVMI&gt;</span>
+              <span class="nt">&lt;CreatedDate&gt;</span>04/29/2016 14:54:22<span class="nt">&lt;/CreatedDate&gt;</span>
+              <span class="nt">&lt;IsDeleted&gt;</span>false<span class="nt">&lt;/IsDeleted&gt;</span>
+            <span class="nt">&lt;/PurchaseOrderData&gt;</span>
+            <span class="nt">&lt;ProductsOrdered&gt;</span>
+              <span class="nt">&lt;ProductInformation&gt;</span>
+                <span class="nt">&lt;ProductID&gt;</span>00000000-0000-0000-0000-000000000000<span class="nt">&lt;/ProductID&gt;</span>
+                <span class="nt">&lt;ProductSKU&gt;</span>SSSATM000002<span class="nt">&lt;/ProductSKU&gt;</span>
+                <span class="nt">&lt;VendorSKU&gt;</span>SSGS5CB<span class="nt">&lt;/VendorSKU&gt;</span>
+                <span class="nt">&lt;ProductItemID&gt;</span>28<span class="nt">&lt;/ProductItemID&gt;</span>
+                <span class="nt">&lt;ProductName&gt;</span>Samsung Galaxy S5 - Charcoal Black<span class="nt">&lt;/ProductName&gt;</span>
+                <span class="nt">&lt;MaximumLevel&gt;</span>100<span class="nt">&lt;/MaximumLevel&gt;</span>
+                <span class="nt">&lt;MinimumLevel&gt;</span>10<span class="nt">&lt;/MinimumLevel&gt;</span>
+                <span class="nt">&lt;ProductCost&gt;</span>130.00<span class="nt">&lt;/ProductCost&gt;</span>
+                <span class="nt">&lt;QuantityInStock&gt;</span>1<span class="nt">&lt;/QuantityInStock&gt;</span>
+                <span class="nt">&lt;QuantityOnOrder&gt;</span>2<span class="nt">&lt;/QuantityOnOrder&gt;</span>
+                <span class="nt">&lt;QuantityOnUncommittedOrder&gt;</span>-1<span class="nt">&lt;/QuantityOnUncommittedOrder&gt;</span>
+                <span class="nt">&lt;QuantityOnBackOrder&gt;</span>0<span class="nt">&lt;/QuantityOnBackOrder&gt;</span>
+                <span class="nt">&lt;QuantityInTransfer&gt;</span>1<span class="nt">&lt;/QuantityInTransfer&gt;</span>
+                <span class="nt">&lt;QuantityOnRMA&gt;</span>1<span class="nt">&lt;/QuantityOnRMA&gt;</span>
+                <span class="nt">&lt;QuantityOnLoan&gt;</span>0<span class="nt">&lt;/QuantityOnLoan&gt;</span>
+                <span class="nt">&lt;QuantityCommittedOnOrderEntry&gt;</span>0<span class="nt">&lt;/QuantityCommittedOnOrderEntry&gt;</span>
+                <span class="nt">&lt;QuantitySuggestedByVendor&gt;</span>-1<span class="nt">&lt;/QuantitySuggestedByVendor&gt;</span>
+                <span class="nt">&lt;QuantitySold&gt;</span>20<span class="nt">&lt;/QuantitySold&gt;</span>
+                <span class="nt">&lt;GrossQuantitySold&gt;</span>-1<span class="nt">&lt;/GrossQuantitySold&gt;</span>
+                <span class="nt">&lt;GrossQuantityReturned&gt;</span>-1<span class="nt">&lt;/GrossQuantityReturned&gt;</span>
+                <span class="nt">&lt;QuantityOrdered&gt;</span>11<span class="nt">&lt;/QuantityOrdered&gt;</span>
+                <span class="nt">&lt;QuantityReceived&gt;</span>12<span class="nt">&lt;/QuantityReceived&gt;</span>
+                <span class="nt">&lt;DateReceived&gt;</span>2016-04-07T00:00:00<span class="nt">&lt;/DateReceived&gt;</span>
+                <span class="nt">&lt;ProductReceived&gt;</span>false<span class="nt">&lt;/ProductReceived&gt;</span>
+                <span class="nt">&lt;Enabled&gt;</span>true<span class="nt">&lt;/Enabled&gt;</span>
+                <span class="nt">&lt;MinMaxLocked&gt;</span>false<span class="nt">&lt;/MinMaxLocked&gt;</span>
+                <span class="nt">&lt;DoNotOrder&gt;</span>false<span class="nt">&lt;/DoNotOrder&gt;</span>
+                <span class="nt">&lt;DateEOL</span> <span class="na">xsi:nil=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;RetailPrice&gt;</span>0<span class="nt">&lt;/RetailPrice&gt;</span>
+                <span class="nt">&lt;SalePrice</span> <span class="na">xsi:nil=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;SaleBegin</span> <span class="na">xsi:nil=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;SaleEnd</span> <span class="na">xsi:nil=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+              <span class="nt">&lt;/ProductInformation&gt;</span>
              ...
-            </productsordered>
-          </createpurchaseorderresult>
-        </createpurchaseorderresponse>
-    </soap:body>
-</soap:envelope>
+            <span class="nt">&lt;/ProductsOrdered&gt;</span>
+          <span class="nt">&lt;/CreatePurchaseOrderResult&gt;</span>
+        <span class="nt">&lt;/CreatePurchaseOrderResponse&gt;</span>
+    <span class="nt">&lt;/soap:Body&gt;</span>
+<span class="nt">&lt;/soap:Envelope&gt;</span>        
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h3 id="creating-a-purchase-order-shipment-notice">Creating a Purchase Order Shipment Notice</h3>
 
@@ -2267,23 +1754,23 @@ POST /?op=CreatePurchaseOrderShipmentNotice
 <h4 id="headers-7">Headers</h4>
 
 <ul>
-  <li><code>Content-Type: text/xml</code></li>
+  <li><code class="highlighter-rouge">Content-Type: text/xml</code></li>
 </ul>
 
 <h4 id="authorization-parameters-7">Authorization Parameters</h4>
 
 <ul>
-  <li><code>vendor</code> (<strong>Required</strong>)
+  <li><code class="highlighter-rouge">vendor</code> (<strong>Required</strong>)
     <ul>
-      <li><code>VendorID</code> (<strong>Required</strong>)</li>
-      <li><code>Username</code> (<strong>Required</strong>)</li>
-      <li><code>Password</code> (<strong>Required</strong>)</li>
-      <li><code>Client</code>   (<strong>Required</strong>)
+      <li><code class="highlighter-rouge">VendorID</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Username</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Password</code> (<strong>Required</strong>)</li>
+      <li><code class="highlighter-rouge">Client</code>   (<strong>Required</strong>)
         <ul>
-          <li><code>ClientID</code> (<strong>Required</strong>)</li>
-          <li><code>StoreID</code>  (<strong>Required</strong>)</li>
-          <li><code>Name</code>     (Optional)</li>
-          <li><code>VendorAccountNumber</code> (Optional)</li>
+          <li><code class="highlighter-rouge">ClientID</code> (<strong>Required</strong>)</li>
+          <li><code class="highlighter-rouge">StoreID</code>  (<strong>Required</strong>)</li>
+          <li><code class="highlighter-rouge">Name</code>     (Optional)</li>
+          <li><code class="highlighter-rouge">VendorAccountNumber</code> (Optional)</li>
         </ul>
       </li>
     </ul>
@@ -2293,18 +1780,18 @@ POST /?op=CreatePurchaseOrderShipmentNotice
 <h4 id="request-parameters-3">Request Parameters</h4>
 
 <ul>
-  <li><code>notice</code> (<strong>Required</strong>)
+  <li><code class="highlighter-rouge">notice</code> (<strong>Required</strong>)
     <ul>
-      <li><code>PurchaseOrderShipmentNotice</code> (<strong>Required</strong>) - the <a href="#purchaseordershipmentnotice">PurchaseOrderShipmentNotice</a>
+      <li><code class="highlighter-rouge">PurchaseOrderShipmentNotice</code> (<strong>Required</strong>) - the <a href="#purchaseordershipmentnotice">PurchaseOrderShipmentNotice</a>
         <ul>
-          <li><code>PurchaseOrderID</code> (<strong>Required</strong>)</li>
-          <li><code>RQPurchaseOrderID</code> (<strong>Required</strong>) - defaults to -1</li>
-          <li><code>VendorInvoiceNumber</code> (<strong>Required</strong>)</li>
-          <li><code>ProductItemID</code> (Optional)</li>
-          <li><code>Quantity</code> (Optional)</li>
-          <li><code>SerialNumbers</code> (Optional)</li>
-          <li><code>ShipmentNumber</code> (Optional)</li>
-          <li><code>VendorSKU</code> (Optional)</li>
+          <li><code class="highlighter-rouge">PurchaseOrderID</code> (<strong>Required</strong>)</li>
+          <li><code class="highlighter-rouge">RQPurchaseOrderID</code> (<strong>Required</strong>) - defaults to -1</li>
+          <li><code class="highlighter-rouge">VendorInvoiceNumber</code> (<strong>Required</strong>)</li>
+          <li><code class="highlighter-rouge">ProductItemID</code> (Optional)</li>
+          <li><code class="highlighter-rouge">Quantity</code> (Optional)</li>
+          <li><code class="highlighter-rouge">SerialNumbers</code> (Optional)</li>
+          <li><code class="highlighter-rouge">ShipmentNumber</code> (Optional)</li>
+          <li><code class="highlighter-rouge">VendorSKU</code> (Optional)</li>
         </ul>
       </li>
     </ul>
@@ -2313,66 +1800,66 @@ POST /?op=CreatePurchaseOrderShipmentNotice
 
 <h6 id="example-14">Example</h6>
 
-<p>```xml
-<?xml version="1.0" encoding="utf-8"?></p>
-<soap:envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:body>
-    <createpurchaseordershipmentnotice xmlns="http://www.iqmetrix.com">
-      <vendor>
-        <vendorid>009E800D-10ED-4F4A-B86F-DFB3C2A18C09</vendorid>
-        <username>danssupplies</username>
-        <password>samplepassword</password>
-        <client>
-          <clientid>c46ccb4d-2d44-4289-950a-b9cb51d58ac4</clientid>
-          <name>DropshipTestDemo</name>
-          <storeid>14070</storeid>
-        </client>
-      </vendor>
-      <notice>
-        <purchaseordershipmentnotice>
-          <purchaseorderid>bcaeea15-5a6d-4515-ba0c-70032da67e8d</purchaseorderid>
-          <productitemid>28</productitemid>
-          <quantity>1</quantity>
-          <rqpurchaseorderid>22073</rqpurchaseorderid>
-          <serialnumbers>
-            <string>490154203237518</string>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;soap:Body&gt;</span>
+    <span class="nt">&lt;CreatePurchaseOrderShipmentNotice</span> <span class="na">xmlns=</span><span class="s">"http://www.iqmetrix.com"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;vendor&gt;</span>
+        <span class="nt">&lt;VendorID&gt;</span>009E800D-10ED-4F4A-B86F-DFB3C2A18C09<span class="nt">&lt;/VendorID&gt;</span>
+        <span class="nt">&lt;Username&gt;</span>danssupplies<span class="nt">&lt;/Username&gt;</span>
+        <span class="nt">&lt;Password&gt;</span>samplepassword<span class="nt">&lt;/Password&gt;</span>
+        <span class="nt">&lt;Client&gt;</span>
+          <span class="nt">&lt;ClientID&gt;</span>c46ccb4d-2d44-4289-950a-b9cb51d58ac4<span class="nt">&lt;/ClientID&gt;</span>
+          <span class="nt">&lt;Name&gt;</span>DropshipTestDemo<span class="nt">&lt;/Name&gt;</span>
+          <span class="nt">&lt;StoreID&gt;</span>14070<span class="nt">&lt;/StoreID&gt;</span>
+        <span class="nt">&lt;/Client&gt;</span>
+      <span class="nt">&lt;/vendor&gt;</span>
+      <span class="nt">&lt;notice&gt;</span>
+        <span class="nt">&lt;PurchaseOrderShipmentNotice&gt;</span>
+          <span class="nt">&lt;PurchaseOrderID&gt;</span>bcaeea15-5a6d-4515-ba0c-70032da67e8d<span class="nt">&lt;/PurchaseOrderID&gt;</span>
+          <span class="nt">&lt;ProductItemID&gt;</span>28<span class="nt">&lt;/ProductItemID&gt;</span>
+          <span class="nt">&lt;Quantity&gt;</span>1<span class="nt">&lt;/Quantity&gt;</span>
+          <span class="nt">&lt;RQPurchaseOrderID&gt;</span>22073<span class="nt">&lt;/RQPurchaseOrderID&gt;</span>
+          <span class="nt">&lt;SerialNumbers&gt;</span>
+            <span class="nt">&lt;string&gt;</span>490154203237518<span class="nt">&lt;/string&gt;</span>
             ...
-          </serialnumbers>
-          <shipmentnumber>DSSPOSN1234</shipmentnumber>
-          <vendorinvoicenumber>POSN1234</vendorinvoicenumber>
-          <vendorsku>SSGS5CB</vendorsku>
-        </purchaseordershipmentnotice>
+          <span class="nt">&lt;/SerialNumbers&gt;</span>
+          <span class="nt">&lt;ShipmentNumber&gt;</span>DSSPOSN1234<span class="nt">&lt;/ShipmentNumber&gt;</span>
+          <span class="nt">&lt;VendorInvoiceNumber&gt;</span>POSN1234<span class="nt">&lt;/VendorInvoiceNumber&gt;</span>
+          <span class="nt">&lt;VendorSKU&gt;</span>SSGS5CB<span class="nt">&lt;/VendorSKU&gt;</span>
+        <span class="nt">&lt;/PurchaseOrderShipmentNotice&gt;</span>
         ...
-      </notice>
-    </createpurchaseordershipmentnotice>
-  </soap:body>
-</soap:envelope>
+      <span class="nt">&lt;/notice&gt;</span>
+    <span class="nt">&lt;/CreatePurchaseOrderShipmentNotice&gt;</span>
+  <span class="nt">&lt;/soap:Body&gt;</span>
+<span class="nt">&lt;/soap:Envelope&gt;</span>
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h6 id="code-example-7">Code Example</h6>
 
-<p>```java
-VendorIdentity vendor = new VendorIdentity();
-vendor.VendorID = new Guid(009E800D-10ED-4F4A-B86F-DFB3C2A18C09);
-vendor.Username =  “danssupplies”;
-vendor.Password = “samplepassword”;
-vendor.Client = new ClientAgent();
-vendor.Client.ClientID = companyID;
-vendor.Client.StoreID = -1;</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">VendorIdentity</span> <span class="n">vendor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VendorIdentity</span><span class="o">();</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">VendorID</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Guid</span><span class="o">(</span><span class="mi">009</span><span class="n">E800D</span><span class="o">-</span><span class="mi">10</span><span class="n">ED</span><span class="o">-</span><span class="mi">4</span><span class="n">F4A</span><span class="o">-</span><span class="n">B86F</span><span class="o">-</span><span class="n">DFB3C2A18C09</span><span class="o">);</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Username</span> <span class="o">=</span>  <span class="s">"danssupplies"</span><span class="o">;</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Password</span> <span class="o">=</span> <span class="s">"samplepassword"</span><span class="o">;</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClientAgent</span><span class="o">();</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Client</span><span class="o">.</span><span class="na">ClientID</span> <span class="o">=</span> <span class="n">companyID</span><span class="o">;</span>
+<span class="n">vendor</span><span class="o">.</span><span class="na">Client</span><span class="o">.</span><span class="na">StoreID</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
 
-<p>PurchaseOrderShipmentNotice sn = new PurchaseOrderShipmentNotice();
-sn.PurchaseOrderID = new GUID(84DACFD3-4095-4D50-A02E-781B86B7408E);</p>
+<span class="n">PurchaseOrderShipmentNotice</span> <span class="n">sn</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PurchaseOrderShipmentNotice</span><span class="o">();</span>
+<span class="n">sn</span><span class="o">.</span><span class="na">PurchaseOrderID</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GUID</span><span class="o">(</span><span class="mi">84</span><span class="n">DACFD3</span><span class="o">-</span><span class="mi">4095</span><span class="o">-</span><span class="mi">4</span><span class="n">D50</span><span class="o">-</span><span class="n">A02E</span><span class="o">-</span><span class="mi">781</span><span class="n">B86B7408E</span><span class="o">);</span>
 
-<p>sn.ShipmentNumber = “SHIP001 “;
-sn.ProductItemID = 11142;
-sn.Quantity = 2;
-sn.SerialNumber = {“490154203237518”, “12321324”};</p>
+<span class="n">sn</span><span class="o">.</span><span class="na">ShipmentNumber</span> <span class="o">=</span> <span class="s">"SHIP001 "</span><span class="o">;</span>
+<span class="n">sn</span><span class="o">.</span><span class="na">ProductItemID</span> <span class="o">=</span> <span class="mi">11142</span><span class="o">;</span>
+<span class="n">sn</span><span class="o">.</span><span class="na">Quantity</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+<span class="n">sn</span><span class="o">.</span><span class="na">SerialNumber</span> <span class="o">=</span> <span class="o">{</span><span class="s">"490154203237518"</span><span class="o">,</span> <span class="s">"12321324"</span><span class="o">};</span>
 
-<p>PurchaseOrderShipmentNotice snReturn = 
-    vmiService.CreatePurchaseOrderShipmentNotice(vendor, new[] { sn });</p>
+<span class="n">PurchaseOrderShipmentNotice</span> <span class="n">snReturn</span> <span class="o">=</span> 
+    <span class="n">vmiService</span><span class="o">.</span><span class="na">CreatePurchaseOrderShipmentNotice</span><span class="o">(</span><span class="n">vendor</span><span class="o">,</span> <span class="k">new</span><span class="o">[]</span> <span class="o">{</span> <span class="n">sn</span> <span class="o">});</span>
 
-<p>```</p>
+</code></pre>
+</div>
 
 <h4 id="response-7">Response</h4>
 
@@ -2380,99 +1867,54 @@ sn.SerialNumber = {“490154203237518”, “12321324”};</p>
 
 <h6 id="example-15">Example</h6>
 
-<p><code>
-HTTP 200 Content-Type: application/xml
-</code>
-```xml
-<?xml version="1.0" encoding="utf-8"?></p>
-<soap:envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <soap:body>
-        <createpurchaseordershipmentnoticeresponse xmlns="http://www.iqmetrix.com">
-            <createpurchaseordershipmentnoticeresult>
-                <purchaseordershipmentnotice>
-                  <purchaseorderid>bcaeea15-5a6d-4515-ba0c-70032da67e8d</purchaseorderid>
-                  <productitemid>28</productitemid>
-                  <quantity>1</quantity>
-                  <rqpurchaseorderid>22073</rqpurchaseorderid>
-                  <serialnumbers>
-                    <string>490154203237518</string>
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP 200 Content-Type: application/xml
+</code></pre>
+</div>
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;soap:Envelope</span> <span class="na">xmlns:soap=</span><span class="s">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;soap:Body&gt;</span>
+        <span class="nt">&lt;CreatePurchaseOrderShipmentNoticeResponse</span> <span class="na">xmlns=</span><span class="s">"http://www.iqmetrix.com"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;CreatePurchaseOrderShipmentNoticeResult&gt;</span>
+                <span class="nt">&lt;PurchaseOrderShipmentNotice&gt;</span>
+                  <span class="nt">&lt;PurchaseOrderID&gt;</span>bcaeea15-5a6d-4515-ba0c-70032da67e8d<span class="nt">&lt;/PurchaseOrderID&gt;</span>
+                  <span class="nt">&lt;ProductItemID&gt;</span>28<span class="nt">&lt;/ProductItemID&gt;</span>
+                  <span class="nt">&lt;Quantity&gt;</span>1<span class="nt">&lt;/Quantity&gt;</span>
+                  <span class="nt">&lt;RQPurchaseOrderID&gt;</span>22073<span class="nt">&lt;/RQPurchaseOrderID&gt;</span>
+                  <span class="nt">&lt;SerialNumbers&gt;</span>
+                    <span class="nt">&lt;string&gt;</span>490154203237518<span class="nt">&lt;/string&gt;</span>
                     ...
-                  </serialnumbers>
-                  <shipmentnumber>DSSPOSN1234</shipmentnumber>
-                  <vendorinvoicenumber>POSN1234</vendorinvoicenumber>
-                  <vendorsku>SSGS5CB</vendorsku>
-                </purchaseordershipmentnotice>
+                  <span class="nt">&lt;/SerialNumbers&gt;</span>
+                  <span class="nt">&lt;ShipmentNumber&gt;</span>DSSPOSN1234<span class="nt">&lt;/ShipmentNumber&gt;</span>
+                  <span class="nt">&lt;VendorInvoiceNumber&gt;</span>POSN1234<span class="nt">&lt;/VendorInvoiceNumber&gt;</span>
+                  <span class="nt">&lt;VendorSKU&gt;</span>SSGS5CB<span class="nt">&lt;/VendorSKU&gt;</span>
+                <span class="nt">&lt;/PurchaseOrderShipmentNotice&gt;</span>
                 ...
-            </createpurchaseordershipmentnoticeresult>
-        </createpurchaseordershipmentnoticeresponse>
-    </soap:body>
-</soap:envelope>
+            <span class="nt">&lt;/CreatePurchaseOrderShipmentNoticeResult&gt;</span>
+        <span class="nt">&lt;/CreatePurchaseOrderShipmentNoticeResponse&gt;</span>
+    <span class="nt">&lt;/soap:Body&gt;</span>
+<span class="nt">&lt;/soap:Envelope&gt;</span>   
 
-<p>```</p>
-
-</div>
-              <div class="col-lg-1 hidden-md hidden-sm hidden-xs"><!-- start page metadata -->
-
-
-<div class="pageMetadata affix">
-    <div class="pageMetadataTitle">Table of Contents</div>
-    
-<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
-<script>
-$( document ).ready(function() {
-
-    $('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2, h3' });
-
-    //Resize once
-    resizeWindow();
-
-    //Resize whenever window changes
-    $(window).resize(function () {
-        resizeWindow();
-    });
-
-});
-
-function resizeWindow() {
-
-    var windowHeight = $(window).height();
-    var windowWidth = $(window).width();
-
-    var tocHeight = $(".pageMetadata").height();
-
-    if(windowWidth < 1560 || windowHeight < tocHeight) {        
-        //Grab "pageMetadata" and move it to first  child of .post-header
-        $(".pageMetadata").prependTo(".post-header");
-        $(".pageMetadata").removeClass("affix");        
-    } else if(windowWidth > 1560) {
-        //Grab "pageMetadata" and move it back to where it was
-        $(".pageMetadata").appendTo(".col-lg-1.hidden-md.hidden-sm.hidden-xs");
-        $(".pageMetadata" ).addClass("affix");
-    }      
-}
-
-</script>
-
-<div id="toc"></div>
-
-    
-    <p><div class="metadataRow"><span class="tagTitle">Last updated:</span> 01-6-2016</div></p>
-    
-
+</code></pre>
 </div>
 
 
 
-
-<link rel="stylesheet" type="text/css" href="../../css/syntax.css">
-
-<!-- end pageMetadata --></div>
-            
+      </div>
+      <div class="dark-box">
+            <div class="lang-selector">
+               <a href="#" data-language-name="javascript">javascript</a>
+               <a href="#" data-language-name="shell">cURL</a>
+               <a href="#" data-language-name="csharp">c#</a>
+               <a href="#" data-language-name="java">java</a>
+               <a href="#" data-language-name="ruby">ruby</a>
+            </div>
+         </div>
     </div>
 
-</body>
+  </body>
 
-<!-- the google_analytics_id gets auto inserted from the config file -->
+
+  <!-- the google_analytics_id gets auto inserted from the config file -->
 
 
 <script>
@@ -2487,4 +1929,3 @@ function resizeWindow() {
 
 
 </html>
-
