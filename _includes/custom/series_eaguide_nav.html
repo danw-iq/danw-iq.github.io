@@ -2,55 +2,77 @@
   table {
     min-width: 100%;
   }
+
+  #page-selector .row {
+    text-align: center;
+  }
+  #page-selector p {
+    font-size: 14px;
+    min-height: 38px;
+  }
+  #page-selector .selectedIcon a {
+    cursor: default;
+  }
+
+  #page-selector .selectedIcon p {
+    color: darkgrey;
+    cursor: default;
+  }
+
+  #page-selector .selectedIcon .fa-3x {
+    color: darkgrey;
+    cursor: default;
+  }
+
 </style>
 
 <hr/>
 <div id="page-selector">
   <div class="row">
-    <span class="col-md-2 col-md-offset-1 text-center {% if page.url contains "/guides/ea-guide/overview" %} selectedIcon {% endif %}">
+    <span class="col-xs-12 col-sm-4 col-md-2 col-md-offset-1 text-center {% if page.url contains "/guides/ea-guide/overview" %} selectedIcon {% endif %}">
       <a href="{{"/guides/ea-guide/overview" | prepend: site.url}}">
         <span class="col-md-12">
-          <h4>Overview</h4><br/>
+          <p>Overview</p>
         </span>        
         <span class="col-md-12">
           <i class="fa fa-home fa-3x"></i>
         </span>
       </a>
     </span>  
-    <span class="col-md-2 text-center {% if page.url contains "/guides/ea-guide/corporate-hierarchy" %} selectedIcon {% endif %}">
+    <span class="col-xs-12 col-sm-4 col-md-2 text-center {% if page.url contains "/guides/ea-guide/corporate-hierarchy" %} selectedIcon {% endif %}">
       <a href="{{"/guides/ea-guide/corporate-hierarchy" | prepend: site.url}}">
         <span class="col-md-12">
-          <h4>Corporate Hierarchy</h4>
+          <p>Corporate Hierarchy</p>
         </span>        
         <span class="col-md-12">
           <i class="fa fa-map-marker fa-3x" style="font-size:2.7em;"></i>
         </span>
       </a>
     </span>
-    <span class="col-md-2 text-center {% if page.url contains "/guides/ea-guide/content" %} selectedIcon {% endif %}">
+    <span class="col-xs-12 col-sm-4 col-md-2 text-center {% if page.url contains "/guides/ea-guide/content" %} selectedIcon {% endif %}">
       <a href="{{"/guides/ea-guide/content" | prepend: site.url}}">
         <span class="col-md-12">
-          <h4>Content</h4><br/>
+          <p>Content</p>
         </span>             
         <span class="col-md-12">
           <i class="fa fa-list-alt fa-3x"></i>
         </span>
       </a>    
     </span> 
-    <span class="col-md-2 text-center {% if page.url contains "/guides/ea-guide/inventory" %} selectedIcon {% endif %}">
+    <span class="col-xs-12 col-sm-6 col-md-2 text-center {% if page.url contains "/guides/ea-guide/inventory" %} selectedIcon {% endif %}">
       <a href="{{"/guides/ea-guide/inventory" | prepend: site.url}}">
         <span class="col-md-12">
-          <h4>Inventory</h4><br/>
+          <p>Inventory</p>
         </span>             
         <span class="col-md-12">
           <i class="fa fa-barcode fa-3x"></i>
         </span>
       </a>       
     </span>  
-    <span class="col-md-2 text-center {% if page.url contains "/guides/ea-guide/orders" %} selectedIcon {% endif %}">
+    <span class="col-xs-12 col-sm-6 col-md-2 text-center {% if page.url contains "/guides/ea-guide/orders" %} selectedIcon {% endif %}">
       <a href="{{"/guides/ea-guide/orders" | prepend: site.url}}">
         <span class="col-md-12">
-          <h4>Orders</h4><br/>
+          <p>Orders</p>
         </span>             
         <span class="col-md-12">
           <i class="fa fa-file-text-o fa-3x" style="font-size:2.5em;"></i>

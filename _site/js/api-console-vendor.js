@@ -70004,7 +70004,7 @@ function checkboxInputType(scope, element, attr, ctrl, $sniffer, $browser, $filt
              Too long!</span><br>
          </form>
          <hr>
-         <tt>user = [User](/api/user-manager/#user)</tt><br/>
+         <tt>user = {{user}}</tt><br/>
          <tt>myForm.userName.$valid = {{myForm.userName.$valid}}</tt><br>
          <tt>myForm.userName.$error = {{myForm.userName.$error}}</tt><br>
          <tt>myForm.lastName.$valid = {{myForm.lastName.$valid}}</tt><br>

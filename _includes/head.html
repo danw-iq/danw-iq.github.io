@@ -29,7 +29,7 @@
     $(document).ready(function() {
 
         // surround each image with an anchor class  for image popup
-        $('img').each( function() {
+        $('#page-wrapper img').each( function() {
             var $img = $(this),
             href = $img.attr('src');
             $img.wrap('<a class="image-link" href=' + href + '></a>');
@@ -58,19 +58,14 @@
     //Hacky code to make sure they don't go to a bad page
     $( window ).load(function() {
 
-        if (document.baseURI.indexOf("api/generalledger.html") > 0) {
-            window.location.href = 'http://developers.iqmetrix.com/api/general-ledger/';
-        }
-        else if (document.baseURI.indexOf("api/productlibrary.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/product-library/';
-        }
-        else if (document.baseURI.indexOf("api/entitystore.html") > 0) {
-          window.location.href = 'http://developers.iqmetrix.com/api/entity-store/';
-        }
-        else if(document.baseURI.indexOf(".html") > 0) {
-           window.location.href = document.baseURI.substring(0, document.baseURI.indexOf(".html"));
-        }
-    });
+        if (document.baseURI.indexOf("#getting-the-customer-list-report") > 0) {
+          window.location.href = 'http://developers.iqmetrix.com/api/RQ-Data-Connect-Customer-Reports/#getting-the-customer-list-report';
+        } else if (document.baseURI.indexOf("rq-data-connect-bridge") > 0) {
+          window.location.href = 'http://developers.iqmetrix.com/api/RQ-Data-Connect-Bridge/';
+        }        
+        else if (document.baseURI.indexOf("rq-data-connect") > 0) {
+          window.location.href = 'http://developers.iqmetrix.com/api/RQ-Data-Connect/';
+        }    });
 </script>
 
 

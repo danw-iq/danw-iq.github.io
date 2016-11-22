@@ -204,7 +204,7 @@
 
           if(printBullets) 
           {
-            responseParameters += printResponseBullets(schema, "orders");        
+            responseParameters += "Bug: need to do this still";        
           } 
           else
           {
@@ -213,6 +213,7 @@
 
           return responseParameters;
         };
+
         /*@Melissa NEW FUNCTION!*/
         function printResourceLink(schemaType, schemaName, externalSource) {
 
@@ -2276,14 +2277,13 @@
         }
 
         //@Melissa new function!
-        $scope.printName = function printName(resource, description) {
-          //Only one resource in this set? Get the first name
-          if(resource.methods.length == 1) {
-            return resource.methods[0].displayName.trim();
-          }
-
-          return description;
+        $scope.printName = function printName(resource) {
+          return resource.methods[0].displayName.trim();
         };
+        //@Melissa new function!
+        $scope.printLink = function printLink(resource) {
+          return resource.methods[0].displayName.trim().toLowerCase().replace(/ /g, "-");
+        };        
 
         $scope.readResourceTraits = function readResourceTraits(traits) {
           var list = [];
@@ -5856,46 +5856,36 @@ angular.module('ramlConsoleApp').run(['$templateCache', function($templateCache)
     "    </section>\n" +
 
     "\n" +
-
-
-
-
-
-    "     <span>Example Request</span>\n" +
-    "     <ul class=\"nav nav-tabs\">\n"+
+    "     <section class=\"raml-console-resource-section ng-scope\">\n" +
+    "       <h3 class=\"raml-console-resource-heading-a\">Example Request</h3>\n" +
+    "      <ul class=\"nav nav-tabs\">\n"+
     "       <li class=\"active\"><a href=\"#http-{{methodInfo.method}}-{{convertToLink(resource.description, methodInfo)}}\" data-toggle=\"tab\">HTTP</a></li>\n"+
-    "       <li><a href=\"#curl-{{methodInfo.method}}-{{convertToLink(resource.description, methodInfo)}}\" data-toggle=\"tab\">cURL</a></li>\n"+
-    "       <li><a href=\"#csharp-{{methodInfo.method}}-{{convertToLink(resource.description, methodInfo)}}\" data-toggle=\"tab\">C# (RestSharp)</a></li>\n"+
-    "       <li><a href=\"#java-{{methodInfo.method}}-{{convertToLink(resource.description, methodInfo)}}\" data-toggle=\"tab\">Java (HttpComponents)</a></li>\n"+
-    "       <li><a href=\"#ruby-{{methodInfo.method}}-{{convertToLink(resource.description, methodInfo)}}\" data-toggle=\"tab\">Ruby (rest-client)</a></li>\n"+
-    "     </ul>\n"+
-    "     <div class=\"tab-content\">\n" +
-    "       <div id=\"http-{{methodInfo.method}}-{{convertToLink(resource.description, methodInfo)}}\" role=\"tabpanel\" class=\"tab-pane active\">\n" +
-    "         <pre class=\"raml-console-resource-pre\"><code class=\"raml-console-hljs\" hljs source=\"getBeatifiedExampleHttp(raml.baseUri, resource.pathSegments, methodInfo, methodInfo.body[currentBodySelected].example)\"></code></pre>\n" +
-    "       </div>\n" +
-    "       <div id=\"curl-{{methodInfo.method}}-{{convertToLink(resource.description, methodInfo)}}\" role=\"tabpanel\" class=\"tab-pane\">\n" +
-    "         <pre class=\"raml-console-resource-pre\"><code class=\"raml-console-hljs\" hljs source=\"getBeatifiedExampleCurl(raml.baseUri, resource.pathSegments, methodInfo, methodInfo.body[currentBodySelected].example)\"></code></pre>\n" +
+    "         <li><a href=\"#curl-{{methodInfo.method}}-{{convertToLink(resource.description, methodInfo)}}\" data-toggle=\"tab\">cURL</a></li>\n"+
+    "         <li><a href=\"#csharp-{{methodInfo.method}}-{{convertToLink(resource.description, methodInfo)}}\" data-toggle=\"tab\">C# (RestSharp)</a></li>\n"+
+    "         <li><a href=\"#java-{{methodInfo.method}}-{{convertToLink(resource.description, methodInfo)}}\" data-toggle=\"tab\">Java (HttpComponents)</a></li>\n"+
+    "        <li><a href=\"#ruby-{{methodInfo.method}}-{{convertToLink(resource.description, methodInfo)}}\" data-toggle=\"tab\">Ruby (rest-client)</a></li>\n"+
+    "       </ul>\n"+
+    "       <div class=\"tab-content\">\n" +
+    "        <div id=\"http-{{methodInfo.method}}-{{convertToLink(resource.description, methodInfo)}}\" role=\"tabpanel\" class=\"tab-pane active\">\n" +
+    "           <pre class=\"raml-console-resource-pre\"><code class=\"raml-console-hljs\" hljs source=\"getBeatifiedExampleHttp(raml.baseUri, resource.pathSegments, methodInfo, methodInfo.body[currentBodySelected].example)\"></code></pre>\n" +
+    "         </div>\n" +
+    "         <div id=\"curl-{{methodInfo.method}}-{{convertToLink(resource.description, methodInfo)}}\" role=\"tabpanel\" class=\"tab-pane\">\n" +
+    "          <pre class=\"raml-console-resource-pre\"><code class=\"raml-console-hljs\" hljs source=\"getBeatifiedExampleCurl(raml.baseUri, resource.pathSegments, methodInfo, methodInfo.body[currentBodySelected].example)\"></code></pre>\n" +
+    "         </div>\n"+
+    "         <div id=\"csharp-{{methodInfo.method}}-{{convertToLink(resource.description, methodInfo)}}\" role=\"tabpanel\" class=\"tab-pane\">\n" +
+    "           <p style=\"font-size:14px\">This code sample uses <a href=\"http://restsharp.org/\">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.</p>\n" +
+    "           <pre class=\"raml-console-resource-pre\"><code class=\"raml-console-hljs\" hljs hljs-language=\"csharp\" source=\"getBeatifiedExampleCSharp(raml.baseUri, resource.pathSegments, methodInfo, methodInfo.body[currentBodySelected].example)\"></code></pre>\n" +
+    "        </div>\n" +
+    "         <div id=\"java-{{methodInfo.method}}-{{convertToLink(resource.description, methodInfo)}}\" role=\"tabpanel\" class=\"tab-pane\">\n" +
+    "           <p style=\"font-size:14px\">This code sample uses <a href=\"https://hc.apache.org/\">Apache HttpComponents</a>, ensure you download and include the required Jars.</p>\n" +
+    "          <pre class=\"raml-console-resource-pre\"><code class=\"raml-console-hljs\" hljs hljs hljs-language=\"java\" source=\"getBeatifiedExampleJava(raml.baseUri, resource.pathSegments, methodInfo, methodInfo.body[currentBodySelected].example)\"></code></pre>\n" +
+    "         </div>\n" +    
+    "         <div id=\"ruby-{{methodInfo.method}}-{{convertToLink(resource.description, methodInfo)}}\" role=\"tabpanel\" class=\"tab-pane\">\n" +
+    "           <p style=\"font-size:14px\">This code sample uses <a href=\"https://github.com/rest-client/rest-client\">rest-client</a>, ensure you <code>gem install rest-client</code>.</p>\n" +
+    "          <pre class=\"raml-console-resource-pre\"><code class=\"raml-console-hljs\" hljs hljs-language=\"ruby\" source=\"getBeatifiedExampleRuby(raml.baseUri, resource.pathSegments, methodInfo, methodInfo.body[currentBodySelected].example)\"></code></pre>\n" +
+    "         </div>\n" +
     "       </div>\n"+
-    "       <div id=\"csharp-{{methodInfo.method}}-{{convertToLink(resource.description, methodInfo)}}\" role=\"tabpanel\" class=\"tab-pane\">\n" +
-    "         <p style=\"font-size:14px\">This code sample uses <a href=\"http://restsharp.org/\">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.</p>\n" +
-    "         <pre class=\"raml-console-resource-pre\"><code class=\"raml-console-hljs\" hljs hljs-language=\"csharp\" source=\"getBeatifiedExampleCSharp(raml.baseUri, resource.pathSegments, methodInfo, methodInfo.body[currentBodySelected].example)\"></code></pre>\n" +
-    "       </div>\n" +
-    "       <div id=\"java-{{methodInfo.method}}-{{convertToLink(resource.description, methodInfo)}}\" role=\"tabpanel\" class=\"tab-pane\">\n" +
-    "         <p style=\"font-size:14px\">This code sample uses <a href=\"https://hc.apache.org/\">Apache HttpComponents</a>, ensure you download and include the required Jars.</p>\n" +
-    "         <pre class=\"raml-console-resource-pre\"><code class=\"raml-console-hljs\" hljs hljs hljs-language=\"java\" source=\"getBeatifiedExampleJava(raml.baseUri, resource.pathSegments, methodInfo, methodInfo.body[currentBodySelected].example)\"></code></pre>\n" +
-    "       </div>\n" +    
-    "       <div id=\"ruby-{{methodInfo.method}}-{{convertToLink(resource.description, methodInfo)}}\" role=\"tabpanel\" class=\"tab-pane\">\n" +
-    "         <p style=\"font-size:14px\">This code sample uses <a href=\"https://github.com/rest-client/rest-client\">rest-client</a>, ensure you <code>gem install rest-client</code>.</p>\n" +
-    "         <pre class=\"raml-console-resource-pre\"><code class=\"raml-console-hljs\" hljs hljs-language=\"ruby\" source=\"getBeatifiedExampleRuby(raml.baseUri, resource.pathSegments, methodInfo, methodInfo.body[currentBodySelected].example)\"></code></pre>\n" +
-    "       </div>\n" +
-    "     </div>\n"+
-
-
-
-
-
-
-
+    "     </section>\n" +
     "\n" +
     /*
         "      <div class=\"raml-console-schema-container\" ng-if=\"methodInfo.body[currentBodySelected].schema\">\n" +
@@ -6509,9 +6499,17 @@ angular.module('ramlConsoleApp').run(['$templateCache', function($templateCache)
     "              <a ng-if=\"resourceGroup.length == 1\" style=\"cursor: default;\" class=\"raml-console-resource-path-active\" ng-repeat='segment in resource.pathSegments'>{{segment.toString()}}</a>\n" +
     "            </h2>\n" +
     */
+
+
+
+
           "            <h2 class=\"raml-console-resource-heading raml-console-resource-heading-large\">\n" +
-          "              <a style=\"cursor: default;\" class=\"raml-console-resource-path-active\" ng-repeat='segment in resource.pathSegments'>{{printName(resource, resource.description)}}<a>\n" +
+          "              <a style=\"cursor: default;\" class=\"raml-console-resource-path-active\" ng-repeat='segment in resource.pathSegments'>{{resource.displayName}}<a>\n" +
           "             </h2>" +
+
+
+
+
 
     "\n" +
     "            <resource-type></resource-type>\n" +

@@ -100,7 +100,7 @@
     <![endif]-->
   </head>
 
-    <body class="api api_catalog2 api_catalog2_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+    <body class="api api_catalog api_catalog_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -128,26 +128,23 @@
       <div class="dark-box"></div>
       <div class="content">
 
-      <link rel="stylesheet" type="text/css" href="../../css/prism.css" />
-
-<script src="../../js/prism.js"></script>
-
-<h2 id="overview">Overview</h2>
+      
+<h1 id="overview">Overview</h1>
 
 <p>A <strong>Classification Tree</strong> is a hierarchical structure describing a taxonomy of <a href="http://developers.iqmetrix.com/api/catalog/#product">Products</a>.</p>
 
-<p>To learn more about Classification Trees, see <a href="/classification-tree">Classification Tree</a>.</p>
+<p>To learn more about Classification Trees, see <a href="/concepts/classification-tree">Classification Tree</a>.</p>
 
-<h2 id="endpoints">Endpoints</h2>
+<h1 id="endpoints">Endpoints</h1>
 
 <ul>
   <li>Sandbox: <a href="https://productlibrarydemo.iqmetrix.net/v1">https://productlibrarydemo.iqmetrix.net/v1</a></li>
   <li>Production: <a href="https://productlibrary.iqmetrix.net/v1">https://productlibrary.iqmetrix.net/v1</a></li>
 </ul>
 
-<h2 id="resources">Resources</h2>
+<h1 id="resources">Resources</h1>
 
-<h3 id="classification">Classification</h3>
+<h2 id="classification">Classification</h2>
 
 <p>Classifications are used to group Products together by similar features.
 A Product can only have a single Classification.
@@ -157,67 +154,51 @@ For example, a Samsung Galaxy S6 Edge, HTC One M9 and iPhone 5C might all have a
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
-      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
-      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id</td>
-      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Id (<code>Integer</code>)</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code class="highlighter-rouge">4</code></td>
     </tr>
     <tr>
+      <td style="text-align: left">Name (<code>String</code>)</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code class="highlighter-rouge">Smartphones</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Order</td>
-      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Order (<code>Integer</code>)</td>
       <td style="text-align: left">Sorting order</td>
-      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">ProductTemplate</td>
-      <td style="text-align: left"><a href="/api/classification-tree/#producttemplate">ProductTemplate</a></td>
-      <td style="text-align: left"> </td>
+      <td style="text-align: left">ProductTemplate (<code>&lt;a href='/api/classification-tree/#producttemplate'&gt;ProductTemplate&lt;/a&gt;</code>)</td>
       <td style="text-align: left"> </td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="producttemplate">ProductTemplate</h3>
+<h2 id="producttemplate">ProductTemplate</h2>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
-      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
-      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id</td>
-      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Id (<code>Integer</code>)</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code class="highlighter-rouge">16</code></td>
     </tr>
     <tr>
+      <td style="text-align: left">Name (<code>String</code>)</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code class="highlighter-rouge">Wireless Device</code></td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="category">Category</h3>
+<h2 id="category">Category</h2>
 
 <p>A Category is a node in a Classification Tree that represents a logical grouping of related Classifications.
 For example, ‘iPhone’ and ‘Tablet’ Classifications might both be children of a ‘Device’ Category.
@@ -227,179 +208,132 @@ There is a limit to 20 levels of depth for Categories.</p>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
-      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
-      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id</td>
-      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Id (<code>Integer</code>)</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code class="highlighter-rouge">2</code></td>
     </tr>
     <tr>
+      <td style="text-align: left">Name (<code>String</code>)</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code class="highlighter-rouge">Devices</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Categories</td>
-      <td style="text-align: left">Array[object]</td>
+      <td style="text-align: left">Categories (<code>Array[object]</code>)</td>
       <td style="text-align: left">Child Categories</td>
-      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Classifications</td>
-      <td style="text-align: left">Array[object]</td>
+      <td style="text-align: left">Classifications (<code>Array[object]</code>)</td>
       <td style="text-align: left">Child Classifications</td>
-      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Order</td>
-      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Order (<code>Integer</code>)</td>
       <td style="text-align: left">Sorting order</td>
-      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="classificationtree">ClassificationTree</h3>
+<h2 id="classificationtree">ClassificationTree</h2>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
-      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
-      <th style="text-align: left">Example</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id</td>
-      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Id (<code>Integer</code>)</td>
       <td style="text-align: left">Identifier</td>
-      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
+      <td> </td>
     </tr>
     <tr>
+      <td style="text-align: left">Name (<code>String</code>)</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code class="highlighter-rouge">Cellular &amp; Accessories</code></td>
+      <td> </td>
     </tr>
     <tr>
+      <td style="text-align: left">Description (<code>String</code>)</td>
       <td style="text-align: left">Description</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left">Description</td>
-      <td style="text-align: left"><code class="highlighter-rouge">Classification of products for wireless retail</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Categories</td>
-      <td style="text-align: left">Array[<a href="/api/classification-tree/#category">Category</a>]</td>
+      <td style="text-align: left">Categories (<code>Array[&lt;a href='/api/classification-tree/#category'&gt;Category&lt;/a&gt;]</code>)</td>
       <td style="text-align: left">Categories in the Tree</td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Classifications</td>
-      <td style="text-align: left">Array[<a href="/api/classification-tree/#classification">Classification</a>]</td>
+      <td style="text-align: left">Classifications (<code>Array[&lt;a href='/api/classification-tree/#classification'&gt;Classification&lt;/a&gt;]</code>)</td>
       <td style="text-align: left">Classifications for the Tree</td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Owner</td>
-      <td style="text-align: left"><a href="/api/classification-tree/#owner">Owner</a></td>
+      <td style="text-align: left">Owner (<code>&lt;a href='/api/classification-tree/#owner'&gt;Owner&lt;/a&gt;</code>)</td>
       <td style="text-align: left">Information about the <a href="/api/company-tree/#company">Company</a> that owns this Tree</td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Version</td>
-      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Version (<code>Integer</code>)</td>
       <td style="text-align: left">Latest revision number</td>
-      <td style="text-align: left"><code class="highlighter-rouge">41</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>IsCanonical</em></td>
-      <td style="text-align: left"><em>Boolean</em></td>
+      <td style="text-align: left"><em>IsCanonical (<code>Boolean</code>)</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="owner">Owner</h3>
+<h2 id="owner">Owner</h2>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
-      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
-      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id</td>
-      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Id (<code>Integer</code>)</td>
       <td style="text-align: left"><a href="/api/company-tree/#company">Company</a> Identifier</td>
-      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Name</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">Name (<code>String</code>)</td>
       <td style="text-align: left"><a href="/api/company-tree/#company">Company</a> Name</td>
-      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix</code></td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="requests">Requests</h2>
+<h1 id="requests">Requests</h1>
 
-<h3 id="getting-a-classification-tree" class="clickable-header top-level-header">Getting a Classification Tree</h3>
+<h2 id="getting-a-classification-tree">Getting a Classification Tree</h2>
 
-<h4>Request</h4>
+<blockquote>
+  <p>Definition</p>
+</blockquote>
 
-<pre>
-GET /ClassificationTrees({ClassificationTreeId})
-</pre>
+<pre><code>GET /ClassificationTrees({ClassificationTreeId})
+</code></pre>
 
-<h4>Headers</h4>
-<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li></ul>
+<blockquote>
+  <p>Example Request</p>
+</blockquote>
 
-<h4>URI Parameters</h4>
-<ul>
-    
-    <li>
-        <code>ClassificationTreeId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/classification-tree/#classificationtree">ClassificationTree</a>
-    </li>
-    </ul>
-
-<h5>Example</h5>
-
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#http-getting-a-classification-tree" data-toggle="tab">HTTP</a></li>
-    <li><a href="#curl-getting-a-classification-tree" data-toggle="tab">cURL</a></li>
-    <li><a href="#csharp-getting-a-classification-tree" data-toggle="tab">C# (RestSharp)</a></li>
-    <li><a href="#java-getting-a-classification-tree" data-toggle="tab">Java (HttpComponents)</a></li>
-    <li><a href="#ruby-getting-a-classification-tree" data-toggle="tab">Ruby (rest-client)</a></li>
-    <button id="copy-getting-a-classification-tree" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-a-classification-tree"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
-</ul>
-<div class="tab-content"> 
-    <div role="tabpanel" class="tab-pane active" id="http-getting-a-classification-tree">
-<pre id="http-code-getting-a-classification-tree"><code class="language-http">GET /ClassificationTrees(1)
+<pre><code class="language-javascript">GET /ClassificationTrees(1)
 Authorization: Bearer (Access Token)
 Accept: application/json
-</code><code class="language-csharp"></code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="curl-getting-a-classification-tree">
-<pre id="curl-code-getting-a-classification-tree"><code class="language-http">curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ClassificationTrees(1)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="csharp-getting-a-classification-tree">
-        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
-<pre id="csharp-code-getting-a-classification-tree"><code class="language-csharp">static IRestResponse GettingAClassificationTree()
+</code></pre>
+
+<pre><code class="language-shell">curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ClassificationTrees(1)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+</code></pre>
+
+<pre><code class="language-csharp">static IRestResponse GettingAClassificationTree()
 {
     var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ClassificationTrees(1)");
     var request = new RestRequest(Method.GET);
@@ -410,11 +344,10 @@ Accept: application/json
     
 
     return client.Execute(request);
-}</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="java-getting-a-classification-tree">
-        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
-<pre id="java-code-getting-a-classification-tree"><code class="language-java">
+}
+</code></pre>
+
+<pre><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -429,11 +362,10 @@ public static CloseableHttpResponse GettingAClassificationTree() throws IOExcept
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="ruby-getting-a-classification-tree">
-        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
-<pre id="ruby-code-getting-a-classification-tree"><code class="language-ruby">require 'rest-client'
+}
+</code></pre>
+
+<pre><code class="language-ruby">require 'rest-client'
 
 
 
@@ -442,9 +374,16 @@ response = RestClient.get 'https://productlibrarydemo.iqmetrix.net/v1/Classifica
      :'Accept' =&gt; 'application/json',
     } 
 
-puts response</code></pre>
-    </div>
-</div>
+puts response
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>ClassificationTreeId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/classification-tree/#classificationtree">ClassificationTree</a>
+    </li>
+    </ul>
 
 <h4>Response</h4>
 
@@ -486,7 +425,7 @@ HTTP 200 Content-Type: application/json
     "Version": 41
 }</pre>
 
-<h2 id="errors" class="clickable-header top-level-header">Errors</h2>
+<h1 id="errors">Errors</h1>
 
 <table>
   <thead>
@@ -498,17 +437,18 @@ HTTP 200 Content-Type: application/json
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">HTTP 404</code></td>
-      <td style="text-align: left"><code class="highlighter-rouge">Unable to find document id {x}</code></td>
+      <td style="text-align: left"><code>HTTP 404</code></td>
+      <td style="text-align: left"><code>Unable to find document id {x}</code></td>
       <td style="text-align: left">Ensure ClassificationTreeId is correct</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">HTTP 406</code></td>
-      <td style="text-align: left"><code class="highlighter-rouge">Locale not available</code></td>
-      <td style="text-align: left">This error occurs with some browser extensions such as Postman. To resolve, add the header <code class="highlighter-rouge">Accept-Language: en-US</code></td>
+      <td style="text-align: left"><code>HTTP 406</code></td>
+      <td style="text-align: left"><code>Locale not available</code></td>
+      <td style="text-align: left">This error occurs with some browser extensions such as Postman. To resolve, add the header <code>Accept-Language: en-US</code></td>
     </tr>
   </tbody>
 </table>
+
 
 
       </div>
@@ -524,19 +464,6 @@ HTTP 200 Content-Type: application/json
     </div>
 
   </body>
-
-
-  <!-- the google_analytics_id gets auto inserted from the config file -->
-
-
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-408430-5', 'auto');
-    ga('send', 'pageview');
-</script>
 
 
 

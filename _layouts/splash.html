@@ -1,11 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
+     (^\-==-/^)
+     >\\ == //<
+    :== q''p ==:     _
+     .__ qp __.    .' )
+      / ^--^ \    /\.'
+     /_`    / )  '\/
+     (  )  \  |-'-/
+     \^^,   |-|--'
+    ( `'    |_| )
+     \-     |-|/
+    (( )^---( )) sk
+
+
+  __   _  _  ____  _  _   __  ____  ____  _    ____   __   __ _    _  _  __  __     ___  __  _  _       
+ / _\ / )( \(_  _)/ )( \ /  \(  _ \/ ___)(_)  (    \ / _\ (  ( \  / )( \(  )(  )   / __)/  \( \/ )      
+/    \) \/ (  )(  ) __ ((  O ))   /\___ \ _    ) D (/    \/    /  \ /\ / )( / (_/\( (__(  O ))  (       
+\_/\_/\____/ (__) \_)(_/ \__/(__\_)(____/(_)  (____/\_/\_/\_)__)  (_/\_)(__)\____/ \___)\__/(_/\_)      
+  ___    _  _  ____  __    __  ____  ____   __     __ _  ____  __ _  ____   __   __    __               
+ ( _ \  ( \/ )(  __)(  )  (  )/ ___)/ ___) / _\   (  / )(  __)(  ( \(    \ / _\ (  )  (  )              
+/ _  /  / \/ \ ) _) / (_/\ )( \___ \\___ \/    \   )  (  ) _) /    / ) D (/    \/ (_/\/ (_/\            
+\__\_)  \_)(_/(____)\____/(__)(____/(____/\_/\_/  (__\_)(____)\_)__)(____/\_/\_/\____/\____/            
+
+
+
+
+-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="desc" content="All the resources developers need to kick-start eCommerce and POS API integrations.">
-    <title>Splash Page Mockup</title>
+    <meta name="description" content="All the resources developers need to kick-start eCommerce and POS API integrations.">
+    <meta name="msvalidate.01" content="B2ABA7A8A1A84EB8F16D9EFC47300555" />
+    <title>iQmetrix Developer Portal</title>
 
     <link rel="stylesheet" href="{{ "css/bootstrap.min.css" | prepend:site.pagefileurl }}" type='text/css'>
     <link rel="stylesheet" href="{{ "css/splash-styles.css" | prepend:site.pagefileurl }}" type='text/css'>
@@ -50,7 +78,7 @@
 
 	<!-- Main body with content and buttons -->
 	<div class="container" style="padding-bottom:10px">
-    <a href="{{"/" | prepend: site.api_baseurl}}"><img class="img-responsive platform-img" src="{{ "/images/splash/platform-sm.png" | prepend: site.url }}" alt="iQmetrix Platform and its connecting pieces"></a>
+		<a href="{{"/" | prepend: site.api_baseurl}}"><img class="img-responsive platform-img" src="{{ "/images/splash/platform-sm.png" | prepend: site.url }}" alt="iQmetrix Platform and its connecting pieces"></a>
 	  <h1>What is iQmetrix Platform?</h1>
 		<div class="col-xs-12">
 		  <div class="col-xs-12 col-lg-2"></div>
@@ -72,36 +100,46 @@
       <div class="row col-xs-12 col-lg-12">
         <div class="col-xs-12"></div>
         
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-          <a class="bottom-links" href="{{"/api/" | prepend: site.url}}">
-          <i class="fa fa-code fa-5x" aria-hidden="true"></i>
-          <h2 >API Reference</h2>
-          <p>In-depth reference docs for iQmetrix APIs.</p></a>
-        </div>
+        <a class="bottom-links" href="{{"/api/" | prepend: site.url}}">
+          <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <i class="fa fa-code fa-5x" aria-hidden="true"></i>
+            <h2 >API Reference</h2>
+            <p>In-depth reference docs for iQmetrix APIs.</p>
+          </div>
+        </a>
         
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-          <a class="bottom-links" href="{{"/guides/" | prepend: site.url}}">
-          <i class="fa fa-folder-open fa-5x" aria-hidden="true"></i>
-          <h2>Guides</h2>
-          <p>Common use cases to walk you through iQmetrix APIs</p></a>
-        </div>
+        <a class="bottom-links" href="{{"/guides/" | prepend: site.url}}">
+          <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <i class="fa fa-folder-open fa-5x" aria-hidden="true"></i>
+            <h2>Guides</h2>
+            <p>Common use cases to walk you through iQmetrix APIs</p>
+          </div>
+        </a>
         
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-          <a class="bottom-links" href="{{"/reference-applications/" | prepend: site.url}}">
-          <i class="fa fa-puzzle-piece fa-5x" aria-hidden="true"></i>
-          <h2>Sample Applications</h2>
-          <p>Code you can use to get started with iQmetrix APIs </p></a>
-        </div>
+        <a class="bottom-links" href="{{"/reference-applications/" | prepend: site.url}}">
+          <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <i class="fa fa-puzzle-piece fa-5x" aria-hidden="true"></i>
+            <h2>Sample Applications</h2>
+            <p>Code you can use to get started with iQmetrix APIs </p>
+          </div>
+        </a>
         
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-       	  <a class="bottom-links" href="{{"/concepts/" | prepend: site.url}}">
-       	  <i class="fa fa-university fa-5x" aria-hidden="true"></i>
-       	  <h2>Core Concepts</h2>
-          <p>High level descriptions of iQmetrix APIs</p></a></div>
+        <a class="bottom-links" href="{{"/concepts/" | prepend: site.url}}">
+          <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+         	  <i class="fa fa-university fa-5x" aria-hidden="true"></i>
+         	  <h2>Core Concepts</h2>
+            <p>High level descriptions of iQmetrix APIs</p>
+          </div>
+        </a>
        <div class="col-xs-12"></div>
       </div>
 
     </div> 
 
   </body>
+
+{% if site.google_analytics %}
+  {% include google_analytics.html %}
+{% endif %}
+
 </html>

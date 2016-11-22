@@ -1,5 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
+     (^\-==-/^)
+     >\\ == //<
+    :== q''p ==:     _
+     .__ qp __.    .' )
+      / ^--^ \    /\.'
+     /_`    / )  '\/
+     (  )  \  |-'-/
+     \^^,   |-|--'
+    ( `'    |_| )
+     \-     |-|/
+    (( )^---( )) sk
+
+
+  __   _  _  ____  _  _   __  ____  ____  _    ____   __   __ _    _  _  __  __     ___  __  _  _       
+ / _\ / )( \(_  _)/ )( \ /  \(  _ \/ ___)(_)  (    \ / _\ (  ( \  / )( \(  )(  )   / __)/  \( \/ )      
+/    \) \/ (  )(  ) __ ((  O ))   /\___ \ _    ) D (/    \/    /  \ /\ / )( / (_/\( (__(  O ))  (       
+\_/\_/\____/ (__) \_)(_/ \__/(__\_)(____/(_)  (____/\_/\_/\_)__)  (_/\_)(__)\____/ \___)\__/(_/\_)      
+  ___    _  _  ____  __    __  ____  ____   __     __ _  ____  __ _  ____   __   __    __               
+ ( _ \  ( \/ )(  __)(  )  (  )/ ___)/ ___) / _\   (  / )(  __)(  ( \(    \ / _\ (  )  (  )              
+/ _  /  / \/ \ ) _) / (_/\ )( \___ \\___ \/    \   )  (  ) _) /    / ) D (/    \/ (_/\/ (_/\            
+\__\_)  \_)(_/(____)\____/(__)(____/(____/\_/\_/  (__\_)(____)\_)__)(____/\_/\_/\____/\____/    
+
+                                                                                                                                                                                              
+
+-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,8 +58,30 @@
 
     <!-- Image popup source files -->
     <!-- http://dimsemenov.com/plugins/magnific-popup/ -->
-    <link rel="stylesheet" type="text/css" href="/documentation-testing/css/magnific-popup.css">
-    <script src="/documentation-testing/js/jquery.magnific-popup.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/magnific-popup.css">
+    <script src="/js/jquery.magnific-popup.js"></script>
+
+    {% unless page.noPopUp == true %}
+    <script>
+        $(document).ready(function() {
+
+            // surround each image with an anchor class  for image popup
+            $('#page-wrapper img').each( function() {
+                var $img = $(this),
+                href = $img.attr('src');
+                $img.wrap('<a class="image-link" href=' + href + '></a>');
+                 
+            });
+
+            // make each image with image-link class popup "on click"
+            // !! Drawback -- all images could popup :(
+            $('.image-link').magnificPopup({
+                type:'image',
+                closeOnContentClick: true
+            });                    
+        });    
+    </script>
+    {% endunless %}
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -51,8 +99,8 @@
           
       </nav>
 
-
-      <div class="navbar-default sidebar"  id="sidebar-test" role="navigation">
+      <!-- Sidebar -->
+      <div class="navbar-default sidebar" id="sidebar-test" role="navigation">
           <div class="sidebar-nav navbar-collapse" id="scrollspy">
 
 
@@ -60,8 +108,6 @@
           </div>
           <!-- /.sidebar-collapse -->
       </div>
-
-
 
     <div id="page-wrapper">
 
@@ -71,183 +117,10 @@
         <h1 class="post-title-main">{{ page.title }}</h1>
 
       <div class="post-content">
-      <article id="article_with_toc">
 
       {{content}}
 
       </div>
-      </article>
-
-
-  
-<!--
-
-  <h2 id="console" class="clickable-header top-level-header">Console</h2><i class="icon-arrow-up back-to-top"> </i>
-
-  <body ng-app="ramlConsoleApp" ng-cloak class="raml-console-body">
-    <raml-console src="http://developers.iqmetrix.com/postman/crm.raml" disable-try-it disable-theme-switcher disable-raml-client-generator></raml-console>
-  </body>
-
-
-<h2 id="searching" class="clickable-header top-level-header">Searching</h2>
-
-<p>The Customers API supports searching of <a href="http://developers.iqmetrix.com/api/crm/#customer">Customer</a> and <a href="#customersearch">CustomerSearch</a> resources through the use of filters.</p>
-
-<p>The <code class="highlighter-rouge">$filter</code> query parameter is used for specifying filtering criteria.</p>
-
-<p>The type of filters available depend on the Data Type of the property being filtered on.</p>
-
-<h2 id="available-filters">Available Filters</h2>
-
-<p>See the table below for available filters and the syntax of using each filter.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keyword</th>
-      <th style="text-align: left">Filter Description</th>
-      <th style="text-align: left">Data Type</th>
-      <th style="text-align: left">Examples</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">eq</code></td>
-      <td style="text-align: left">Property is equal to value</td>
-      <td style="text-align: left">Integer, Boolean, String, Date</td>
-      <td style="text-align: left"><code class="highlighter-rouge">ContactMethod eq 1</code> <br /> <code class="highlighter-rouge">DoNotContact eq true</code>  <br /> <code class="highlighter-rouge">Criteria eq 'Bob'</code> <br /> <code class="highlighter-rouge">DateOfBirth eq DateTime'1990-01-01'</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">gt</code></td>
-      <td style="text-align: left">Property is greater than value(s)</td>
-      <td style="text-align: left">Integer, Date</td>
-      <td style="text-align: left"><code class="highlighter-rouge">ContactMethod gt 1</code> <br /> <code class="highlighter-rouge">DateOfBirth gt DateTime'1990-01-01'</code> <br /> <code class="highlighter-rouge">Criteria gt DateTime'2015-01-01'</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">lt</code></td>
-      <td style="text-align: left">Property is less than value(s)</td>
-      <td style="text-align: left">Integer, Date</td>
-      <td style="text-align: left"><code class="highlighter-rouge">ContactMethod lt 3</code> <br /> <code class="highlighter-rouge">DateOfBirth lt DateTime'1990-01-01'</code> <br /> <code class="highlighter-rouge">Criteria lt DateTime'2015-01-01'</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ge</code></td>
-      <td style="text-align: left">Property is greater than or equal to value(s)</td>
-      <td style="text-align: left">Integer, Date</td>
-      <td style="text-align: left"><code class="highlighter-rouge">ContactMethod ge 1</code> <br /> <code class="highlighter-rouge">DateOfBirth ge DateTime'1990-01-01'</code> <br /> <code class="highlighter-rouge">Criteria ge DateTime'2015-01-01'</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">le</code></td>
-      <td style="text-align: left">Property is less than or equal to value(s)</td>
-      <td style="text-align: left">Integer, Date</td>
-      <td style="text-align: left"><code class="highlighter-rouge">ContactMethod le 1</code> <br /> <code class="highlighter-rouge">DateOfBirth le DateTime'1990-01-01'</code> <br /> <code class="highlighter-rouge">Criteria le DateTime'2015-01-01'</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">substringof</code></td>
-      <td style="text-align: left">Property contains value</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left"><code class="highlighter-rouge">substringof('bob', PrimaryName)</code> <br /> <code class="highlighter-rouge">substringof('bob', Criteria)</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="combining-filters">Combining Filters</h3>
-
-<p>Filters can be combined using the keyword <code class="highlighter-rouge">and</code> as shown below.</p>
-
-<h6 id="example">Example</h6>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>PrimaryName eq 'John' and DateOfBirth gt DateTime'1990-01-01'
-</code></pre>
-</div>
-
-<h3 id="case-sensitivity">Case Sensitivity</h3>
-
-<p>Filters on <a href="http://developers.iqmetrix.com/api/crm/#customer">Customer</a> resources are <strong>case sensitive</strong>.</p>
-
-<p>Filters on <a href="#customersearch">CustomerSearch</a> resources are <strong>NOT</strong> case sensitive.</p>
-
-<p>To filter without case sensitivity, you can apply ‘tolower’ to a resource property.</p>
-
-<h6 id="example-1">Example</h6>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies(14146)/Customers?$filter=substringof('bob', tolower(PrimaryName))
-</code></pre>
-</div>
-
-<h2 id="pagination" class="clickable-header top-level-header">Pagination</h2>
-
-<p>The Customers API supports pagination of collections for some resources.</p>
-
-<p>Requests to resources that support pagination include the <code class="highlighter-rouge">Accept: application/hal+json</code> HTTP header under the Headers section.</p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
-<p>Pagination is done through the use of $skip and $top query string parameters.</p>
-
-<p><code class="highlighter-rouge">$skip</code> denotes the number of items in the collection to skip, defaults to 0 if no value is provided.</p>
-
-<p><code class="highlighter-rouge">$top</code> denotes the number of items to take, defaults to 50 if no value is provided.</p>
-
-<p>The maximum value of 100 will be used if the value provided is outside the acceptable range [0-100].</p>
-
-<h3 id="navigation-links">Navigation Links</h3>
-
-<p>Pagination links for ‘self’, ‘prev’ and ‘next’ are returned by default when the media type is a hypermedia-enabled media type (i.e. HAL).</p>
-
-<p>These links are <em>relative</em>, they do not include the base endpoint. It is the responsibility of the client to prepend the appropriate endpoint.</p>
-
-<h5 id="example-2">Example</h5>
-
-<div class="language-csharp highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
-    <span class="s">"_links"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">"self"</span><span class="p">:</span> <span class="p">{</span>
-          <span class="s">"href"</span><span class="p">:</span> <span class="s">"Companies(14146)/Customers?$skip=10&amp;$top=10"</span><span class="p">,</span>
-          <span class="s">"templated"</span><span class="p">:</span> <span class="k">false</span>
-        <span class="p">},</span>
-        <span class="s">"next"</span><span class="p">:</span> <span class="p">{</span>
-          <span class="s">"href"</span><span class="p">:</span> <span class="s">"Companies(14146)/Customers?$skip=20&amp;$top=10"</span><span class="p">,</span>
-          <span class="s">"templated"</span><span class="p">:</span> <span class="k">false</span>
-        <span class="p">},</span>
-        <span class="s">"prev"</span><span class="p">:</span> <span class="p">{</span>
-          <span class="s">"href"</span><span class="p">:</span> <span class="s">"Companies(14146)/Customers?$skip=0&amp;$top=10"</span><span class="p">,</span>
-          <span class="s">"templated"</span><span class="p">:</span> <span class="k">false</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="s">"_embedded"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">"self"</span><span class="p">:</span> <span class="p">[</span> <span class="p">]</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<p>In the example above, the <code class="highlighter-rouge">_links</code> section is included in the data returned from an API request to get Customers, where <code class="highlighter-rouge">$skip=10</code> and <code class="highlighter-rouge">$top=10</code>.</p>
-
-<p>The <code class="highlighter-rouge">self</code>.<code class="highlighter-rouge">href</code> value is the encoded version of the API request that returned these results.</p>
-
-<p>The <code class="highlighter-rouge">next</code>.<code class="highlighter-rouge">href</code> refers to a resource containing a page with the <strong>next</strong> 10 items.</p>
-
-<p>The <code class="highlighter-rouge">prev</code>.<code class="highlighter-rouge">href</code> refers to a resource containing a page with the <strong>previous</strong> 10 items.</p>
-
-<h2 id="errors" class="clickable-header top-level-header">Errors</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">HTTP Status Code</th>
-      <th style="text-align: left">Description</th>
-      <th style="text-align: left">How to Resolve</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">HTTP 404</code></td>
-      <td style="text-align: left"><code class="highlighter-rouge">Not Found</code></td>
-      <td style="text-align: left">Ensure the CustomerID is correct</td>
-    </tr>
-  </tbody>
-</table>
-    
-    -->
 
     <div id="disqus_thread"><iframe id="dsq-app2" name="dsq-app2" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="http://disqus.com/embed/comments/?base=default&amp;version=abfa4959dc34e1f6ae72ea1155d08c72&amp;f=iqmetrixdeveloperportal&amp;t_u=http%3A%2F%2Fdevelopers.iqmetrix.com%2Fapi%2Fpricing%2F&amp;t_d=Pricing%20%7C%20iQmetrix%20Developer%20Portal&amp;t_t=Pricing%20%7C%20iQmetrix%20Developer%20Portal&amp;s_o=default" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 321px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
     <script type="text/javascript">
@@ -279,7 +152,7 @@
     <script src="{{ "js/prism.js" | prepend:site.pagefileurl }} "></script>
     <script src="{{ "js/bootstrap-submenu.js" | prepend:site.pagefileurl }} "></script>
     <script>
-      $('[data-submenu]').submenupicker();
+      jQuery('[data-submenu]').submenupicker();
     </script>
 
     <!-- TOC modified for iQmetrix Developer Portal layout -->
@@ -288,19 +161,14 @@
 
         var pathname = window.location.pathname;
 
-        /*if ( (pathname == '/documentation-testing/api/') || (pathname.indexOf('api') == -1) ){  
+       // if ( (pathname == '/api/') || (pathname.indexOf('api') == -1) ){  
 
-          var ul = $('.sidebar-nav ul');
+          /*var ul = $('.sidebar-nav ul');
 
           $('h2').each(function() {
               ul.append('<li><a href="#' + $(this).attr('id') + '">' + $(this).html() + '</a></li>');
-          });
+          });*/
 
-        } else {
-          //do nothing
-        }   */
-
-        //if ( (pathname == '/documentation-testing/api/') || (pathname.indexOf('api') == -1) ){
           $('#scrollspy').DynamicScrollspy({
 
             //lowest-level header to be included (H2)
@@ -328,55 +196,31 @@
             affix: false
           
           });
-       // } else {
+
+     //   } else {
           //do nothing
-       // }   
+     //   }   
 
     </script>
-
-
-    <!-- 
-    <script>
-      $('#scrollspy').DynamicScrollspy({
-
-      //lowest-level header to be included (H2)
-      tH: 2, 
-
-      //highest-level header to be included (H3)
-      bH: 3, 
-
-      //generate random IDs?
-      genIDs: false, 
-
-      //offset for scrollspy
-      offset: 100, 
-
-      //add this class to top-most UL
-      ulClassNames: '', 
-
-      //active class (besides .active) to add
-      activeClass: '', 
-
-      //if testing, show heading tagName and ID
-      testing: false,
-
-      //use affix by default
-      affix: false
-      
-    });
-
-
-    </script>
-    -->
-
 
     <!-- Console JS-->
     <script src="{{ "js/api-console-vendor.js" | prepend:site.pagefileurl }} "></script>
     <script src="{{ "js/api-console.js" | prepend:site.pagefileurl }} "></script>
+
+    <!-- Clipboard -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
+
+    <!-- Cookies, copy button, etc -->
+    <script src="{{ "js/customscripts.js" | prepend:site.pagefileurl }}"></script>
 
     <script>
       $.noConflict();
     </script>
 
   </body>
+
+{% if site.google_analytics %}
+  {% include google_analytics.html %}
+{% endif %}
+
 </html>

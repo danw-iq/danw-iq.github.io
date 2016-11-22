@@ -4,7 +4,6 @@
 
     {% for entry in sidebar %}
     	{% if entry.title == "Reference" %}
-    	
 	    {% for reference in entry.subcategories %}
 
 	    	{% if reference.subcategories %}
@@ -16,8 +15,7 @@
 	    			{% if ref == page.url %}
 
 	    				<ul class="nav" id="side-menu">
-
-	    				 <!-- Add in Overview section -->
+	    				<!-- Add in Overview section -->
 				        {% if subref.overview %}					        
 				            <li><a href="#overview">Overview</a></li>	        	
 				            
@@ -29,7 +27,7 @@
 		                  		<a href="#">Resources<span class="fa arrow"></span></a>
 		                  		<ul class="nav nav-second-level">
 					        		{% for resource in subref.resources %}
-					            	<li><a href="#{{resource.title | downcase}}">{{resource.title}}</a></li>
+					            	<li><a title="{{resource.title}}" href="#{{resource.title | downcase}}">{{resource.title}}</a></li>
 					        		{% endfor %}
 					        	</ul>
 					        </li>
@@ -41,7 +39,7 @@
 		                  		<a href="#">Enumerations<span class="fa arrow"></span></a>
 		                  		<ul class="nav nav-second-level">
 					        		{% for enumeration in subref.enumerations %}
-					            	<li><a href="#{{enumeration.title | downcase}}">{{enumeration.title}}</a></li>
+					            	<li><a title="{{enumeration.title}}" href="#{{enumeration.title | downcase}}">{{enumeration.title}}</a></li>
 					        		{% endfor %}
 					        	</ul>
 					        </li>
@@ -79,10 +77,8 @@
 				            <li><a href="#errors">Errors</a></li>
 				        {% endif %}
 
-				    	</ul>
-
+				    </ul>
 				    {% endif %}
-
 
 			    {% endfor %}
 
@@ -92,8 +88,7 @@
 
 	    	{% if ref == page.url %}
 
-	    		<ul class="nav" id="side-menu">
-
+		        <ul class="nav" id="side-menu">
 		        <!-- Add in Overview section -->
 		        {% if reference.overview %}					        
 		            <li><a href="#overview">Overview</a></li>	        	
@@ -156,11 +151,8 @@
 		            <li><a href="#errors">Errors</a></li>
 		        {% endif %}
 
-		        </ul>
-
+		    </ul>
 		    {% endif %}
 	    {% endfor %}
-	    
 	    {% endif %}
 	{% endfor %}
-

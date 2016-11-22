@@ -100,7 +100,7 @@
     <![endif]-->
   </head>
 
-    <body class="api api_catalog2 api_catalog2_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+    <body class="api api_catalog api_catalog_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -138,7 +138,7 @@
 
 <h2 id="resources">Resources</h2>
 
-<h3 id="asset">Asset</h3>
+<h2 id="asset">Asset</h2>
 
 <p>An <strong>Asset</strong> is an image or video associated with a Product.</p>
 
@@ -146,59 +146,41 @@
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
-      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
-      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">id</td>
-      <td style="text-align: left">GUID</td>
+      <td style="text-align: left">id (<code>GUID</code>)</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code class="highlighter-rouge">09fe1ee4-42b1-43a6-bd80-cd2bda21e90a</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">name</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">name (<code>String</code>)</td>
       <td style="text-align: left">File name</td>
-      <td style="text-align: left"><code class="highlighter-rouge">49ebd282-4161-4a9d-9b40-a5a20d144b6f.png</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">height</td>
-      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">height (<code>Integer</code>)</td>
       <td style="text-align: left">Height in pixels</td>
-      <td style="text-align: left"><code class="highlighter-rouge">1024</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">href</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">href (<code>String</code>)</td>
       <td style="text-align: left">URL that points to an actual file where the digital asset is stored</td>
-      <td style="text-align: left"><code class="highlighter-rouge">https://amsdemo.iqmetrix.net/images/09fe1ee4-42b1-43a6-bd80-cd2bda21e90a.png</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">md5Checksum</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">md5Checksum (<code>String</code>)</td>
       <td style="text-align: left">String that can be used for upload integrity checks or comparing two assets</td>
-      <td style="text-align: left"><code class="highlighter-rouge">1f88a2813737aa0019a63069586055ed</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">mimeType</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">mimeType (<code>String</code>)</td>
       <td style="text-align: left">The mime type</td>
-      <td style="text-align: left"><code class="highlighter-rouge">image/png</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">width</td>
-      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">width (<code>Integer</code>)</td>
       <td style="text-align: left">Width in pixels</td>
-      <td style="text-align: left"><code class="highlighter-rouge">502</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">success</td>
-      <td style="text-align: left">Boolean</td>
+      <td style="text-align: left">success (<code>Boolean</code>)</td>
       <td style="text-align: left">A flag to indicate that the Asset was uploaded. This only appears when asset is first uploaded</td>
-      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
   </tbody>
 </table>
@@ -297,7 +279,7 @@ HTTP 200 Content-Type: application/json
 
 <h2 id="redirecting-to-an-image-asset" class="clickable-header top-level-header">Redirecting to an Image Asset</h2>
 
-<p>A successful response to this request is a <code class="highlighter-rouge">HTTP 303</code> redirect with a <code class="highlighter-rouge">Location</code> header pointing to the actual file where the digital asset is stored</p>
+<p>A successful response to this request is a <code>HTTP 303</code> redirect with a <code>Location</code> header pointing to the actual file where the digital asset is stored</p>
 
 <h4>Request</h4>
 
@@ -342,23 +324,23 @@ HTTP 303 Content-Type: application/text
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
-      <td style="text-align: left"><code class="highlighter-rouge">Bad Request</code></td>
+      <td style="text-align: left"><code>HTTP 400</code></td>
+      <td style="text-align: left"><code>Bad Request</code></td>
       <td style="text-align: left">Ensure the Asset is of the correct type for the action (i.e. an image for /images endpoints)</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
-      <td style="text-align: left"><code class="highlighter-rouge">Bad Request</code></td>
+      <td style="text-align: left"><code>HTTP 400</code></td>
+      <td style="text-align: left"><code>Bad Request</code></td>
       <td style="text-align: left">Ensure you are only uploading one Asset at a time</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
-      <td style="text-align: left"><code class="highlighter-rouge">Bad Request</code></td>
+      <td style="text-align: left"><code>HTTP 400</code></td>
+      <td style="text-align: left"><code>Bad Request</code></td>
       <td style="text-align: left">Ensure file was attached to request</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">HTTP 404</code></td>
-      <td style="text-align: left"><code class="highlighter-rouge">Asset Media Service Error: Resource not found</code></td>
+      <td style="text-align: left"><code>HTTP 404</code></td>
+      <td style="text-align: left"><code>Asset Media Service Error: Resource not found</code></td>
       <td style="text-align: left">Ensure Asset GUID is valid and the Asset exists</td>
     </tr>
   </tbody>
@@ -378,19 +360,6 @@ HTTP 303 Content-Type: application/text
     </div>
 
   </body>
-
-
-  <!-- the google_analytics_id gets auto inserted from the config file -->
-
-
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-408430-5', 'auto');
-    ga('send', 'pageview');
-</script>
 
 
 

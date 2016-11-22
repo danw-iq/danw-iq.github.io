@@ -100,7 +100,7 @@
     <![endif]-->
   </head>
 
-    <body class="api api_catalog2 api_catalog2_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+    <body class="api api_catalog api_catalog_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -128,11 +128,8 @@
       <div class="dark-box"></div>
       <div class="content">
 
-      <link rel="stylesheet" type="text/css" href="../../css/prism.css" />
-
-<script src="../../js/prism.js"></script>
-
-<h2 id="overview">Overview</h2>
+      
+<h1 id="overview">Overview</h1>
 
 <p>The cost feed provides iQmetrix with the wholesale cost (inclusive cost for the company) for each product.<br />
 The cost feed allows suppliers to input a list of products, where each product includes one cost and list of associated companies.</p>
@@ -145,220 +142,13 @@ The cost feed allows suppliers to input a list of products, where each product i
 Ensure each company ID has only <strong>one</strong> cost per product.
 </div>
 
-<h2 id="endpoints">Endpoints</h2>
+<h1 id="endpoints">Endpoints</h1>
 
 <ul>
   <li>Sandbox: <a href="https://dropshipdemo.iqmetrix.net/v1">https://dropshipdemo.iqmetrix.net/v1</a></li>
   <li>Production: <a href="https://dropship.iqmetrix.net/v1">https://dropship.iqmetrix.net/v1</a></li>
 </ul>
 
-<h2 id="resources">Resources</h2>
-
-<h3 id="cost">Cost</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Name</th>
-      <th style="text-align: left">Data Type</th>
-      <th style="text-align: left">Description</th>
-      <th style="text-align: left">Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Id</td>
-      <td style="text-align: left">GUID</td>
-      <td style="text-align: left">Unique identifer</td>
-      <td style="text-align: left"><code class="highlighter-rouge">2e18496c-8f73-4298-8c96-a07816926734</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Products</td>
-      <td style="text-align: left">Array[object]</td>
-      <td style="text-align: left">List of products for which the cost is being updated</td>
-      <td style="text-align: left"> </td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Products.Sku</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left">Vendor product SKU</td>
-      <td style="text-align: left"><code class="highlighter-rouge">1115884</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Products.Cost</td>
-      <td style="text-align: left">Decimal</td>
-      <td style="text-align: left">Vendor product cost applied to the associated companies</td>
-      <td style="text-align: left"><code class="highlighter-rouge">12.99</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Products.CompanyIds</td>
-      <td style="text-align: left">Array[integer]</td>
-      <td style="text-align: left">List of <a href="/api/company-tree#company">Company</a> identifiers to receive Vendor product cost</td>
-      <td style="text-align: left"><code class="highlighter-rouge">14146</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="requests">Requests</h2>
-
-<h3 id="adding-a-product-to-cost-feed" class="clickable-header top-level-header">Adding a Product to Cost Feed</h3>
-
-<h4>Request</h4>
-
-<pre>
-POST /Suppliers({SupplierId})/Cost
-</pre>
-
-<h4>Headers</h4>
-<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li><li><code>Content-Type: application/json</code></li></ul>
-
-<h4>URI Parameters</h4>
-<ul>
-    
-    <li>
-        <code>SupplierId</code> (<strong>Required</strong>)  - Identifier of the Supplier
-    </li>
-    </ul>
-
-<h4>Request Parameters</h4>
-
-<ul><li><code>Products</code> (<strong>Required</strong>) </li><ul><li><code>Sku</code> (<strong>Required</strong>) </li><li><code>Cost</code> (<strong>Required</strong>) </li><li><code>CompanyIds</code> (<strong>Required</strong>) </li></ul></ul>
-
-<h5>Example</h5>
-
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#http-adding-a-product-to-cost-feed" data-toggle="tab">HTTP</a></li>
-    <li><a href="#curl-adding-a-product-to-cost-feed" data-toggle="tab">cURL</a></li>
-    <li><a href="#csharp-adding-a-product-to-cost-feed" data-toggle="tab">C# (RestSharp)</a></li>
-    <li><a href="#java-adding-a-product-to-cost-feed" data-toggle="tab">Java (HttpComponents)</a></li>
-    <li><a href="#ruby-adding-a-product-to-cost-feed" data-toggle="tab">Ruby (rest-client)</a></li>
-    <button id="copy-adding-a-product-to-cost-feed" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-adding-a-product-to-cost-feed"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
-</ul>
-<div class="tab-content"> 
-    <div role="tabpanel" class="tab-pane active" id="http-adding-a-product-to-cost-feed">
-<pre id="http-code-adding-a-product-to-cost-feed"><code class="language-http">POST /Suppliers(14107)/Cost
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code><code class="language-csharp">{
-    "Products": [
-        {
-            "Sku": "1115884",
-            "Cost": 12.99,
-            "CompanyIds": [
-                14146
-            ]
-        }
-    ]
-}</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="curl-adding-a-product-to-cost-feed">
-<pre id="curl-code-adding-a-product-to-cost-feed"><code class="language-http">curl -X POST "https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Cost" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
-    "Products": [
-        {
-            "Sku": "1115884",
-            "Cost": 12.99,
-            "CompanyIds": [
-                14146
-            ]
-        }
-    ]
-}'</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="csharp-adding-a-product-to-cost-feed">
-        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
-<pre id="csharp-code-adding-a-product-to-cost-feed"><code class="language-csharp">static IRestResponse AddingAProductToCostFeed()
-{
-    var client = new RestClient("https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Cost");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Products\":[{\"Sku\":\"1115884\",\"Cost\":12.99,\"CompanyIds\":[14146]}]}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="java-adding-a-product-to-cost-feed">
-        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
-<pre id="java-code-adding-a-product-to-cost-feed"><code class="language-java">import org.apache.http.entity.StringEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import java.io.IOException;
-
-public static CloseableHttpResponse AddingAProductToCostFeed() throws IOException {
-    CloseableHttpClient httpClient = HttpClients.createDefault();
-    HttpPost request = new HttpPost("https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Cost");
-     
-    request.addHeader("Authorization", "Bearer (Access Token)"); 
-    request.addHeader("Accept", "application/json"); 
-    request.addHeader("Content-Type", "application/json"); 
-    StringEntity body = new StringEntity("{\"Products\":[{\"Sku\":\"1115884\",\"Cost\":12.99,\"CompanyIds\":[14146]}]}");
-    request.setEntity(body);
-    
-    return httpClient.execute(request);
-}</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="ruby-adding-a-product-to-cost-feed">
-        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
-<pre id="ruby-code-adding-a-product-to-cost-feed"><code class="language-ruby">require 'rest-client'
-
-body = "{\"Products\":[{\"Sku\":\"1115884\",\"Cost\":12.99,\"CompanyIds\":[14146]}]}";
-
-response = RestClient.post 'https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Cost', body, {
-     :'Authorization' =&gt; 'Bearer (Access Token)',
-     :'Accept' =&gt; 'application/json',
-     :'Content-Type' =&gt; 'application/json',
-    } 
-
-puts response</code></pre>
-    </div>
-</div>
-
-<h4>Response</h4>
-
-<p><a href="#cost">Cost</a></p>
-
-<h5>Example</h5>
-
-<pre>
-HTTP 202 Content-Type: application/json
-</pre>
-<pre>{
-    "Id": "2e18496c-8f73-4298-8c96-a07816926734",
-    "Products": [
-        {
-            "Sku": "1115884",
-            "Cost": 12.99,
-            "CompanyIds": [
-                14146
-            ]
-        }
-    ]
-}</pre>
-
-<h2 id="errors" class="clickable-header top-level-header">Errors</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">HTTP Status Code</th>
-      <th style="text-align: left">Description</th>
-      <th style="text-align: left">How to Resolve</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
-      <td style="text-align: left"><code class="highlighter-rouge">Cannot find supplier identifier in the uri</code></td>
-      <td style="text-align: left">Occurs when entering an incorrect <code class="highlighter-rouge">SupplierId</code> in the uri</td>
-    </tr>
-  </tbody>
-</table>
 
 
       </div>
@@ -374,19 +164,6 @@ HTTP 202 Content-Type: application/json
     </div>
 
   </body>
-
-
-  <!-- the google_analytics_id gets auto inserted from the config file -->
-
-
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-408430-5', 'auto');
-    ga('send', 'pageview');
-</script>
 
 
 

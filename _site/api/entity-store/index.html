@@ -100,7 +100,7 @@
     <![endif]-->
   </head>
 
-    <body class="api api_catalog2 api_catalog2_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+    <body class="api api_catalog api_catalog_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -128,392 +128,326 @@
       <div class="dark-box"></div>
       <div class="content">
 
-      <link rel="stylesheet" type="text/css" href="../../css/prism.css" />
-
-<script src="../../js/prism.js"></script>
-
-<h2 id="overview">Overview</h2>
+      
+<h1 id="overview">Overview</h1>
 
 <p>The Entity Store helps manage your Company structure. It also manages relationships your Company has with Suppliers, Manufacturers and Carriers.</p>
 
-<h2 id="endpoints">Endpoints</h2>
+<h1 id="endpoints">Endpoints</h1>
 
 <ul>
   <li>Sandbox: <a href="https://entitymanagerdemo.iqmetrix.net/v1">https://entitymanagerdemo.iqmetrix.net/v1</a></li>
   <li>Production: <a href="https://entitymanager.iqmetrix.net/v1">https://entitymanager.iqmetrix.net/v1</a></li>
 </ul>
 
-<h2 id="resources">Resources</h2>
+<h1 id="resources">Resources</h1>
 
-<h3 id="carrier">Carrier</h3>
+<h2 id="carrier">Carrier</h2>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
-      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
-      <th style="text-align: left">Example</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id</td>
-      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Id (<code>Integer</code>)</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code class="highlighter-rouge">9</code></td>
+      <td> </td>
     </tr>
     <tr>
+      <td style="text-align: left">Name (<code>String</code>)</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code class="highlighter-rouge">Helios</code></td>
+      <td> </td>
     </tr>
     <tr>
+      <td style="text-align: left">Description (<code>String</code>)</td>
       <td style="text-align: left">Description</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left">Description</td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Attributes</td>
-      <td style="text-align: left">Object</td>
+      <td style="text-align: left">Attributes (<code>Object</code>)</td>
       <td style="text-align: left">Set of key-value pairs that contain extra data</td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">CreatedUTC</td>
-      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">CreatedUTC (<code>DateTime</code>)</td>
       <td style="text-align: left">Created date, in UTC</td>
-      <td style="text-align: left"><code class="highlighter-rouge">2014-07-28T20:52:12.929Z</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">ClientEntityId</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">ClientEntityId (<code>String</code>)</td>
       <td style="text-align: left">Identifier in an external system</td>
-      <td style="text-align: left"><code class="highlighter-rouge">Carrier_25</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">LastModifiedUtc</td>
-      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">LastModifiedUtc (<code>DateTime</code>)</td>
       <td style="text-align: left">Last modified date in UTC</td>
-      <td style="text-align: left"><code class="highlighter-rouge">2015-05-20T23:06:29.7700813Z</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Logo</td>
-      <td style="text-align: left">Object</td>
+      <td style="text-align: left">Logo (<code>Object</code>)</td>
       <td style="text-align: left">A reference to an <a href="/api/assets/#asset">Asset</a></td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
     <tr>
+      <td style="text-align: left">Relationships (<code>Array[object]</code>)</td>
       <td style="text-align: left">Relationships</td>
-      <td style="text-align: left">Array[object]</td>
-      <td style="text-align: left">Relationships</td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
     <tr>
+      <td style="text-align: left">Role (<code>String</code>)</td>
       <td style="text-align: left">Role</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left">Role</td>
-      <td style="text-align: left"><code class="highlighter-rouge">Carrier</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles</td>
-      <td style="text-align: left">Array[object]</td>
+      <td style="text-align: left">Roles (<code>Array[object]</code>)</td>
       <td style="text-align: left">The value must be Carrier</td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles.Name</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">Roles.Name (<code>String</code>)</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code class="highlighter-rouge">Carrier</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">SortName</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">SortName (<code>String</code>)</td>
       <td style="text-align: left">A string used for sorting</td>
-      <td style="text-align: left"><code class="highlighter-rouge">helios</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Version</td>
-      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Version (<code>Integer</code>)</td>
       <td style="text-align: left">Latest revision number</td>
-      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>CorrelationId</em></td>
-      <td style="text-align: left"><em>String</em></td>
+      <td style="text-align: left"><em>CorrelationId (<code>String</code>)</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>TypeId</em></td>
-      <td style="text-align: left"><em>String</em></td>
+      <td style="text-align: left"><em>TypeId (<code>String</code>)</em></td>
       <td style="text-align: left"><em>Reserved for future use</em></td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="manufacturer">Manufacturer</h3>
+<h2 id="manufacturer">Manufacturer</h2>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
-      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
-      <th style="text-align: left">Example</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id</td>
-      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Id (<code>Integer</code>)</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code class="highlighter-rouge">13149</code></td>
+      <td> </td>
     </tr>
     <tr>
+      <td style="text-align: left">Name (<code>String</code>)</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code class="highlighter-rouge">OtterBox</code></td>
+      <td> </td>
     </tr>
     <tr>
+      <td style="text-align: left">Description (<code>String</code>)</td>
       <td style="text-align: left">Description</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left">Description</td>
-      <td style="text-align: left"><code class="highlighter-rouge">#1 Most Trusted Brand in Smartphone Protection</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Attributes</td>
-      <td style="text-align: left">Object</td>
+      <td style="text-align: left">Attributes (<code>Object</code>)</td>
       <td style="text-align: left">Set of key-value pairs that contain extra data</td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">CreatedUtc</td>
-      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">CreatedUtc (<code>DateTime</code>)</td>
       <td style="text-align: left">Created date in UTC</td>
-      <td style="text-align: left"><code class="highlighter-rouge">2015-02-24T19:29:31.073Z</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">ClientEntityId</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">ClientEntityId (<code>String</code>)</td>
       <td style="text-align: left">Identifier in an external system</td>
-      <td style="text-align: left"><code class="highlighter-rouge">Manufacturer_145</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">LastModifiedUtc</td>
-      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">LastModifiedUtc (<code>DateTime</code>)</td>
       <td style="text-align: left">Last modified date in UTC</td>
-      <td style="text-align: left"><code class="highlighter-rouge">2015-05-20T23:06:29.7700813Z</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Logo</td>
-      <td style="text-align: left">Object</td>
+      <td style="text-align: left">Logo (<code>Object</code>)</td>
       <td style="text-align: left">A reference to an <a href="/api/assets/#asset">Asset</a></td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
     <tr>
+      <td style="text-align: left">Relationships (<code>Array[object]</code>)</td>
       <td style="text-align: left">Relationships</td>
-      <td style="text-align: left">Array[object]</td>
-      <td style="text-align: left">Relationships</td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
     <tr>
+      <td style="text-align: left">Role (<code>String</code>)</td>
       <td style="text-align: left">Role</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left">Role</td>
-      <td style="text-align: left"><code class="highlighter-rouge">Manufacturer</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles</td>
-      <td style="text-align: left">Array[object]</td>
+      <td style="text-align: left">Roles (<code>Array[object]</code>)</td>
       <td style="text-align: left">The value must be Manufacturer</td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles.Name</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">Roles.Name (<code>String</code>)</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code class="highlighter-rouge">Manufacturer</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">SortName</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">SortName (<code>String</code>)</td>
       <td style="text-align: left">A string used for sorting</td>
-      <td style="text-align: left"><code class="highlighter-rouge">otterbox</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Version</td>
-      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Version (<code>Integer</code>)</td>
       <td style="text-align: left">Latest revision number</td>
-      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>CorrelationId</em></td>
-      <td style="text-align: left"><em>String</em></td>
+      <td style="text-align: left"><em>CorrelationId (<code>String</code>)</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>TypeId</em></td>
-      <td style="text-align: left"><em>String</em></td>
+      <td style="text-align: left"><em>TypeId (<code>String</code>)</em></td>
       <td style="text-align: left"><em>Reserved for future use</em></td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="supplier">Supplier</h3>
+<h2 id="supplier">Supplier</h2>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
-      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
-      <th style="text-align: left">Example</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id</td>
-      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Id (<code>Integer</code>)</td>
       <td style="text-align: left">Unique identifier</td>
-      <td style="text-align: left"><code class="highlighter-rouge">14107</code></td>
+      <td> </td>
     </tr>
     <tr>
+      <td style="text-align: left">Name (<code>String</code>)</td>
       <td style="text-align: left">Name</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left">Name</td>
-      <td style="text-align: left"><code class="highlighter-rouge">NOZAMA Inc.</code></td>
+      <td> </td>
     </tr>
     <tr>
+      <td style="text-align: left">Description (<code>String</code>)</td>
       <td style="text-align: left">Description</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left">Description</td>
-      <td style="text-align: left"><code class="highlighter-rouge">Provides supplies for KENTEL Corp.</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Attributes</td>
-      <td style="text-align: left">Object</td>
+      <td style="text-align: left">Attributes (<code>Object</code>)</td>
       <td style="text-align: left">Set of key-value pairs that contain extra data</td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">CreatedUtc</td>
-      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">CreatedUtc (<code>DateTime</code>)</td>
       <td style="text-align: left">Created date in UTC</td>
-      <td style="text-align: left"><code class="highlighter-rouge">2015-11-05T18:15:26.558Z</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">ClientEntityId</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">ClientEntityId (<code>String</code>)</td>
       <td style="text-align: left">Identifier in an external system</td>
-      <td style="text-align: left"><code class="highlighter-rouge">Supplier_151</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">LastModifiedUtc</td>
-      <td style="text-align: left">DateTime</td>
+      <td style="text-align: left">LastModifiedUtc (<code>DateTime</code>)</td>
       <td style="text-align: left">Last modified date in UTC</td>
-      <td style="text-align: left"><code class="highlighter-rouge">2015-05-20T23:06:29.7700813Z</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Logo</td>
-      <td style="text-align: left">Object</td>
+      <td style="text-align: left">Logo (<code>Object</code>)</td>
       <td style="text-align: left">A reference to an <a href="/api/assets/#asset">Asset</a></td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
     <tr>
+      <td style="text-align: left">Relationships (<code>Array[object]</code>)</td>
       <td style="text-align: left">Relationships</td>
-      <td style="text-align: left">Array[object]</td>
-      <td style="text-align: left">Relationships</td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
     <tr>
+      <td style="text-align: left">Role (<code>String</code>)</td>
       <td style="text-align: left">Role</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left">Role</td>
-      <td style="text-align: left"><code class="highlighter-rouge">Vendor</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles</td>
-      <td style="text-align: left">Array[object]</td>
+      <td style="text-align: left">Roles (<code>Array[object]</code>)</td>
       <td style="text-align: left">The value must be Vendor</td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles.Name</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">Roles.Name (<code>String</code>)</td>
       <td style="text-align: left"> </td>
-      <td style="text-align: left"><code class="highlighter-rouge">Vendor</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">SortName</td>
-      <td style="text-align: left">String</td>
+      <td style="text-align: left">SortName (<code>String</code>)</td>
       <td style="text-align: left">A string used for sorting</td>
-      <td style="text-align: left"><code class="highlighter-rouge">nozama inc.</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Version</td>
-      <td style="text-align: left">Integer</td>
+      <td style="text-align: left">Version (<code>Integer</code>)</td>
       <td style="text-align: left">Latest revision number</td>
-      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>CorrelationId</em></td>
-      <td style="text-align: left"><em>String</em></td>
+      <td style="text-align: left"><em>CorrelationId (<code>String</code>)</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>TypeId</em></td>
-      <td style="text-align: left"><em>String</em></td>
+      <td style="text-align: left"><em>TypeId (<code>String</code>)</em></td>
       <td style="text-align: left"><em>Reserved for future use</em></td>
-      <td style="text-align: left"> </td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="requests">Requests</h2>
+<h1 id="requests">Requests</h1>
 
-<h3 id="getting-all-carriers" class="clickable-header top-level-header">Getting All Carriers</h3>
+<h2 id="getting-all-carriers">Getting All Carriers</h2>
 
-<h4>Request</h4>
+<blockquote>
+  <p>Definition</p>
+</blockquote>
 
-<pre>
-GET /Carriers
-</pre>
+<pre><code>GET /Carriers
+</code></pre>
 
-<h4>Headers</h4>
-<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li></ul>
+<blockquote>
+  <p>Example Request</p>
+</blockquote>
 
-<h5>Example</h5>
-
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#http-getting-all-carriers" data-toggle="tab">HTTP</a></li>
-    <li><a href="#curl-getting-all-carriers" data-toggle="tab">cURL</a></li>
-    <li><a href="#csharp-getting-all-carriers" data-toggle="tab">C# (RestSharp)</a></li>
-    <li><a href="#java-getting-all-carriers" data-toggle="tab">Java (HttpComponents)</a></li>
-    <li><a href="#ruby-getting-all-carriers" data-toggle="tab">Ruby (rest-client)</a></li>
-    <button id="copy-getting-all-carriers" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-all-carriers"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
-</ul>
-<div class="tab-content"> 
-    <div role="tabpanel" class="tab-pane active" id="http-getting-all-carriers">
-<pre id="http-code-getting-all-carriers"><code class="language-http">GET /Carriers
+<pre><code class="language-javascript">GET /Carriers
 Authorization: Bearer (Access Token)
 Accept: application/json
-</code><code class="language-csharp"></code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="curl-getting-all-carriers">
-<pre id="curl-code-getting-all-carriers"><code class="language-http">curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Carriers" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="csharp-getting-all-carriers">
-        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
-<pre id="csharp-code-getting-all-carriers"><code class="language-csharp">static IRestResponse GettingAllCarriers()
+</code></pre>
+
+<pre><code class="language-shell">curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Carriers" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+</code></pre>
+
+<pre><code class="language-csharp">static IRestResponse GettingAllCarriers()
 {
     var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Carriers");
     var request = new RestRequest(Method.GET);
@@ -524,11 +458,10 @@ Accept: application/json
     
 
     return client.Execute(request);
-}</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="java-getting-all-carriers">
-        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
-<pre id="java-code-getting-all-carriers"><code class="language-java">
+}
+</code></pre>
+
+<pre><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -543,11 +476,10 @@ public static CloseableHttpResponse GettingAllCarriers() throws IOException {
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="ruby-getting-all-carriers">
-        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
-<pre id="ruby-code-getting-all-carriers"><code class="language-ruby">require 'rest-client'
+}
+</code></pre>
+
+<pre><code class="language-ruby">require 'rest-client'
 
 
 
@@ -556,9 +488,8 @@ response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Carriers', 
      :'Accept' =&gt; 'application/json',
     } 
 
-puts response</code></pre>
-    </div>
-</div>
+puts response
+</code></pre>
 
 <h4>Response</h4>
 
@@ -591,48 +522,28 @@ HTTP 200 Content-Type: application/json
     }
 ]</pre>
 
-<h3 id="getting-a-carrier" class="clickable-header top-level-header">Getting a Carrier</h3>
+<h2 id="getting-a-carrier">Getting a Carrier</h2>
 
-<h4>Request</h4>
+<blockquote>
+  <p>Definition</p>
+</blockquote>
 
-<pre>
-GET /Carriers({CarrierId})
-</pre>
+<pre><code>GET /Carriers({CarrierId})
+</code></pre>
 
-<h4>Headers</h4>
-<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li></ul>
+<blockquote>
+  <p>Example Request</p>
+</blockquote>
 
-<h4>URI Parameters</h4>
-<ul>
-    
-    <li>
-        <code>CarrierId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/entity-store/#carrier">Carrier</a>
-    </li>
-    </ul>
-
-<h5>Example</h5>
-
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#http-getting-a-carrier" data-toggle="tab">HTTP</a></li>
-    <li><a href="#curl-getting-a-carrier" data-toggle="tab">cURL</a></li>
-    <li><a href="#csharp-getting-a-carrier" data-toggle="tab">C# (RestSharp)</a></li>
-    <li><a href="#java-getting-a-carrier" data-toggle="tab">Java (HttpComponents)</a></li>
-    <li><a href="#ruby-getting-a-carrier" data-toggle="tab">Ruby (rest-client)</a></li>
-    <button id="copy-getting-a-carrier" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-a-carrier"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
-</ul>
-<div class="tab-content"> 
-    <div role="tabpanel" class="tab-pane active" id="http-getting-a-carrier">
-<pre id="http-code-getting-a-carrier"><code class="language-http">GET /Carriers(9)
+<pre><code class="language-javascript">GET /Carriers(9)
 Authorization: Bearer (Access Token)
 Accept: application/json
-</code><code class="language-csharp"></code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="curl-getting-a-carrier">
-<pre id="curl-code-getting-a-carrier"><code class="language-http">curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Carriers(9)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="csharp-getting-a-carrier">
-        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
-<pre id="csharp-code-getting-a-carrier"><code class="language-csharp">static IRestResponse GettingACarrier()
+</code></pre>
+
+<pre><code class="language-shell">curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Carriers(9)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+</code></pre>
+
+<pre><code class="language-csharp">static IRestResponse GettingACarrier()
 {
     var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Carriers(9)");
     var request = new RestRequest(Method.GET);
@@ -643,11 +554,10 @@ Accept: application/json
     
 
     return client.Execute(request);
-}</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="java-getting-a-carrier">
-        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
-<pre id="java-code-getting-a-carrier"><code class="language-java">
+}
+</code></pre>
+
+<pre><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -662,11 +572,10 @@ public static CloseableHttpResponse GettingACarrier() throws IOException {
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="ruby-getting-a-carrier">
-        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
-<pre id="ruby-code-getting-a-carrier"><code class="language-ruby">require 'rest-client'
+}
+</code></pre>
+
+<pre><code class="language-ruby">require 'rest-client'
 
 
 
@@ -675,9 +584,16 @@ response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Carriers(9)
      :'Accept' =&gt; 'application/json',
     } 
 
-puts response</code></pre>
-    </div>
-</div>
+puts response
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>CarrierId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/entity-store/#carrier">Carrier</a>
+    </li>
+    </ul>
 
 <h4>Response</h4>
 
@@ -708,40 +624,28 @@ HTTP 200 Content-Type: application/json
     "Version": 1
 }</pre>
 
-<h3 id="getting-all-manufacturers" class="clickable-header top-level-header">Getting All Manufacturers</h3>
+<h2 id="getting-all-manufacturers">Getting All Manufacturers</h2>
 
-<h4>Request</h4>
+<blockquote>
+  <p>Definition</p>
+</blockquote>
 
-<pre>
-GET /Manufacturers
-</pre>
+<pre><code>GET /Manufacturers
+</code></pre>
 
-<h4>Headers</h4>
-<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li></ul>
+<blockquote>
+  <p>Example Request</p>
+</blockquote>
 
-<h5>Example</h5>
-
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#http-getting-all-manufacturers" data-toggle="tab">HTTP</a></li>
-    <li><a href="#curl-getting-all-manufacturers" data-toggle="tab">cURL</a></li>
-    <li><a href="#csharp-getting-all-manufacturers" data-toggle="tab">C# (RestSharp)</a></li>
-    <li><a href="#java-getting-all-manufacturers" data-toggle="tab">Java (HttpComponents)</a></li>
-    <li><a href="#ruby-getting-all-manufacturers" data-toggle="tab">Ruby (rest-client)</a></li>
-    <button id="copy-getting-all-manufacturers" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-all-manufacturers"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
-</ul>
-<div class="tab-content"> 
-    <div role="tabpanel" class="tab-pane active" id="http-getting-all-manufacturers">
-<pre id="http-code-getting-all-manufacturers"><code class="language-http">GET /Manufacturers
+<pre><code class="language-javascript">GET /Manufacturers
 Authorization: Bearer (Access Token)
 Accept: application/json
-</code><code class="language-csharp"></code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="curl-getting-all-manufacturers">
-<pre id="curl-code-getting-all-manufacturers"><code class="language-http">curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Manufacturers" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="csharp-getting-all-manufacturers">
-        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
-<pre id="csharp-code-getting-all-manufacturers"><code class="language-csharp">static IRestResponse GettingAllManufacturers()
+</code></pre>
+
+<pre><code class="language-shell">curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Manufacturers" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+</code></pre>
+
+<pre><code class="language-csharp">static IRestResponse GettingAllManufacturers()
 {
     var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Manufacturers");
     var request = new RestRequest(Method.GET);
@@ -752,11 +656,10 @@ Accept: application/json
     
 
     return client.Execute(request);
-}</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="java-getting-all-manufacturers">
-        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
-<pre id="java-code-getting-all-manufacturers"><code class="language-java">
+}
+</code></pre>
+
+<pre><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -771,11 +674,10 @@ public static CloseableHttpResponse GettingAllManufacturers() throws IOException
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="ruby-getting-all-manufacturers">
-        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
-<pre id="ruby-code-getting-all-manufacturers"><code class="language-ruby">require 'rest-client'
+}
+</code></pre>
+
+<pre><code class="language-ruby">require 'rest-client'
 
 
 
@@ -784,9 +686,8 @@ response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Manufacture
      :'Accept' =&gt; 'application/json',
     } 
 
-puts response</code></pre>
-    </div>
-</div>
+puts response
+</code></pre>
 
 <h4>Response</h4>
 
@@ -819,48 +720,28 @@ HTTP 200 Content-Type: application/json
     }
 ]</pre>
 
-<h3 id="getting-a-manufacturer" class="clickable-header top-level-header">Getting a Manufacturer</h3>
+<h2 id="getting-a-manufacturer">Getting a Manufacturer</h2>
 
-<h4>Request</h4>
+<blockquote>
+  <p>Definition</p>
+</blockquote>
 
-<pre>
-GET /Manufacturers({ManufacturerId})
-</pre>
+<pre><code>GET /Manufacturers({ManufacturerId})
+</code></pre>
 
-<h4>Headers</h4>
-<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li></ul>
+<blockquote>
+  <p>Example Request</p>
+</blockquote>
 
-<h4>URI Parameters</h4>
-<ul>
-    
-    <li>
-        <code>ManufacturerId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/entity-store/#manufacturer">Manufacturer</a>
-    </li>
-    </ul>
-
-<h5>Example</h5>
-
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#http-getting-a-manufacturer" data-toggle="tab">HTTP</a></li>
-    <li><a href="#curl-getting-a-manufacturer" data-toggle="tab">cURL</a></li>
-    <li><a href="#csharp-getting-a-manufacturer" data-toggle="tab">C# (RestSharp)</a></li>
-    <li><a href="#java-getting-a-manufacturer" data-toggle="tab">Java (HttpComponents)</a></li>
-    <li><a href="#ruby-getting-a-manufacturer" data-toggle="tab">Ruby (rest-client)</a></li>
-    <button id="copy-getting-a-manufacturer" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-a-manufacturer"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
-</ul>
-<div class="tab-content"> 
-    <div role="tabpanel" class="tab-pane active" id="http-getting-a-manufacturer">
-<pre id="http-code-getting-a-manufacturer"><code class="language-http">GET /Manufacturers(13149)
+<pre><code class="language-javascript">GET /Manufacturers(13149)
 Authorization: Bearer (Access Token)
 Accept: application/json
-</code><code class="language-csharp"></code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="curl-getting-a-manufacturer">
-<pre id="curl-code-getting-a-manufacturer"><code class="language-http">curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Manufacturers(13149)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="csharp-getting-a-manufacturer">
-        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
-<pre id="csharp-code-getting-a-manufacturer"><code class="language-csharp">static IRestResponse GettingAManufacturer()
+</code></pre>
+
+<pre><code class="language-shell">curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Manufacturers(13149)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+</code></pre>
+
+<pre><code class="language-csharp">static IRestResponse GettingAManufacturer()
 {
     var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Manufacturers(13149)");
     var request = new RestRequest(Method.GET);
@@ -871,11 +752,10 @@ Accept: application/json
     
 
     return client.Execute(request);
-}</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="java-getting-a-manufacturer">
-        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
-<pre id="java-code-getting-a-manufacturer"><code class="language-java">
+}
+</code></pre>
+
+<pre><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -890,11 +770,10 @@ public static CloseableHttpResponse GettingAManufacturer() throws IOException {
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="ruby-getting-a-manufacturer">
-        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
-<pre id="ruby-code-getting-a-manufacturer"><code class="language-ruby">require 'rest-client'
+}
+</code></pre>
+
+<pre><code class="language-ruby">require 'rest-client'
 
 
 
@@ -903,9 +782,16 @@ response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Manufacture
      :'Accept' =&gt; 'application/json',
     } 
 
-puts response</code></pre>
-    </div>
-</div>
+puts response
+</code></pre>
+
+<h4 id="uri-parameters-1">URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>ManufacturerId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/entity-store/#manufacturer">Manufacturer</a>
+    </li>
+    </ul>
 
 <h4>Response</h4>
 
@@ -936,40 +822,28 @@ HTTP 200 Content-Type: application/json
     "Version": 1
 }</pre>
 
-<h3 id="getting-all-suppliers" class="clickable-header top-level-header">Getting all Suppliers</h3>
+<h2 id="getting-all-suppliers">Getting all Suppliers</h2>
 
-<h4>Request</h4>
+<blockquote>
+  <p>Definition</p>
+</blockquote>
 
-<pre>
-GET /Suppliers
-</pre>
+<pre><code>GET /Suppliers
+</code></pre>
 
-<h4>Headers</h4>
-<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li></ul>
+<blockquote>
+  <p>Example Request</p>
+</blockquote>
 
-<h5>Example</h5>
-
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#http-getting-all-suppliers" data-toggle="tab">HTTP</a></li>
-    <li><a href="#curl-getting-all-suppliers" data-toggle="tab">cURL</a></li>
-    <li><a href="#csharp-getting-all-suppliers" data-toggle="tab">C# (RestSharp)</a></li>
-    <li><a href="#java-getting-all-suppliers" data-toggle="tab">Java (HttpComponents)</a></li>
-    <li><a href="#ruby-getting-all-suppliers" data-toggle="tab">Ruby (rest-client)</a></li>
-    <button id="copy-getting-all-suppliers" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-all-suppliers"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
-</ul>
-<div class="tab-content"> 
-    <div role="tabpanel" class="tab-pane active" id="http-getting-all-suppliers">
-<pre id="http-code-getting-all-suppliers"><code class="language-http">GET /Suppliers
+<pre><code class="language-javascript">GET /Suppliers
 Authorization: Bearer (Access Token)
 Accept: application/json
-</code><code class="language-csharp"></code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="curl-getting-all-suppliers">
-<pre id="curl-code-getting-all-suppliers"><code class="language-http">curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Suppliers" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="csharp-getting-all-suppliers">
-        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
-<pre id="csharp-code-getting-all-suppliers"><code class="language-csharp">static IRestResponse GettingAllSuppliers()
+</code></pre>
+
+<pre><code class="language-shell">curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Suppliers" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+</code></pre>
+
+<pre><code class="language-csharp">static IRestResponse GettingAllSuppliers()
 {
     var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Suppliers");
     var request = new RestRequest(Method.GET);
@@ -980,11 +854,10 @@ Accept: application/json
     
 
     return client.Execute(request);
-}</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="java-getting-all-suppliers">
-        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
-<pre id="java-code-getting-all-suppliers"><code class="language-java">
+}
+</code></pre>
+
+<pre><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -999,11 +872,10 @@ public static CloseableHttpResponse GettingAllSuppliers() throws IOException {
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="ruby-getting-all-suppliers">
-        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
-<pre id="ruby-code-getting-all-suppliers"><code class="language-ruby">require 'rest-client'
+}
+</code></pre>
+
+<pre><code class="language-ruby">require 'rest-client'
 
 
 
@@ -1012,9 +884,8 @@ response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Suppliers',
      :'Accept' =&gt; 'application/json',
     } 
 
-puts response</code></pre>
-    </div>
-</div>
+puts response
+</code></pre>
 
 <h4>Response</h4>
 
@@ -1047,48 +918,28 @@ HTTP 200 Content-Type: application/json
     }
 ]</pre>
 
-<h3 id="getting-a-supplier" class="clickable-header top-level-header">Getting a Supplier</h3>
+<h2 id="getting-a-supplier">Getting a Supplier</h2>
 
-<h4>Request</h4>
+<blockquote>
+  <p>Definition</p>
+</blockquote>
 
-<pre>
-GET /Suppliers({SupplierId})
-</pre>
+<pre><code>GET /Suppliers({SupplierId})
+</code></pre>
 
-<h4>Headers</h4>
-<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li></ul>
+<blockquote>
+  <p>Example Request</p>
+</blockquote>
 
-<h4>URI Parameters</h4>
-<ul>
-    
-    <li>
-        <code>SupplierId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/entity-store/#supplier">Supplier</a>
-    </li>
-    </ul>
-
-<h5>Example</h5>
-
-<ul class="nav nav-tabs">
-    <li class="active"><a href="#http-getting-a-supplier" data-toggle="tab">HTTP</a></li>
-    <li><a href="#curl-getting-a-supplier" data-toggle="tab">cURL</a></li>
-    <li><a href="#csharp-getting-a-supplier" data-toggle="tab">C# (RestSharp)</a></li>
-    <li><a href="#java-getting-a-supplier" data-toggle="tab">Java (HttpComponents)</a></li>
-    <li><a href="#ruby-getting-a-supplier" data-toggle="tab">Ruby (rest-client)</a></li>
-    <button id="copy-getting-a-supplier" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-a-supplier"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
-</ul>
-<div class="tab-content"> 
-    <div role="tabpanel" class="tab-pane active" id="http-getting-a-supplier">
-<pre id="http-code-getting-a-supplier"><code class="language-http">GET /Suppliers(14107)
+<pre><code class="language-javascript">GET /Suppliers(14107)
 Authorization: Bearer (Access Token)
 Accept: application/json
-</code><code class="language-csharp"></code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="curl-getting-a-supplier">
-<pre id="curl-code-getting-a-supplier"><code class="language-http">curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Suppliers(14107)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="csharp-getting-a-supplier">
-        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
-<pre id="csharp-code-getting-a-supplier"><code class="language-csharp">static IRestResponse GettingASupplier()
+</code></pre>
+
+<pre><code class="language-shell">curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Suppliers(14107)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+</code></pre>
+
+<pre><code class="language-csharp">static IRestResponse GettingASupplier()
 {
     var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Suppliers(14107)");
     var request = new RestRequest(Method.GET);
@@ -1099,11 +950,10 @@ Accept: application/json
     
 
     return client.Execute(request);
-}</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="java-getting-a-supplier">
-        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
-<pre id="java-code-getting-a-supplier"><code class="language-java">
+}
+</code></pre>
+
+<pre><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1118,11 +968,10 @@ public static CloseableHttpResponse GettingASupplier() throws IOException {
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}</code></pre>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="ruby-getting-a-supplier">
-        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
-<pre id="ruby-code-getting-a-supplier"><code class="language-ruby">require 'rest-client'
+}
+</code></pre>
+
+<pre><code class="language-ruby">require 'rest-client'
 
 
 
@@ -1131,9 +980,16 @@ response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Suppliers(1
      :'Accept' =&gt; 'application/json',
     } 
 
-puts response</code></pre>
-    </div>
-</div>
+puts response
+</code></pre>
+
+<h4 id="uri-parameters-2">URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>SupplierId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/entity-store/#supplier">Supplier</a>
+    </li>
+    </ul>
 
 <h4>Response</h4>
 
@@ -1178,19 +1034,6 @@ HTTP 200 Content-Type: application/json
     </div>
 
   </body>
-
-
-  <!-- the google_analytics_id gets auto inserted from the config file -->
-
-
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-408430-5', 'auto');
-    ga('send', 'pageview');
-</script>
 
 
 

@@ -4,6 +4,18 @@ a:hover{
 	color: #0096db;
 }
 
+hr{
+	border-top-color: lightgray;
+}
+
+h2{
+	font-size: 40px;
+}
+
+h3{
+	margin-top: 0px;
+}
+
 
 /**** Class Selectors ****/
 
@@ -74,19 +86,35 @@ a:hover{
 }
 
 .navbar-default .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:hover{
-	background-color: white;
-	color: black;
+	background-color: #080808;
+	color: #fff;
 
+}
+
+.navbar-inverse{
+	background-color: #364956;
 }
 
 .platform-img{
 	margin: 0 auto;
 }
 
+.sub-links{
+	list-style:none;
+}
+
+.sub-links li{
+	padding-bottom: 13px;
+	font-size: 18px;
+}
+
 .row{
 	margin: 0px;
 }
 
+.align-left{
+	text-align: left;
+}
 
 /**** ID Selectors ****/
 #portal-desc{

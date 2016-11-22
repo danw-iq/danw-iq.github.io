@@ -812,7 +812,8 @@ code {
   font-size: 90%;
   color: #444;
   background-color: #f0f0f0;
-  white-space: nowrap;
+  /*white-space: nowrap;*/
+  white-space: pre-wrap;
   border-radius: 4px;
 }
 
@@ -855,20 +856,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .copy-button {
-  margin-top: 10px;
-  margin-left: 23%;
+  margin-top: 14px;
+  margin-left: 1%;
 }
 
-#page-selector .selectedIcon a {
-  cursor: default;
-}
-
-#page-selector .selectedIcon h4 {
-  color: darkgrey;
-  cursor: default;
-}
-
-#page-selector .selectedIcon .fa-3x {
-  color: darkgrey;
-  cursor: default;
-}

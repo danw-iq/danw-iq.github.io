@@ -2,19 +2,21 @@
 
 'use strict';
 
-var path = require('path');
+var path = require('path'); 
 var raml2obj = require('raml2obj');
 var nunjucks = require('nunjucks');
 var Q = require('q');
 var fs = require('fs');
 var util = require('util');
+var prettyData = require('pretty-data').pd;
 
 var RESOURCE_FILE = "generated/resources.json";
 var RESOURCES;
 
 exports = module.exports = {
   getDefaultConfig: getDefaultConfig,
-  render: render
+  render: render,
+  renderSimple: renderSimple
 };
 
 /*
@@ -46,294 +48,9 @@ function render(source, config, versions, resources) {
   });
 }
 
-function getDefaultConfig(mainTemplate, templatesPath) {
-  if (!mainTemplate) {
-    mainTemplate = './lib/template.nunjucks';
+function renderSimple(config, entries) {
 
-    // When using the default template, make sure that Nunjucks isn't
-    // using the working directory since that might be anything
-    templatesPath = __dirname;
-  }
-
-  return {
-    template: mainTemplate,
-    templatesPath: templatesPath,
-    processOutput: function(data) {
-      return data.replace(/\n{3,}/g, '\n\n');
-    }
-  };
-}
-
-function addFilters(env, versions) {
-
-    env.addFilter('serialize', function(example) {
-
-      var test = safeJsonParse(example, "serialize");
-
-      return JSON.stringify(test).replace(/"/g, '\\"')
-    });
-
-    env.addFilter('printSerialized', function(obj, apiName, hideGenerated, isRAMLGenerated) {
-
-      var jsonObj = safeJsonParse(obj, "printSerialized");
-      var exampleString = "";
-      var prefixTabs = 4;
-
-      if(jsonObj.name) {
-
-        exampleString = createExampleForResource(obj, jsonObj.name, apiName, hideGenerated);
-
-        //If we are returning an array, surround with []
-        if(jsonObj.type === "array") {
-          exampleString = "[" + exampleString + "]";
-        }
-      } else {
-        console.log("ERROR: PrintExample parsing JSON");
-      }
-
-      if(isRAMLGenerated) {
-        prefixTabs = 0;
-      }
-
-      var test = safeJsonParse(exampleString, "printExample");
-
-      return JSON.stringify(test).replace(/"/g, '\\"');
-    });
-
-    env.addFilter('printMethodName', function(name) {
-      return toTitleCase(name).replace(/ /g, "");
-    });
-
-    env.addFilter('convertToLink', function(name) {
-      return name.replace(/ /g, "-").toLowerCase();
-    });
-
-    env.addFilter('printVersions', function(name) {
-
-      if(versions) {
-
-        var block = "{{tip}}This API reference has the following versions:<br/><ul>";
-
-          for(var i = 0; i < versions.length; i++) {
-
-            //Strip the "v" from the name, if this is an older version
-            if(name.indexOf("-v") > -1) {
-              name = name.substring(0, name.lastIndexOf("-"));
-            }
-
-            var linkTitle = toTitleCase(name.replace("-", " ")) + " " + versions[i].toUpperCase();
-
-            var url = "/api/" + name;
-
-            if(i != (versions.length - 1)) {
-              url += "-" + versions[i];
-            }
-          
-            block += "<li><a href='" + url + "'>" + linkTitle + "</a></li>";
-          }
-
-        block += "</ul>{{end}}";
-
-        return block;
-      }
-    });
-
-    env.addFilter('printRequestName', function(obj) {
-
-      var name = "";
-
-      if(obj) {
-        name = obj.toLowerCase().split(" ");
-        name = name.join("-");
-      } 
-      else {
-        console.log("ERROR printRequestName, you may have forgotten to give a request a displayName");
-      }
-      
-      return util.format("<h2 id='%s' class='clickable-header top-level-header'>%s</h2>", name, obj);
-    });
-
-    env.addFilter('printCode', function(codeSamples, requestName) {
-
-      var request = requestName.substring(requestName.indexOf("=") + 1).trim();
-
-      for(var i = 0; i < codeSamples.length; i++) {
-        if(codeSamples[i].uniqueId == request) {
-          return codeSamples[i].content
-        }
-      }
-    });
-
-    env.addFilter('printExample', function(obj, apiName, hideGenerated, isRAMLGenerated) {
-
-      var jsonObj = safeJsonParse(obj, "printExample");
-      var exampleString = "";
-      var prefixTabs = 4;
-
-      if(jsonObj.name) {
-
-        exampleString = createExampleForResource(obj, jsonObj.name, apiName, hideGenerated);
-
-        //If we are returning an array, surround with []
-        if(jsonObj.type === "array") {
-          exampleString = "[" + exampleString + "]";
-        }
-      } else {
-        console.log("ERROR: PrintExample parsing JSON");
-      }
-
-      if(isRAMLGenerated) {
-        prefixTabs = 0;
-      }
-
-      var test = safeJsonParse(exampleString, "printExample");
-
-      return JSON.stringify(test, undefined, prefixTabs);
-    });
-
-    env.addFilter('printResponseSchema', function (schema, title, method) {   
-
-      var responseParameters = "";
-      var requiredList = getRequiredList(schema);
-      var outerSchema = safeJsonParse(schema, "printResponseSchema");
-
-      var printBullets = false;
-
-      //If the outer schema is not a custom resource
-      if(outerSchema.exclude) {
-
-        //Get the inner schema (array of object, object of object, etc)
-        var innerSchema = extractResource(title, outerSchema.name);
-
-        //Print if this is an array of non-custom objects
-        if(!innerSchema.exclude && outerSchema.type == "array") {
-          printBullets = false;
-        } else {
-          printBullets = true;
-        }
-      }
-
-      if(printBullets) 
-      {
-        responseParameters += printResponseBullets(schema, title);        
-      } 
-      else
-      {
-        //Skip everything and just print a link to the resource
-        var schemaObj = safeJsonParse(schema, "printResponseSchema");
-
-        responseParameters += printResourceLink(schemaObj.type, schemaObj.name, null);
-      }
-
-      return responseParameters;
-    });
-
-    env.addFilter('printResponseSchemaSpecification', function(schema, method) {
-
-      var schema = safeJsonParse(schema, "printResponseSchemaSpecification");
-
-      var responseParameters = "";
-
-      var properties = getPropertyNames(schema, "printResponseSchemaSpecification"); //[ "Id", "CustomerTypeId" ... ]
-      var requiredList = getRequiredList(schema);
-
-      properties = sortProperties(properties, requiredList);
-
-      for(var i = 0; i < properties.length; i++)
-      {
-        var name = properties[i];
-        var property = schema.properties[name];
-        var type = property.type;
-        var responseString = "";
-
-        if(requiredList && requiredList.indexOf(name) > -1 || property.generated)
-        {
-          responseString += printBullet(name, property.putDescription, "<strong>Required</strong>");
-        }
-        else {
-          responseString += printBullet(name, property.putDescription, "Optional");          
-        }
-
-        responseString = prefixTabs(properties[i], responseString);
-        responseParameters += responseString + '\n';
-      }
-      
-
-      return responseParameters;
-    });
-
-    env.addFilter('printFormParameters', function (obj) {
-
-      var parameters = Object.keys(obj);
-      var formParams = "";
-
-      for(var i = 0; i < parameters.length; i++) {
-
-        var name = parameters[i];
-        var property = obj[name];
-        var requestString = "";
-
-        if(property.required) {
-          requestString = printBullet(name, property.description, "<strong>Required</strong>");
-        }
-        else {
-          requestString = printBullet(name, property.description, "Optional");
-        }
-
-        formParams += requestString + '\n';
-      }
-
-      return formParams;
-    });
-
-    env.addFilter('printRequestParameters', function(schema, title, method) {
-
-      var requestParameters = "";
-      var requiredList = getRequiredList(schema);
-      var outerSchema = safeJsonParse(schema, "printRequestParameters");
-
-      var printBullets = false;
-
-      requestParameters = printRequestBullets(schema, title, method);        
-      
-      return requestParameters;
-    });
-
-    env.addFilter('printResourceTable', function(obj, name, title) {
-
-      var jsonObj = safeJsonParse(obj, "printResourceTable");
-      var isExcluded = jsonObj.exclude;
-      var schema = extractResource(title, name);
-      var table = "";
-
-      if(!isExcluded) {
-
-        table += "### " + name + "\n\n";
-
-        if(schema.description)
-        {
-          table += schema.description + "\n\n";
-        }
-
-        table += "| Name | Data Type | Description | Example |\n|:-----|:----------|:------------|:--------|\n";
-
-        var properties = getPropertyNames(schema, "printResourceTableProperties"); //[ "Id", "CustomerTypeId" ... ]
-
-        if(properties) {
-          table += printResourceTableProperties(schema, properties, "");
-        }
-        else {
-          console.log("ERROR printResourceTable no properties to print!");
-        }
-
-      }
-
-      return table;
-    });
-
-    env.addFilter('fixTitleUrl', function(title) {
-      return title = title.replace(/ /g, '-');
-    });
+  var env = nunjucks.configure(config.templatesPath, {watch: false});
 
     env.addFilter('fixTitle', function(title) {
       var fixedTitle = "";
@@ -367,15 +84,518 @@ function addFilters(env, versions) {
         case "saccs":
           fixedTitle = "Shipping Aggregator";
           break;
+        case "rq data connect bridge":
+          fixedTitle = "RQ Data Connect Bridge";
+          break;
+        case "rq data connect":
+          fixedTitle = "RQ Data Connect";
+          break;
+        case "att-auth-proxy":
+          fixedTitle = "AT&T Auth Proxy";
+          break;                               
         default:
-          fixedTitle = title;
+          fixedTitle = title.replace(/-/g, ' ');
+          fixedTitle = toTitleCase(fixedTitle);
+          break;
       }
 
-      fixedTitle = fixedTitle.replace(/-/g, ' ');
+      if(fixedTitle.indexOf("Rq Data Connect") > -1) {
+        fixedTitle = fixedTitle.replace("Rq Data Connect", "RQ Data Connect");
+      }
 
-      return toTitleCase(fixedTitle);
+      return fixedTitle;
     });
 
+  return env.render(config.template, { "entries": entries });
+}
+
+function getDefaultConfig(mainTemplate, templatesPath) {
+  if (!mainTemplate) {
+    mainTemplate = './lib/template.nunjucks';
+
+    // When using the default template, make sure that Nunjucks isn't
+    // using the working directory since that might be anything
+    templatesPath = __dirname;
+  }
+
+  return {
+    template: mainTemplate,
+    templatesPath: templatesPath,
+    processOutput: function(data) {
+      return data.replace(/\n{3,}/g, '\n\n');
+    }
+  };
+}
+
+function addFilters(env, versions) {
+
+
+    //CMI Connect specific
+    env.addFilter('printExampleSoap', function(obj, title, hideGenerated, reqSchema) {
+
+      var schema = safeJsonParse(obj, "printExampleSoap");
+      var exampleString = "";
+      var extraSchema = "";
+
+      if(reqSchema) {
+        var reqSchemaName = safeJsonParse(reqSchema, "printExampleSoap req").name;        
+      }
+
+      if(schema.name) {
+
+        exampleString = "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body>";
+
+        if(reqSchema) {
+          exampleString += "<"+reqSchemaName+"Response xmlns=\"http://www.iqmetrix.com\"><"+reqSchemaName+"Result>";
+        }
+
+        exampleString += createExampleForResourceSoap(obj, schema.name, title, hideGenerated);
+
+        if(reqSchema) {
+          exampleString += "</"+reqSchemaName+"Result></"+reqSchemaName+"Response>";
+        }
+
+        exampleString += "</soap:Body></soap:Envelope>";
+
+      } else {
+        console.log("ERROR: printExampleSoap parsing JSON, API " + schema);
+      }
+
+      return prettyData.xml(exampleString);
+    });
+
+
+    //RQ Data Connect specific
+    env.addFilter('printExampleCsv', function(obj, apiName, hideGenerated, isRAMLGenerated) {
+
+      var schema = safeJsonParse(obj, "printExampleCsv");
+      var exampleString = "";
+
+      if(schema.name) {
+
+        var resourceProperties = getPropertyNames(schema, "printExampleCsv");
+
+        //Add first column of headers
+        for(var i = 0; i < resourceProperties.length; i++) {
+            exampleString += resourceProperties[i];
+
+            if(i != resourceProperties.length - 1) {
+              exampleString += ",";
+            }
+        }        
+
+        exampleString = exampleString +"\n";
+
+        //Add data, only one row
+        for(var i = 0; i < resourceProperties.length; i++) {
+          
+          var property = schema.properties[resourceProperties[i]];
+
+          if(property.example != null) {
+            exampleString += property.example;
+          } else {
+            console.log("Property " + resourceProperties[i] + " without example in Resource " + schema.name);
+          }
+
+          if(i != resourceProperties.length - 1) {
+            exampleString += ",";
+          }          
+        }
+
+      } else {
+        console.log("ERROR: printExampleCsv parsing JSON, API " + schema);
+      }
+
+      return exampleString;
+    });
+
+    //RQ Data Connect specific
+    env.addFilter('printExampleXml', function(obj, addExtraSchema) {
+
+      var schema = safeJsonParse(obj, "printExampleXml");
+      var exampleString = "";
+      var extraSchema = "";
+
+      if(schema.name) {
+
+        var resourceProperties = getPropertyNames(schema, "printExampleXml");
+
+        for(var i = 0; i < resourceProperties.length; i++) {
+          
+          var property = schema.properties[resourceProperties[i]];
+
+          if(property.example != null) {
+            exampleString += "<"+resourceProperties[i]+">" + property.example + "</"+resourceProperties[i]+">"
+          } else {
+            console.log("Property " + resourceProperties[i] + " without example in Resource " + schema.name);
+          }
+        }
+
+        if(addExtraSchema) {
+          extraSchema = "<Schema><Column_Name>ColumnName</Column_Name><Type>datatybe</Type><SafeType>safetype</SafeType><Length>100</Length></Schema>";
+        }
+
+        exampleString = "<Table><Record>" + exampleString + "</Record>" + extraSchema + "</Table>"
+
+      } else {
+        console.log("ERROR: printExampleXml parsing JSON, API " + schema);
+      }
+
+      return prettyData.xml(exampleString);
+    });
+
+    //RQ Data Connect specific
+    env.addFilter('printExampleJsonTable', function(obj, apiName) {
+
+      var jsonObj = safeJsonParse(obj, "printExampleJsonTable");
+      var exampleString = "";
+      var prefixTabs = 4;
+
+      if(jsonObj.name) {
+
+        exampleString = createExampleForResource(obj, jsonObj.name, apiName, false);
+
+        //If we are returning an array, surround with []
+        if(jsonObj.type === "array") {
+          exampleString = "{ \"Records\": [" + exampleString + "], \"Schema\": [ { \"Column_Name\": \"ColumnName\", \"Type\": \"datatype\", \"SafeType\": \"safetype\", \"Length\": 100 } ] } ";
+        }
+      } else {
+        console.log("ERROR: printExampleJsonTable " + apiName);
+        console.log(jsonObj);
+      }
+
+      var test = safeJsonParse(exampleString, "printExampleJsonTable");
+
+      return JSON.stringify(test, undefined, prefixTabs);
+    });
+
+    //Pretty print an example
+    env.addFilter('serialize', function(example) {
+
+      var test = safeJsonParse(example, "serialize");
+
+      return JSON.stringify(test).replace(/"/g, '\\"')
+    });
+
+    //Print a request
+    env.addFilter('printSerialized', function(obj, apiName, hideGenerated) {
+
+      var jsonObj = safeJsonParse(obj, "printSerialized");
+      var exampleString = "";
+
+      if(jsonObj.name) {
+
+        exampleString = createExampleForResource(obj, jsonObj.name, apiName, hideGenerated);
+
+        //If we are returning an array, surround with []
+        if(jsonObj.type === "array") {
+          exampleString = "[" + exampleString + "]";
+        }
+      } else {
+        console.log("ERROR: PrintExample parsing JSON");
+      }
+
+      var test = safeJsonParse(exampleString, "printExample");
+
+      return JSON.stringify(test).replace(/"/g, '\\"');
+    });
+
+    //Convert to title case and replace values
+    env.addFilter('printMethodName', function(name) {
+      return toTitleCase(name).replace(/ /g, "");
+    });
+
+    //Only used for versioning
+    env.addFilter('printVersions', function(name) {
+
+      if(versions) {
+
+        var block = "{{tip}}This API reference has the following versions:<br/><ul>";
+
+          for(var i = 0; i < versions.length; i++) {
+
+            //Strip the "v" from the name, if this is an older version
+            if(name.indexOf("-v") > -1) {
+              name = name.substring(0, name.lastIndexOf("-"));
+            }
+
+            var linkTitle = toTitleCase(name.replace("-", " ")) + " " + versions[i].toUpperCase();
+
+            var url = "/api/" + name;
+
+            if(i != (versions.length - 1)) {
+              url += "-" + versions[i];
+            }
+          
+            block += "<li><a href='" + url + "'>" + linkTitle + "</a></li>";
+          }
+
+        block += "</ul>{{end}}";
+
+        return block;
+      }
+    });
+
+    //Used for printing code samples in CMI and VMI pages, in documentation section
+    env.addFilter('printCode', function(codeSamples, requestName) {
+
+      var request = requestName.substring(requestName.indexOf("=") + 1).trim();
+
+      for(var i = 0; i < codeSamples.length; i++) {
+        if(codeSamples[i].uniqueId == request) {
+          return codeSamples[i].content
+        }
+      }
+    });
+
+    //obj = schema
+    //apiName = api name
+    //hideGenerated = if this is a PUT request
+    //isRAMLGenerated = if this is a Postman we are generated, to prefix tabs
+    env.addFilter('printExample', function(obj, apiName, hideGenerated, isRAMLGenerated) {
+
+      var jsonObj = safeJsonParse(obj, "printExample");
+      var exampleString = "";
+      var prefixTabs = 4;
+
+      if(jsonObj.name) {
+
+        exampleString = createExampleForResource(obj, jsonObj.name, apiName, hideGenerated);
+
+        //If we are returning an array, surround with []
+        if(jsonObj.type === "array") {
+          exampleString = "[" + exampleString + "]";
+        }
+      } else {
+        console.log("ERROR: PrintExample parsing JSON, API " + jsonObj);
+        console.log(jsonObj);
+      }
+
+      if(isRAMLGenerated) {
+        prefixTabs = 0;
+      }
+
+      var test = safeJsonParse(exampleString, "printExample");
+
+      return JSON.stringify(test, undefined, prefixTabs);
+    });
+
+    //schema = schema
+    //title = schema name
+
+    env.addFilter('printResponseSchema', function (schema, title, method) {   
+
+      var responseParameters = "";
+      var requiredList = getRequiredList(schema);
+      var outerSchema = safeJsonParse(schema, "printResponseSchema");
+
+      var printBullets = false;
+
+      //If the outer schema is not a custom resource
+      if(outerSchema.exclude) {
+
+        //Get the inner schema (array of object, object of object, etc)
+        var innerSchema = extractResource(title, outerSchema.name);
+
+        //Print if this is an array of non-custom objects
+        if(!innerSchema.exclude && outerSchema.type == "array") {
+          printBullets = false;
+        } else {
+          printBullets = true;
+        }
+      }
+
+      if(outerSchema.example){
+        //Print nothing for "example" schemas
+        responseParameters = "";
+      }
+      else if(printBullets) 
+      {
+        responseParameters += printResponseBullets(schema, title);        
+      } 
+      else
+      {
+        //Skip everything and just print a link to the resource
+        var schemaObj = safeJsonParse(schema, "printResponseSchema");
+
+        responseParameters += printResourceLink(schemaObj.type, schemaObj.name, null);
+      }
+
+      return responseParameters;
+    });
+
+
+    //schema = schema
+    //method = GET/POST/DELETE/etc
+    env.addFilter('printResponseSchemaSpecification', function(schema, method) {
+
+      var schema = safeJsonParse(schema, "printResponseSchemaSpecification");
+
+      var responseParameters = "";
+
+      var properties = getPropertyNames(schema, "printResponseSchemaSpecification"); //list of properties, [ "Id", "CustomerTypeId" ... ]
+      var requiredList = getRequiredList(schema); //Get required properties for this schema
+
+      //Sort properties alphabetically
+      properties = sortProperties(properties, requiredList);
+
+      for(var i = 0; i < properties.length; i++)
+      {
+        var name = properties[i];
+        var property = schema.properties[name];
+        var type = property.type;
+        var responseString = "";
+
+        if(requiredList && requiredList.indexOf(name) > -1 || property.generated)
+        {
+          responseString += printBullet(name, property.putDescription, "<strong>Required</strong>");
+        }
+        else {
+          responseString += printBullet(name, property.putDescription, "Optional");          
+        }
+
+        responseString = prefixTabs(properties[i], responseString);
+        responseParameters += responseString + '\n';
+      }
+      
+
+      return responseParameters;
+    });
+
+    //Used for requests with application/form
+    env.addFilter('printFormParameters', function (obj) {
+
+      var parameters = Object.keys(obj);
+      var formParams = "";
+
+      for(var i = 0; i < parameters.length; i++) {
+
+        var name = parameters[i];
+        var property = obj[name];
+        var requestString = "";
+
+        if(property.required) {
+          requestString = printBullet(name, property.description, "<strong>Required</strong>");
+        }
+        else {
+          requestString = printBullet(name, property.description, "Optional");
+        }
+
+        formParams += requestString + '\n';
+      }
+
+      return formParams;
+    });
+
+    //Print bullets
+    env.addFilter('printRequestParameters', function(schema, title, method) {
+
+      var response = printRequestBullets(schema, title, method);
+
+      var schemaObj = safeJsonParse(schema, "printRequestParameters");
+
+      //Only used for SOAP support
+      if(schemaObj.soapRequest) {
+        response = "<ul><li><code>"+schemaObj.name+"</code> (<strong>Required</strong>) </li>" + response + "</ul>";
+      }
+
+      return response;
+    });
+
+
+/** -------------------
+ This function creates the resource table 
+------------------- **/
+
+    //obj = schema
+    //name = API name
+    //title = schema name
+    env.addFilter('printResourceTable', function(obj, name, title) {
+
+      var jsonObj = safeJsonParse(obj, "printResourceTable");
+      var isExcluded = jsonObj.exclude;
+      var schema = extractResource(title, name);
+      var table = "";
+
+      if(!isExcluded) {
+
+        //Print name of table
+        table += "## " + name + "\n\n";
+
+        if(schema.description)
+        {
+          table += schema.description + "\n\n";
+        }
+
+        //table += "| Name | Data Type | Description | Example |\n|:-----|:----------|:------------|:--------|\n";
+        table += "| Name | Description |\n|:-----|:------------|\n";
+
+        var properties = getPropertyNames(schema, "printResourceTableProperties"); //[ "Id", "CustomerTypeId" ... ]
+
+        if(properties) {
+          table += printResourceTableProperties(schema, properties, "");
+        }
+        else {
+          console.log("ERROR printResourceTable no properties to print!");
+        }
+
+      }
+
+      return table;
+    });
+
+    //Replace some text, this is used for RAML that have a name != the documentation title
+    env.addFilter('fixTitle', function(title) {
+      var fixedTitle = "";
+
+      if(!title) {
+        console.log("ERROR: fixTitle missing title");
+      }
+
+      switch(title.toLowerCase()) {
+        case "cmi":
+          fixedTitle = "Customer Managed Inventory";
+          break;
+        case "crm":
+          fixedTitle = "Customers";
+          break;
+        case "availability":
+          fixedTitle = "Inventory Availability";
+          break;
+        case "entity-store":
+          fixedTitle = "Entities";
+          break;
+        case "epc":
+          fixedTitle = "Electronic Product Catalog";
+          break;
+        case "product-library":
+          fixedTitle = "Products";
+          break;
+        case "vmi":
+          fixedTitle = "Vendor Managed Inventory";
+          break;
+        case "saccs":
+          fixedTitle = "Shipping Aggregator";
+          break;
+        case "rq data connect bridge":
+          fixedTitle = "RQ Data Connect Bridge";
+          break;
+        case "rq data connect":
+          fixedTitle = "RQ Data Connect";
+          break;
+        case "att-auth-proxy":
+          fixedTitle = "AT&T Auth Proxy";
+          break;                                                           
+        default:
+          fixedTitle = title.replace(/-/g, ' ');
+          fixedTitle = toTitleCase(fixedTitle);
+          break;
+      }
+
+      return fixedTitle;
+    });
+
+    //Insert date
     env.addFilter('insertDate', function() {
       // Date format: dd-mm-yyyy
       var date = convertDateToUTC(new Date());
@@ -384,8 +604,14 @@ function addFilters(env, versions) {
       return dateString;
     });
 
+    //URI = request URI, ie: /Companies({CompanyId})/Locations
+    //Replaces {Values} in a request URL with examples
     env.addFilter('replaceWithExamples', function(uri, obj) {
       
+      //RQ Data Connect HAX
+      uri = uri.replace("?Auth={Auth}&Response={Response}", "");  
+      uri = uri.replace("&Auth={Auth}&Response={Response}", "");    
+
       var sections = uri.split('{');
       var uriWithExamples = uri;
 
@@ -408,6 +634,7 @@ function addFilters(env, versions) {
       return uriWithExamples;
     });
 
+    //Prefix everything with a number of spaces, used in XML generating
     env.addFilter('prefixAll', function(xml, numSpaces) {
 
       var lines = xml.split(/\n/);
@@ -428,13 +655,74 @@ function addFilters(env, versions) {
 
       return newExample;
     });    
+
+    //Used when printing postman RAML, this is required for the API console tool
+    env.addFilter('fixSchema', function(schema) {
+      schema = safeJsonParse(schema, "fixSchema");
+      schema.properties = fixSchemaProperties(schema.properties);
+
+      return JSON.stringify(schema);
+    });     
+
+    env.addFilter('printIfDate', function(possiblyDate) {
+
+      if(typeof possiblyDate == "object"){
+        return possiblyDate.getFullYear() + "-" + (possiblyDate.getMonth() + 1) + "-" + possiblyDate.getDate();
+      }
+
+      return possiblyDate;
+    });     
 }
 
+function fixSchemaProperties(properties) {
+
+    if(properties) {
+
+      var propertyList = Object.keys(properties);
+
+      for(var i = 0; i < propertyList.length; i++) {
+
+        var name = propertyList[i];
+        var property = properties[name];
+
+        if(property.ref) {
+
+          var tokens = property.ref.split(".");
+
+          //Just an example replace
+          if(tokens.length == 3) {
+
+            var apiName = tokens[0];
+            var resourceName = tokens[1];
+            var resource = extractResource(apiName, resourceName);
+
+            //Set new example
+            properties[name].example = resource.properties[tokens[2]].example;
+          } 
+          else if(tokens.length == 2) {
+            //Object replacement
+            var apiName = tokens[0];
+            var resourceName = tokens[1];
+            var resource = extractResource(apiName, resourceName);
+
+            properties[name].properties = fixSchemaProperties(resource.properties);
+            properties[name].required = resource.required;
+          }
+        }
+      }
+    }
+
+    return properties;
+}
+
+//Given a string, create a "title" version of the string
+//Example: getting all Companies -> Getting All Companies
 function toTitleCase(str)
 {
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 }
 
+//Extract resource name from a string that looks like "apiname.resourcename"
 function processName(name) {
 
   if(name && name.indexOf(".") > -1) {
@@ -445,6 +733,7 @@ function processName(name) {
   return name;
 }
 
+//Prefix a string with the number of tabs equal to the .
 function prefixTabs(name, str) {
 
   var tokens = name.split(".");
@@ -487,6 +776,11 @@ function sortProperties(names, requiredList) {
   return sortedNames;
 }
 
+//obj = schema
+//schemaName = schemaName
+//apiName = name of the API
+//hideGenerated = used for PUT requests
+// Create a generated "example" for a request/response given a schema
 function createExampleForResource(obj, schemaName, apiName, hideGenerated) {
 
   var exampleString = "{";
@@ -507,6 +801,7 @@ function createExampleForResource(obj, schemaName, apiName, hideGenerated) {
 
   resourceProperties = getPropertyNames(resource, "createExampleForResource");
 
+  //Loop through properties
   for(var i = 0; i < resourceProperties.length; i++) {
 
     var name;
@@ -563,6 +858,151 @@ function createExampleForResource(obj, schemaName, apiName, hideGenerated) {
   return exampleString;
 }
 
+//Used only for CMI
+//obj = schema
+//schemaName = schemaName
+//apiName = name of the API
+//hideGenerated = used for PUT requests
+// Create a generated "example" for a request/response given a schema
+function createExampleForResourceSoap(obj, schemaName, apiName, hideGenerated) {
+
+  var exampleString = "";
+  var resource;
+  var resourceProperties;
+
+  //Get the resource
+  if(schemaName) {
+    resource = extractResource(apiName, schemaName);
+  }
+  else {
+    resource = safeJsonParse(obj, "createExampleForResource");
+
+    if(!resource || !resource.properties) {
+      console.log("ERROR: createExampleForResource Resource failed to parse");
+    }
+  }
+
+  resourceProperties = getPropertyNames(resource, "createExampleForResourceSoap");
+
+  //Loop through properties
+  for(var i = 0; i < resourceProperties.length; i++) {
+
+    var name;
+    var property;
+    var example;
+    var hideProperty = false;
+    var isLegacy = false;
+
+    if(schemaName) {
+      name = resourceProperties[i];
+      property = resource.properties[name];
+    } else {
+      name = resourceProperties[i];
+      property = resource.properties[name];
+    }
+
+    if(property.description) 
+    {
+        isLegacy = doNotPrint(property.description);
+    }
+
+    if(isLegacy || property.hideFromExample) {
+      //case 1 - hide this property if it is legacy or forced to "off" with hideFromExample enabled
+      hideProperty = true;
+    } else if(hideGenerated && property.generated) {
+      //case 2 - hide this property if "hide generated" is enabled and this is a generated property
+      hideProperty = true;
+    } else if (name.indexOf(".") > -1) {
+      //case 3 - none of the above, hide property
+      hideProperty = true;
+    }
+
+    if(!hideProperty) {
+      property.name = name;
+
+      exampleString += createExampleForPropertySoap(property, apiName, hideGenerated);
+    }
+  }
+
+  //Handle soap request
+  if(resource.soapRequest) {
+    exampleString = "<"+schemaName+" xmlns=\"http://www.iqmetrix.com\">"+exampleString+"</"+schemaName+">";
+  }
+
+  if(resource.wrap) {
+    exampleString = "<"+schemaName+">" + exampleString + "</"+schemaName+">";
+  }
+
+  return exampleString;
+}
+
+//Only used for CMI
+//Create an example for a property
+//property = property name
+//apiName = api name
+//hideGenerated = used for PUT requests
+function createExampleForPropertySoap(property, apiName, hideGenerated) {
+
+  var exampleString = "";
+  var name = property.name;
+  var example = "";
+  var resourceName = "";
+
+  if(!property.type) {
+    console.log("ERROR: createExampleForPropertySoap %s in %s has no type", name, apiName);
+  }
+
+  var type = property.type.toLowerCase();
+
+  var referenceValue = property.ref;
+
+  //If this is a simple value replace, do so
+  if(referenceValue && type != "object" && type != "array") {
+    property.example = getValueFromAPI(referenceValue);
+  }
+
+  //Put the values back, as we are passing the property as an object b/w calls
+  example = property.example;
+  property.type = type;
+
+  //Treat object and array of object the same for XML
+  if (type === "object" || property.arrayType == "object" ) {
+
+    if(example) {
+      exampleString += util.format("<%s>%s</%s>", name, example, name);
+    }
+    else {
+
+      if(property.extra != null) {
+         exampleString += util.format("<%s %s>", name.trim(), property.extra);
+      } else {
+         exampleString += util.format("<%s>", name.trim());
+      }
+
+      apiName = referenceValue.split(".")[0];
+      resourceName = referenceValue.split(".")[1];
+
+      exampleString += createExampleForResourceSoap(null, resourceName, apiName, hideGenerated);    
+    
+      exampleString += util.format("</%s>", name.trim());
+
+    }
+  }
+  else if (type === "array")
+  {
+    exampleString += util.format("<%s><string>%s</string></%s>", name.trim(), example, name);
+  }
+  else {
+    exampleString += util.format("<%s>%s</%s>", name.trim(), example, name);
+  }
+
+  return exampleString;  
+}
+
+//Create an example for a property
+//property = property name
+//apiName = api name
+//hideGenerated = used for PUT requests
 function createExampleForProperty(property, apiName, hideGenerated) {
 
   var exampleString = "";
@@ -616,6 +1056,10 @@ function createExampleForProperty(property, apiName, hideGenerated) {
   return exampleString;  
 }
 
+//Print an example array
+//property = property name
+//apiName = api name
+//hideGenerated = used for PUT requests
 function printArrayExample(property, apiName, hideGenerated) {
   var exampleString = "";
   var referenceValue = "";
@@ -650,6 +1094,10 @@ function printArrayExample(property, apiName, hideGenerated) {
   return exampleString;
 }
 
+//Print example
+// name = property name
+// type = property type
+// example = example value
 function printExample(name, type, example) {
 
   var exampleString = "";
@@ -692,6 +1140,7 @@ function getValueFromAPI(propertyName) {
   return value;
 }
 
+//print a bullet
 function printBullet(name, description, paramString) {
 
   var bulletString = "";
@@ -711,6 +1160,7 @@ function doNotPrint(description) {
   return description && (description.indexOf("legacy") > -1 || description.indexOf("reserved") > -1 || description.indexOf("internal use") > -1 || description.indexOf("future use") > -1);
 }
 
+//handle cross referencing (ref)
 function extractResource(apiName, resourceName) {
 
   var found = false;
@@ -735,6 +1185,7 @@ function extractResource(apiName, resourceName) {
   }
 }
 
+//Extract names of properties
 function getPropertyNames(obj, source) {
 
   if(!obj || !obj.properties) {
@@ -746,6 +1197,7 @@ function getPropertyNames(obj, source) {
   }
 }
 
+//Print a link to a resource
 function printResourceLink(schemaType, schemaName, externalSource) {
 
   var resourceLink = "";
@@ -762,19 +1214,21 @@ function printResourceLink(schemaType, schemaName, externalSource) {
   return resourceLink;
 }
 
+//Wrap something in a link
 function linkWrap(value, externalSource) {
   
   if(externalSource != null && externalSource.indexOf(".") > -1) {
 
     externalSource = externalSource.substring(0, externalSource.indexOf("."));
 
-    return util.format("<a href='/api/%s/#%s'>%s</a>", externalSource,value.toLowerCase(), value);
+    return util.format("<a href='/api/%s/#%s'>%s</a>", externalSource.replace(/ /g, "-"), value.toLowerCase(), value);
   }
   else {
     return util.format("<a href='#%s'>%s</a>", value.toLowerCase(), value);
   }
 }
 
+//Print response bullets after example
 function printResponseBullets(schema, title, method) {
 
   //Get the schema if we do not have it
@@ -790,6 +1244,7 @@ function printResponseBullets(schema, title, method) {
     return "";
   }
 
+  //Loop thru properties
   for(var i = 0; i < properties.length; i++)
   {
       var name = properties[i];
@@ -819,12 +1274,20 @@ function printResponseBullets(schema, title, method) {
               responseString += printBullet(name, property.putDescription, printResourceLink(property.type, resourceName, property.ref));
             }
 
-            //Print bullets for sub-object
-            responseString += printResponseBullets(resource, apiName);
+            //Should we print the rest of the nested object?
+            if(!property.stopPrint) {
+              responseString += printResponseBullets(resource, apiName);
+            }
           }
         } 
         else {
-          responseString += printBullet(name, property.putDescription, toTitleCase(property.type));
+
+          if(property.database) {
+            responseString += printBullet(name, property.putDescription, property.database.trim());
+          }
+          else {
+            responseString += printBullet(name, property.putDescription, toTitleCase(property.type));
+          }
         }
     }
 
@@ -836,6 +1299,7 @@ function printResponseBullets(schema, title, method) {
   return responseParameters;
 }
 
+//Print resource table properties
 function printResourceTableProperties(schema, properties, prefix) {
 
   var table = "";
@@ -853,7 +1317,7 @@ function printResourceTableProperties(schema, properties, prefix) {
     }
 
     if(!property) {
-      console.log(properties)
+      console.log("Error in printResourceTableProperties " + properties)
     }
 
     //Override case, do not show if set or if the name has a "." (legacy case)
@@ -861,7 +1325,11 @@ function printResourceTableProperties(schema, properties, prefix) {
 
     if(!hideFromTable) {
 
-      if(property.type) {
+      //Database type overrides data type
+      if(property.database) {
+        dataType = property.database;
+      }
+      else if (property.type) {
         dataType = property.type;
       }
 
@@ -871,7 +1339,8 @@ function printResourceTableProperties(schema, properties, prefix) {
       }
 
       if(property.ref) {
-        //If this is a simple value replace, do so
+        
+        //If this is a simple replace (apiname.resourcename.propertyname) + not Obj/Array, just replace the example
         if(property.ref && dataType != "object" && dataType != "array") {
             property.example = getValueFromAPI(property.ref);
         } 
@@ -894,7 +1363,8 @@ function printResourceTableProperties(schema, properties, prefix) {
               dataType = property.type;
             }
 
-            table += "| " + prefix + name + " | " + dataType +" | " + description +" | " + example + " |\n";
+            //table += "| " + prefix + name + " | " + dataType +" | " + description +" | " + example + " |\n";
+             table += "| " + prefix + name + " (`" + dataType + "`)" + " | " + description +" | \n";
 
             alreadyPrinted = true;
 
@@ -905,52 +1375,71 @@ function printResourceTableProperties(schema, properties, prefix) {
             //Recurse!
             var innerProperties = getPropertyNames(innerSchema, "printResourceTableProperties"); //[ "Id", "CustomerTypeId" ... ]
 
+            //Store old prefix for when recursion is complete
+            var oldPrefix = prefix;
             prefix = prefix + name + ".";
 
+            //Recurse!
             table += printResourceTableProperties(innerSchema, innerProperties, prefix);
+
+            //Restore old prefix
+            prefix = oldPrefix;
           }
           else {
+
+            var linkValue = value;
+
+            //Manually override the link - used only for SOAP APIs
+            if(property.fixlink) {
+              linkValue = property.fixlink;
+            } 
+
             if(property.arrayType) {
               //case 3: Regular table, print array of link to object
-              dataType = util.format("Array[%s]", linkWrap(value, property.ref));
+              dataType = util.format("Array[%s]", linkWrap(linkValue, property.ref));
             }
             else {
-              //case 4: Regular table, print link to object
-              dataType = linkWrap(value, property.ref);
+              dataType = linkWrap(linkValue, property.ref);
             }
           }
         }
-      } 
+      } //Print an array
       else if (property.type == "array" && property.arrayType) {
         dataType = "Array[" + property.arrayType + "]";
       }
 
+      //Include size in data type if provided
       if(property.size) {
         dataType += "("+ property.size +")";
       }
 
+      //Place example in back ticks if provided
       if(property.example) {
         example = "`" + property.example + "`";
       }
 
+      //Replace guid with GUID
       if(dataType.match(/guid/i) && dataType.match(/guid/i).length > 0) {
         dataType = "GUID";
-      }
+      } //Fix DateTime type
       else if (dataType.match(/datetime/i) && dataType.match(/datetime/i).length > 0) {
         dataType = "DateTime";
       }
-      else if (dataType.indexOf("#") == -1) {
+      else if (dataType.indexOf("#") == -1 && !property.database) {
         dataType = toTitleCase(dataType);
       }
 
       var isLegacy = doNotPrint(property.description);
 
+      //Make sure we don't double-print
       if(!alreadyPrinted) {
         if(isLegacy) {
-          table += "| *" + prefix + name + "* | *" + dataType +"* | *" + description +"* | |\n";
+          //table += "| *" + prefix + name + "* | *" + dataType +"* | *" + description +"* | |\n";
+          table += "| *" + prefix + name + " (`" + dataType + "`)" + "* | *" + description +"* | |\n";
         }
         else {
-          table += "| " + prefix + name + " | " + dataType +" | " + description +" | " + example + " |\n";
+          //table += "| " + prefix + name + " | " + dataType +" | " + description +" | " + example + " |\n";
+          table += "| " + prefix + name + " (`" + dataType + "`)" + " | " + description +" | \n";
         }    
       }      
     }
@@ -960,6 +1449,7 @@ function printResourceTableProperties(schema, properties, prefix) {
   return table;
 }
 
+//Print a list of request bullets, where a link to a table is insufficient
 function printRequestBullets(schema, title, method) {
 
   //Get the schema if we do not have it
@@ -978,7 +1468,11 @@ function printRequestBullets(schema, title, method) {
     properties = sortProperties(properties, requiredList);
   }
 
-  requestParameters = "<ul>";
+  if(schema.wrap) {
+    requestParameters = "<ul><li><code>"+schema.name+"</code> (<strong>Required</strong>) </li><ul>";
+  } else {
+    requestParameters = "<ul>";
+  }
 
   for(var i = 0; i < properties.length; i++)
   {
@@ -1013,12 +1507,17 @@ function printRequestBullets(schema, title, method) {
             var innerSchema = extractResource(apiName, schemaName);
 
             requestString += printRequestBullets(innerSchema, apiName, method);
+
           }
         }
       }
     }
 
     requestParameters += requestString;
+  }
+
+  if(schema.wrap) {
+    requestParameters += "</ul>"
   }
 
   requestParameters += "</ul>";
@@ -1040,6 +1539,7 @@ function fixSpacing(subStrings) {
   return tabbedString;
 }
 
+//Convert a JSON object to JSON in memory
 function safeJsonParse(obj, functionName) {
   var jsonObj;
 
@@ -1054,6 +1554,7 @@ function safeJsonParse(obj, functionName) {
   return jsonObj;
 }
 
+//Extracted "required" list from schema
 function getRequiredList(schema) {
 
   var requiredList = null;

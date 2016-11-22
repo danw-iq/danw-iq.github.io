@@ -17,9 +17,22 @@ body {
   float: none;
 }
 
-.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
+/* Modified top navbar dropdown */
+
+/*.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
   background-color: #364956;
+}*/
+
+.navbar-inverse .navbar-nav>.active>a{
+  background-color: transparent;
 }
+
+.topbar:hover, .topbar>active{
+  background-color: #080808;
+  color: #fff;
+}
+
+/* ---------------- */
 
 .navbar-inverse .navbar-nav>li>a{
   color: white;
@@ -91,7 +104,8 @@ table{
 }
 
 #sidebar-test{
-  margin-top: 34px;
+  /*margin-top: 34px;*/
+  margin-top: 0px;
 }
 
 /*
@@ -120,7 +134,8 @@ table{
   display: none;
 }
 
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {*/
+@media (min-width: 1100px) {
   .sidebar {
     position: fixed;
     top: 51px;

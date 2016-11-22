@@ -1,5 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--
+     (^\-==-/^)
+     >\\ == //<
+    :== q''p ==:     _
+     .__ qp __.    .' )
+      / ^--^ \    /\.'
+     /_`    / )  '\/
+     (  )  \  |-'-/
+     \^^,   |-|--'
+    ( `'    |_| )
+     \-     |-|/
+    (( )^---( )) sk
+
+
+  __   _  _  ____  _  _   __  ____  ____  _    ____   __   __ _    _  _  __  __     ___  __  _  _       
+ / _\ / )( \(_  _)/ )( \ /  \(  _ \/ ___)(_)  (    \ / _\ (  ( \  / )( \(  )(  )   / __)/  \( \/ )      
+/    \) \/ (  )(  ) __ ((  O ))   /\___ \ _    ) D (/    \/    /  \ /\ / )( / (_/\( (__(  O ))  (       
+\_/\_/\____/ (__) \_)(_/ \__/(__\_)(____/(_)  (____/\_/\_/\_)__)  (_/\_)(__)\____/ \___)\__/(_/\_)      
+  ___    _  _  ____  __    __  ____  ____   __     __ _  ____  __ _  ____   __   __    __               
+ ( _ \  ( \/ )(  __)(  )  (  )/ ___)/ ___) / _\   (  / )(  __)(  ( \(    \ / _\ (  )  (  )              
+/ _  /  / \/ \ ) _) / (_/\ )( \___ \\___ \/    \   )  (  ) _) /    / ) D (/    \/ (_/\/ (_/\            
+\__\_)  \_)(_/(____)\____/(__)(____/(____/\_/\_/  (__\_)(____)\_)__)(____/\_/\_/\____/\____/    
+
+                                                                                                                                                                                              
+
+-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,8 +58,30 @@
 
     <!-- Image popup source files -->
     <!-- http://dimsemenov.com/plugins/magnific-popup/ -->
-    <link rel="stylesheet" type="text/css" href="/documentation-testing/css/magnific-popup.css">
-    <script src="/documentation-testing/js/jquery.magnific-popup.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/magnific-popup.css">
+    <script src="/js/jquery.magnific-popup.js"></script>
+
+    
+    <script>
+        $(document).ready(function() {
+
+            // surround each image with an anchor class  for image popup
+            $('#page-wrapper img').each( function() {
+                var $img = $(this),
+                href = $img.attr('src');
+                $img.wrap('<a class="image-link" href=' + href + '></a>');
+                 
+            });
+
+            // make each image with image-link class popup "on click"
+            // !! Drawback -- all images could popup :(
+            $('.image-link').magnificPopup({
+                type:'image',
+                closeOnContentClick: true
+            });                    
+        });    
+    </script>
+    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -57,7 +105,7 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </button>
-  <a class="navbar-brand" href="http://localhost:4006"><img src="http://localhost:4006/images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+  <a class="navbar-brand" href="http://developers.iqmetrix.com"><img src="http://localhost:4006/images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
  </div>
  
  <div id="navbar" class="navbar-collapse collapse">
@@ -69,617 +117,6 @@
 
     
 
-    	<!-- API section -->
-    	
-
-	    	<li class="dropdown">
-	  			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-submenu>API REFERENCE<span class="caret"></span></a>
-	  			<ul class="dropdown-menu">
-
-	  			    
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<!-- Display all of the APIs -->
-
-		  				<li><a href="/documentation-testing/api/assets">Assets</a></li>
-
-		  				
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<!-- Display all of the APIs -->
-
-		  				<li><a href="/documentation-testing/api/authentication">Authentication</a></li>
-
-		  				
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<!-- Display all of the APIs -->
-
-		  				<li><a href="/documentation-testing/api/catalog">Catalog</a></li>
-
-		  				
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<!-- Display all of the APIs -->
-
-		  				<li><a href="/documentation-testing/api/Chatterspot-Reports">Chatterspot Reports</a></li>
-
-		  				
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<!-- Display all of the APIs -->
-
-		  				<li><a href="/documentation-testing/api/company-tree">Company Tree</a></li>
-
-		  				
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<!-- Display all of the APIs -->
-
-		  				<li><a href="/documentation-testing/api/crm">Customers</a></li>
-
-		  				
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<!-- Display all of the APIs -->
-
-		  				<li><a href="/documentation-testing/api/Customized-Reports">Customized Reports</a></li>
-
-		  				
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<li class="dropdown-submenu">
-	                  		<a href="#" tabindex="-1"><b>Dropship</b></a>
-		  					
-		  					<ul class="dropdown-menu">
-		  						
-	                    		<li><a href="/documentation-testing/api/cost-feed" tabindex="-1">Cost Feed</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/api/product-feed" tabindex="-1">Product Feed</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/api/product-subscription" tabindex="-1">Product Subscription</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/api/saccs" tabindex="-1">Shipping Aggregator</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/api/supplier-availability" tabindex="-1">Supplier Availability</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/api/shipping-options" tabindex="-1">Shipping Options</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/api/supplier-orders" tabindex="-1">Supplier Orders</a></li>
-	                    		
-	                  		</ul>
-		                </li>
-
-		                
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<!-- Display all of the APIs -->
-
-		  				<li><a href="/documentation-testing/api/entity-store">Entities</a></li>
-
-		  				
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<!-- Display all of the APIs -->
-
-		  				<li><a href="/documentation-testing/api/Envysion-Reports">Envysion Reports</a></li>
-
-		  				
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<!-- Display all of the APIs -->
-
-		  				<li><a href="/documentation-testing/api/general-ledger">General Ledger</a></li>
-
-		  				
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<!-- Display all of the APIs -->
-
-		  				<li><a href="/documentation-testing/api/availability">Inventory Availability</a></li>
-
-		  				
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<!-- Display all of the APIs -->
-
-		  				<li><a href="/documentation-testing/api/orders">Orders</a></li>
-
-		  				
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<li class="dropdown-submenu">
-	                  		<a href="#" tabindex="-1"><b>Partners</b></a>
-		  					
-		  					<ul class="dropdown-menu">
-		  						
-	                    		<li><a href="/documentation-testing/api/partner-relationships" tabindex="-1">Partner Relationships</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/api/partner-reporting" tabindex="-1">Partner Reporting</a></li>
-	                    		
-	                  		</ul>
-		                </li>
-
-		                
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<!-- Display all of the APIs -->
-
-		  				<li><a href="/documentation-testing/api/pricing">Pricing</a></li>
-
-		  				
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<li class="dropdown-submenu">
-	                  		<a href="#" tabindex="-1"><b>Product Library</b></a>
-		  					
-		  					<ul class="dropdown-menu">
-		  						
-	                    		<li><a href="/documentation-testing/api/classification-tree" tabindex="-1">Classification Tree</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/api/field-definitions" tabindex="-1">Field Definitions</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/api/product-library" tabindex="-1">Products</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/api/product-structure" tabindex="-1">Product Structure</a></li>
-	                    		
-	                  		</ul>
-		                </li>
-
-		                
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<li class="dropdown-submenu">
-	                  		<a href="#" tabindex="-1"><b>RQ</b></a>
-		  					
-		  					<ul class="dropdown-menu">
-		  						
-	                    		<li><a href="/documentation-testing/api/carrier-integration" tabindex="-1">Carrier Integration</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/api/cmi" tabindex="-1">Customer Managed Inventory</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/api/commissions" tabindex="-1">Commissions</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/api/epc" tabindex="-1">Electronic Product Catalog</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/api/punch-clock" tabindex="-1">Punch Clock</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/api/RQ-Data-Connect-Bridge" tabindex="-1">RQ Data Connect Bridge</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/api/RQ-Data-Connect" tabindex="-1">RQ Data Connect</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/api/vmi" tabindex="-1">Vendor Managed Inventory</a></li>
-	                    		
-	                  		</ul>
-		                </li>
-
-		                
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<!-- Display all of the APIs -->
-
-		  				<li><a href="/documentation-testing/api/reference">Reference</a></li>
-
-		  				
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<!-- Display all of the APIs -->
-
-		  				<li><a href="/documentation-testing/api/security-roles">Security Roles</a></li>
-
-		  				
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<!-- Display all of the APIs -->
-
-		  				<li><a href="/documentation-testing/api/Trade-In-Reporting-Service">Trade In Reporting Service</a></li>
-
-		  				
-
-	  				
-
-	  				<!-- If there is a group of APIs, create a submenu and display those APIs -->
-
-		  				
-
-		  				<!-- Display all of the APIs -->
-
-		  				<li><a href="/documentation-testing/api/user-manager">User Manager</a></li>
-
-		  				
-
-	  				
-	  			</ul>
-	  		</li>
-
-	    
-
-	    <!-- Guides section -->
-	    
-
-		<!-- Core Concepts section -->
-    	
-
-	    <!-- FAQ section -->
-    	
-
-	    <!-- Sample Applications section -->
-    	
-
-	
-
-    	<!-- API section -->
-    	
-
-	    <!-- Guides section -->
-	    
-
-	    	<li class="dropdown">
-	  			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-submenu>GUIDES<span class="caret"></span></a>
-	  			<ul class="dropdown-menu">
-
-	  				
-
-	  				<!-- If there is a group of guides, create a submenu and display those guides -->
-
-		  				
-		                <!-- Display all of the Guides -->
-		                <li><a href="/documentation-testing/guides/creating-an-in-store-order/">Creating an In Store Order</a></li>
-		                
-		                
-
-	  				
-
-	  				<!-- If there is a group of guides, create a submenu and display those guides -->
-
-		  				
-		                <!-- Display all of the Guides -->
-		                <li><a href="/documentation-testing/guides/creating-a-user-for-rq/">Creating a User for RQ</a></li>
-		                
-		                
-
-	  				
-
-	  				<!-- If there is a group of guides, create a submenu and display those guides -->
-
-		  				
-
-		  				<li class="dropdown-submenu">
-	                  		<a href="#" tabindex="-1">Dropship Client Integration Guides</a>
-		  					
-		  					<ul class="dropdown-menu">
-		  						
-	                    		<li><a href="/documentation-testing/guides/dropship-pos-guide/" tabindex="-1">Dropship Point of Sale Guide</a></li>
-	                    		
-	                  		</ul>
-		                </li>
-
-		                
-
-	  				
-
-	  				<!-- If there is a group of guides, create a submenu and display those guides -->
-
-		  				
-
-		  				<li class="dropdown-submenu">
-	                  		<a href="#" tabindex="-1">Dropship Partner Integration Guides</a>
-		  					
-		  					<ul class="dropdown-menu">
-		  						
-	                    		<li><a href="/documentation-testing/guides/dropship-onboarding-guide/" tabindex="-1">Dropship Onboarding Guide</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/guides/dropship-order-guide/" tabindex="-1">Dropship Order Management Guide</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/guides/dropship-test-order-guide/" tabindex="-1">Dropship Test Order Guide</a></li>
-	                    		
-	                  		</ul>
-		                </li>
-
-		                
-
-	  				
-
-	  				<!-- If there is a group of guides, create a submenu and display those guides -->
-
-		  				
-		                <!-- Display all of the Guides -->
-		                <li><a href="/documentation-testing/guides/commerce-guide/">eCommerce Integration Guide</a></li>
-		                
-		                
-
-	  				
-
-	  				<!-- If there is a group of guides, create a submenu and display those guides -->
-
-		  				
-
-		  				<li class="dropdown-submenu">
-	                  		<a href="#" tabindex="-1">Endless Aisle Integration Guide</a>
-		  					
-		  					<ul class="dropdown-menu">
-		  						
-	                    		<li><a href="/documentation-testing/guides/ea-guide/overview" tabindex="-1">Overview</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/guides/ea-guide/corporate-hierarchy" tabindex="-1">Corporate Hierarchy</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/guides/ea-guide/content" tabindex="-1">Content</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/guides/ea-guide/inventory" tabindex="-1">Inventory</a></li>
-	                    		
-	                    		<li><a href="/documentation-testing/guides/ea-guide/orders" tabindex="-1">Orders</a></li>
-	                    		
-	                  		</ul>
-		                </li>
-
-		                
-
-	  				
-
-	  				<!-- If there is a group of guides, create a submenu and display those guides -->
-
-		  				
-		                <!-- Display all of the Guides -->
-		                <li><a href="/documentation-testing/guides/rq-data-connect/">RQ Data Connect Guide</a></li>
-		                
-		                
-
-	  				
-
-	  				<!-- If there is a group of guides, create a submenu and display those guides -->
-
-		  				
-		                <!-- Display all of the Guides -->
-		                <li><a href="/documentation-testing/guides/3pa/">Third Party Authentication</a></li>
-		                
-		                
-
-	  				
-	  			</ul>
-	  		</li>
-		
-		
-
-		<!-- Core Concepts section -->
-    	
-
-	    <!-- FAQ section -->
-    	
-
-	    <!-- Sample Applications section -->
-    	
-
-	
-
-    	<!-- API section -->
-    	
-
-	    <!-- Guides section -->
-	    
-
-		<!-- Core Concepts section -->
-    	
-
-	    	<li class="dropdown">
-	  			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-submenu>CORE CONCEPTS<span class="caret"></span></a>
-	  			<ul class="dropdown-menu">
-
-	  				
-
-	  				<!-- Display all of the Concepts -->
-
-	  				<li><a href="/documentation-testing/concepts/classification-tree/">Classification Tree</a></li>
-
-	  				
-
-	  				<!-- Display all of the Concepts -->
-
-	  				<li><a href="/documentation-testing/concepts/company-tree/">Company Tree</a></li>
-
-	  				
-
-	  				<!-- Display all of the Concepts -->
-
-	  				<li><a href="/documentation-testing/concepts/product-library/">Product Library</a></li>
-
-	  				
-
-	  				<!-- Display all of the Concepts -->
-
-	  				<li><a href="/documentation-testing/concepts/product-structure/">Product Structure</a></li>
-
-	  				
-
-	  				<!-- Display all of the Concepts -->
-
-	  				<li><a href="/documentation-testing/concepts/user-manager/">User Manager</a></li>
-
-	  				
-	  			</ul>
-	  		</li>
-
-	    
-
-	    <!-- FAQ section -->
-    	
-
-	    <!-- Sample Applications section -->
-    	
-
-	
-
-    	<!-- API section -->
-    	
-
-	    <!-- Guides section -->
-	    
-
-		<!-- Core Concepts section -->
-    	
-
-	    <!-- FAQ section -->
-    	
-
-	    	<li class="dropdown">
-	  			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-submenu>FAQ<span class="caret"></span></a>
-	  			<ul class="dropdown-menu">
-
-	  				
-
-	  				<!-- Display all of the Concepts -->
-
-	  				<li><a href="/documentation-testing/faq/auth-faq/">Authentication FAQ</a></li>
-
-	  				
-
-	  				<!-- Display all of the Concepts -->
-
-	  				<li><a href="/documentation-testing/faq/dropship-faq/">Dropship FAQ</a></li>
-
-	  				
-	  			</ul>
-	  		</li>
-
-	    
-
-	    <!-- Sample Applications section -->
-    	
-
-	
-
-    	<!-- API section -->
-    	
-
-	    <!-- Guides section -->
-	    
-
-		<!-- Core Concepts section -->
-    	
-
-	    <!-- FAQ section -->
-    	
-
-	    <!-- Sample Applications section -->
-    	
-    		<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-submenu>SAMPLE APPLICATIONS<span class="caret"></span></a>
-	  			<ul class="dropdown-menu">
-
-	  				
-
-	  				<!-- Display all of the Concepts -->
-
-	  				<li><a href="/documentation-testing/reference-applications/">Magento Sync</a></li>
-
-	  				
-	  			</ul>
-	  		</li>
-
-
-	    
-
-	
-
 	</ul>
   </div>
 </div>
@@ -688,19 +125,18 @@
 
 <ol class="breadcrumb">
 	<li><a href="http://localhost:4006">Developer Portal</a></li>
-	<!-- <li><a href="#">API Reference</a></li> -->
 
 	
 		<li><a href="http://localhost:4006/reference-applications/">Sample Applications</a></li>
 	
-	<!-- <li class="active">Customers API</li> -->
+
 	<li class="active">Layout Mockup</li>
 </ol> 
           
       </nav>
 
-
-      <div class="navbar-default sidebar"  id="sidebar-test" role="navigation">
+      <!-- Sidebar -->
+      <div class="navbar-default sidebar" id="sidebar-test" role="navigation">
           <div class="sidebar-nav navbar-collapse" id="scrollspy">
 
 
@@ -708,8 +144,6 @@
           </div>
           <!-- /.sidebar-collapse -->
       </div>
-
-
 
     <div id="page-wrapper">
 
@@ -719,184 +153,11 @@
         <h1 class="post-title-main">Layout Mockup</h1>
 
       <div class="post-content">
-      <article id="article_with_toc">
 
       
 
 
       </div>
-      </article>
-
-
-  
-<!--
-
-  <h2 id="console" class="clickable-header top-level-header">Console</h2><i class="icon-arrow-up back-to-top"> </i>
-
-  <body ng-app="ramlConsoleApp" ng-cloak class="raml-console-body">
-    <raml-console src="http://developers.iqmetrix.com/postman/crm.raml" disable-try-it disable-theme-switcher disable-raml-client-generator></raml-console>
-  </body>
-
-
-<h2 id="searching" class="clickable-header top-level-header">Searching</h2>
-
-<p>The Customers API supports searching of <a href="http://developers.iqmetrix.com/api/crm/#customer">Customer</a> and <a href="#customersearch">CustomerSearch</a> resources through the use of filters.</p>
-
-<p>The <code class="highlighter-rouge">$filter</code> query parameter is used for specifying filtering criteria.</p>
-
-<p>The type of filters available depend on the Data Type of the property being filtered on.</p>
-
-<h2 id="available-filters">Available Filters</h2>
-
-<p>See the table below for available filters and the syntax of using each filter.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Keyword</th>
-      <th style="text-align: left">Filter Description</th>
-      <th style="text-align: left">Data Type</th>
-      <th style="text-align: left">Examples</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">eq</code></td>
-      <td style="text-align: left">Property is equal to value</td>
-      <td style="text-align: left">Integer, Boolean, String, Date</td>
-      <td style="text-align: left"><code class="highlighter-rouge">ContactMethod eq 1</code> <br /> <code class="highlighter-rouge">DoNotContact eq true</code>  <br /> <code class="highlighter-rouge">Criteria eq 'Bob'</code> <br /> <code class="highlighter-rouge">DateOfBirth eq DateTime'1990-01-01'</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">gt</code></td>
-      <td style="text-align: left">Property is greater than value(s)</td>
-      <td style="text-align: left">Integer, Date</td>
-      <td style="text-align: left"><code class="highlighter-rouge">ContactMethod gt 1</code> <br /> <code class="highlighter-rouge">DateOfBirth gt DateTime'1990-01-01'</code> <br /> <code class="highlighter-rouge">Criteria gt DateTime'2015-01-01'</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">lt</code></td>
-      <td style="text-align: left">Property is less than value(s)</td>
-      <td style="text-align: left">Integer, Date</td>
-      <td style="text-align: left"><code class="highlighter-rouge">ContactMethod lt 3</code> <br /> <code class="highlighter-rouge">DateOfBirth lt DateTime'1990-01-01'</code> <br /> <code class="highlighter-rouge">Criteria lt DateTime'2015-01-01'</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">ge</code></td>
-      <td style="text-align: left">Property is greater than or equal to value(s)</td>
-      <td style="text-align: left">Integer, Date</td>
-      <td style="text-align: left"><code class="highlighter-rouge">ContactMethod ge 1</code> <br /> <code class="highlighter-rouge">DateOfBirth ge DateTime'1990-01-01'</code> <br /> <code class="highlighter-rouge">Criteria ge DateTime'2015-01-01'</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">le</code></td>
-      <td style="text-align: left">Property is less than or equal to value(s)</td>
-      <td style="text-align: left">Integer, Date</td>
-      <td style="text-align: left"><code class="highlighter-rouge">ContactMethod le 1</code> <br /> <code class="highlighter-rouge">DateOfBirth le DateTime'1990-01-01'</code> <br /> <code class="highlighter-rouge">Criteria le DateTime'2015-01-01'</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">substringof</code></td>
-      <td style="text-align: left">Property contains value</td>
-      <td style="text-align: left">String</td>
-      <td style="text-align: left"><code class="highlighter-rouge">substringof('bob', PrimaryName)</code> <br /> <code class="highlighter-rouge">substringof('bob', Criteria)</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="combining-filters">Combining Filters</h3>
-
-<p>Filters can be combined using the keyword <code class="highlighter-rouge">and</code> as shown below.</p>
-
-<h6 id="example">Example</h6>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>PrimaryName eq 'John' and DateOfBirth gt DateTime'1990-01-01'
-</code></pre>
-</div>
-
-<h3 id="case-sensitivity">Case Sensitivity</h3>
-
-<p>Filters on <a href="http://developers.iqmetrix.com/api/crm/#customer">Customer</a> resources are <strong>case sensitive</strong>.</p>
-
-<p>Filters on <a href="#customersearch">CustomerSearch</a> resources are <strong>NOT</strong> case sensitive.</p>
-
-<p>To filter without case sensitivity, you can apply ‘tolower’ to a resource property.</p>
-
-<h6 id="example-1">Example</h6>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies(14146)/Customers?$filter=substringof('bob', tolower(PrimaryName))
-</code></pre>
-</div>
-
-<h2 id="pagination" class="clickable-header top-level-header">Pagination</h2>
-
-<p>The Customers API supports pagination of collections for some resources.</p>
-
-<p>Requests to resources that support pagination include the <code class="highlighter-rouge">Accept: application/hal+json</code> HTTP header under the Headers section.</p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
-<p>Pagination is done through the use of $skip and $top query string parameters.</p>
-
-<p><code class="highlighter-rouge">$skip</code> denotes the number of items in the collection to skip, defaults to 0 if no value is provided.</p>
-
-<p><code class="highlighter-rouge">$top</code> denotes the number of items to take, defaults to 50 if no value is provided.</p>
-
-<p>The maximum value of 100 will be used if the value provided is outside the acceptable range [0-100].</p>
-
-<h3 id="navigation-links">Navigation Links</h3>
-
-<p>Pagination links for ‘self’, ‘prev’ and ‘next’ are returned by default when the media type is a hypermedia-enabled media type (i.e. HAL).</p>
-
-<p>These links are <em>relative</em>, they do not include the base endpoint. It is the responsibility of the client to prepend the appropriate endpoint.</p>
-
-<h5 id="example-2">Example</h5>
-
-<div class="language-csharp highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
-    <span class="s">"_links"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">"self"</span><span class="p">:</span> <span class="p">{</span>
-          <span class="s">"href"</span><span class="p">:</span> <span class="s">"Companies(14146)/Customers?$skip=10&amp;$top=10"</span><span class="p">,</span>
-          <span class="s">"templated"</span><span class="p">:</span> <span class="k">false</span>
-        <span class="p">},</span>
-        <span class="s">"next"</span><span class="p">:</span> <span class="p">{</span>
-          <span class="s">"href"</span><span class="p">:</span> <span class="s">"Companies(14146)/Customers?$skip=20&amp;$top=10"</span><span class="p">,</span>
-          <span class="s">"templated"</span><span class="p">:</span> <span class="k">false</span>
-        <span class="p">},</span>
-        <span class="s">"prev"</span><span class="p">:</span> <span class="p">{</span>
-          <span class="s">"href"</span><span class="p">:</span> <span class="s">"Companies(14146)/Customers?$skip=0&amp;$top=10"</span><span class="p">,</span>
-          <span class="s">"templated"</span><span class="p">:</span> <span class="k">false</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="s">"_embedded"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">"self"</span><span class="p">:</span> <span class="p">[</span> <span class="p">]</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<p>In the example above, the <code class="highlighter-rouge">_links</code> section is included in the data returned from an API request to get Customers, where <code class="highlighter-rouge">$skip=10</code> and <code class="highlighter-rouge">$top=10</code>.</p>
-
-<p>The <code class="highlighter-rouge">self</code>.<code class="highlighter-rouge">href</code> value is the encoded version of the API request that returned these results.</p>
-
-<p>The <code class="highlighter-rouge">next</code>.<code class="highlighter-rouge">href</code> refers to a resource containing a page with the <strong>next</strong> 10 items.</p>
-
-<p>The <code class="highlighter-rouge">prev</code>.<code class="highlighter-rouge">href</code> refers to a resource containing a page with the <strong>previous</strong> 10 items.</p>
-
-<h2 id="errors" class="clickable-header top-level-header">Errors</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">HTTP Status Code</th>
-      <th style="text-align: left">Description</th>
-      <th style="text-align: left">How to Resolve</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><code class="highlighter-rouge">HTTP 404</code></td>
-      <td style="text-align: left"><code class="highlighter-rouge">Not Found</code></td>
-      <td style="text-align: left">Ensure the CustomerID is correct</td>
-    </tr>
-  </tbody>
-</table>
-    
-    -->
 
     <div id="disqus_thread"><iframe id="dsq-app2" name="dsq-app2" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="http://disqus.com/embed/comments/?base=default&amp;version=abfa4959dc34e1f6ae72ea1155d08c72&amp;f=iqmetrixdeveloperportal&amp;t_u=http%3A%2F%2Fdevelopers.iqmetrix.com%2Fapi%2Fpricing%2F&amp;t_d=Pricing%20%7C%20iQmetrix%20Developer%20Portal&amp;t_t=Pricing%20%7C%20iQmetrix%20Developer%20Portal&amp;s_o=default" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 321px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
     <script type="text/javascript">
@@ -928,7 +189,7 @@
     <script src="../../js/prism.js "></script>
     <script src="../../js/bootstrap-submenu.js "></script>
     <script>
-      $('[data-submenu]').submenupicker();
+      jQuery('[data-submenu]').submenupicker();
     </script>
 
     <!-- TOC modified for iQmetrix Developer Portal layout -->
@@ -937,19 +198,14 @@
 
         var pathname = window.location.pathname;
 
-        /*if ( (pathname == '/documentation-testing/api/') || (pathname.indexOf('api') == -1) ){  
+       // if ( (pathname == '/api/') || (pathname.indexOf('api') == -1) ){  
 
-          var ul = $('.sidebar-nav ul');
+          /*var ul = $('.sidebar-nav ul');
 
           $('h2').each(function() {
               ul.append('<li><a href="#' + $(this).attr('id') + '">' + $(this).html() + '</a></li>');
-          });
+          });*/
 
-        } else {
-          //do nothing
-        }   */
-
-        //if ( (pathname == '/documentation-testing/api/') || (pathname.indexOf('api') == -1) ){
           $('#scrollspy').DynamicScrollspy({
 
             //lowest-level header to be included (H2)
@@ -977,55 +233,29 @@
             affix: false
           
           });
-       // } else {
+
+     //   } else {
           //do nothing
-       // }   
+     //   }   
 
     </script>
-
-
-    <!-- 
-    <script>
-      $('#scrollspy').DynamicScrollspy({
-
-      //lowest-level header to be included (H2)
-      tH: 2, 
-
-      //highest-level header to be included (H3)
-      bH: 3, 
-
-      //generate random IDs?
-      genIDs: false, 
-
-      //offset for scrollspy
-      offset: 100, 
-
-      //add this class to top-most UL
-      ulClassNames: '', 
-
-      //active class (besides .active) to add
-      activeClass: '', 
-
-      //if testing, show heading tagName and ID
-      testing: false,
-
-      //use affix by default
-      affix: false
-      
-    });
-
-
-    </script>
-    -->
-
 
     <!-- Console JS-->
     <script src="../../js/api-console-vendor.js "></script>
     <script src="../../js/api-console.js "></script>
+
+    <!-- Clipboard -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
+
+    <!-- Cookies, copy button, etc -->
+    <script src="../../js/customscripts.js"></script>
 
     <script>
       $.noConflict();
     </script>
 
   </body>
+
+
+
 </html>
