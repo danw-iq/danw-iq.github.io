@@ -133,7 +133,7 @@
 
 <p>Retailers can select products from the <a href="/concepts/product-library">Product Library</a> to create a <strong>Retailer Catalog</strong>, a collection of products that can be sold.</p>
 
-<h2 id="product-slug">Product Slug</h2>
+<h3 id="product-slug">Product Slug</h3>
 
 <p>A <strong>slug</strong> is a generated identifier for a Product within the Product Library, determined using its <a href="/concepts/product-structure">Product Structure</a> and the following formula:</p>
 
@@ -141,17 +141,13 @@
 </code></pre>
 
 <ul>
-  <li>ProductDocumentId - Identifier for a</li>
-  <li>VariationId - Identifier for a</li>
+  <li>ProductDocumentId - Identifier for a <a href="http://developers.iqmetrix.com/api/product-structure/#productdocument">ProductDocument</a></li>
+  <li>VariationId - Identifier for a <a href="http://developers.iqmetrix.com/api/product-structure/#variation">Variation</a></li>
   <li>EntityId - Identifier for a <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a> or <a href="http://developers.iqmetrix.com/api/entity-store/#carrier">Carrier</a> associated with a Revision, as described in <a href="/api/product-structure/#creating-a-revision">Creating a Revision</a></li>
   <li>Region - Must contain 2 or 4 characters, either a Country Code, or Country Code plus a State Code, as described in <a href="/api/product-structure/#creating-a-revision">Creating a Revision</a></li>
 </ul>
 
-<h3 id="example">Example</h3>
-
-<blockquote>
-  <p>Example</p>
-</blockquote>
+<h5 id="example">Example</h5>
 
 <pre><code>M1-V2-E3-RCABC
 </code></pre>
@@ -159,7 +155,7 @@
 <p>Using the slug in the example above, we can determine the following:</p>
 
 <ul>
-  <li>The identifier for the  for this Product is <strong>1</strong></li>
+  <li>The identifier for the <a href="http://developers.iqmetrix.com/api/product-structure/#productdocument">ProductDocument</a> for this Product is <strong>1</strong></li>
   <li>This Revision was made from a Variation, as there is a <strong>V</strong> present</li>
   <li>The Company or Carrier that owns this Revision has an Id of <code>3</code></li>
   <li>This Revision is specific to British Columbia (<code>BC</code>), Canada (<code>CA</code>)</li>
@@ -1228,7 +1224,7 @@ puts response
     </li>
     
     <li>
-        <code>SubscriptionListId</code> (<strong>Required</strong>)  - Identifier for the  List
+        <code>SubscriptionListId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/product-subscription/#subscription">Subscription</a> List
     </li>
     </ul>
 
@@ -2345,7 +2341,7 @@ puts response
     </li>
     
     <li>
-        <code>VendorId</code> (Optional)  - Identifier for a  to search for
+        <code>VendorId</code> (Optional)  - Identifier for a <a href="http://developers.iqmetrix.com/api/epc/#vendor">Vendor</a> to search for
     </li>
     </ul>
 
@@ -3372,7 +3368,7 @@ puts response
     </li>
     
     <li>
-        <code>VendorIds</code> (Optional)  - List of comma seperated integers representing identifiers for 
+        <code>VendorIds</code> (Optional)  - List of comma seperated integers representing identifiers for <a href="http://developers.iqmetrix.com/api/epc/#vendor">Vendors</a>
     </li>
     
     <li>
@@ -3408,7 +3404,7 @@ puts response
     </li>
     
     <li>
-        <code>ColorTagIds</code> (Optional)  - Array of integers representing identifiers for 
+        <code>ColorTagIds</code> (Optional)  - Array of integers representing identifiers for <a href="http://developers.iqmetrix.com/api/product-structure/#colortag">ColorTags</a>
     </li>
     
     <li>

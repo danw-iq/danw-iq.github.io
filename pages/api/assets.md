@@ -4,7 +4,7 @@ permalink: /api/assets/
 tags: []
 keywords: 
 audience: 
-last_updated: 22-11-2016
+last_updated: 23-11-2016
 summary: 
 rouge: false
 ---

@@ -149,6 +149,177 @@ Ensure each company ID has only <strong>one</strong> cost per product.
   <li>Production: <a href="https://dropship.iqmetrix.net/v1">https://dropship.iqmetrix.net/v1</a></li>
 </ul>
 
+<h1 id="resources">Resources</h1>
+
+<h2 id="cost">Cost</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Id (<code>GUID</code>)</td>
+      <td style="text-align: left">Unique identifer</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Products (<code>Array[object]</code>)</td>
+      <td style="text-align: left">List of products for which the cost is being updated</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Products.Sku (<code>String</code>)</td>
+      <td style="text-align: left">Vendor product SKU</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Products.Cost (<code>Decimal</code>)</td>
+      <td style="text-align: left">Vendor product cost applied to the associated companies</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Products.CompanyIds (<code>Array[integer]</code>)</td>
+      <td style="text-align: left">List of <a href="/api/company-tree#company">Company</a> identifiers to receive Vendor product cost</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="requests">Requests</h1>
+
+<h2 id="adding-a-product-to-cost-feed">Adding a Product to Cost Feed</h2>
+
+<blockquote>
+  <p>Definition</p>
+</blockquote>
+
+<pre><code>POST /Suppliers({SupplierId})/Cost
+</code></pre>
+
+<blockquote>
+  <p>Example Request</p>
+</blockquote>
+
+<pre><code class="language-javascript">POST /Suppliers(14107)/Cost
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code></pre>
+
+<pre><code class="language-shell">curl -X POST "https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Cost" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+    "Products": [
+        {
+            "Sku": "1115884",
+            "Cost": 12.99,
+            "CompanyIds": [
+                14146
+            ]
+        }
+    ]
+}'
+</code></pre>
+
+<pre><code class="language-csharp">static IRestResponse AddingAProductToCostFeed()
+{
+    var client = new RestClient("https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Cost");
+    var request = new RestRequest(Method.POST);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+    request.AddHeader("Content-Type", "application/json"); 
+
+     request.AddParameter("application/json", "{\"Products\":[{\"Sku\":\"1115884\",\"Cost\":12.99,\"CompanyIds\":[14146]}]}", ParameterType.RequestBody);
+
+    return client.Execute(request);
+}
+</code></pre>
+
+<pre><code class="language-java">import org.apache.http.entity.StringEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse AddingAProductToCostFeed() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpPost request = new HttpPost("https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Cost");
+     
+    request.addHeader("Authorization", "Bearer (Access Token)"); 
+    request.addHeader("Accept", "application/json"); 
+    request.addHeader("Content-Type", "application/json"); 
+    StringEntity body = new StringEntity("{\"Products\":[{\"Sku\":\"1115884\",\"Cost\":12.99,\"CompanyIds\":[14146]}]}");
+    request.setEntity(body);
+    
+    return httpClient.execute(request);
+}
+</code></pre>
+
+<pre><code class="language-ruby">require 'rest-client'
+
+body = "{\"Products\":[{\"Sku\":\"1115884\",\"Cost\":12.99,\"CompanyIds\":[14146]}]}";
+
+response = RestClient.post 'https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Cost', body, {
+     :'Authorization' =&gt; 'Bearer (Access Token)',
+     :'Accept' =&gt; 'application/json',
+     :'Content-Type' =&gt; 'application/json',
+    } 
+
+puts response
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>SupplierId</code> (<strong>Required</strong>)  - Identifier of the Supplier
+    </li>
+    </ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>Products</code> (<strong>Required</strong>) </li><ul><li><code>Sku</code> (<strong>Required</strong>) </li><li><code>Cost</code> (<strong>Required</strong>) </li><li><code>CompanyIds</code> (<strong>Required</strong>) </li></ul></ul>
+
+<h4>Response</h4>
+
+<p><a href="#cost">Cost</a></p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 202 Content-Type: application/json
+</pre>
+<pre>{
+    "Id": "2e18496c-8f73-4298-8c96-a07816926734",
+    "Products": [
+        {
+            "Sku": "1115884",
+            "Cost": 12.99,
+            "CompanyIds": [
+                14146
+            ]
+        }
+    ]
+}</pre>
+
+<h1 id="errors">Errors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">HTTP Status Code</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">How to Resolve</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code>HTTP 400</code></td>
+      <td style="text-align: left"><code>Cannot find supplier identifier in the uri</code></td>
+      <td style="text-align: left">Occurs when entering an incorrect <code>SupplierId</code> in the uri</td>
+    </tr>
+  </tbody>
+</table>
+
 
 
       </div>
