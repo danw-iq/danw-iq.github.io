@@ -92,12 +92,11 @@ POST /providers({ProviderId})/tradeData
 > Example Request
 
 
-```javascript
-POST /providers(10)/tradeData
+<pre class="highlight javascript"><code>POST /providers(10)/tradeData
 Authorization: Bearer (Access Token)
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeData" -H "Authorization: Bearer (Access Token)" -d '[
     {
         "inspectedDate": "2016-03-16T12:00:00.000Z",
@@ -115,10 +114,9 @@ curl -X POST "https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeDa
         "shipmentId": "123",
         "tradeInStatus": "Quoted"
     }
-]'
-```
+]'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse CreateOrUpdateATrade()
 {
     var client = new RestClient("https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeData");
@@ -129,11 +127,10 @@ static IRestResponse CreateOrUpdateATrade()
      request.AddParameter("application/json", "[{\"inspectedDate\":\"2016-03-16T12:00:00.000Z\",\"originalCustomerInspectionValue \":310.5,\"originalCustomerTradeInValue\":310.5,\"paymentDate\":\"2016-03-16T12:00:00.000Z\",\"postInspectionValue\":310.5,\"processedDate\":\"2016-03-17T12:00:00.000Z\",\"receivedDate\":\"2016-03-16T12:00:00.000Z\",\"receivedImei\":\"351756051523999\",\"receivedProductDisplayName\":\"Galaxy S6 edge+ 32GB - Black Sapphire\",\"referenceNumber\":\"29253392392\",\"serialNumber\":\"B7FQ-RANC\",\"shippedDate\":\"2016-03-13T12:00:00.000Z\",\"shipmentId\":\"123\",\"tradeInStatus\":\"Quoted\"}]", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -150,11 +147,9 @@ public static CloseableHttpResponse CreateOrUpdateATrade() throws IOException {
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "[{\"inspectedDate\":\"2016-03-16T12:00:00.000Z\",\"originalCustomerInspectionValue \":310.5,\"originalCustomerTradeInValue\":310.5,\"paymentDate\":\"2016-03-16T12:00:00.000Z\",\"postInspectionValue\":310.5,\"processedDate\":\"2016-03-17T12:00:00.000Z\",\"receivedDate\":\"2016-03-16T12:00:00.000Z\",\"receivedImei\":\"351756051523999\",\"receivedProductDisplayName\":\"Galaxy S6 edge+ 32GB - Black Sapphire\",\"referenceNumber\":\"29253392392\",\"serialNumber\":\"B7FQ-RANC\",\"shippedDate\":\"2016-03-13T12:00:00.000Z\",\"shipmentId\":\"123\",\"tradeInStatus\":\"Quoted\"}]";
 
@@ -162,8 +157,7 @@ response = RestClient.post 'https://tradeinreportingdemo.iqmetrix.net/v1/provide
      :'Authorization' => 'Bearer (Access Token)',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -180,16 +174,16 @@ puts response
 
 <ul><li><code>receivedImei</code> (<strong>Required</strong>) </li><li><code>referenceNumber</code> (<strong>Required</strong>) </li><li><code>inspectedDate</code> (Optional) </li><li><code>originalCustomerInspectionValue </code> (Optional) </li><li><code>originalCustomerTradeInValue</code> (Optional) </li><li><code>paymentDate</code> (Optional) </li><li><code>postInspectionValue</code> (Optional) </li><li><code>processedDate</code> (Optional) </li><li><code>receivedDate</code> (Optional) </li><li><code>receivedProductDisplayName</code> (Optional) </li><li><code>serialNumber</code> (Optional) </li><li><code>shippedDate</code> (Optional) </li><li><code>shipmentId</code> (Optional) </li><li><code>tradeInStatus</code> (Optional) </li></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  Array[<a href='#providertradedata'>ProviderTradeData</a>]
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>[
+</pre><pre class="highlight json">[
     {
         "referenceNumber": "123",
         "tradeDataId": 357
@@ -209,16 +203,14 @@ GET /providers({ProviderId})/tradeData({TradeDataId})
 > Example Request
 
 
-```javascript
-GET /providers(10)/tradeData(357)
+<pre class="highlight javascript"><code>GET /providers(10)/tradeData(357)
 Authorization: Bearer (Access Token)
-```
+</code></pre>
 
-```shell
-curl -X GET "https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeData(357)" -H "Authorization: Bearer (Access Token)"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeData(357)" -H "Authorization: Bearer (Access Token)"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GetProviderDataForATrade()
 {
     var client = new RestClient("https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeData(357)");
@@ -229,11 +221,10 @@ static IRestResponse GetProviderDataForATrade()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -248,11 +239,9 @@ public static CloseableHttpResponse GetProviderDataForATrade() throws IOExceptio
     request.addHeader("Authorization", "Bearer (Access Token)"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -260,8 +249,7 @@ response = RestClient.get 'https://tradeinreportingdemo.iqmetrix.net/v1/provider
      :'Authorization' => 'Bearer (Access Token)',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -278,16 +266,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#phobiotradeindata'>PhobioTradeInData</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "inspectedDate": "2016-03-16T12:00:00.000Z",
     "originalCustomerInspectionValue ": 310.5,
     "originalCustomerTradeInValue": 310.5,

@@ -99,17 +99,15 @@ GET /subscription({ListId})
 > Example Request
 
 
-```javascript
-GET /subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)
+<pre class="highlight javascript"><code>GET /subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAllCompaniesInAProductSubscription()
 {
     var client = new RestClient("https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)");
@@ -121,11 +119,10 @@ static IRestResponse GettingAllCompaniesInAProductSubscription()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -141,11 +138,9 @@ public static CloseableHttpResponse GettingAllCompaniesInAProductSubscription() 
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -154,8 +149,7 @@ response = RestClient.get 'https://productsubscriptionsdemo.iqmetrix.net/v1/subs
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -168,16 +162,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  Array[<a href='#subscription'>Subscription</a>]
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
   "ListId": "43d92a51-650e-4b85-b5d0-8d51bf4c59f4",
   "Companies": [
       {
@@ -204,23 +198,21 @@ PUT /subscribablelists({ListId})
 > Example Request
 
 
-```javascript
-PUT /subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)
+<pre class="highlight javascript"><code>PUT /subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X PUT "https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "EntityId": 14107,
     "Name": "Test List Name",
     "Dropshippable": true
 }
-'
-```
+'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse CreatingASubscribableList()
 {
     var client = new RestClient("https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)");
@@ -233,11 +225,10 @@ static IRestResponse CreatingASubscribableList()
      request.AddParameter("application/json", "{\"EntityId\":14107,\"Name\":\"Test List Name\",\"Dropshippable\":true}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
@@ -256,11 +247,9 @@ public static CloseableHttpResponse CreatingASubscribableList() throws IOExcepti
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"EntityId\":14107,\"Name\":\"Test List Name\",\"Dropshippable\":true}
 
@@ -270,8 +259,7 @@ response = RestClient.put 'https://productsubscriptionsdemo.iqmetrix.net/v1/subs
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -288,16 +276,16 @@ puts response
 
 <ul><li><code>EntityId</code> (<strong>Required</strong>) - {{Supplier}} identifier</li><li><code>Name</code> (<strong>Required</strong>) - Title of product subscription</li><li><code>Dropshippable</code> (Optional) - Defaults to false</li></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#subscribablelist'>SubscribableList</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": "43d92a51-650e-4b85-b5d0-8d51bf4c59f4",
     "EntityId": 14107,
     "Name": "Nozama - Samsung Products",
@@ -320,17 +308,15 @@ GET /subscribablelists({SubscribableListId})
 > Example Request
 
 
-```javascript
-GET /subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)
+<pre class="highlight javascript"><code>GET /subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingASubscribableList()
 {
     var client = new RestClient("https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)");
@@ -342,11 +328,10 @@ static IRestResponse GettingASubscribableList()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -362,11 +347,9 @@ public static CloseableHttpResponse GettingASubscribableList() throws IOExceptio
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -375,8 +358,7 @@ response = RestClient.get 'https://productsubscriptionsdemo.iqmetrix.net/v1/subs
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -389,16 +371,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#subscribablelist'>SubscribableList</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "EntityId": 14107,
     "Id": "43d92a51-650e-4b85-b5d0-8d51bf4c59f4",
     "Name": "Nozama's Product List",
@@ -433,14 +415,13 @@ PUT /subscribablelists({SubscribableListId})
 > Example Request
 
 
-```javascript
-PUT /subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)
+<pre class="highlight javascript"><code>PUT /subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X PUT "https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
    "EntityId": 14107,
    "Name": "Nozama's Product List",
@@ -453,10 +434,9 @@ curl -X PUT "https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(
        }
    ]          
 }
-'
-```
+'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse UpdatingProductsInASubscribableList()
 {
     var client = new RestClient("https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)");
@@ -469,11 +449,10 @@ static IRestResponse UpdatingProductsInASubscribableList()
      request.AddParameter("application/json", "{\"EntityId\":14107,\"Name\":\"Nozama's Product List\",\"Products\":[{\"ProductName\":\"Samsung Galaxy S4 Standard Battery\",\"VendorSku\":\"B00LAOKN4S\",\"Price\":24.99,\"Dropshippable\":true}]}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
@@ -492,11 +471,9 @@ public static CloseableHttpResponse UpdatingProductsInASubscribableList() throws
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"EntityId\":14107,\"Name\":\"Nozama's Product List\",\"Products\":[{\"ProductName\":\"Samsung Galaxy S4 Standard Battery\",\"VendorSku\":\"B00LAOKN4S\",\"Price\":24.99,\"Dropshippable\":true}]}
 
@@ -506,8 +483,7 @@ response = RestClient.put 'https://productsubscriptionsdemo.iqmetrix.net/v1/subs
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -524,16 +500,16 @@ puts response
 
 <ul><li><code>EntityId</code> (<strong>Required</strong>) </li><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Products</code> (<strong>Required</strong>) </li><ul><li><code>ProductName</code> (<strong>Required</strong>) </li><li><code>VendorSku</code> (<strong>Required</strong>) </li><li><code>Dropshippable</code> (Optional) </li><li><code>Price</code> (Optional) </li><li><code>ProductSlugs</code> (Optional) </li><li><code>Version</code> (<strong>Required</strong>) </li></ul><li><code>Id</code> (Optional) </li><li><code>Dropshippable</code> (Optional) </li><li><code>Version</code> (<strong>Required</strong>) </li></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#subscribablelist'>SubscribableList</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": "43d92a51-650e-4b85-b5d0-8d51bf4c59f4",
     "EntityId": 41407,
     "Name": "Nozama's Product List",
@@ -564,18 +540,16 @@ PUT /subscription({ListId})/company({CompanyId})
 > Example Request
 
 
-```javascript
-PUT /subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)/company(14146)
+<pre class="highlight javascript"><code>PUT /subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)/company(14146)
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
-curl -X PUT "https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)/company(14146)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X PUT "https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)/company(14146)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse AddingACompanyToASubscribableList()
 {
     var client = new RestClient("https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)/company(14146)");
@@ -588,11 +562,10 @@ static IRestResponse AddingACompanyToASubscribableList()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
@@ -609,11 +582,9 @@ public static CloseableHttpResponse AddingACompanyToASubscribableList() throws I
     request.addHeader("Content-Type", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -623,8 +594,7 @@ response = RestClient.put 'https://productsubscriptionsdemo.iqmetrix.net/v1/subs
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -641,13 +611,13 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 204 Content-Type: application/json
 </pre>
 
@@ -664,16 +634,14 @@ DELETE /subscription({ListId})/company({CompanyId})
 > Example Request
 
 
-```javascript
-DELETE /subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)/company(14146)
+<pre class="highlight javascript"><code>DELETE /subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)/company(14146)
 Authorization: Bearer (Access Token)
-```
+</code></pre>
 
-```shell
-curl -X DELETE "https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)/company(14146)" -H "Authorization: Bearer (Access Token)"
-```
+<pre class="highlight shell"><code>
+curl -X DELETE "https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)/company(14146)" -H "Authorization: Bearer (Access Token)"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse DeletingACompanyFromASubscribableList()
 {
     var client = new RestClient("https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)/company(14146)");
@@ -684,11 +652,10 @@ static IRestResponse DeletingACompanyFromASubscribableList()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
@@ -703,11 +670,9 @@ public static CloseableHttpResponse DeletingACompanyFromASubscribableList() thro
     request.addHeader("Authorization", "Bearer (Access Token)"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -715,8 +680,7 @@ response = RestClient.delete 'https://productsubscriptionsdemo.iqmetrix.net/v1/s
      :'Authorization' => 'Bearer (Access Token)',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -733,13 +697,13 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 204 Content-Type: application/json
 </pre>
 

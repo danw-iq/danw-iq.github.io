@@ -77,14 +77,13 @@ POST /Suppliers({SupplierId})/Cost
 > Example Request
 
 
-```javascript
-POST /Suppliers(14107)/Cost
+<pre class="highlight javascript"><code>POST /Suppliers(14107)/Cost
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Cost" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Products": [
         {
@@ -95,10 +94,9 @@ curl -X POST "https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Cost" -H "Au
             ]
         }
     ]
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse AddingAProductToCostFeed()
 {
     var client = new RestClient("https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Cost");
@@ -111,11 +109,10 @@ static IRestResponse AddingAProductToCostFeed()
      request.AddParameter("application/json", "{\"Products\":[{\"Sku\":\"1115884\",\"Cost\":12.99,\"CompanyIds\":[14146]}]}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -134,11 +131,9 @@ public static CloseableHttpResponse AddingAProductToCostFeed() throws IOExceptio
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"Products\":[{\"Sku\":\"1115884\",\"Cost\":12.99,\"CompanyIds\":[14146]}]}";
 
@@ -148,8 +143,7 @@ response = RestClient.post 'https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -166,16 +160,16 @@ puts response
 
 <ul><li><code>Products</code> (<strong>Required</strong>) </li><ul><li><code>Sku</code> (<strong>Required</strong>) </li><li><code>Cost</code> (<strong>Required</strong>) </li><li><code>CompanyIds</code> (<strong>Required</strong>) </li></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#cost'>Cost</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 202 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": "2e18496c-8f73-4298-8c96-a07816926734",
     "Products": [
         {

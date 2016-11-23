@@ -406,14 +406,13 @@ POST /companies({CompanyId})/products
 > Example Request
 
 
-```javascript
-POST /companies(1)/products
+<pre class="highlight javascript"><code>POST /companies(1)/products
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://platformepcdemo.iqmetrix.net/v1/companies(1)/products" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "RegularProducts": [
         {
@@ -707,10 +706,9 @@ curl -X POST "https://platformepcdemo.iqmetrix.net/v1/companies(1)/products" -H 
             "VendorSku": "DEF987"
         }
     ]
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse BulkImportingProductsToRq()
 {
     var client = new RestClient("https://platformepcdemo.iqmetrix.net/v1/companies(1)/products");
@@ -723,11 +721,10 @@ static IRestResponse BulkImportingProductsToRq()
      request.AddParameter("application/json", "{\"RegularProducts\":[{\"Barcodes\":[\"BARCODE123\"],\"ProductName\":\"iPhone 4S 16GB White\",\"CategoryName\":\"Products > Phones > Smartphones\",\"ClassificationTreeId\":1,\"DaysKeptInStock\":10,\"DefaultPricingAndPurchasing\":{\"AllowReturns\":true,\"Discountable\":true,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"LockMinMaxed\":true,\"Margin\":1,\"MaximumQuantity\":10,\"MinimumQuantity\":1,\"MsrpAmount\":499.99,\"MsrpCurrencyCode\":\"USD\",\"Price\":499.99,\"PrimaryVendorName\":\"Apple\",\"RefundPeriod\":10,\"RefundToUsed\":false,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlInventoryCorrectionsAccountNumber\":\"1001\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":false,\"LocationVendors\":[{\"Cost\":99.99,\"DiscontinuedDate\":\"2016-01-01T12:00:00.000\",\"DoNotOrder\":false,\"EndOfLife\":\"2016-01-01T12:00:00.000\",\"SpecialOrder\":false,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\",\"VendorName\":\"SampleVendor\",\"WriteOff\":false}],\"LongDescription\":\"The iPhone 4S is a gradualstep over the iPhone 4.\",\"ManufacturerName\":\"Apple\",\"ManufacturerSku\":\"ABC123\",\"Model\":\"iPhone 6\",\"PricingAndPurchasingLocations\":[{\"AllowReturns\":true,\"Discountable\":true,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"LockMinMaxed\":true,\"Margin\":1,\"MaximumQuantity\":10,\"MinimumQuantity\":1,\"MsrpAmount\":499.99,\"MsrpCurrencyCode\":\"USD\",\"Price\":499.99,\"PrimaryVendorName\":\"Apple\",\"RefundPeriod\":10,\"RefundToUsed\":false,\"SaleBeginDate\":\"2015-10-14T12:00:00.000\",\"SaleEndDate\":\"2015-10-18T12:00:00.000\",\"SalePrice\":399.99,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"iPhone 4S 16GB White\",\"ReleaseDate\":\"2011-10-14T12:00:00.000\",\"Serialized\":true,\"SerialNumberPromptText\":\"Serial prompt text here\",\"ShortDescription\":\"Better than the iPhone 3G\",\"Vendors\":[{\"Cost\":99.99,\"DiscontinuedDate\":\"2016-01-01T12:00:00.000\",\"DoNotOrder\":false,\"EndOfLife\":\"2016-01-01T12:00:00.000\",\"SpecialOrder\":false,\"VendorName\":\"SampleVendor\",\"VendorSku\":\"DEF987\",\"WriteOff\":false}],\"WarehouseLocation\":\"Cornwall\"}],\"NonStockedProducts\":[{\"ProductName\":\"Prepaid Rate Plan\",\"CategoryName\":\"Rate Plans > Rate Plans\",\"ClassificationTreeId\":1,\"DefaultPricing\":{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"RefundPeriod\":null,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"FloorPrice\":0,\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":true,\"LongDescription\":\"Prepaid plan forpeople on the go\",\"PricingLocations\":[{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"SalePrice\":0,\"SaleBeginDate\":\"null\",\"SaleEndDate\":\"null\",\"ShowOnInvoice\":true,\"RefundPeriod\":null,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"Prepaid Rate Plan\",\"Serialized\":false,\"SerialNumberPromptText\":\"null\",\"ShortDescription\":\"Prepaid plan\",\"VendorSku\":\"DEF987\"}],\"NonRevenueProducts\":[{\"ProductName\":\"Recycling Fee\",\"CategoryName\":\"Misc > Misc. Fees\",\"ClassificationTreeId\":1,\"DefaultPricing\":{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"RefundPeriod\":null,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"FloorPrice\":0,\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":false,\"LongDescription\":\"Recycling fee to disposeof old handset\",\"PricingLocations\":[{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"SalePrice\":0,\"SaleBeginDate\":\"null\",\"SaleEndDate\":\"null\",\"ShowOnInvoice\":true,\"RefundPeriod\":null,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"Recycling Fee\",\"Serialized\":true,\"SerialNumberPromptText\":\"Serial prompt text here\",\"ShortDescription\":\"Recycling fee\",\"VendorSku\":\"DEF987\"}],\"VendorRebateProducts\":[{\"VendorName\":\"SampleVendor\",\"ProductName\":\"2 YR New Act\",\"CategoryName\":\"Rate Plans > Rate Plan Rebates\",\"ClassificationTreeId\":1,\"DefaultPricing\":{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"RefundPeriod\":null,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":false,\"LongDescription\":\"Rebate on 2 year actiations\",\"PricingLocations\":[{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"SalePrice\":0,\"SaleBeginDate\":\"null\",\"SaleEndDate\":\"null\",\"ShowOnInvoice\":true,\"RefundPeriod\":null,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"2 YR New Act\",\"Serialized\":true,\"SerialNumberPromptText\":\"Serial prompt text here\",\"ShortDescription\":\"2 yr rebate\",\"VendorAccountName\":\"Verizon\",\"VendorSku\":\"DEF987\"}]}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -746,11 +743,9 @@ public static CloseableHttpResponse BulkImportingProductsToRq() throws IOExcepti
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"RegularProducts\":[{\"Barcodes\":[\"BARCODE123\"],\"ProductName\":\"iPhone 4S 16GB White\",\"CategoryName\":\"Products > Phones > Smartphones\",\"ClassificationTreeId\":1,\"DaysKeptInStock\":10,\"DefaultPricingAndPurchasing\":{\"AllowReturns\":true,\"Discountable\":true,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"LockMinMaxed\":true,\"Margin\":1,\"MaximumQuantity\":10,\"MinimumQuantity\":1,\"MsrpAmount\":499.99,\"MsrpCurrencyCode\":\"USD\",\"Price\":499.99,\"PrimaryVendorName\":\"Apple\",\"RefundPeriod\":10,\"RefundToUsed\":false,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlInventoryCorrectionsAccountNumber\":\"1001\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":false,\"LocationVendors\":[{\"Cost\":99.99,\"DiscontinuedDate\":\"2016-01-01T12:00:00.000\",\"DoNotOrder\":false,\"EndOfLife\":\"2016-01-01T12:00:00.000\",\"SpecialOrder\":false,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\",\"VendorName\":\"SampleVendor\",\"WriteOff\":false}],\"LongDescription\":\"The iPhone 4S is a gradualstep over the iPhone 4.\",\"ManufacturerName\":\"Apple\",\"ManufacturerSku\":\"ABC123\",\"Model\":\"iPhone 6\",\"PricingAndPurchasingLocations\":[{\"AllowReturns\":true,\"Discountable\":true,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"LockMinMaxed\":true,\"Margin\":1,\"MaximumQuantity\":10,\"MinimumQuantity\":1,\"MsrpAmount\":499.99,\"MsrpCurrencyCode\":\"USD\",\"Price\":499.99,\"PrimaryVendorName\":\"Apple\",\"RefundPeriod\":10,\"RefundToUsed\":false,\"SaleBeginDate\":\"2015-10-14T12:00:00.000\",\"SaleEndDate\":\"2015-10-18T12:00:00.000\",\"SalePrice\":399.99,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"iPhone 4S 16GB White\",\"ReleaseDate\":\"2011-10-14T12:00:00.000\",\"Serialized\":true,\"SerialNumberPromptText\":\"Serial prompt text here\",\"ShortDescription\":\"Better than the iPhone 3G\",\"Vendors\":[{\"Cost\":99.99,\"DiscontinuedDate\":\"2016-01-01T12:00:00.000\",\"DoNotOrder\":false,\"EndOfLife\":\"2016-01-01T12:00:00.000\",\"SpecialOrder\":false,\"VendorName\":\"SampleVendor\",\"VendorSku\":\"DEF987\",\"WriteOff\":false}],\"WarehouseLocation\":\"Cornwall\"}],\"NonStockedProducts\":[{\"ProductName\":\"Prepaid Rate Plan\",\"CategoryName\":\"Rate Plans > Rate Plans\",\"ClassificationTreeId\":1,\"DefaultPricing\":{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"RefundPeriod\":null,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"FloorPrice\":0,\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":true,\"LongDescription\":\"Prepaid plan forpeople on the go\",\"PricingLocations\":[{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"SalePrice\":0,\"SaleBeginDate\":\"null\",\"SaleEndDate\":\"null\",\"ShowOnInvoice\":true,\"RefundPeriod\":null,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"Prepaid Rate Plan\",\"Serialized\":false,\"SerialNumberPromptText\":\"null\",\"ShortDescription\":\"Prepaid plan\",\"VendorSku\":\"DEF987\"}],\"NonRevenueProducts\":[{\"ProductName\":\"Recycling Fee\",\"CategoryName\":\"Misc > Misc. Fees\",\"ClassificationTreeId\":1,\"DefaultPricing\":{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"RefundPeriod\":null,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"FloorPrice\":0,\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":false,\"LongDescription\":\"Recycling fee to disposeof old handset\",\"PricingLocations\":[{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"SalePrice\":0,\"SaleBeginDate\":\"null\",\"SaleEndDate\":\"null\",\"ShowOnInvoice\":true,\"RefundPeriod\":null,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"Recycling Fee\",\"Serialized\":true,\"SerialNumberPromptText\":\"Serial prompt text here\",\"ShortDescription\":\"Recycling fee\",\"VendorSku\":\"DEF987\"}],\"VendorRebateProducts\":[{\"VendorName\":\"SampleVendor\",\"ProductName\":\"2 YR New Act\",\"CategoryName\":\"Rate Plans > Rate Plan Rebates\",\"ClassificationTreeId\":1,\"DefaultPricing\":{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"RefundPeriod\":null,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":false,\"LongDescription\":\"Rebate on 2 year actiations\",\"PricingLocations\":[{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"SalePrice\":0,\"SaleBeginDate\":\"null\",\"SaleEndDate\":\"null\",\"ShowOnInvoice\":true,\"RefundPeriod\":null,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"2 YR New Act\",\"Serialized\":true,\"SerialNumberPromptText\":\"Serial prompt text here\",\"ShortDescription\":\"2 yr rebate\",\"VendorAccountName\":\"Verizon\",\"VendorSku\":\"DEF987\"}]}";
 
@@ -760,8 +755,7 @@ response = RestClient.post 'https://platformepcdemo.iqmetrix.net/v1/companies(1)
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -778,16 +772,16 @@ puts response
 
 <ul><li><code>RegularProducts</code> (Optional) </li><ul><li><code>Barcodes</code> (<strong>Required</strong>) </li><li><code>ProductName</code> (<strong>Required</strong>) </li><li><code>CategoryName</code> (<strong>Required</strong>) </li><li><code>DefaultPricingAndPurchasing</code> (<strong>Required</strong>) </li><ul><li><code>Price</code> (<strong>Required</strong>) </li><li><code>PrimaryVendorName</code> (<strong>Required</strong>) </li><li><code>AllowReturns</code> (Optional) </li><li><code>Discountable</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>ForSale</code> (Optional) </li><li><code>InvoiceComments</code> (Optional) </li><li><code>LockMinMaxed</code> (Optional) </li><li><code>Margin</code> (Optional) </li><li><code>MaximumQuantity</code> (Optional) </li><li><code>MinimumQuantity</code> (Optional) </li><li><code>MsrpAmount</code> (Optional) </li><li><code>MsrpCurrencyCode</code> (Optional) </li><li><code>RefundPeriod</code> (Optional) </li><li><code>RefundToUsed</code> (Optional) </li><li><code>ShowOnInvoice</code> (Optional) </li><li><code>StoreInStorePrice</code> (Optional) </li></ul><li><code>ManufacturerName</code> (<strong>Required</strong>) </li><li><code>ProductLabel</code> (<strong>Required</strong>) </li><li><code>ClassificationTreeId</code> (Optional) </li><li><code>DaysKeptInStock</code> (Optional) </li><li><code>Enabled</code> (Optional) </li><li><code>EnforcedTrackingNumberLength</code> (Optional) - This value can only be set if Serialized is true</li><li><code>ExtendedAttributes</code> (Optional) </li><ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Value</code> (<strong>Required</strong>) </li></ul><li><code>GlCostOfSalesAccountNumber</code> (Optional) </li><li><code>GlInventoryAccountNumber</code> (Optional) </li><li><code>GlInventoryCorrectionsAccountNumber</code> (Optional) </li><li><code>GlSalesAccountNumber</code> (Optional) </li><li><code>IgnoreAutomaticTaxAddition</code> (Optional) </li><li><code>LocationVendors</code> (Optional) </li><ul><li><code>TargetLocationType</code> (<strong>Required</strong>) </li><li><code>VendorName</code> (<strong>Required</strong>) </li><li><code>Cost</code> (Optional) </li><li><code>DiscontinuedDate</code> (Optional) </li><li><code>DoNotOrder</code> (Optional) - Defaults to false, case sensitive</li><li><code>EndOfLife</code> (Optional) </li><li><code>SpecialOrder</code> (Optional) - Defaults to false, case sensitive</li><li><code>TargetLocationName</code> (Optional) </li><li><code>WriteOff</code> (Optional) - Defaults to false, case sensitive</li></ul><li><code>LongDescription</code> (Optional) </li><li><code>ManufacturerSku</code> (Optional) </li><li><code>Model</code> (Optional) </li><li><code>PricingAndPurchasingLocations</code> (Optional) </li><ul><li><code>Price</code> (<strong>Required</strong>) </li><li><code>PrimaryVendorName</code> (<strong>Required</strong>) </li><li><code>TargetLocationType</code> (<strong>Required</strong>) </li><li><code>AllowReturns</code> (Optional) </li><li><code>Discountable</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>ForSale</code> (Optional) </li><li><code>InvoiceComments</code> (Optional) </li><li><code>LockMinMaxed</code> (Optional) </li><li><code>Margin</code> (Optional) </li><li><code>MaximumQuantity</code> (Optional) </li><li><code>MinimumQuantity</code> (Optional) </li><li><code>MsrpAmount</code> (Optional) </li><li><code>MsrpCurrencyCode</code> (Optional) </li><li><code>RefundPeriod</code> (Optional) </li><li><code>RefundToUsed</code> (Optional) </li><li><code>SaleBeginDate</code> (Optional) </li><li><code>SaleEndDate</code> (Optional) </li><li><code>SalePrice</code> (Optional) </li><li><code>ShowOnInvoice</code> (Optional) </li><li><code>StoreInStorePrice</code> (Optional) </li><li><code>TargetLocationName</code> (Optional) </li></ul><li><code>PricingMethod</code> (Optional) </li><li><code>ReleaseDate</code> (Optional) </li><li><code>Serialized</code> (Optional) </li><li><code>SerialNumberPromptText</code> (Optional) </li><li><code>ShortDescription</code> (Optional) </li><li><code>Vendors</code> (Optional) </li><ul><li><code>VendorName</code> (<strong>Required</strong>) </li><li><code>VendorSku</code> (<strong>Required</strong>) - If provided, must be unique per Vendor</li><li><code>Cost</code> (Optional) </li><li><code>DiscontinuedDate</code> (Optional) </li><li><code>DoNotOrder</code> (Optional) - Defaults to false, case sensitive</li><li><code>EndOfLife</code> (Optional) </li><li><code>SpecialOrder</code> (Optional) - Defaults to false, case sensitive</li><li><code>WriteOff</code> (Optional) - Defaults to false, case sensitive</li></ul><li><code>WarehouseLocation</code> (Optional) </li></ul><li><code>NonStockedProducts</code> (Optional) </li><ul><li><code>ProductName</code> (<strong>Required</strong>) </li><li><code>CategoryName</code> (<strong>Required</strong>) </li><li><code>DefaultPricing</code> (<strong>Required</strong>) </li><ul><li><code>Price</code> (<strong>Required</strong>) </li><li><code>AllowReturns</code> (Optional) </li><li><code>CarrierPrice</code> (Optional) </li><li><code>Cost</code> (Optional) </li><li><code>Discountable</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>ForSale</code> (Optional) </li><li><code>InvoiceComments</code> (Optional) </li><li><code>Margin</code> (Optional) </li><li><code>RefundPeriod</code> (Optional) </li><li><code>ShowOnInvoice</code> (Optional) </li><li><code>StoreInStorePrice</code> (Optional) </li></ul><li><code>ProductLabel</code> (<strong>Required</strong>) </li><li><code>ClassificationTreeId</code> (Optional) </li><li><code>Enabled</code> (Optional) </li><li><code>EnforcedTrackingNumberLength</code> (Optional) - This value can only be set if Serialized is true</li><li><code>ExtendedAttributes</code> (Optional) </li><ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Value</code> (<strong>Required</strong>) </li></ul><li><code>FloorPrice</code> (Optional) </li><li><code>GlCostOfSalesAccountNumber</code> (Optional) </li><li><code>GlInventoryAccountNumber</code> (Optional) </li><li><code>GlSalesAccountNumber</code> (Optional) </li><li><code>IgnoreAutomaticTaxAddition</code> (Optional) </li><li><code>LongDescription</code> (Optional) </li><li><code>PricingLocations</code> (Optional) </li><ul><li><code>Price</code> (<strong>Required</strong>) </li><li><code>TargetLocationType</code> (<strong>Required</strong>) </li><li><code>AllowReturns</code> (Optional) </li><li><code>CarrierPrice</code> (Optional) </li><li><code>Cost</code> (Optional) </li><li><code>Discountable</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>ForSale</code> (Optional) </li><li><code>InvoiceComments</code> (Optional) </li><li><code>Margin</code> (Optional) </li><li><code>SalePrice</code> (Optional) </li><li><code>SaleBeginDate</code> (Optional) </li><li><code>SaleEndDate</code> (Optional) </li><li><code>ShowOnInvoice</code> (Optional) </li><li><code>RefundPeriod</code> (Optional) </li><li><code>StoreInStorePrice</code> (Optional) </li><li><code>TargetLocationName</code> (Optional) </li></ul><li><code>PricingMethod</code> (Optional) </li><li><code>Serialized</code> (Optional) </li><li><code>SerialNumberPromptText</code> (Optional) </li><li><code>ShortDescription</code> (Optional) </li><li><code>VendorSku</code> (Optional) - If provided, must be unique per Vendor</li></ul><li><code>NonRevenueProducts</code> (Optional) </li><ul><li><code>ProductName</code> (<strong>Required</strong>) </li><li><code>CategoryName</code> (<strong>Required</strong>) </li><li><code>DefaultPricing</code> (<strong>Required</strong>) </li><ul><li><code>Price</code> (<strong>Required</strong>) </li><li><code>AllowReturns</code> (Optional) </li><li><code>CarrierPrice</code> (Optional) </li><li><code>Cost</code> (Optional) </li><li><code>Discountable</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>ForSale</code> (Optional) </li><li><code>InvoiceComments</code> (Optional) </li><li><code>Margin</code> (Optional) </li><li><code>RefundPeriod</code> (Optional) </li><li><code>ShowOnInvoice</code> (Optional) </li><li><code>StoreInStorePrice</code> (Optional) </li></ul><li><code>ProductLabel</code> (<strong>Required</strong>) </li><li><code>ClassificationTreeId</code> (Optional) </li><li><code>Enabled</code> (Optional) </li><li><code>EnforcedTrackingNumberLength</code> (Optional) - This value can only be set if Serialized is true</li><li><code>ExtendedAttributes</code> (Optional) </li><ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Value</code> (<strong>Required</strong>) </li></ul><li><code>FloorPrice</code> (Optional) </li><li><code>GlCostOfSalesAccountNumber</code> (Optional) </li><li><code>GlInventoryAccountNumber</code> (Optional) </li><li><code>GlSalesAccountNumber</code> (Optional) </li><li><code>IgnoreAutomaticTaxAddition</code> (Optional) </li><li><code>LongDescription</code> (Optional) </li><li><code>PricingLocations</code> (Optional) </li><ul><li><code>Price</code> (<strong>Required</strong>) </li><li><code>TargetLocationType</code> (<strong>Required</strong>) </li><li><code>AllowReturns</code> (Optional) </li><li><code>CarrierPrice</code> (Optional) </li><li><code>Cost</code> (Optional) </li><li><code>Discountable</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>ForSale</code> (Optional) </li><li><code>InvoiceComments</code> (Optional) </li><li><code>Margin</code> (Optional) </li><li><code>SalePrice</code> (Optional) </li><li><code>SaleBeginDate</code> (Optional) </li><li><code>SaleEndDate</code> (Optional) </li><li><code>ShowOnInvoice</code> (Optional) </li><li><code>RefundPeriod</code> (Optional) </li><li><code>StoreInStorePrice</code> (Optional) </li><li><code>TargetLocationName</code> (Optional) </li></ul><li><code>PricingMethod</code> (Optional) </li><li><code>Serialized</code> (Optional) </li><li><code>SerialNumberPromptText</code> (Optional) </li><li><code>ShortDescription</code> (Optional) </li><li><code>VendorSku</code> (Optional) - If provided, must be unique per Vendor</li></ul><li><code>VendorRebateProducts</code> (Optional) </li><ul><li><code>ProductName</code> (<strong>Required</strong>) </li><li><code>CategoryName</code> (<strong>Required</strong>) </li><li><code>DefaultPricing</code> (<strong>Required</strong>) </li><ul><li><code>Price</code> (<strong>Required</strong>) </li><li><code>AllowReturns</code> (Optional) </li><li><code>CarrierPrice</code> (Optional) </li><li><code>Cost</code> (Optional) </li><li><code>Discountable</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>ForSale</code> (Optional) </li><li><code>InvoiceComments</code> (Optional) </li><li><code>Margin</code> (Optional) </li><li><code>RefundPeriod</code> (Optional) </li><li><code>ShowOnInvoice</code> (Optional) </li><li><code>StoreInStorePrice</code> (Optional) </li></ul><li><code>ProductLabel</code> (<strong>Required</strong>) </li><li><code>VendorName</code> (Optional) </li><li><code>ClassificationTreeId</code> (Optional) </li><li><code>Enabled</code> (Optional) </li><li><code>EnforcedTrackingNumberLength</code> (Optional) - This value can only be set if Serialized is true</li><li><code>ExtendedAttributes</code> (Optional) </li><ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Value</code> (<strong>Required</strong>) </li></ul><li><code>GlCostOfSalesAccountNumber</code> (Optional) </li><li><code>GlInventoryAccountNumber</code> (Optional) </li><li><code>GlSalesAccountNumber</code> (Optional) </li><li><code>IgnoreAutomaticTaxAddition</code> (Optional) </li><li><code>LongDescription</code> (Optional) </li><li><code>PricingLocations</code> (Optional) </li><ul><li><code>Price</code> (<strong>Required</strong>) </li><li><code>TargetLocationType</code> (<strong>Required</strong>) </li><li><code>AllowReturns</code> (Optional) </li><li><code>CarrierPrice</code> (Optional) </li><li><code>Cost</code> (Optional) </li><li><code>Discountable</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>ForSale</code> (Optional) </li><li><code>InvoiceComments</code> (Optional) </li><li><code>Margin</code> (Optional) </li><li><code>SalePrice</code> (Optional) </li><li><code>SaleBeginDate</code> (Optional) </li><li><code>SaleEndDate</code> (Optional) </li><li><code>ShowOnInvoice</code> (Optional) </li><li><code>RefundPeriod</code> (Optional) </li><li><code>StoreInStorePrice</code> (Optional) </li><li><code>TargetLocationName</code> (Optional) </li></ul><li><code>PricingMethod</code> (Optional) </li><li><code>Serialized</code> (Optional) </li><li><code>SerialNumberPromptText</code> (Optional) </li><li><code>ShortDescription</code> (Optional) </li><li><code>VendorAccountName</code> (Optional) </li><li><code>VendorSku</code> (Optional) - If provided, must be unique per Vendor</li></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <ul><li><code>Status</code> (String) - Relative endpoint of status</li><li><code>TimestampUTC</code> (Datetime) </li></ul>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Status": "/v1/companies(21090)/batchStatus(123)",
     "TimestampUTC": "2016-11-15T16:43:15.1396674Z"
 }</pre>
@@ -805,14 +799,13 @@ POST /companies({CompanyId})/Products
 > Example Request
 
 
-```javascript
-POST /companies(1)/Products
+<pre class="highlight javascript"><code>POST /companies(1)/Products
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://platformepcdemo.iqmetrix.net/v1/companies(1)/Products" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "RegularProducts": [
         {
@@ -919,10 +912,9 @@ curl -X POST "https://platformepcdemo.iqmetrix.net/v1/companies(1)/Products" -H 
             "WarehouseLocation": "Cornwall"
         }
     ]
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse ImportingRegularProductsIntoRq()
 {
     var client = new RestClient("https://platformepcdemo.iqmetrix.net/v1/companies(1)/Products");
@@ -935,11 +927,10 @@ static IRestResponse ImportingRegularProductsIntoRq()
      request.AddParameter("application/json", "{\"RegularProducts\":[{\"Barcodes\":[\"BARCODE123\"],\"ProductName\":\"iPhone 4S 16GB White\",\"CategoryName\":\"Products > Phones > Smartphones\",\"ClassificationTreeId\":1,\"DaysKeptInStock\":10,\"DefaultPricingAndPurchasing\":{\"AllowReturns\":true,\"Discountable\":true,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"LockMinMaxed\":true,\"Margin\":1,\"MaximumQuantity\":10,\"MinimumQuantity\":1,\"MsrpAmount\":499.99,\"MsrpCurrencyCode\":\"USD\",\"Price\":499.99,\"PrimaryVendorName\":\"Apple\",\"RefundPeriod\":10,\"RefundToUsed\":false,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlInventoryCorrectionsAccountNumber\":\"1001\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":false,\"LocationVendors\":[{\"Cost\":99.99,\"DiscontinuedDate\":\"2016-01-01T12:00:00.000\",\"DoNotOrder\":false,\"EndOfLife\":\"2016-01-01T12:00:00.000\",\"SpecialOrder\":false,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\",\"VendorName\":\"SampleVendor\",\"WriteOff\":false}],\"LongDescription\":\"The iPhone 4S is a gradualstep over the iPhone 4.\",\"ManufacturerName\":\"Apple\",\"ManufacturerSku\":\"ABC123\",\"Model\":\"iPhone 6\",\"PricingAndPurchasingLocations\":[{\"AllowReturns\":true,\"Discountable\":true,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"LockMinMaxed\":true,\"Margin\":1,\"MaximumQuantity\":10,\"MinimumQuantity\":1,\"MsrpAmount\":499.99,\"MsrpCurrencyCode\":\"USD\",\"Price\":499.99,\"PrimaryVendorName\":\"Apple\",\"RefundPeriod\":10,\"RefundToUsed\":false,\"SaleBeginDate\":\"2015-10-14T12:00:00.000\",\"SaleEndDate\":\"2015-10-18T12:00:00.000\",\"SalePrice\":399.99,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"iPhone 4S 16GB White\",\"ReleaseDate\":\"2011-10-14T12:00:00.000\",\"Serialized\":true,\"SerialNumberPromptText\":\"Serial prompt text here\",\"ShortDescription\":\"Better than the iPhone 3G\",\"Vendors\":[{\"Cost\":99.99,\"DiscontinuedDate\":\"2016-01-01T12:00:00.000\",\"DoNotOrder\":false,\"EndOfLife\":\"2016-01-01T12:00:00.000\",\"SpecialOrder\":false,\"VendorName\":\"SampleVendor\",\"VendorSku\":\"DEF987\",\"WriteOff\":false}],\"WarehouseLocation\":\"Cornwall\"}]}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -958,11 +949,9 @@ public static CloseableHttpResponse ImportingRegularProductsIntoRq() throws IOEx
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"RegularProducts\":[{\"Barcodes\":[\"BARCODE123\"],\"ProductName\":\"iPhone 4S 16GB White\",\"CategoryName\":\"Products > Phones > Smartphones\",\"ClassificationTreeId\":1,\"DaysKeptInStock\":10,\"DefaultPricingAndPurchasing\":{\"AllowReturns\":true,\"Discountable\":true,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"LockMinMaxed\":true,\"Margin\":1,\"MaximumQuantity\":10,\"MinimumQuantity\":1,\"MsrpAmount\":499.99,\"MsrpCurrencyCode\":\"USD\",\"Price\":499.99,\"PrimaryVendorName\":\"Apple\",\"RefundPeriod\":10,\"RefundToUsed\":false,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlInventoryCorrectionsAccountNumber\":\"1001\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":false,\"LocationVendors\":[{\"Cost\":99.99,\"DiscontinuedDate\":\"2016-01-01T12:00:00.000\",\"DoNotOrder\":false,\"EndOfLife\":\"2016-01-01T12:00:00.000\",\"SpecialOrder\":false,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\",\"VendorName\":\"SampleVendor\",\"WriteOff\":false}],\"LongDescription\":\"The iPhone 4S is a gradualstep over the iPhone 4.\",\"ManufacturerName\":\"Apple\",\"ManufacturerSku\":\"ABC123\",\"Model\":\"iPhone 6\",\"PricingAndPurchasingLocations\":[{\"AllowReturns\":true,\"Discountable\":true,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"LockMinMaxed\":true,\"Margin\":1,\"MaximumQuantity\":10,\"MinimumQuantity\":1,\"MsrpAmount\":499.99,\"MsrpCurrencyCode\":\"USD\",\"Price\":499.99,\"PrimaryVendorName\":\"Apple\",\"RefundPeriod\":10,\"RefundToUsed\":false,\"SaleBeginDate\":\"2015-10-14T12:00:00.000\",\"SaleEndDate\":\"2015-10-18T12:00:00.000\",\"SalePrice\":399.99,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"iPhone 4S 16GB White\",\"ReleaseDate\":\"2011-10-14T12:00:00.000\",\"Serialized\":true,\"SerialNumberPromptText\":\"Serial prompt text here\",\"ShortDescription\":\"Better than the iPhone 3G\",\"Vendors\":[{\"Cost\":99.99,\"DiscontinuedDate\":\"2016-01-01T12:00:00.000\",\"DoNotOrder\":false,\"EndOfLife\":\"2016-01-01T12:00:00.000\",\"SpecialOrder\":false,\"VendorName\":\"SampleVendor\",\"VendorSku\":\"DEF987\",\"WriteOff\":false}],\"WarehouseLocation\":\"Cornwall\"}]}";
 
@@ -972,8 +961,7 @@ response = RestClient.post 'https://platformepcdemo.iqmetrix.net/v1/companies(1)
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -990,16 +978,16 @@ puts response
 
 <ul><li><code>RegularProducts</code> (Optional) </li><ul><li><code>Barcodes</code> (<strong>Required</strong>) </li><li><code>ProductName</code> (<strong>Required</strong>) </li><li><code>CategoryName</code> (<strong>Required</strong>) </li><li><code>DefaultPricingAndPurchasing</code> (<strong>Required</strong>) </li><ul><li><code>Price</code> (<strong>Required</strong>) </li><li><code>PrimaryVendorName</code> (<strong>Required</strong>) </li><li><code>AllowReturns</code> (Optional) </li><li><code>Discountable</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>ForSale</code> (Optional) </li><li><code>InvoiceComments</code> (Optional) </li><li><code>LockMinMaxed</code> (Optional) </li><li><code>Margin</code> (Optional) </li><li><code>MaximumQuantity</code> (Optional) </li><li><code>MinimumQuantity</code> (Optional) </li><li><code>MsrpAmount</code> (Optional) </li><li><code>MsrpCurrencyCode</code> (Optional) </li><li><code>RefundPeriod</code> (Optional) </li><li><code>RefundToUsed</code> (Optional) </li><li><code>ShowOnInvoice</code> (Optional) </li><li><code>StoreInStorePrice</code> (Optional) </li></ul><li><code>ManufacturerName</code> (<strong>Required</strong>) </li><li><code>ProductLabel</code> (<strong>Required</strong>) </li><li><code>ClassificationTreeId</code> (Optional) </li><li><code>DaysKeptInStock</code> (Optional) </li><li><code>Enabled</code> (Optional) </li><li><code>EnforcedTrackingNumberLength</code> (Optional) - This value can only be set if Serialized is true</li><li><code>ExtendedAttributes</code> (Optional) </li><ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Value</code> (<strong>Required</strong>) </li></ul><li><code>GlCostOfSalesAccountNumber</code> (Optional) </li><li><code>GlInventoryAccountNumber</code> (Optional) </li><li><code>GlInventoryCorrectionsAccountNumber</code> (Optional) </li><li><code>GlSalesAccountNumber</code> (Optional) </li><li><code>IgnoreAutomaticTaxAddition</code> (Optional) </li><li><code>LocationVendors</code> (Optional) </li><ul><li><code>TargetLocationType</code> (<strong>Required</strong>) </li><li><code>VendorName</code> (<strong>Required</strong>) </li><li><code>Cost</code> (Optional) </li><li><code>DiscontinuedDate</code> (Optional) </li><li><code>DoNotOrder</code> (Optional) - Defaults to false, case sensitive</li><li><code>EndOfLife</code> (Optional) </li><li><code>SpecialOrder</code> (Optional) - Defaults to false, case sensitive</li><li><code>TargetLocationName</code> (Optional) </li><li><code>WriteOff</code> (Optional) - Defaults to false, case sensitive</li></ul><li><code>LongDescription</code> (Optional) </li><li><code>ManufacturerSku</code> (Optional) </li><li><code>Model</code> (Optional) </li><li><code>PricingAndPurchasingLocations</code> (Optional) </li><ul><li><code>Price</code> (<strong>Required</strong>) </li><li><code>PrimaryVendorName</code> (<strong>Required</strong>) </li><li><code>TargetLocationType</code> (<strong>Required</strong>) </li><li><code>AllowReturns</code> (Optional) </li><li><code>Discountable</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>ForSale</code> (Optional) </li><li><code>InvoiceComments</code> (Optional) </li><li><code>LockMinMaxed</code> (Optional) </li><li><code>Margin</code> (Optional) </li><li><code>MaximumQuantity</code> (Optional) </li><li><code>MinimumQuantity</code> (Optional) </li><li><code>MsrpAmount</code> (Optional) </li><li><code>MsrpCurrencyCode</code> (Optional) </li><li><code>RefundPeriod</code> (Optional) </li><li><code>RefundToUsed</code> (Optional) </li><li><code>SaleBeginDate</code> (Optional) </li><li><code>SaleEndDate</code> (Optional) </li><li><code>SalePrice</code> (Optional) </li><li><code>ShowOnInvoice</code> (Optional) </li><li><code>StoreInStorePrice</code> (Optional) </li><li><code>TargetLocationName</code> (Optional) </li></ul><li><code>PricingMethod</code> (Optional) </li><li><code>ReleaseDate</code> (Optional) </li><li><code>Serialized</code> (Optional) </li><li><code>SerialNumberPromptText</code> (Optional) </li><li><code>ShortDescription</code> (Optional) </li><li><code>Vendors</code> (Optional) </li><ul><li><code>VendorName</code> (<strong>Required</strong>) </li><li><code>VendorSku</code> (<strong>Required</strong>) - If provided, must be unique per Vendor</li><li><code>Cost</code> (Optional) </li><li><code>DiscontinuedDate</code> (Optional) </li><li><code>DoNotOrder</code> (Optional) - Defaults to false, case sensitive</li><li><code>EndOfLife</code> (Optional) </li><li><code>SpecialOrder</code> (Optional) - Defaults to false, case sensitive</li><li><code>WriteOff</code> (Optional) - Defaults to false, case sensitive</li></ul><li><code>WarehouseLocation</code> (Optional) </li></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <ul><li><code>Status</code> (String) - Relative endpoint of status</li><li><code>TimestampUTC</code> (Datetime) </li></ul>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Status": "/v1/companies(21090)/batchStatus(123)",
     "TimestampUTC": "2016-11-15T16:43:15.1396674Z"
 }</pre>
@@ -1017,14 +1005,13 @@ POST /companies({CompanyId})/products/
 > Example Request
 
 
-```javascript
-POST /companies(1)/products/
+<pre class="highlight javascript"><code>POST /companies(1)/products/
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://platformepcdemo.iqmetrix.net/v1/companies(1)/products/" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "NonStockedProducts": [
         {
@@ -1088,10 +1075,9 @@ curl -X POST "https://platformepcdemo.iqmetrix.net/v1/companies(1)/products/" -H
             "VendorSku": "DEF987"
         }
     ]
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse ImportingNon-stockedProductsIntoRq()
 {
     var client = new RestClient("https://platformepcdemo.iqmetrix.net/v1/companies(1)/products/");
@@ -1104,11 +1090,10 @@ static IRestResponse ImportingNon-stockedProductsIntoRq()
      request.AddParameter("application/json", "{\"NonStockedProducts\":[{\"ProductName\":\"Prepaid Rate Plan\",\"CategoryName\":\"Rate Plans > Rate Plans\",\"ClassificationTreeId\":1,\"DefaultPricing\":{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"RefundPeriod\":null,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"FloorPrice\":0,\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":true,\"LongDescription\":\"Prepaid plan forpeople on the go\",\"PricingLocations\":[{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"SalePrice\":0,\"SaleBeginDate\":\"null\",\"SaleEndDate\":\"null\",\"ShowOnInvoice\":true,\"RefundPeriod\":null,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"Prepaid Rate Plan\",\"Serialized\":false,\"SerialNumberPromptText\":\"null\",\"ShortDescription\":\"Prepaid plan\",\"VendorSku\":\"DEF987\"}]}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -1127,11 +1112,9 @@ public static CloseableHttpResponse ImportingNon-stockedProductsIntoRq() throws 
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"NonStockedProducts\":[{\"ProductName\":\"Prepaid Rate Plan\",\"CategoryName\":\"Rate Plans > Rate Plans\",\"ClassificationTreeId\":1,\"DefaultPricing\":{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"RefundPeriod\":null,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"FloorPrice\":0,\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":true,\"LongDescription\":\"Prepaid plan forpeople on the go\",\"PricingLocations\":[{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"SalePrice\":0,\"SaleBeginDate\":\"null\",\"SaleEndDate\":\"null\",\"ShowOnInvoice\":true,\"RefundPeriod\":null,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"Prepaid Rate Plan\",\"Serialized\":false,\"SerialNumberPromptText\":\"null\",\"ShortDescription\":\"Prepaid plan\",\"VendorSku\":\"DEF987\"}]}";
 
@@ -1141,8 +1124,7 @@ response = RestClient.post 'https://platformepcdemo.iqmetrix.net/v1/companies(1)
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1159,16 +1141,16 @@ puts response
 
 <ul><li><code>NonStockedProducts</code> (Optional) </li><ul><li><code>ProductName</code> (<strong>Required</strong>) </li><li><code>CategoryName</code> (<strong>Required</strong>) </li><li><code>DefaultPricing</code> (<strong>Required</strong>) </li><ul><li><code>Price</code> (<strong>Required</strong>) </li><li><code>AllowReturns</code> (Optional) </li><li><code>CarrierPrice</code> (Optional) </li><li><code>Cost</code> (Optional) </li><li><code>Discountable</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>ForSale</code> (Optional) </li><li><code>InvoiceComments</code> (Optional) </li><li><code>Margin</code> (Optional) </li><li><code>RefundPeriod</code> (Optional) </li><li><code>ShowOnInvoice</code> (Optional) </li><li><code>StoreInStorePrice</code> (Optional) </li></ul><li><code>ProductLabel</code> (<strong>Required</strong>) </li><li><code>ClassificationTreeId</code> (Optional) </li><li><code>Enabled</code> (Optional) </li><li><code>EnforcedTrackingNumberLength</code> (Optional) - This value can only be set if Serialized is true</li><li><code>ExtendedAttributes</code> (Optional) </li><ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Value</code> (<strong>Required</strong>) </li></ul><li><code>FloorPrice</code> (Optional) </li><li><code>GlCostOfSalesAccountNumber</code> (Optional) </li><li><code>GlInventoryAccountNumber</code> (Optional) </li><li><code>GlSalesAccountNumber</code> (Optional) </li><li><code>IgnoreAutomaticTaxAddition</code> (Optional) </li><li><code>LongDescription</code> (Optional) </li><li><code>PricingLocations</code> (Optional) </li><ul><li><code>Price</code> (<strong>Required</strong>) </li><li><code>TargetLocationType</code> (<strong>Required</strong>) </li><li><code>AllowReturns</code> (Optional) </li><li><code>CarrierPrice</code> (Optional) </li><li><code>Cost</code> (Optional) </li><li><code>Discountable</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>ForSale</code> (Optional) </li><li><code>InvoiceComments</code> (Optional) </li><li><code>Margin</code> (Optional) </li><li><code>SalePrice</code> (Optional) </li><li><code>SaleBeginDate</code> (Optional) </li><li><code>SaleEndDate</code> (Optional) </li><li><code>ShowOnInvoice</code> (Optional) </li><li><code>RefundPeriod</code> (Optional) </li><li><code>StoreInStorePrice</code> (Optional) </li><li><code>TargetLocationName</code> (Optional) </li></ul><li><code>PricingMethod</code> (Optional) </li><li><code>Serialized</code> (Optional) </li><li><code>SerialNumberPromptText</code> (Optional) </li><li><code>ShortDescription</code> (Optional) </li><li><code>VendorSku</code> (Optional) - If provided, must be unique per Vendor</li></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <ul><li><code>Status</code> (String) - Relative endpoint of status</li><li><code>TimestampUTC</code> (Datetime) </li></ul>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Status": "/v1/companies(21090)/batchStatus(123)",
     "TimestampUTC": "2016-11-15T16:43:15.1396674Z"
 }</pre>
@@ -1186,14 +1168,13 @@ POST /companies({CompanyId})/Products/
 > Example Request
 
 
-```javascript
-POST /companies(1)/Products/
+<pre class="highlight javascript"><code>POST /companies(1)/Products/
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://platformepcdemo.iqmetrix.net/v1/companies(1)/Products/" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "NonRevenueProducts": [
         {
@@ -1257,10 +1238,9 @@ curl -X POST "https://platformepcdemo.iqmetrix.net/v1/companies(1)/Products/" -H
             "VendorSku": "DEF987"
         }
     ]
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse ImportingNon-revenueProductsIntoRq()
 {
     var client = new RestClient("https://platformepcdemo.iqmetrix.net/v1/companies(1)/Products/");
@@ -1273,11 +1253,10 @@ static IRestResponse ImportingNon-revenueProductsIntoRq()
      request.AddParameter("application/json", "{\"NonRevenueProducts\":[{\"ProductName\":\"Recycling Fee\",\"CategoryName\":\"Misc > Misc. Fees\",\"ClassificationTreeId\":1,\"DefaultPricing\":{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"RefundPeriod\":null,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"FloorPrice\":0,\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":false,\"LongDescription\":\"Recycling fee to disposeof old handset\",\"PricingLocations\":[{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"SalePrice\":0,\"SaleBeginDate\":\"null\",\"SaleEndDate\":\"null\",\"ShowOnInvoice\":true,\"RefundPeriod\":null,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"Recycling Fee\",\"Serialized\":true,\"SerialNumberPromptText\":\"Serial prompt text here\",\"ShortDescription\":\"Recycling fee\",\"VendorSku\":\"DEF987\"}]}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -1296,11 +1275,9 @@ public static CloseableHttpResponse ImportingNon-revenueProductsIntoRq() throws 
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"NonRevenueProducts\":[{\"ProductName\":\"Recycling Fee\",\"CategoryName\":\"Misc > Misc. Fees\",\"ClassificationTreeId\":1,\"DefaultPricing\":{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"RefundPeriod\":null,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"FloorPrice\":0,\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":false,\"LongDescription\":\"Recycling fee to disposeof old handset\",\"PricingLocations\":[{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"SalePrice\":0,\"SaleBeginDate\":\"null\",\"SaleEndDate\":\"null\",\"ShowOnInvoice\":true,\"RefundPeriod\":null,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"Recycling Fee\",\"Serialized\":true,\"SerialNumberPromptText\":\"Serial prompt text here\",\"ShortDescription\":\"Recycling fee\",\"VendorSku\":\"DEF987\"}]}";
 
@@ -1310,8 +1287,7 @@ response = RestClient.post 'https://platformepcdemo.iqmetrix.net/v1/companies(1)
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1328,16 +1304,16 @@ puts response
 
 <ul><li><code>NonRevenueProducts</code> (Optional) </li><ul><li><code>ProductName</code> (<strong>Required</strong>) </li><li><code>CategoryName</code> (<strong>Required</strong>) </li><li><code>DefaultPricing</code> (<strong>Required</strong>) </li><ul><li><code>Price</code> (<strong>Required</strong>) </li><li><code>AllowReturns</code> (Optional) </li><li><code>CarrierPrice</code> (Optional) </li><li><code>Cost</code> (Optional) </li><li><code>Discountable</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>ForSale</code> (Optional) </li><li><code>InvoiceComments</code> (Optional) </li><li><code>Margin</code> (Optional) </li><li><code>RefundPeriod</code> (Optional) </li><li><code>ShowOnInvoice</code> (Optional) </li><li><code>StoreInStorePrice</code> (Optional) </li></ul><li><code>ProductLabel</code> (<strong>Required</strong>) </li><li><code>ClassificationTreeId</code> (Optional) </li><li><code>Enabled</code> (Optional) </li><li><code>EnforcedTrackingNumberLength</code> (Optional) - This value can only be set if Serialized is true</li><li><code>ExtendedAttributes</code> (Optional) </li><ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Value</code> (<strong>Required</strong>) </li></ul><li><code>FloorPrice</code> (Optional) </li><li><code>GlCostOfSalesAccountNumber</code> (Optional) </li><li><code>GlInventoryAccountNumber</code> (Optional) </li><li><code>GlSalesAccountNumber</code> (Optional) </li><li><code>IgnoreAutomaticTaxAddition</code> (Optional) </li><li><code>LongDescription</code> (Optional) </li><li><code>PricingLocations</code> (Optional) </li><ul><li><code>Price</code> (<strong>Required</strong>) </li><li><code>TargetLocationType</code> (<strong>Required</strong>) </li><li><code>AllowReturns</code> (Optional) </li><li><code>CarrierPrice</code> (Optional) </li><li><code>Cost</code> (Optional) </li><li><code>Discountable</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>ForSale</code> (Optional) </li><li><code>InvoiceComments</code> (Optional) </li><li><code>Margin</code> (Optional) </li><li><code>SalePrice</code> (Optional) </li><li><code>SaleBeginDate</code> (Optional) </li><li><code>SaleEndDate</code> (Optional) </li><li><code>ShowOnInvoice</code> (Optional) </li><li><code>RefundPeriod</code> (Optional) </li><li><code>StoreInStorePrice</code> (Optional) </li><li><code>TargetLocationName</code> (Optional) </li></ul><li><code>PricingMethod</code> (Optional) </li><li><code>Serialized</code> (Optional) </li><li><code>SerialNumberPromptText</code> (Optional) </li><li><code>ShortDescription</code> (Optional) </li><li><code>VendorSku</code> (Optional) - If provided, must be unique per Vendor</li></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <ul><li><code>Status</code> (String) - Relative endpoint of status</li><li><code>TimestampUTC</code> (Datetime) </li></ul>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Status": "/v1/companies(21090)/batchStatus(123)",
     "TimestampUTC": "2016-11-15T16:43:15.1396674Z"
 }</pre>
@@ -1355,14 +1331,13 @@ POST /Companies({CompanyId})/products
 > Example Request
 
 
-```javascript
-POST /Companies(1)/products
+<pre class="highlight javascript"><code>POST /Companies(1)/products
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://platformepcdemo.iqmetrix.net/v1/Companies(1)/products" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "VendorRebateProducts": [
         {
@@ -1427,10 +1402,9 @@ curl -X POST "https://platformepcdemo.iqmetrix.net/v1/Companies(1)/products" -H 
             "VendorSku": "DEF987"
         }
     ]
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse ImportingVendorRebatesIntoRq()
 {
     var client = new RestClient("https://platformepcdemo.iqmetrix.net/v1/Companies(1)/products");
@@ -1443,11 +1417,10 @@ static IRestResponse ImportingVendorRebatesIntoRq()
      request.AddParameter("application/json", "{\"VendorRebateProducts\":[{\"VendorName\":\"SampleVendor\",\"ProductName\":\"2 YR New Act\",\"CategoryName\":\"Rate Plans > Rate Plan Rebates\",\"ClassificationTreeId\":1,\"DefaultPricing\":{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"RefundPeriod\":null,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":false,\"LongDescription\":\"Rebate on 2 year actiations\",\"PricingLocations\":[{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"SalePrice\":0,\"SaleBeginDate\":\"null\",\"SaleEndDate\":\"null\",\"ShowOnInvoice\":true,\"RefundPeriod\":null,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"2 YR New Act\",\"Serialized\":true,\"SerialNumberPromptText\":\"Serial prompt text here\",\"ShortDescription\":\"2 yr rebate\",\"VendorAccountName\":\"Verizon\",\"VendorSku\":\"DEF987\"}]}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -1466,11 +1439,9 @@ public static CloseableHttpResponse ImportingVendorRebatesIntoRq() throws IOExce
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"VendorRebateProducts\":[{\"VendorName\":\"SampleVendor\",\"ProductName\":\"2 YR New Act\",\"CategoryName\":\"Rate Plans > Rate Plan Rebates\",\"ClassificationTreeId\":1,\"DefaultPricing\":{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"RefundPeriod\":null,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":false,\"LongDescription\":\"Rebate on 2 year actiations\",\"PricingLocations\":[{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"SalePrice\":0,\"SaleBeginDate\":\"null\",\"SaleEndDate\":\"null\",\"ShowOnInvoice\":true,\"RefundPeriod\":null,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"2 YR New Act\",\"Serialized\":true,\"SerialNumberPromptText\":\"Serial prompt text here\",\"ShortDescription\":\"2 yr rebate\",\"VendorAccountName\":\"Verizon\",\"VendorSku\":\"DEF987\"}]}";
 
@@ -1480,8 +1451,7 @@ response = RestClient.post 'https://platformepcdemo.iqmetrix.net/v1/Companies(1)
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1498,16 +1468,16 @@ puts response
 
 <ul><li><code>VendorRebateProducts</code> (Optional) </li><ul><li><code>ProductName</code> (<strong>Required</strong>) </li><li><code>CategoryName</code> (<strong>Required</strong>) </li><li><code>DefaultPricing</code> (<strong>Required</strong>) </li><ul><li><code>Price</code> (<strong>Required</strong>) </li><li><code>AllowReturns</code> (Optional) </li><li><code>CarrierPrice</code> (Optional) </li><li><code>Cost</code> (Optional) </li><li><code>Discountable</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>ForSale</code> (Optional) </li><li><code>InvoiceComments</code> (Optional) </li><li><code>Margin</code> (Optional) </li><li><code>RefundPeriod</code> (Optional) </li><li><code>ShowOnInvoice</code> (Optional) </li><li><code>StoreInStorePrice</code> (Optional) </li></ul><li><code>ProductLabel</code> (<strong>Required</strong>) </li><li><code>VendorName</code> (Optional) </li><li><code>ClassificationTreeId</code> (Optional) </li><li><code>Enabled</code> (Optional) </li><li><code>EnforcedTrackingNumberLength</code> (Optional) - This value can only be set if Serialized is true</li><li><code>ExtendedAttributes</code> (Optional) </li><ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Value</code> (<strong>Required</strong>) </li></ul><li><code>GlCostOfSalesAccountNumber</code> (Optional) </li><li><code>GlInventoryAccountNumber</code> (Optional) </li><li><code>GlSalesAccountNumber</code> (Optional) </li><li><code>IgnoreAutomaticTaxAddition</code> (Optional) </li><li><code>LongDescription</code> (Optional) </li><li><code>PricingLocations</code> (Optional) </li><ul><li><code>Price</code> (<strong>Required</strong>) </li><li><code>TargetLocationType</code> (<strong>Required</strong>) </li><li><code>AllowReturns</code> (Optional) </li><li><code>CarrierPrice</code> (Optional) </li><li><code>Cost</code> (Optional) </li><li><code>Discountable</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>ForSale</code> (Optional) </li><li><code>InvoiceComments</code> (Optional) </li><li><code>Margin</code> (Optional) </li><li><code>SalePrice</code> (Optional) </li><li><code>SaleBeginDate</code> (Optional) </li><li><code>SaleEndDate</code> (Optional) </li><li><code>ShowOnInvoice</code> (Optional) </li><li><code>RefundPeriod</code> (Optional) </li><li><code>StoreInStorePrice</code> (Optional) </li><li><code>TargetLocationName</code> (Optional) </li></ul><li><code>PricingMethod</code> (Optional) </li><li><code>Serialized</code> (Optional) </li><li><code>SerialNumberPromptText</code> (Optional) </li><li><code>ShortDescription</code> (Optional) </li><li><code>VendorAccountName</code> (Optional) </li><li><code>VendorSku</code> (Optional) - If provided, must be unique per Vendor</li></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <ul><li><code>Status</code> (String) - Relative endpoint of status</li><li><code>TimestampUTC</code> (Datetime) </li></ul>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Status": "/v1/companies(21090)/batchStatus(123)",
     "TimestampUTC": "2016-11-15T16:43:15.1396674Z"
 }</pre>
@@ -1525,17 +1495,15 @@ GET /companies({CompanyId})/batchStatus({BatchId})
 > Example Request
 
 
-```javascript
-GET /companies(1)/batchStatus(3)
+<pre class="highlight javascript"><code>GET /companies(1)/batchStatus(3)
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://platformepcdemo.iqmetrix.net/v1/companies(1)/batchStatus(3)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://platformepcdemo.iqmetrix.net/v1/companies(1)/batchStatus(3)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingStatusForABatch()
 {
     var client = new RestClient("https://platformepcdemo.iqmetrix.net/v1/companies(1)/batchStatus(3)");
@@ -1547,11 +1515,10 @@ static IRestResponse GettingStatusForABatch()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -1567,11 +1534,9 @@ public static CloseableHttpResponse GettingStatusForABatch() throws IOException 
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -1580,8 +1545,7 @@ response = RestClient.get 'https://platformepcdemo.iqmetrix.net/v1/companies(1)/
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1598,16 +1562,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#batchstatus'>BatchStatus</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "BatchId": 3,
     "CompanyId": 14146,
     "DateCreated": "2015-09-14T22:11:16.5670000Z",
@@ -1642,17 +1606,15 @@ GET /companies({CompanyId})/batchStatus
 > Example Request
 
 
-```javascript
-GET /companies(1)/batchStatus
+<pre class="highlight javascript"><code>GET /companies(1)/batchStatus
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://platformepcdemo.iqmetrix.net/v1/companies(1)/batchStatus" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://platformepcdemo.iqmetrix.net/v1/companies(1)/batchStatus" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAllBatches()
 {
     var client = new RestClient("https://platformepcdemo.iqmetrix.net/v1/companies(1)/batchStatus");
@@ -1664,11 +1626,10 @@ static IRestResponse GettingAllBatches()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -1684,11 +1645,9 @@ public static CloseableHttpResponse GettingAllBatches() throws IOException {
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -1697,8 +1656,7 @@ response = RestClient.get 'https://platformepcdemo.iqmetrix.net/v1/companies(1)/
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1711,16 +1669,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <ul><li><code>Items</code> (Array[<a href='/api/epc/#batchstatus'>BatchStatus</a>]) </li><ul><li><code>BatchId</code> (Integer) </li><li><code>CompanyId</code> (Integer) </li><li><code>DateCreated</code> (Datetime) </li><li><code>FailedCount</code> (Integer) </li><li><code>PendingCount</code> (Integer) </li><li><code>Products</code> (Array[<a href='/api/epc/#productstatus'>ProductStatus</a>]) </li><ul><li><code>ProductName</code> (String) </li><li><code>SourceRowNumber</code> (Integer) </li><li><code>StatusCode</code> (Integer) </li><li><code>StatusName</code> (String) </li><li><code>ErrorMessage</code> (String) </li></ul><li><code>SourceFileName</code> (String) </li><li><code>StatusCode</code> (Integer) </li><li><code>StatusName</code> (String) </li><li><code>SuccessfulCount</code> (Integer) </li><li><code>TotalProductCount</code> (Integer) </li></ul><li><code>MetaData</code> (Object) </li><ul><li><code>TotalResults</code> (Integer) - Number of batches</li></ul></ul>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Items": [
         {
             "BatchId": 3,

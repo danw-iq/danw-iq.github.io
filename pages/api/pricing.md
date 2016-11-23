@@ -136,14 +136,13 @@ POST /Companies({CompanyId})/Pricing
 > Example Request
 
 
-```javascript
-POST /Companies(14146)/Pricing
+<pre class="highlight javascript"><code>POST /Companies(14146)/Pricing
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "CatalogItemId": "a183f1a9-c58f-426a-930a-9a6357db52ed",
     "CompanyId": 14146,
@@ -153,10 +152,9 @@ curl -X POST "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing" -H "
     "OriginalPrice": 4.99,
     "PricingTermId": 78,
     "RegularPrice": 10
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse CreatingOrUpdatingProductPricingAtCompanyLevel()
 {
     var client = new RestClient("https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing");
@@ -169,11 +167,10 @@ static IRestResponse CreatingOrUpdatingProductPricingAtCompanyLevel()
      request.AddParameter("application/json", "{\"CatalogItemId\":\"a183f1a9-c58f-426a-930a-9a6357db52ed\",\"CompanyId\":14146,\"EntityId\":14202,\"FloorPrice\":3.99,\"IsDiscountable\":false,\"OriginalPrice\":4.99,\"PricingTermId\":78,\"RegularPrice\":10}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -192,11 +189,9 @@ public static CloseableHttpResponse CreatingOrUpdatingProductPricingAtCompanyLev
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"CatalogItemId\":\"a183f1a9-c58f-426a-930a-9a6357db52ed\",\"CompanyId\":14146,\"EntityId\":14202,\"FloorPrice\":3.99,\"IsDiscountable\":false,\"OriginalPrice\":4.99,\"PricingTermId\":78,\"RegularPrice\":10}";
 
@@ -206,8 +201,7 @@ response = RestClient.post 'https://pricingdemo.iqmetrix.net/v1/Companies(14146)
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -224,16 +218,16 @@ puts response
 
 <ul><li><code>CatalogItemId</code> (<strong>Required</strong>) </li><li><code>EntityId</code> (<strong>Required</strong>) </li><li><code>RegularPrice</code> (<strong>Required</strong>) </li><li><code>CompanyId</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>IsDiscountable</code> (Optional) - Defaults to false</li><li><code>OriginalPrice</code> (Optional) </li><li><code>PricingTermId</code> (Optional) </li></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#pricing'>Pricing</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 201 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": 16446,
     "CatalogItemId": "a183f1a9-c58f-426a-930a-9a6357db52ed",
     "CompanyId": 14146,
@@ -261,14 +255,13 @@ POST /Companies({CompanyId})/Entities({LocationId})/CatalogItems({CatalogItemId}
 > Example Request
 
 
-```javascript
-POST /Companies(14146)/Entities(14202)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing
+<pre class="highlight javascript"><code>POST /Companies(14146)/Entities(14202)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Entities(14202)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "CatalogItemId": "a183f1a9-c58f-426a-930a-9a6357db52ed",
     "CompanyId": 14146,
@@ -278,10 +271,9 @@ curl -X POST "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Entities(1420
     "OriginalPrice": 4.99,
     "PricingTermId": 78,
     "RegularPrice": 10
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse CreatingOrUpdatingProductPricingAtLocationLevel()
 {
     var client = new RestClient("https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Entities(14202)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing");
@@ -294,11 +286,10 @@ static IRestResponse CreatingOrUpdatingProductPricingAtLocationLevel()
      request.AddParameter("application/json", "{\"CatalogItemId\":\"a183f1a9-c58f-426a-930a-9a6357db52ed\",\"CompanyId\":14146,\"EntityId\":14202,\"FloorPrice\":3.99,\"IsDiscountable\":false,\"OriginalPrice\":4.99,\"PricingTermId\":78,\"RegularPrice\":10}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -317,11 +308,9 @@ public static CloseableHttpResponse CreatingOrUpdatingProductPricingAtLocationLe
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"CatalogItemId\":\"a183f1a9-c58f-426a-930a-9a6357db52ed\",\"CompanyId\":14146,\"EntityId\":14202,\"FloorPrice\":3.99,\"IsDiscountable\":false,\"OriginalPrice\":4.99,\"PricingTermId\":78,\"RegularPrice\":10}";
 
@@ -331,8 +320,7 @@ response = RestClient.post 'https://pricingdemo.iqmetrix.net/v1/Companies(14146)
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -357,16 +345,16 @@ puts response
 
 <ul><li><code>CatalogItemId</code> (<strong>Required</strong>) </li><li><code>EntityId</code> (<strong>Required</strong>) </li><li><code>RegularPrice</code> (<strong>Required</strong>) </li><li><code>CompanyId</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>IsDiscountable</code> (Optional) - Defaults to false</li><li><code>OriginalPrice</code> (Optional) </li><li><code>PricingTermId</code> (Optional) </li></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#pricing'>Pricing</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 201 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": 16446,
     "CatalogItemId": "a183f1a9-c58f-426a-930a-9a6357db52ed",
     "CompanyId": 14146,
@@ -393,17 +381,15 @@ GET /Companies({CompanyId})/Entities({LocationId})/CatalogItems({CatalogItemId})
 > Example Request
 
 
-```javascript
-GET /Companies(14146)/Entities(14202)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing
+<pre class="highlight javascript"><code>GET /Companies(14146)/Entities(14202)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Entities(14202)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Entities(14202)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingProductPricingForARetailLocation()
 {
     var client = new RestClient("https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Entities(14202)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing");
@@ -415,11 +401,10 @@ static IRestResponse GettingProductPricingForARetailLocation()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -435,11 +420,9 @@ public static CloseableHttpResponse GettingProductPricingForARetailLocation() th
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -448,8 +431,7 @@ response = RestClient.get 'https://pricingdemo.iqmetrix.net/v1/Companies(14146)/
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -470,16 +452,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  Array[<a href='#pricing'>Pricing</a>]
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>[
+</pre><pre class="highlight json">[
     {
         "Id": 16446,
         "CatalogItemId": "a183f1a9-c58f-426a-930a-9a6357db52ed",
@@ -508,17 +490,15 @@ GET /Companies({CompanyId})/CatalogItems({CatalogItemId})/Pricing
 > Example Request
 
 
-```javascript
-GET /Companies(14146)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing
+<pre class="highlight javascript"><code>GET /Companies(14146)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingProductPricingAtCompanyLevel()
 {
     var client = new RestClient("https://pricingdemo.iqmetrix.net/v1/Companies(14146)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing");
@@ -530,11 +510,10 @@ static IRestResponse GettingProductPricingAtCompanyLevel()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -550,11 +529,9 @@ public static CloseableHttpResponse GettingProductPricingAtCompanyLevel() throws
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -563,8 +540,7 @@ response = RestClient.get 'https://pricingdemo.iqmetrix.net/v1/Companies(14146)/
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -581,16 +557,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  Array[<a href='#pricing'>Pricing</a>]
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>[
+</pre><pre class="highlight json">[
     {
         "Id": 16446,
         "CatalogItemId": "a183f1a9-c58f-426a-930a-9a6357db52ed",
@@ -619,18 +595,16 @@ GET /Companies({CompanyId})/PricingTerms
 > Example Request
 
 
-```javascript
-GET /Companies(14146)/PricingTerms
+<pre class="highlight javascript"><code>GET /Companies(14146)/PricingTerms
 Authorization: Bearer (Access Token)
 Accept: application/json
 Accept-Language: en-US
-```
+</code></pre>
 
-```shell
-curl -X GET "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/PricingTerms" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Accept-Language: en-US"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/PricingTerms" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Accept-Language: en-US"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAllActivePricingTerms()
 {
     var client = new RestClient("https://pricingdemo.iqmetrix.net/v1/Companies(14146)/PricingTerms");
@@ -643,11 +617,10 @@ static IRestResponse GettingAllActivePricingTerms()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -664,11 +637,9 @@ public static CloseableHttpResponse GettingAllActivePricingTerms() throws IOExce
     request.addHeader("Accept-Language", "en-US"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -678,8 +649,7 @@ response = RestClient.get 'https://pricingdemo.iqmetrix.net/v1/Companies(14146)/
      :'Accept-Language' => 'en-US',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -692,16 +662,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  Array[<a href='#pricingterm'>PricingTerm</a>]
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>[
+</pre><pre class="highlight json">[
     {
         "Id": 78,
         "Active": true,
@@ -728,18 +698,16 @@ GET /Companies({CompanyId})/PricingTerms({PricingTermId})
 > Example Request
 
 
-```javascript
-GET /Companies(14146)/PricingTerms(78)
+<pre class="highlight javascript"><code>GET /Companies(14146)/PricingTerms(78)
 Authorization: Bearer (Access Token)
 Accept: application/json
 Accept-Language: en-US
-```
+</code></pre>
 
-```shell
-curl -X GET "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/PricingTerms(78)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Accept-Language: en-US"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/PricingTerms(78)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Accept-Language: en-US"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAPricingTerm()
 {
     var client = new RestClient("https://pricingdemo.iqmetrix.net/v1/Companies(14146)/PricingTerms(78)");
@@ -752,11 +720,10 @@ static IRestResponse GettingAPricingTerm()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -773,11 +740,9 @@ public static CloseableHttpResponse GettingAPricingTerm() throws IOException {
     request.addHeader("Accept-Language", "en-US"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -787,8 +752,7 @@ response = RestClient.get 'https://pricingdemo.iqmetrix.net/v1/Companies(14146)/
      :'Accept-Language' => 'en-US',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -805,16 +769,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#pricingterm'>PricingTerm</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": 78,
     "Active": true,
     "CanFinance": true,
@@ -847,23 +811,21 @@ POST /Companies({CompanyId})/Pricing({PricingId})/SaleOverridePrices
 > Example Request
 
 
-```javascript
-POST /Companies(14146)/Pricing(16446)/SaleOverridePrices
+<pre class="highlight javascript"><code>POST /Companies(14146)/Pricing(16446)/SaleOverridePrices
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "IsDefault": true,
     "SalePrice": 3.99,
     "StartDateUTC": "2015-12-02T00:00:00",
     "StopDateUTC": "2015-12-31T00:00:00"
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse CreatingASalePrice()
 {
     var client = new RestClient("https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices");
@@ -876,11 +838,10 @@ static IRestResponse CreatingASalePrice()
      request.AddParameter("application/json", "{\"IsDefault\":true,\"SalePrice\":3.99,\"StartDateUTC\":\"2015-12-02T00:00:00\",\"StopDateUTC\":\"2015-12-31T00:00:00\"}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -899,11 +860,9 @@ public static CloseableHttpResponse CreatingASalePrice() throws IOException {
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"IsDefault\":true,\"SalePrice\":3.99,\"StartDateUTC\":\"2015-12-02T00:00:00\",\"StopDateUTC\":\"2015-12-31T00:00:00\"}";
 
@@ -913,8 +872,7 @@ response = RestClient.post 'https://pricingdemo.iqmetrix.net/v1/Companies(14146)
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -935,16 +893,16 @@ puts response
 
 <ul><li><code>IsDefault</code> (<strong>Required</strong>) - There can only be one default SaleOverridePrice for a Pricing. If StartDate and StopDate are provided, this must be false</li><li><code>SalePrice</code> (Optional) - Must be greater than or equal to 0, defaults to 0</li><li><code>StartDateUTC</code> (Optional) - If provided, StopDate must be provided, StartDate must be before StopDate and IsDefault must be false</li><li><code>StopDateUTC</code> (Optional) - If provided, StartDate must be provided, StartDate must be before StopDate and IsDefault must be false</li></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#saleoverrideprice'>SaleOverridePrice</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 201 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": 1177,
     "CompanyId": 14146,
     "IsDefault": true,
@@ -967,17 +925,15 @@ GET /Companies({CompanyId})/Pricing({PricingId})/SaleOverridePrices
 > Example Request
 
 
-```javascript
-GET /Companies(14146)/Pricing(16446)/SaleOverridePrices
+<pre class="highlight javascript"><code>GET /Companies(14146)/Pricing(16446)/SaleOverridePrices
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAllSalePricing()
 {
     var client = new RestClient("https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices");
@@ -989,11 +945,10 @@ static IRestResponse GettingAllSalePricing()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -1009,11 +964,9 @@ public static CloseableHttpResponse GettingAllSalePricing() throws IOException {
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -1022,8 +975,7 @@ response = RestClient.get 'https://pricingdemo.iqmetrix.net/v1/Companies(14146)/
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1040,16 +992,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  Array[<a href='#saleoverrideprice'>SaleOverridePrice</a>]
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>[
+</pre><pre class="highlight json">[
     {
         "Id": 1177,
         "CompanyId": 14146,
@@ -1074,14 +1026,13 @@ PUT /Companies({CompanyId})/Pricing({PricingId})/SaleOverridePrices({SaleOverrid
 > Example Request
 
 
-```javascript
-PUT /Companies(14146)/Pricing(16446)/SaleOverridePrices(2802)
+<pre class="highlight javascript"><code>PUT /Companies(14146)/Pricing(16446)/SaleOverridePrices(2802)
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X PUT "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices(2802)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Id": 1177,
     "CompanyId": 14146,
@@ -1090,10 +1041,9 @@ curl -X PUT "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)
     "SalePrice": 3.99,
     "StartDateUTC": "2015-12-02T00:00:00",
     "StopDateUTC": "2015-12-31T00:00:00"
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse UpdatingASalePricing()
 {
     var client = new RestClient("https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices(2802)");
@@ -1106,11 +1056,10 @@ static IRestResponse UpdatingASalePricing()
      request.AddParameter("application/json", "{\"Id\":1177,\"CompanyId\":14146,\"IsDefault\":true,\"PricingInformationId\":16446,\"SalePrice\":3.99,\"StartDateUTC\":\"2015-12-02T00:00:00\",\"StopDateUTC\":\"2015-12-31T00:00:00\"}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
@@ -1129,11 +1078,9 @@ public static CloseableHttpResponse UpdatingASalePricing() throws IOException {
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"Id\":1177,\"CompanyId\":14146,\"IsDefault\":true,\"PricingInformationId\":16446,\"SalePrice\":3.99,\"StartDateUTC\":\"2015-12-02T00:00:00\",\"StopDateUTC\":\"2015-12-31T00:00:00\"}";
 
@@ -1143,8 +1090,7 @@ response = RestClient.put 'https://pricingdemo.iqmetrix.net/v1/Companies(14146)/
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1169,16 +1115,16 @@ puts response
 
 <ul><li><code>IsDefault</code> (<strong>Required</strong>) - There can only be one default SaleOverridePrice for a Pricing. If StartDate and StopDate are provided, this must be false</li><li><code>Id</code> (<strong>Required</strong>) </li><li><code>SalePrice</code> (Optional) - Must be greater than or equal to 0, defaults to 0</li><li><code>StartDateUTC</code> (Optional) - If provided, StopDate must be provided, StartDate must be before StopDate and IsDefault must be false</li><li><code>StopDateUTC</code> (Optional) - If provided, StartDate must be provided, StartDate must be before StopDate and IsDefault must be false</li></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#saleoverrideprice'>SaleOverridePrice</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": 1177,
     "CompanyId": 14146,
     "IsDefault": true,
@@ -1201,16 +1147,14 @@ DELETE /Companies({CompanyId})/Pricing({PricingId})/SaleOverridePrices({SaleOver
 > Example Request
 
 
-```javascript
-DELETE /Companies(14146)/Pricing(16446)/SaleOverridePrices(2802)
+<pre class="highlight javascript"><code>DELETE /Companies(14146)/Pricing(16446)/SaleOverridePrices(2802)
 Authorization: Bearer (Access Token)
-```
+</code></pre>
 
-```shell
-curl -X DELETE "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices(2802)" -H "Authorization: Bearer (Access Token)"
-```
+<pre class="highlight shell"><code>
+curl -X DELETE "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices(2802)" -H "Authorization: Bearer (Access Token)"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse DeletingASalePricing()
 {
     var client = new RestClient("https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices(2802)");
@@ -1221,11 +1165,10 @@ static IRestResponse DeletingASalePricing()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
@@ -1240,11 +1183,9 @@ public static CloseableHttpResponse DeletingASalePricing() throws IOException {
     request.addHeader("Authorization", "Bearer (Access Token)"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -1252,8 +1193,7 @@ response = RestClient.delete 'https://pricingdemo.iqmetrix.net/v1/Companies(1414
      :'Authorization' => 'Bearer (Access Token)',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1274,13 +1214,13 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
 </pre>
 
@@ -1297,17 +1237,15 @@ GET /Companies({CompanyId})/CatalogItems({CatalogItemId})/Pricing?$filter={Prici
 > Example Request
 
 
-```javascript
-GET /Companies(14146)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing?$filter=78
+<pre class="highlight javascript"><code>GET /Companies(14146)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing?$filter=78
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing?$filter=78" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://pricingdemo.iqmetrix.net/v1/Companies(14146)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing?$filter=78" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingProductPricingByPricingTerm()
 {
     var client = new RestClient("https://pricingdemo.iqmetrix.net/v1/Companies(14146)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing?$filter=78");
@@ -1319,11 +1257,10 @@ static IRestResponse GettingProductPricingByPricingTerm()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -1339,11 +1276,9 @@ public static CloseableHttpResponse GettingProductPricingByPricingTerm() throws 
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -1352,8 +1287,7 @@ response = RestClient.get 'https://pricingdemo.iqmetrix.net/v1/Companies(14146)/
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1374,16 +1308,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  Array[<a href='#pricing'>Pricing</a>]
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>[
+</pre><pre class="highlight json">[
     {
         "Id": 16446,
         "CatalogItemId": "a183f1a9-c58f-426a-930a-9a6357db52ed",

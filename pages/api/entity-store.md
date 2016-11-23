@@ -126,17 +126,15 @@ GET /Carriers
 > Example Request
 
 
-```javascript
-GET /Carriers
+<pre class="highlight javascript"><code>GET /Carriers
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Carriers" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Carriers" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAllCarriers()
 {
     var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Carriers");
@@ -148,11 +146,10 @@ static IRestResponse GettingAllCarriers()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -168,11 +165,9 @@ public static CloseableHttpResponse GettingAllCarriers() throws IOException {
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -181,23 +176,22 @@ response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Carriers', 
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  Array[<a href='#carrier'>Carrier</a>]
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>[
+</pre><pre class="highlight json">[
     {
         "Id": 9,
         "Name": "Helios",
@@ -232,17 +226,15 @@ GET /Carriers({CarrierId})
 > Example Request
 
 
-```javascript
-GET /Carriers(9)
+<pre class="highlight javascript"><code>GET /Carriers(9)
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Carriers(9)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Carriers(9)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingACarrier()
 {
     var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Carriers(9)");
@@ -254,11 +246,10 @@ static IRestResponse GettingACarrier()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -274,11 +265,9 @@ public static CloseableHttpResponse GettingACarrier() throws IOException {
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -287,8 +276,7 @@ response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Carriers(9)
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -301,16 +289,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#carrier'>Carrier</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": 9,
     "Name": "Helios",
     "Description": "",
@@ -343,17 +331,15 @@ GET /Manufacturers
 > Example Request
 
 
-```javascript
-GET /Manufacturers
+<pre class="highlight javascript"><code>GET /Manufacturers
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Manufacturers" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Manufacturers" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAllManufacturers()
 {
     var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Manufacturers");
@@ -365,11 +351,10 @@ static IRestResponse GettingAllManufacturers()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -385,11 +370,9 @@ public static CloseableHttpResponse GettingAllManufacturers() throws IOException
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -398,23 +381,22 @@ response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Manufacture
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  Array[<a href='#manufacturer'>Manufacturer</a>]
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>[
+</pre><pre class="highlight json">[
     {
         "Id": 13149,
         "Name": "OtterBox",
@@ -449,17 +431,15 @@ GET /Manufacturers({ManufacturerId})
 > Example Request
 
 
-```javascript
-GET /Manufacturers(13149)
+<pre class="highlight javascript"><code>GET /Manufacturers(13149)
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Manufacturers(13149)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Manufacturers(13149)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAManufacturer()
 {
     var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Manufacturers(13149)");
@@ -471,11 +451,10 @@ static IRestResponse GettingAManufacturer()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -491,11 +470,9 @@ public static CloseableHttpResponse GettingAManufacturer() throws IOException {
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -504,8 +481,7 @@ response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Manufacture
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -518,16 +494,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#manufacturer'>Manufacturer</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": 13149,
     "Name": "OtterBox",
     "Description": "#1 Most Trusted Brand in Smartphone Protection",
@@ -560,17 +536,15 @@ GET /Suppliers
 > Example Request
 
 
-```javascript
-GET /Suppliers
+<pre class="highlight javascript"><code>GET /Suppliers
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Suppliers" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Suppliers" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAllSuppliers()
 {
     var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Suppliers");
@@ -582,11 +556,10 @@ static IRestResponse GettingAllSuppliers()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -602,11 +575,9 @@ public static CloseableHttpResponse GettingAllSuppliers() throws IOException {
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -615,23 +586,22 @@ response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Suppliers',
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  Array[<a href='#supplier'>Supplier</a>]
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>[
+</pre><pre class="highlight json">[
     {
         "Id": 14107,
         "Name": "NOZAMA Inc.",
@@ -666,17 +636,15 @@ GET /Suppliers({SupplierId})
 > Example Request
 
 
-```javascript
-GET /Suppliers(14107)
+<pre class="highlight javascript"><code>GET /Suppliers(14107)
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Suppliers(14107)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Suppliers(14107)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingASupplier()
 {
     var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Suppliers(14107)");
@@ -688,11 +656,10 @@ static IRestResponse GettingASupplier()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -708,11 +675,9 @@ public static CloseableHttpResponse GettingASupplier() throws IOException {
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -721,8 +686,7 @@ response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Suppliers(1
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -735,16 +699,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#supplier'>Supplier</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": 14107,
     "Name": "NOZAMA Inc.",
     "Description": "Provides supplies for KENTEL Corp.",

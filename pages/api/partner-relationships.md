@@ -72,17 +72,15 @@ GET /Partners({PartnerId})/Relationships/Companies?$skip={Skip}&$top={Top}
 > Example Request
 
 
-```javascript
-GET /Partners(36)/Relationships/Companies?$skip=1&$top=10
+<pre class="highlight javascript"><code>GET /Partners(36)/Relationships/Companies?$skip=1&$top=10
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Partners(36)/Relationships/Companies?$skip=1&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Partners(36)/Relationships/Companies?$skip=1&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingCompanyRelationshipsForAPartner()
 {
     var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Partners(36)/Relationships/Companies?$skip=1&$top=10");
@@ -94,11 +92,10 @@ static IRestResponse GettingCompanyRelationshipsForAPartner()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -114,11 +111,9 @@ public static CloseableHttpResponse GettingCompanyRelationshipsForAPartner() thr
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -127,8 +122,7 @@ response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Partners(36
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -149,16 +143,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <ul><li><code>_metadata</code> (Object) </li><ul><li><code>count</code> (Integer) - The total number of results returned from the request</li><li><code>skip</code> (Integer) - Value of skip in the request URI, if not specified the value will be 0</li><li><code>top</code> (Integer) - Value of top in the request URI, if not specified the value will be 20</li></ul><li><code>_links</code> (Object) </li><ul><li><code>prev</code> (String) - Refers to a resource containing the previous page of results, null if there is no previous page</li><li><code>self</code> (String) - The request that returned these results. If the request was made without $top or $skip, these will be filled in with the values that were used.</li><li><code>next</code> (String) - Refers to a resource containing the next page of results, null if this is the last page</li></ul><li><code>items</code> (Array[<a href='/api/partner-relationships/#relationship'>Relationship</a>]) </li><ul><li><code>CompanyId</code> (Integer) </li><li><code>CompanyName</code> (String) </li><li><code>CreatedUtc</code> (Datetime) </li><li><code>RelationshipId</code> (Integer) </li></ul></ul>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "_metadata": {
         "count": 15,
         "skip": 0,

@@ -215,14 +215,13 @@ POST /ProductDocs
 > Example Request
 
 
-```javascript
-POST /ProductDocs
+<pre class="highlight javascript"><code>POST /ProductDocs
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Classification": {
         "TreeId": 1,
@@ -278,10 +277,9 @@ curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs" -H "Author
             }
         ]
     }
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse CreatingAMasterProduct()
 {
     var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs");
@@ -294,11 +292,10 @@ static IRestResponse CreatingAMasterProduct()
      request.AddParameter("application/json", "{\"Classification\":{\"TreeId\":1,\"Id\":4},\"ColorDefinitions\":[{\"Name\":\"Black Sapphire\",\"ColorTagIds\":[1],\"Swatch\":{\"Type\":\"ColorCode\",\"AssetId\":\"null\",\"ColorCode\":\"#C0C8D0\"}}],\"Manufacturer\":{\"Id\":13149},\"OwnerEntityId\":14146,\"RootRevision\":{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -317,11 +314,9 @@ public static CloseableHttpResponse CreatingAMasterProduct() throws IOException 
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"Classification\":{\"TreeId\":1,\"Id\":4},\"ColorDefinitions\":[{\"Name\":\"Black Sapphire\",\"ColorTagIds\":[1],\"Swatch\":{\"Type\":\"ColorCode\",\"AssetId\":\"null\",\"ColorCode\":\"#C0C8D0\"}}],\"Manufacturer\":{\"Id\":13149},\"OwnerEntityId\":14146,\"RootRevision\":{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}}";
 
@@ -331,8 +326,7 @@ response = RestClient.post 'https://productlibrarydemo.iqmetrix.net/v1/ProductDo
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 
@@ -342,16 +336,16 @@ puts response
 
 <ul><li><code>Classification</code> (<strong>Required</strong>) </li><ul><li><code>TreeId</code> (<strong>Required</strong>) - Identifier for a {{ClassificationTree}}</li><li><code>Id</code> (<strong>Required</strong>) - Identifier for a {{Classification}} or {{Category}}</li></ul><li><code>OwnerEntityId</code> (<strong>Required</strong>) - Identifier of the <a href='/api/company-tree/#company'>Company</a> the Product will belong to</li><li><code>RootRevision</code> (<strong>Required</strong>) </li><ul><li><code>FieldValues</code> (<strong>Required</strong>) </li><ul><li><code>FieldDefinitionId</code> (<strong>Required</strong>) - Identifier for a {{FieldDefinition}}</li><li><code>LanguageInvariantValue</code> (<strong>Required</strong>) </li></ul><li><code>Assets</code> (Optional) - Image {{Assets}} for the Master Product</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier for an {{Asset}}</li><li><code>Name</code> (<strong>Required</strong>) </li><li><code>MimeType</code> (<strong>Required</strong>) </li><li><code>IsHidden</code> (Optional) - Defaults to false</li></ul><li><code>ColorDefinitionId</code> (Optional) - Unique identifier for a {{ColorDefinition}}</li><li><code>IdentifierGroups</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - Acceptable values include: ManufacturerSKU, VendorSKU, UPC</li><li><code>ForceOverride</code> (Optional) - A flag to indicate if this Identifier Group is inherited (synced) from a parent. See <a href='#extended-examples'>Extended Examples</a></li><li><code>Identifiers</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - This value should match the Type property of the IdentifierGroup</li><li><code>Value</code> (<strong>Required</strong>) </li><li><code>Description</code> (Optional) </li><li><code>Entity</code> (Optional) - Manufacturer or Vendor information for ManufacturerSKU or VendorSKU</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier of an Entity used for Entity Revisions. See <a href='/concepts/product-structure/#carrier-revisions'>Carrier Revisions</a> for more information</li></ul></ul></ul></ul><li><code>ColorDefinitions</code> (Optional) </li><ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>ColorTagIds</code> (Optional) - List of ColorTag Identifiers, see <a href='/api/product-structure/#getting-all-color-tags'>Getting All Color Tags</a> for a list</li><li><code>Swatch</code> (Optional) </li><ul><li><code>Type</code> (Optional) - Acceptable values are Asset, ColorCodes or Empty</li><li><code>AssetId</code> (Optional) - If Type is Asset, an identifier for an Asset. Otherwise, this property is ignored</li><li><code>ColorCode</code> (Optional) - If Type is ColorCode, a valid hex code for a color. Otherwise, this propety is ignored</li></ul></ul><li><code>Manufacturer</code> (Optional) </li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier for a {{Manufacturer}}</li></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#productdocument'>ProductDocument</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 201 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": 8,
     "Classification": {
         "TreeId": 1,
@@ -452,17 +446,15 @@ GET /ProductDocs({ProductDocumentId})
 > Example Request
 
 
-```javascript
-GET /ProductDocs(8)
+<pre class="highlight javascript"><code>GET /ProductDocs(8)
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAProductHierarchy()
 {
     var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)");
@@ -474,11 +466,10 @@ static IRestResponse GettingAProductHierarchy()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -494,11 +485,9 @@ public static CloseableHttpResponse GettingAProductHierarchy() throws IOExceptio
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -507,8 +496,7 @@ response = RestClient.get 'https://productlibrarydemo.iqmetrix.net/v1/ProductDoc
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -521,16 +509,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#productdocument'>ProductDocument</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": 8,
     "Classification": {
         "TreeId": 1,
@@ -660,14 +648,13 @@ PUT /ProductDocs({ProductDocumentId})
 > Example Request
 
 
-```javascript
-PUT /ProductDocs(8)
+<pre class="highlight javascript"><code>PUT /ProductDocs(8)
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X PUT "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Assets": [
         {
@@ -701,10 +688,9 @@ curl -X PUT "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)" -H "Auth
             ]
         }
     ]
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse UpdatingAMasterProduct()
 {
     var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)");
@@ -717,11 +703,10 @@ static IRestResponse UpdatingAMasterProduct()
      request.AddParameter("application/json", "{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
@@ -740,11 +725,9 @@ public static CloseableHttpResponse UpdatingAMasterProduct() throws IOException 
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}";
 
@@ -754,8 +737,7 @@ response = RestClient.put 'https://productlibrarydemo.iqmetrix.net/v1/ProductDoc
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -772,13 +754,13 @@ puts response
 
 <ul><li><code>FieldValues</code> (<strong>Required</strong>) </li><ul><li><code>FieldDefinitionId</code> (<strong>Required</strong>) - Identifier for a {{FieldDefinition}}</li><li><code>LanguageInvariantValue</code> (<strong>Required</strong>) </li></ul><li><code>Assets</code> (Optional) - Image {{Assets}} for the Master Product</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier for an {{Asset}}</li><li><code>Name</code> (<strong>Required</strong>) </li><li><code>MimeType</code> (<strong>Required</strong>) </li><li><code>IsHidden</code> (Optional) - Defaults to false</li></ul><li><code>ColorDefinitionId</code> (Optional) - Unique identifier for a {{ColorDefinition}}</li><li><code>IdentifierGroups</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - Acceptable values include: ManufacturerSKU, VendorSKU, UPC</li><li><code>ForceOverride</code> (Optional) - A flag to indicate if this Identifier Group is inherited (synced) from a parent. See <a href='#extended-examples'>Extended Examples</a></li><li><code>Identifiers</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - This value should match the Type property of the IdentifierGroup</li><li><code>Value</code> (<strong>Required</strong>) </li><li><code>Description</code> (Optional) </li><li><code>Entity</code> (Optional) - Manufacturer or Vendor information for ManufacturerSKU or VendorSKU</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier of an Entity used for Entity Revisions. See <a href='/concepts/product-structure/#carrier-revisions'>Carrier Revisions</a> for more information</li></ul></ul></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 204 Content-Type: application/json
 </pre>
 
@@ -795,14 +777,13 @@ POST /ProductDocs({ProductDocumentId})/Variations
 > Example Request
 
 
-```javascript
-POST /ProductDocs(8)/Variations
+<pre class="highlight javascript"><code>POST /ProductDocs(8)/Variations
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Assets": [
         {
@@ -835,10 +816,9 @@ curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variatio
             ]
         }
     ]
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse CreatingAVariation()
 {
     var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variations");
@@ -851,11 +831,10 @@ static IRestResponse CreatingAVariation()
      request.AddParameter("application/json", "{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -874,11 +853,9 @@ public static CloseableHttpResponse CreatingAVariation() throws IOException {
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}";
 
@@ -888,8 +865,7 @@ response = RestClient.post 'https://productlibrarydemo.iqmetrix.net/v1/ProductDo
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -906,16 +882,16 @@ puts response
 
 <ul><li><code>FieldValues</code> (<strong>Required</strong>) - Must be unique across all Variations for the MasterProduct</li><ul><li><code>FieldDefinitionId</code> (<strong>Required</strong>) - Identifier for a {{FieldDefinition}}</li><li><code>LanguageInvariantValue</code> (<strong>Required</strong>) </li></ul><li><code>Assets</code> (Optional) - Image {{Assets}} for the Variation</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier for an {{Asset}}</li><li><code>Name</code> (<strong>Required</strong>) </li><li><code>MimeType</code> (<strong>Required</strong>) </li><li><code>IsHidden</code> (Optional) - Defaults to false</li></ul><li><code>ColorDefinitionId</code> (Optional) - Identifier for a ColorDefinition. For a list of ColorDefinitions, see <a href='/api/product-structure/#getting-color-definitions-for-a-master-product'>Getting Color Definitions For a Master Product</a></li><li><code>IdentifierGroups</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - Acceptable values include: ManufacturerSKU, VendorSKU, UPC</li><li><code>ForceOverride</code> (Optional) - A flag to indicate if this Identifier Group is inherited (synced) from a parent. See <a href='#extended-examples'>Extended Examples</a></li><li><code>Identifiers</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - This value should match the Type property of the IdentifierGroup</li><li><code>Value</code> (<strong>Required</strong>) </li><li><code>Description</code> (Optional) </li><li><code>Entity</code> (Optional) - Manufacturer or Vendor information for ManufacturerSKU or VendorSKU</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier of an Entity used for Entity Revisions. See <a href='/concepts/product-structure/#carrier-revisions'>Carrier Revisions</a> for more information</li></ul></ul></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <ul><li><code>VariationId</code> (Integer) - Identifier for a {{Variation}}</li></ul>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 201 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "VariationId": 8
 }</pre>
 
@@ -933,14 +909,13 @@ PUT /ProductDocs({ProductDocumentId})/Variations?variationId={VariationId}
 > Example Request
 
 
-```javascript
-PUT /ProductDocs(8)/Variations?variationId=1
+<pre class="highlight javascript"><code>PUT /ProductDocs(8)/Variations?variationId=1
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X PUT "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variations?variationId=1" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Assets": [
         {
@@ -974,10 +949,9 @@ curl -X PUT "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variation
             ]
         }
     ]
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse UpdatingAVariation()
 {
     var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variations?variationId=1");
@@ -990,11 +964,10 @@ static IRestResponse UpdatingAVariation()
      request.AddParameter("application/json", "{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
@@ -1013,11 +986,9 @@ public static CloseableHttpResponse UpdatingAVariation() throws IOException {
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}";
 
@@ -1027,8 +998,7 @@ response = RestClient.put 'https://productlibrarydemo.iqmetrix.net/v1/ProductDoc
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1049,13 +1019,13 @@ puts response
 
 <ul><li><code>FieldValues</code> (<strong>Required</strong>) - Must be unique across all Variations for the MasterProduct</li><ul><li><code>FieldDefinitionId</code> (<strong>Required</strong>) - Identifier for a {{FieldDefinition}}</li><li><code>LanguageInvariantValue</code> (<strong>Required</strong>) </li></ul><li><code>Assets</code> (Optional) - Image {{Assets}} for the Variation</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier for an {{Asset}}</li><li><code>Name</code> (<strong>Required</strong>) </li><li><code>MimeType</code> (<strong>Required</strong>) </li><li><code>IsHidden</code> (Optional) - Defaults to false</li></ul><li><code>ColorDefinitionId</code> (Optional) - Identifier for a ColorDefinition. For a list of ColorDefinitions, see <a href='/api/product-structure/#getting-color-definitions-for-a-master-product'>Getting Color Definitions For a Master Product</a></li><li><code>IdentifierGroups</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - Acceptable values include: ManufacturerSKU, VendorSKU, UPC</li><li><code>ForceOverride</code> (Optional) - A flag to indicate if this Identifier Group is inherited (synced) from a parent. See <a href='#extended-examples'>Extended Examples</a></li><li><code>Identifiers</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - This value should match the Type property of the IdentifierGroup</li><li><code>Value</code> (<strong>Required</strong>) </li><li><code>Description</code> (Optional) </li><li><code>Entity</code> (Optional) - Manufacturer or Vendor information for ManufacturerSKU or VendorSKU</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier of an Entity used for Entity Revisions. See <a href='/concepts/product-structure/#carrier-revisions'>Carrier Revisions</a> for more information</li></ul></ul></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 204 Content-Type: application/json
 </pre>
 
@@ -1073,14 +1043,13 @@ POST /ProductDocs({ProductDocumentId})/Revisions?variationId={VariationId}&count
 > Example Request
 
 
-```javascript
-POST /ProductDocs(8)/Revisions?variationId=4&countryCode=CA&stateCode=MB&entityId=1
+<pre class="highlight javascript"><code>POST /ProductDocs(8)/Revisions?variationId=4&countryCode=CA&stateCode=MB&entityId=1
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revisions?variationId=4&countryCode=CA&stateCode=MB&entityId=1" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
     "FieldValues": [
@@ -1105,10 +1074,9 @@ curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revision
             ]
         }
     ]
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse CreatingARevision()
 {
     var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revisions?variationId=4&countryCode=CA&stateCode=MB&entityId=1");
@@ -1121,11 +1089,10 @@ static IRestResponse CreatingARevision()
      request.AddParameter("application/json", "{\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -1144,11 +1111,9 @@ public static CloseableHttpResponse CreatingARevision() throws IOException {
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}";
 
@@ -1158,8 +1123,7 @@ response = RestClient.post 'https://productlibrarydemo.iqmetrix.net/v1/ProductDo
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1192,16 +1156,16 @@ puts response
 
 <ul><li><code>FieldValues</code> (<strong>Required</strong>) </li><ul><li><code>FieldDefinitionId</code> (<strong>Required</strong>) - Identifier for a {{FieldDefinition}}</li><li><code>LanguageInvariantValue</code> (<strong>Required</strong>) </li></ul><li><code>ColorDefinitionId</code> (Optional) </li><li><code>IdentifierGroups</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - Acceptable values include: ManufacturerSKU, VendorSKU, UPC</li><li><code>ForceOverride</code> (Optional) - A flag to indicate if this Identifier Group is inherited (synced) from a parent. See <a href='#extended-examples'>Extended Examples</a></li><li><code>Identifiers</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - This value should match the Type property of the IdentifierGroup</li><li><code>Value</code> (<strong>Required</strong>) </li><li><code>Description</code> (Optional) </li><li><code>Entity</code> (Optional) - Manufacturer or Vendor information for ManufacturerSKU or VendorSKU</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier of an Entity used for Entity Revisions. See <a href='/concepts/product-structure/#carrier-revisions'>Carrier Revisions</a> for more information</li></ul></ul></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#revision'>Revision</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 201 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": 5,
     "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
     "Entity": {
@@ -1241,9 +1205,9 @@ HTTP 201 Content-Type: application/json
     ]
 }</pre>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 204 Content-Type: application/json
 </pre>
 
@@ -1261,14 +1225,13 @@ PUT /ProductDocs({ProductDocumentId})/Revisions?variationId={VariationId}&countr
 > Example Request
 
 
-```javascript
-PUT /ProductDocs(8)/Revisions?variationId=4&countryCode=CA&stateCode=MB&entityId=1
+<pre class="highlight javascript"><code>PUT /ProductDocs(8)/Revisions?variationId=4&countryCode=CA&stateCode=MB&entityId=1
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X PUT "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revisions?variationId=4&countryCode=CA&stateCode=MB&entityId=1" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Id": 5,
     "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
@@ -1307,10 +1270,9 @@ curl -X PUT "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revisions
             "StateName": "British Columbia"
         }
     ]
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse UpdatingARevision()
 {
     var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revisions?variationId=4&countryCode=CA&stateCode=MB&entityId=1");
@@ -1323,11 +1285,10 @@ static IRestResponse UpdatingARevision()
      request.AddParameter("application/json", "{\"Id\":5,\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}],\"Regions\":[{\"CountryCode\":\"CA\",\"CountryName\":\"Canada\",\"StateCode\":\"AB\",\"StateName\":\"British Columbia\"}]}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
@@ -1346,11 +1307,9 @@ public static CloseableHttpResponse UpdatingARevision() throws IOException {
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"Id\":5,\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}],\"Regions\":[{\"CountryCode\":\"CA\",\"CountryName\":\"Canada\",\"StateCode\":\"AB\",\"StateName\":\"British Columbia\"}]}";
 
@@ -1360,8 +1319,7 @@ response = RestClient.put 'https://productlibrarydemo.iqmetrix.net/v1/ProductDoc
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1394,13 +1352,13 @@ puts response
 
 <ul><li><code>FieldValues</code> (<strong>Required</strong>) </li><ul><li><code>FieldDefinitionId</code> (<strong>Required</strong>) - Identifier for a {{FieldDefinition}}</li><li><code>LanguageInvariantValue</code> (<strong>Required</strong>) </li></ul><li><code>ColorDefinitionId</code> (Optional) </li><li><code>IdentifierGroups</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - Acceptable values include: ManufacturerSKU, VendorSKU, UPC</li><li><code>ForceOverride</code> (Optional) - A flag to indicate if this Identifier Group is inherited (synced) from a parent. See <a href='#extended-examples'>Extended Examples</a></li><li><code>Identifiers</code> (Optional) </li><ul><li><code>Type</code> (<strong>Required</strong>) - This value should match the Type property of the IdentifierGroup</li><li><code>Value</code> (<strong>Required</strong>) </li><li><code>Description</code> (Optional) </li><li><code>Entity</code> (Optional) - Manufacturer or Vendor information for ManufacturerSKU or VendorSKU</li><ul><li><code>Id</code> (<strong>Required</strong>) - Identifier of an Entity used for Entity Revisions. See <a href='/concepts/product-structure/#carrier-revisions'>Carrier Revisions</a> for more information</li></ul></ul></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 204 Content-Type: application/json
 </pre>
 
@@ -1418,17 +1376,15 @@ GET /ProductDocs({ProductDocumentId})/ColorDefinitions
 > Example Request
 
 
-```javascript
-GET /ProductDocs(8)/ColorDefinitions
+<pre class="highlight javascript"><code>GET /ProductDocs(8)/ColorDefinitions
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDefinitions" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDefinitions" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingColorDefinitions()
 {
     var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDefinitions");
@@ -1440,11 +1396,10 @@ static IRestResponse GettingColorDefinitions()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -1460,11 +1415,9 @@ public static CloseableHttpResponse GettingColorDefinitions() throws IOException
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -1473,8 +1426,7 @@ response = RestClient.get 'https://productlibrarydemo.iqmetrix.net/v1/ProductDoc
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1487,16 +1439,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#colordefinitions'>ColorDefinitions</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "ColorDefinitions": [
         {
             "Id": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
@@ -1534,14 +1486,13 @@ POST /ProductDocs({ProductDocumentId})/ColorDefinitions
 > Example Request
 
 
-```javascript
-POST /ProductDocs(8)/ColorDefinitions
+<pre class="highlight javascript"><code>POST /ProductDocs(8)/ColorDefinitions
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDefinitions" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "ColorDefinitions": [
         {
@@ -1556,10 +1507,9 @@ curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDef
             }
         }
     ]
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse CreatingAColorDefinition()
 {
     var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDefinitions");
@@ -1572,11 +1522,10 @@ static IRestResponse CreatingAColorDefinition()
      request.AddParameter("application/json", "{\"ColorDefinitions\":[{\"Name\":\"Black Sapphire\",\"ColorTagIds\":[1],\"Swatch\":{\"Type\":\"ColorCode\",\"AssetId\":\"null\",\"ColorCode\":\"#C0C8D0\"}}]}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -1595,11 +1544,9 @@ public static CloseableHttpResponse CreatingAColorDefinition() throws IOExceptio
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"ColorDefinitions\":[{\"Name\":\"Black Sapphire\",\"ColorTagIds\":[1],\"Swatch\":{\"Type\":\"ColorCode\",\"AssetId\":\"null\",\"ColorCode\":\"#C0C8D0\"}}]}";
 
@@ -1609,8 +1556,7 @@ response = RestClient.post 'https://productlibrarydemo.iqmetrix.net/v1/ProductDo
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1627,16 +1573,16 @@ puts response
 
 <ul><li><code>ColorDefinitions</code> (<strong>Required</strong>) </li><ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>ColorTagIds</code> (Optional) - List of ColorTag Identifiers, see <a href='/api/product-structure/#getting-all-color-tags'>Getting All Color Tags</a> for a list</li><li><code>Swatch</code> (Optional) </li><ul><li><code>Type</code> (Optional) - Acceptable values are Asset, ColorCodes or Empty</li><li><code>AssetId</code> (Optional) - If Type is Asset, an identifier for an Asset. Otherwise, this property is ignored</li><li><code>ColorCode</code> (Optional) - If Type is ColorCode, a valid hex code for a color. Otherwise, this propety is ignored</li></ul></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#colordefinitions'>ColorDefinitions</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "ColorDefinitions": [
         {
             "Id": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
@@ -1673,17 +1619,15 @@ GET /ColorTags
 > Example Request
 
 
-```javascript
-GET /ColorTags
+<pre class="highlight javascript"><code>GET /ColorTags
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ColorTags" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ColorTags" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAllColorTags()
 {
     var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ColorTags");
@@ -1695,11 +1639,10 @@ static IRestResponse GettingAllColorTags()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -1715,11 +1658,9 @@ public static CloseableHttpResponse GettingAllColorTags() throws IOException {
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -1728,23 +1669,22 @@ response = RestClient.get 'https://productlibrarydemo.iqmetrix.net/v1/ColorTags'
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <ul><li><code>ColorTags</code> (Array) </li><ul><li><code>Id</code> (Integer) - Identifier of a {{ColorTag}}, see <a href='#getting-all-color-tags'>Getting All Color Tags</a> for a list</li><li><code>Name</code> (String) </li><li><code>ColorCode</code> (String) </li></ul></ul>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "ColorTags": [
         {
             "Id": 1,

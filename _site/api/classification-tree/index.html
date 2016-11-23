@@ -325,15 +325,16 @@ There is a limit to 20 levels of depth for Categories.</p>
   <p>Example Request</p>
 </blockquote>
 
-<pre><code class="language-javascript">GET /ClassificationTrees(1)
+<pre class="highlight javascript"><code>GET /ClassificationTrees(1)
 Authorization: Bearer (Access Token)
 Accept: application/json
 </code></pre>
 
-<pre><code class="language-shell">curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ClassificationTrees(1)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-</code></pre>
+<pre class="highlight shell"><code>
+curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ClassificationTrees(1)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-<pre><code class="language-csharp">static IRestResponse GettingAClassificationTree()
+<pre class="highlight csharp"><code>
+static IRestResponse GettingAClassificationTree()
 {
     var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ClassificationTrees(1)");
     var request = new RestRequest(Method.GET);
@@ -344,10 +345,10 @@ Accept: application/json
     
 
     return client.Execute(request);
-}
-</code></pre>
+}</code></pre>
 
-<pre><code class="language-java">
+<pre class="highlight java"><code>
+
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -362,10 +363,9 @@ public static CloseableHttpResponse GettingAClassificationTree() throws IOExcept
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-</code></pre>
+}</code></pre>
 
-<pre><code class="language-ruby">require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -374,8 +374,7 @@ response = RestClient.get 'https://productlibrarydemo.iqmetrix.net/v1/Classifica
      :'Accept' =&gt; 'application/json',
     } 
 
-puts response
-</code></pre>
+puts response</code></pre>
 
 <h4 id="uri-parameters">URI Parameters</h4>
 <ul>
@@ -385,16 +384,18 @@ puts response
     </li>
     </ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 <p><a href="#classificationtree">ClassificationTree</a></p>
 
-<h5>Example</h5>
+<blockquote>
+  <p>Example Response</p>
+</blockquote>
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
 </pre>
-<pre>{
+<pre class="highlight json">{
     "Id": 1,
     "Name": "Cellular &amp; Accessories",
     "Description": "Classification of products for wireless retail",

@@ -87,17 +87,15 @@ GET /partners({PartnerId})/salesTransactions?startDate={StartDate}&endDate={EndD
 > Example Request
 
 
-```javascript
-GET /partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&endDate=2015-12-30T08:00:00.000Z&$skip=0&$top=10
+<pre class="highlight javascript"><code>GET /partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&endDate=2015-12-30T08:00:00.000Z&$skip=0&$top=10
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://reportingdemo.iqmetrix.net/v1/partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&endDate=2015-12-30T08:00:00.000Z&$skip=0&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://reportingdemo.iqmetrix.net/v1/partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&endDate=2015-12-30T08:00:00.000Z&$skip=0&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingSalesTransactions()
 {
     var client = new RestClient("https://reportingdemo.iqmetrix.net/v1/partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&endDate=2015-12-30T08:00:00.000Z&$skip=0&$top=10");
@@ -109,11 +107,10 @@ static IRestResponse GettingSalesTransactions()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -129,11 +126,9 @@ public static CloseableHttpResponse GettingSalesTransactions() throws IOExceptio
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -142,8 +137,7 @@ response = RestClient.get 'https://reportingdemo.iqmetrix.net/v1/partners(36)/sa
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -172,16 +166,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <ul><li><code>_links</code> (Object) - Relative URL's used for Pagination</li><ul><li><code>prev</code> (String) - Refers to a resource containing the previous page of results, null if there is no previous page</li><li><code>self</code> (String) - The request that returned these results</li><li><code>next</code> (String) - Refers to a resource containing the next page of results, null if this is the last page</li></ul><li><code>_metadata</code> (Object) - Data representing Pagination details</li><ul><li><code>count</code> (Integer) - The total number of results returned from the request</li><li><code>skip</code> (Integer) - Value of skip in the request URI, if not specified the value will be 0</li><li><code>top</code> (Integer) - Value of top in the request URI, if not specified the value will be 30</li></ul><li><code>items</code> (Array[<a href='/api/partner-reporting/#transaction'>Transaction</a>]) </li><ul><li><code>CompanyId</code> (Integer) </li><li><code>CompanyName</code> (String) </li><li><code>StoreId</code> (Integer) </li><li><code>StoreName</code> (String) </li><li><code>RQEmployeeId</code> (Integer) </li><li><code>SalesPersonName</code> (String) </li><li><code>InvoiceId</code> (String) </li><li><code>OriginalInvoiceId</code> (String) </li><li><code>SalesTransactionDateTime</code> (Datetime) </li><li><code>SalesTransactionType</code> (String) </li><li><code>ProductName</code> (String) </li><li><code>ProductSku</code> (String) </li><li><code>ProductLibrarySlug</code> (String) </li><li><code>Quantity</code> (Integer) </li><li><code>UnitCost</code> (Decimal) </li><li><code>GrossProfit</code> (Decimal) </li><li><code>TotalSales</code> (Decimal) </li><li><code>SerialNumber</code> (String) </li><li><code>ManufacturerName</code> (String) </li><li><code>ActivationType</code> (String) </li><li><code>CarrierName</code> (String) </li></ul></ul>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
   "_links": {
     "prev": null,
     "self": "/v1/partners(36)/salesTransactions?$skip=0&$top=10&StartDate=2015-10-03T17:35:00.000Z&EndDate=2016-12-30T12:00:00.000Z",

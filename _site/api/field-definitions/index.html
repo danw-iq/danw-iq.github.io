@@ -301,15 +301,16 @@
   <p>Example Request</p>
 </blockquote>
 
-<pre><code class="language-javascript">GET /FieldDefinitions
+<pre class="highlight javascript"><code>GET /FieldDefinitions
 Authorization: Bearer (Access Token)
 Accept: application/json
 </code></pre>
 
-<pre><code class="language-shell">curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/FieldDefinitions" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-</code></pre>
+<pre class="highlight shell"><code>
+curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/FieldDefinitions" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-<pre><code class="language-csharp">static IRestResponse GettingAllFieldDefinitions()
+<pre class="highlight csharp"><code>
+static IRestResponse GettingAllFieldDefinitions()
 {
     var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/FieldDefinitions");
     var request = new RestRequest(Method.GET);
@@ -320,10 +321,10 @@ Accept: application/json
     
 
     return client.Execute(request);
-}
-</code></pre>
+}</code></pre>
 
-<pre><code class="language-java">
+<pre class="highlight java"><code>
+
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -338,10 +339,9 @@ public static CloseableHttpResponse GettingAllFieldDefinitions() throws IOExcept
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-</code></pre>
+}</code></pre>
 
-<pre><code class="language-ruby">require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -350,19 +350,20 @@ response = RestClient.get 'https://productlibrarydemo.iqmetrix.net/v1/FieldDefin
      :'Accept' =&gt; 'application/json',
     } 
 
-puts response
-</code></pre>
+puts response</code></pre>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 <p>Array[<a href="#fielddefinition">FieldDefinition</a>]</p>
 
-<h5>Example</h5>
+<blockquote>
+  <p>Example Response</p>
+</blockquote>
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
 </pre>
-<pre>[
+<pre class="highlight json">[
     {
         "Id": 1,
         "StringId": "Product Name",
@@ -388,15 +389,16 @@ HTTP 200 Content-Type: application/json
   <p>Example Request</p>
 </blockquote>
 
-<pre><code class="language-javascript">GET /FieldDefinitions(1)
+<pre class="highlight javascript"><code>GET /FieldDefinitions(1)
 Authorization: Bearer (Access Token)
 Accept: application/json
 </code></pre>
 
-<pre><code class="language-shell">curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/FieldDefinitions(1)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-</code></pre>
+<pre class="highlight shell"><code>
+curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/FieldDefinitions(1)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-<pre><code class="language-csharp">static IRestResponse GettingAFieldDefinition()
+<pre class="highlight csharp"><code>
+static IRestResponse GettingAFieldDefinition()
 {
     var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/FieldDefinitions(1)");
     var request = new RestRequest(Method.GET);
@@ -407,10 +409,10 @@ Accept: application/json
     
 
     return client.Execute(request);
-}
-</code></pre>
+}</code></pre>
 
-<pre><code class="language-java">
+<pre class="highlight java"><code>
+
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -425,10 +427,9 @@ public static CloseableHttpResponse GettingAFieldDefinition() throws IOException
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-</code></pre>
+}</code></pre>
 
-<pre><code class="language-ruby">require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -437,8 +438,7 @@ response = RestClient.get 'https://productlibrarydemo.iqmetrix.net/v1/FieldDefin
      :'Accept' =&gt; 'application/json',
     } 
 
-puts response
-</code></pre>
+puts response</code></pre>
 
 <h4 id="uri-parameters">URI Parameters</h4>
 <ul>
@@ -448,16 +448,18 @@ puts response
     </li>
     </ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 <p><a href="#fielddefinition">FieldDefinition</a></p>
 
-<h5>Example</h5>
+<blockquote>
+  <p>Example Response</p>
+</blockquote>
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
 </pre>
-<pre>{
+<pre class="highlight json">{
     "Id": 1,
     "StringId": "Product Name",
     "InputType": "TestSingleLine",

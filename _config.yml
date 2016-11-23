@@ -22,7 +22,7 @@ sidebar_accordion: true
 #redcarpet:
   # extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
 
-highlighter: none
+highlighter: rouge
 
 # print: false
 
@@ -40,6 +40,7 @@ exclude:
   - raml
   - templates
   - node_modules
+  
   
 # permalink: :title
 

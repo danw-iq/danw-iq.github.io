@@ -411,14 +411,13 @@ PUT /Companies({CompanyId})/Locations({LocationId})/Carriers({CarrierId})/Activa
 > Example Request
 
 
-```javascript
-PUT /Companies(123)/Locations(5678)/Carriers(41)/Activations(6=1115550123)
+<pre class="highlight javascript"><code>PUT /Companies(123)/Locations(5678)/Carriers(41)/Activations(6=1115550123)
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X PUT "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Locations(5678)/Carriers(41)/Activations(6=1115550123)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Id": "6=1115550123",
     "CarrierActivationDetails": {
@@ -564,10 +563,9 @@ curl -X PUT "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Location
     "CarrierId": 41,
     "CompanyId": 1234,
     "LocationId": 5678
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse CreatingAnActivation()
 {
     var client = new RestClient("https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Locations(5678)/Carriers(41)/Activations(6=1115550123)");
@@ -580,11 +578,10 @@ static IRestResponse CreatingAnActivation()
      request.AddParameter("application/json", "{\"Id\":\"6=1115550123\",\"CarrierActivationDetails\":{\"ActivationId\":354,\"ActivationDate\":\"2015-06-19T05:44:39.7163989Z\",\"ActivatedProduct\":{\"Description\":\"Samsung Galaxy S5\",\"ESN\":\"35854205829867\",\"IMEI\":\"351756051523999\",\"Make\":\"Samsung\",\"MobileDeviceNumber\":\"1115550123\",\"Model\":\"Galaxy S5\",\"Price\":499,\"ProductId\":\"\",\"SerialNumber\":\"98769456321\",\"SIM\":\"89000000000000001234\",\"SKU\":\"DEF987\",\"SOCCode\":\"DEF987\",\"Tab\":{\"Amount\":50,\"Commission\":{\"Name\":\"Promo\",\"Description\":\"FREE Roam Like Home\",\"Amount\":55,\"Notes\":\"US\",\"ReferenceNumber\":\"abc123\",\"SOCCode\":\"AGG242\"},\"ReferenceNumber\":\"abc123\"}},\"ActivationState\":\"Pending\",\"ActivationTermCode\":\"EarlyUpgrade\",\"ActivationType\":\"NewActivation\",\"AdditionalFees\":[{\"Name\":\"Roaming\",\"Description\":\"Roam like home\",\"Amount\":55,\"Notes\":\"US\",\"Rebate\":{\"Name\":\"Promo\",\"Description\":\"FREE Roam Like Home\",\"Amount\":55,\"Notes\":\"US\",\"ReferenceNumber\":\"abc123\",\"SOCCode\":\"AGG242\"},\"ReferenceNumber\":\"abc123\",\"SOCCode\":\"BB3221\"}],\"ContractLengthInMonths\":24,\"ContractNumberIsAccountNumber\":false,\"DealerName\":\"IAPR\",\"DealerCode\":\"IAPR\",\"Deposit\":{\"Name\":\"Roaming\",\"Description\":\"Roam like home\",\"Amount\":55,\"Notes\":\"US\",\"Rebate\":{\"Name\":\"Promo\",\"Description\":\"FREE Roam Like Home\",\"Amount\":55,\"Notes\":\"US\",\"ReferenceNumber\":\"abc123\",\"SOCCode\":\"AGG242\"},\"ReferenceNumber\":\"abc123\",\"SOCCode\":\"BB3221\"},\"Notes\":\"Notes go here!\",\"OrderNumber\":\"ORD1234\",\"RatePlans\":[{\"RatePlanId\":\"ABC1234\",\"Name\":\"Country-wide Unlimited\",\"ContractTerms\":\"Some terms\",\"Description\":\"The perfect plan for lots of calling!\",\"IncludedRatePlanFeatures\":[{\"RatePlanAddonId\":\"XYZ5678\",\"Name\":\"TEXT100\",\"Description\":\"One hundred additional text messages.\",\"MonthlyRecurringCharges\":5,\"SOCCode\":\"XYZ5678\"}],\"MonthlyRecurringCharges\":55,\"RatePlanFeatureAddons\":[{\"RatePlanAddonId\":\"XYZ5678\",\"Name\":\"TEXT100\",\"Description\":\"One hundred additional text messages.\",\"MonthlyRecurringCharges\":5,\"SOCCode\":\"XYZ5678\"}],\"SOCCode\":\"ABC1234\"}],\"RemoteActivationID\":\"3023997373\",\"Subscriber\":{\"SubscriberId\":\"12121212121\",\"FirstName\":\"Joe\",\"LastName\":\"Smith\",\"Addresses\":[{\"AddressLine1\":\"123 Main Street\",\"AddressLine2\":\"Apt 200\",\"City\":\"Dover\",\"Country\":\"USA\",\"County\":\"Fairfield\",\"POBox\":\"PO Box 123\",\"PostalCode\":\"19901\",\"Province\":\"DE\",\"SuiteNumber\":\"100\",\"Type\":\"Residential\"}],\"AssociatedAccount\":{\"AccountId\":\"343434343\",\"Notes\":\"\",\"TrackingNumber\":\"5656565656\"},\"BirthDate\":\"5/16/1980\",\"CompanyName\":\"\",\"Email\":\"subscriber@example.com\",\"IsIndividual\":true,\"Notes\":\"24 Month Term\",\"PhoneNumbers\":[{\"Type\":\"Home\",\"Value\":\"1234561234\"}],\"SSN\":\"6789\",\"TrackingNumber\":\"2121212121\"},\"TrackingNumber\":\"3023997373\"},\"CarrierId\":41,\"CompanyId\":1234,\"LocationId\":5678}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
@@ -603,11 +600,9 @@ public static CloseableHttpResponse CreatingAnActivation() throws IOException {
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"Id\":\"6=1115550123\",\"CarrierActivationDetails\":{\"ActivationId\":354,\"ActivationDate\":\"2015-06-19T05:44:39.7163989Z\",\"ActivatedProduct\":{\"Description\":\"Samsung Galaxy S5\",\"ESN\":\"35854205829867\",\"IMEI\":\"351756051523999\",\"Make\":\"Samsung\",\"MobileDeviceNumber\":\"1115550123\",\"Model\":\"Galaxy S5\",\"Price\":499,\"ProductId\":\"\",\"SerialNumber\":\"98769456321\",\"SIM\":\"89000000000000001234\",\"SKU\":\"DEF987\",\"SOCCode\":\"DEF987\",\"Tab\":{\"Amount\":50,\"Commission\":{\"Name\":\"Promo\",\"Description\":\"FREE Roam Like Home\",\"Amount\":55,\"Notes\":\"US\",\"ReferenceNumber\":\"abc123\",\"SOCCode\":\"AGG242\"},\"ReferenceNumber\":\"abc123\"}},\"ActivationState\":\"Pending\",\"ActivationTermCode\":\"EarlyUpgrade\",\"ActivationType\":\"NewActivation\",\"AdditionalFees\":[{\"Name\":\"Roaming\",\"Description\":\"Roam like home\",\"Amount\":55,\"Notes\":\"US\",\"Rebate\":{\"Name\":\"Promo\",\"Description\":\"FREE Roam Like Home\",\"Amount\":55,\"Notes\":\"US\",\"ReferenceNumber\":\"abc123\",\"SOCCode\":\"AGG242\"},\"ReferenceNumber\":\"abc123\",\"SOCCode\":\"BB3221\"}],\"ContractLengthInMonths\":24,\"ContractNumberIsAccountNumber\":false,\"DealerName\":\"IAPR\",\"DealerCode\":\"IAPR\",\"Deposit\":{\"Name\":\"Roaming\",\"Description\":\"Roam like home\",\"Amount\":55,\"Notes\":\"US\",\"Rebate\":{\"Name\":\"Promo\",\"Description\":\"FREE Roam Like Home\",\"Amount\":55,\"Notes\":\"US\",\"ReferenceNumber\":\"abc123\",\"SOCCode\":\"AGG242\"},\"ReferenceNumber\":\"abc123\",\"SOCCode\":\"BB3221\"},\"Notes\":\"Notes go here!\",\"OrderNumber\":\"ORD1234\",\"RatePlans\":[{\"RatePlanId\":\"ABC1234\",\"Name\":\"Country-wide Unlimited\",\"ContractTerms\":\"Some terms\",\"Description\":\"The perfect plan for lots of calling!\",\"IncludedRatePlanFeatures\":[{\"RatePlanAddonId\":\"XYZ5678\",\"Name\":\"TEXT100\",\"Description\":\"One hundred additional text messages.\",\"MonthlyRecurringCharges\":5,\"SOCCode\":\"XYZ5678\"}],\"MonthlyRecurringCharges\":55,\"RatePlanFeatureAddons\":[{\"RatePlanAddonId\":\"XYZ5678\",\"Name\":\"TEXT100\",\"Description\":\"One hundred additional text messages.\",\"MonthlyRecurringCharges\":5,\"SOCCode\":\"XYZ5678\"}],\"SOCCode\":\"ABC1234\"}],\"RemoteActivationID\":\"3023997373\",\"Subscriber\":{\"SubscriberId\":\"12121212121\",\"FirstName\":\"Joe\",\"LastName\":\"Smith\",\"Addresses\":[{\"AddressLine1\":\"123 Main Street\",\"AddressLine2\":\"Apt 200\",\"City\":\"Dover\",\"Country\":\"USA\",\"County\":\"Fairfield\",\"POBox\":\"PO Box 123\",\"PostalCode\":\"19901\",\"Province\":\"DE\",\"SuiteNumber\":\"100\",\"Type\":\"Residential\"}],\"AssociatedAccount\":{\"AccountId\":\"343434343\",\"Notes\":\"\",\"TrackingNumber\":\"5656565656\"},\"BirthDate\":\"5/16/1980\",\"CompanyName\":\"\",\"Email\":\"subscriber@example.com\",\"IsIndividual\":true,\"Notes\":\"24 Month Term\",\"PhoneNumbers\":[{\"Type\":\"Home\",\"Value\":\"1234561234\"}],\"SSN\":\"6789\",\"TrackingNumber\":\"2121212121\"},\"TrackingNumber\":\"3023997373\"},\"CarrierId\":41,\"CompanyId\":1234,\"LocationId\":5678}";
 
@@ -617,8 +612,7 @@ response = RestClient.put 'https://carrierservicesdemo.iqmetrix.net/v2/Companies
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -647,16 +641,16 @@ puts response
 
 <ul><li><code>Id</code> (<strong>Required</strong>) </li><li><code>CarrierActivationDetails</code> (<strong>Required</strong>) </li><ul><li><code>ActivatedProduct</code> (<strong>Required</strong>) </li><ul><li><code>ProductId</code> (<strong>Required</strong>) - May be set to an empty string</li><li><code>Description</code> (Optional) </li><li><code>ESN</code> (Optional) - This is the first value searched for when the Activation is imported into RQ</li><li><code>IMEI</code> (Optional) </li><li><code>Make</code> (Optional) </li><li><code>MobileDeviceNumber</code> (Optional) </li><li><code>Model</code> (Optional) </li><li><code>Price</code> (Optional) </li><li><code>SerialNumber</code> (Optional) </li><li><code>SIM</code> (Optional) </li><li><code>SKU</code> (Optional) </li><li><code>SOCCode</code> (Optional) </li><li><code>Tab</code> (Optional) </li><ul><li><code>Commission</code> (<strong>Required</strong>) </li><ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Description</code> (<strong>Required</strong>) </li><li><code>ReferenceNumber</code> (<strong>Required</strong>) - Identifier for the VendorRebate in an external system</li><li><code>SOCCode</code> (<strong>Required</strong>) </li><li><code>Amount</code> (Optional) </li><li><code>Notes</code> (Optional) </li></ul><li><code>ReferenceNumber</code> (<strong>Required</strong>) - Identifier for the Tab in an external system</li><li><code>Amount</code> (Optional) </li></ul></ul><li><code>ActivationType</code> (<strong>Required</strong>) </li><li><code>RatePlans</code> (<strong>Required</strong>) </li><ul><li><code>Description</code> (<strong>Required</strong>) </li><li><code>SOCCode</code> (<strong>Required</strong>) </li><li><code>RatePlanId</code> (Optional) </li><li><code>Name</code> (Optional) </li><li><code>ContractTerms</code> (Optional) </li><li><code>IncludedRatePlanFeatures</code> (Optional) </li><ul><li><code>Description</code> (<strong>Required</strong>) </li><li><code>SOCCode</code> (<strong>Required</strong>) </li><li><code>RatePlanAddonId</code> (Optional) </li><li><code>Name</code> (Optional) </li><li><code>MonthlyRecurringCharges</code> (Optional) </li></ul><li><code>MonthlyRecurringCharges</code> (Optional) </li><li><code>RatePlanFeatureAddons</code> (Optional) </li><ul><li><code>Description</code> (<strong>Required</strong>) </li><li><code>SOCCode</code> (<strong>Required</strong>) </li><li><code>RatePlanAddonId</code> (Optional) </li><li><code>Name</code> (Optional) </li><li><code>MonthlyRecurringCharges</code> (Optional) </li></ul></ul><li><code>Subscriber</code> (<strong>Required</strong>) </li><ul><li><code>FirstName</code> (<strong>Required</strong>) - Required if IsIndividual is set to true, otherwise must be omitted</li><li><code>LastName</code> (<strong>Required</strong>) - Required if IsIndividual is set to true, otherwise must be omitted</li><li><code>CompanyName</code> (<strong>Required</strong>) - Required if IsIndividual is set to false, otherwise must be omitted</li><li><code>SubscriberId</code> (Optional) </li><li><code>Addresses</code> (Optional) </li><ul><li><code>AddressLine1</code> (<strong>Required</strong>) </li><li><code>AddressLine2</code> (<strong>Required</strong>) </li><li><code>City</code> (<strong>Required</strong>) </li><li><code>Country</code> (<strong>Required</strong>) </li><li><code>PostalCode</code> (<strong>Required</strong>) </li><li><code>Province</code> (<strong>Required</strong>) </li><li><code>Type</code> (<strong>Required</strong>) </li><li><code>County</code> (Optional) </li><li><code>POBox</code> (Optional) </li><li><code>SuiteNumber</code> (Optional) </li></ul><li><code>AssociatedAccount</code> (Optional) </li><ul><li><code>AccountId</code> (Optional) </li><li><code>Notes</code> (Optional) </li><li><code>TrackingNumber</code> (Optional) </li></ul><li><code>BirthDate</code> (Optional) </li><li><code>Email</code> (Optional) </li><li><code>IsIndividual</code> (Optional) - Defaults to false</li><li><code>Notes</code> (Optional) </li><li><code>PhoneNumbers</code> (Optional) </li><ul><li><code>Value</code> (<strong>Required</strong>) </li><li><code>Type</code> (Optional) - Defaults to Home</li></ul><li><code>SSN</code> (Optional) </li><li><code>TrackingNumber</code> (Optional) </li></ul><li><code>ActivationId</code> (<strong>Required</strong>) </li><li><code>ActivationState</code> (<strong>Required</strong>) - Acceptable values are Pending or Completed. Defaults to Pending</li><li><code>ActivationTermCode</code> (Optional) </li><li><code>AdditionalFees</code> (Optional) </li><ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Description</code> (<strong>Required</strong>) </li><li><code>ReferenceNumber</code> (<strong>Required</strong>) - Identifier for the AdditionalFee in an external system</li><li><code>SOCCode</code> (<strong>Required</strong>) </li><li><code>Amount</code> (Optional) </li><li><code>Notes</code> (Optional) </li><li><code>Rebate</code> (Optional) </li><ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Description</code> (<strong>Required</strong>) </li><li><code>ReferenceNumber</code> (<strong>Required</strong>) - Identifier for the VendorRebate in an external system</li><li><code>SOCCode</code> (<strong>Required</strong>) </li><li><code>Amount</code> (Optional) </li><li><code>Notes</code> (Optional) </li></ul></ul><li><code>ContractLengthInMonths</code> (Optional) </li><li><code>ContractNumberIsAccountNumber</code> (Optional) </li><li><code>DealerName</code> (Optional) </li><li><code>DealerCode</code> (Optional) </li><li><code>Deposit</code> (Optional) </li><ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Description</code> (<strong>Required</strong>) </li><li><code>ReferenceNumber</code> (<strong>Required</strong>) - Identifier for the AdditionalFee in an external system</li><li><code>SOCCode</code> (<strong>Required</strong>) </li><li><code>Amount</code> (Optional) </li><li><code>Notes</code> (Optional) </li><li><code>Rebate</code> (Optional) </li><ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Description</code> (<strong>Required</strong>) </li><li><code>ReferenceNumber</code> (<strong>Required</strong>) - Identifier for the VendorRebate in an external system</li><li><code>SOCCode</code> (<strong>Required</strong>) </li><li><code>Amount</code> (Optional) </li><li><code>Notes</code> (Optional) </li></ul></ul><li><code>Notes</code> (Optional) </li><li><code>OrderNumber</code> (Optional) </li><li><code>RemoteActivationID</code> (Optional) </li><li><code>TrackingNumber</code> (Optional) </li></ul><li><code>CarrierId</code> (<strong>Required</strong>) </li><li><code>CompanyId</code> (<strong>Required</strong>) </li><li><code>LocationId</code> (<strong>Required</strong>) - Must match the LocationId provided in the URI</li></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#activation'>Activation</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 201 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": "6=1115550123",
     "CarrierActivationDetails": {
         "ActivationId": 354,
@@ -823,18 +817,16 @@ GET /Companies({CompanyId})/Locations({LocationId})/Carriers({CarrierId})/Activa
 > Example Request
 
 
-```javascript
-GET /Companies(123)/Locations(5678)/Carriers(41)/Activations(6=1115550123)
+<pre class="highlight javascript"><code>GET /Companies(123)/Locations(5678)/Carriers(41)/Activations(6=1115550123)
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Locations(5678)/Carriers(41)/Activations(6=1115550123)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Locations(5678)/Carriers(41)/Activations(6=1115550123)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAnActivation()
 {
     var client = new RestClient("https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Locations(5678)/Carriers(41)/Activations(6=1115550123)");
@@ -847,11 +839,10 @@ static IRestResponse GettingAnActivation()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -868,11 +859,9 @@ public static CloseableHttpResponse GettingAnActivation() throws IOException {
     request.addHeader("Content-Type", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -882,8 +871,7 @@ response = RestClient.get 'https://carrierservicesdemo.iqmetrix.net/v2/Companies
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -908,16 +896,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#activation'>Activation</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": "6=1115550123",
     "CarrierActivationDetails": {
         "ActivationId": 354,
@@ -1077,18 +1065,16 @@ GET /Companies({CompanyId})/Carriers({CarrierId})/ActivationImportFields
 > Example Request
 
 
-```javascript
-GET /Companies(123)/Carriers(41)/ActivationImportFields
+<pre class="highlight javascript"><code>GET /Companies(123)/Carriers(41)/ActivationImportFields
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/ActivationImportFields" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/ActivationImportFields" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingActivationLookupFields()
 {
     var client = new RestClient("https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/ActivationImportFields");
@@ -1101,11 +1087,10 @@ static IRestResponse GettingActivationLookupFields()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -1122,11 +1107,9 @@ public static CloseableHttpResponse GettingActivationLookupFields() throws IOExc
     request.addHeader("Content-Type", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -1136,8 +1119,7 @@ response = RestClient.get 'https://carrierservicesdemo.iqmetrix.net/v2/Companies
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1154,16 +1136,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  Array[<a href='#activationlookupfield'>ActivationLookupField</a>]
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>[
+</pre><pre class="highlight json">[
     {
         "Id": 6,
         "FieldName": "North American Mobile Number",
@@ -1186,17 +1168,15 @@ GET /Companies({CompanyId})/Carriers({CarrierId})/Configurations
 > Example Request
 
 
-```javascript
-GET /Companies(123)/Carriers(41)/Configurations
+<pre class="highlight javascript"><code>GET /Companies(123)/Carriers(41)/Configurations
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/Configurations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/Configurations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingConfigurationsByCompanyAndCarrier()
 {
     var client = new RestClient("https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/Configurations");
@@ -1208,11 +1188,10 @@ static IRestResponse GettingConfigurationsByCompanyAndCarrier()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -1228,11 +1207,9 @@ public static CloseableHttpResponse GettingConfigurationsByCompanyAndCarrier() t
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -1241,8 +1218,7 @@ response = RestClient.get 'https://carrierservicesdemo.iqmetrix.net/v2/Companies
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1259,16 +1235,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#configurationdetails'>ConfigurationDetails</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": 41,
     "ClientID": 123,
     "CompanyWideSettingsResource": {
@@ -1331,14 +1307,13 @@ POST /Companies({CompanyId})/Carriers({CarrierId})/Configurations
 > Example Request
 
 
-```javascript
-POST /Companies(123)/Carriers(41)/Configurations
+<pre class="highlight javascript"><code>POST /Companies(123)/Carriers(41)/Configurations
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/Configurations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
   "CompanyWideSettingsResource": {
     "CompanyWideIntegrationSettings": [
@@ -1364,10 +1339,9 @@ curl -X POST "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carrier
     ]
   }
 }
-'
-```
+'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse EnablingACarrierIntegrationForALocation()
 {
     var client = new RestClient("https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/Configurations");
@@ -1380,11 +1354,10 @@ static IRestResponse EnablingACarrierIntegrationForALocation()
      request.AddParameter("application/json", "{\"CompanyWideSettingsResource\":{\"CompanyWideIntegrationSettings\":[{\"Id\":1,\"Value\":\"True\",\"ValueOptions\":null}]},\"LocationSettingsResource\":{\"Locations\":[{\"LocationID\":5678,\"IntegrationSettings\":[{\"Id\":1,\"Value\":\"True\",\"ValueOptions\":null}]}]}}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -1403,11 +1376,9 @@ public static CloseableHttpResponse EnablingACarrierIntegrationForALocation() th
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"CompanyWideSettingsResource\":{\"CompanyWideIntegrationSettings\":[{\"Id\":1,\"Value\":\"True\",\"ValueOptions\":null}]},\"LocationSettingsResource\":{\"Locations\":[{\"LocationID\":5678,\"IntegrationSettings\":[{\"Id\":1,\"Value\":\"True\",\"ValueOptions\":null}]}]}}
 
@@ -1417,8 +1388,7 @@ response = RestClient.post 'https://carrierservicesdemo.iqmetrix.net/v2/Companie
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1439,16 +1409,16 @@ puts response
 
 <ul><li><code>CompanyWideSettingsResource</code> (<strong>Required</strong>) - Company wide configuration settings</li><ul><li><code>CompanyWideIntegrationSettings</code> (<strong>Required</strong>) </li><ul><li><code>Id</code> (<strong>Required</strong>) - For a list of settings see <code>MetaData</code> part of response to <a href='#getting-configurations-by-company-and-carrier'>Getting Configurations By Company and Carrier</a></li><li><code>Value</code> (<strong>Required</strong>) </li><li><code>ValueOptions</code> (Optional) - Will be null or empty for settings that have no such restriction.</li></ul></ul><li><code>LocationSettingsResource</code> (<strong>Required</strong>) - Location specific configuration settings</li><ul><li><code>Locations</code> (<strong>Required</strong>) </li><ul><li><code>LocationId</code> (<strong>Required</strong>) - Identifier for a {{Location}}</li><li><code>IntegrationSettings</code> (<strong>Required</strong>) - Integration settings for the Location</li><ul><li><code>Id</code> (<strong>Required</strong>) - For a list of settings see <code>MetaData</code> part of response to <a href='#getting-configurations-by-company-and-carrier'>Getting Configurations By Company and Carrier</a></li><li><code>Value</code> (<strong>Required</strong>) </li><li><code>ValueOptions</code> (Optional) - Will be null or empty for settings that have no such restriction.</li></ul></ul></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#configurationdetails'>ConfigurationDetails</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
   "Id": 33,
   "ClientID": 123,
   "CompanyWideSettingsResource": {
@@ -1508,14 +1478,13 @@ POST /Companies({CompanyId})/Carriers({CarrierId})/Configurations/
 > Example Request
 
 
-```javascript
-POST /Companies(123)/Carriers(41)/Configurations/
+<pre class="highlight javascript"><code>POST /Companies(123)/Carriers(41)/Configurations/
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/Configurations/" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
   "CompanyWideSettingsResource": {
     "CompanyWideIntegrationSettings": [
@@ -1541,10 +1510,9 @@ curl -X POST "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carrier
     ]
   }
 }
-'
-```
+'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse DisablingACarrierIntegrationForALocation()
 {
     var client = new RestClient("https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/Configurations/");
@@ -1557,11 +1525,10 @@ static IRestResponse DisablingACarrierIntegrationForALocation()
      request.AddParameter("application/json", "{\"CompanyWideSettingsResource\":{\"CompanyWideIntegrationSettings\":[{\"Id\":1,\"Value\":\"True\",\"ValueOptions\":null}]},\"LocationSettingsResource\":{\"Locations\":[{\"LocationID\":5678,\"IntegrationSettings\":[{\"Id\":1,\"Value\":\"False\",\"ValueOptions\":null}]}]}}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -1580,11 +1547,9 @@ public static CloseableHttpResponse DisablingACarrierIntegrationForALocation() t
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"CompanyWideSettingsResource\":{\"CompanyWideIntegrationSettings\":[{\"Id\":1,\"Value\":\"True\",\"ValueOptions\":null}]},\"LocationSettingsResource\":{\"Locations\":[{\"LocationID\":5678,\"IntegrationSettings\":[{\"Id\":1,\"Value\":\"False\",\"ValueOptions\":null}]}]}}
 
@@ -1594,8 +1559,7 @@ response = RestClient.post 'https://carrierservicesdemo.iqmetrix.net/v2/Companie
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1616,16 +1580,16 @@ puts response
 
 <ul><li><code>CompanyWideSettingsResource</code> (<strong>Required</strong>) - Company wide configuration settings</li><ul><li><code>CompanyWideIntegrationSettings</code> (<strong>Required</strong>) </li><ul><li><code>Id</code> (<strong>Required</strong>) - For a list of settings see <code>MetaData</code> part of response to <a href='#getting-configurations-by-company-and-carrier'>Getting Configurations By Company and Carrier</a></li><li><code>Value</code> (<strong>Required</strong>) </li><li><code>ValueOptions</code> (Optional) - Will be null or empty for settings that have no such restriction.</li></ul></ul><li><code>LocationSettingsResource</code> (<strong>Required</strong>) - Location specific configuration settings</li><ul><li><code>Locations</code> (<strong>Required</strong>) </li><ul><li><code>LocationId</code> (<strong>Required</strong>) - Identifier for a {{Location}}</li><li><code>IntegrationSettings</code> (<strong>Required</strong>) - Integration settings for the Location</li><ul><li><code>Id</code> (<strong>Required</strong>) - For a list of settings see <code>MetaData</code> part of response to <a href='#getting-configurations-by-company-and-carrier'>Getting Configurations By Company and Carrier</a></li><li><code>Value</code> (<strong>Required</strong>) </li><li><code>ValueOptions</code> (Optional) - Will be null or empty for settings that have no such restriction.</li></ul></ul></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#configurationdetails'>ConfigurationDetails</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
   "Id": 33,
   "ClientID": 123,
   "CompanyWideSettingsResource": {
@@ -1685,17 +1649,15 @@ GET /Companies({CompanyId})/Carriers({CarrierId})/ConfirmedActivations?$filter=C
 > Example Request
 
 
-```javascript
-GET /Companies(123)/Carriers(41)/ConfirmedActivations?$filter=ConfirmationDateUTC ge DateTime'2015-07-16T22:29:31.000Z'&$skip=0&$top=5
+<pre class="highlight javascript"><code>GET /Companies(123)/Carriers(41)/ConfirmedActivations?$filter=ConfirmationDateUTC ge DateTime'2015-07-16T22:29:31.000Z'&$skip=0&$top=5
 Authorization: Bearer (Access Token)
 Accept: application/hal+json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/ConfirmedActivations?$filter=ConfirmationDateUTC ge DateTime'2015-07-16T22:29:31.000Z'&$skip=0&$top=5" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/ConfirmedActivations?$filter=ConfirmationDateUTC ge DateTime'2015-07-16T22:29:31.000Z'&$skip=0&$top=5" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse RetrievingCompletedActivations()
 {
     var client = new RestClient("https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/ConfirmedActivations?$filter=ConfirmationDateUTC ge DateTime'2015-07-16T22:29:31.000Z'&$skip=0&$top=5");
@@ -1707,11 +1669,10 @@ static IRestResponse RetrievingCompletedActivations()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -1727,11 +1688,9 @@ public static CloseableHttpResponse RetrievingCompletedActivations() throws IOEx
     request.addHeader("Accept", "application/hal+json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -1740,8 +1699,7 @@ response = RestClient.get 'https://carrierservicesdemo.iqmetrix.net/v2/Companies
      :'Accept' => 'application/hal+json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1770,16 +1728,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
 
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/hal+json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "_links": {
         "prev": "null",
         "self": {

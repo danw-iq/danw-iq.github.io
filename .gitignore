@@ -1,3 +1,10 @@
-_site
-.sass-cache
+_site/
+.sass-cache/
+.idea
+_config.yml
+node_modules/*
+swagger/*
+config.json
+generated.raml
+postman.json
 .jekyll-metadata

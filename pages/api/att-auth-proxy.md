@@ -69,20 +69,18 @@ PUT /users({UserId})
 > Example Request
 
 
-```javascript
-PUT /users(12321)
+<pre class="highlight javascript"><code>PUT /users(12321)
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X PUT "https://authproxyatt.iqmetrix.net/v1/users(12321)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -d '{
     "UserName": "sample@iqmetrix.com",
     "SecurityRolePrefix": "iQMetrix"
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse SettingAPrefixForAUser()
 {
     var client = new RestClient("https://authproxyatt.iqmetrix.net/v1/users(12321)");
@@ -94,11 +92,10 @@ static IRestResponse SettingAPrefixForAUser()
      request.AddParameter("application/json", "{\"UserName\":\"sample@iqmetrix.com\",\"SecurityRolePrefix\":\"iQMetrix\"}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
@@ -116,11 +113,9 @@ public static CloseableHttpResponse SettingAPrefixForAUser() throws IOException 
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"UserName\":\"sample@iqmetrix.com\",\"SecurityRolePrefix\":\"iQMetrix\"}";
 
@@ -129,8 +124,7 @@ response = RestClient.put 'https://authproxyatt.iqmetrix.net/v1/users(12321)', b
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -147,16 +141,16 @@ puts response
 
 <ul><li><code>UserName</code> (<strong>Required</strong>) </li><li><code>SecurityRolePrefix</code> (<strong>Required</strong>) - The prefix that will be pre-pended to the user's Hub security role</li></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <ul><li><code>UserName</code> (String) </li><li><code>SecurityRolePrefix</code> (String) - The prefix that will be pre-pended to the user's Hub security role</li></ul>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "UserName": "sample@iqmetrix.com",
     "SecurityRolePrefix": "iQMetrix"
 }</pre>
@@ -174,17 +168,15 @@ GET /cspGroupMappingReference
 > Example Request
 
 
-```javascript
-GET /cspGroupMappingReference
+<pre class="highlight javascript"><code>GET /cspGroupMappingReference
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://authproxyatt.iqmetrix.net/v1/cspGroupMappingReference" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://authproxyatt.iqmetrix.net/v1/cspGroupMappingReference" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingTheSecurityRoleMappingReferenceData()
 {
     var client = new RestClient("https://authproxyatt.iqmetrix.net/v1/cspGroupMappingReference");
@@ -196,11 +188,10 @@ static IRestResponse GettingTheSecurityRoleMappingReferenceData()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -216,11 +207,9 @@ public static CloseableHttpResponse GettingTheSecurityRoleMappingReferenceData()
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -229,23 +218,22 @@ response = RestClient.get 'https://authproxyatt.iqmetrix.net/v1/cspGroupMappingR
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#mappingreferencedata'>MappingReferenceData</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
   "Mappings": [
       {
           "MyLoginsCspGroup": "CKPDEM",

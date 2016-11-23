@@ -63,17 +63,15 @@ GET /Products/{SlugId}
 > Example Request
 
 
-```javascript
-GET /Products/M870-V7
+<pre class="highlight javascript"><code>GET /Products/M870-V7
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/Products/M870-V7" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/Products/M870-V7" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GetProductBySlugId()
 {
     var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/Products/M870-V7");
@@ -85,11 +83,10 @@ static IRestResponse GetProductBySlugId()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -105,11 +102,9 @@ public static CloseableHttpResponse GetProductBySlugId() throws IOException {
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -118,8 +113,7 @@ response = RestClient.get 'https://productlibrarydemo.iqmetrix.net/v1/Products/M
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -132,15 +126,15 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
   "Id": "M1248-V1",
   "Name": "Galaxy S6 edge+ 32GB - Black Sapphire",
   "Assets": [
@@ -293,17 +287,15 @@ GET /Products/FindByIdentifier?{Options}
 > Example Request
 
 
-```javascript
-GET /Products/FindByIdentifier?value=336963&type=VendorSKU&entityId=13238
+<pre class="highlight javascript"><code>GET /Products/FindByIdentifier?value=336963&type=VendorSKU&entityId=13238
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/Products/FindByIdentifier?value=336963&type=VendorSKU&entityId=13238" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/Products/FindByIdentifier?value=336963&type=VendorSKU&entityId=13238" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse SearchingForProductsByIdentifier()
 {
     var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/Products/FindByIdentifier?value=336963&type=VendorSKU&entityId=13238");
@@ -315,11 +307,10 @@ static IRestResponse SearchingForProductsByIdentifier()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -335,11 +326,9 @@ public static CloseableHttpResponse SearchingForProductsByIdentifier() throws IO
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -348,8 +337,7 @@ response = RestClient.get 'https://productlibrarydemo.iqmetrix.net/v1/Products/F
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -362,16 +350,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <ul><li><code>Products</code> (Array) </li><ul><li><code>Slug</code> (String) </li></ul></ul>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Products": [
         {
             "Slug": "M551"

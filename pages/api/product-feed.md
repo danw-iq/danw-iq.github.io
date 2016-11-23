@@ -140,14 +140,13 @@ POST /ProductFeeds({FeedId})/Products
 > Example Request
 
 
-```javascript
-POST /ProductFeeds(34)/Products
+<pre class="highlight javascript"><code>POST /ProductFeeds(34)/Products
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
   "Classification": {
     "TreeId": 1,
@@ -201,10 +200,9 @@ curl -X POST "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products" -H
     }
   ]
 }
-'
-```
+'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse AddingAProductToAFeed()
 {
     var client = new RestClient("https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products");
@@ -217,11 +215,10 @@ static IRestResponse AddingAProductToAFeed()
      request.AddParameter("application/json", "{\"Classification\":{\"TreeId\":1,\"Id\":4},\"Fields\":[{\"Definition\":{\"Id\":1,\"StringId\":\"Product Name\"},\"Value\":\"Agent18 SlimShield Case for iPhone 6 - Black\"},{\"Definition\":{\"Id\":129,\"StringId\":\"Color Tags\"},\"Value\":\"Black, Red\"},{\"Definition\":{\"Id\":76,\"StringId\":\"MSRP\",\"InputType\":\"Currency\"},\"Value\":\"24.99 CAD\"}],\"Assets\":[{\"AssetUrl\":\"http://image.sample.com/a.jpg\"},{\"AssetUrl\":\"http://image.sample.com/b.png\"},{\"AssetUrl\":\"http://image.sample.com/c.mov\"}],\"ModelName\":\"Agent18 SlimShield Case for iPhone 6\",\"LastModifiedByVendorUtc\":\"2015-09-16T10:40:31.101Z\",\"Manufacturer\":\"Agent18\",\"ManufacturerSku\":\"980113579\",\"UPC\":\"723755004337\",\"VendorSkus\":[{\"Description\":\"Online retailer\",\"Sku\":\"1115884\",\"VendorName\":\"Amazon\"}]}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -240,11 +237,9 @@ public static CloseableHttpResponse AddingAProductToAFeed() throws IOException {
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"Classification\":{\"TreeId\":1,\"Id\":4},\"Fields\":[{\"Definition\":{\"Id\":1,\"StringId\":\"Product Name\"},\"Value\":\"Agent18 SlimShield Case for iPhone 6 - Black\"},{\"Definition\":{\"Id\":129,\"StringId\":\"Color Tags\"},\"Value\":\"Black, Red\"},{\"Definition\":{\"Id\":76,\"StringId\":\"MSRP\",\"InputType\":\"Currency\"},\"Value\":\"24.99 CAD\"}],\"Assets\":[{\"AssetUrl\":\"http://image.sample.com/a.jpg\"},{\"AssetUrl\":\"http://image.sample.com/b.png\"},{\"AssetUrl\":\"http://image.sample.com/c.mov\"}],\"ModelName\":\"Agent18 SlimShield Case for iPhone 6\",\"LastModifiedByVendorUtc\":\"2015-09-16T10:40:31.101Z\",\"Manufacturer\":\"Agent18\",\"ManufacturerSku\":\"980113579\",\"UPC\":\"723755004337\",\"VendorSkus\":[{\"Description\":\"Online retailer\",\"Sku\":\"1115884\",\"VendorName\":\"Amazon\"}]}
 
@@ -254,8 +249,7 @@ response = RestClient.post 'https://curationdemo.iqmetrix.net/v1/ProductFeeds(34
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -272,16 +266,16 @@ puts response
 
 <ul><li><code>Fields</code> (<strong>Required</strong>) </li><ul><li><code>Definition</code> (<strong>Required</strong>) </li><ul><li><code>Id</code> (Optional) </li></ul><li><code>Value</code> (<strong>Required</strong>) </li></ul><li><code>Assets</code> (Optional) </li><ul><li><code>AssetUrl</code> (<strong>Required</strong>) </li></ul><li><code>Classification</code> (Optional) </li><ul><li><code>Id</code> (<strong>Required</strong>) </li><li><code>TreeId</code> (<strong>Required</strong>) </li></ul><li><code>ClassificationTreeName</code> (Optional) </li><li><code>LastModifiedByVendorUtc</code> (Optional) </li><li><code>Manufacturer</code> (Optional) </li><li><code>ManufacturerSku</code> (Optional) </li><li><code>ModelName</code> (Optional) </li><li><code>UPC</code> (Optional) </li><li><code>VendorSkus</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Sku</code> (Optional) </li><li><code>VendorName</code> (Optional) </li></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  Array[<a href='#product'>Product</a>]
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
   "Id": 17,
     "Assets": [
         {
@@ -394,17 +388,15 @@ GET /ProductFeeds({FeedId})/Products
 > Example Request
 
 
-```javascript
-GET /ProductFeeds(34)/Products
+<pre class="highlight javascript"><code>GET /ProductFeeds(34)/Products
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAllProductsInAFeed()
 {
     var client = new RestClient("https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products");
@@ -416,11 +408,10 @@ static IRestResponse GettingAllProductsInAFeed()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -436,11 +427,9 @@ public static CloseableHttpResponse GettingAllProductsInAFeed() throws IOExcepti
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -449,8 +438,7 @@ response = RestClient.get 'https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -463,16 +451,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  Array[<a href='#product'>Product</a>]
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>[
+</pre><pre class="highlight json">[
     {
         "Id": 34,
         "Assets": [
@@ -528,17 +516,15 @@ GET /ProductFeeds({FeedId})
 > Example Request
 
 
-```javascript
-GET /ProductFeeds(34)
+<pre class="highlight javascript"><code>GET /ProductFeeds(34)
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAProductFeed()
 {
     var client = new RestClient("https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)");
@@ -550,11 +536,10 @@ static IRestResponse GettingAProductFeed()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -570,11 +555,9 @@ public static CloseableHttpResponse GettingAProductFeed() throws IOException {
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -583,8 +566,7 @@ response = RestClient.get 'https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -597,16 +579,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#productfeed'>ProductFeed</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": 34,
     "LastReceivedUpdatesFromProviderUtc": "2014-11-13T19:40:57.102Z",
     "Products": [
@@ -667,16 +649,14 @@ DELETE /ProductFeeds({FeedId})/Products({ProductId})
 > Example Request
 
 
-```javascript
-DELETE /ProductFeeds(34)/Products(2)
+<pre class="highlight javascript"><code>DELETE /ProductFeeds(34)/Products(2)
 Authorization: Bearer (Access Token)
-```
+</code></pre>
 
-```shell
-curl -X DELETE "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products(2)" -H "Authorization: Bearer (Access Token)"
-```
+<pre class="highlight shell"><code>
+curl -X DELETE "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products(2)" -H "Authorization: Bearer (Access Token)"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse RemovingAProductFromAFeed()
 {
     var client = new RestClient("https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products(2)");
@@ -687,11 +667,10 @@ static IRestResponse RemovingAProductFromAFeed()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
@@ -706,11 +685,9 @@ public static CloseableHttpResponse RemovingAProductFromAFeed() throws IOExcepti
     request.addHeader("Authorization", "Bearer (Access Token)"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -718,8 +695,7 @@ response = RestClient.delete 'https://curationdemo.iqmetrix.net/v1/ProductFeeds(
      :'Authorization' => 'Bearer (Access Token)',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -736,13 +712,13 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 204 Content-Type: application/json
 </pre>
 

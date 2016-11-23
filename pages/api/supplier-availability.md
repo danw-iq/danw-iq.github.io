@@ -69,14 +69,13 @@ POST /Suppliers({SupplierId})/Availability
 > Example Request
 
 
-```javascript
-POST /Suppliers(14107)/Availability
+<pre class="highlight javascript"><code>POST /Suppliers(14107)/Availability
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Availability" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Products": [
         {
@@ -85,10 +84,9 @@ curl -X POST "https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Availability
             "Quantity": 10
         }
     ]
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse ConfiguringProductAvailability()
 {
     var client = new RestClient("https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Availability");
@@ -101,11 +99,10 @@ static IRestResponse ConfiguringProductAvailability()
      request.AddParameter("application/json", "{\"Products\":[{\"IsAvailable\":true,\"Sku\":\"9101AGAP6\",\"Quantity\":10}]}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -124,11 +121,9 @@ public static CloseableHttpResponse ConfiguringProductAvailability() throws IOEx
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"Products\":[{\"IsAvailable\":true,\"Sku\":\"9101AGAP6\",\"Quantity\":10}]}";
 
@@ -138,8 +133,7 @@ response = RestClient.post 'https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -156,16 +150,16 @@ puts response
 
 <ul><li><code>Products</code> (<strong>Required</strong>) </li><ul><li><code>Sku</code> (<strong>Required</strong>) </li><li><code>IsAvailable</code> (Optional) </li><li><code>Quantity</code> (Optional) </li></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#availability'>Availability</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 202 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": "c2a97823-196b-4b3e-891a-ba01665797e4",
     "Products": [
         {

@@ -90,17 +90,15 @@ GET /Companies({CompanyId})/PunchEntries?$filter=LastUpdateDateUtc ge datetime'{
 > Example Request
 
 
-```javascript
-GET /Companies(14146)/PunchEntries?$filter=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&$skip=1&$top=10
+<pre class="highlight javascript"><code>GET /Companies(14146)/PunchEntries?$filter=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&$skip=1&$top=10
 Authorization: Bearer (Access Token)
 Accept: application/hal+json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://punchclockdemo.iqmetrix.net/v1/Companies(14146)/PunchEntries?$filter=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&$skip=1&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://punchclockdemo.iqmetrix.net/v1/Companies(14146)/PunchEntries?$filter=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&$skip=1&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAllPunchEntries()
 {
     var client = new RestClient("https://punchclockdemo.iqmetrix.net/v1/Companies(14146)/PunchEntries?$filter=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&$skip=1&$top=10");
@@ -112,11 +110,10 @@ static IRestResponse GettingAllPunchEntries()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -132,11 +129,9 @@ public static CloseableHttpResponse GettingAllPunchEntries() throws IOException 
     request.addHeader("Accept", "application/hal+json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -145,8 +140,7 @@ response = RestClient.get 'https://punchclockdemo.iqmetrix.net/v1/Companies(1414
      :'Accept' => 'application/hal+json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -175,16 +169,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
 
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/hal+json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "_links": {
         "prev": null,
         "self": {

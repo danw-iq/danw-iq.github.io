@@ -311,14 +311,15 @@
   <p>Example Request</p>
 </blockquote>
 
-<pre><code class="language-javascript">GET /Countries
+<pre class="highlight javascript"><code>GET /Countries
 Accept: application/json
 </code></pre>
 
-<pre><code class="language-shell">curl -X GET "https://referencedemo.iqmetrix.net/v1/Countries" -H "Accept: application/json"
-</code></pre>
+<pre class="highlight shell"><code>
+curl -X GET "https://referencedemo.iqmetrix.net/v1/Countries" -H "Accept: application/json"</code></pre>
 
-<pre><code class="language-csharp">static IRestResponse GettingAllCountries()
+<pre class="highlight csharp"><code>
+static IRestResponse GettingAllCountries()
 {
     var client = new RestClient("https://referencedemo.iqmetrix.net/v1/Countries");
     var request = new RestRequest(Method.GET);
@@ -328,10 +329,10 @@ Accept: application/json
     
 
     return client.Execute(request);
-}
-</code></pre>
+}</code></pre>
 
-<pre><code class="language-java">
+<pre class="highlight java"><code>
+
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -345,10 +346,9 @@ public static CloseableHttpResponse GettingAllCountries() throws IOException {
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-</code></pre>
+}</code></pre>
 
-<pre><code class="language-ruby">require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -356,19 +356,20 @@ response = RestClient.get 'https://referencedemo.iqmetrix.net/v1/Countries', {
      :'Accept' =&gt; 'application/json',
     } 
 
-puts response
-</code></pre>
+puts response</code></pre>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 <p>Array[<a href="#country">Country</a>]</p>
 
-<h5>Example</h5>
+<blockquote>
+  <p>Example Response</p>
+</blockquote>
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
 </pre>
-<pre>[
+<pre class="highlight json">[
     {
         "Id": 1,
         "Code": "CA",
@@ -396,14 +397,15 @@ HTTP 200 Content-Type: application/json
   <p>Example Request</p>
 </blockquote>
 
-<pre><code class="language-javascript">GET /TimeZones
+<pre class="highlight javascript"><code>GET /TimeZones
 Accept: application/json
 </code></pre>
 
-<pre><code class="language-shell">curl -X GET "https://referencedemo.iqmetrix.net/v1/TimeZones" -H "Accept: application/json"
-</code></pre>
+<pre class="highlight shell"><code>
+curl -X GET "https://referencedemo.iqmetrix.net/v1/TimeZones" -H "Accept: application/json"</code></pre>
 
-<pre><code class="language-csharp">static IRestResponse GettingAllTimeZones()
+<pre class="highlight csharp"><code>
+static IRestResponse GettingAllTimeZones()
 {
     var client = new RestClient("https://referencedemo.iqmetrix.net/v1/TimeZones");
     var request = new RestRequest(Method.GET);
@@ -413,10 +415,10 @@ Accept: application/json
     
 
     return client.Execute(request);
-}
-</code></pre>
+}</code></pre>
 
-<pre><code class="language-java">
+<pre class="highlight java"><code>
+
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -430,10 +432,9 @@ public static CloseableHttpResponse GettingAllTimeZones() throws IOException {
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-</code></pre>
+}</code></pre>
 
-<pre><code class="language-ruby">require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -441,19 +442,20 @@ response = RestClient.get 'https://referencedemo.iqmetrix.net/v1/TimeZones', {
      :'Accept' =&gt; 'application/json',
     } 
 
-puts response
-</code></pre>
+puts response</code></pre>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 <p>Array[<a href="#timezone">TimeZone</a>]</p>
 
-<h5>Example</h5>
+<blockquote>
+  <p>Example Response</p>
+</blockquote>
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
 </pre>
-<pre>[
+<pre class="highlight json">[
     {
         "Id": "Alaskan Standard Time",
         "Name": "(UTC-09:00) Alaska",
@@ -476,14 +478,15 @@ HTTP 200 Content-Type: application/json
   <p>Example Request</p>
 </blockquote>
 
-<pre><code class="language-javascript">GET /Currencies
+<pre class="highlight javascript"><code>GET /Currencies
 Accept: application/json
 </code></pre>
 
-<pre><code class="language-shell">curl -X GET "https://referencedemo.iqmetrix.net/v1/Currencies" -H "Accept: application/json"
-</code></pre>
+<pre class="highlight shell"><code>
+curl -X GET "https://referencedemo.iqmetrix.net/v1/Currencies" -H "Accept: application/json"</code></pre>
 
-<pre><code class="language-csharp">static IRestResponse GettingAllCurrencies()
+<pre class="highlight csharp"><code>
+static IRestResponse GettingAllCurrencies()
 {
     var client = new RestClient("https://referencedemo.iqmetrix.net/v1/Currencies");
     var request = new RestRequest(Method.GET);
@@ -493,10 +496,10 @@ Accept: application/json
     
 
     return client.Execute(request);
-}
-</code></pre>
+}</code></pre>
 
-<pre><code class="language-java">
+<pre class="highlight java"><code>
+
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -510,10 +513,9 @@ public static CloseableHttpResponse GettingAllCurrencies() throws IOException {
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-</code></pre>
+}</code></pre>
 
-<pre><code class="language-ruby">require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -521,19 +523,20 @@ response = RestClient.get 'https://referencedemo.iqmetrix.net/v1/Currencies', {
      :'Accept' =&gt; 'application/json',
     } 
 
-puts response
-</code></pre>
+puts response</code></pre>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 <p>Array[<a href="#currency">Currency</a>]</p>
 
-<h5>Example</h5>
+<blockquote>
+  <p>Example Response</p>
+</blockquote>
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
 </pre>
-<pre>[
+<pre class="highlight json">[
     {
         "Id": 106,
         "Name": "United States Dollar",

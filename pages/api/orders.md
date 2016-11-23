@@ -210,14 +210,13 @@ POST /Companies({CompanyId})/Orders
 > Example Request
 
 
-```javascript
-POST /Companies(14146)/Orders
+<pre class="highlight javascript"><code>POST /Companies(14146)/Orders
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Name": "iPhone 5 Order",
     "BillingAddressId": "a08b0640-606a-41f0-901a-facaf50e75dd",
@@ -233,10 +232,9 @@ curl -X POST "https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders" -H "Aut
     "ShippingCustomerId": "659c2a38-d083-4421-9330-46d779702f85",
     "ShippingEntityId": 14202,
     "TenderId": "TT101IN18"
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse CreatingAnOrder()
 {
     var client = new RestClient("https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders");
@@ -249,11 +247,10 @@ static IRestResponse CreatingAnOrder()
      request.AddParameter("application/json", "{\"Name\":\"iPhone 5 Order\",\"BillingAddressId\":\"a08b0640-606a-41f0-901a-facaf50e75dd\",\"BillingCustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"DiscountAmount\":15,\"DiscountCode\":\"MTRY-15\",\"DiscountDescription\":\"Military discount\",\"EmployeeId\":15,\"EntityId\":14202,\"OrderExpiryHours\":20,\"OrderTypeId\":3,\"ShippingAddressId\":\"a08b0640-606a-41f0-901a-facaf50e75dd\",\"ShippingCustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"ShippingEntityId\":14202,\"TenderId\":\"TT101IN18\"}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -272,11 +269,9 @@ public static CloseableHttpResponse CreatingAnOrder() throws IOException {
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"Name\":\"iPhone 5 Order\",\"BillingAddressId\":\"a08b0640-606a-41f0-901a-facaf50e75dd\",\"BillingCustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"DiscountAmount\":15,\"DiscountCode\":\"MTRY-15\",\"DiscountDescription\":\"Military discount\",\"EmployeeId\":15,\"EntityId\":14202,\"OrderExpiryHours\":20,\"OrderTypeId\":3,\"ShippingAddressId\":\"a08b0640-606a-41f0-901a-facaf50e75dd\",\"ShippingCustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"ShippingEntityId\":14202,\"TenderId\":\"TT101IN18\"}";
 
@@ -286,8 +281,7 @@ response = RestClient.post 'https://orderdemo.iqmetrix.net/v1/Companies(14146)/O
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -304,16 +298,16 @@ puts response
 
 <ul><li><code>EntityId</code> (<strong>Required</strong>) </li><li><code>OrderTypeId</code> (<strong>Required</strong>) </li><li><code>Name</code> (Optional) </li><li><code>BillingAddressId</code> (Optional) </li><li><code>BillingCustomerId</code> (Optional) - Must belong to the Company specified in the URI. Required to Process an Order</li><li><code>DiscountAmount</code> (Optional) </li><li><code>DiscountCode</code> (Optional) </li><li><code>DiscountDescription</code> (Optional) </li><li><code>EmployeeId</code> (Optional) - Must belong to the Company specified in the URI</li><li><code>OrderExpiryHours</code> (Optional) </li><li><code>ShippingAddressId</code> (Optional) </li><li><code>ShippingCustomerId</code> (Optional) </li><li><code>ShippingEntityId</code> (Optional) - If this value is provided, ShippingCustomerId must be excluded</li><li><code>TenderId</code> (Optional) </li></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#order'>Order</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 201 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": "cdd26b8f-4ed1-409d-9984-982e081c425e",
     "Name": "iPhone 5 Order",
     "BillingAddressId": "a08b0640-606a-41f0-901a-facaf50e75dd",
@@ -349,17 +343,15 @@ GET /Companies({CompanyId})/Orders
 > Example Request
 
 
-```javascript
-GET /Companies(14146)/Orders
+<pre class="highlight javascript"><code>GET /Companies(14146)/Orders
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAllOrderSummariesForACompany()
 {
     var client = new RestClient("https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders");
@@ -371,11 +363,10 @@ static IRestResponse GettingAllOrderSummariesForACompany()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -391,11 +382,9 @@ public static CloseableHttpResponse GettingAllOrderSummariesForACompany() throws
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -404,8 +393,7 @@ response = RestClient.get 'https://orderdemo.iqmetrix.net/v1/Companies(14146)/Or
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -418,16 +406,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  Array[<a href='#order'>Order</a>]
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>[
+</pre><pre class="highlight json">[
     {
         "Id": "cdd26b8f-4ed1-409d-9984-982e081c425e",
         "Name": "iPhone 5 Order",
@@ -465,14 +453,13 @@ POST /Companies({CompanyId})/Orders({OrderId})/Items
 > Example Request
 
 
-```javascript
-POST /Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)/Items
+<pre class="highlight javascript"><code>POST /Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)/Items
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)/Items" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Cost": 5.99,
     "Description": "Samsung Galaxy S4 Standard Battery",
@@ -497,10 +484,9 @@ curl -X POST "https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(2ad88692
             "TrackingNumber": "1TTTTN4421"
         }
     ]
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse AddingAnItemToAnOrder()
 {
     var client = new RestClient("https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)/Items");
@@ -513,11 +499,10 @@ static IRestResponse AddingAnItemToAnOrder()
      request.AddParameter("application/json", "{\"Cost\":5.99,\"Description\":\"Samsung Galaxy S4 Standard Battery\",\"ItemStatusId\":1,\"ItemTypeId\":\"1\",\"Index\":0,\"ListPrice\":12.99,\"Notes\":\"Dented corner\",\"ProductId\":\"a183f1a9-c58f-426a-930a-9a6357db52ed\",\"Quantity\":2,\"SellingPrice\":9.99,\"SerialNumbers\":[\"abc321\"],\"SKU\":\"00001\",\"ShippingOptionId\":\"1\",\"SupplierEntityId\":14107,\"SupplierReference\":\"10\",\"TrackingInformation\":[{\"Quantity\":1,\"TrackingNumber\":\"1TTTTN4421\"}]}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -536,11 +521,9 @@ public static CloseableHttpResponse AddingAnItemToAnOrder() throws IOException {
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"Cost\":5.99,\"Description\":\"Samsung Galaxy S4 Standard Battery\",\"ItemStatusId\":1,\"ItemTypeId\":\"1\",\"Index\":0,\"ListPrice\":12.99,\"Notes\":\"Dented corner\",\"ProductId\":\"a183f1a9-c58f-426a-930a-9a6357db52ed\",\"Quantity\":2,\"SellingPrice\":9.99,\"SerialNumbers\":[\"abc321\"],\"SKU\":\"00001\",\"ShippingOptionId\":\"1\",\"SupplierEntityId\":14107,\"SupplierReference\":\"10\",\"TrackingInformation\":[{\"Quantity\":1,\"TrackingNumber\":\"1TTTTN4421\"}]}";
 
@@ -550,8 +533,7 @@ response = RestClient.post 'https://orderdemo.iqmetrix.net/v1/Companies(14146)/O
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -572,16 +554,16 @@ puts response
 
 <ul><li><code>ItemStatusId</code> (<strong>Required</strong>) </li><li><code>ItemTypeId</code> (<strong>Required</strong>) </li><li><code>Cost</code> (Optional) </li><li><code>Description</code> (Optional) </li><li><code>Index</code> (Optional) </li><li><code>ListPrice</code> (Optional) </li><li><code>Notes</code> (Optional) </li><li><code>ProductId</code> (Optional) </li><li><code>Quantity</code> (Optional) </li><li><code>SellingPrice</code> (Optional) </li><li><code>SerialNumbers</code> (Optional) </li><li><code>SKU</code> (Optional) </li><li><code>ShippingOptionId</code> (Optional) </li><li><code>SupplierEntityId</code> (Optional) </li><li><code>SupplierReference</code> (Optional) </li><li><code>TrackingInformation</code> (Optional) </li><ul><li><code>Quantity</code> (<strong>Required</strong>) </li><li><code>TrackingNumber</code> (<strong>Required</strong>) </li></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#item'>Item</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 201 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": "8592718e-bcca-468c-8009-38678929b693",
     "Cost": 5.99,
     "Description": "Samsung Galaxy S4 Standard Battery",
@@ -624,17 +606,15 @@ GET /Companies({CompanyId})/Orders({OrderId})/Items
 > Example Request
 
 
-```javascript
-GET /Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)/Items
+<pre class="highlight javascript"><code>GET /Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)/Items
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)/Items" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)/Items" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAllItemsOnAnOrder()
 {
     var client = new RestClient("https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)/Items");
@@ -646,11 +626,10 @@ static IRestResponse GettingAllItemsOnAnOrder()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -666,11 +645,9 @@ public static CloseableHttpResponse GettingAllItemsOnAnOrder() throws IOExceptio
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -679,8 +656,7 @@ response = RestClient.get 'https://orderdemo.iqmetrix.net/v1/Companies(14146)/Or
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -697,16 +673,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  Array[<a href='#item'>Item</a>]
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>[
+</pre><pre class="highlight json">[
     {
         "Id": "8592718e-bcca-468c-8009-38678929b693",
         "Cost": 5.99,
@@ -751,17 +727,15 @@ GET /Companies({CompanyId})/Orders({OrderId})
 > Example Request
 
 
-```javascript
-GET /Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)
+<pre class="highlight javascript"><code>GET /Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAnOrder()
 {
     var client = new RestClient("https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)");
@@ -773,11 +747,10 @@ static IRestResponse GettingAnOrder()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -793,11 +766,9 @@ public static CloseableHttpResponse GettingAnOrder() throws IOException {
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -806,8 +777,7 @@ response = RestClient.get 'https://orderdemo.iqmetrix.net/v1/Companies(14146)/Or
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -824,16 +794,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#order'>Order</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": "cdd26b8f-4ed1-409d-9984-982e081c425e",
     "Name": "iPhone 5 Order",
     "BillingAddressId": "a08b0640-606a-41f0-901a-facaf50e75dd",
@@ -869,14 +839,13 @@ PUT /Companies({CompanyId})/Orders({OrderId})
 > Example Request
 
 
-```javascript
-PUT /Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)
+<pre class="highlight javascript"><code>PUT /Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X PUT "https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Id": "cdd26b8f-4ed1-409d-9984-982e081c425e",
     "Name": "iPhone 5 Order",
@@ -898,10 +867,9 @@ curl -X PUT "https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(2ad88692-
     "ShippingEntityId": 14202,
     "State": "Created",
     "TenderId": "TT101IN18"
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse UpdatingAnOrder()
 {
     var client = new RestClient("https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)");
@@ -914,11 +882,10 @@ static IRestResponse UpdatingAnOrder()
      request.AddParameter("application/json", "{\"Id\":\"cdd26b8f-4ed1-409d-9984-982e081c425e\",\"Name\":\"iPhone 5 Order\",\"BillingAddressId\":\"a08b0640-606a-41f0-901a-facaf50e75dd\",\"BillingCustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"CreatedDateUtc\":\"2015-03-27T18:47:29.9012402+00:00\",\"DiscountAmount\":15,\"DiscountCode\":\"MTRY-15\",\"DiscountDescription\":\"Military discount\",\"EmployeeId\":15,\"EntityId\":14202,\"OrderExpiryDate\":\"2015-05-05T14:32:05.9140188+00:00\",\"OrderExpiryHours\":20,\"OrderType\":\"Sales\",\"OrderTypeId\":3,\"PrintableId\":\"8765-1234-987\",\"ShippingAddressId\":\"a08b0640-606a-41f0-901a-facaf50e75dd\",\"ShippingCustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"ShippingEntityId\":14202,\"State\":\"Created\",\"TenderId\":\"TT101IN18\"}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
@@ -937,11 +904,9 @@ public static CloseableHttpResponse UpdatingAnOrder() throws IOException {
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"Id\":\"cdd26b8f-4ed1-409d-9984-982e081c425e\",\"Name\":\"iPhone 5 Order\",\"BillingAddressId\":\"a08b0640-606a-41f0-901a-facaf50e75dd\",\"BillingCustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"CreatedDateUtc\":\"2015-03-27T18:47:29.9012402+00:00\",\"DiscountAmount\":15,\"DiscountCode\":\"MTRY-15\",\"DiscountDescription\":\"Military discount\",\"EmployeeId\":15,\"EntityId\":14202,\"OrderExpiryDate\":\"2015-05-05T14:32:05.9140188+00:00\",\"OrderExpiryHours\":20,\"OrderType\":\"Sales\",\"OrderTypeId\":3,\"PrintableId\":\"8765-1234-987\",\"ShippingAddressId\":\"a08b0640-606a-41f0-901a-facaf50e75dd\",\"ShippingCustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"ShippingEntityId\":14202,\"State\":\"Created\",\"TenderId\":\"TT101IN18\"}";
 
@@ -951,8 +916,7 @@ response = RestClient.put 'https://orderdemo.iqmetrix.net/v1/Companies(14146)/Or
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -973,16 +937,16 @@ puts response
 
 <ul><li><code>EntityId</code> (<strong>Required</strong>) </li><li><code>OrderTypeId</code> (<strong>Required</strong>) </li><li><code>Id</code> (<strong>Required</strong>) </li><li><code>Name</code> (Optional) </li><li><code>BillingAddressId</code> (Optional) </li><li><code>BillingCustomerId</code> (Optional) - Must belong to the Company specified in the URI. Required to Process an Order</li><li><code>DiscountAmount</code> (Optional) </li><li><code>DiscountCode</code> (Optional) </li><li><code>DiscountDescription</code> (Optional) </li><li><code>EmployeeId</code> (Optional) - Must belong to the Company specified in the URI</li><li><code>OrderExpiryHours</code> (Optional) </li><li><code>ShippingAddressId</code> (Optional) </li><li><code>ShippingCustomerId</code> (Optional) </li><li><code>ShippingEntityId</code> (Optional) - If this value is provided, ShippingCustomerId must be excluded</li><li><code>TenderId</code> (Optional) </li></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#order'>Order</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": "cdd26b8f-4ed1-409d-9984-982e081c425e",
     "Name": "iPhone 5 Order",
     "BillingAddressId": "a08b0640-606a-41f0-901a-facaf50e75dd",
@@ -1018,20 +982,18 @@ POST /Companies({CompanyId})/Orders({OrderId})/Process
 > Example Request
 
 
-```javascript
-POST /Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)/Process
+<pre class="highlight javascript"><code>POST /Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)/Process
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)/Process" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "OrderId": "cdd26b8f-4ed1-409d-9984-982e081c425e"
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse ProcessingAnOrder()
 {
     var client = new RestClient("https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(2ad88692-7757-4a72-915b-dfe8f2539279)/Process");
@@ -1044,11 +1006,10 @@ static IRestResponse ProcessingAnOrder()
      request.AddParameter("application/json", "{\"OrderId\":\"cdd26b8f-4ed1-409d-9984-982e081c425e\"}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -1067,11 +1028,9 @@ public static CloseableHttpResponse ProcessingAnOrder() throws IOException {
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"OrderId\":\"cdd26b8f-4ed1-409d-9984-982e081c425e\"}";
 
@@ -1081,8 +1040,7 @@ response = RestClient.post 'https://orderdemo.iqmetrix.net/v1/Companies(14146)/O
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1103,16 +1061,16 @@ puts response
 
 <ul><li><code>OrderId</code> (<strong>Required</strong>) </li></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#order'>Order</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 201 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": "cdd26b8f-4ed1-409d-9984-982e081c425e",
     "Name": "iPhone 5 Order",
     "BillingAddressId": "a08b0640-606a-41f0-901a-facaf50e75dd",
@@ -1149,14 +1107,13 @@ POST /Companies({CompanyId})/OrderFull
 > Example Request
 
 
-```javascript
-POST /Companies(14146)/OrderFull
+<pre class="highlight javascript"><code>POST /Companies(14146)/OrderFull
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://orderdemo.iqmetrix.net/v1/Companies(14146)/OrderFull" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Name": "iPhone 5 Order",
     "BillingAddressId": "a08b0640-606a-41f0-901a-facaf50e75dd",
@@ -1199,10 +1156,9 @@ curl -X POST "https://orderdemo.iqmetrix.net/v1/Companies(14146)/OrderFull" -H "
             ]
         }
     ]
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse CreatingAnOrderWithItems()
 {
     var client = new RestClient("https://orderdemo.iqmetrix.net/v1/Companies(14146)/OrderFull");
@@ -1215,11 +1171,10 @@ static IRestResponse CreatingAnOrderWithItems()
      request.AddParameter("application/json", "{\"Name\":\"iPhone 5 Order\",\"BillingAddressId\":\"a08b0640-606a-41f0-901a-facaf50e75dd\",\"BillingCustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"DiscountAmount\":15,\"DiscountCode\":\"MTRY-15\",\"DiscountDescription\":\"Military discount\",\"EmployeeId\":15,\"EntityId\":14202,\"OrderExpiryHours\":20,\"OrderTypeId\":3,\"ShippingAddressId\":\"a08b0640-606a-41f0-901a-facaf50e75dd\",\"ShippingCustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"ShippingEntityId\":14202,\"TenderId\":\"INV112\",\"Items\":[{\"Cost\":5.99,\"Description\":\"Samsung Galaxy S4 Standard Battery\",\"ItemStatusId\":1,\"ItemTypeId\":\"1\",\"Index\":0,\"ListPrice\":12.99,\"Notes\":\"Dented corner\",\"ProductId\":\"a183f1a9-c58f-426a-930a-9a6357db52ed\",\"Quantity\":2,\"SellingPrice\":9.99,\"SerialNumbers\":[\"abc321\"],\"SKU\":\"00001\",\"ShippingOptionId\":\"1\",\"SupplierEntityId\":14107,\"SupplierReference\":\"10\",\"TrackingInformation\":[{\"Quantity\":1,\"TrackingNumber\":\"1TTTTN4421\"}]}]}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -1238,11 +1193,9 @@ public static CloseableHttpResponse CreatingAnOrderWithItems() throws IOExceptio
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"Name\":\"iPhone 5 Order\",\"BillingAddressId\":\"a08b0640-606a-41f0-901a-facaf50e75dd\",\"BillingCustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"DiscountAmount\":15,\"DiscountCode\":\"MTRY-15\",\"DiscountDescription\":\"Military discount\",\"EmployeeId\":15,\"EntityId\":14202,\"OrderExpiryHours\":20,\"OrderTypeId\":3,\"ShippingAddressId\":\"a08b0640-606a-41f0-901a-facaf50e75dd\",\"ShippingCustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"ShippingEntityId\":14202,\"TenderId\":\"INV112\",\"Items\":[{\"Cost\":5.99,\"Description\":\"Samsung Galaxy S4 Standard Battery\",\"ItemStatusId\":1,\"ItemTypeId\":\"1\",\"Index\":0,\"ListPrice\":12.99,\"Notes\":\"Dented corner\",\"ProductId\":\"a183f1a9-c58f-426a-930a-9a6357db52ed\",\"Quantity\":2,\"SellingPrice\":9.99,\"SerialNumbers\":[\"abc321\"],\"SKU\":\"00001\",\"ShippingOptionId\":\"1\",\"SupplierEntityId\":14107,\"SupplierReference\":\"10\",\"TrackingInformation\":[{\"Quantity\":1,\"TrackingNumber\":\"1TTTTN4421\"}]}]}";
 
@@ -1252,8 +1205,7 @@ response = RestClient.post 'https://orderdemo.iqmetrix.net/v1/Companies(14146)/O
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1270,16 +1222,16 @@ puts response
 
 <ul><li><code>OrderTypeId</code> (<strong>Required</strong>) </li><li><code>Name</code> (Optional) </li><li><code>BillingAddressId</code> (Optional) </li><li><code>BillingCustomerId</code> (Optional) - Must belong to the Company specified in the URI. Required to Process an Order</li><li><code>DiscountAmount</code> (Optional) </li><li><code>DiscountCode</code> (Optional) </li><li><code>DiscountDescription</code> (Optional) </li><li><code>EmployeeId</code> (Optional) - Must belong to the Company specified in the URI</li><li><code>EntityId</code> (Optional) </li><li><code>OrderExpiryHours</code> (Optional) </li><li><code>ShippingAddressId</code> (Optional) </li><li><code>ShippingCustomerId</code> (Optional) </li><li><code>ShippingEntityId</code> (Optional) - If this value is provided, ShippingCustomerId must be excluded</li><li><code>TenderId</code> (Optional) </li><li><code>Items</code> (Optional) </li><ul><li><code>ItemStatusId</code> (<strong>Required</strong>) </li><li><code>ItemTypeId</code> (<strong>Required</strong>) </li><li><code>Cost</code> (Optional) </li><li><code>Description</code> (Optional) </li><li><code>Index</code> (Optional) </li><li><code>ListPrice</code> (Optional) </li><li><code>Notes</code> (Optional) </li><li><code>ProductId</code> (Optional) </li><li><code>Quantity</code> (Optional) </li><li><code>SellingPrice</code> (Optional) </li><li><code>SerialNumbers</code> (Optional) </li><li><code>SKU</code> (Optional) </li><li><code>ShippingOptionId</code> (Optional) </li><li><code>SupplierEntityId</code> (Optional) </li><li><code>SupplierReference</code> (Optional) </li><li><code>TrackingInformation</code> (Optional) </li><ul><li><code>Quantity</code> (<strong>Required</strong>) </li><li><code>TrackingNumber</code> (<strong>Required</strong>) </li></ul></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#orderfull'>OrderFull</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 201 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": "cdd26b8f-4ed1-409d-9984-982e081c425e",
     "Name": "iPhone 5 Order",
     "BillingAddressId": "a08b0640-606a-41f0-901a-facaf50e75dd",
@@ -1346,17 +1298,15 @@ GET /Companies({CompanyId})/OrderFull
 > Example Request
 
 
-```javascript
-GET /Companies(14146)/OrderFull
+<pre class="highlight javascript"><code>GET /Companies(14146)/OrderFull
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://orderdemo.iqmetrix.net/v1/Companies(14146)/OrderFull" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://orderdemo.iqmetrix.net/v1/Companies(14146)/OrderFull" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAllOrdersForACompany()
 {
     var client = new RestClient("https://orderdemo.iqmetrix.net/v1/Companies(14146)/OrderFull");
@@ -1368,11 +1318,10 @@ static IRestResponse GettingAllOrdersForACompany()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -1388,11 +1337,9 @@ public static CloseableHttpResponse GettingAllOrdersForACompany() throws IOExcep
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -1401,8 +1348,7 @@ response = RestClient.get 'https://orderdemo.iqmetrix.net/v1/Companies(14146)/Or
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1415,16 +1361,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  Array[<a href='#orderfull'>OrderFull</a>]
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>[
+</pre><pre class="highlight json">[
     {
         "Id": "cdd26b8f-4ed1-409d-9984-982e081c425e",
         "Name": "iPhone 5 Order",
@@ -1493,17 +1439,15 @@ GET /Companies({CompanyId})/OrderFull({OrderId})
 > Example Request
 
 
-```javascript
-GET /Companies(14146)/OrderFull(2ad88692-7757-4a72-915b-dfe8f2539279)
+<pre class="highlight javascript"><code>GET /Companies(14146)/OrderFull(2ad88692-7757-4a72-915b-dfe8f2539279)
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://orderdemo.iqmetrix.net/v1/Companies(14146)/OrderFull(2ad88692-7757-4a72-915b-dfe8f2539279)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://orderdemo.iqmetrix.net/v1/Companies(14146)/OrderFull(2ad88692-7757-4a72-915b-dfe8f2539279)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingAnOrderWithItems()
 {
     var client = new RestClient("https://orderdemo.iqmetrix.net/v1/Companies(14146)/OrderFull(2ad88692-7757-4a72-915b-dfe8f2539279)");
@@ -1515,11 +1459,10 @@ static IRestResponse GettingAnOrderWithItems()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -1535,11 +1478,9 @@ public static CloseableHttpResponse GettingAnOrderWithItems() throws IOException
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -1548,8 +1489,7 @@ response = RestClient.get 'https://orderdemo.iqmetrix.net/v1/Companies(14146)/Or
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1566,16 +1506,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#orderfull'>OrderFull</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": "cdd26b8f-4ed1-409d-9984-982e081c425e",
     "Name": "iPhone 5 Order",
     "BillingAddressId": "a08b0640-606a-41f0-901a-facaf50e75dd",
@@ -1643,14 +1583,13 @@ PUT /Companies({CompanyId})/OrderFull({OrderId})
 > Example Request
 
 
-```javascript
-PUT /Companies(14146)/OrderFull(2ad88692-7757-4a72-915b-dfe8f2539279)
+<pre class="highlight javascript"><code>PUT /Companies(14146)/OrderFull(2ad88692-7757-4a72-915b-dfe8f2539279)
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X PUT "https://orderdemo.iqmetrix.net/v1/Companies(14146)/OrderFull(2ad88692-7757-4a72-915b-dfe8f2539279)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Id": "cdd26b8f-4ed1-409d-9984-982e081c425e",
     "Name": "iPhone 5 Order",
@@ -1703,10 +1642,9 @@ curl -X PUT "https://orderdemo.iqmetrix.net/v1/Companies(14146)/OrderFull(2ad886
             ]
         }
     ]
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse UpdatingAnOrderWithItems()
 {
     var client = new RestClient("https://orderdemo.iqmetrix.net/v1/Companies(14146)/OrderFull(2ad88692-7757-4a72-915b-dfe8f2539279)");
@@ -1719,11 +1657,10 @@ static IRestResponse UpdatingAnOrderWithItems()
      request.AddParameter("application/json", "{\"Id\":\"cdd26b8f-4ed1-409d-9984-982e081c425e\",\"Name\":\"iPhone 5 Order\",\"BillingAddressId\":\"a08b0640-606a-41f0-901a-facaf50e75dd\",\"BillingCustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"CreatedDateUtc\":\"2015-03-27T18:47:29.9012402+00:00\",\"DiscountAmount\":15,\"DiscountCode\":\"MTRY-15\",\"DiscountDescription\":\"Military discount\",\"EmployeeId\":15,\"EntityId\":14202,\"OrderExpiryDate\":\"2015-05-05T14:32:05.9140188+00:00\",\"OrderExpiryHours\":20,\"OrderType\":\"Sales\",\"OrderTypeId\":3,\"PrintableId\":\"8765-1234-987\",\"ShippingAddressId\":\"a08b0640-606a-41f0-901a-facaf50e75dd\",\"ShippingCustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"ShippingEntityId\":14202,\"State\":\"Created\",\"TenderId\":\"INV112\",\"Items\":[{\"Id\":\"8592718e-bcca-468c-8009-38678929b693\",\"Cost\":5.99,\"Description\":\"Samsung Galaxy S4 Standard Battery\",\"ItemStatus\":\"New\",\"ItemStatusId\":1,\"ItemType\":\"DropShip\",\"ItemTypeId\":\"1\",\"Index\":0,\"ListPrice\":12.99,\"Notes\":\"Dented corner\",\"OrderId\":\"cdd26b8f-4ed1-409d-9984-982e081c425e\",\"ProductId\":\"a183f1a9-c58f-426a-930a-9a6357db52ed\",\"Quantity\":2,\"SellingPrice\":9.99,\"SerialNumbers\":[\"abc321\"],\"SKU\":\"00001\",\"ShippingOptionId\":\"1\",\"SupplierEntityId\":14107,\"SupplierReference\":\"10\",\"TrackingInformation\":[{\"Quantity\":1,\"TrackingNumber\":\"1TTTTN4421\"}]}]}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
@@ -1742,11 +1679,9 @@ public static CloseableHttpResponse UpdatingAnOrderWithItems() throws IOExceptio
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"Id\":\"cdd26b8f-4ed1-409d-9984-982e081c425e\",\"Name\":\"iPhone 5 Order\",\"BillingAddressId\":\"a08b0640-606a-41f0-901a-facaf50e75dd\",\"BillingCustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"CreatedDateUtc\":\"2015-03-27T18:47:29.9012402+00:00\",\"DiscountAmount\":15,\"DiscountCode\":\"MTRY-15\",\"DiscountDescription\":\"Military discount\",\"EmployeeId\":15,\"EntityId\":14202,\"OrderExpiryDate\":\"2015-05-05T14:32:05.9140188+00:00\",\"OrderExpiryHours\":20,\"OrderType\":\"Sales\",\"OrderTypeId\":3,\"PrintableId\":\"8765-1234-987\",\"ShippingAddressId\":\"a08b0640-606a-41f0-901a-facaf50e75dd\",\"ShippingCustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"ShippingEntityId\":14202,\"State\":\"Created\",\"TenderId\":\"INV112\",\"Items\":[{\"Id\":\"8592718e-bcca-468c-8009-38678929b693\",\"Cost\":5.99,\"Description\":\"Samsung Galaxy S4 Standard Battery\",\"ItemStatus\":\"New\",\"ItemStatusId\":1,\"ItemType\":\"DropShip\",\"ItemTypeId\":\"1\",\"Index\":0,\"ListPrice\":12.99,\"Notes\":\"Dented corner\",\"OrderId\":\"cdd26b8f-4ed1-409d-9984-982e081c425e\",\"ProductId\":\"a183f1a9-c58f-426a-930a-9a6357db52ed\",\"Quantity\":2,\"SellingPrice\":9.99,\"SerialNumbers\":[\"abc321\"],\"SKU\":\"00001\",\"ShippingOptionId\":\"1\",\"SupplierEntityId\":14107,\"SupplierReference\":\"10\",\"TrackingInformation\":[{\"Quantity\":1,\"TrackingNumber\":\"1TTTTN4421\"}]}]}";
 
@@ -1756,8 +1691,7 @@ response = RestClient.put 'https://orderdemo.iqmetrix.net/v1/Companies(14146)/Or
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1778,16 +1712,16 @@ puts response
 
 <ul><li><code>OrderTypeId</code> (<strong>Required</strong>) </li><li><code>Id</code> (<strong>Required</strong>) </li><li><code>Name</code> (Optional) </li><li><code>BillingAddressId</code> (Optional) </li><li><code>BillingCustomerId</code> (Optional) - Must belong to the Company specified in the URI. Required to Process an Order</li><li><code>DiscountAmount</code> (Optional) </li><li><code>DiscountCode</code> (Optional) </li><li><code>DiscountDescription</code> (Optional) </li><li><code>EmployeeId</code> (Optional) - Must belong to the Company specified in the URI</li><li><code>EntityId</code> (Optional) </li><li><code>OrderExpiryHours</code> (Optional) </li><li><code>ShippingAddressId</code> (Optional) </li><li><code>ShippingCustomerId</code> (Optional) </li><li><code>ShippingEntityId</code> (Optional) - If this value is provided, ShippingCustomerId must be excluded</li><li><code>TenderId</code> (Optional) </li><li><code>Items</code> (Optional) </li><ul><li><code>ItemStatusId</code> (<strong>Required</strong>) </li><li><code>ItemTypeId</code> (<strong>Required</strong>) </li><li><code>Cost</code> (Optional) </li><li><code>Description</code> (Optional) </li><li><code>Index</code> (Optional) </li><li><code>ListPrice</code> (Optional) </li><li><code>Notes</code> (Optional) </li><li><code>ProductId</code> (Optional) </li><li><code>Quantity</code> (Optional) </li><li><code>SellingPrice</code> (Optional) </li><li><code>SerialNumbers</code> (Optional) </li><li><code>SKU</code> (Optional) </li><li><code>ShippingOptionId</code> (Optional) </li><li><code>SupplierEntityId</code> (Optional) </li><li><code>SupplierReference</code> (Optional) </li><li><code>TrackingInformation</code> (Optional) </li><ul><li><code>Quantity</code> (<strong>Required</strong>) </li><li><code>TrackingNumber</code> (<strong>Required</strong>) </li></ul></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#orderfull'>OrderFull</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": "cdd26b8f-4ed1-409d-9984-982e081c425e",
     "Name": "iPhone 5 Order",
     "BillingAddressId": "a08b0640-606a-41f0-901a-facaf50e75dd",
@@ -1854,17 +1788,15 @@ GET /Companies({CompanyId})/Orders?$filter=State eq 'Pending' and EntityId eq {L
 > Example Request
 
 
-```javascript
-GET /Companies(14146)/Orders?$filter=State eq 'Pending' and EntityId eq 14202
+<pre class="highlight javascript"><code>GET /Companies(14146)/Orders?$filter=State eq 'Pending' and EntityId eq 14202
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders?$filter=State eq 'Pending' and EntityId eq 14202" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders?$filter=State eq 'Pending' and EntityId eq 14202" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingPendingOrdersByLocation()
 {
     var client = new RestClient("https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders?$filter=State eq 'Pending' and EntityId eq 14202");
@@ -1876,11 +1808,10 @@ static IRestResponse GettingPendingOrdersByLocation()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -1896,11 +1827,9 @@ public static CloseableHttpResponse GettingPendingOrdersByLocation() throws IOEx
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -1909,8 +1838,7 @@ response = RestClient.get 'https://orderdemo.iqmetrix.net/v1/Companies(14146)/Or
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -1927,16 +1855,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  Array[<a href='#order'>Order</a>]
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>[
+</pre><pre class="highlight json">[
     {
         "Id": "cdd26b8f-4ed1-409d-9984-982e081c425e",
         "Name": "iPhone 5 Order",
@@ -1974,17 +1902,15 @@ GET /Companies({CompanyId})/Orders?$filter=PrintableId eq '{PrintableId}'
 > Example Request
 
 
-```javascript
-GET /Companies(14146)/Orders?$filter=PrintableId eq 'TT101IN18'
+<pre class="highlight javascript"><code>GET /Companies(14146)/Orders?$filter=PrintableId eq 'TT101IN18'
 Authorization: Bearer (Access Token)
 Accept: application/json
-```
+</code></pre>
 
-```shell
-curl -X GET "https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders?$filter=PrintableId eq 'TT101IN18'" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
+<pre class="highlight shell"><code>
+curl -X GET "https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders?$filter=PrintableId eq 'TT101IN18'" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse GettingOrdersByPrintableid()
 {
     var client = new RestClient("https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders?$filter=PrintableId eq 'TT101IN18'");
@@ -1996,11 +1922,10 @@ static IRestResponse GettingOrdersByPrintableid()
     
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -2016,11 +1941,9 @@ public static CloseableHttpResponse GettingOrdersByPrintableid() throws IOExcept
     request.addHeader("Accept", "application/json"); 
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 
 
@@ -2029,8 +1952,7 @@ response = RestClient.get 'https://orderdemo.iqmetrix.net/v1/Companies(14146)/Or
      :'Accept' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -2047,16 +1969,16 @@ puts response
 
 
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  Array[<a href='#order'>Order</a>]
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 200 Content-Type: application/json
-</pre><pre>[
+</pre><pre class="highlight json">[
     {
         "Id": "cdd26b8f-4ed1-409d-9984-982e081c425e",
         "Name": "iPhone 5 Order",

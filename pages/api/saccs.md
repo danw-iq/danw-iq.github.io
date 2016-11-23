@@ -103,14 +103,13 @@ POST /Companies({CompanyId})/ShippingInformation
 > Example Request
 
 
-```javascript
-POST /Companies(14146)/ShippingInformation
+<pre class="highlight javascript"><code>POST /Companies(14146)/ShippingInformation
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
-```
+</code></pre>
 
-```shell
+<pre class="highlight shell"><code>
 curl -X POST "https://shippingaggregatordemo.iqmetrix.net//Companies(14146)/ShippingInformation" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "LocationEntityId": "14202",
     "PostalCode": "P9H 9I4",
@@ -120,10 +119,9 @@ curl -X POST "https://shippingaggregatordemo.iqmetrix.net//Companies(14146)/Ship
             "Quantity": 1
         }
     ]
-}'
-```
+}'</code></pre>
 
-```csharp
+<pre class="highlight csharp"><code>
 static IRestResponse RetrievingShippingOptions()
 {
     var client = new RestClient("https://shippingaggregatordemo.iqmetrix.net//Companies(14146)/ShippingInformation");
@@ -136,11 +134,10 @@ static IRestResponse RetrievingShippingOptions()
      request.AddParameter("application/json", "{\"LocationEntityId\":\"14202\",\"PostalCode\":\"P9H 9I4\",\"Items\":[{\"CatalogId\":\"18e039de-f950-4d8e-a48a-d06e4db55a07\",\"Quantity\":1}]}", ParameterType.RequestBody);
 
     return client.Execute(request);
-}
-```
+}</code></pre>
 
 
-```java
+<pre class="highlight java"><code>
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -159,11 +156,9 @@ public static CloseableHttpResponse RetrievingShippingOptions() throws IOExcepti
     request.setEntity(body);
     
     return httpClient.execute(request);
-}
-```
+}</code></pre>
 
-```ruby
-require 'rest-client'
+<pre class="highlight ruby"><code>require 'rest-client'
 
 body = "{\"LocationEntityId\":\"14202\",\"PostalCode\":\"P9H 9I4\",\"Items\":[{\"CatalogId\":\"18e039de-f950-4d8e-a48a-d06e4db55a07\",\"Quantity\":1}]}";
 
@@ -173,8 +168,7 @@ response = RestClient.post 'https://shippingaggregatordemo.iqmetrix.net//Compani
      :'Content-Type' => 'application/json',
     } 
 
-puts response
-```
+puts response</code></pre>
 
 
 #### URI Parameters
@@ -191,16 +185,16 @@ puts response
 
 <ul><li><code>LocationEntityId</code> (<strong>Required</strong>) </li><li><code>PostalCode</code> (<strong>Required</strong>) </li><li><code>Items</code> (Optional) </li><ul><li><code>CatalogId</code> (<strong>Required</strong>) </li><li><code>Quantity</code> (<strong>Required</strong>) </li></ul></ul>
 
-<h4>Response</h4>
+<h4>Response Parameters</h4>
 
 
  <a href='#shippingresponse'>ShippingResponse</a>
 
-<h5>Example</h5>
+> Example Response
 
-<pre>
+<pre class="highlight json">
 HTTP 202 Content-Type: application/json
-</pre><pre>{
+</pre><pre class="highlight json">{
     "Id": 1,
     "LocationEntityId": 14202,
     "PostalCode": "P9H 9I4",
