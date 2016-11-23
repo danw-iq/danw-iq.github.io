@@ -1,0 +1,52 @@
+project: documentation-theme-jekyll-designer
+topnav_title: iQmetrix Developer Portal
+homepage_title: iQmetrix APIs
+site_title: iQmetrix Developer Portal
+tagline: iQmetrix Developer Portal
+
+baseurl: "/"
+api_baseurl: "/api"
+concepts_baseurl: "/concepts"
+fileurl: "../"
+pagefileurl: "../../"
+
+port: 4006
+host: 127.0.0.1 
+url: "http://developers.iqmetrix.com"
+#url: "http://localhost:4006"
+
+feedback_email: apidesign@iqmetrix.com
+support_email: apisupport@iqmetrix.com
+sidebar_accordion: true
+
+#redcarpet:
+  # extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+
+highlighter: none
+
+# print: false
+
+# floating_nav: true
+
+# Build settings
+markdown: kramdown
+
+kramdown: 
+  syntax_highlighter_opts:
+    disable : true
+
+exclude: 
+  - _site
+  - raml
+  - templates
+  - node_modules
+  
+# permalink: :title
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "slate"

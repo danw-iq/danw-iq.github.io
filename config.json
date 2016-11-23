@@ -1,0 +1,98 @@
+{  
+   "default":{  
+      "url":"https://accountsdemo.iqmetrix.net/v1/oauth2/token",
+      "method":"POST",
+      "headers":{  
+         "content-type":"application/x-www-form-urlencoded"
+      },
+      "form":{  
+         "grant_type":"password",
+         "client_id":"DANAPITEST",
+         "client_secret":"sFvbB356W4T8m21W934VAErg",
+         "username":"johnb@kentel.com",
+         "password":"Password123$"
+      }
+   },
+   "pos": {
+      "url":"https://accountsint.iqmetrix.net/v1/oauth2/token",
+      "method":"POST",
+      "headers":{  
+         "content-type":"application/x-www-form-urlencoded"
+      },
+      "form":{  
+         "grant_type":"password",
+         "client_id":"iQPOS",
+         "client_secret":"FXSDWCy3qYXUgXnpP9uRAhG4",
+         "username":"scorpio@globex.com",
+         "password":"Abcd1234"
+      },
+      "accessToken": "Y2lxc_IwcXNjwnFzY_pBc2NoRycXPDImGQwiSyIHAzUXOTMVNB8ZJjkYPB4hDBIdIAgYOigFHR0XI0QUKj0HGwwuJT8ELjVBEgVF"
+
+   },
+   "cost": {
+      "url":"https://accountsdemo.iqmetrix.net/v1/oauth2/token",
+      "method":"POST",
+      "headers":{  
+         "content-type":"application/x-www-form-urlencoded"
+      },
+      "form":{  
+         "grant_type":"password",
+         "client_id":"DANAPITEST",
+         "client_secret":"sFvbB356W4T8m21W934VAErg",
+         "username":"melissak_3@iqmerix.com",
+         "password":"Password123"
+      },
+      "accessToken": "eUdsMDA6bDB5cWwweUZsMHlGH2YQKQB5ITcNUzV0FnlMIy9ECwUGWhYROGEYFA1oMHQnagETGHIyPyUCFDIUYjAjFllKESN5LyNV"
+   },
+  "rq-data-connect": {
+      "url":"https://rqdataconnecttest.iqmetrix.net/session",
+      "method":"GET",
+      "headers":{  
+         "Authorization":"Basic TmF0aGFuLlN0b3Jtc0BHb1dpcmVsZXNzSW5jU3RhZ2luZzU6IVFBWjJ3c3gjRURD"
+      },
+      "test_url":"https://rqdataconnecttest.iqmetrix.net"
+  },
+  "envysion-reports":{  
+      "url":"https://rqdataconnecttest.iqmetrix.net/session",
+      "method":"GET",
+      "headers":{  
+         "Authorization":"Basic YXBpdXNlckBlbnZ5c2lvbi5jb206IVFBWjJ3c3g="
+      },
+      "test_url":"https://rqdataconnecttest.iqmetrix.net"
+   },
+   "customized-reports": {
+      "url":"https://rqdataconnecttest.iqmetrix.net/session",
+      "method":"GET",
+      "headers":{  
+         "Authorization":"Basic TmF0aGFuLlN0b3Jtc0BHb1dpcmVsZXNzSW5jU3RhZ2luZzU6IVFBWjJ3c3gjRURD"
+      },
+      "test_url":"https://rqdataconnecttest.iqmetrix.net"
+   },
+   "chatterspot-reports": {
+      "url":"https://rqdataconnectrc.iqmetrix.net/session",
+      "method":"GET",
+      "headers":{  
+         "Authorization":"Basic YXBpdXNlckBjaGF0dGVyc3BvdDp3OElhTkNkZldHN0Y="
+      },
+      "test_url":"https://rqdataconnectrc.iqmetrix.net"
+   },
+   "statflo-reports": {
+      "url":"https://rqdataconnecttest.iqmetrix.net/session",
+      "method":"GET",
+      "headers":{  
+         "Authorization":"Basic YXBpdXNlckBzdGF0ZmxvLmNvbTohUUFaMndzeA=="
+      },
+      "test_url":"https://rqdataconnecttest.iqmetrix.net"
+   },
+   "sellpro-reports": {
+      "url":"https://rqdataconnect.iqmetrix.net/session",
+      "method":"GET",
+      "headers":{  
+         "Authorization":"Basic YXBpdXNlckBzdGF0ZmxvLmNvbTplSDRiRkNmdVFBbXY="
+      },
+      "test_url":"https://rqdataconnect.iqmetrix.net"
+   },
+   "cmi": {
+      "noauth": "true"
+   }
+}
