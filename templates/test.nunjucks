@@ -58,15 +58,20 @@ search: true
 
 > Example Request
 
-
-<pre class="highlight javascript"><code>{{method.method | upper }} {{ resource.relativeUri | replaceWithExamples(resource.uriParameters) }}
+{#
+```javascript
+{{method.method | upper }} {{ resource.relativeUri | replaceWithExamples(resource.uriParameters) }}
 {% if method.headers %}{% for header, headerObj in method.headers %}{{header}}: {{headerObj.example}}
-{% endfor %}{% endif %}</code></pre>
+{% endfor %}{% endif %}
+```
+#}
 
-<pre class="highlight shell"><code>
-curl -X {{ method.method | upper }} "{{ baseUri | replace("{UrlSuffix}", "demo") }}{{ resource.relativeUri | replaceWithExamples(resource.uriParameters) }}"{% if method.headers %}{% for header, headerObj in method.headers %} -H "{{header}}: {{headerObj.example}}"{% endfor %}{% endif %}{% if method.body["application/json"].example %} -d '{{ method.body["application/json"].example }}'{% elif method.body["application/json"].schema %}{% if method.method == "put" %} -d '{{ method.body["application/json"].schema | printExample(title, false) }}'{% else %} -d '{{ method.body["application/json"].schema | printExample(title, true) }}'{% endif %}{% endif %}</code></pre>
+```shell
+curl -X {{ method.method | upper }} "{{ baseUri | replace("{UrlSuffix}", "demo") }}{{ resource.relativeUri | replaceWithExamples(resource.uriParameters) }}"{% if method.headers %}{% for header, headerObj in method.headers %} -H "{{header}}: {{headerObj.example}}"{% endfor %}{% endif %}{% if method.body["application/json"].example %} -d '{{ method.body["application/json"].example }}'{% elif method.body["application/json"].schema %}{% if method.method == "put" %} -d '{{ method.body["application/json"].schema | printExample(title, false) }}'{% else %} -d '{{ method.body["application/json"].schema | printExample(title, true) }}'{% endif %}{% endif %}
+```
+{#
 
-<pre class="highlight csharp"><code>
+```csharp
 static IRestResponse {{ method.displayName | printMethodName }}()
 {
     var client = new RestClient("{{ baseUri | replace("{UrlSuffix}", "demo") }}{{ resource.relativeUri | replaceWithExamples(resource.uriParameters) }}");
@@ -77,11 +82,11 @@ static IRestResponse {{ method.displayName | printMethodName }}()
     {% if method.body["application/json"] %} request.AddParameter("application/json", "{% if method.body["application/json"].example %}{{ method.body["application/json"].example | serialize }}{% elif method.body["application/json"].schema %}{% if method.method == "put" %}{{ method.body["application/json"].schema | printSerialized(title, false) }}{% else %}{{ method.body["application/json"].schema | printSerialized(title, true) }}{% endif %}{% endif %}", ParameterType.RequestBody);{% endif %}
 
     return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-{% if method.method == "post" %}import org.apache.http.entity.StringEntity;{% endif %}{% if method.method == "put" %}import org.apache.http.entity.StringEntity;{% endif %}
+}
+```
+#}
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>{% if method.method == "post" %}import org.apache.http.entity.StringEntity;{% endif %}{% if method.method == "put" %}import org.apache.http.entity.StringEntity;{% endif %}
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.Http{{ method.method | fixTitle }};
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -98,6 +103,7 @@ public static CloseableHttpResponse {{ method.displayName | printMethodName }}()
     {% endif %}
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 

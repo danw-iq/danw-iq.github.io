@@ -87,31 +87,13 @@ GET /partners({PartnerId})/salesTransactions?startDate={StartDate}&endDate={EndD
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&endDate=2015-12-30T08:00:00.000Z&$skip=0&$top=10
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://reportingdemo.iqmetrix.net/v1/partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&endDate=2015-12-30T08:00:00.000Z&$skip=0&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://reportingdemo.iqmetrix.net/v1/partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&endDate=2015-12-30T08:00:00.000Z&$skip=0&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingSalesTransactions()
-{
-    var client = new RestClient("https://reportingdemo.iqmetrix.net/v1/partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&endDate=2015-12-30T08:00:00.000Z&$skip=0&$top=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -127,6 +109,7 @@ public static CloseableHttpResponse GettingSalesTransactions() throws IOExceptio
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 

@@ -109,31 +109,13 @@ GET /Entities({EntityId})/Permissions
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Entities(14146)/Permissions
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/Permissions" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/Permissions" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAllPermissionsForAnEntity()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/Permissions");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -149,6 +131,7 @@ public static CloseableHttpResponse GettingAllPermissionsForAnEntity() throws IO
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -206,35 +189,15 @@ POST /Entities({EntityId})/SecurityRoles
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Entities(14146)/SecurityRoles
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/SecurityRoles" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Name": "Store Manager"
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse CreatingASecurityRole()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/SecurityRoles");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Name\":\"Store Manager\"}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -253,6 +216,7 @@ public static CloseableHttpResponse CreatingASecurityRole() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -308,31 +272,13 @@ GET /Entities({EntityId})/SecurityRoles
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Entities(14146)/SecurityRoles
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/SecurityRoles" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/SecurityRoles" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAllSecurityRolesForAnEntity()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/SecurityRoles");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -348,6 +294,7 @@ public static CloseableHttpResponse GettingAllSecurityRolesForAnEntity() throws 
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -400,33 +347,13 @@ PUT /Entities({EntityId})/SecurityRoles({SecurityRoleId})/Permissions({Permissio
 > Example Request
 
 
-<pre class="highlight javascript"><code>PUT /Entities(14146)/SecurityRoles(316)/Permissions(101)
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X PUT "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/SecurityRoles(316)/Permissions(101)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json"</code></pre>
+```shell
+curl -X PUT "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/SecurityRoles(316)/Permissions(101)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse EnablingAPermissionForASecurityRole()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/SecurityRoles(316)/Permissions(101)");
-    var request = new RestRequest(Method.PUT);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -443,6 +370,7 @@ public static CloseableHttpResponse EnablingAPermissionForASecurityRole() throws
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -498,29 +426,13 @@ DELETE /Entities({EntityId})/SecurityRoles({SecurityRoleId})/Permissions({Permis
 > Example Request
 
 
-<pre class="highlight javascript"><code>DELETE /Entities(14146)/SecurityRoles(316)/Permissions(101)
-Authorization: Bearer (Access Token)
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X DELETE "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/SecurityRoles(316)/Permissions(101)" -H "Authorization: Bearer (Access Token)"</code></pre>
+```shell
+curl -X DELETE "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/SecurityRoles(316)/Permissions(101)" -H "Authorization: Bearer (Access Token)"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse DisablingAPermissionForASecurityRole()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/SecurityRoles(316)/Permissions(101)");
-    var request = new RestRequest(Method.DELETE);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -535,6 +447,7 @@ public static CloseableHttpResponse DisablingAPermissionForASecurityRole() throw
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -588,31 +501,13 @@ GET /Entities({EntityId})/SecurityRoles({SecurityRoleId})/Permissions
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Entities(14146)/SecurityRoles(316)/Permissions
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/SecurityRoles(316)/Permissions" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/SecurityRoles(316)/Permissions" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingPermissionsForASecurityRole()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/SecurityRoles(316)/Permissions");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -628,6 +523,7 @@ public static CloseableHttpResponse GettingPermissionsForASecurityRole() throws 
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -689,36 +585,16 @@ POST /Users({UserId})/AssignedRoles
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Users(2576)/AssignedRoles
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/AssignedRoles" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "EntityId": 14202,
     "SecurityRoleId": 316
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse AssigningASecurityRoleToAUser()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/AssignedRoles");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"EntityId\":14202,\"SecurityRoleId\":316}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -737,6 +613,7 @@ public static CloseableHttpResponse AssigningASecurityRoleToAUser() throws IOExc
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -794,31 +671,13 @@ GET /Users({UserId})/AssignedRoles
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Users(2576)/AssignedRoles
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/AssignedRoles" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/AssignedRoles" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAssignedRolesForAUser()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/AssignedRoles");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -834,6 +693,7 @@ public static CloseableHttpResponse GettingAssignedRolesForAUser() throws IOExce
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -888,29 +748,13 @@ DELETE /Users({UserId})/AssignedRoles({SecurityRoleId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>DELETE /Users(2572)/AssignedRoles(316)
-Authorization: Bearer (Access Token)
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X DELETE "https://usermanagerdemo.iqmetrix.net/v1/Users(2572)/AssignedRoles(316)" -H "Authorization: Bearer (Access Token)"</code></pre>
+```shell
+curl -X DELETE "https://usermanagerdemo.iqmetrix.net/v1/Users(2572)/AssignedRoles(316)" -H "Authorization: Bearer (Access Token)"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse UnassigningASecurityRoleFromAUser()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Users(2572)/AssignedRoles(316)");
-    var request = new RestRequest(Method.DELETE);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -925,6 +769,7 @@ public static CloseableHttpResponse UnassigningASecurityRoleFromAUser() throws I
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 

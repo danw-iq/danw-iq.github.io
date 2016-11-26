@@ -63,31 +63,13 @@ GET /Products/{SlugId}
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Products/M870-V7
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/Products/M870-V7" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/Products/M870-V7" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GetProductBySlugId()
-{
-    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/Products/M870-V7");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -103,6 +85,7 @@ public static CloseableHttpResponse GetProductBySlugId() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -287,31 +270,13 @@ GET /Products/FindByIdentifier?{Options}
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Products/FindByIdentifier?value=336963&type=VendorSKU&entityId=13238
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/Products/FindByIdentifier?value=336963&type=VendorSKU&entityId=13238" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/Products/FindByIdentifier?value=336963&type=VendorSKU&entityId=13238" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse SearchingForProductsByIdentifier()
-{
-    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/Products/FindByIdentifier?value=336963&type=VendorSKU&entityId=13238");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -327,6 +292,7 @@ public static CloseableHttpResponse SearchingForProductsByIdentifier() throws IO
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 

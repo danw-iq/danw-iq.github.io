@@ -215,13 +215,8 @@ POST /ProductDocs
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /ProductDocs
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Classification": {
         "TreeId": 1,
@@ -277,26 +272,11 @@ curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs" -H "Author
             }
         ]
     }
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse CreatingAMasterProduct()
-{
-    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Classification\":{\"TreeId\":1,\"Id\":4},\"ColorDefinitions\":[{\"Name\":\"Black Sapphire\",\"ColorTagIds\":[1],\"Swatch\":{\"Type\":\"ColorCode\",\"AssetId\":\"null\",\"ColorCode\":\"#C0C8D0\"}}],\"Manufacturer\":{\"Id\":13149},\"OwnerEntityId\":14146,\"RootRevision\":{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -315,6 +295,7 @@ public static CloseableHttpResponse CreatingAMasterProduct() throws IOException 
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -446,31 +427,13 @@ GET /ProductDocs({ProductDocumentId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /ProductDocs(8)
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAProductHierarchy()
-{
-    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -486,6 +449,7 @@ public static CloseableHttpResponse GettingAProductHierarchy() throws IOExceptio
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -648,13 +612,8 @@ PUT /ProductDocs({ProductDocumentId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>PUT /ProductDocs(8)
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X PUT "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Assets": [
         {
@@ -688,26 +647,11 @@ curl -X PUT "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)" -H "Auth
             ]
         }
     ]
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse UpdatingAMasterProduct()
-{
-    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)");
-    var request = new RestRequest(Method.PUT);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -726,6 +670,7 @@ public static CloseableHttpResponse UpdatingAMasterProduct() throws IOException 
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -777,13 +722,8 @@ POST /ProductDocs({ProductDocumentId})/Variations
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /ProductDocs(8)/Variations
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Assets": [
         {
@@ -816,26 +756,11 @@ curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variatio
             ]
         }
     ]
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse CreatingAVariation()
-{
-    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variations");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -854,6 +779,7 @@ public static CloseableHttpResponse CreatingAVariation() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -909,13 +835,8 @@ PUT /ProductDocs({ProductDocumentId})/Variations?variationId={VariationId}
 > Example Request
 
 
-<pre class="highlight javascript"><code>PUT /ProductDocs(8)/Variations?variationId=1
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X PUT "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variations?variationId=1" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Assets": [
         {
@@ -949,26 +870,11 @@ curl -X PUT "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variation
             ]
         }
     ]
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse UpdatingAVariation()
-{
-    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Variations?variationId=1");
-    var request = new RestRequest(Method.PUT);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Assets\":[{\"Id\":\"a130e8f0-ddb1-4034-a34a-53d3ac03d384\",\"Name\":\"HeroShot\",\"MimeType\":\"image/jpeg\",\"IsHidden\":false}],\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -987,6 +893,7 @@ public static CloseableHttpResponse UpdatingAVariation() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1043,13 +950,8 @@ POST /ProductDocs({ProductDocumentId})/Revisions?variationId={VariationId}&count
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /ProductDocs(8)/Revisions?variationId=4&countryCode=CA&stateCode=MB&entityId=1
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revisions?variationId=4&countryCode=CA&stateCode=MB&entityId=1" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
     "FieldValues": [
@@ -1074,26 +976,11 @@ curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revision
             ]
         }
     ]
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse CreatingARevision()
-{
-    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revisions?variationId=4&countryCode=CA&stateCode=MB&entityId=1");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}]}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1112,6 +999,7 @@ public static CloseableHttpResponse CreatingARevision() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1225,13 +1113,8 @@ PUT /ProductDocs({ProductDocumentId})/Revisions?variationId={VariationId}&countr
 > Example Request
 
 
-<pre class="highlight javascript"><code>PUT /ProductDocs(8)/Revisions?variationId=4&countryCode=CA&stateCode=MB&entityId=1
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X PUT "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revisions?variationId=4&countryCode=CA&stateCode=MB&entityId=1" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Id": 5,
     "ColorDefinitionId": "5c6e2779-79d1-4fbd-b6a8-36b81e851b15",
@@ -1270,26 +1153,11 @@ curl -X PUT "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revisions
             "StateName": "British Columbia"
         }
     ]
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse UpdatingARevision()
-{
-    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/Revisions?variationId=4&countryCode=CA&stateCode=MB&entityId=1");
-    var request = new RestRequest(Method.PUT);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Id\":5,\"ColorDefinitionId\":\"5c6e2779-79d1-4fbd-b6a8-36b81e851b15\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"FieldValues\":[{\"FieldDefinitionId\":1,\"LanguageInvariantValue\":\"iPhone 4S 16 GB Black\"}],\"IdentifierGroups\":[{\"Type\":\"ManufacturerSKU\",\"ForceOverride\":false,\"Identifiers\":[{\"Description\":\"Manufacturer sku\",\"Entity\":{\"Id\":14146,\"Name\":\"Kentel Corp\"},\"Type\":\"ManufacturerSKU\",\"Value\":\"ManufacturerSKU\"}]}],\"Regions\":[{\"CountryCode\":\"CA\",\"CountryName\":\"Canada\",\"StateCode\":\"AB\",\"StateName\":\"British Columbia\"}]}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1308,6 +1176,7 @@ public static CloseableHttpResponse UpdatingARevision() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1376,31 +1245,13 @@ GET /ProductDocs({ProductDocumentId})/ColorDefinitions
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /ProductDocs(8)/ColorDefinitions
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDefinitions" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDefinitions" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingColorDefinitions()
-{
-    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDefinitions");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1416,6 +1267,7 @@ public static CloseableHttpResponse GettingColorDefinitions() throws IOException
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1486,13 +1338,8 @@ POST /ProductDocs({ProductDocumentId})/ColorDefinitions
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /ProductDocs(8)/ColorDefinitions
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDefinitions" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "ColorDefinitions": [
         {
@@ -1507,26 +1354,11 @@ curl -X POST "https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDef
             }
         }
     ]
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse CreatingAColorDefinition()
-{
-    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ProductDocs(8)/ColorDefinitions");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"ColorDefinitions\":[{\"Name\":\"Black Sapphire\",\"ColorTagIds\":[1],\"Swatch\":{\"Type\":\"ColorCode\",\"AssetId\":\"null\",\"ColorCode\":\"#C0C8D0\"}}]}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1545,6 +1377,7 @@ public static CloseableHttpResponse CreatingAColorDefinition() throws IOExceptio
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1619,31 +1452,13 @@ GET /ColorTags
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /ColorTags
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ColorTags" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ColorTags" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAllColorTags()
-{
-    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ColorTags");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1659,6 +1474,7 @@ public static CloseableHttpResponse GettingAllColorTags() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 

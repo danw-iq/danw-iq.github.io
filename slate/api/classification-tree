@@ -1,0 +1,247 @@
+<p>{% include linkrefs.html %}</p>
+
+<h1 id="overview">Overview</h1>
+
+<p>A <strong>Classification Tree</strong> is a hierarchical structure describing a taxonomy of {{Products}}. </p>
+
+<p>To learn more about Classification Trees, see {{ClassificationTree_Concept}}.</p>
+
+<h1 id="endpoints">Endpoints</h1>
+
+<ul>
+<li>Sandbox: <a href="https://productlibrarydemo.iqmetrix.net/v1">https://productlibrarydemo.iqmetrix.net/v1</a></li>
+<li>Production: <a href="https://productlibrary.iqmetrix.net/v1">https://productlibrary.iqmetrix.net/v1</a></li>
+</ul>
+
+<h1 id="resources">Resources</h1>
+
+<h2 id="classification">Classification</h2>
+
+<p>Classifications are used to group Products together by similar features.
+A Product can only have a single Classification.
+For example, a Samsung Galaxy S6 Edge, HTC One M9 and iPhone 5C might all have a Classification of Smartphones.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name</td>
+</tr>
+<tr>
+<td style="text-align: left">Order (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Sorting order</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductTemplate (<code class="prettyprint">&lt;a href=&#39;/api/classification-tree/#producttemplate&#39;&gt;ProductTemplate&lt;/a&gt;</code>)</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<h2 id="producttemplate">ProductTemplate</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name</td>
+</tr>
+</tbody></table>
+
+<h2 id="category">Category</h2>
+
+<p>A Category is a node in a Classification Tree that represents a logical grouping of related Classifications.
+For example, &lsquo;iPhone&rsquo; and &#39;Tablet&rsquo; Classifications might both be children of a &#39;Device&rsquo; Category.
+There is a limit to 20 levels of depth for Categories.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name</td>
+</tr>
+<tr>
+<td style="text-align: left">Categories (<code class="prettyprint">Array[object]</code>)</td>
+<td style="text-align: left">Child Categories</td>
+</tr>
+<tr>
+<td style="text-align: left">Classifications (<code class="prettyprint">Array[object]</code>)</td>
+<td style="text-align: left">Child Classifications</td>
+</tr>
+<tr>
+<td style="text-align: left">Order (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Sorting order</td>
+</tr>
+</tbody></table>
+
+<h2 id="classificationtree">ClassificationTree</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name</td>
+</tr>
+<tr>
+<td style="text-align: left">Description (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Description</td>
+</tr>
+<tr>
+<td style="text-align: left">Categories (<code class="prettyprint">Array[&lt;a href=&#39;/api/classification-tree/#category&#39;&gt;Category&lt;/a&gt;]</code>)</td>
+<td style="text-align: left">Categories in the Tree</td>
+</tr>
+<tr>
+<td style="text-align: left">Classifications (<code class="prettyprint">Array[&lt;a href=&#39;/api/classification-tree/#classification&#39;&gt;Classification&lt;/a&gt;]</code>)</td>
+<td style="text-align: left">Classifications for the Tree</td>
+</tr>
+<tr>
+<td style="text-align: left">Owner (<code class="prettyprint">&lt;a href=&#39;/api/classification-tree/#owner&#39;&gt;Owner&lt;/a&gt;</code>)</td>
+<td style="text-align: left">Information about the <a href="/api/company-tree/#company">Company</a> that owns this Tree</td>
+</tr>
+<tr>
+<td style="text-align: left">Version (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Latest revision number</td>
+</tr>
+<tr>
+<td style="text-align: left"><em>IsCanonical (<code class="prettyprint">Boolean</code>)</em></td>
+<td style="text-align: left"><em>Reserved for internal use</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="owner">Owner</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left"><a href="/api/company-tree/#company">Company</a> Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left"><a href="/api/company-tree/#company">Company</a> Name</td>
+</tr>
+</tbody></table>
+
+<h1 id="requests">Requests</h1>
+
+<h2 id="getting-a-classification-tree">Getting a Classification Tree</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /ClassificationTrees({ClassificationTreeId})
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">ClassificationTrees</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    
+    <li>
+        <code>ClassificationTreeId</code> (<strong>Required</strong>)  - Identifier for the {{ClassificationTree}}
+    </li>
+    </ul>
+
+<h4>Response</h4>
+
+<p><a href='#classificationtree'>ClassificationTree</a></p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 200 Content-Type: application/json
+</pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cellular &amp; Accessories"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Classification of products for wireless retail"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Devices"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nt">"Classifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nt">"Order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Classifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductTemplate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wireless Device"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iQmetrix"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h1 id="errors">Errors</h1>
+
+<table><thead>
+<tr>
+<th style="text-align: left">HTTP Status Code</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">How to Resolve</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 404</code></td>
+<td style="text-align: left"><code class="prettyprint">Unable to find document id {x}</code></td>
+<td style="text-align: left">Ensure ClassificationTreeId is correct</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 406</code></td>
+<td style="text-align: left"><code class="prettyprint">Locale not available</code></td>
+<td style="text-align: left">This error occurs with some browser extensions such as Postman. To resolve, add the header <code class="prettyprint">Accept-Language: en-US</code></td>
+</tr>
+</tbody></table>

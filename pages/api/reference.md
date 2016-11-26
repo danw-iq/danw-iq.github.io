@@ -99,29 +99,13 @@ GET /Countries
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Countries
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://referencedemo.iqmetrix.net/v1/Countries" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://referencedemo.iqmetrix.net/v1/Countries" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAllCountries()
-{
-    var client = new RestClient("https://referencedemo.iqmetrix.net/v1/Countries");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -136,6 +120,7 @@ public static CloseableHttpResponse GettingAllCountries() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -188,29 +173,13 @@ GET /TimeZones
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /TimeZones
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://referencedemo.iqmetrix.net/v1/TimeZones" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://referencedemo.iqmetrix.net/v1/TimeZones" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAllTimeZones()
-{
-    var client = new RestClient("https://referencedemo.iqmetrix.net/v1/TimeZones");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -225,6 +194,7 @@ public static CloseableHttpResponse GettingAllTimeZones() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -270,29 +240,13 @@ GET /Currencies
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Currencies
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://referencedemo.iqmetrix.net/v1/Currencies" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://referencedemo.iqmetrix.net/v1/Currencies" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAllCurrencies()
-{
-    var client = new RestClient("https://referencedemo.iqmetrix.net/v1/Currencies");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -307,6 +261,7 @@ public static CloseableHttpResponse GettingAllCurrencies() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 

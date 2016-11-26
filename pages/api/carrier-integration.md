@@ -411,13 +411,8 @@ PUT /Companies({CompanyId})/Locations({LocationId})/Carriers({CarrierId})/Activa
 > Example Request
 
 
-<pre class="highlight javascript"><code>PUT /Companies(123)/Locations(5678)/Carriers(41)/Activations(6=1115550123)
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X PUT "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Locations(5678)/Carriers(41)/Activations(6=1115550123)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Id": "6=1115550123",
     "CarrierActivationDetails": {
@@ -563,26 +558,11 @@ curl -X PUT "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Location
     "CarrierId": 41,
     "CompanyId": 1234,
     "LocationId": 5678
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse CreatingAnActivation()
-{
-    var client = new RestClient("https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Locations(5678)/Carriers(41)/Activations(6=1115550123)");
-    var request = new RestRequest(Method.PUT);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Id\":\"6=1115550123\",\"CarrierActivationDetails\":{\"ActivationId\":354,\"ActivationDate\":\"2015-06-19T05:44:39.7163989Z\",\"ActivatedProduct\":{\"Description\":\"Samsung Galaxy S5\",\"ESN\":\"35854205829867\",\"IMEI\":\"351756051523999\",\"Make\":\"Samsung\",\"MobileDeviceNumber\":\"1115550123\",\"Model\":\"Galaxy S5\",\"Price\":499,\"ProductId\":\"\",\"SerialNumber\":\"98769456321\",\"SIM\":\"89000000000000001234\",\"SKU\":\"DEF987\",\"SOCCode\":\"DEF987\",\"Tab\":{\"Amount\":50,\"Commission\":{\"Name\":\"Promo\",\"Description\":\"FREE Roam Like Home\",\"Amount\":55,\"Notes\":\"US\",\"ReferenceNumber\":\"abc123\",\"SOCCode\":\"AGG242\"},\"ReferenceNumber\":\"abc123\"}},\"ActivationState\":\"Pending\",\"ActivationTermCode\":\"EarlyUpgrade\",\"ActivationType\":\"NewActivation\",\"AdditionalFees\":[{\"Name\":\"Roaming\",\"Description\":\"Roam like home\",\"Amount\":55,\"Notes\":\"US\",\"Rebate\":{\"Name\":\"Promo\",\"Description\":\"FREE Roam Like Home\",\"Amount\":55,\"Notes\":\"US\",\"ReferenceNumber\":\"abc123\",\"SOCCode\":\"AGG242\"},\"ReferenceNumber\":\"abc123\",\"SOCCode\":\"BB3221\"}],\"ContractLengthInMonths\":24,\"ContractNumberIsAccountNumber\":false,\"DealerName\":\"IAPR\",\"DealerCode\":\"IAPR\",\"Deposit\":{\"Name\":\"Roaming\",\"Description\":\"Roam like home\",\"Amount\":55,\"Notes\":\"US\",\"Rebate\":{\"Name\":\"Promo\",\"Description\":\"FREE Roam Like Home\",\"Amount\":55,\"Notes\":\"US\",\"ReferenceNumber\":\"abc123\",\"SOCCode\":\"AGG242\"},\"ReferenceNumber\":\"abc123\",\"SOCCode\":\"BB3221\"},\"Notes\":\"Notes go here!\",\"OrderNumber\":\"ORD1234\",\"RatePlans\":[{\"RatePlanId\":\"ABC1234\",\"Name\":\"Country-wide Unlimited\",\"ContractTerms\":\"Some terms\",\"Description\":\"The perfect plan for lots of calling!\",\"IncludedRatePlanFeatures\":[{\"RatePlanAddonId\":\"XYZ5678\",\"Name\":\"TEXT100\",\"Description\":\"One hundred additional text messages.\",\"MonthlyRecurringCharges\":5,\"SOCCode\":\"XYZ5678\"}],\"MonthlyRecurringCharges\":55,\"RatePlanFeatureAddons\":[{\"RatePlanAddonId\":\"XYZ5678\",\"Name\":\"TEXT100\",\"Description\":\"One hundred additional text messages.\",\"MonthlyRecurringCharges\":5,\"SOCCode\":\"XYZ5678\"}],\"SOCCode\":\"ABC1234\"}],\"RemoteActivationID\":\"3023997373\",\"Subscriber\":{\"SubscriberId\":\"12121212121\",\"FirstName\":\"Joe\",\"LastName\":\"Smith\",\"Addresses\":[{\"AddressLine1\":\"123 Main Street\",\"AddressLine2\":\"Apt 200\",\"City\":\"Dover\",\"Country\":\"USA\",\"County\":\"Fairfield\",\"POBox\":\"PO Box 123\",\"PostalCode\":\"19901\",\"Province\":\"DE\",\"SuiteNumber\":\"100\",\"Type\":\"Residential\"}],\"AssociatedAccount\":{\"AccountId\":\"343434343\",\"Notes\":\"\",\"TrackingNumber\":\"5656565656\"},\"BirthDate\":\"5/16/1980\",\"CompanyName\":\"\",\"Email\":\"subscriber@example.com\",\"IsIndividual\":true,\"Notes\":\"24 Month Term\",\"PhoneNumbers\":[{\"Type\":\"Home\",\"Value\":\"1234561234\"}],\"SSN\":\"6789\",\"TrackingNumber\":\"2121212121\"},\"TrackingNumber\":\"3023997373\"},\"CarrierId\":41,\"CompanyId\":1234,\"LocationId\":5678}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -601,6 +581,7 @@ public static CloseableHttpResponse CreatingAnActivation() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -817,33 +798,13 @@ GET /Companies({CompanyId})/Locations({LocationId})/Carriers({CarrierId})/Activa
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(123)/Locations(5678)/Carriers(41)/Activations(6=1115550123)
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Locations(5678)/Carriers(41)/Activations(6=1115550123)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json"</code></pre>
+```shell
+curl -X GET "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Locations(5678)/Carriers(41)/Activations(6=1115550123)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAnActivation()
-{
-    var client = new RestClient("https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Locations(5678)/Carriers(41)/Activations(6=1115550123)");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -860,6 +821,7 @@ public static CloseableHttpResponse GettingAnActivation() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1065,33 +1027,13 @@ GET /Companies({CompanyId})/Carriers({CarrierId})/ActivationImportFields
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(123)/Carriers(41)/ActivationImportFields
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/ActivationImportFields" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json"</code></pre>
+```shell
+curl -X GET "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/ActivationImportFields" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingActivationLookupFields()
-{
-    var client = new RestClient("https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/ActivationImportFields");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1108,6 +1050,7 @@ public static CloseableHttpResponse GettingActivationLookupFields() throws IOExc
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1168,31 +1111,13 @@ GET /Companies({CompanyId})/Carriers({CarrierId})/Configurations
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(123)/Carriers(41)/Configurations
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/Configurations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/Configurations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingConfigurationsByCompanyAndCarrier()
-{
-    var client = new RestClient("https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/Configurations");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1208,6 +1133,7 @@ public static CloseableHttpResponse GettingConfigurationsByCompanyAndCarrier() t
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1307,13 +1233,8 @@ POST /Companies({CompanyId})/Carriers({CarrierId})/Configurations
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Companies(123)/Carriers(41)/Configurations
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/Configurations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
   "CompanyWideSettingsResource": {
     "CompanyWideIntegrationSettings": [
@@ -1339,26 +1260,11 @@ curl -X POST "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carrier
     ]
   }
 }
-'</code></pre>
+'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse EnablingACarrierIntegrationForALocation()
-{
-    var client = new RestClient("https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/Configurations");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"CompanyWideSettingsResource\":{\"CompanyWideIntegrationSettings\":[{\"Id\":1,\"Value\":\"True\",\"ValueOptions\":null}]},\"LocationSettingsResource\":{\"Locations\":[{\"LocationID\":5678,\"IntegrationSettings\":[{\"Id\":1,\"Value\":\"True\",\"ValueOptions\":null}]}]}}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1377,6 +1283,7 @@ public static CloseableHttpResponse EnablingACarrierIntegrationForALocation() th
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1478,13 +1385,8 @@ POST /Companies({CompanyId})/Carriers({CarrierId})/Configurations/
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Companies(123)/Carriers(41)/Configurations/
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/Configurations/" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
   "CompanyWideSettingsResource": {
     "CompanyWideIntegrationSettings": [
@@ -1510,26 +1412,11 @@ curl -X POST "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carrier
     ]
   }
 }
-'</code></pre>
+'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse DisablingACarrierIntegrationForALocation()
-{
-    var client = new RestClient("https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/Configurations/");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"CompanyWideSettingsResource\":{\"CompanyWideIntegrationSettings\":[{\"Id\":1,\"Value\":\"True\",\"ValueOptions\":null}]},\"LocationSettingsResource\":{\"Locations\":[{\"LocationID\":5678,\"IntegrationSettings\":[{\"Id\":1,\"Value\":\"False\",\"ValueOptions\":null}]}]}}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1548,6 +1435,7 @@ public static CloseableHttpResponse DisablingACarrierIntegrationForALocation() t
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1649,31 +1537,13 @@ GET /Companies({CompanyId})/Carriers({CarrierId})/ConfirmedActivations?$filter=C
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(123)/Carriers(41)/ConfirmedActivations?$filter=ConfirmationDateUTC ge DateTime'2015-07-16T22:29:31.000Z'&$skip=0&$top=5
-Authorization: Bearer (Access Token)
-Accept: application/hal+json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/ConfirmedActivations?$filter=ConfirmationDateUTC ge DateTime'2015-07-16T22:29:31.000Z'&$skip=0&$top=5" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"</code></pre>
+```shell
+curl -X GET "https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/ConfirmedActivations?$filter=ConfirmationDateUTC ge DateTime'2015-07-16T22:29:31.000Z'&$skip=0&$top=5" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse RetrievingCompletedActivations()
-{
-    var client = new RestClient("https://carrierservicesdemo.iqmetrix.net/v2/Companies(123)/Carriers(41)/ConfirmedActivations?$filter=ConfirmationDateUTC ge DateTime'2015-07-16T22:29:31.000Z'&$skip=0&$top=5");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/hal+json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1689,6 +1559,7 @@ public static CloseableHttpResponse RetrievingCompletedActivations() throws IOEx
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 

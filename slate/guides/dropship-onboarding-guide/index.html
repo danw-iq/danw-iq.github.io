@@ -1,0 +1,951 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Dropship Onboarding Guide</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all.js"></script>
+  </head>
+
+  <body class="guides guides_dropship-onboarding-guide guides_dropship-onboarding-guide_index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../../images/logo.png" />
+        <div class="lang-selector">
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="overview">Overview</h1>
+
+<p>The following document outlines the APIs and calls required for a dropship integration with iQmetrix. The steps outlined in this guide are focused on onboarding and are meant to be performed sequentially. </p>
+
+<p>Each segment in this guide will provide high-level concepts before describing examples of the API call required.</p>
+
+<p><br />
+<strong>Figure 1:</strong> Illustrates the interactions between supplier and iQmetrix APIs.</p>
+
+<p><img src="../../images/dropship-flow.jpg" alt="dropship flow diagram" /></p>
+
+<p>The following APIs will be covered in this guide:</p>
+
+<ul>
+<li>Authentication</li>
+<li>Product Feed</li>
+<li>Product Subscription</li>
+<li>Supplier Availability</li>
+<li>Cost Feed</li>
+<li>Shipping Options</li>
+</ul>
+
+<h3 id="who-is-this-guide-for">Who Is This Guide For?</h3>
+
+<p>The intended audience for this guide are developers who are integrating a supplier into the iQmetrix dropship program.</p>
+
+<h3 id="onboarding-package">Onboarding Package</h3>
+
+<p>As part of the onboarding process, you will have received an onboarding package from the iQmetrix API team. This package provides you credentials and access details in order to perform the topics covered in this guide. </p>
+
+<p>Should you require information beyond the scope of this guide, or did not receive the onboarding package, contact {{contact_support}}.</p>
+
+<h3 id="environment">Environment</h3>
+
+<p>iQmetrix provides you with two environments: Sandbox and Production. 
+Use the Sandbox environment to test your API and to perform end-to-end testing. After completing this stage proceed to the Production environment.</p>
+
+<p>For more information on environments, see {{Environment}}.</p>
+
+<p>The iQmetrix API supports JSON and JSON + HAL. See {{SupportedResponseFormats}} for more information.</p>
+
+<h2 id="postman-example">Postman Example</h2>
+
+<p>iQmetrix uses <a href="http://www.getpostman.com">Postman</a> when <a href="/api/#testing-and-debugging">testing and debugging</a> our APIs.</p>
+
+<p>For Chrome or Mac users, click the button below to import the collection directly into Postman.</p>
+
+<div class="postman-run-button"
+data-postman-action="collection/import"
+data-postman-var-1="361a16e02eb237721346"></div>
+
+<script type="text/javascript">
+  (function (p,o,s,t,m,a,n) {
+    !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
+    !o.getElementById(s+t) && o.getElementsByTagName("head")[0].appendChild((
+      (n = o.createElement("script")),
+      (n.id = s+t), (n.async = 1), (n.src = m), n
+    ));
+  }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
+</script>
+
+<p>Alternatively, you can download the collection by clicking <a href="#">here</a>.</p>
+
+<p>The Postman environment shared by all API references and guides can be found <a href="/api/#">here</a>.</p>
+
+<h1 id="step-1-authentication">Step 1 - Authentication</h1>
+
+<p>In order to make authorized requests to iQmetrix APIs, you need an {{AccessToken_Glossary}}.</p>
+
+<p>See the table below for different ways of getting an Access Token.</p>
+
+<p><br />
+<strong>Table 1:</strong> Methods for Obtaining an Access Token</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">If&hellip;</th>
+<th style="text-align: left">Then&hellip;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">You do not have an Access Token</td>
+<td style="text-align: left">See <a href="/api/authentication/#obtaining-an-access-token">Obtaining an Access Token</a></td>
+</tr>
+<tr>
+<td style="text-align: left">You have an Access Token, but it is close to expiring</td>
+<td style="text-align: left">See <a href="/api/authentication/#refreshing-an-access-token">Refreshing an Access Token</a></td>
+</tr>
+</tbody></table>
+
+<p>The token is placed in the <code class="prettyprint">Authorization</code> header of requests to iQmetrix APIs, prefixed by the word <code class="prettyprint">Bearer</code>.</p>
+
+<h5 id="example-request">Example Request</h5>
+
+<p>Authorization: Bearer (Access Token)</p>
+
+<h1 id="step-2-product-feed">Step 2 - Product Feed</h1>
+
+<p>A <a href="/api/product-feed">Product Feed</a> allows you to continuously channel all of your products&rsquo; information into a single source within the iQmetrix system. The product feed you provide will be curated by iQmetrix into the Product Library and made available to retailers. </p>
+
+<p>Each product that has been curated will be <strong>removed from the feed</strong>, leaving the delta from your last push. It&rsquo;s recommended to update the <code class="prettyprint">LastModifiedByVendorUtc</code> field for this product feed lifecycle, as it gives visibility to the curation team should there be any new products added to the feed or any product information updates.</p>
+
+<p><br />
+<strong>Figure 2:</strong> Illustrates supplier pushing products to be curated. </p>
+
+<p><img alt="Alt product feed diagram" src="../../images/product-feed.jpg" /></p>
+
+<h2 id="2-1-get-classification-tree-by-id">2.1 Get Classification Tree by ID</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="nx">https</span><span class="err">:</span><span class="c1">//productlibrarydemo.iqmetrix.net/v1/ClassificationTrees(1)</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight javascript"><code>    <span class="nx">HTTP</span> <span class="mi">200</span> <span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+    <span class="p">{</span>
+        <span class="s2">"Id"</span><span class="err">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"Name"</span><span class="err">:</span> <span class="s2">"Cellular &amp; Accessories"</span><span class="p">,</span>
+        <span class="s2">"IsCanonical"</span><span class="err">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"Description"</span><span class="err">:</span> <span class="s2">"iQmetrix classification of products for wireless retail"</span><span class="p">,</span>
+        <span class="s2">"Owner"</span><span class="err">:</span> <span class="p">{</span>
+            <span class="s2">"Id"</span><span class="err">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">"Name"</span><span class="err">:</span> <span class="s2">"iQmetrix"</span>
+        <span class="p">},</span>
+        <span class="s2">"Categories"</span><span class="err">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+              <span class="s2">"Name"</span><span class="p">:</span> <span class="s2">"Devices"</span><span class="p">,</span>
+              <span class="s2">"Order"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+              <span class="s2">"Categories"</span><span class="p">:</span> <span class="p">[...],</span>
+              <span class="s2">"Classifications"</span><span class="p">:</span> <span class="p">[...]</span>
+            <span class="p">},</span>
+            <span class="p">...</span>
+        <span class="p">],</span>
+        <span class="s2">"Classifications"</span><span class="err">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">69</span><span class="p">,</span>
+              <span class="s2">"Name"</span><span class="p">:</span> <span class="s2">"SIM Cards"</span><span class="p">,</span>
+              <span class="s2">"Order"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+              <span class="s2">"ProductTemplate"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+                <span class="s2">"Name"</span><span class="p">:</span> <span class="s2">"Wireless Device"</span>
+              <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="p">...</span>
+        <span class="p">],</span>
+        <span class="s2">"Version"</span><span class="err">:</span> <span class="mi">148</span>
+    <span class="p">}</span>
+</code></pre>
+
+<p>iQmetrix organizes retail products in a hierarchical structure using Classification Trees, which represent different product taxonomies. Classification Trees are made up of Categories, which group similar products together, and Classifications which act as a template for Product information. </p>
+
+<p>Each Product must have an associated Classification Tree and Classification.</p>
+
+<p>For more details on this concept, see {{ClassificationTree_Concept}}.</p>
+
+<p>To get a list of Classifications based on your provided Classification Tree ID, see <a href="/api/classification-tree/#getting-a-classification-tree">Getting a Classification Tree</a></p>
+
+<h2 id="2-2-get-all-field-definitions">2.2 Get All Field Definitions</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight csharp"><code><span class="n">GET</span> <span class="n">https</span><span class="p">:</span><span class="c1">//productlibrarydemo.iqmetrix.net/v1/FieldDefinitions
+</span></code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">HTTP</span> <span class="mi">200</span> <span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">139</span><span class="p">,</span>
+        <span class="s2">"StringId"</span><span class="p">:</span> <span class="s2">"Color Tags"</span><span class="p">,</span>
+        <span class="s2">"InputType"</span><span class="p">:</span> <span class="s2">"MultiSelect"</span><span class="p">,</span>
+        <span class="s2">"IsRequired"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s2">"LanguageInvariantUnit"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="s2">"DisplayName"</span><span class="p">:</span> <span class="s2">"Color Tags"</span><span class="p">,</span>
+        <span class="s2">"Unit"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="s2">"Options"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">"Value"</span><span class="p">:</span> <span class="s2">"Black"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">"Value"</span><span class="p">:</span> <span class="s2">"Blue"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="s2">"Value"</span><span class="p">:</span> <span class="s2">"Brown"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="s2">"Value"</span><span class="p">:</span> <span class="s2">"Gray"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                <span class="s2">"Value"</span><span class="p">:</span> <span class="s2">"Green"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+                <span class="s2">"Value"</span><span class="p">:</span> <span class="s2">"Orange"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+                <span class="s2">"Value"</span><span class="p">:</span> <span class="s2">"Pink"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+                <span class="s2">"Value"</span><span class="p">:</span> <span class="s2">"Purple"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+                <span class="s2">"Value"</span><span class="p">:</span> <span class="s2">"Red"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                <span class="s2">"Value"</span><span class="p">:</span> <span class="s2">"Translucent"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+                <span class="s2">"Value"</span><span class="p">:</span> <span class="s2">"Turquoise"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+                <span class="s2">"Value"</span><span class="p">:</span> <span class="s2">"White"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+                <span class="s2">"Value"</span><span class="p">:</span> <span class="s2">"Yellow"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">"Value"</span><span class="p">:</span> <span class="s2">"Gold"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+                <span class="s2">"Value"</span><span class="p">:</span> <span class="s2">"Silver"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+                <span class="s2">"Value"</span><span class="p">:</span> <span class="s2">"Bronze"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+                <span class="s2">"Value"</span><span class="p">:</span> <span class="s2">"Multicolor"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                <span class="s2">"Value"</span><span class="p">:</span> <span class="s2">"Pattern"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">"LanguageInvariantName"</span><span class="p">:</span> <span class="s2">"Color Tags"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">84</span><span class="p">,</span>
+        <span class="s2">"StringId"</span><span class="p">:</span> <span class="s2">"CDMA"</span><span class="p">,</span>
+        <span class="s2">"InputType"</span><span class="p">:</span> <span class="s2">"YesNo"</span><span class="p">,</span>
+        <span class="s2">"IsRequired"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s2">"LanguageInvariantUnit"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="s2">"DisplayName"</span><span class="p">:</span> <span class="s2">"CDMA"</span><span class="p">,</span>
+        <span class="s2">"Unit"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="s2">"Options"</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="p">...</span>
+<span class="p">]</span>
+</code></pre>
+
+<p>A field definition contains all the metadata about a product&rsquo;s attributes, such as name, units, and how it should be displayed. A field is an instance of a field definition. Each product field has a definition and a value. Field definitions are agnostic of industry and are considered global attributes.</p>
+
+<p>To get all Field Definitions, see <a href="/api/field-definitions/#getting-all-field-definitions">Getting Field Definitions</a></p>
+
+<h4 id="mapping-field-definitions">Mapping Field Definitions</h4>
+
+<p>When mapping field definitions between the environments there are two identifiers to consider:</p>
+
+<ul>
+<li>Field definition <strong>identifiers</strong> are specific to each environment</li>
+<li>Field definition <strong>string identifiers</strong> are consistent across all environments. </li>
+</ul>
+
+<p>To add a Product to your Product Feed, the API request requires the field definition <strong>identifier</strong> field. Follow these instructions to map your field definitions between the various environments.</p>
+
+<ol>
+<li>Get a list of all field definitions from the Production environment. </li>
+<li>Search and map the fields from your system with the fields from the API.</li>
+<li>While mapping, locate the field identifier and string identifiers from the API and add them to a configuration table.</li>
+<li>Get a list of all fields definitions from the Demo environment.</li>
+<li>Search for the string identifiers to be mapped and add their corresponding field identifier to your configuration table.</li>
+</ol>
+
+<p><br />
+<strong>Table 2:</strong> Mapping Fields Between Environments</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Your Definition</th>
+<th style="text-align: left">String ID</th>
+<th style="text-align: left">ID in Demo</th>
+<th style="text-align: left">ID in Production</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Packing Height</td>
+<td style="text-align: left">Packaging Height</td>
+<td style="text-align: left">175</td>
+<td style="text-align: left">141</td>
+</tr>
+<tr>
+<td style="text-align: left">Packing Width</td>
+<td style="text-align: left">Packaging Width</td>
+<td style="text-align: left">176</td>
+<td style="text-align: left">142</td>
+</tr>
+<tr>
+<td style="text-align: left">Packing Depth</td>
+<td style="text-align: left">Packaging Depth</td>
+<td style="text-align: left">177</td>
+<td style="text-align: left">143</td>
+</tr>
+</tbody></table>
+
+<h2 id="2-3-add-a-product">2.3 Add a Product</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">POST</span> <span class="nx">https</span><span class="err">:</span><span class="c1">//productlibrarydemo.iqmetrix.net/v1/ProductFeeds(34)/Products </span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+
+<span class="p">{</span>
+    <span class="s2">"Classification"</span><span class="err">:</span> <span class="p">{</span>
+        <span class="s2">"TreeId"</span><span class="err">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"Id"</span><span class="err">:</span> <span class="mi">5</span>
+    <span class="p">},</span>
+    <span class="s2">"Manufacturer"</span><span class="err">:</span> <span class="s2">"Agent18"</span><span class="p">,</span>
+    <span class="s2">"ManufacturerSku"</span><span class="err">:</span> <span class="s2">"980113579"</span><span class="p">,</span>
+    <span class="s2">"ModelName"</span><span class="err">:</span> <span class="s2">"Agent18 SlimShield Case for iPhone 6"</span><span class="p">,</span>
+    <span class="s2">"LastModifiedByVendorUtc"</span><span class="err">:</span> <span class="s2">"2015-09-16T10:40:31.101Z"</span><span class="p">,</span>
+    <span class="s2">"UPC"</span><span class="err">:</span> <span class="s2">"723755004337"</span><span class="p">,</span>
+    <span class="s2">"VendorSkus"</span><span class="err">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"Sku"</span><span class="p">:</span> <span class="s2">"1115884"</span><span class="p">,</span>
+            <span class="s2">"VendorName"</span><span class="p">:</span> <span class="s2">"Amazon"</span><span class="p">,</span>
+            <span class="s2">"Description"</span><span class="p">:</span> <span class="s2">"Online retailer"</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">"Fields"</span><span class="err">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"Definition"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">"StringId"</span><span class="p">:</span> <span class="s2">"Product Name"</span>
+            <span class="p">},</span>
+            <span class="s2">"Value"</span><span class="err">:</span> <span class="s2">"Agent18 SlimShield Case for iPhone 6 - Black"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">"Definition"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">129</span><span class="p">,</span>
+                <span class="s2">"StringId"</span><span class="p">:</span> <span class="s2">"Color Tags"</span>
+            <span class="p">},</span>
+            <span class="s2">"Value"</span><span class="err">:</span> <span class="s2">"Black, Red"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">"Definition"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">41</span><span class="p">,</span>
+                <span class="s2">"StringId"</span><span class="p">:</span> <span class="s2">"Width"</span><span class="p">,</span>
+                <span class="s2">"Unit"</span><span class="p">:</span> <span class="s2">"inches"</span>
+            <span class="p">},</span>
+            <span class="s2">"Value"</span><span class="err">:</span> <span class="s2">"4"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+        <span class="s2">"Definition"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">76</span><span class="p">,</span>
+            <span class="s2">"StringId"</span><span class="p">:</span> <span class="s2">"MSRP"</span><span class="p">,</span>
+            <span class="s2">"InputType"</span><span class="p">:</span> <span class="s2">"Currency"</span>
+        <span class="p">},</span>
+        <span class="s2">"Value"</span><span class="err">:</span> <span class="s2">"24.99 CAD"</span>
+    <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">"Assets"</span><span class="err">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"AssetUrl"</span><span class="p">:</span> <span class="s2">"http://image.sample.com/a.jpg"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">HTTP</span> <span class="mi">200</span> <span class="nx">OK</span> <span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="p">{</span>
+    <span class="s2">"Id"</span><span class="err">:</span> <span class="mi">17</span><span class="p">,</span>
+    <span class="s2">"Classification"</span><span class="err">:</span> <span class="p">{</span>
+        <span class="s2">"TreeId"</span><span class="err">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"Id"</span><span class="err">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="s2">"Name"</span><span class="err">:</span> <span class="s2">"Cases"</span>
+    <span class="p">},</span>
+    <span class="s2">"ClassificationTreeName"</span><span class="err">:</span> <span class="s2">"Cellular &amp; Accessories"</span><span class="p">,</span>
+    <span class="s2">"Manufacturer"</span><span class="err">:</span> <span class="s2">"Agent18"</span><span class="p">,</span>
+    <span class="s2">"ManufacturerSku"</span><span class="err">:</span> <span class="s2">"980113579"</span><span class="p">,</span>
+    <span class="s2">"UPC"</span><span class="err">:</span> <span class="s2">"723755004337"</span><span class="p">,</span>
+    <span class="s2">"VendorSkus"</span><span class="err">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"Sku"</span><span class="p">:</span> <span class="s2">"1115884"</span><span class="p">,</span>
+            <span class="s2">"VendorName"</span><span class="p">:</span> <span class="s2">"Amazon"</span><span class="p">,</span>
+            <span class="s2">"Description"</span><span class="p">:</span> <span class="s2">"Online retailer"</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">"Fields"</span><span class="err">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="p">...</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">"Assets"</span><span class="err">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="p">...</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">"LastModifiedByVendorUtc"</span><span class="err">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="s2">"ModelName"</span><span class="err">:</span> <span class="s2">"Agent18 SlimShield Case for iPhone 6"</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Now that you have a list of Field Definitions and Classifications, there are also optional parameters to enter for your Products. Ensure your products have, at minimum, a ModelName as this field will be used to import your products into the iQmetrix platform.</p>
+
+<p>We can now combine the information gathered from the previous steps to <a href="/api/product-feed/#adding-a-product-to-a-feed">Adding a Product to your Product Feed</a></p>
+
+<p><strong>ModelName Mapping:</strong></p>
+
+<p>The <code class="prettyprint">ModelName</code> field should be specific enough that variations of one product should be able to be grouped together, but different products wouldn&rsquo;t be grouped together. </p>
+
+<p>The table below shows results from actual entries versus the expected entry.</p>
+
+<p><br />
+<strong>Table 3:</strong> ModelName Mapping Examples</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Actual</th>
+<th style="text-align: left">Expected</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Dualtek Product for iPhone 5</td>
+<td style="text-align: left">iPhone 5 DualTek Extreme Shock Case</td>
+</tr>
+<tr>
+<td style="text-align: left">Data Cable for Apple iPhone 5s</td>
+<td style="text-align: left">4&rsquo; Lightning Charge/Sync Cable</td>
+</tr>
+<tr>
+<td style="text-align: left">Shell and Holster for Apple iPhone 6</td>
+<td style="text-align: left">iPhone 6/6s Hip Case+</td>
+</tr>
+<tr>
+<td style="text-align: left">Data Cable</td>
+<td style="text-align: left">microUSB 72&quot; Charge-sync Cord</td>
+</tr>
+</tbody></table>
+
+<p><strong>Required Fields:</strong></p>
+
+<ul>
+<li><code class="prettyprint">Product Name</code> - Since there is a Manufacturer field, the manufacturer doesn&rsquo;t need to be apart of the product name.</li>
+<li><code class="prettyprint">Long Description</code> - Supports up to ~20,000 characters, but products typically use 2,000 characters at most. Formatting should be handled with HTML tags.</li>
+<li><code class="prettyprint">MSRP</code> - Requires value and currency code (e.g. 35.99 CAD, 24.00 USD).</li>
+</ul>
+
+<p><strong>Recommendations:</strong></p>
+
+<ul>
+<li>Ensure your product images (assets) have a transparent background. We crop out any backgrounds so that we can create a clean reflection in XQ.</li>
+<li>Ensure your product images are of high quality, as these images will be projected on high-resolution displays.</li>
+<li>Ensure dimensions are in separate fields, and <strong>not</strong> as a string, such as &ldquo;5x5x5&rdquo;.</li>
+<li>Ensure <code class="prettyprint">MSRP</code> includes currency code, such as &ldquo;14.99 USD&rdquo;.</li>
+<li>Ensure <code class="prettyprint">Classification</code> is not null.</li>
+<li>Ensure the <code class="prettyprint">color</code> definition uses model descriptions, such as Space Gray</li>
+<li>Ensure the <code class="prettyprint">color tag</code> definition uses multiple of the following palette:
+
+<ul>
+<li>Black, Blue, Brown, Gray, Green, Orange, Pink, Purple, Red, Translucent, Turquoise, White, Yellow, Gold, Silver, Bronze, Multicolor, Pattern</li>
+</ul></li>
+</ul>
+
+<h2 id="optional-remove-update-a-product">Optional: Remove/Update a Product</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight csharp"><code><span class="n">DELETE</span> <span class="n">https</span><span class="p">:</span><span class="c1">//productlibrarydemo.iqmetrix.net/v1/ProductFeeds(34)/Products(17)
+</span><span class="n">Authorization</span><span class="p">:</span> <span class="nf">Bearer</span> <span class="p">(</span><span class="n">Access</span> <span class="n">Token</span><span class="p">)</span>
+<span class="n">Accept</span><span class="p">:</span> <span class="n">application</span><span class="p">/</span><span class="n">json</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight csharp"><code><span class="n">HTTP</span> <span class="m">204</span> <span class="n">No</span> <span class="n">Content</span>
+</code></pre>
+
+<p>Each Product entered into the Product Feed will have a corresponding ID from the response. The steps below describe how to remove or update products that are <strong>still</strong> in the Product feed, and have not been curated yet.</p>
+
+<p>Should a product have already been curated, then simply add the product to the Product feed again with the new changes. The curation team will update the curated product with the new details.</p>
+
+<ul>
+<li>To <strong>remove</strong> products from the Product Feed, you must <a href="/api/product-feed/#removing-a-product-from-a-feed">remove each Product</a> by providing their ProductId. </li>
+<li>To <strong>update</strong> products in the Product Feed, the products must be <a href="/api/product-feed/#removing-a-product-from-a-feed">deleted</a> first, updated locally, and then <a href="/api/product-feed/#adding-a-product-to-a-feed">added again</a> (DELETE + POST).</li>
+</ul>
+
+<h1 id="step-3-product-subscription">Step 3 - Product Subscription</h1>
+
+<p>While the <a href="/api/product-feed">Product Content Feed</a> provides iQmetrix with details of your products, the <a href="/api/product-subscription">Product Subscription Feed</a> is similar to an RSS feed. In this case, retailers subscribe to your feed to get a list of your latest dropship products. </p>
+
+<p>Each <a href="/api/product-subscription">Product Subscription Feed</a> contains a list of SKUs and their selling price (MSRP), allowing you control over which products are visible to each retailer that is a part of your program. </p>
+
+<p>Optionally you can provide more than one feed, serving different products to different groups of retailers. For example, one feed could be based on the manufacturer (e.g. Supply Inc - Otterbox sub feed) while another could be based on the product line (e.g. Supply Inc. - iPhone sub feed).</p>
+
+<p>Once a retailer is subscribed your feed(s), they will see the products available to them through the various iQmetrix applications they use. </p>
+
+<p>Synchronization of these feeds occurs nightly, updating all of your subscribed retailers with the products you have added or removed from your feeds, allowing you to control which products are available for dropship. </p>
+
+<p><br />
+<strong>Figure 3:</strong> Illustrates supplier pushing product rules to their various companies. </p>
+
+<p><img alt="Alt product subscription" src="../../images/product-subscription.jpg" /></p>
+
+<h4 id="example-scenario">Example Scenario</h4>
+
+<p>Below is an example of a supplier updating their product subscription feed:</p>
+
+<ul>
+<li>Monday:      8 products</li>
+<li>Tuesday:    +2 products</li>
+<li>Wednesday:  -1 product</li>
+</ul>
+
+<p>On Monday, a supplier provides 8 products to their Subscription Feed. Since synchronization occurs at night, subscribed  retailers see the 8 products on Tuesday. </p>
+
+<p>On Tuesday evening, the supplier then adds 2 more products to their Subscription Feed. This is done by including 2 additional products to their original list, which now has 10 products instead of 8. The following morning, subscribed retailers see 10 products total. </p>
+
+<p>Finally on Wednesday morning, the supplier removes 1 product, leaving the Subscription Feed with 9 products. </p>
+
+<p>The following morning, subscribed retailers now have 9 products.</p>
+
+<h2 id="3-1-add-products">3.1 Add Products</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">PUT</span> <span class="nx">https</span><span class="err">:</span><span class="c1">//productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(2c7dccd9-49ba-42ac-bffb-edcc08f40773)</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+
+<span class="p">{</span>
+    <span class="s2">"EntityId"</span><span class="err">:</span> <span class="mi">60455</span><span class="p">,</span>
+    <span class="s2">"Name"</span><span class="err">:</span> <span class="s2">"Joe's Product List"</span><span class="p">,</span>
+    <span class="s2">"Products"</span><span class="err">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"ProductName"</span><span class="p">:</span> <span class="s2">"Agent18 SlimShield Case for iPhone 6"</span><span class="p">,</span>
+            <span class="s2">"VendorSku"</span><span class="p">:</span> <span class="s2">"1115884"</span><span class="p">,</span>
+            <span class="s2">"Price"</span><span class="p">:</span> <span class="mf">49.99</span><span class="p">,</span>
+            <span class="s2">"Dropshippable"</span><span class="p">:</span> <span class="kc">true</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">HTTP</span> <span class="mi">200</span> <span class="nx">OK</span> <span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="p">{</span>
+    <span class="s2">"Id"</span><span class="err">:</span> <span class="s2">"2c7dccd9-49ba-42ac-bffb-edcc08f40773"</span><span class="p">,</span>
+    <span class="s2">"EntityId"</span><span class="err">:</span> <span class="mi">60455</span><span class="p">,</span>
+    <span class="s2">"Name"</span><span class="err">:</span> <span class="s2">"Joe's Product List"</span><span class="p">,</span>
+    <span class="s2">"Products"</span><span class="err">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"ProductName"</span><span class="p">:</span> <span class="s2">"Product Name"</span><span class="p">,</span>
+            <span class="s2">"VendorSku"</span><span class="p">:</span> <span class="s2">"123456789"</span><span class="p">,</span>
+            <span class="s2">"Price"</span><span class="p">:</span> <span class="mf">11.11</span><span class="p">,</span>
+            <span class="s2">"Dropshipable"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">"ProductSlugs"</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s2">"Version"</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">"Version"</span><span class="err">:</span> <span class="mi">2</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>{{note}}The new product list in the payload replaces the old product list. Any matching old products (determined by Vendor SKU) will have their slug and version data copied over into the new products.{{end}}</p>
+
+<p><br />
+<strong>Table 4:</strong> Product Feed Variables</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">EntityId</td>
+<td style="text-align: left">SupplierId</td>
+</tr>
+<tr>
+<td style="text-align: left">Name</td>
+<td style="text-align: left">Subscribable list name</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductName</td>
+<td style="text-align: left">ModelName from Product Feed</td>
+</tr>
+<tr>
+<td style="text-align: left">VendorSku</td>
+<td style="text-align: left">Vendor product SKU</td>
+</tr>
+<tr>
+<td style="text-align: left">Price</td>
+<td style="text-align: left">Wholesale price to retailers</td>
+</tr>
+<tr>
+<td style="text-align: left">Dropshippable</td>
+<td style="text-align: left">true</td>
+</tr>
+</tbody></table>
+
+<p>To add products, see <a href="/api/product-subscription/#updating-products-in-a-subscribable-list">Updating Products in a Subscribable List</a>. </p>
+
+<h2 id="3-2-get-your-company-ids">3.2 Get Your Company IDs</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight csharp"><code><span class="n">GET</span> <span class="n">https</span><span class="p">:</span><span class="c1">//productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(2c7dccd9-49ba-42ac-bffb-edcc08f40773)
+</span><span class="n">Authorization</span><span class="p">:</span> <span class="nf">Bearer</span> <span class="p">(</span><span class="n">Access</span> <span class="n">Token</span><span class="p">)</span>
+<span class="n">Accept</span><span class="p">:</span> <span class="n">application</span><span class="p">/</span><span class="n">json</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">HTTP</span> <span class="mi">200</span> <span class="nx">OK</span> <span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="p">{</span>
+    <span class="s2">"ListId"</span><span class="err">:</span> <span class="s2">"2c7dccd9-49ba-42ac-bffb-edcc08f40773"</span><span class="p">,</span>
+    <span class="s2">"Companies"</span><span class="err">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"Id"</span><span class="p">:</span> <span class="mi">60454</span><span class="p">,</span>
+            <span class="s2">"Name"</span><span class="p">:</span> <span class="s2">"Company 1"</span><span class="p">,</span>
+            <span class="s2">"DateSubscribedUtc"</span><span class="p">:</span> <span class="s2">"2015-10-01T18:46:25.774Z"</span>
+        <span class="p">},</span>
+        <span class="p">...</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>For the remaining steps, you <strong>must</strong> know the Company IDs for the companies you will be interacting with. </p>
+
+<p>You can get a list of all your companies via <a href="/api/product-subscription/#getting-all-companies-in-a-product-subscription">Getting All Companies in a Product Subscription</a>.</p>
+
+<h1 id="step-4-supplier-availability">Step 4 - Supplier Availability</h1>
+
+<p>The <a href="/api/supplier-availability">Supplier Availability</a> provides iQmetrix with a continuously updated cache of product availability.  This will allow iQmetrix to inform customers of the availability of a product.  Once a product is marked as unavailable by a supplier, iQmetrix will mark this product as unavailable to prevent future purchases.</p>
+
+<p><br />
+<strong>Figure 4:</strong> Illustrates supplier pushing their product availability to be viewed by companies. </p>
+
+<p><img alt="Alt supplier availability" src="../../images/supplier-availability.jpg" /></p>
+
+<h2 id="4-1-configure-availability">4.1 Configure Availability</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">POST</span> <span class="nx">https</span><span class="err">:</span><span class="c1">//dropshipsdemo.iqmetrix.net/v1/Suppliers(60455)/Availability</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+
+<span class="p">{</span>
+    <span class="s2">"Products"</span><span class="err">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"Sku"</span><span class="p">:</span> <span class="s2">"123456789"</span><span class="p">,</span>
+            <span class="s2">"IsAvailable"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">"Quantity"</span><span class="p">:</span> <span class="mi">3</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="o">&gt;</span>
+<span class="o">&gt;</span> <span class="nx">Example</span> <span class="nx">Response</span>
+<span class="o">&gt;</span>
+
+<span class="err">```</span><span class="nx">javascript</span>
+<span class="nx">HTTP</span> <span class="mi">200</span> <span class="nx">OK</span> <span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="p">{</span>
+    <span class="s2">"Id"</span><span class="err">:</span> <span class="s2">"a84549a1-3b0d-4ca6-b27f-65136957309b"</span><span class="p">,</span>
+    <span class="s2">"Products"</span><span class="err">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"Sku"</span><span class="p">:</span> <span class="s2">"123456789"</span><span class="p">,</span>
+            <span class="s2">"IsAvailable"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">"Quantity"</span><span class="p">:</span> <span class="mi">3</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>To configure product availability, see <a href="/api/supplier-availability/#configuring-product-availability">Configuring Product Availability</a>. </p>
+
+<h1 id="step-5-cost-feed">Step 5 - Cost Feed</h1>
+
+<p>The <a href="../../api/cost-feed">Cost Feed</a> allows you to continually provide wholesale costs for the various products you supply for your companies, based on the product’s Vendor SKU (the same SKU found from the Product Content Feed). </p>
+
+<p><br />
+<strong>Figure 5:</strong> Illustrates supplier pushing their product cost to be viewed by companies. </p>
+
+<p><img alt="Alt cost feed" src="../../images/cost-feed.jpg" /></p>
+
+<h2 id="5-1-add-product-cost">5.1 Add Product Cost</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">POST</span> <span class="nx">https</span><span class="err">:</span><span class="c1">//dropshipdemo.iqmetrix.net/v1/Suppliers(1324)/Cost</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="p">{</span>
+    <span class="s2">"Products"</span><span class="err">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"Sku"</span><span class="p">:</span> <span class="s2">"1115884"</span><span class="p">,</span>
+            <span class="s2">"Cost"</span><span class="p">:</span> <span class="mf">20.99</span><span class="p">,</span>
+            <span class="s2">"CompanyIds"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="mi">60454</span><span class="p">,</span>
+                <span class="mi">24165</span><span class="p">,</span>
+                <span class="mi">13315</span>
+            <span class="p">]</span>    
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">HTTP</span> <span class="mi">202</span> <span class="nx">Accepted</span> <span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="p">{</span>
+    <span class="s2">"Id"</span><span class="err">:</span> <span class="s2">"91a57ddb-2d42-402b-85b4-fe327a347313"</span><span class="p">,</span>
+    <span class="s2">"Products"</span><span class="err">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"Sku"</span><span class="p">:</span> <span class="s2">"1115884"</span><span class="p">,</span>
+            <span class="s2">"Cost"</span><span class="p">:</span> <span class="mf">20.99</span><span class="p">,</span>
+            <span class="s2">"CompanyIds"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="mi">60454</span><span class="p">,</span>
+                <span class="mi">24165</span><span class="p">,</span>
+                <span class="mi">13315</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Every Product must have an associated cost and a list of companies to apply the cost.</p>
+
+<p>You must add product costs to the cost feed via <a href="/api/cost-feed/#adding-a-product-to-cost-feed">Adding Products to Cost Feed</a>. </p>
+
+<h1 id="step-6-provide-shipping-options">Step 6 - Provide Shipping Options</h1>
+
+<p>You must provide a <a href="/api/shipping-options">Shipping Options</a> API to iQmetrix. Your options will then be displayed to the customer. </p>
+
+<p>Once an order has been created, shipping options will be requested via the SACCS service. </p>
+
+<aside class="notice">The <strong>SACCS service</strong> is a shipping options arbitrator between end customer products (e.g. RQ) and iQmetrix services. The SACCS service will first call out the Supplier Availability service to determine whether or not the products are available, and pass this information to the Shipping service. Then the Shipping service will request shipping options via your API and includes the shipping address&rsquo; postal code.</aside>
+
+<p><br />
+<strong>Figure 6:</strong> Illustrates high-level interaction diagram of an iQmetrix product attempting to obtain a supplier&rsquo;s shipping options. </p>
+
+<p><img alt="Alt shipping options" src="../../images/shipping-options.jpg" /></p>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">POST</span> <span class="o">/</span><span class="nx">ShippingOptions</span> <span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="nl">Host</span><span class="p">:</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//api.supplier.com</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+
+<span class="p">{</span>
+    <span class="s2">"CompanyId"</span><span class="err">:</span> <span class="mi">123</span><span class="p">,</span>
+    <span class="s2">"PostalCode"</span><span class="err">:</span> <span class="s2">"V6B5Y1"</span><span class="p">,</span>
+    <span class="s2">"Items"</span><span class="err">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+              <span class="s2">"ProductName"</span><span class="p">:</span> <span class="s2">"Galaxy S6 Defender Case - Glacier"</span><span class="p">,</span>
+              <span class="s2">"Quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+              <span class="s2">"Sku"</span><span class="p">:</span> <span class="s2">"9409OTSAGS6"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">HTTP</span> <span class="mi">200</span> <span class="nx">OK</span> <span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="p">{</span>
+    <span class="s2">"ShippingOptions"</span><span class="err">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"Id"</span><span class="p">:</span> <span class="s2">"350"</span><span class="p">,</span>
+            <span class="s2">"Name"</span><span class="p">:</span> <span class="s2">"PurolatorExpress"</span><span class="p">,</span>
+            <span class="s2">"Cost"</span><span class="p">:</span> <span class="mf">7.94</span><span class="p">,</span>
+            <span class="s2">"EstimatedTransitTime"</span><span class="p">:</span> <span class="s2">"1 hour"</span><span class="p">,</span>
+            <span class="s2">"Currency"</span><span class="p">:</span> <span class="s2">"CAD"</span>
+        <span class="p">},</span>
+        <span class="p">...</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+
+<h1 id="step-7-next-steps">Step 7 - Next Steps</h1>
+
+<p>Now that you have completed the basic steps for working with feeds in the iQmetrix API, you can start the integration process from the <a href="/guides/dropship-order-guide">Dropship Order Management Guide</a>. </p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

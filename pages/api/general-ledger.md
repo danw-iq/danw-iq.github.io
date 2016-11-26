@@ -156,31 +156,13 @@ GET /Companies({CompanyId})/Accounts?$skip={Skip}&$top={Top}
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Accounts?$skip=0&$top=5
-Authorization: Bearer (Access Token)
-Accept: application/hal+json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://generalledgerdemo.iqmetrix.net/v1/Companies(14146)/Accounts?$skip=0&$top=5" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"</code></pre>
+```shell
+curl -X GET "https://generalledgerdemo.iqmetrix.net/v1/Companies(14146)/Accounts?$skip=0&$top=5" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAccounts()
-{
-    var client = new RestClient("https://generalledgerdemo.iqmetrix.net/v1/Companies(14146)/Accounts?$skip=0&$top=5");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/hal+json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -196,6 +178,7 @@ public static CloseableHttpResponse GettingAccounts() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -291,31 +274,13 @@ GET /Companies({CompanyId})/Transactions?$filter=TransactionDateUTC ge datetime'
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Transactions?$filter=TransactionDateUTC ge datetime'2015-01-01T08:00:00.000Z' and TransactionDateUTC le datetime'2016-01-01T07:59:59.000Z'&$skip=0&$top=5
-Authorization: Bearer (Access Token)
-Accept: application/hal+json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://generalledgerdemo.iqmetrix.net/v1/Companies(14146)/Transactions?$filter=TransactionDateUTC ge datetime'2015-01-01T08:00:00.000Z' and TransactionDateUTC le datetime'2016-01-01T07:59:59.000Z'&$skip=0&$top=5" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"</code></pre>
+```shell
+curl -X GET "https://generalledgerdemo.iqmetrix.net/v1/Companies(14146)/Transactions?$filter=TransactionDateUTC ge datetime'2015-01-01T08:00:00.000Z' and TransactionDateUTC le datetime'2016-01-01T07:59:59.000Z'&$skip=0&$top=5" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingTransactionsByDate()
-{
-    var client = new RestClient("https://generalledgerdemo.iqmetrix.net/v1/Companies(14146)/Transactions?$filter=TransactionDateUTC ge datetime'2015-01-01T08:00:00.000Z' and TransactionDateUTC le datetime'2016-01-01T07:59:59.000Z'&$skip=0&$top=5");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/hal+json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -331,6 +296,7 @@ public static CloseableHttpResponse GettingTransactionsByDate() throws IOExcepti
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 

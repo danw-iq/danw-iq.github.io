@@ -69,34 +69,16 @@ PUT /users({UserId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>PUT /users(12321)
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X PUT "https://authproxyatt.iqmetrix.net/v1/users(12321)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -d '{
     "UserName": "sample@iqmetrix.com",
     "SecurityRolePrefix": "iQMetrix"
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse SettingAPrefixForAUser()
-{
-    var client = new RestClient("https://authproxyatt.iqmetrix.net/v1/users(12321)");
-    var request = new RestRequest(Method.PUT);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-     request.AddParameter("application/json", "{\"UserName\":\"sample@iqmetrix.com\",\"SecurityRolePrefix\":\"iQMetrix\"}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -114,6 +96,7 @@ public static CloseableHttpResponse SettingAPrefixForAUser() throws IOException 
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -168,31 +151,13 @@ GET /cspGroupMappingReference
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /cspGroupMappingReference
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://authproxyatt.iqmetrix.net/v1/cspGroupMappingReference" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://authproxyatt.iqmetrix.net/v1/cspGroupMappingReference" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingTheSecurityRoleMappingReferenceData()
-{
-    var client = new RestClient("https://authproxyatt.iqmetrix.net/v1/cspGroupMappingReference");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -208,6 +173,7 @@ public static CloseableHttpResponse GettingTheSecurityRoleMappingReferenceData()
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 

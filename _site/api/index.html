@@ -171,7 +171,7 @@
 
 <p>They also help to protect from deliberate or accidental denial of service as a result of APIs being flooded with requests.</p>
 
-<p>If you run into the <code>429 Too Many Requests</code> error, please contact <a href="mailto:apisupport@iqmetrix.com?subject=Support">Support</a></p>
+<p>If you run into the <code class="highlighter-rouge">429 Too Many Requests</code> error, please contact <a href="mailto:apisupport@iqmetrix.com?subject=Support">Support</a></p>
 
 <h3 id="rate-limit-policies">Rate Limit Policies</h3>
 
@@ -185,7 +185,7 @@
 
 <p>Authenticated Requests are made to iQmetrix APIs that require authentication, and include an <a href="/api/glossary/#access-token">Access Token</a> in the HTTP Header.</p>
 
-<p>To determine the limit, make an Authenticated Request to an iQmetrix API, then check the <code>X-RateLimit-Limit</code> HTTP Header of the response.</p>
+<p>To determine the limit, make an Authenticated Request to an iQmetrix API, then check the <code class="highlighter-rouge">X-RateLimit-Limit</code> HTTP Header of the response.</p>
 
 <p><strong>Anonymous Limit</strong></p>
 
@@ -193,13 +193,13 @@
 
 <p>Anonymous Requests are made to iQmetrix APIs that do not require authentication.</p>
 
-<p>To determine the limit, make an Anonymous Request to an iQmetrix API, then check the <code>X-RateLimit-Limit</code> HTTP Header of the response.</p>
+<p>To determine the limit, make an Anonymous Request to an iQmetrix API, then check the <code class="highlighter-rouge">X-RateLimit-Limit</code> HTTP Header of the response.</p>
 
 <h3 id="rate-limit-window">Rate Limit Window</h3>
 
 <p>The Rate Limit Window policy determines when the current rate limit will be reset.</p>
 
-<p>To determine the limit, make a request to an iQmetrix API, then check the <code>X-RateLimit-Reset</code> HTTP Header of the response.</p>
+<p>To determine the limit, make a request to an iQmetrix API, then check the <code class="highlighter-rouge">X-RateLimit-Reset</code> HTTP Header of the response.</p>
 
 <h3 id="http-headers">HTTP Headers</h3>
 
@@ -236,18 +236,19 @@
 
 <p>To determine the <strong>Authenticated</strong> Rate Limit for an API, make an authenticated request to the API and check the HTTP headers in the response.</p>
 
-<p>In the example below, a request is made to the <a href="/api/crm/">Customers</a> API with a valid <a href="/api/glossary/#access-token">Access Token</a> in the <code>Authorization</code> header.</p>
+<p>In the example below, a request is made to the <a href="/api/crm/">Customers</a> API with a valid <a href="/api/glossary/#access-token">Access Token</a> in the <code class="highlighter-rouge">Authorization</code> header.</p>
 
 <h5 id="example-request">Example Request</h5>
 
-<pre><code>GET https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers
+<div class="highlighter-rouge"><pre class="highlight"><code>GET https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers
 Authorization: Bearer (Access Token)
 Accept: application/json
 </code></pre>
+</div>
 
 <h5 id="example-response">Example Response</h5>
 
-<pre><code>HTTP 200 Content-Type: application/json
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP 200 Content-Type: application/json
 X-RateLimit-Limit: 1000
 X-RateLimit-Remaining: 999
 X-RateLimit-Reset: 2016-02-25T13:00:00.0000000Z
@@ -256,6 +257,7 @@ X-RateLimit-ResetSeconds: 59
     ...
 }
 </code></pre>
+</div>
 
 <p>Looking at the HTTP headers in the response, we can determine:</p>
 
@@ -267,11 +269,11 @@ X-RateLimit-ResetSeconds: 59
 
 <h3 id="exceeding-rate-limit">Exceeding Rate Limit</h3>
 
-<p>If the rate limit is exceeded, the response will be <code>429 Too Many Requests</code> and the service will not be able to make further requests until the quota resets.</p>
+<p>If the rate limit is exceeded, the response will be <code class="highlighter-rouge">429 Too Many Requests</code> and the service will not be able to make further requests until the quota resets.</p>
 
 <h6 id="example">Example</h6>
 
-<pre><code>HTTP/1.1 429 Too Many Requests
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP/1.1 429 Too Many Requests
 Content-Type: text/plain
 X-RateLimit-Limit: 1000
 X-RateLimit-Remaining: 0
@@ -280,17 +282,19 @@ X-RateLimit-ResetSeconds: 59
   
 rate limit exceeded
 </code></pre>
+</div>
 
 <h2 id="supported-response-formats">Supported Response Formats</h2>
 
-<p>Most iQmetrix APIs support the <code>json</code> and <code>hal+json</code> response formats depending on the type of request. Documentation for each individual API will explicitly state which response formats are supported.</p>
+<p>Most iQmetrix APIs support the <code class="highlighter-rouge">json</code> and <code class="highlighter-rouge">hal+json</code> response formats depending on the type of request. Documentation for each individual API will explicitly state which response formats are supported.</p>
 
-<p>When sending an API request, you can select the format to return by defining the value in the HTTP Accept header, using the syntax <code>Accept: {ResponseFormat}</code>.</p>
+<p>When sending an API request, you can select the format to return by defining the value in the HTTP Accept header, using the syntax <code class="highlighter-rouge">Accept: {ResponseFormat}</code>.</p>
 
 <h4 id="example-1">Example</h4>
 
-<pre><code>Accept: application/json
+<div class="highlighter-rouge"><pre class="highlight"><code>Accept: application/json
 </code></pre>
+</div>
 
 <h2 id="testing-and-debugging">Testing and Debugging</h2>
 

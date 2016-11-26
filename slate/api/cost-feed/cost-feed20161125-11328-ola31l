@@ -1,0 +1,124 @@
+<p>{% include linkrefs.html %}</p>
+
+<h1 id="overview">Overview</h1>
+
+<p>The cost feed provides iQmetrix with the wholesale cost (inclusive cost for the company) for each product.<br>
+The cost feed allows suppliers to input a list of products, where each product includes one cost and list of associated companies.</p>
+
+<p>These costs will be provided for retailers (companies) to use for future transactions and will be reflected in RQ and BI reporting. </p>
+
+<p>Products can be repeated in this feed with different costs. For example, the iPhone 6 could be priced differently depending on where it is sold. </p>
+
+<p>{{note}} 
+Ensure each company ID has only <strong>one</strong> cost per product.
+{{end}}</p>
+
+<h1 id="endpoints">Endpoints</h1>
+
+<ul>
+<li>Sandbox: <a href="https://dropshipdemo.iqmetrix.net/v1">https://dropshipdemo.iqmetrix.net/v1</a></li>
+<li>Production: <a href="https://dropship.iqmetrix.net/v1">https://dropship.iqmetrix.net/v1</a></li>
+</ul>
+
+<h1 id="resources">Resources</h1>
+
+<h2 id="cost">Cost</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left">Unique identifer</td>
+</tr>
+<tr>
+<td style="text-align: left">Products (<code class="prettyprint">Array[object]</code>)</td>
+<td style="text-align: left">List of products for which the cost is being updated</td>
+</tr>
+<tr>
+<td style="text-align: left">Products.Sku (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Vendor product SKU</td>
+</tr>
+<tr>
+<td style="text-align: left">Products.Cost (<code class="prettyprint">Decimal</code>)</td>
+<td style="text-align: left">Vendor product cost applied to the associated companies</td>
+</tr>
+<tr>
+<td style="text-align: left">Products.CompanyIds (<code class="prettyprint">Array[integer]</code>)</td>
+<td style="text-align: left">List of <a href="company-tree#company">Company</a> identifiers to receive Vendor product cost</td>
+</tr>
+</tbody></table>
+
+<h1 id="requests">Requests</h1>
+
+<h2 id="adding-a-product-to-cost-feed">Adding a Product to Cost Feed</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST /Suppliers({SupplierId})/Cost
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">POST</span> <span class="o">/</span><span class="nx">Suppliers</span><span class="p">(</span><span class="mi">14107</span><span class="p">)</span><span class="o">/</span><span class="nx">Cost</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    
+    <li>
+        <code>SupplierId</code> (<strong>Required</strong>)  - Identifier of the Supplier
+    </li>
+    </ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>Products</code> (<strong>Required</strong>) </li><ul><li><code>Sku</code> (<strong>Required</strong>) </li><li><code>Cost</code> (<strong>Required</strong>) </li><li><code>CompanyIds</code> (<strong>Required</strong>) </li></ul></ul>
+
+<h4>Response</h4>
+
+<p><a href='#cost'>Cost</a></p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 202 Content-Type: application/json
+</pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2e18496c-8f73-4298-8c96-a07816926734"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1115884"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Cost"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.99</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CompanyIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">14146</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h1 id="errors">Errors</h1>
+
+<table><thead>
+<tr>
+<th style="text-align: left">HTTP Status Code</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">How to Resolve</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">Cannot find supplier identifier in the uri</code></td>
+<td style="text-align: left">Occurs when entering an incorrect <code class="prettyprint">SupplierId</code> in the uri</td>
+</tr>
+</tbody></table>

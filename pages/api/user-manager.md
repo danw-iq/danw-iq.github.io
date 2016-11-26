@@ -132,13 +132,8 @@ POST /Users/importExisting
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Users/importExisting
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://usermanagerdemo.iqmetrix.net/v1/Users/importExisting" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "UserName": "johnb@kentel",
     "Password": "samplepassword",
@@ -163,26 +158,11 @@ curl -X POST "https://usermanagerdemo.iqmetrix.net/v1/Users/importExisting" -H "
             "Type": "Work"
         }
     ]
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse ImportingAnExistingUser()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Users/importExisting");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"UserName\":\"johnb@kentel\",\"Password\":\"samplepassword\",\"Email\":\"johnb@kentel.com\",\"FirstName\":\"John\",\"LastName\":\"Bates\",\"ParentEntityId\":1,\"ClientUserId\":\"132\",\"JobTitle\":\"Sales Clerk\",\"Address\":{\"AddressLine1\":\"1432 Merry View Road\",\"AddressLine2\":\"\",\"City\":\"Big Windy\",\"StateCode\":\"ON\",\"CountryCode\":\"CA\",\"Zip\":\"A1A2B2\"},\"PhoneNumbers\":[{\"Number\":\"6135550127\",\"Extension\":\"5532\",\"Type\":\"Work\"}]}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -201,6 +181,7 @@ public static CloseableHttpResponse ImportingAnExistingUser() throws IOException
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -273,31 +254,13 @@ GET /Users({UserId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Users(2576)
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAUser()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Users(2576)");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -313,6 +276,7 @@ public static CloseableHttpResponse GettingAUser() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -388,13 +352,8 @@ PUT /Users({UserId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>PUT /Users(2576)
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X PUT "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Id": 2576,
     "FirstName": "John",
@@ -422,26 +381,11 @@ curl -X PUT "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)" -H "Authorizat
     ],
     "Picture": {},
     "Version": 1
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse UpdatingAUser()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Users(2576)");
-    var request = new RestRequest(Method.PUT);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Id\":2576,\"FirstName\":\"John\",\"LastName\":\"Bates\",\"UserName\":\"johnb@kentel.com\",\"Address\":{\"AddressLine1\":\"1432 Merry View Road\",\"AddressLine2\":\"\",\"City\":\"Big Windy\",\"StateCode\":\"ON\",\"CountryCode\":\"CA\",\"Zip\":\"A1A2B2\"},\"ClientUserId\":\"132\",\"Email\":\"johnb@kentel.com\",\"IsActive\":true,\"JobTitle\":\"Sales Clerk\",\"ParentEntityId\":1,\"PhoneNumbers\":[{\"Number\":\"6135550127\",\"Extension\":\"5532\",\"Type\":\"Work\"}],\"Picture\":{},\"Version\":1}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -460,6 +404,7 @@ public static CloseableHttpResponse UpdatingAUser() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -542,29 +487,13 @@ DELETE /Users({UserId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>DELETE /Users(2576)
-Authorization: Bearer (Access Token)
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X DELETE "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)" -H "Authorization: Bearer (Access Token)"</code></pre>
+```shell
+curl -X DELETE "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)" -H "Authorization: Bearer (Access Token)"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse DisablingAUser()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Users(2576)");
-    var request = new RestRequest(Method.DELETE);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -579,6 +508,7 @@ public static CloseableHttpResponse DisablingAUser() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -654,31 +584,13 @@ GET /Entities({CompanyId})/Users?$skip={Skip}&$top={Top}
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Entities(14146)/Users?$skip=1&$top=10
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/Users?$skip=1&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/Users?$skip=1&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAllUsersForACompany()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/Users?$skip=1&$top=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -694,6 +606,7 @@ public static CloseableHttpResponse GettingAllUsersForACompany() throws IOExcept
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -791,31 +704,13 @@ GET /Entities({CompanyId})/Users/Search?terms={Terms}&$skip={Skip}&$top={Top}
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Entities(14146)/Users/Search?terms=Sam+Smith&$skip=1&$top=10
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/Users/Search?terms=Sam+Smith&$skip=1&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/Users/Search?terms=Sam+Smith&$skip=1&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse SearchingForUsers()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/Users/Search?terms=Sam+Smith&$skip=1&$top=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -831,6 +726,7 @@ public static CloseableHttpResponse SearchingForUsers() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -934,33 +830,13 @@ PUT /Users({UserId})/Locations({LocationId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>PUT /Users(2576)/Locations(2)
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X PUT "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Locations(2)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json"</code></pre>
+```shell
+curl -X PUT "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Locations(2)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse AssigningAUserToALocation()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Locations(2)");
-    var request = new RestRequest(Method.PUT);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -977,6 +853,7 @@ public static CloseableHttpResponse AssigningAUserToALocation() throws IOExcepti
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1028,31 +905,13 @@ DELETE /Users({UserId})/Locations({LocationId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>DELETE /Users(2576)/Locations(2)
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X DELETE "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Locations(2)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X DELETE "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Locations(2)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse UnassigningAUserFromALocation()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Locations(2)");
-    var request = new RestRequest(Method.DELETE);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1068,6 +927,7 @@ public static CloseableHttpResponse UnassigningAUserFromALocation() throws IOExc
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1118,31 +978,13 @@ GET /Users({UserId})/Locations
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Users(2576)/Locations
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Locations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Locations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAssignedLocationsForAUser()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Locations");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1158,6 +1000,7 @@ public static CloseableHttpResponse GettingAssignedLocationsForAUser() throws IO
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1210,31 +1053,13 @@ GET /Entities({CompanyId})/Users?$filter=ClientUserId eq '{ClientUserId}'&$skip=
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Entities(14146)/Users?$filter=ClientUserId eq '132'&$skip=1&$top=10
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/Users?$filter=ClientUserId eq '132'&$skip=1&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/Users?$filter=ClientUserId eq '132'&$skip=1&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingUsersByClientuserid()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/Users?$filter=ClientUserId eq '132'&$skip=1&$top=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1250,6 +1075,7 @@ public static CloseableHttpResponse GettingUsersByClientuserid() throws IOExcept
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1344,36 +1170,16 @@ POST /Users({UserId})/Lock
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Users(2576)/Lock
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Lock" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
   "LockReasonId": 14
 }
-'</code></pre>
+'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse LockingAUser()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Lock");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"LockReasonId\":14}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1392,6 +1198,7 @@ public static CloseableHttpResponse LockingAUser() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1444,31 +1251,13 @@ GET /Users({UserId})/Unlock
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Users(2576)/Unlock
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Unlock" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Unlock" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingTheLockStatusOfAUser()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Unlock");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1484,6 +1273,7 @@ public static CloseableHttpResponse GettingTheLockStatusOfAUser() throws IOExcep
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1540,33 +1330,13 @@ POST /Users({UserId})/Unlock
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Users(2576)/Unlock
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X POST "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Unlock" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json"</code></pre>
+```shell
+curl -X POST "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Unlock" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse UnlockingAUser()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Unlock");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1583,6 +1353,7 @@ public static CloseableHttpResponse UnlockingAUser() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1630,33 +1401,13 @@ POST /Users({UserId})/Enable
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Users(2576)/Enable
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X POST "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Enable" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json"</code></pre>
+```shell
+curl -X POST "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Enable" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse EnablingAUser()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/Enable");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1673,6 +1424,7 @@ public static CloseableHttpResponse EnablingAUser() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1750,35 +1502,15 @@ POST /Users({UserId})/TemporaryPassword
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Users(2576)/TemporaryPassword
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/TemporaryPassword" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Password": "newpa55word"
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse SettingATemporaryPassword()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/TemporaryPassword");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Password\":\"newpa55word\"}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1797,6 +1529,7 @@ public static CloseableHttpResponse SettingATemporaryPassword() throws IOExcepti
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1848,31 +1581,13 @@ GET /Entities({CompanyId})/lockReasons
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Entities(14146)/lockReasons
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/lockReasons" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/lockReasons" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAllLockReasons()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/lockReasons");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1888,6 +1603,7 @@ public static CloseableHttpResponse GettingAllLockReasons() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1941,36 +1657,16 @@ POST /Entities({CompanyId})/lockReasons
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Entities(14146)/lockReasons
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/lockReasons" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Name": "PaperworkNotDone",
     "Description": "Your account has been locked because the paperwork hasn't been done. Please contact your supervisor."
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse CreatingALockReason()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/lockReasons");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Name\":\"PaperworkNotDone\",\"Description\":\"Your account has been locked because the paperwork hasn't been done. Please contact your supervisor.\"}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1989,6 +1685,7 @@ public static CloseableHttpResponse CreatingALockReason() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2045,31 +1742,13 @@ GET /Entities({CompanyId})/lockReasons({LockReasonId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Entities(14146)/lockReasons(1)
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/lockReasons(1)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/lockReasons(1)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingALockReason()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/lockReasons(1)");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2085,6 +1764,7 @@ public static CloseableHttpResponse GettingALockReason() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2140,37 +1820,17 @@ PUT /Entities({CompanyId})/lockReasons({LockReasonId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>PUT /Entities(14146)/lockReasons(1)
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X PUT "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/lockReasons(1)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Id": 14,
     "Name": "PaperworkNotDone",
     "Description": "Your account has been locked because the paperwork hasn't been done. Please contact your supervisor."
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse UpdatingALockReason()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/lockReasons(1)");
-    var request = new RestRequest(Method.PUT);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Id\":14,\"Name\":\"PaperworkNotDone\",\"Description\":\"Your account has been locked because the paperwork hasn't been done. Please contact your supervisor.\"}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2189,6 +1849,7 @@ public static CloseableHttpResponse UpdatingALockReason() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2249,29 +1910,13 @@ DELETE /Entities({CompanyId})/lockReasons({LockReasonId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>DELETE /Entities(14146)/lockReasons(1)
-Authorization: Bearer (Access Token)
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X DELETE "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/lockReasons(1)" -H "Authorization: Bearer (Access Token)"</code></pre>
+```shell
+curl -X DELETE "https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/lockReasons(1)" -H "Authorization: Bearer (Access Token)"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse DeletingALockReason()
-{
-    var client = new RestClient("https://usermanagerdemo.iqmetrix.net/v1/Entities(14146)/lockReasons(1)");
-    var request = new RestRequest(Method.DELETE);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2286,6 +1931,7 @@ public static CloseableHttpResponse DeletingALockReason() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 

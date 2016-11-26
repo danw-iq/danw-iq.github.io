@@ -1,0 +1,242 @@
+<p>{% include linkrefs.html %}</p>
+
+<h1 id="overview">Overview</h1>
+
+<p>A <strong>Field Definition</strong> defines both how {{Product}} specification details are displayed on a screen, such as a website, and how it is stored in the Product Library.</p>
+
+<p>As an example, the following Field Definition describes how battery capacity for a product might be displayed.</p>
+<pre class="highlight csharp"><code><span class="p">{</span>
+    <span class="s">"Id"</span><span class="p">:</span> <span class="m">58</span><span class="p">,</span>
+    <span class="s">"StringId"</span><span class="p">:</span> <span class="s">"BatteryCapacity"</span><span class="p">,</span>
+    <span class="s">"InputType"</span><span class="p">:</span> <span class="s">"Float"</span><span class="p">,</span>
+    <span class="s">"IsRequired"</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+    <span class="s">"LanguageInvariantUnit"</span><span class="p">:</span> <span class="s">"mAh"</span><span class="p">,</span>
+    <span class="s">"DisplayName"</span><span class="p">:</span> <span class="s">"Battery Capacity"</span><span class="p">,</span>
+    <span class="s">"Unit"</span><span class="p">:</span> <span class="s">"mAh"</span><span class="p">,</span>
+    <span class="s">"Options"</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Using this Field Definition, below is one possible way to display this information on a screen, such as on a &ldquo;Product Detail&rdquo; page for a product in an e-commerce site.</p>
+
+<p>In this example, we are using an example value of 1800. </p>
+<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-default"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-heading"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-title"</span><span class="nt">&gt;</span>Battery<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;tbody&gt;</span>
+            <span class="nt">&lt;tr&gt;</span>
+                <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"name"</span><span class="nt">&gt;</span>Battery Capacity<span class="nt">&lt;/td&gt;</span>
+                <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"value"</span><span class="nt">&gt;</span>1800 mAh<span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;/tr&gt;</span>             
+        <span class="nt">&lt;/tbody&gt;</span>
+    <span class="nt">&lt;/table&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+
+<p>The result displayed on the page, with some styling, is shown below</p>
+
+<p><img src="{{ "/images/fielddefinition.png" | prepend: site.url }}" /></p>
+
+<h1 id="endpoints">Endpoints</h1>
+
+<ul>
+<li>Sandbox: <a href="https://productlibrarydemo.iqmetrix.net/v1">https://productlibrarydemo.iqmetrix.net/v1</a></li>
+<li>Production: <a href="https://productlibrary.iqmetrix.net/v1">https://productlibrary.iqmetrix.net/v1</a></li>
+</ul>
+
+<h1 id="resources">Resources</h1>
+
+<h2 id="fielddefinition">FieldDefinition</h2>
+
+<p>{{note}} Use the <strong>StringId</strong> identifier instead of <strong>Id</strong>, as Id may change across Environments {{end}}</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">StringId (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Consistent identifier across all <a href="/#environments">Environments</a></td>
+</tr>
+<tr>
+<td style="text-align: left">InputType (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Type of UI element this FieldDefinition uses, see <a href="#inputypes">InputTypes</a> for a list of acceptable values</td>
+</tr>
+<tr>
+<td style="text-align: left">IsRequired (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate if the input represented by this FieldDefinition can be empty (false) or not (true)</td>
+</tr>
+<tr>
+<td style="text-align: left">LanguageInvariantUnit (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Unit</td>
+</tr>
+<tr>
+<td style="text-align: left">DisplayName (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Value to be displayed in the UI</td>
+</tr>
+<tr>
+<td style="text-align: left">Options (<code class="prettyprint">Array[object]</code>)</td>
+<td style="text-align: left">List of Options, only used when InputType is SingleSelect or MultiSelect</td>
+</tr>
+<tr>
+<td style="text-align: left">Options.Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Options.Value (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Value</td>
+</tr>
+<tr>
+<td style="text-align: left"><em>LanguageInvariantName (<code class="prettyprint">String</code>)</em></td>
+<td style="text-align: left"><em>This is a legacy property that should not be used</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="enumerations">Enumerations</h2>
+
+<h3 id="inputtypes">InputTypes</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Currency</td>
+</tr>
+<tr>
+<td style="text-align: left">Date</td>
+</tr>
+<tr>
+<td style="text-align: left">Float</td>
+</tr>
+<tr>
+<td style="text-align: left">Integer</td>
+</tr>
+<tr>
+<td style="text-align: left">MultiSelect</td>
+</tr>
+<tr>
+<td style="text-align: left">SingleSelect</td>
+</tr>
+<tr>
+<td style="text-align: left">TextSingleLine</td>
+</tr>
+<tr>
+<td style="text-align: left">TextMultipleLine</td>
+</tr>
+<tr>
+<td style="text-align: left">YesNo</td>
+</tr>
+</tbody></table>
+
+<h1 id="requests">Requests</h1>
+
+<h2 id="getting-all-field-definitions">Getting All Field Definitions</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /FieldDefinitions
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">FieldDefinitions</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+
+<h4>Response</h4>
+
+<p>Array[<a href='#fielddefinition'>FieldDefinition</a>]</p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 200 Content-Type: application/json
+</pre>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"StringId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product Name"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"InputType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestSingleLine"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"IsRequired"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"DisplayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product Name"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="getting-a-field-definition">Getting a Field Definition</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /FieldDefinitions({FieldDefinitionId})
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">FieldDefinitions</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    
+    <li>
+        <code>FieldDefinitionId</code> (<strong>Required</strong>)  - Identifier for the {{FieldDefinition}}
+    </li>
+    </ul>
+
+<h4>Response</h4>
+
+<p><a href='#fielddefinition'>FieldDefinition</a></p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 200 Content-Type: application/json
+</pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StringId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product Name"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"InputType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestSingleLine"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsRequired"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DisplayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product Name"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h1 id="errors">Errors</h1>
+
+<table><thead>
+<tr>
+<th style="text-align: left">HTTP Status Code</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">How to Resolve</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 404</code></td>
+<td style="text-align: left"><code class="prettyprint">Document not found</code></td>
+<td style="text-align: left">Ensure FieldDefinitionId is correct</td>
+</tr>
+</tbody></table>

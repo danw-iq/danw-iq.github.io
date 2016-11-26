@@ -146,7 +146,7 @@
 
 <p>A Company <a href="http://developers.iqmetrix.com/api/Chatterspot-Reports/#relationship">Relationship</a> describes the interaction between a <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a> and a Manufacturer, Supplier, Partner, Company Tree Node, etc.</p>
 
-<p>Depending on the type of Relationship, the identifier for each Entity may appear in the <code>Source</code> or <code>Destination</code> field.</p>
+<p>Depending on the type of Relationship, the identifier for each Entity may appear in the <code class="highlighter-rouge">Source</code> or <code class="highlighter-rouge">Destination</code> field.</p>
 
 <p>See the table below for a list of legal relationships and where the identifier of each entity will be placed in the resource.</p>
 
@@ -220,82 +220,82 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code>Integer</code>)</td>
+      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Unique identifier</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code>String(250)</code>)</td>
+      <td style="text-align: left">Name (<code class="highlighter-rouge">String(250)</code>)</td>
       <td style="text-align: left">Name</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Description (<code>String(255)</code>)</td>
+      <td style="text-align: left">Description (<code class="highlighter-rouge">String(255)</code>)</td>
       <td style="text-align: left">Description</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles (<code>Array[object]</code>)</td>
+      <td style="text-align: left">Roles (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">The value must be Company</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles.Name (<code>String</code>)</td>
+      <td style="text-align: left">Roles.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">ClientEntityId (<code>String</code>)</td>
+      <td style="text-align: left">ClientEntityId (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Identifier in an external system</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">CreatedUtc (<code>DateTime</code>)</td>
+      <td style="text-align: left">CreatedUtc (<code class="highlighter-rouge">DateTime</code>)</td>
       <td style="text-align: left">Created date in UTC</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">LastModifiedUtc (<code>DateTime</code>)</td>
+      <td style="text-align: left">LastModifiedUtc (<code class="highlighter-rouge">DateTime</code>)</td>
       <td style="text-align: left">Last modified date in UTC</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Attributes (<code>Object</code>)</td>
+      <td style="text-align: left">Attributes (<code class="highlighter-rouge">Object</code>)</td>
       <td style="text-align: left">Set of key-value pairs that contain extra data</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Logo (<code>&lt;a href='/api/company-tree/#asset'&gt;Asset&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Logo (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#asset'&gt;Asset&lt;/a&gt;</code>)</td>
       <td style="text-align: left">A reference to an <a href="/api/assets/#asset">Asset</a></td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Relationships (<code>Array[&lt;a href='/api/company-tree/#relationship'&gt;Relationship&lt;/a&gt;]</code>)</td>
+      <td style="text-align: left">Relationships (<code class="highlighter-rouge">Array[&lt;a href='/api/company-tree/#relationship'&gt;Relationship&lt;/a&gt;]</code>)</td>
       <td style="text-align: left">See <a href="#company-relationships">Company Relationships</a></td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">SortName (<code>String</code>)</td>
+      <td style="text-align: left">SortName (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">A string used for sorting</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Version (<code>Integer</code>)</td>
+      <td style="text-align: left">Version (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Latest revision number</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>CorrelationId (<code>String</code>)</em></td>
+      <td style="text-align: left"><em>CorrelationId (<code class="highlighter-rouge">String</code>)</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>Role (<code>String</code>)</em></td>
+      <td style="text-align: left"><em>Role (<code class="highlighter-rouge">String</code>)</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>TypeId (<code>Integer</code>)</em></td>
+      <td style="text-align: left"><em>TypeId (<code class="highlighter-rouge">Integer</code>)</em></td>
       <td style="text-align: left"><em>Reserved for future use</em></td>
       <td> </td>
     </tr>
@@ -314,32 +314,32 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code>Integer</code>)</td>
+      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier for the relationship</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Source (<code>Integer</code>)</td>
+      <td style="text-align: left">Source (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier for a <a href="http://developers.iqmetrix.com/api/epc/#vendor">Vendor</a>, <a href="http://developers.iqmetrix.com/api/entity-store/#carrier">Carrier</a> or  or <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a></td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Destination (<code>Integer</code>)</td>
+      <td style="text-align: left">Destination (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier for a <a href="http://developers.iqmetrix.com/api/company-tree/#group">Group</a>, <a href="http://developers.iqmetrix.com/api/company-tree/#location">Location</a>, <a href="http://developers.iqmetrix.com/api/company-tree/#division">Division</a> or <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a></td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">CreatedUtc (<code>DateTime</code>)</td>
+      <td style="text-align: left">CreatedUtc (<code class="highlighter-rouge">DateTime</code>)</td>
       <td style="text-align: left">Date the relationship was formed, in UTC</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Version (<code>Integer</code>)</td>
+      <td style="text-align: left">Version (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Latest revision number</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>Definition (<code>Integer</code>)</em></td>
+      <td style="text-align: left"><em>Definition (<code class="highlighter-rouge">Integer</code>)</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
       <td> </td>
     </tr>
@@ -357,31 +357,31 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code>GUID</code>)</td>
+      <td style="text-align: left">Id (<code class="highlighter-rouge">GUID</code>)</td>
       <td style="text-align: left">Unique identifier</td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code>String</code>)</td>
+      <td style="text-align: left">Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">File name</td>
     </tr>
     <tr>
-      <td style="text-align: left">Height (<code>Integer</code>)</td>
+      <td style="text-align: left">Height (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Height in pixels</td>
     </tr>
     <tr>
-      <td style="text-align: left">Href (<code>String</code>)</td>
+      <td style="text-align: left">Href (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">URL that points to an actual file where the digital asset is stored</td>
     </tr>
     <tr>
-      <td style="text-align: left">Md5Checksum (<code>String</code>)</td>
+      <td style="text-align: left">Md5Checksum (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">String that can be used for upload integrity checks or comparing two assets</td>
     </tr>
     <tr>
-      <td style="text-align: left">MimeType (<code>String</code>)</td>
+      <td style="text-align: left">MimeType (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Mime type</td>
     </tr>
     <tr>
-      <td style="text-align: left">Width (<code>Integer</code>)</td>
+      <td style="text-align: left">Width (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Width in pixels</td>
     </tr>
   </tbody>
@@ -402,23 +402,23 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code>Integer</code>)</td>
+      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Company identifier</td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code>String(250)</code>)</td>
+      <td style="text-align: left">Name (<code class="highlighter-rouge">String(250)</code>)</td>
       <td style="text-align: left">Company name</td>
     </tr>
     <tr>
-      <td style="text-align: left">Description (<code>String(255)</code>)</td>
+      <td style="text-align: left">Description (<code class="highlighter-rouge">String(255)</code>)</td>
       <td style="text-align: left">Description</td>
     </tr>
     <tr>
-      <td style="text-align: left">Role (<code>String</code>)</td>
+      <td style="text-align: left">Role (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Role</td>
     </tr>
     <tr>
-      <td style="text-align: left">Nodes (<code>Array[&lt;a href='/api/company-tree/#companytreenode'&gt;CompanyTreeNode&lt;/a&gt;]</code>)</td>
+      <td style="text-align: left">Nodes (<code class="highlighter-rouge">Array[&lt;a href='/api/company-tree/#companytreenode'&gt;CompanyTreeNode&lt;/a&gt;]</code>)</td>
       <td style="text-align: left">The Company Tree hierarchy made up of Nodes</td>
     </tr>
   </tbody>
@@ -437,23 +437,23 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code>Integer</code>)</td>
+      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier</td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code>String(250)</code>)</td>
+      <td style="text-align: left">Name (<code class="highlighter-rouge">String(250)</code>)</td>
       <td style="text-align: left">Name</td>
     </tr>
     <tr>
-      <td style="text-align: left">Description (<code>String(255)</code>)</td>
+      <td style="text-align: left">Description (<code class="highlighter-rouge">String(255)</code>)</td>
       <td style="text-align: left">Description</td>
     </tr>
     <tr>
-      <td style="text-align: left">Role (<code>String</code>)</td>
+      <td style="text-align: left">Role (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Role, possible values include: Company, Group, Division and Location</td>
     </tr>
     <tr>
-      <td style="text-align: left">Nodes (<code>Array[object]</code>)</td>
+      <td style="text-align: left">Nodes (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">Children</td>
     </tr>
   </tbody>
@@ -473,162 +473,162 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code>Integer</code>)</td>
+      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Unique identifier</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code>String(250)</code>)</td>
+      <td style="text-align: left">Name (<code class="highlighter-rouge">String(250)</code>)</td>
       <td style="text-align: left">Name</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Description (<code>String(255)</code>)</td>
+      <td style="text-align: left">Description (<code class="highlighter-rouge">String(255)</code>)</td>
       <td style="text-align: left">Description</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles (<code>Array[object]</code>)</td>
+      <td style="text-align: left">Roles (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">The Role of this Location, the value must be Location</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles.Name (<code>String</code>)</td>
+      <td style="text-align: left">Roles.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">CreatedUTC (<code>DateTime</code>)</td>
+      <td style="text-align: left">CreatedUTC (<code class="highlighter-rouge">DateTime</code>)</td>
       <td style="text-align: left">Created date in UTC</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">LastModifiedUTC (<code>DateTime</code>)</td>
+      <td style="text-align: left">LastModifiedUTC (<code class="highlighter-rouge">DateTime</code>)</td>
       <td style="text-align: left">Last modified date in UTC</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Area (<code>&lt;a href='/api/company-tree/#area'&gt;Area&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Area (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#area'&gt;Area&lt;/a&gt;</code>)</td>
       <td style="text-align: left">Measurement of floor space</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Address (<code>&lt;a href='/api/company-tree/#address'&gt;Address&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Address (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#address'&gt;Address&lt;/a&gt;</code>)</td>
       <td style="text-align: left">Address</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Attributes (<code>Object</code>)</td>
+      <td style="text-align: left">Attributes (<code class="highlighter-rouge">Object</code>)</td>
       <td style="text-align: left">Set of key-value pairs that contain extra data</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">ClientEntityId (<code>String</code>)</td>
+      <td style="text-align: left">ClientEntityId (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Identifier in an external system</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Contacts (<code>Array[&lt;a href='/api/company-tree/#contact'&gt;Contact&lt;/a&gt;]</code>)</td>
+      <td style="text-align: left">Contacts (<code class="highlighter-rouge">Array[&lt;a href='/api/company-tree/#contact'&gt;Contact&lt;/a&gt;]</code>)</td>
       <td style="text-align: left">Contact information</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Geography (<code>object</code>)</td>
+      <td style="text-align: left">Geography (<code class="highlighter-rouge">object</code>)</td>
       <td style="text-align: left">Geographic coordinates of this Location</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Geography.Longitude (<code>Decimal</code>)</td>
+      <td style="text-align: left">Geography.Longitude (<code class="highlighter-rouge">Decimal</code>)</td>
       <td style="text-align: left">Longitude, must be between -180 and 180</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Geography.Latitude (<code>Decimal</code>)</td>
+      <td style="text-align: left">Geography.Latitude (<code class="highlighter-rouge">Decimal</code>)</td>
       <td style="text-align: left">Latitude, must be between -90 and 90</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Relationships (<code>Array[object]</code>)</td>
+      <td style="text-align: left">Relationships (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">Relationship information, such as the parent node in the Company Tree</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">SortName (<code>String</code>)</td>
+      <td style="text-align: left">SortName (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">A string used for sorting</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">StoreHours (<code>&lt;a href='/api/company-tree/#storehours'&gt;StoreHours&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">StoreHours (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#storehours'&gt;StoreHours&lt;/a&gt;</code>)</td>
       <td style="text-align: left">Store hours for this Location</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">StorePhoneNumbers (<code>Array[object]</code>)</td>
+      <td style="text-align: left">StorePhoneNumbers (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">Phone numbers</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">StorePhoneNumbers.Description (<code>String</code>)</td>
+      <td style="text-align: left">StorePhoneNumbers.Description (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Description</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">StorePhoneNumbers.Number (<code>String</code>)</td>
+      <td style="text-align: left">StorePhoneNumbers.Number (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Phone number</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">StorePhoneNumbers.Extension (<code>String</code>)</td>
+      <td style="text-align: left">StorePhoneNumbers.Extension (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Extension</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">TimeZone (<code>object</code>)</td>
+      <td style="text-align: left">TimeZone (<code class="highlighter-rouge">object</code>)</td>
       <td style="text-align: left">Timezone information for the Location</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Id (<code>String</code>)</td>
+      <td style="text-align: left">Id (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Identifier. For a list of acceptable values, see <a href="/api/reference/#getting-all-time-zones">Getting All Time Zones</a></td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">DaylightSavingTimeEnabled (<code>Boolean</code>)</td>
+      <td style="text-align: left">DaylightSavingTimeEnabled (<code class="highlighter-rouge">Boolean</code>)</td>
       <td style="text-align: left">A flag to indicate if the Time Zone observes Daylight Savings Time</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Version (<code>Integer</code>)</td>
+      <td style="text-align: left">Version (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Latest revision number</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>CorrelationId (<code>String</code>)</em></td>
+      <td style="text-align: left"><em>CorrelationId (<code class="highlighter-rouge">String</code>)</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>LocationType (<code>String</code>)</em></td>
+      <td style="text-align: left"><em>LocationType (<code class="highlighter-rouge">String</code>)</em></td>
       <td style="text-align: left"><em>Reserved for future use</em></td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>LocationSubType (<code>String</code>)</em></td>
+      <td style="text-align: left"><em>LocationSubType (<code class="highlighter-rouge">String</code>)</em></td>
       <td style="text-align: left"><em>Reserved for future use</em></td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>Logo (<code>Object</code>)</em></td>
+      <td style="text-align: left"><em>Logo (<code class="highlighter-rouge">Object</code>)</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>Role (<code>String</code>)</em></td>
+      <td style="text-align: left"><em>Role (<code class="highlighter-rouge">String</code>)</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>TypeId (<code>Integer</code>)</em></td>
+      <td style="text-align: left"><em>TypeId (<code class="highlighter-rouge">Integer</code>)</em></td>
       <td style="text-align: left"><em>Reserved for future use</em></td>
       <td> </td>
     </tr>
@@ -651,82 +651,82 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code>Integer</code>)</td>
+      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Unique identifier</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code>String(250)</code>)</td>
+      <td style="text-align: left">Name (<code class="highlighter-rouge">String(250)</code>)</td>
       <td style="text-align: left">Name</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Description (<code>String(255)</code>)</td>
+      <td style="text-align: left">Description (<code class="highlighter-rouge">String(255)</code>)</td>
       <td style="text-align: left">Description</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles (<code>Array[object]</code>)</td>
+      <td style="text-align: left">Roles (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">The value must be Division</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles.Name (<code>String</code>)</td>
+      <td style="text-align: left">Roles.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">ClientEntityId (<code>String</code>)</td>
+      <td style="text-align: left">ClientEntityId (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Identifier in an external system</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">CreatedUTC (<code>DateTime</code>)</td>
+      <td style="text-align: left">CreatedUTC (<code class="highlighter-rouge">DateTime</code>)</td>
       <td style="text-align: left">Created date in UTC</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">LastModifiedUTC (<code>DateTime</code>)</td>
+      <td style="text-align: left">LastModifiedUTC (<code class="highlighter-rouge">DateTime</code>)</td>
       <td style="text-align: left">Last modified date in UTC</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Attributes (<code>Object</code>)</td>
+      <td style="text-align: left">Attributes (<code class="highlighter-rouge">Object</code>)</td>
       <td style="text-align: left">Set of key-value pairs that contain extra data</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Logo (<code>&lt;a href='/api/company-tree/#asset'&gt;Asset&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Logo (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#asset'&gt;Asset&lt;/a&gt;</code>)</td>
       <td style="text-align: left">A reference to an Asset</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Relationships (<code>Array[object]</code>)</td>
+      <td style="text-align: left">Relationships (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">Relationship information, such child Locations, Suppliers and Carriers</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">SortName (<code>String</code>)</td>
+      <td style="text-align: left">SortName (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">A string used for sorting</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Version (<code>Integer</code>)</td>
+      <td style="text-align: left">Version (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Latest revision number</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>CorrelationId (<code>String</code>)</em></td>
+      <td style="text-align: left"><em>CorrelationId (<code class="highlighter-rouge">String</code>)</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>Role (<code>String</code>)</em></td>
+      <td style="text-align: left"><em>Role (<code class="highlighter-rouge">String</code>)</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>TypeId (<code>Integer</code>)</em></td>
+      <td style="text-align: left"><em>TypeId (<code class="highlighter-rouge">Integer</code>)</em></td>
       <td style="text-align: left"><em>Reserved for future use</em></td>
       <td> </td>
     </tr>
@@ -749,82 +749,82 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code>Integer</code>)</td>
+      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Unique identifier</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code>String(250)</code>)</td>
+      <td style="text-align: left">Name (<code class="highlighter-rouge">String(250)</code>)</td>
       <td style="text-align: left">Name</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Description (<code>String(255)</code>)</td>
+      <td style="text-align: left">Description (<code class="highlighter-rouge">String(255)</code>)</td>
       <td style="text-align: left">Description</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles (<code>Array[object]</code>)</td>
+      <td style="text-align: left">Roles (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">The value must be Group</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles.Name (<code>String</code>)</td>
+      <td style="text-align: left">Roles.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">ClientEntityId (<code>String</code>)</td>
+      <td style="text-align: left">ClientEntityId (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Identifier in an external system</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">CreatedUTC (<code>DateTime</code>)</td>
+      <td style="text-align: left">CreatedUTC (<code class="highlighter-rouge">DateTime</code>)</td>
       <td style="text-align: left">Created date in UTC</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">LastModifiedUTC (<code>DateTime</code>)</td>
+      <td style="text-align: left">LastModifiedUTC (<code class="highlighter-rouge">DateTime</code>)</td>
       <td style="text-align: left">Last modified date in UTC</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Attributes (<code>Object</code>)</td>
+      <td style="text-align: left">Attributes (<code class="highlighter-rouge">Object</code>)</td>
       <td style="text-align: left">Set of key-value pairs that contain extra data</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Logo (<code>&lt;a href='/api/assets/#asset'&gt;Asset&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Logo (<code class="highlighter-rouge">&lt;a href='/api/assets/#asset'&gt;Asset&lt;/a&gt;</code>)</td>
       <td style="text-align: left">A reference to an Asset</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Relationships (<code>Array[object]</code>)</td>
+      <td style="text-align: left">Relationships (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">Relationship information, such child Locations, Suppliers and Carriers</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">SortName (<code>String</code>)</td>
+      <td style="text-align: left">SortName (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">A string used for sorting</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Version (<code>Integer</code>)</td>
+      <td style="text-align: left">Version (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Latest revision number</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>CorrelationId (<code>String</code>)</em></td>
+      <td style="text-align: left"><em>CorrelationId (<code class="highlighter-rouge">String</code>)</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>Role (<code>String</code>)</em></td>
+      <td style="text-align: left"><em>Role (<code class="highlighter-rouge">String</code>)</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>TypeId (<code>Integer</code>)</em></td>
+      <td style="text-align: left"><em>TypeId (<code class="highlighter-rouge">Integer</code>)</em></td>
       <td style="text-align: left"><em>Reserved for future use</em></td>
       <td> </td>
     </tr>
@@ -844,35 +844,35 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">AddressLine1 (<code>String</code>)</td>
+      <td style="text-align: left">AddressLine1 (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">First line of Address</td>
     </tr>
     <tr>
-      <td style="text-align: left">AddressLine2 (<code>String</code>)</td>
+      <td style="text-align: left">AddressLine2 (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Second line of Address</td>
     </tr>
     <tr>
-      <td style="text-align: left">City (<code>String</code>)</td>
+      <td style="text-align: left">City (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">City</td>
     </tr>
     <tr>
-      <td style="text-align: left">StateCode (<code>String</code>)</td>
+      <td style="text-align: left">StateCode (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Code for the State in which this address resides. Based off the ISO 3166-2 standard. For a list of acceptable codes, see <a href="/api/reference/#getting-all-countries">Getting All Countries</a></td>
     </tr>
     <tr>
-      <td style="text-align: left">StateName (<code>String</code>)</td>
+      <td style="text-align: left">StateName (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">State/Province. Uses the ISO 3166-2 standard</td>
     </tr>
     <tr>
-      <td style="text-align: left">CountryCode (<code>String</code>)</td>
+      <td style="text-align: left">CountryCode (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Country Code. Uses the ISO 3166-1 alpha-2 standard. For a list of acceptable codes, see <a href="/api/reference/#getting-all-countries">Getting All Countries</a></td>
     </tr>
     <tr>
-      <td style="text-align: left">CountryName (<code>String</code>)</td>
+      <td style="text-align: left">CountryName (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Country</td>
     </tr>
     <tr>
-      <td style="text-align: left">Zip (<code>String</code>)</td>
+      <td style="text-align: left">Zip (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Zip or Postal Code</td>
     </tr>
   </tbody>
@@ -889,11 +889,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Value (<code>Integer</code>)</td>
+      <td style="text-align: left">Value (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Value of the Area</td>
     </tr>
     <tr>
-      <td style="text-align: left">Unit (<code>String</code>)</td>
+      <td style="text-align: left">Unit (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Unit used for the Value, acceptable values are SqFt and SqM</td>
     </tr>
   </tbody>
@@ -910,11 +910,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code>String</code>)</td>
+      <td style="text-align: left">Id (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Identifier. For a list of acceptable values, see <a href="/api/reference/#getting-all-time-zones">Getting All Time Zones</a></td>
     </tr>
     <tr>
-      <td style="text-align: left">DaylightSavingTimeEnabled (<code>Boolean</code>)</td>
+      <td style="text-align: left">DaylightSavingTimeEnabled (<code class="highlighter-rouge">Boolean</code>)</td>
       <td style="text-align: left">A flag to indicate if the Time Zone observes Daylight Savings Time</td>
     </tr>
   </tbody>
@@ -931,31 +931,31 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Monday (<code>&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Monday (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
       <td style="text-align: left">Hours on Monday</td>
     </tr>
     <tr>
-      <td style="text-align: left">Tuesday (<code>&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Tuesday (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
       <td style="text-align: left">Hours on Tuesday</td>
     </tr>
     <tr>
-      <td style="text-align: left">Wednesday (<code>&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Wednesday (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
       <td style="text-align: left">Hours on Wednesday</td>
     </tr>
     <tr>
-      <td style="text-align: left">Thursday (<code>&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Thursday (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
       <td style="text-align: left">Hours on Thursday</td>
     </tr>
     <tr>
-      <td style="text-align: left">Friday (<code>&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Friday (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
       <td style="text-align: left">Hours on Monday</td>
     </tr>
     <tr>
-      <td style="text-align: left">Saturday (<code>&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Saturday (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
       <td style="text-align: left">Hours on Saturday</td>
     </tr>
     <tr>
-      <td style="text-align: left">Sunday (<code>&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Sunday (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
       <td style="text-align: left">Hours on Sunday</td>
     </tr>
   </tbody>
@@ -972,27 +972,27 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Open (<code>object</code>)</td>
+      <td style="text-align: left">Open (<code class="highlighter-rouge">object</code>)</td>
       <td style="text-align: left">Open time</td>
     </tr>
     <tr>
-      <td style="text-align: left">Open.Hour (<code>Integer</code>)</td>
+      <td style="text-align: left">Open.Hour (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Open.Minute (<code>Integer</code>)</td>
+      <td style="text-align: left">Open.Minute (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Close (<code>object</code>)</td>
+      <td style="text-align: left">Close (<code class="highlighter-rouge">object</code>)</td>
       <td style="text-align: left">Close time</td>
     </tr>
     <tr>
-      <td style="text-align: left">Close.Hour (<code>Integer</code>)</td>
+      <td style="text-align: left">Close.Hour (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Close.Minute (<code>Integer</code>)</td>
+      <td style="text-align: left">Close.Minute (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left"> </td>
     </tr>
   </tbody>
@@ -1009,27 +1009,27 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Name (<code>String</code>)</td>
+      <td style="text-align: left">Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
     </tr>
     <tr>
-      <td style="text-align: left">Description (<code>String</code>)</td>
+      <td style="text-align: left">Description (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Description</td>
     </tr>
     <tr>
-      <td style="text-align: left">PhoneNumbers (<code>array</code>)</td>
+      <td style="text-align: left">PhoneNumbers (<code class="highlighter-rouge">array</code>)</td>
       <td style="text-align: left">Phone numbers</td>
     </tr>
     <tr>
-      <td style="text-align: left">PhoneNumbers.Description (<code>String</code>)</td>
+      <td style="text-align: left">PhoneNumbers.Description (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Description</td>
     </tr>
     <tr>
-      <td style="text-align: left">PhoneNumbers.Number (<code>String</code>)</td>
+      <td style="text-align: left">PhoneNumbers.Number (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Phone number</td>
     </tr>
     <tr>
-      <td style="text-align: left">PhoneNumbers.Extension (<code>String</code>)</td>
+      <td style="text-align: left">PhoneNumbers.Extension (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Extension</td>
     </tr>
   </tbody>
@@ -1043,37 +1043,20 @@
   <p>Definition</p>
 </blockquote>
 
-<pre><code>GET /Companies({CompanyId})
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>GET /Companies(14146)
-Authorization: Bearer (Access Token)
-Accept: application/json
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
+</div>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-
-<pre class="highlight csharp"><code>
-static IRestResponse GettingACompany()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1089,6 +1072,7 @@ public static CloseableHttpResponse GettingACompany() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1161,37 +1145,20 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>GET /Companies({CompanyId})/Tree
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})/Tree
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Tree
-Authorization: Bearer (Access Token)
-Accept: application/json
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
+</div>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-
-<pre class="highlight csharp"><code>
-static IRestResponse GettingACompanyTree()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1207,6 +1174,7 @@ public static CloseableHttpResponse GettingACompanyTree() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1260,21 +1228,15 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>POST /Companies({CompanyId})/Tree/Nodes({NodeId})/Locations
+<div class="highlighter-rouge"><pre class="highlight"><code>POST /Companies({CompanyId})/Tree/Nodes({NodeId})/Locations
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>POST /Companies(14146)/Tree/Nodes(14159)/Locations
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
-
-<pre class="highlight shell"><code>
-curl -X POST "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X POST <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
     "Name": "Dufferin Mall",
     "Description": "This Location is used to clear out discounted inventory",
     "Roles": [
@@ -1398,25 +1360,12 @@ curl -X POST "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/No
         "Id": "Alaskan Standard Time",
         "DaylightSavingTimeEnabled": true
     }
-}'</code></pre>
+}'</span>
+</code></pre>
+</div>
 
-<pre class="highlight csharp"><code>
-static IRestResponse CreatingALocation()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Name\":\"Dufferin Mall\",\"Description\":\"This Location is used to clear out discounted inventory\",\"Roles\":[{\"Name\":\"Location\"}],\"Area\":{\"Value\":1100,\"Unit\":\"SqFt\"},\"Address\":{\"AddressLine1\":\"4970 Hillside Avenue\",\"AddressLine2\":\"Apt 115\",\"City\":\"Edmonton\",\"StateCode\":\"ON\",\"StateName\":\"Ontario\",\"CountryCode\":\"CA\",\"CountryName\":\"Canada\",\"Zip\":\"P9H 9I4\"},\"Attributes\":{},\"ClientEntityId\":\"123\",\"Contacts\":[{\"Name\":\"John Smith\",\"Description\":\"Store Manager\",\"PhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}]}],\"Geography\":{\"Longitude\":-104.612034,\"Latitude\":50.443559},\"StoreHours\":{\"Monday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Tuesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Wednesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Thursday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Friday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Saturday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Sunday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}}},\"StorePhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}],\"TimeZone\":{\"Id\":\"Alaskan Standard Time\",\"DaylightSavingTimeEnabled\":true}}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1435,6 +1384,7 @@ public static CloseableHttpResponse CreatingALocation() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1622,21 +1572,15 @@ HTTP 201 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>PUT /Companies({CompanyId})/Tree/Nodes({NodeId})/Locations({LocationId})
+<div class="highlighter-rouge"><pre class="highlight"><code>PUT /Companies({CompanyId})/Tree/Nodes({NodeId})/Locations({LocationId})
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>PUT /Companies(14146)/Tree/Nodes(14159)/Locations(14202)
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
-
-<pre class="highlight shell"><code>
-curl -X PUT "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations(14202)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X PUT <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations(14202)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
     "Id": 14202,
     "Name": "Dufferin Mall",
     "Description": "This Location is used to clear out discounted inventory",
@@ -1766,25 +1710,12 @@ curl -X PUT "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nod
         "DaylightSavingTimeEnabled": true
     },
     "Version": 13
-}'</code></pre>
+}'</span>
+</code></pre>
+</div>
 
-<pre class="highlight csharp"><code>
-static IRestResponse UpdatingALocation()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations(14202)");
-    var request = new RestRequest(Method.PUT);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Id\":14202,\"Name\":\"Dufferin Mall\",\"Description\":\"This Location is used to clear out discounted inventory\",\"Roles\":[{\"Name\":\"Location\"}],\"CreatedUTC\":\"2015-02-26T00:03:01.372Z\",\"LastModifiedUTC\":\"2015-02-27T00:03:06.392Z\",\"Area\":{\"Value\":1100,\"Unit\":\"SqFt\"},\"Address\":{\"AddressLine1\":\"4970 Hillside Avenue\",\"AddressLine2\":\"Apt 115\",\"City\":\"Edmonton\",\"StateCode\":\"ON\",\"StateName\":\"Ontario\",\"CountryCode\":\"CA\",\"CountryName\":\"Canada\",\"Zip\":\"P9H 9I4\"},\"Attributes\":{},\"ClientEntityId\":\"123\",\"Contacts\":[{\"Name\":\"John Smith\",\"Description\":\"Store Manager\",\"PhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}]}],\"Geography\":{\"Longitude\":-104.612034,\"Latitude\":50.443559},\"Relationships\":[],\"SortName\":\"dufferin mall\",\"StoreHours\":{\"Monday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Tuesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Wednesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Thursday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Friday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Saturday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Sunday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}}},\"StorePhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}],\"TimeZone\":{\"Id\":\"Alaskan Standard Time\",\"DaylightSavingTimeEnabled\":true},\"Version\":13}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1803,6 +1734,7 @@ public static CloseableHttpResponse UpdatingALocation() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1985,37 +1917,20 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>GET /Companies({CompanyId})/Locations({LocationId})
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})/Locations({LocationId})
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Locations(14202)
-Authorization: Bearer (Access Token)
-Accept: application/json
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations(14202)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
+</div>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations(14202)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-
-<pre class="highlight csharp"><code>
-static IRestResponse GettingALocationForACompany()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations(14202)");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2031,6 +1946,7 @@ public static CloseableHttpResponse GettingALocationForACompany() throws IOExcep
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2204,37 +2120,20 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>GET /Companies({CompanyId})/Locations
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})/Locations
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Locations
-Authorization: Bearer (Access Token)
-Accept: application/json
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
+</div>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAllLocationsForACompany()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2250,6 +2149,7 @@ public static CloseableHttpResponse GettingAllLocationsForACompany() throws IOEx
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2427,44 +2327,25 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>POST /Companies({CompanyId})/Tree/Nodes({NodeId})/Divisions
+<div class="highlighter-rouge"><pre class="highlight"><code>POST /Companies({CompanyId})/Tree/Nodes({NodeId})/Divisions
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>POST /Companies(14146)/Tree/Nodes(14159)/Divisions
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
-
-<pre class="highlight shell"><code>
-curl -X POST "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Divisions" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X POST <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Divisions"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
     "Name": "T-hut Wireless",
     "Description": "Division of Kiosks",
     "ClientEntityId": "187",
     "Attributes": {}
-}'</code></pre>
+}'</span>
+</code></pre>
+</div>
 
-<pre class="highlight csharp"><code>
-static IRestResponse CreatingADivision()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Divisions");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Name\":\"T-hut Wireless\",\"Description\":\"Division of Kiosks\",\"ClientEntityId\":\"187\",\"Attributes\":{}}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2483,6 +2364,7 @@ public static CloseableHttpResponse CreatingADivision() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2562,44 +2444,25 @@ HTTP 201 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>POST /Companies({CompanyId})/Tree/Nodes({NodeId})/Groups
+<div class="highlighter-rouge"><pre class="highlight"><code>POST /Companies({CompanyId})/Tree/Nodes({NodeId})/Groups
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>POST /Companies(14146)/Tree/Nodes(14159)/Groups
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
-
-<pre class="highlight shell"><code>
-curl -X POST "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Groups" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X POST <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Groups"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
     "Name": "Toronto",
     "Description": "Group within Ontario",
     "ClientEntityId": "187",
     "Attributes": {}
-}'</code></pre>
+}'</span>
+</code></pre>
+</div>
 
-<pre class="highlight csharp"><code>
-static IRestResponse CreatingAGroup()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Groups");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Name\":\"Toronto\",\"Description\":\"Group within Ontario\",\"ClientEntityId\":\"187\",\"Attributes\":{}}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2618,6 +2481,7 @@ public static CloseableHttpResponse CreatingAGroup() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2702,35 +2566,20 @@ This operation <strong>cannot be undone</strong>.
   <p>Definition</p>
 </blockquote>
 
-<pre><code>DELETE /Companies({CompanyId})/Tree/Nodes({NodeId})
+<div class="highlighter-rouge"><pre class="highlight"><code>DELETE /Companies({CompanyId})/Tree/Nodes({NodeId})
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>DELETE /Companies(14146)/Tree/Nodes(14159)
-Authorization: Bearer (Access Token)
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X DELETE <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span>
 </code></pre>
+</div>
 
-<pre class="highlight shell"><code>
-curl -X DELETE "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)" -H "Authorization: Bearer (Access Token)"</code></pre>
-
-<pre class="highlight csharp"><code>
-static IRestResponse DeletingAGroupOrDivision()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)");
-    var request = new RestRequest(Method.DELETE);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2745,6 +2594,7 @@ public static CloseableHttpResponse DeletingAGroupOrDivision() throws IOExceptio
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2780,7 +2630,7 @@ HTTP 200 Content-Type: application/json
 
 <h2 id="searching-by-cliententityid">Searching by ClientEntityId</h2>
 
-<p>This request allows you to search your Company Tree using the <code>ClientEntityId</code> field.</p>
+<p>This request allows you to search your Company Tree using the <code class="highlighter-rouge">ClientEntityId</code> field.</p>
 
 <p>This request returns an array of objects that summarize Entities matching the search criteria.</p>
 
@@ -2790,37 +2640,20 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>GET /Entities({CompanyId})/Nodes?$filter='{ClientEntityId}'
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /Entities({CompanyId})/Nodes?$filter='{ClientEntityId}'
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>GET /Entities(14146)/Nodes?$filter='187'
-Authorization: Bearer (Access Token)
-Accept: application/json
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Entities(14146)/Nodes?</span><span class="nv">$filter</span><span class="s2">='187'"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
+</div>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Entities(14146)/Nodes?$filter='187'" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-
-<pre class="highlight csharp"><code>
-static IRestResponse SearchingByCliententityid()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Entities(14146)/Nodes?$filter='187'");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2836,6 +2669,7 @@ public static CloseableHttpResponse SearchingByCliententityid() throws IOExcepti
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2900,63 +2734,63 @@ HTTP 200 Content-Type: application/json
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>New node {x} must be related to its parent role. </code><br /><code>Parent node {y} must be in same tree as Company {z}</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">New node {x} must be related to its parent role. </code><br /><code class="highlighter-rouge">Parent node {y} must be in same tree as Company {z}</code></td>
       <td style="text-align: left">Ensure the NodeId is a valid CompanyTreeNode and is in the correct Company Tree</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Invalid Canadian postal code. Should have valid </code><br /><code>letters and format A1A 1A1 where A is a letter and 1 is a digit.</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Invalid Canadian postal code. Should have valid </code><br /><code class="highlighter-rouge">letters and format A1A 1A1 where A is a letter and 1 is a digit.</code></td>
       <td style="text-align: left">Ensure Postal/Zip Code is valid</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Request Parameter Doesn't Match Expected Value</code></td>
-      <td style="text-align: left">Ensure all <strong>Required</strong> parameters are provided, see <code>Description</code> of Error for more details</td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Request Parameter Doesn't Match Expected Value</code></td>
+      <td style="text-align: left">Ensure all <strong>Required</strong> parameters are provided, see <code class="highlighter-rouge">Description</code> of Error for more details</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Please move or delete attached locations</code><br /><code> before deleting this entity</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Please move or delete attached locations</code><br /><code class="highlighter-rouge"> before deleting this entity</code></td>
       <td style="text-align: left">Ensure Node to be deleted does not have child Locations</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>'{x}' should not be empty.</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">'{x}' should not be empty.</code></td>
       <td style="text-align: left">Ensure required parameters are included</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>'{x}' must be between 0 and {y} characters. </code><br /><code> You entered {z} characters.</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">'{x}' must be between 0 and {y} characters. </code><br /><code class="highlighter-rouge"> You entered {z} characters.</code></td>
       <td style="text-align: left">Ensure required parameters are within size limitations</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>'Latitude/Longitude' should not be empty</code></td>
-      <td style="text-align: left">Ensure both <code>Latitude</code> and <code>Longitude</code> are provided, or <code>Geography</code> is null</td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">'Latitude/Longitude' should not be empty</code></td>
+      <td style="text-align: left">Ensure both <code class="highlighter-rouge">Latitude</code> and <code class="highlighter-rouge">Longitude</code> are provided, or <code class="highlighter-rouge">Geography</code> is null</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>'Latitude' must be between -90 and 90.  </code><br /><code>You entered {x}</code></td>
-      <td style="text-align: left">Ensure <code>Latitude</code> is between -90 and 90</td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">'Latitude' must be between -90 and 90.  </code><br /><code class="highlighter-rouge">You entered {x}</code></td>
+      <td style="text-align: left">Ensure <code class="highlighter-rouge">Latitude</code> is between -90 and 90</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>'Longitude' must be between -180 and 180. </code><br /><code>You entered {x}</code></td>
-      <td style="text-align: left">Ensure <code>Longitude</code> is between -180 and 180</td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">'Longitude' must be between -180 and 180. </code><br /><code class="highlighter-rouge">You entered {x}</code></td>
+      <td style="text-align: left">Ensure <code class="highlighter-rouge">Longitude</code> is between -180 and 180</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 404</code></td>
-      <td style="text-align: left"><code>Entity Not Found</code></td>
-      <td style="text-align: left">Ensure <code>CompanyId</code> and <code>LocationId</code><code>&lt;br/&gt;</code> are accurate and the Location belongs to the Company</td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 404</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Entity Not Found</code></td>
+      <td style="text-align: left">Ensure <code class="highlighter-rouge">CompanyId</code> and <code class="highlighter-rouge">LocationId</code><code class="highlighter-rouge">&lt;br/&gt;</code> are accurate and the Location belongs to the Company</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 409</code></td>
-      <td style="text-align: left"><code>Entity resource already modified by an</code><br /><code>  earlier request</code></td>
-      <td style="text-align: left">Ensure <code>Version</code> is included in request and the Version value provided in the request data matches the Version for the resource in the database</td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 409</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Entity resource already modified by an</code><br /><code class="highlighter-rouge">  earlier request</code></td>
+      <td style="text-align: left">Ensure <code class="highlighter-rouge">Version</code> is included in request and the Version value provided in the request data matches the Version for the resource in the database</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 409</code></td>
-      <td style="text-align: left"><code>An Entity already exists with the same name</code><br /><code> and role at this level.</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 409</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">An Entity already exists with the same name</code><br /><code class="highlighter-rouge"> and role at this level.</code></td>
       <td style="text-align: left">Ensure an instance of the resource you are trying to create does not already exist with the same name</td>
     </tr>
   </tbody>

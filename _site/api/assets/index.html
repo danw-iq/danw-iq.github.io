@@ -151,35 +151,35 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">id (<code>GUID</code>)</td>
+      <td style="text-align: left">id (<code class="highlighter-rouge">GUID</code>)</td>
       <td style="text-align: left">Unique identifier</td>
     </tr>
     <tr>
-      <td style="text-align: left">name (<code>String</code>)</td>
+      <td style="text-align: left">name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">File name</td>
     </tr>
     <tr>
-      <td style="text-align: left">height (<code>Integer</code>)</td>
+      <td style="text-align: left">height (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Height in pixels</td>
     </tr>
     <tr>
-      <td style="text-align: left">href (<code>String</code>)</td>
+      <td style="text-align: left">href (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">URL that points to an actual file where the digital asset is stored</td>
     </tr>
     <tr>
-      <td style="text-align: left">md5Checksum (<code>String</code>)</td>
+      <td style="text-align: left">md5Checksum (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">String that can be used for upload integrity checks or comparing two assets</td>
     </tr>
     <tr>
-      <td style="text-align: left">mimeType (<code>String</code>)</td>
+      <td style="text-align: left">mimeType (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">The mime type</td>
     </tr>
     <tr>
-      <td style="text-align: left">width (<code>Integer</code>)</td>
+      <td style="text-align: left">width (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Width in pixels</td>
     </tr>
     <tr>
-      <td style="text-align: left">success (<code>Boolean</code>)</td>
+      <td style="text-align: left">success (<code class="highlighter-rouge">Boolean</code>)</td>
       <td style="text-align: left">A flag to indicate that the Asset was uploaded. This only appears when asset is first uploaded</td>
     </tr>
   </tbody>
@@ -279,7 +279,7 @@ HTTP 200 Content-Type: application/json
 
 <h2 id="redirecting-to-an-image-asset" class="clickable-header top-level-header">Redirecting to an Image Asset</h2>
 
-<p>A successful response to this request is a <code>HTTP 303</code> redirect with a <code>Location</code> header pointing to the actual file where the digital asset is stored</p>
+<p>A successful response to this request is a <code class="highlighter-rouge">HTTP 303</code> redirect with a <code class="highlighter-rouge">Location</code> header pointing to the actual file where the digital asset is stored</p>
 
 <h4>Request</h4>
 
@@ -324,23 +324,23 @@ HTTP 303 Content-Type: application/text
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Bad Request</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Bad Request</code></td>
       <td style="text-align: left">Ensure the Asset is of the correct type for the action (i.e. an image for /images endpoints)</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Bad Request</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Bad Request</code></td>
       <td style="text-align: left">Ensure you are only uploading one Asset at a time</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Bad Request</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Bad Request</code></td>
       <td style="text-align: left">Ensure file was attached to request</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 404</code></td>
-      <td style="text-align: left"><code>Asset Media Service Error: Resource not found</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 404</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Asset Media Service Error: Resource not found</code></td>
       <td style="text-align: left">Ensure Asset GUID is valid and the Asset exists</td>
     </tr>
   </tbody>

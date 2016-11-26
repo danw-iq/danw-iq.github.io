@@ -313,31 +313,13 @@ GET /Companies({CompanyId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingACompany()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -353,6 +335,7 @@ public static CloseableHttpResponse GettingACompany() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -433,31 +416,13 @@ GET /Companies({CompanyId})/Tree
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Tree
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingACompanyTree()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -473,6 +438,7 @@ public static CloseableHttpResponse GettingACompanyTree() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -534,13 +500,8 @@ POST /Companies({CompanyId})/Tree/Nodes({NodeId})/Locations
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Companies(14146)/Tree/Nodes(14159)/Locations
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Name": "Dufferin Mall",
     "Description": "This Location is used to clear out discounted inventory",
@@ -665,26 +626,11 @@ curl -X POST "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/No
         "Id": "Alaskan Standard Time",
         "DaylightSavingTimeEnabled": true
     }
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse CreatingALocation()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Name\":\"Dufferin Mall\",\"Description\":\"This Location is used to clear out discounted inventory\",\"Roles\":[{\"Name\":\"Location\"}],\"Area\":{\"Value\":1100,\"Unit\":\"SqFt\"},\"Address\":{\"AddressLine1\":\"4970 Hillside Avenue\",\"AddressLine2\":\"Apt 115\",\"City\":\"Edmonton\",\"StateCode\":\"ON\",\"StateName\":\"Ontario\",\"CountryCode\":\"CA\",\"CountryName\":\"Canada\",\"Zip\":\"P9H 9I4\"},\"Attributes\":{},\"ClientEntityId\":\"123\",\"Contacts\":[{\"Name\":\"John Smith\",\"Description\":\"Store Manager\",\"PhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}]}],\"Geography\":{\"Longitude\":-104.612034,\"Latitude\":50.443559},\"StoreHours\":{\"Monday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Tuesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Wednesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Thursday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Friday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Saturday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Sunday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}}},\"StorePhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}],\"TimeZone\":{\"Id\":\"Alaskan Standard Time\",\"DaylightSavingTimeEnabled\":true}}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -703,6 +649,7 @@ public static CloseableHttpResponse CreatingALocation() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -897,13 +844,8 @@ PUT /Companies({CompanyId})/Tree/Nodes({NodeId})/Locations({LocationId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>PUT /Companies(14146)/Tree/Nodes(14159)/Locations(14202)
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X PUT "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations(14202)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Id": 14202,
     "Name": "Dufferin Mall",
@@ -1034,26 +976,11 @@ curl -X PUT "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nod
         "DaylightSavingTimeEnabled": true
     },
     "Version": 13
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse UpdatingALocation()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations(14202)");
-    var request = new RestRequest(Method.PUT);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Id\":14202,\"Name\":\"Dufferin Mall\",\"Description\":\"This Location is used to clear out discounted inventory\",\"Roles\":[{\"Name\":\"Location\"}],\"CreatedUTC\":\"2015-02-26T00:03:01.372Z\",\"LastModifiedUTC\":\"2015-02-27T00:03:06.392Z\",\"Area\":{\"Value\":1100,\"Unit\":\"SqFt\"},\"Address\":{\"AddressLine1\":\"4970 Hillside Avenue\",\"AddressLine2\":\"Apt 115\",\"City\":\"Edmonton\",\"StateCode\":\"ON\",\"StateName\":\"Ontario\",\"CountryCode\":\"CA\",\"CountryName\":\"Canada\",\"Zip\":\"P9H 9I4\"},\"Attributes\":{},\"ClientEntityId\":\"123\",\"Contacts\":[{\"Name\":\"John Smith\",\"Description\":\"Store Manager\",\"PhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}]}],\"Geography\":{\"Longitude\":-104.612034,\"Latitude\":50.443559},\"Relationships\":[],\"SortName\":\"dufferin mall\",\"StoreHours\":{\"Monday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Tuesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Wednesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Thursday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Friday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Saturday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Sunday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}}},\"StorePhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}],\"TimeZone\":{\"Id\":\"Alaskan Standard Time\",\"DaylightSavingTimeEnabled\":true},\"Version\":13}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1072,6 +999,7 @@ public static CloseableHttpResponse UpdatingALocation() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1262,31 +1190,13 @@ GET /Companies({CompanyId})/Locations({LocationId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Locations(14202)
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations(14202)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations(14202)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingALocationForACompany()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations(14202)");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1302,6 +1212,7 @@ public static CloseableHttpResponse GettingALocationForACompany() throws IOExcep
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1483,31 +1394,13 @@ GET /Companies({CompanyId})/Locations
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Locations
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAllLocationsForACompany()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1523,6 +1416,7 @@ public static CloseableHttpResponse GettingAllLocationsForACompany() throws IOEx
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1707,38 +1601,18 @@ POST /Companies({CompanyId})/Tree/Nodes({NodeId})/Divisions
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Companies(14146)/Tree/Nodes(14159)/Divisions
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Divisions" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Name": "T-hut Wireless",
     "Description": "Division of Kiosks",
     "ClientEntityId": "187",
     "Attributes": {}
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse CreatingADivision()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Divisions");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Name\":\"T-hut Wireless\",\"Description\":\"Division of Kiosks\",\"ClientEntityId\":\"187\",\"Attributes\":{}}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1757,6 +1631,7 @@ public static CloseableHttpResponse CreatingADivision() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1843,38 +1718,18 @@ POST /Companies({CompanyId})/Tree/Nodes({NodeId})/Groups
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Companies(14146)/Tree/Nodes(14159)/Groups
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Groups" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Name": "Toronto",
     "Description": "Group within Ontario",
     "ClientEntityId": "187",
     "Attributes": {}
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse CreatingAGroup()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Groups");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Name\":\"Toronto\",\"Description\":\"Group within Ontario\",\"ClientEntityId\":\"187\",\"Attributes\":{}}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1893,6 +1748,7 @@ public static CloseableHttpResponse CreatingAGroup() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1984,29 +1840,13 @@ DELETE /Companies({CompanyId})/Tree/Nodes({NodeId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>DELETE /Companies(14146)/Tree/Nodes(14159)
-Authorization: Bearer (Access Token)
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X DELETE "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)" -H "Authorization: Bearer (Access Token)"</code></pre>
+```shell
+curl -X DELETE "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)" -H "Authorization: Bearer (Access Token)"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse DeletingAGroupOrDivision()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)");
-    var request = new RestRequest(Method.DELETE);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2021,6 +1861,7 @@ public static CloseableHttpResponse DeletingAGroupOrDivision() throws IOExceptio
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2074,31 +1915,13 @@ GET /Entities({CompanyId})/Nodes?$filter='{ClientEntityId}'
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Entities(14146)/Nodes?$filter='187'
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Entities(14146)/Nodes?$filter='187'" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Entities(14146)/Nodes?$filter='187'" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse SearchingByCliententityid()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Entities(14146)/Nodes?$filter='187'");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2114,6 +1937,7 @@ public static CloseableHttpResponse SearchingByCliententityid() throws IOExcepti
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 

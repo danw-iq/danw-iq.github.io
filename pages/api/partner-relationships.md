@@ -72,31 +72,13 @@ GET /Partners({PartnerId})/Relationships/Companies?$skip={Skip}&$top={Top}
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Partners(36)/Relationships/Companies?$skip=1&$top=10
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Partners(36)/Relationships/Companies?$skip=1&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Partners(36)/Relationships/Companies?$skip=1&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingCompanyRelationshipsForAPartner()
-{
-    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Partners(36)/Relationships/Companies?$skip=1&$top=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -112,6 +94,7 @@ public static CloseableHttpResponse GettingCompanyRelationshipsForAPartner() thr
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 

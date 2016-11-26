@@ -140,13 +140,8 @@ POST /ProductFeeds({FeedId})/Products
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /ProductFeeds(34)/Products
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
   "Classification": {
     "TreeId": 1,
@@ -200,26 +195,11 @@ curl -X POST "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products" -H
     }
   ]
 }
-'</code></pre>
+'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse AddingAProductToAFeed()
-{
-    var client = new RestClient("https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Classification\":{\"TreeId\":1,\"Id\":4},\"Fields\":[{\"Definition\":{\"Id\":1,\"StringId\":\"Product Name\"},\"Value\":\"Agent18 SlimShield Case for iPhone 6 - Black\"},{\"Definition\":{\"Id\":129,\"StringId\":\"Color Tags\"},\"Value\":\"Black, Red\"},{\"Definition\":{\"Id\":76,\"StringId\":\"MSRP\",\"InputType\":\"Currency\"},\"Value\":\"24.99 CAD\"}],\"Assets\":[{\"AssetUrl\":\"http://image.sample.com/a.jpg\"},{\"AssetUrl\":\"http://image.sample.com/b.png\"},{\"AssetUrl\":\"http://image.sample.com/c.mov\"}],\"ModelName\":\"Agent18 SlimShield Case for iPhone 6\",\"LastModifiedByVendorUtc\":\"2015-09-16T10:40:31.101Z\",\"Manufacturer\":\"Agent18\",\"ManufacturerSku\":\"980113579\",\"UPC\":\"723755004337\",\"VendorSkus\":[{\"Description\":\"Online retailer\",\"Sku\":\"1115884\",\"VendorName\":\"Amazon\"}]}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -238,6 +218,7 @@ public static CloseableHttpResponse AddingAProductToAFeed() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -388,31 +369,13 @@ GET /ProductFeeds({FeedId})/Products
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /ProductFeeds(34)/Products
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAllProductsInAFeed()
-{
-    var client = new RestClient("https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -428,6 +391,7 @@ public static CloseableHttpResponse GettingAllProductsInAFeed() throws IOExcepti
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -516,31 +480,13 @@ GET /ProductFeeds({FeedId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /ProductFeeds(34)
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAProductFeed()
-{
-    var client = new RestClient("https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -556,6 +502,7 @@ public static CloseableHttpResponse GettingAProductFeed() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -649,29 +596,13 @@ DELETE /ProductFeeds({FeedId})/Products({ProductId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>DELETE /ProductFeeds(34)/Products(2)
-Authorization: Bearer (Access Token)
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X DELETE "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products(2)" -H "Authorization: Bearer (Access Token)"</code></pre>
+```shell
+curl -X DELETE "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products(2)" -H "Authorization: Bearer (Access Token)"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse RemovingAProductFromAFeed()
-{
-    var client = new RestClient("https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products(2)");
-    var request = new RestRequest(Method.DELETE);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -686,6 +617,7 @@ public static CloseableHttpResponse RemovingAProductFromAFeed() throws IOExcepti
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 

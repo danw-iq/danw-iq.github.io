@@ -329,31 +329,13 @@ GET /Companies({CompanyId})/Catalog/Items
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Items
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAllCatalogItems()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -369,6 +351,7 @@ public static CloseableHttpResponse GettingAllCatalogItems() throws IOException 
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -432,36 +415,16 @@ POST /Companies({CompanyId})/Catalog/Items/
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Companies(14146)/Catalog/Items/
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items/" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Slug": "M1248-V1",
     "RmsId": "1"
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse AddingACatalogItemFromProductLibrary()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items/");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Slug\":\"M1248-V1\",\"RmsId\":\"1\"}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -480,6 +443,7 @@ public static CloseableHttpResponse AddingACatalogItemFromProductLibrary() throw
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -546,31 +510,13 @@ GET /Companies({CompanyId})/Catalog/Items(SourceId={SubscriptionListId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Items(SourceId=43d92a51-650e-4b85-b5d0-8d51bf4c59f4)
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(SourceId=43d92a51-650e-4b85-b5d0-8d51bf4c59f4)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(SourceId=43d92a51-650e-4b85-b5d0-8d51bf4c59f4)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingCatalogItemsBySubscriptionList()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(SourceId=43d92a51-650e-4b85-b5d0-8d51bf4c59f4)");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -586,6 +532,7 @@ public static CloseableHttpResponse GettingCatalogItemsBySubscriptionList() thro
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -656,31 +603,13 @@ GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingExtendedAttributesForACatalogItem()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -696,6 +625,7 @@ public static CloseableHttpResponse GettingExtendedAttributesForACatalogItem() t
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -757,38 +687,18 @@ PUT /Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes
 > Example Request
 
 
-<pre class="highlight javascript"><code>PUT /Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X PUT "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '[
     {
         "Name": "Country of Manufacture",
         "Value": "China"
     }
-]'</code></pre>
+]'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse AddingOrUpdatingExtendedAttributesForACatalogItem()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes");
-    var request = new RestRequest(Method.PUT);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "[{\"Name\":\"Country of Manufacture\",\"Value\":\"China\"}]", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -807,6 +717,7 @@ public static CloseableHttpResponse AddingOrUpdatingExtendedAttributesForACatalo
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -871,36 +782,16 @@ DELETE /Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes
 > Example Request
 
 
-<pre class="highlight javascript"><code>DELETE /Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X DELETE "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '[
   "Cases Per Layer"
 ]
-'</code></pre>
+'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse RemovingExtendedAttributesFromACatalogItem()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes");
-    var request = new RestRequest(Method.DELETE);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "[\"Cases Per Layer\"]", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -919,6 +810,7 @@ public static CloseableHttpResponse RemovingExtendedAttributesFromACatalogItem()
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -970,31 +862,13 @@ GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/ProductDetails
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/ProductDetails
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/ProductDetails" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/ProductDetails" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingProductDetails()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/ProductDetails");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1010,6 +884,7 @@ public static CloseableHttpResponse GettingProductDetails() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1206,39 +1081,19 @@ POST /Companies({CompanyId})/Catalog/Items/ProductDetails/Bulk
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Companies(14146)/Catalog/Items/ProductDetails/Bulk
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items/ProductDetails/Bulk" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
   "CatalogItemIds" : [
     "21ac987c-d55a-482a-9450-402976a71563",
     "402976a7-482a-d55a-1563-21ac987c9450"
   ]
 }
-'</code></pre>
+'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingManyProductDetailsAtOnce()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items/ProductDetails/Bulk");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"CatalogItemIds\":[\"21ac987c-d55a-482a-9450-402976a71563\",\"402976a7-482a-d55a-1563-21ac987c9450\"]}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1257,6 +1112,7 @@ public static CloseableHttpResponse GettingManyProductDetailsAtOnce() throws IOE
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1430,31 +1286,13 @@ GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Compatible
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/Compatible
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/Compatible" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/Compatible" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingCompatibleProductsForACatalogItem()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/Compatible");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1470,6 +1308,7 @@ public static CloseableHttpResponse GettingCompatibleProductsForACatalogItem() t
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1576,31 +1415,13 @@ GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Variations
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/Variations
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/Variations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/Variations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingVariationsForACatalogItem()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/Variations");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1616,6 +1437,7 @@ public static CloseableHttpResponse GettingVariationsForACatalogItem() throws IO
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1682,31 +1504,13 @@ GET /Companies({CompanyId})/Catalog/Items/ByVendorSku?vendorsku={VendorSku}&vend
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Items/ByVendorSku?vendorsku=408853&vendorid=1217
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items/ByVendorSku?vendorsku=408853&vendorid=1217" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items/ByVendorSku?vendorsku=408853&vendorid=1217" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingProductsByVendorSku()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items/ByVendorSku?vendorsku=408853&vendorid=1217");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1722,6 +1526,7 @@ public static CloseableHttpResponse GettingProductsByVendorSku() throws IOExcept
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1797,31 +1602,13 @@ GET /Companies({CompanyId})/Catalog/Search?CategoryOrClassificationId={CategoryO
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Search?CategoryOrClassificationId=1&Page=1&PageSize=10
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?CategoryOrClassificationId=1&Page=1&PageSize=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?CategoryOrClassificationId=1&Page=1&PageSize=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingProductsByCategoryOrClassification()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?CategoryOrClassificationId=1&Page=1&PageSize=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1837,6 +1624,7 @@ public static CloseableHttpResponse GettingProductsByCategoryOrClassification() 
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1981,31 +1769,13 @@ GET /Companies({CompanyId})/Catalog/Search?ManufacturerIds={ManufacturerIds}&Pag
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Search?ManufacturerIds=10540&Page=1&PageSize=10
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?ManufacturerIds=10540&Page=1&PageSize=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?ManufacturerIds=10540&Page=1&PageSize=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingProductsByManufacturer()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?ManufacturerIds=10540&Page=1&PageSize=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2021,6 +1791,7 @@ public static CloseableHttpResponse GettingProductsByManufacturer() throws IOExc
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2165,31 +1936,13 @@ GET /Companies({CompanyId})/Catalog/Search?VendorIds={VendorIds}&Page={Page}&Pag
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Search?VendorIds=1217&Page=1&PageSize=10
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?VendorIds=1217&Page=1&PageSize=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?VendorIds=1217&Page=1&PageSize=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingProductsBySupplier()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?VendorIds=1217&Page=1&PageSize=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2205,6 +1958,7 @@ public static CloseableHttpResponse GettingProductsBySupplier() throws IOExcepti
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2349,31 +2103,13 @@ GET /Companies({CompanyId})/Catalog/Search?IsDropshippable={IsDropShippable}&Pag
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Search?IsDropshippable=true&Page=1&PageSize=10
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?IsDropshippable=true&Page=1&PageSize=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?IsDropshippable=true&Page=1&PageSize=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingProductsAvailableForShipping()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?IsDropshippable=true&Page=1&PageSize=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2389,6 +2125,7 @@ public static CloseableHttpResponse GettingProductsAvailableForShipping() throws
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2536,31 +2273,13 @@ GET /Companies({CompanyId})/Catalog/Search?SearchTerms={SearchTerms}&OrderBy={Or
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Search?SearchTerms=iPhone&OrderBy=name&OrderDir=asc&Page=1&PageSize=10
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?SearchTerms=iPhone&OrderBy=name&OrderDir=asc&Page=1&PageSize=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?SearchTerms=iPhone&OrderBy=name&OrderDir=asc&Page=1&PageSize=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse SearchingForProducts()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?SearchTerms=iPhone&OrderBy=name&OrderDir=asc&Page=1&PageSize=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2576,6 +2295,7 @@ public static CloseableHttpResponse SearchingForProducts() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2728,31 +2448,13 @@ GET /Companies({CompanyId})/Catalog/Search?VendorIds={VendorIds}&ManufacturerIds
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Search?VendorIds=1217&ManufacturerIds=10540&IsDropshippable=true&CategoryOrClassificationId=4&ClassificationTreeId=1&SearchTerms=iPhone&OrderBy=name&OrderDir=asc&IsLinkedToCuratedProduct=false&ColorTagIds=1&Page=1&PageSize=10
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?VendorIds=1217&ManufacturerIds=10540&IsDropshippable=true&CategoryOrClassificationId=4&ClassificationTreeId=1&SearchTerms=iPhone&OrderBy=name&OrderDir=asc&IsLinkedToCuratedProduct=false&ColorTagIds=1&Page=1&PageSize=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?VendorIds=1217&ManufacturerIds=10540&IsDropshippable=true&CategoryOrClassificationId=4&ClassificationTreeId=1&SearchTerms=iPhone&OrderBy=name&OrderDir=asc&IsLinkedToCuratedProduct=false&ColorTagIds=1&Page=1&PageSize=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse CombiningSearchFilters()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?VendorIds=1217&ManufacturerIds=10540&IsDropshippable=true&CategoryOrClassificationId=4&ClassificationTreeId=1&SearchTerms=iPhone&OrderBy=name&OrderDir=asc&IsLinkedToCuratedProduct=false&ColorTagIds=1&Page=1&PageSize=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2768,6 +2470,7 @@ public static CloseableHttpResponse CombiningSearchFilters() throws IOException 
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 

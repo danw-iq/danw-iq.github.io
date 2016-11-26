@@ -406,13 +406,8 @@ POST /companies({CompanyId})/products
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /companies(1)/products
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://platformepcdemo.iqmetrix.net/v1/companies(1)/products" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "RegularProducts": [
         {
@@ -706,26 +701,11 @@ curl -X POST "https://platformepcdemo.iqmetrix.net/v1/companies(1)/products" -H 
             "VendorSku": "DEF987"
         }
     ]
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse BulkImportingProductsToRq()
-{
-    var client = new RestClient("https://platformepcdemo.iqmetrix.net/v1/companies(1)/products");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"RegularProducts\":[{\"Barcodes\":[\"BARCODE123\"],\"ProductName\":\"iPhone 4S 16GB White\",\"CategoryName\":\"Products > Phones > Smartphones\",\"ClassificationTreeId\":1,\"DaysKeptInStock\":10,\"DefaultPricingAndPurchasing\":{\"AllowReturns\":true,\"Discountable\":true,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"LockMinMaxed\":true,\"Margin\":1,\"MaximumQuantity\":10,\"MinimumQuantity\":1,\"MsrpAmount\":499.99,\"MsrpCurrencyCode\":\"USD\",\"Price\":499.99,\"PrimaryVendorName\":\"Apple\",\"RefundPeriod\":10,\"RefundToUsed\":false,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlInventoryCorrectionsAccountNumber\":\"1001\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":false,\"LocationVendors\":[{\"Cost\":99.99,\"DiscontinuedDate\":\"2016-01-01T12:00:00.000\",\"DoNotOrder\":false,\"EndOfLife\":\"2016-01-01T12:00:00.000\",\"SpecialOrder\":false,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\",\"VendorName\":\"SampleVendor\",\"WriteOff\":false}],\"LongDescription\":\"The iPhone 4S is a gradualstep over the iPhone 4.\",\"ManufacturerName\":\"Apple\",\"ManufacturerSku\":\"ABC123\",\"Model\":\"iPhone 6\",\"PricingAndPurchasingLocations\":[{\"AllowReturns\":true,\"Discountable\":true,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"LockMinMaxed\":true,\"Margin\":1,\"MaximumQuantity\":10,\"MinimumQuantity\":1,\"MsrpAmount\":499.99,\"MsrpCurrencyCode\":\"USD\",\"Price\":499.99,\"PrimaryVendorName\":\"Apple\",\"RefundPeriod\":10,\"RefundToUsed\":false,\"SaleBeginDate\":\"2015-10-14T12:00:00.000\",\"SaleEndDate\":\"2015-10-18T12:00:00.000\",\"SalePrice\":399.99,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"iPhone 4S 16GB White\",\"ReleaseDate\":\"2011-10-14T12:00:00.000\",\"Serialized\":true,\"SerialNumberPromptText\":\"Serial prompt text here\",\"ShortDescription\":\"Better than the iPhone 3G\",\"Vendors\":[{\"Cost\":99.99,\"DiscontinuedDate\":\"2016-01-01T12:00:00.000\",\"DoNotOrder\":false,\"EndOfLife\":\"2016-01-01T12:00:00.000\",\"SpecialOrder\":false,\"VendorName\":\"SampleVendor\",\"VendorSku\":\"DEF987\",\"WriteOff\":false}],\"WarehouseLocation\":\"Cornwall\"}],\"NonStockedProducts\":[{\"ProductName\":\"Prepaid Rate Plan\",\"CategoryName\":\"Rate Plans > Rate Plans\",\"ClassificationTreeId\":1,\"DefaultPricing\":{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"RefundPeriod\":null,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"FloorPrice\":0,\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":true,\"LongDescription\":\"Prepaid plan forpeople on the go\",\"PricingLocations\":[{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"SalePrice\":0,\"SaleBeginDate\":\"null\",\"SaleEndDate\":\"null\",\"ShowOnInvoice\":true,\"RefundPeriod\":null,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"Prepaid Rate Plan\",\"Serialized\":false,\"SerialNumberPromptText\":\"null\",\"ShortDescription\":\"Prepaid plan\",\"VendorSku\":\"DEF987\"}],\"NonRevenueProducts\":[{\"ProductName\":\"Recycling Fee\",\"CategoryName\":\"Misc > Misc. Fees\",\"ClassificationTreeId\":1,\"DefaultPricing\":{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"RefundPeriod\":null,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"FloorPrice\":0,\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":false,\"LongDescription\":\"Recycling fee to disposeof old handset\",\"PricingLocations\":[{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"SalePrice\":0,\"SaleBeginDate\":\"null\",\"SaleEndDate\":\"null\",\"ShowOnInvoice\":true,\"RefundPeriod\":null,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"Recycling Fee\",\"Serialized\":true,\"SerialNumberPromptText\":\"Serial prompt text here\",\"ShortDescription\":\"Recycling fee\",\"VendorSku\":\"DEF987\"}],\"VendorRebateProducts\":[{\"VendorName\":\"SampleVendor\",\"ProductName\":\"2 YR New Act\",\"CategoryName\":\"Rate Plans > Rate Plan Rebates\",\"ClassificationTreeId\":1,\"DefaultPricing\":{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"RefundPeriod\":null,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":false,\"LongDescription\":\"Rebate on 2 year actiations\",\"PricingLocations\":[{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"SalePrice\":0,\"SaleBeginDate\":\"null\",\"SaleEndDate\":\"null\",\"ShowOnInvoice\":true,\"RefundPeriod\":null,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"2 YR New Act\",\"Serialized\":true,\"SerialNumberPromptText\":\"Serial prompt text here\",\"ShortDescription\":\"2 yr rebate\",\"VendorAccountName\":\"Verizon\",\"VendorSku\":\"DEF987\"}]}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -744,6 +724,7 @@ public static CloseableHttpResponse BulkImportingProductsToRq() throws IOExcepti
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -799,13 +780,8 @@ POST /companies({CompanyId})/Products
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /companies(1)/Products
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://platformepcdemo.iqmetrix.net/v1/companies(1)/Products" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "RegularProducts": [
         {
@@ -912,26 +888,11 @@ curl -X POST "https://platformepcdemo.iqmetrix.net/v1/companies(1)/Products" -H 
             "WarehouseLocation": "Cornwall"
         }
     ]
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse ImportingRegularProductsIntoRq()
-{
-    var client = new RestClient("https://platformepcdemo.iqmetrix.net/v1/companies(1)/Products");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"RegularProducts\":[{\"Barcodes\":[\"BARCODE123\"],\"ProductName\":\"iPhone 4S 16GB White\",\"CategoryName\":\"Products > Phones > Smartphones\",\"ClassificationTreeId\":1,\"DaysKeptInStock\":10,\"DefaultPricingAndPurchasing\":{\"AllowReturns\":true,\"Discountable\":true,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"LockMinMaxed\":true,\"Margin\":1,\"MaximumQuantity\":10,\"MinimumQuantity\":1,\"MsrpAmount\":499.99,\"MsrpCurrencyCode\":\"USD\",\"Price\":499.99,\"PrimaryVendorName\":\"Apple\",\"RefundPeriod\":10,\"RefundToUsed\":false,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlInventoryCorrectionsAccountNumber\":\"1001\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":false,\"LocationVendors\":[{\"Cost\":99.99,\"DiscontinuedDate\":\"2016-01-01T12:00:00.000\",\"DoNotOrder\":false,\"EndOfLife\":\"2016-01-01T12:00:00.000\",\"SpecialOrder\":false,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\",\"VendorName\":\"SampleVendor\",\"WriteOff\":false}],\"LongDescription\":\"The iPhone 4S is a gradualstep over the iPhone 4.\",\"ManufacturerName\":\"Apple\",\"ManufacturerSku\":\"ABC123\",\"Model\":\"iPhone 6\",\"PricingAndPurchasingLocations\":[{\"AllowReturns\":true,\"Discountable\":true,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"LockMinMaxed\":true,\"Margin\":1,\"MaximumQuantity\":10,\"MinimumQuantity\":1,\"MsrpAmount\":499.99,\"MsrpCurrencyCode\":\"USD\",\"Price\":499.99,\"PrimaryVendorName\":\"Apple\",\"RefundPeriod\":10,\"RefundToUsed\":false,\"SaleBeginDate\":\"2015-10-14T12:00:00.000\",\"SaleEndDate\":\"2015-10-18T12:00:00.000\",\"SalePrice\":399.99,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"iPhone 4S 16GB White\",\"ReleaseDate\":\"2011-10-14T12:00:00.000\",\"Serialized\":true,\"SerialNumberPromptText\":\"Serial prompt text here\",\"ShortDescription\":\"Better than the iPhone 3G\",\"Vendors\":[{\"Cost\":99.99,\"DiscontinuedDate\":\"2016-01-01T12:00:00.000\",\"DoNotOrder\":false,\"EndOfLife\":\"2016-01-01T12:00:00.000\",\"SpecialOrder\":false,\"VendorName\":\"SampleVendor\",\"VendorSku\":\"DEF987\",\"WriteOff\":false}],\"WarehouseLocation\":\"Cornwall\"}]}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -950,6 +911,7 @@ public static CloseableHttpResponse ImportingRegularProductsIntoRq() throws IOEx
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1005,13 +967,8 @@ POST /companies({CompanyId})/products/
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /companies(1)/products/
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://platformepcdemo.iqmetrix.net/v1/companies(1)/products/" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "NonStockedProducts": [
         {
@@ -1075,26 +1032,11 @@ curl -X POST "https://platformepcdemo.iqmetrix.net/v1/companies(1)/products/" -H
             "VendorSku": "DEF987"
         }
     ]
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse ImportingNon-stockedProductsIntoRq()
-{
-    var client = new RestClient("https://platformepcdemo.iqmetrix.net/v1/companies(1)/products/");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"NonStockedProducts\":[{\"ProductName\":\"Prepaid Rate Plan\",\"CategoryName\":\"Rate Plans > Rate Plans\",\"ClassificationTreeId\":1,\"DefaultPricing\":{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"RefundPeriod\":null,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"FloorPrice\":0,\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":true,\"LongDescription\":\"Prepaid plan forpeople on the go\",\"PricingLocations\":[{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"SalePrice\":0,\"SaleBeginDate\":\"null\",\"SaleEndDate\":\"null\",\"ShowOnInvoice\":true,\"RefundPeriod\":null,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"Prepaid Rate Plan\",\"Serialized\":false,\"SerialNumberPromptText\":\"null\",\"ShortDescription\":\"Prepaid plan\",\"VendorSku\":\"DEF987\"}]}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1113,6 +1055,7 @@ public static CloseableHttpResponse ImportingNon-stockedProductsIntoRq() throws 
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1168,13 +1111,8 @@ POST /companies({CompanyId})/Products/
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /companies(1)/Products/
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://platformepcdemo.iqmetrix.net/v1/companies(1)/Products/" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "NonRevenueProducts": [
         {
@@ -1238,26 +1176,11 @@ curl -X POST "https://platformepcdemo.iqmetrix.net/v1/companies(1)/Products/" -H
             "VendorSku": "DEF987"
         }
     ]
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse ImportingNon-revenueProductsIntoRq()
-{
-    var client = new RestClient("https://platformepcdemo.iqmetrix.net/v1/companies(1)/Products/");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"NonRevenueProducts\":[{\"ProductName\":\"Recycling Fee\",\"CategoryName\":\"Misc > Misc. Fees\",\"ClassificationTreeId\":1,\"DefaultPricing\":{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"RefundPeriod\":null,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"FloorPrice\":0,\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":false,\"LongDescription\":\"Recycling fee to disposeof old handset\",\"PricingLocations\":[{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"SalePrice\":0,\"SaleBeginDate\":\"null\",\"SaleEndDate\":\"null\",\"ShowOnInvoice\":true,\"RefundPeriod\":null,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"Recycling Fee\",\"Serialized\":true,\"SerialNumberPromptText\":\"Serial prompt text here\",\"ShortDescription\":\"Recycling fee\",\"VendorSku\":\"DEF987\"}]}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1276,6 +1199,7 @@ public static CloseableHttpResponse ImportingNon-revenueProductsIntoRq() throws 
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1331,13 +1255,8 @@ POST /Companies({CompanyId})/products
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Companies(1)/products
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://platformepcdemo.iqmetrix.net/v1/Companies(1)/products" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "VendorRebateProducts": [
         {
@@ -1402,26 +1321,11 @@ curl -X POST "https://platformepcdemo.iqmetrix.net/v1/Companies(1)/products" -H 
             "VendorSku": "DEF987"
         }
     ]
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse ImportingVendorRebatesIntoRq()
-{
-    var client = new RestClient("https://platformepcdemo.iqmetrix.net/v1/Companies(1)/products");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"VendorRebateProducts\":[{\"VendorName\":\"SampleVendor\",\"ProductName\":\"2 YR New Act\",\"CategoryName\":\"Rate Plans > Rate Plan Rebates\",\"ClassificationTreeId\":1,\"DefaultPricing\":{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"RefundPeriod\":null,\"ShowOnInvoice\":true,\"StoreInStorePrice\":399.99},\"Enabled\":true,\"EnforcedTrackingNumberLength\":50,\"ExtendedAttributes\":[{\"Name\":\"ProductId\",\"Value\":\"66\"}],\"GlCostOfSalesAccountNumber\":\"1001\",\"GlInventoryAccountNumber\":\"1002\",\"GlSalesAccountNumber\":\"1003\",\"IgnoreAutomaticTaxAddition\":false,\"LongDescription\":\"Rebate on 2 year actiations\",\"PricingLocations\":[{\"AllowReturns\":false,\"CarrierPrice\":0,\"Cost\":0,\"Discountable\":false,\"FloorPrice\":0,\"ForSale\":true,\"InvoiceComments\":\"Invoice comment\",\"Margin\":0,\"Price\":499.99,\"SalePrice\":0,\"SaleBeginDate\":\"null\",\"SaleEndDate\":\"null\",\"ShowOnInvoice\":true,\"RefundPeriod\":null,\"StoreInStorePrice\":399.99,\"TargetLocationName\":\"Saskatchewan\",\"TargetLocationType\":\"RegionName\"}],\"PricingMethod\":\"Fixed\",\"ProductLabel\":\"2 YR New Act\",\"Serialized\":true,\"SerialNumberPromptText\":\"Serial prompt text here\",\"ShortDescription\":\"2 yr rebate\",\"VendorAccountName\":\"Verizon\",\"VendorSku\":\"DEF987\"}]}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1440,6 +1344,7 @@ public static CloseableHttpResponse ImportingVendorRebatesIntoRq() throws IOExce
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1495,31 +1400,13 @@ GET /companies({CompanyId})/batchStatus({BatchId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /companies(1)/batchStatus(3)
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://platformepcdemo.iqmetrix.net/v1/companies(1)/batchStatus(3)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://platformepcdemo.iqmetrix.net/v1/companies(1)/batchStatus(3)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingStatusForABatch()
-{
-    var client = new RestClient("https://platformepcdemo.iqmetrix.net/v1/companies(1)/batchStatus(3)");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1535,6 +1422,7 @@ public static CloseableHttpResponse GettingStatusForABatch() throws IOException 
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1606,31 +1494,13 @@ GET /companies({CompanyId})/batchStatus
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /companies(1)/batchStatus
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://platformepcdemo.iqmetrix.net/v1/companies(1)/batchStatus" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://platformepcdemo.iqmetrix.net/v1/companies(1)/batchStatus" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAllBatches()
-{
-    var client = new RestClient("https://platformepcdemo.iqmetrix.net/v1/companies(1)/batchStatus");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1646,6 +1516,7 @@ public static CloseableHttpResponse GettingAllBatches() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 

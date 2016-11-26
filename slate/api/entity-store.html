@@ -1,0 +1,680 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Entities</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../javascripts/all.js"></script>
+  </head>
+
+  <body class="api api_entity-store" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="csharp">c#</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <p>{% include linkrefs.html %}</p>
+
+<h1 id="overview">Overview</h1>
+
+<p>The Entity Store helps manage your Company structure. It also manages relationships your Company has with Suppliers, Manufacturers and Carriers. </p>
+
+<h1 id="endpoints">Endpoints</h1>
+
+<ul>
+<li>Sandbox: <a href="https://entitymanagerdemo.iqmetrix.net/v1">https://entitymanagerdemo.iqmetrix.net/v1</a></li>
+<li>Production: <a href="https://entitymanager.iqmetrix.net/v1">https://entitymanager.iqmetrix.net/v1</a></li>
+</ul>
+
+<h1 id="resources">Resources</h1>
+
+<h2 id="carrier">Carrier</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Unique identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name</td>
+</tr>
+<tr>
+<td style="text-align: left">Description (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Description</td>
+</tr>
+<tr>
+<td style="text-align: left">Attributes (<code class="prettyprint">Object</code>)</td>
+<td style="text-align: left">Set of key-value pairs that contain extra data</td>
+</tr>
+<tr>
+<td style="text-align: left">CreatedUTC (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Created date, in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">ClientEntityId (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Identifier in an external system</td>
+</tr>
+<tr>
+<td style="text-align: left">LastModifiedUtc (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Last modified date in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">Logo (<code class="prettyprint">Object</code>)</td>
+<td style="text-align: left">A reference to an <a href="/api/assets/#asset">Asset</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Relationships (<code class="prettyprint">Array[object]</code>)</td>
+<td style="text-align: left">Relationships</td>
+</tr>
+<tr>
+<td style="text-align: left">Role (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Role</td>
+</tr>
+<tr>
+<td style="text-align: left">Roles (<code class="prettyprint">Array[object]</code>)</td>
+<td style="text-align: left">The value must be Carrier</td>
+</tr>
+<tr>
+<td style="text-align: left">Roles.Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">SortName (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">A string used for sorting</td>
+</tr>
+<tr>
+<td style="text-align: left">Version (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Latest revision number</td>
+</tr>
+<tr>
+<td style="text-align: left"><em>CorrelationId (<code class="prettyprint">String</code>)</em></td>
+<td style="text-align: left"><em>Reserved for internal use</em></td>
+</tr>
+<tr>
+<td style="text-align: left"><em>TypeId (<code class="prettyprint">String</code>)</em></td>
+<td style="text-align: left"><em>Reserved for future use</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="manufacturer">Manufacturer</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Unique identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name</td>
+</tr>
+<tr>
+<td style="text-align: left">Description (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Description</td>
+</tr>
+<tr>
+<td style="text-align: left">Attributes (<code class="prettyprint">Object</code>)</td>
+<td style="text-align: left">Set of key-value pairs that contain extra data</td>
+</tr>
+<tr>
+<td style="text-align: left">CreatedUtc (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Created date in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">ClientEntityId (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Identifier in an external system</td>
+</tr>
+<tr>
+<td style="text-align: left">LastModifiedUtc (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Last modified date in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">Logo (<code class="prettyprint">Object</code>)</td>
+<td style="text-align: left">A reference to an <a href="/api/assets/#asset">Asset</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Relationships (<code class="prettyprint">Array[object]</code>)</td>
+<td style="text-align: left">Relationships</td>
+</tr>
+<tr>
+<td style="text-align: left">Role (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Role</td>
+</tr>
+<tr>
+<td style="text-align: left">Roles (<code class="prettyprint">Array[object]</code>)</td>
+<td style="text-align: left">The value must be Manufacturer</td>
+</tr>
+<tr>
+<td style="text-align: left">Roles.Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">SortName (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">A string used for sorting</td>
+</tr>
+<tr>
+<td style="text-align: left">Version (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Latest revision number</td>
+</tr>
+<tr>
+<td style="text-align: left"><em>CorrelationId (<code class="prettyprint">String</code>)</em></td>
+<td style="text-align: left"><em>Reserved for internal use</em></td>
+</tr>
+<tr>
+<td style="text-align: left"><em>TypeId (<code class="prettyprint">String</code>)</em></td>
+<td style="text-align: left"><em>Reserved for future use</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="supplier">Supplier</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Unique identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name</td>
+</tr>
+<tr>
+<td style="text-align: left">Description (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Description</td>
+</tr>
+<tr>
+<td style="text-align: left">Attributes (<code class="prettyprint">Object</code>)</td>
+<td style="text-align: left">Set of key-value pairs that contain extra data</td>
+</tr>
+<tr>
+<td style="text-align: left">CreatedUtc (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Created date in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">ClientEntityId (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Identifier in an external system</td>
+</tr>
+<tr>
+<td style="text-align: left">LastModifiedUtc (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Last modified date in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">Logo (<code class="prettyprint">Object</code>)</td>
+<td style="text-align: left">A reference to an <a href="/api/assets/#asset">Asset</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Relationships (<code class="prettyprint">Array[object]</code>)</td>
+<td style="text-align: left">Relationships</td>
+</tr>
+<tr>
+<td style="text-align: left">Role (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Role</td>
+</tr>
+<tr>
+<td style="text-align: left">Roles (<code class="prettyprint">Array[object]</code>)</td>
+<td style="text-align: left">The value must be Vendor</td>
+</tr>
+<tr>
+<td style="text-align: left">Roles.Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">SortName (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">A string used for sorting</td>
+</tr>
+<tr>
+<td style="text-align: left">Version (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Latest revision number</td>
+</tr>
+<tr>
+<td style="text-align: left"><em>CorrelationId (<code class="prettyprint">String</code>)</em></td>
+<td style="text-align: left"><em>Reserved for internal use</em></td>
+</tr>
+<tr>
+<td style="text-align: left"><em>TypeId (<code class="prettyprint">String</code>)</em></td>
+<td style="text-align: left"><em>Reserved for future use</em></td>
+</tr>
+</tbody></table>
+
+<h1 id="requests">Requests</h1>
+
+<h2 id="getting-all-carriers">Getting All Carriers</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Carriers
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Carriers</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+
+<h4>Response</h4>
+
+<p>Array[<a href='#carrier'>Carrier</a>]</p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 200 Content-Type: application/json
+</pre>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Helios"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nt">"CreatedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-28T20:52:12.929Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ClientEntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carrier_25"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"LastModifiedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Logo"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nt">"Relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"Role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carrier"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carrier"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"SortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"helios"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="getting-a-carrier">Getting a Carrier</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Carriers({CarrierId})
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Carriers</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    
+    <li>
+        <code>CarrierId</code> (<strong>Required</strong>)  - Identifier for the {{Carrier}}
+    </li>
+    </ul>
+
+<h4>Response</h4>
+
+<p><a href='#carrier'>Carrier</a></p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 200 Content-Type: application/json
+</pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Helios"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nt">"CreatedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-07-28T20:52:12.929Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClientEntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carrier_25"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastModifiedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Logo"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nt">"Relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"Role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carrier"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carrier"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"SortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"helios"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="getting-all-manufacturers">Getting All Manufacturers</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Manufacturers
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Manufacturers</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+
+<h4>Response</h4>
+
+<p>Array[<a href='#manufacturer'>Manufacturer</a>]</p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 200 Content-Type: application/json
+</pre>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#1 Most Trusted Brand in Smartphone Protection"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nt">"CreatedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-24T19:29:31.073Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ClientEntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer_145"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"LastModifiedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Logo"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nt">"Relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"Role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"SortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"otterbox"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="getting-a-manufacturer">Getting a Manufacturer</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Manufacturers({ManufacturerId})
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Manufacturers</span><span class="p">(</span><span class="mi">13149</span><span class="p">)</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    
+    <li>
+        <code>ManufacturerId</code> (<strong>Required</strong>)  - Identifier for the {{Manufacturer}}
+    </li>
+    </ul>
+
+<h4>Response</h4>
+
+<p><a href='#manufacturer'>Manufacturer</a></p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 200 Content-Type: application/json
+</pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13149</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#1 Most Trusted Brand in Smartphone Protection"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nt">"CreatedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-24T19:29:31.073Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClientEntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer_145"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastModifiedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Logo"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nt">"Relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"Role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"SortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"otterbox"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="getting-all-suppliers">Getting all Suppliers</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Suppliers
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Suppliers</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+
+<h4>Response</h4>
+
+<p>Array[<a href='#supplier'>Supplier</a>]</p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 200 Content-Type: application/json
+</pre>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14107</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOZAMA Inc."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provides supplies for KENTEL Corp."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nt">"CreatedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-05T18:15:26.558Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ClientEntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Supplier_151"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"LastModifiedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Logo"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nt">"Relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"Role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vendor"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vendor"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"SortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nozama inc."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="getting-a-supplier">Getting a Supplier</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Suppliers({SupplierId})
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Suppliers</span><span class="p">(</span><span class="mi">14107</span><span class="p">)</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    
+    <li>
+        <code>SupplierId</code> (<strong>Required</strong>)  - Identifier for the {{Supplier}}
+    </li>
+    </ul>
+
+<h4>Response</h4>
+
+<p><a href='#supplier'>Supplier</a></p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 200 Content-Type: application/json
+</pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14107</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOZAMA Inc."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provides supplies for KENTEL Corp."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nt">"CreatedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-05T18:15:26.558Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClientEntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Supplier_151"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastModifiedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Logo"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nt">"Relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"Role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vendor"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vendor"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"SortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nozama inc."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="csharp">c#</a>
+                <a href="#" data-language-name="java">java</a>
+                <a href="#" data-language-name="ruby">ruby</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

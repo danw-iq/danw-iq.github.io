@@ -137,8 +137,9 @@
 
 <p>A <strong>slug</strong> is a generated identifier for a Product within the Product Library, determined using its <a href="/concepts/product-structure">Product Structure</a> and the following formula:</p>
 
-<pre><code>M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
+<div class="highlighter-rouge"><pre class="highlight"><code>M{ProductDocumentId}-V{VariationId}-E{EntityId}-R{Region}
 </code></pre>
+</div>
 
 <ul>
   <li>ProductDocumentId - Identifier for a <a href="http://developers.iqmetrix.com/api/product-structure/#productdocument">ProductDocument</a></li>
@@ -149,16 +150,17 @@
 
 <h5 id="example">Example</h5>
 
-<pre><code>M1-V2-E3-RCABC
+<div class="highlighter-rouge"><pre class="highlight"><code>M1-V2-E3-RCABC
 </code></pre>
+</div>
 
 <p>Using the slug in the example above, we can determine the following:</p>
 
 <ul>
   <li>The identifier for the <a href="http://developers.iqmetrix.com/api/product-structure/#productdocument">ProductDocument</a> for this Product is <strong>1</strong></li>
   <li>This Revision was made from a Variation, as there is a <strong>V</strong> present</li>
-  <li>The Company or Carrier that owns this Revision has an Id of <code>3</code></li>
-  <li>This Revision is specific to British Columbia (<code>BC</code>), Canada (<code>CA</code>)</li>
+  <li>The Company or Carrier that owns this Revision has an Id of <code class="highlighter-rouge">3</code></li>
+  <li>This Revision is specific to British Columbia (<code class="highlighter-rouge">BC</code>), Canada (<code class="highlighter-rouge">CA</code>)</li>
 </ul>
 
 <h1 id="endpoints">Endpoints</h1>
@@ -184,57 +186,57 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">CatalogItemId (<code>GUID</code>)</td>
+      <td style="text-align: left">CatalogItemId (<code class="highlighter-rouge">GUID</code>)</td>
       <td style="text-align: left">Unique identifier</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">CatalogSku (<code>String</code>)</td>
+      <td style="text-align: left">CatalogSku (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">SKU</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">DateAddedUtc (<code>DateTime</code>)</td>
+      <td style="text-align: left">DateAddedUtc (<code class="highlighter-rouge">DateTime</code>)</td>
       <td style="text-align: left">Date this Product was added to the catalog, in UTC</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">DateUpdatedUtc (<code>DateTime</code>)</td>
+      <td style="text-align: left">DateUpdatedUtc (<code class="highlighter-rouge">DateTime</code>)</td>
       <td style="text-align: left">Date this Product was last updated, in UTC</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">IsArchived (<code>Boolean</code>)</td>
+      <td style="text-align: left">IsArchived (<code class="highlighter-rouge">Boolean</code>)</td>
       <td style="text-align: left">A flag to indicate if this CatalogItem is Archived. When archived, this CatalogItem is excluded from search results</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">RmsId (<code>String</code>)</td>
+      <td style="text-align: left">RmsId (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Identifier for the CatalogItem in an external inventory system</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Slug (<code>String</code>)</td>
+      <td style="text-align: left">Slug (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Unique identifier for a <a href="#product">Product</a></td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left">ExtendedAttributes (<code>Array[&lt;a href='/api/catalog/#attribute'&gt;Attribute&lt;/a&gt;]</code>)</td>
+      <td style="text-align: left">ExtendedAttributes (<code class="highlighter-rouge">Array[&lt;a href='/api/catalog/#attribute'&gt;Attribute&lt;/a&gt;]</code>)</td>
       <td style="text-align: left">Attributes</td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>SourceIds (<code>GUID</code>)</em></td>
+      <td style="text-align: left"><em>SourceIds (<code class="highlighter-rouge">GUID</code>)</em></td>
       <td style="text-align: left"><em>Reserved for future use</em></td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>BatchTracking (<code>Boolean</code>)</em></td>
+      <td style="text-align: left"><em>BatchTracking (<code class="highlighter-rouge">Boolean</code>)</em></td>
       <td style="text-align: left"><em>Reserved for future use</em></td>
       <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>MeasurementType (<code>String</code>)</em></td>
+      <td style="text-align: left"><em>MeasurementType (<code class="highlighter-rouge">String</code>)</em></td>
       <td style="text-align: left"><em>Reserved for future use</em></td>
       <td> </td>
     </tr>
@@ -254,11 +256,11 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Name (<code>String(250)</code>)</td>
+      <td style="text-align: left">Name (<code class="highlighter-rouge">String(250)</code>)</td>
       <td style="text-align: left">Attribute name</td>
     </tr>
     <tr>
-      <td style="text-align: left">Value (<code>String(250)</code>)</td>
+      <td style="text-align: left">Value (<code class="highlighter-rouge">String(250)</code>)</td>
       <td style="text-align: left">Attribute value</td>
     </tr>
   </tbody>
@@ -277,199 +279,199 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Items (<code>Array[object]</code>)</td>
+      <td style="text-align: left">Items (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">Products matching the search criteria</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.Name (<code>String</code>)</td>
+      <td style="text-align: left">Items.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.CanonicalClassification (<code>object</code>)</td>
+      <td style="text-align: left">Items.CanonicalClassification (<code class="highlighter-rouge">object</code>)</td>
       <td style="text-align: left">ClassificationTree details</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.CanonicalClassification.Id (<code>Integer</code>)</td>
+      <td style="text-align: left">Items.CanonicalClassification.Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier for the <a href="/api/classification-tree/#classification">Classification</a> or <a href="/api/classification-tree/#category">Category</a></td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.CanonicalClassification.Name (<code>String</code>)</td>
+      <td style="text-align: left">Items.CanonicalClassification.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name of the Classification/Category</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.CanonicalClassification.ParentCategories (<code>Array[object]</code>)</td>
+      <td style="text-align: left">Items.CanonicalClassification.ParentCategories (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">List of Parent Categories</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.CanonicalClassification.ParentCategories.Id (<code>Integer</code>)</td>
+      <td style="text-align: left">Items.CanonicalClassification.ParentCategories.Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.CanonicalClassification.ParentCategories.Name (<code>String</code>)</td>
+      <td style="text-align: left">Items.CanonicalClassification.ParentCategories.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.CatalogItemId (<code>GUID</code>)</td>
+      <td style="text-align: left">Items.CatalogItemId (<code class="highlighter-rouge">GUID</code>)</td>
       <td style="text-align: left">Unique identifier for the CatalogItem</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.CatalogSku (<code>String</code>)</td>
+      <td style="text-align: left">Items.CatalogSku (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">SKU</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.ClassificationTreeId (<code>Integer</code>)</td>
+      <td style="text-align: left">Items.ClassificationTreeId (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier for the <a href="/api/classification-tree/#classificationtree">ClassificationTree</a></td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.ColorDefinition (<code>object</code>)</td>
+      <td style="text-align: left">Items.ColorDefinition (<code class="highlighter-rouge">object</code>)</td>
       <td style="text-align: left">Information about the color of the Product</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.ColorDefinition.Id (<code>GUID</code>)</td>
+      <td style="text-align: left">Items.ColorDefinition.Id (<code class="highlighter-rouge">GUID</code>)</td>
       <td style="text-align: left">Unique identifier</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.ColorDefinition.Name (<code>String</code>)</td>
+      <td style="text-align: left">Items.ColorDefinition.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.ColorDefinition.ColorTags (<code>Array[object]</code>)</td>
+      <td style="text-align: left">Items.ColorDefinition.ColorTags (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">Color information</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.ColorDefinition.ColorTags.Id (<code>Integer</code>)</td>
+      <td style="text-align: left">Items.ColorDefinition.ColorTags.Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.ColorDefinition.ColorTags.Name (<code>String</code>)</td>
+      <td style="text-align: left">Items.ColorDefinition.ColorTags.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.ColorDefinition.ColorTags.ColorCode (<code>String</code>)</td>
+      <td style="text-align: left">Items.ColorDefinition.ColorTags.ColorCode (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">A valid Hex code representing this color</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.ColorDefinition.Swatch (<code>&lt;a href='/api/catalog/#swatch'&gt;Swatch&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Items.ColorDefinition.Swatch (<code class="highlighter-rouge">&lt;a href='/api/catalog/#swatch'&gt;Swatch&lt;/a&gt;</code>)</td>
       <td style="text-align: left">An icon to display on a screen next to a color showing the actual color of the product. Can be provided as an image Asset or hex code</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.CompanyId (<code>Integer</code>)</td>
+      <td style="text-align: left">Items.CompanyId (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier for the Company</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.DateAddedUtc (<code>DateTime</code>)</td>
+      <td style="text-align: left">Items.DateAddedUtc (<code class="highlighter-rouge">DateTime</code>)</td>
       <td style="text-align: left">Date this Product was added to the catalog, in UTC</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.HeroShotId (<code>GUID</code>)</td>
+      <td style="text-align: left">Items.HeroShotId (<code class="highlighter-rouge">GUID</code>)</td>
       <td style="text-align: left"><a href="/api/glossary/#hero-shot">Hero Shot</a> identifier</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.Identifiers (<code>Array[&lt;a href='/api/catalog/#identifier'&gt;Identifier&lt;/a&gt;]</code>)</td>
+      <td style="text-align: left">Items.Identifiers (<code class="highlighter-rouge">Array[&lt;a href='/api/catalog/#identifier'&gt;Identifier&lt;/a&gt;]</code>)</td>
       <td style="text-align: left">Identifiers</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.IsLinkedToCuratedProduct (<code>Boolean</code>)</td>
+      <td style="text-align: left">Items.IsLinkedToCuratedProduct (<code class="highlighter-rouge">Boolean</code>)</td>
       <td style="text-align: left">A flag to indicate if this version of this Product is publicly accessible (true), or private (false)</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.IsDropShippable (<code>Boolean</code>)</td>
+      <td style="text-align: left">Items.IsDropShippable (<code class="highlighter-rouge">Boolean</code>)</td>
       <td style="text-align: left">A flag to indicate if this Product can be shipped. This value is a best guess and should not be used for tracking dropshippable products</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.IsMasterProduct (<code>Boolean</code>)</td>
+      <td style="text-align: left">Items.IsMasterProduct (<code class="highlighter-rouge">Boolean</code>)</td>
       <td style="text-align: left">A flag to indicate if this is a Master Product</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.Manufacturer (<code>object</code>)</td>
+      <td style="text-align: left">Items.Manufacturer (<code class="highlighter-rouge">object</code>)</td>
       <td style="text-align: left"><a href="/api/entity-store/#manufacturer">Manufacturer</a> information for the Product</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.Manufacturer.Id (<code>Integer</code>)</td>
+      <td style="text-align: left">Items.Manufacturer.Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier for the <a href="/api/entity-store/#manufacturer">Manufacturer</a></td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.Manufacturer.Name (<code>String</code>)</td>
+      <td style="text-align: left">Items.Manufacturer.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name of the <a href="/api/entity-store/#manufacturer">Manufacturer</a></td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.Msrp (<code>object</code>)</td>
+      <td style="text-align: left">Items.Msrp (<code class="highlighter-rouge">object</code>)</td>
       <td style="text-align: left">Manufacturer suggested retail price information for the Product</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.Msrp.Amount (<code>Decimal</code>)</td>
+      <td style="text-align: left">Items.Msrp.Amount (<code class="highlighter-rouge">Decimal</code>)</td>
       <td style="text-align: left">Manufacturers suggested retail price</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.Msrp.CurrencyCode (<code>String</code>)</td>
+      <td style="text-align: left">Items.Msrp.CurrencyCode (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Currency. For a list of acceptable values, see <a href="/api/reference/#getting-all-currencies">Getting All Currencies</a></td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.ProductVersion (<code>Integer</code>)</td>
+      <td style="text-align: left">Items.ProductVersion (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Latest revision number</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.ShortDescription (<code>String</code>)</td>
+      <td style="text-align: left">Items.ShortDescription (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Short Description</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.Slug (<code>String</code>)</td>
+      <td style="text-align: left">Items.Slug (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">URL friendly identifier for the Product</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.VariationId (<code>Integer</code>)</td>
+      <td style="text-align: left">Items.VariationId (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier for the <a href="/concepts/product-structure/#Variations">Variation</a> this Product represents</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.Vendors (<code>Array[object]</code>)</td>
+      <td style="text-align: left">Items.Vendors (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">Vendors for the Product</td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.Vendors.Id (<code>Integer</code>)</td>
+      <td style="text-align: left">Items.Vendors.Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier for the <a href="/api/entity-store/#supplier">Supplier</a></td>
     </tr>
     <tr>
-      <td style="text-align: left">Items.Vendors.Name (<code>String</code>)</td>
+      <td style="text-align: left">Items.Vendors.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name of the <a href="/api/entity-store/#supplier">Supplier</a></td>
     </tr>
     <tr>
-      <td style="text-align: left">Facets (<code>object</code>)</td>
+      <td style="text-align: left">Facets (<code class="highlighter-rouge">object</code>)</td>
       <td style="text-align: left">Summary of Manufacturer and Vendor information for the Items</td>
     </tr>
     <tr>
-      <td style="text-align: left">Facets.ClassificationAndCategories (<code>Array[object]</code>)</td>
+      <td style="text-align: left">Facets.ClassificationAndCategories (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">Count of Classification and Categories in results</td>
     </tr>
     <tr>
-      <td style="text-align: left">Facets.ClassificationAndCategories.Count (<code>Integer</code>)</td>
+      <td style="text-align: left">Facets.ClassificationAndCategories.Count (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Number of items in the response with the Classification or Category specified in Item</td>
     </tr>
     <tr>
-      <td style="text-align: left">Facets.ClassificationAndCategories.Item (<code>Integer</code>)</td>
+      <td style="text-align: left">Facets.ClassificationAndCategories.Item (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier of a Classification or Category</td>
     </tr>
     <tr>
-      <td style="text-align: left">Facets.Manufacturers (<code>Array[&lt;a href='/api/catalog/#manufacturer'&gt;Manufacturer&lt;/a&gt;]</code>)</td>
+      <td style="text-align: left">Facets.Manufacturers (<code class="highlighter-rouge">Array[&lt;a href='/api/catalog/#manufacturer'&gt;Manufacturer&lt;/a&gt;]</code>)</td>
       <td style="text-align: left">Manufacturer information for the Items</td>
     </tr>
     <tr>
-      <td style="text-align: left">Facets.Vendors (<code>Array[&lt;a href='/api/catalog/#manufacturer'&gt;Manufacturer&lt;/a&gt;]</code>)</td>
+      <td style="text-align: left">Facets.Vendors (<code class="highlighter-rouge">Array[&lt;a href='/api/catalog/#manufacturer'&gt;Manufacturer&lt;/a&gt;]</code>)</td>
       <td style="text-align: left">Vendor information for the Items</td>
     </tr>
     <tr>
-      <td style="text-align: left">MetaData (<code>object</code>)</td>
+      <td style="text-align: left">MetaData (<code class="highlighter-rouge">object</code>)</td>
       <td style="text-align: left">Data representing pagination details</td>
     </tr>
     <tr>
-      <td style="text-align: left">MetaData.Page (<code>Integer</code>)</td>
+      <td style="text-align: left">MetaData.Page (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Page of Items to be included in the resource</td>
     </tr>
     <tr>
-      <td style="text-align: left">MetaData.PageSize (<code>Integer</code>)</td>
+      <td style="text-align: left">MetaData.PageSize (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Number of Items included in the resource</td>
     </tr>
     <tr>
-      <td style="text-align: left">MetaData.TotalResults (<code>Integer</code>)</td>
+      <td style="text-align: left">MetaData.TotalResults (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Number of Items matching the search criteria</td>
     </tr>
   </tbody>
@@ -486,175 +488,175 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code>String</code>)</td>
+      <td style="text-align: left">Id (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Identifier</td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code>String</code>)</td>
+      <td style="text-align: left">Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
     </tr>
     <tr>
-      <td style="text-align: left">Assets (<code>Array[&lt;a href='/api/catalog/#asset'&gt;Asset&lt;/a&gt;]</code>)</td>
+      <td style="text-align: left">Assets (<code class="highlighter-rouge">Array[&lt;a href='/api/catalog/#asset'&gt;Asset&lt;/a&gt;]</code>)</td>
       <td style="text-align: left">Asset information</td>
     </tr>
     <tr>
-      <td style="text-align: left">CanonicalClassification (<code>&lt;a href='/api/catalog/#canonicalclassification'&gt;CanonicalClassification&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">CanonicalClassification (<code class="highlighter-rouge">&lt;a href='/api/catalog/#canonicalclassification'&gt;CanonicalClassification&lt;/a&gt;</code>)</td>
       <td style="text-align: left">ClassificationTree details</td>
     </tr>
     <tr>
-      <td style="text-align: left">ColorDefinition (<code>&lt;a href='/api/catalog/#colordefinition'&gt;ColorDefinition&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">ColorDefinition (<code class="highlighter-rouge">&lt;a href='/api/catalog/#colordefinition'&gt;ColorDefinition&lt;/a&gt;</code>)</td>
       <td style="text-align: left">Information about the color of the Product</td>
     </tr>
     <tr>
-      <td style="text-align: left">DateAddedUtc (<code>DateTime</code>)</td>
+      <td style="text-align: left">DateAddedUtc (<code class="highlighter-rouge">DateTime</code>)</td>
       <td style="text-align: left">Date this Product was added to the catalog, in UTC</td>
     </tr>
     <tr>
-      <td style="text-align: left">DateUpdatedUtc (<code>DateTime</code>)</td>
+      <td style="text-align: left">DateUpdatedUtc (<code class="highlighter-rouge">DateTime</code>)</td>
       <td style="text-align: left">Date this Product was last updated, in UTC</td>
     </tr>
     <tr>
-      <td style="text-align: left">Entity (<code>object</code>)</td>
+      <td style="text-align: left">Entity (<code class="highlighter-rouge">object</code>)</td>
       <td style="text-align: left">Entity information, used for Entity revisions</td>
     </tr>
     <tr>
-      <td style="text-align: left">Entity.Id (<code>Integer</code>)</td>
+      <td style="text-align: left">Entity.Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier of an Entity used for Entity Revisions. See <a href="/concepts/product-structure/#carrier-revisions">Carrier Revisions</a> for more information</td>
     </tr>
     <tr>
-      <td style="text-align: left">Entity.Name (<code>String</code>)</td>
+      <td style="text-align: left">Entity.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Entity name</td>
     </tr>
     <tr>
-      <td style="text-align: left">ExtendedAttributes (<code>Array[&lt;a href='/api/catalog/#attribute'&gt;Attribute&lt;/a&gt;]</code>)</td>
+      <td style="text-align: left">ExtendedAttributes (<code class="highlighter-rouge">Array[&lt;a href='/api/catalog/#attribute'&gt;Attribute&lt;/a&gt;]</code>)</td>
       <td style="text-align: left">Attributes</td>
     </tr>
     <tr>
-      <td style="text-align: left">HeroShotId (<code>GUID</code>)</td>
+      <td style="text-align: left">HeroShotId (<code class="highlighter-rouge">GUID</code>)</td>
       <td style="text-align: left"><a href="/api/glossary/#hero-shot">Hero Shot</a> identifier</td>
     </tr>
     <tr>
-      <td style="text-align: left">HeroShotUri (<code>String</code>)</td>
+      <td style="text-align: left">HeroShotUri (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">URI to a Hero Shot Asset</td>
     </tr>
     <tr>
-      <td style="text-align: left">IsArchived (<code>Boolean</code>)</td>
+      <td style="text-align: left">IsArchived (<code class="highlighter-rouge">Boolean</code>)</td>
       <td style="text-align: left">A flag to indicate if this Product is archived</td>
     </tr>
     <tr>
-      <td style="text-align: left">IsLinkedToCuratedProduct (<code>Boolean</code>)</td>
+      <td style="text-align: left">IsLinkedToCuratedProduct (<code class="highlighter-rouge">Boolean</code>)</td>
       <td style="text-align: left">A flag to indicate if this version of this Product is publicly accessible (true), or private (false)</td>
     </tr>
     <tr>
-      <td style="text-align: left">IsSaleable (<code>Boolean</code>)</td>
+      <td style="text-align: left">IsSaleable (<code class="highlighter-rouge">Boolean</code>)</td>
       <td style="text-align: left">A flag to indicate if this product can be sold</td>
     </tr>
     <tr>
-      <td style="text-align: left">LongDescription (<code>String</code>)</td>
+      <td style="text-align: left">LongDescription (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Long Description</td>
     </tr>
     <tr>
-      <td style="text-align: left">Manufacturer (<code>object</code>)</td>
+      <td style="text-align: left">Manufacturer (<code class="highlighter-rouge">object</code>)</td>
       <td style="text-align: left"><a href="/api/entity-store/#manufacturer">Manufacturer</a> information for the Product</td>
     </tr>
     <tr>
-      <td style="text-align: left">Manufacturer.Id (<code>Integer</code>)</td>
+      <td style="text-align: left">Manufacturer.Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier for the <a href="/api/entity-store/#manufacturer">Manufacturer</a></td>
     </tr>
     <tr>
-      <td style="text-align: left">Manufacturer.Name (<code>String</code>)</td>
+      <td style="text-align: left">Manufacturer.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name of the <a href="/api/entity-store/#manufacturer">Manufacturer</a></td>
     </tr>
     <tr>
-      <td style="text-align: left">ManufacturerSkus (<code>Array[&lt;a href='/api/catalog/#sku'&gt;Sku&lt;/a&gt;]</code>)</td>
+      <td style="text-align: left">ManufacturerSkus (<code class="highlighter-rouge">Array[&lt;a href='/api/catalog/#sku'&gt;Sku&lt;/a&gt;]</code>)</td>
       <td style="text-align: left">Manufacturer SKUs</td>
     </tr>
     <tr>
-      <td style="text-align: left">MasterProductId (<code>Integer</code>)</td>
+      <td style="text-align: left">MasterProductId (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier for the <a href="/api/product-structure/#masterproduct">Master Product</a></td>
     </tr>
     <tr>
-      <td style="text-align: left">MSRP (<code>object</code>)</td>
+      <td style="text-align: left">MSRP (<code class="highlighter-rouge">object</code>)</td>
       <td style="text-align: left">Manufacturers suggested retail price information</td>
     </tr>
     <tr>
-      <td style="text-align: left">MSRP.Amount (<code>Decimal</code>)</td>
+      <td style="text-align: left">MSRP.Amount (<code class="highlighter-rouge">Decimal</code>)</td>
       <td style="text-align: left">Manufacturers suggested retail price</td>
     </tr>
     <tr>
-      <td style="text-align: left">MSRP.CurrencyCode (<code>String</code>)</td>
+      <td style="text-align: left">MSRP.CurrencyCode (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Currency. For a list of acceptable values, see <a href="/api/reference/#getting-all-currencies">Getting All Currencies</a></td>
     </tr>
     <tr>
-      <td style="text-align: left">Owner (<code>object</code>)</td>
+      <td style="text-align: left">Owner (<code class="highlighter-rouge">object</code>)</td>
       <td style="text-align: left">Owner information used to designate if this is a public product (null) or private (not-null)</td>
     </tr>
     <tr>
-      <td style="text-align: left">Owner.Id (<code>Integer</code>)</td>
+      <td style="text-align: left">Owner.Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">For private products, Identifier of the Company that owns this Product</td>
     </tr>
     <tr>
-      <td style="text-align: left">Owner.Name (<code>String</code>)</td>
+      <td style="text-align: left">Owner.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">For private products, Name of the Company that owns this Product</td>
     </tr>
     <tr>
-      <td style="text-align: left">Region (<code>&lt;a href='/api/catalog/#region'&gt;Region&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Region (<code class="highlighter-rouge">&lt;a href='/api/catalog/#region'&gt;Region&lt;/a&gt;</code>)</td>
       <td style="text-align: left">Region information, for Regional Carrier Revisions</td>
     </tr>
     <tr>
-      <td style="text-align: left">ReleaseDate (<code>DateTime</code>)</td>
+      <td style="text-align: left">ReleaseDate (<code class="highlighter-rouge">DateTime</code>)</td>
       <td style="text-align: left">Release Date, in UTC</td>
     </tr>
     <tr>
-      <td style="text-align: left">RmsId (<code>String</code>)</td>
+      <td style="text-align: left">RmsId (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">ShortDescription (<code>String</code>)</td>
+      <td style="text-align: left">ShortDescription (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Short Description</td>
     </tr>
     <tr>
-      <td style="text-align: left">Specifications (<code>Array[object]</code>)</td>
+      <td style="text-align: left">Specifications (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">Details such as color, dimension, etc</td>
     </tr>
     <tr>
-      <td style="text-align: left">Specifications.Name (<code>String</code>)</td>
+      <td style="text-align: left">Specifications.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
     </tr>
     <tr>
-      <td style="text-align: left">Specifications.Fields (<code>&lt;a href='/api/catalog/#field'&gt;Field&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Specifications.Fields (<code class="highlighter-rouge">&lt;a href='/api/catalog/#field'&gt;Field&lt;/a&gt;</code>)</td>
       <td style="text-align: left">Group of ProductFields</td>
     </tr>
     <tr>
-      <td style="text-align: left">UpcCodes (<code>Array[object]</code>)</td>
+      <td style="text-align: left">UpcCodes (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">UPC codes</td>
     </tr>
     <tr>
-      <td style="text-align: left">UpcCodes.Value (<code>String</code>)</td>
+      <td style="text-align: left">UpcCodes.Value (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
     </tr>
     <tr>
-      <td style="text-align: left">UpcCodes.Description (<code>String</code>)</td>
+      <td style="text-align: left">UpcCodes.Description (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Description</td>
     </tr>
     <tr>
-      <td style="text-align: left">UpcCodes.Entity (<code>Integer</code>)</td>
+      <td style="text-align: left">UpcCodes.Entity (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier of an Entity associated with this UPC code</td>
     </tr>
     <tr>
-      <td style="text-align: left">VariationId (<code>Integer</code>)</td>
+      <td style="text-align: left">VariationId (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier for the Variation</td>
     </tr>
     <tr>
-      <td style="text-align: left">VariationInfo (<code>Array[&lt;a href='/api/catalog/#variationinformation'&gt;VariationInformation&lt;/a&gt;]</code>)</td>
+      <td style="text-align: left">VariationInfo (<code class="highlighter-rouge">Array[&lt;a href='/api/catalog/#variationinformation'&gt;VariationInformation&lt;/a&gt;]</code>)</td>
       <td style="text-align: left"><a href="/concepts/product-structure/#variations">Variation</a> information for the Product</td>
     </tr>
     <tr>
-      <td style="text-align: left">VendorSkus (<code>Array[&lt;a href='/api/catalog/#sku'&gt;Sku&lt;/a&gt;]</code>)</td>
+      <td style="text-align: left">VendorSkus (<code class="highlighter-rouge">Array[&lt;a href='/api/catalog/#sku'&gt;Sku&lt;/a&gt;]</code>)</td>
       <td style="text-align: left">Vendor SKUs</td>
     </tr>
     <tr>
-      <td style="text-align: left">Version (<code>Integer</code>)</td>
+      <td style="text-align: left">Version (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Latest revision number</td>
     </tr>
   </tbody>
@@ -671,27 +673,27 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code>Integer</code>)</td>
+      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier for the <a href="/api/classification-tree/#classification">Classification</a> or <a href="/api/classification-tree/#category">Category</a></td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code>String</code>)</td>
+      <td style="text-align: left">Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name of the Classification/Category</td>
     </tr>
     <tr>
-      <td style="text-align: left">ParentCategories (<code>Array[object]</code>)</td>
+      <td style="text-align: left">ParentCategories (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">List of Parent Categories</td>
     </tr>
     <tr>
-      <td style="text-align: left">ParentCategories.Id (<code>Integer</code>)</td>
+      <td style="text-align: left">ParentCategories.Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier</td>
     </tr>
     <tr>
-      <td style="text-align: left">ParentCategories.Name (<code>String</code>)</td>
+      <td style="text-align: left">ParentCategories.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
     </tr>
     <tr>
-      <td style="text-align: left">TreeId (<code>Integer</code>)</td>
+      <td style="text-align: left">TreeId (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier for the <a href="http://developers.iqmetrix.com/api/classification-tree/#classificationtree">ClassificationTree</a></td>
     </tr>
   </tbody>
@@ -710,35 +712,35 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code>GUID</code>)</td>
+      <td style="text-align: left">Id (<code class="highlighter-rouge">GUID</code>)</td>
       <td style="text-align: left">Unique identifier</td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code>String</code>)</td>
+      <td style="text-align: left">Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
     </tr>
     <tr>
-      <td style="text-align: left">ColorTagIds (<code>Array</code>)</td>
+      <td style="text-align: left">ColorTagIds (<code class="highlighter-rouge">Array</code>)</td>
       <td style="text-align: left">List of <a href="/api/product-structure/#colortag">ColorTag</a> Identifiers</td>
     </tr>
     <tr>
-      <td style="text-align: left">ColorTags (<code>Array[object]</code>)</td>
+      <td style="text-align: left">ColorTags (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">Color information</td>
     </tr>
     <tr>
-      <td style="text-align: left">ColorTags.Id (<code>Integer</code>)</td>
+      <td style="text-align: left">ColorTags.Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier</td>
     </tr>
     <tr>
-      <td style="text-align: left">ColorTags.Name (<code>String</code>)</td>
+      <td style="text-align: left">ColorTags.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
     </tr>
     <tr>
-      <td style="text-align: left">ColorTags.ColorCode (<code>String</code>)</td>
+      <td style="text-align: left">ColorTags.ColorCode (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">A valid Hex code representing this color</td>
     </tr>
     <tr>
-      <td style="text-align: left">Swatch (<code>&lt;a href='/api/catalog/#swatch'&gt;Swatch&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Swatch (<code class="highlighter-rouge">&lt;a href='/api/catalog/#swatch'&gt;Swatch&lt;/a&gt;</code>)</td>
       <td style="text-align: left">An icon to display on a screen next to a color showing the actual color of the product. Can be provided as an image Asset or hex code</td>
     </tr>
   </tbody>
@@ -755,15 +757,15 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Type (<code>String</code>)</td>
+      <td style="text-align: left">Type (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Acceptable values are Asset, ColorCodes or Empty</td>
     </tr>
     <tr>
-      <td style="text-align: left">AssetId (<code>GUID</code>)</td>
+      <td style="text-align: left">AssetId (<code class="highlighter-rouge">GUID</code>)</td>
       <td style="text-align: left">If Type is Asset, an identifier for an Asset. Otherwise, this property is ignored</td>
     </tr>
     <tr>
-      <td style="text-align: left">ColorCode (<code>String</code>)</td>
+      <td style="text-align: left">ColorCode (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">If Type is ColorCode, a valid hex code for a color. Otherwise, this propety is ignored</td>
     </tr>
   </tbody>
@@ -780,23 +782,23 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code>GUID</code>)</td>
+      <td style="text-align: left">Id (<code class="highlighter-rouge">GUID</code>)</td>
       <td style="text-align: left">Unique identifier</td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code>String</code>)</td>
+      <td style="text-align: left">Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">File name</td>
     </tr>
     <tr>
-      <td style="text-align: left">Uri (<code>String</code>)</td>
+      <td style="text-align: left">Uri (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">URL that points to an actual file where the digital asset is stored</td>
     </tr>
     <tr>
-      <td style="text-align: left">Type (<code>String</code>)</td>
+      <td style="text-align: left">Type (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Type of asset</td>
     </tr>
     <tr>
-      <td style="text-align: left">IsHidden (<code>Boolean</code>)</td>
+      <td style="text-align: left">IsHidden (<code class="highlighter-rouge">Boolean</code>)</td>
       <td style="text-align: left">A flag to indicate that this Asset exists on the product but should not be seen on a UI</td>
     </tr>
   </tbody>
@@ -813,23 +815,23 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Value (<code>String</code>)</td>
+      <td style="text-align: left">Value (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Value</td>
     </tr>
     <tr>
-      <td style="text-align: left">Description (<code>String</code>)</td>
+      <td style="text-align: left">Description (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Description</td>
     </tr>
     <tr>
-      <td style="text-align: left">Entity (<code>object</code>)</td>
+      <td style="text-align: left">Entity (<code class="highlighter-rouge">object</code>)</td>
       <td style="text-align: left">Identifier for an Entity this SKU is associated with</td>
     </tr>
     <tr>
-      <td style="text-align: left">Entity.Id (<code>Integer</code>)</td>
+      <td style="text-align: left">Entity.Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier of an Entity used for Entity Revisions. See <a href="/concepts/product-structure/#carrier-revisions">Carrier Revisions</a> for more information</td>
     </tr>
     <tr>
-      <td style="text-align: left">Entity.Name (<code>String</code>)</td>
+      <td style="text-align: left">Entity.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Entity name</td>
     </tr>
   </tbody>
@@ -846,19 +848,19 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">CountryCode (<code>String</code>)</td>
+      <td style="text-align: left">CountryCode (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Country in which this address resides. Uses the ISO 3166-1 alpha-2 standard. For a list of acceptable codes, see <a href="/api/reference/#getting-all-countries">Getting All Countries</a></td>
     </tr>
     <tr>
-      <td style="text-align: left">CountryName (<code>String</code>)</td>
+      <td style="text-align: left">CountryName (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Country name</td>
     </tr>
     <tr>
-      <td style="text-align: left">StateCode (<code>String</code>)</td>
+      <td style="text-align: left">StateCode (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Code for the State in which this address resides. Based off the ISO 3166-2 standard. For a list of acceptable codes, see <a href="/api/reference/#getting-all-countries">Getting All Countries</a></td>
     </tr>
     <tr>
-      <td style="text-align: left">StateName (<code>String</code>)</td>
+      <td style="text-align: left">StateName (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">State name</td>
     </tr>
   </tbody>
@@ -875,27 +877,27 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">VariationId (<code>Integer</code>)</td>
+      <td style="text-align: left">VariationId (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier for a Variation</td>
     </tr>
     <tr>
-      <td style="text-align: left">Slug (<code>String</code>)</td>
+      <td style="text-align: left">Slug (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Identifier for the Variation</td>
     </tr>
     <tr>
-      <td style="text-align: left">Fields (<code>Array[object]</code>)</td>
+      <td style="text-align: left">Fields (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">Fields which describe how the Variation differs from its parent</td>
     </tr>
     <tr>
-      <td style="text-align: left">Fields.FieldId (<code>Integer</code>)</td>
+      <td style="text-align: left">Fields.FieldId (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier for a <a href="/api/field-definitions/#fielddefinition">FieldDefinition</a></td>
     </tr>
     <tr>
-      <td style="text-align: left">Fields.Name (<code>String</code>)</td>
+      <td style="text-align: left">Fields.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
     </tr>
     <tr>
-      <td style="text-align: left">Fields.Value (<code>String</code>)</td>
+      <td style="text-align: left">Fields.Value (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Value to be used for this Field</td>
     </tr>
   </tbody>
@@ -912,27 +914,27 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Sku (<code>String</code>)</td>
+      <td style="text-align: left">Sku (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Sku</td>
     </tr>
     <tr>
-      <td style="text-align: left">SkuType (<code>String</code>)</td>
+      <td style="text-align: left">SkuType (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">A string to indicate the type of Entity this Identifier is for. Acceptable values are: ManufacturerSku, VendorSku or UPC</td>
     </tr>
     <tr>
-      <td style="text-align: left">Entity (<code>object</code>)</td>
+      <td style="text-align: left">Entity (<code class="highlighter-rouge">object</code>)</td>
       <td style="text-align: left">Entity information for this Identifier</td>
     </tr>
     <tr>
-      <td style="text-align: left">Entity.Id (<code>Integer</code>)</td>
+      <td style="text-align: left">Entity.Id (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left">Identifier of an Entity used for Entity Revisions. See <a href="/concepts/product-structure/#carrier-revisions">Carrier Revisions</a> for more information</td>
     </tr>
     <tr>
-      <td style="text-align: left">Entity.Name (<code>String</code>)</td>
+      <td style="text-align: left">Entity.Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Entity name</td>
     </tr>
     <tr>
-      <td style="text-align: left">Description (<code>String</code>)</td>
+      <td style="text-align: left">Description (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Description</td>
     </tr>
   </tbody>
@@ -946,37 +948,20 @@
   <p>Definition</p>
 </blockquote>
 
-<pre><code>GET /Companies({CompanyId})/Catalog/Items
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})/Catalog/Items
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Items
-Authorization: Bearer (Access Token)
-Accept: application/json
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
+</div>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAllCatalogItems()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -992,6 +977,7 @@ public static CloseableHttpResponse GettingAllCatalogItems() throws IOException 
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1047,42 +1033,23 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>POST /Companies({CompanyId})/Catalog/Items/
+<div class="highlighter-rouge"><pre class="highlight"><code>POST /Companies({CompanyId})/Catalog/Items/
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>POST /Companies(14146)/Catalog/Items/
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
-
-<pre class="highlight shell"><code>
-curl -X POST "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items/" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X POST <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items/"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
     "Slug": "M1248-V1",
     "RmsId": "1"
-}'</code></pre>
+}'</span>
+</code></pre>
+</div>
 
-<pre class="highlight csharp"><code>
-static IRestResponse AddingACatalogItemFromProductLibrary()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items/");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Slug\":\"M1248-V1\",\"RmsId\":\"1\"}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1101,6 +1068,7 @@ public static CloseableHttpResponse AddingACatalogItemFromProductLibrary() throw
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1159,37 +1127,20 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>GET /Companies({CompanyId})/Catalog/Items(SourceId={SubscriptionListId})
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})/Catalog/Items(SourceId={SubscriptionListId})
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Items(SourceId=43d92a51-650e-4b85-b5d0-8d51bf4c59f4)
-Authorization: Bearer (Access Token)
-Accept: application/json
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(SourceId=43d92a51-650e-4b85-b5d0-8d51bf4c59f4)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
+</div>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(SourceId=43d92a51-650e-4b85-b5d0-8d51bf4c59f4)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-
-<pre class="highlight csharp"><code>
-static IRestResponse GettingCatalogItemsBySubscriptionList()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(SourceId=43d92a51-650e-4b85-b5d0-8d51bf4c59f4)");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1205,6 +1156,7 @@ public static CloseableHttpResponse GettingCatalogItemsBySubscriptionList() thro
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1268,37 +1220,20 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes
-Authorization: Bearer (Access Token)
-Accept: application/json
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
+</div>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-
-<pre class="highlight csharp"><code>
-static IRestResponse GettingExtendedAttributesForACatalogItem()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1314,6 +1249,7 @@ public static CloseableHttpResponse GettingExtendedAttributesForACatalogItem() t
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1368,44 +1304,25 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>PUT /Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes
+<div class="highlighter-rouge"><pre class="highlight"><code>PUT /Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>PUT /Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
-
-<pre class="highlight shell"><code>
-curl -X PUT "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '[
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X PUT <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'[
     {
         "Name": "Country of Manufacture",
         "Value": "China"
     }
-]'</code></pre>
+]'</span>
+</code></pre>
+</div>
 
-<pre class="highlight csharp"><code>
-static IRestResponse AddingOrUpdatingExtendedAttributesForACatalogItem()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes");
-    var request = new RestRequest(Method.PUT);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "[{\"Name\":\"Country of Manufacture\",\"Value\":\"China\"}]", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1424,6 +1341,7 @@ public static CloseableHttpResponse AddingOrUpdatingExtendedAttributesForACatalo
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1481,42 +1399,23 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>DELETE /Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes
+<div class="highlighter-rouge"><pre class="highlight"><code>DELETE /Companies({CompanyId})/Catalog/Items({CatalogItemId})/attributes
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>DELETE /Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
-
-<pre class="highlight shell"><code>
-curl -X DELETE "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '[
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X DELETE <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'[
   "Cases Per Layer"
 ]
-'</code></pre>
+'</span>
+</code></pre>
+</div>
 
-<pre class="highlight csharp"><code>
-static IRestResponse RemovingExtendedAttributesFromACatalogItem()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/attributes");
-    var request = new RestRequest(Method.DELETE);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "[\"Cases Per Layer\"]", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1535,6 +1434,7 @@ public static CloseableHttpResponse RemovingExtendedAttributesFromACatalogItem()
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1574,37 +1474,20 @@ puts response</code></pre>
   <p>Definition</p>
 </blockquote>
 
-<pre><code>GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/ProductDetails
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/ProductDetails
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/ProductDetails
-Authorization: Bearer (Access Token)
-Accept: application/json
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/ProductDetails"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
+</div>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/ProductDetails" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-
-<pre class="highlight csharp"><code>
-static IRestResponse GettingProductDetails()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/ProductDetails");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1620,6 +1503,7 @@ public static CloseableHttpResponse GettingProductDetails() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1809,45 +1693,26 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>POST /Companies({CompanyId})/Catalog/Items/ProductDetails/Bulk
+<div class="highlighter-rouge"><pre class="highlight"><code>POST /Companies({CompanyId})/Catalog/Items/ProductDetails/Bulk
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>POST /Companies(14146)/Catalog/Items/ProductDetails/Bulk
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
-
-<pre class="highlight shell"><code>
-curl -X POST "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items/ProductDetails/Bulk" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X POST <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items/ProductDetails/Bulk"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
   "CatalogItemIds" : [
     "21ac987c-d55a-482a-9450-402976a71563",
     "402976a7-482a-d55a-1563-21ac987c9450"
   ]
 }
-'</code></pre>
+'</span>
+</code></pre>
+</div>
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingManyProductDetailsAtOnce()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items/ProductDetails/Bulk");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"CatalogItemIds\":[\"21ac987c-d55a-482a-9450-402976a71563\",\"402976a7-482a-d55a-1563-21ac987c9450\"]}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1866,6 +1731,7 @@ public static CloseableHttpResponse GettingManyProductDetailsAtOnce() throws IOE
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2031,37 +1897,20 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Compatible
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Compatible
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/Compatible
-Authorization: Bearer (Access Token)
-Accept: application/json
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/Compatible"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
+</div>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/Compatible" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-
-<pre class="highlight csharp"><code>
-static IRestResponse GettingCompatibleProductsForACatalogItem()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/Compatible");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2077,6 +1926,7 @@ public static CloseableHttpResponse GettingCompatibleProductsForACatalogItem() t
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2176,37 +2026,20 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Variations
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})/Catalog/Items({CatalogItemId})/Variations
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/Variations
-Authorization: Bearer (Access Token)
-Accept: application/json
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/Variations"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
+</div>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/Variations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-
-<pre class="highlight csharp"><code>
-static IRestResponse GettingVariationsForACatalogItem()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(a183f1a9-c58f-426a-930a-9a6357db52ed)/Variations");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2222,6 +2055,7 @@ public static CloseableHttpResponse GettingVariationsForACatalogItem() throws IO
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2280,37 +2114,20 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>GET /Companies({CompanyId})/Catalog/Items/ByVendorSku?vendorsku={VendorSku}&amp;vendorid={VendorId}
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})/Catalog/Items/ByVendorSku?vendorsku={VendorSku}&amp;vendorid={VendorId}
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Items/ByVendorSku?vendorsku=408853&amp;vendorid=1217
-Authorization: Bearer (Access Token)
-Accept: application/json
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items/ByVendorSku?vendorsku=408853&amp;vendorid=1217"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
+</div>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items/ByVendorSku?vendorsku=408853&amp;vendorid=1217" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-
-<pre class="highlight csharp"><code>
-static IRestResponse GettingProductsByVendorSku()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items/ByVendorSku?vendorsku=408853&amp;vendorid=1217");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2326,6 +2143,7 @@ public static CloseableHttpResponse GettingProductsByVendorSku() throws IOExcept
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2393,37 +2211,20 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>GET /Companies({CompanyId})/Catalog/Search?CategoryOrClassificationId={CategoryOrClassificationId}&amp;Page={Page}&amp;PageSize={PageSize}
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})/Catalog/Search?CategoryOrClassificationId={CategoryOrClassificationId}&amp;Page={Page}&amp;PageSize={PageSize}
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Search?CategoryOrClassificationId=1&amp;Page=1&amp;PageSize=10
-Authorization: Bearer (Access Token)
-Accept: application/json
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?CategoryOrClassificationId=1&amp;Page=1&amp;PageSize=10"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
+</div>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?CategoryOrClassificationId=1&amp;Page=1&amp;PageSize=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-
-<pre class="highlight csharp"><code>
-static IRestResponse GettingProductsByCategoryOrClassification()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?CategoryOrClassificationId=1&amp;Page=1&amp;PageSize=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2439,6 +2240,7 @@ public static CloseableHttpResponse GettingProductsByCategoryOrClassification() 
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2575,37 +2377,20 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>GET /Companies({CompanyId})/Catalog/Search?ManufacturerIds={ManufacturerIds}&amp;Page={Page}&amp;PageSize={PageSize}
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})/Catalog/Search?ManufacturerIds={ManufacturerIds}&amp;Page={Page}&amp;PageSize={PageSize}
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Search?ManufacturerIds=10540&amp;Page=1&amp;PageSize=10
-Authorization: Bearer (Access Token)
-Accept: application/json
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?ManufacturerIds=10540&amp;Page=1&amp;PageSize=10"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
+</div>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?ManufacturerIds=10540&amp;Page=1&amp;PageSize=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-
-<pre class="highlight csharp"><code>
-static IRestResponse GettingProductsByManufacturer()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?ManufacturerIds=10540&amp;Page=1&amp;PageSize=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2621,6 +2406,7 @@ public static CloseableHttpResponse GettingProductsByManufacturer() throws IOExc
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2757,37 +2543,20 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>GET /Companies({CompanyId})/Catalog/Search?VendorIds={VendorIds}&amp;Page={Page}&amp;PageSize={PageSize}
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})/Catalog/Search?VendorIds={VendorIds}&amp;Page={Page}&amp;PageSize={PageSize}
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Search?VendorIds=1217&amp;Page=1&amp;PageSize=10
-Authorization: Bearer (Access Token)
-Accept: application/json
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?VendorIds=1217&amp;Page=1&amp;PageSize=10"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
+</div>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?VendorIds=1217&amp;Page=1&amp;PageSize=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-
-<pre class="highlight csharp"><code>
-static IRestResponse GettingProductsBySupplier()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?VendorIds=1217&amp;Page=1&amp;PageSize=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2803,6 +2572,7 @@ public static CloseableHttpResponse GettingProductsBySupplier() throws IOExcepti
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2939,37 +2709,20 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>GET /Companies({CompanyId})/Catalog/Search?IsDropshippable={IsDropShippable}&amp;Page={Page}&amp;PageSize={PageSize}
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})/Catalog/Search?IsDropshippable={IsDropShippable}&amp;Page={Page}&amp;PageSize={PageSize}
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Search?IsDropshippable=true&amp;Page=1&amp;PageSize=10
-Authorization: Bearer (Access Token)
-Accept: application/json
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?IsDropshippable=true&amp;Page=1&amp;PageSize=10"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
+</div>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?IsDropshippable=true&amp;Page=1&amp;PageSize=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-
-<pre class="highlight csharp"><code>
-static IRestResponse GettingProductsAvailableForShipping()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?IsDropshippable=true&amp;Page=1&amp;PageSize=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2985,6 +2738,7 @@ public static CloseableHttpResponse GettingProductsAvailableForShipping() throws
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -3125,37 +2879,20 @@ SearchTerms specified in the URI are compared against the following Product fiel
   <p>Definition</p>
 </blockquote>
 
-<pre><code>GET /Companies({CompanyId})/Catalog/Search?SearchTerms={SearchTerms}&amp;OrderBy={OrderBy}&amp;OrderDir={OrderDir}&amp;Page={Page}&amp;PageSize={PageSize}
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})/Catalog/Search?SearchTerms={SearchTerms}&amp;OrderBy={OrderBy}&amp;OrderDir={OrderDir}&amp;Page={Page}&amp;PageSize={PageSize}
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Search?SearchTerms=iPhone&amp;OrderBy=name&amp;OrderDir=asc&amp;Page=1&amp;PageSize=10
-Authorization: Bearer (Access Token)
-Accept: application/json
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?SearchTerms=iPhone&amp;OrderBy=name&amp;OrderDir=asc&amp;Page=1&amp;PageSize=10"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
+</div>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?SearchTerms=iPhone&amp;OrderBy=name&amp;OrderDir=asc&amp;Page=1&amp;PageSize=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-
-<pre class="highlight csharp"><code>
-static IRestResponse SearchingForProducts()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?SearchTerms=iPhone&amp;OrderBy=name&amp;OrderDir=asc&amp;Page=1&amp;PageSize=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -3171,6 +2908,7 @@ public static CloseableHttpResponse SearchingForProducts() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -3317,37 +3055,20 @@ HTTP 200 Content-Type: application/json
   <p>Definition</p>
 </blockquote>
 
-<pre><code>GET /Companies({CompanyId})/Catalog/Search?VendorIds={VendorIds}&amp;ManufacturerIds={ManufacturerIds}&amp;IsDropshippable={IsDropShippable}&amp;CategoryOrClassificationId={CategoryOrClassificationId}&amp;ClassificationTreeId={ClassificationTreeId}&amp;SearchTerms={SearchTerms}&amp;OrderBy={OrderBy}&amp;OrderDir={OrderDir}&amp;IsLinkedToCuratedProduct={IsLinkedToCuratedProduct}&amp;ColorTagIds={ColorTagIds}&amp;Page={Page}&amp;PageSize={PageSize}
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})/Catalog/Search?VendorIds={VendorIds}&amp;ManufacturerIds={ManufacturerIds}&amp;IsDropshippable={IsDropShippable}&amp;CategoryOrClassificationId={CategoryOrClassificationId}&amp;ClassificationTreeId={ClassificationTreeId}&amp;SearchTerms={SearchTerms}&amp;OrderBy={OrderBy}&amp;OrderDir={OrderDir}&amp;IsLinkedToCuratedProduct={IsLinkedToCuratedProduct}&amp;ColorTagIds={ColorTagIds}&amp;Page={Page}&amp;PageSize={PageSize}
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Catalog/Search?VendorIds=1217&amp;ManufacturerIds=10540&amp;IsDropshippable=true&amp;CategoryOrClassificationId=4&amp;ClassificationTreeId=1&amp;SearchTerms=iPhone&amp;OrderBy=name&amp;OrderDir=asc&amp;IsLinkedToCuratedProduct=false&amp;ColorTagIds=1&amp;Page=1&amp;PageSize=10
-Authorization: Bearer (Access Token)
-Accept: application/json
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?VendorIds=1217&amp;ManufacturerIds=10540&amp;IsDropshippable=true&amp;CategoryOrClassificationId=4&amp;ClassificationTreeId=1&amp;SearchTerms=iPhone&amp;OrderBy=name&amp;OrderDir=asc&amp;IsLinkedToCuratedProduct=false&amp;ColorTagIds=1&amp;Page=1&amp;PageSize=10"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
+</div>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?VendorIds=1217&amp;ManufacturerIds=10540&amp;IsDropshippable=true&amp;CategoryOrClassificationId=4&amp;ClassificationTreeId=1&amp;SearchTerms=iPhone&amp;OrderBy=name&amp;OrderDir=asc&amp;IsLinkedToCuratedProduct=false&amp;ColorTagIds=1&amp;Page=1&amp;PageSize=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
-
-<pre class="highlight csharp"><code>
-static IRestResponse CombiningSearchFilters()
-{
-    var client = new RestClient("https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Search?VendorIds=1217&amp;ManufacturerIds=10540&amp;IsDropshippable=true&amp;CategoryOrClassificationId=4&amp;ClassificationTreeId=1&amp;SearchTerms=iPhone&amp;OrderBy=name&amp;OrderDir=asc&amp;IsLinkedToCuratedProduct=false&amp;ColorTagIds=1&amp;Page=1&amp;PageSize=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -3363,6 +3084,7 @@ public static CloseableHttpResponse CombiningSearchFilters() throws IOException 
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -3541,13 +3263,13 @@ HTTP 200 Content-Type: application/json
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Cannot add product to catalog</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Cannot add product to catalog</code></td>
       <td style="text-align: left">Ensure  is valid</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code>HTTP 404</code></td>
-      <td style="text-align: left"><code>Catalog Item not found</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 404</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Catalog Item not found</code></td>
       <td style="text-align: left">Ensure CatalogItem GUID is valid and the CatalogItem exists</td>
     </tr>
   </tbody>

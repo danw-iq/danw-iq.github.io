@@ -92,11 +92,8 @@ POST /providers({ProviderId})/tradeData
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /providers(10)/tradeData
-Authorization: Bearer (Access Token)
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeData" -H "Authorization: Bearer (Access Token)" -d '[
     {
         "inspectedDate": "2016-03-16T12:00:00.000Z",
@@ -114,24 +111,11 @@ curl -X POST "https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeDa
         "shipmentId": "123",
         "tradeInStatus": "Quoted"
     }
-]'</code></pre>
+]'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse CreateOrUpdateATrade()
-{
-    var client = new RestClient("https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeData");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-
-     request.AddParameter("application/json", "[{\"inspectedDate\":\"2016-03-16T12:00:00.000Z\",\"originalCustomerInspectionValue \":310.5,\"originalCustomerTradeInValue\":310.5,\"paymentDate\":\"2016-03-16T12:00:00.000Z\",\"postInspectionValue\":310.5,\"processedDate\":\"2016-03-17T12:00:00.000Z\",\"receivedDate\":\"2016-03-16T12:00:00.000Z\",\"receivedImei\":\"351756051523999\",\"receivedProductDisplayName\":\"Galaxy S6 edge+ 32GB - Black Sapphire\",\"referenceNumber\":\"29253392392\",\"serialNumber\":\"B7FQ-RANC\",\"shippedDate\":\"2016-03-13T12:00:00.000Z\",\"shipmentId\":\"123\",\"tradeInStatus\":\"Quoted\"}]", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -148,6 +132,7 @@ public static CloseableHttpResponse CreateOrUpdateATrade() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -203,29 +188,13 @@ GET /providers({ProviderId})/tradeData({TradeDataId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /providers(10)/tradeData(357)
-Authorization: Bearer (Access Token)
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeData(357)" -H "Authorization: Bearer (Access Token)"</code></pre>
+```shell
+curl -X GET "https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeData(357)" -H "Authorization: Bearer (Access Token)"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GetProviderDataForATrade()
-{
-    var client = new RestClient("https://tradeinreportingdemo.iqmetrix.net/v1/providers(10)/tradeData(357)");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -240,6 +209,7 @@ public static CloseableHttpResponse GetProviderDataForATrade() throws IOExceptio
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 

@@ -148,31 +148,13 @@ GET /Companies({CompanyId})/CommissionEntries?$filter=LastUpdateDateUtc ge datet
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/CommissionEntries?$filter=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&$skip=1&$top=10
-Authorization: Bearer (Access Token)
-Accept: application/hal+json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://commissiondemo.iqmetrix.net/v1/Companies(14146)/CommissionEntries?$filter=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&$skip=1&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"</code></pre>
+```shell
+curl -X GET "https://commissiondemo.iqmetrix.net/v1/Companies(14146)/CommissionEntries?$filter=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&$skip=1&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAllCommissionEntries()
-{
-    var client = new RestClient("https://commissiondemo.iqmetrix.net/v1/Companies(14146)/CommissionEntries?$filter=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&$skip=1&$top=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/hal+json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -188,6 +170,7 @@ public static CloseableHttpResponse GettingAllCommissionEntries() throws IOExcep
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 

@@ -283,31 +283,13 @@ GET /Companies({CompanyId})/Customers?$skip={Skip}&top={Top}
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Customers?$skip=1&top=10
-Authorization: Bearer (Access Token)
-Accept: application/hal+json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers?$skip=1&top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"</code></pre>
+```shell
+curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers?$skip=1&top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAllCustomers()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers?$skip=1&top=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/hal+json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -323,6 +305,7 @@ public static CloseableHttpResponse GettingAllCustomers() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -431,13 +414,8 @@ POST /Companies({CompanyId})/Customers
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Companies(14146)/Customers
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "PrimaryName": "Princess",
     "MiddleName": "Ella",
@@ -449,26 +427,11 @@ curl -X POST "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers" -H "Au
     "DoNotContact": true,
     "Notes": "Interested in iPhone 6",
     "Title": "Ms"
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse CreatingACustomer()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"PrimaryName\":\"Princess\",\"MiddleName\":\"Ella\",\"FamilyName\":\"Jasmine\",\"AlternateName\":\"Jas\",\"CustomerTypeId\":3,\"DateOfBirth\":\"1952-07-23T12:00:00.000\",\"Disabled\":true,\"DoNotContact\":true,\"Notes\":\"Interested in iPhone 6\",\"Title\":\"Ms\"}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -487,6 +450,7 @@ public static CloseableHttpResponse CreatingACustomer() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -553,31 +517,13 @@ GET /Companies({CompanyId})/Customers({CustomerId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingACustomer()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -593,6 +539,7 @@ public static CloseableHttpResponse GettingACustomer() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -658,13 +605,8 @@ PUT /Companies({CompanyId})/Customers({CustomerId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>PUT /Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X PUT "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Id": "659c2a38-d083-4421-9330-46d779702f85",
     "PrimaryName": "Princess",
@@ -679,26 +621,11 @@ curl -X PUT "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38
     "Notes": "Interested in iPhone 6",
     "Title": "Ms",
     "Version": 1
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse UpdatingACustomer()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)");
-    var request = new RestRequest(Method.PUT);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Id\":\"659c2a38-d083-4421-9330-46d779702f85\",\"PrimaryName\":\"Princess\",\"MiddleName\":\"Ella\",\"FamilyName\":\"Jasmine\",\"AlternateName\":\"Jas\",\"CustomerType\":\"Company\",\"CustomerTypeId\":3,\"DateOfBirth\":\"1952-07-23T12:00:00.000\",\"Disabled\":true,\"DoNotContact\":true,\"Notes\":\"Interested in iPhone 6\",\"Title\":\"Ms\",\"Version\":1}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -717,6 +644,7 @@ public static CloseableHttpResponse UpdatingACustomer() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -787,29 +715,13 @@ DELETE /Companies({CompanyId})/Customers({CustomerId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>DELETE /Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)
-Authorization: Bearer (Access Token)
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X DELETE "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)" -H "Authorization: Bearer (Access Token)"</code></pre>
+```shell
+curl -X DELETE "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)" -H "Authorization: Bearer (Access Token)"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse DeletingACustomer()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)");
-    var request = new RestRequest(Method.DELETE);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -824,6 +736,7 @@ public static CloseableHttpResponse DeletingACustomer() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -873,31 +786,13 @@ GET /Companies({CompanyId})/Customers({CustomerId})/Addresses?$skip={Skip}&top={
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/Addresses?$skip=1&top=10
-Authorization: Bearer (Access Token)
-Accept: application/hal+json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/Addresses?$skip=1&top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"</code></pre>
+```shell
+curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/Addresses?$skip=1&top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAllAddressesForACustomer()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/Addresses?$skip=1&top=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/hal+json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -913,6 +808,7 @@ public static CloseableHttpResponse GettingAllAddressesForACustomer() throws IOE
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1022,13 +918,8 @@ POST /Companies({CompanyId})/Customers({CustomerId})/Addresses
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/Addresses
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/Addresses" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "CustomerId": "659c2a38-d083-4421-9330-46d779702f85",
     "AddressTypeId": 2,
@@ -1045,26 +936,11 @@ curl -X POST "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a3
     "StateCode": "AB",
     "StreetAddress1": "1600 Amphitheatre Pkwy",
     "StreetAddress2": "Suite 500"
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse AddingACustomerAddress()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/Addresses");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"CustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"AddressTypeId\":2,\"AttentionTo\":\"Princess\",\"CountryCode\":\"CA\",\"Default\":false,\"DoNotContact\":true,\"Email\":\"Jas@princess.ca\",\"Locality\":\"Mountain View\",\"Notes\":\"Moved as of April 15 2015\",\"Phone\":\"(555) 555-5555\",\"PostalCode\":\"94043\",\"PostOfficeBoxNumber\":\"P.O. Box 1022\",\"StateCode\":\"AB\",\"StreetAddress1\":\"1600 Amphitheatre Pkwy\",\"StreetAddress2\":\"Suite 500\"}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1083,6 +959,7 @@ public static CloseableHttpResponse AddingACustomerAddress() throws IOException 
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1160,31 +1037,13 @@ GET /Companies({CompanyId})/Customers({CustomerId})/Addresses({AddressId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Customers(902cdc91-65f4-4c7d-b336-5f291849f2fe)/Addresses(a08b0640-606a-41f0-901a-facaf50e75dd)
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(902cdc91-65f4-4c7d-b336-5f291849f2fe)/Addresses(a08b0640-606a-41f0-901a-facaf50e75dd)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(902cdc91-65f4-4c7d-b336-5f291849f2fe)/Addresses(a08b0640-606a-41f0-901a-facaf50e75dd)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingACustomerAddress()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(902cdc91-65f4-4c7d-b336-5f291849f2fe)/Addresses(a08b0640-606a-41f0-901a-facaf50e75dd)");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1200,6 +1059,7 @@ public static CloseableHttpResponse GettingACustomerAddress() throws IOException
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1276,13 +1136,8 @@ PUT /Companies({CompanyId})/Customers({CustomerId})/Addresses({AddressId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>PUT /Companies(14146)/Customers(902cdc91-65f4-4c7d-b336-5f291849f2fe)/Addresses(a08b0640-606a-41f0-901a-facaf50e75dd)
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X PUT "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(902cdc91-65f4-4c7d-b336-5f291849f2fe)/Addresses(a08b0640-606a-41f0-901a-facaf50e75dd)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Id": "a08b0640-606a-41f0-901a-facaf50e75dd",
     "CustomerId": "659c2a38-d083-4421-9330-46d779702f85",
@@ -1304,26 +1159,11 @@ curl -X PUT "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(902cdc91
     "StreetAddress1": "1600 Amphitheatre Pkwy",
     "StreetAddress2": "Suite 500",
     "Version": 1
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse UpdatingACustomerAddress()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(902cdc91-65f4-4c7d-b336-5f291849f2fe)/Addresses(a08b0640-606a-41f0-901a-facaf50e75dd)");
-    var request = new RestRequest(Method.PUT);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Id\":\"a08b0640-606a-41f0-901a-facaf50e75dd\",\"CustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"AddressType\":\"Home\",\"AddressTypeId\":2,\"AttentionTo\":\"Princess\",\"Country\":\"Canada\",\"CountryCode\":\"CA\",\"Default\":false,\"DoNotContact\":true,\"Email\":\"Jas@princess.ca\",\"Locality\":\"Mountain View\",\"Notes\":\"Moved as of April 15 2015\",\"Phone\":\"(555) 555-5555\",\"PostalCode\":\"94043\",\"PostOfficeBoxNumber\":\"P.O. Box 1022\",\"State\":\"Alberta\",\"StateCode\":\"AB\",\"StreetAddress1\":\"1600 Amphitheatre Pkwy\",\"StreetAddress2\":\"Suite 500\",\"Version\":1}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1342,6 +1182,7 @@ public static CloseableHttpResponse UpdatingACustomerAddress() throws IOExceptio
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1423,29 +1264,13 @@ DELETE /Companies({CompanyId})/Customers({CustomerId})/Addresses({AddressId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>DELETE /Companies(14146)/Customers(902cdc91-65f4-4c7d-b336-5f291849f2fe)/Addresses(a08b0640-606a-41f0-901a-facaf50e75dd)
-Authorization: Bearer (Access Token)
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X DELETE "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(902cdc91-65f4-4c7d-b336-5f291849f2fe)/Addresses(a08b0640-606a-41f0-901a-facaf50e75dd)" -H "Authorization: Bearer (Access Token)"</code></pre>
+```shell
+curl -X DELETE "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(902cdc91-65f4-4c7d-b336-5f291849f2fe)/Addresses(a08b0640-606a-41f0-901a-facaf50e75dd)" -H "Authorization: Bearer (Access Token)"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse RemovingAnAddressFromACustomer()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(902cdc91-65f4-4c7d-b336-5f291849f2fe)/Addresses(a08b0640-606a-41f0-901a-facaf50e75dd)");
-    var request = new RestRequest(Method.DELETE);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1460,6 +1285,7 @@ public static CloseableHttpResponse RemovingAnAddressFromACustomer() throws IOEx
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1513,31 +1339,13 @@ GET /Companies({CompanyId})/CustomerExtensionTypes
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/CustomerExtensionTypes
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/CustomerExtensionTypes" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/CustomerExtensionTypes" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAllCustomerExtensionTypes()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/CustomerExtensionTypes");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1553,6 +1361,7 @@ public static CloseableHttpResponse GettingAllCustomerExtensionTypes() throws IO
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1606,37 +1415,17 @@ POST /Companies({CompanyId})/Customers({CustomerId})/CustomerExtensions
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/CustomerExtensions
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/CustomerExtensions" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "CustomerId": "659c2a38-d083-4421-9330-46d779702f85",
     "ExtensionTypeId": 2,
     "Value": "66432"
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse CreatingACustomerExtension()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/CustomerExtensions");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"CustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"ExtensionTypeId\":2,\"Value\":\"66432\"}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1655,6 +1444,7 @@ public static CloseableHttpResponse CreatingACustomerExtension() throws IOExcept
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1718,31 +1508,13 @@ GET /Companies({CompanyId})/Customers({CustomerId})/CustomerExtensions({Customer
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/CustomerExtensions(1)
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/CustomerExtensions(1)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/CustomerExtensions(1)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingACustomerExtension()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/CustomerExtensions(1)");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1758,6 +1530,7 @@ public static CloseableHttpResponse GettingACustomerExtension() throws IOExcepti
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1820,13 +1593,8 @@ PUT /Companies({CompanyId})/Customers({CustomerId})/CustomerExtensions({Customer
 > Example Request
 
 
-<pre class="highlight javascript"><code>PUT /Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/CustomerExtensions(1)
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X PUT "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/CustomerExtensions(1)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Id": "74b87ece-5f70-454d-9991-7952127146b0",
     "CustomerId": "659c2a38-d083-4421-9330-46d779702f85",
@@ -1834,26 +1602,11 @@ curl -X PUT "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38
     "ExtensionTypeId": 2,
     "Value": "66432",
     "Version": 1
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse UpdatingACustomerExtension()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/CustomerExtensions(1)");
-    var request = new RestRequest(Method.PUT);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Id\":\"74b87ece-5f70-454d-9991-7952127146b0\",\"CustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"ExtensionType\":\"ExternalCustomerId\",\"ExtensionTypeId\":2,\"Value\":\"66432\",\"Version\":1}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1872,6 +1625,7 @@ public static CloseableHttpResponse UpdatingACustomerExtension() throws IOExcept
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -1939,29 +1693,13 @@ DELETE /Companies({CompanyId})/Customers({CustomerId})/CustomerExtensions({Custo
 > Example Request
 
 
-<pre class="highlight javascript"><code>DELETE /Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/CustomerExtensions(1)
-Authorization: Bearer (Access Token)
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X DELETE "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/CustomerExtensions(1)" -H "Authorization: Bearer (Access Token)"</code></pre>
+```shell
+curl -X DELETE "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/CustomerExtensions(1)" -H "Authorization: Bearer (Access Token)"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse DeletingACustomerExtension()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/CustomerExtensions(1)");
-    var request = new RestRequest(Method.DELETE);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1976,6 +1714,7 @@ public static CloseableHttpResponse DeletingACustomerExtension() throws IOExcept
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2029,13 +1768,8 @@ POST /Companies({CompanyId})/CustomerFull
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Companies(14146)/CustomerFull
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://crmdemo.iqmetrix.net/v1/Companies(14146)/CustomerFull" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "PrimaryName": "Princess",
     "MiddleName": "Ella",
@@ -2086,26 +1820,11 @@ curl -X POST "https://crmdemo.iqmetrix.net/v1/Companies(14146)/CustomerFull" -H 
     "Notes": "Interested in iPhone 6",
     "RelatedCustomers": [],
     "Title": "Ms"
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse CreatingAFullCustomer()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/CustomerFull");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"PrimaryName\":\"Princess\",\"MiddleName\":\"Ella\",\"FamilyName\":\"Jasmine\",\"Addresses\":[{\"CustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"AddressTypeId\":2,\"AttentionTo\":\"Princess\",\"CountryCode\":\"CA\",\"Default\":false,\"DoNotContact\":true,\"Email\":\"Jas@princess.ca\",\"Locality\":\"Mountain View\",\"Notes\":\"Moved as of April 15 2015\",\"Phone\":\"(555) 555-5555\",\"PostalCode\":\"94043\",\"PostOfficeBoxNumber\":\"P.O. Box 1022\",\"StateCode\":\"AB\",\"StreetAddress1\":\"1600 Amphitheatre Pkwy\",\"StreetAddress2\":\"Suite 500\"}],\"AlternateName\":\"Jas\",\"ContactMethods\":[{\"CustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"ContactMethodCategoryId\":3,\"ContactMethodTypeId\":5,\"Default\":true,\"DoNotContact\":true,\"Notes\":\"After 6pm\",\"Value\":\"(306) 222-3333\"}],\"CustomerExtensions\":[{\"CustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"ExtensionTypeId\":2,\"Value\":\"66432\"}],\"CustomerTypeId\":3,\"DateOfBirth\":\"1952-07-23T12:00:00.000\",\"Disabled\":true,\"DoNotContact\":true,\"MemberOf\":[],\"Notes\":\"Interested in iPhone 6\",\"RelatedCustomers\":[],\"Title\":\"Ms\"}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2124,6 +1843,7 @@ public static CloseableHttpResponse CreatingAFullCustomer() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2241,31 +1961,13 @@ GET /Companies({CompanyId})/CustomerFull({CustomerId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/CustomerFull(659c2a38-d083-4421-9330-46d779702f85)
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/CustomerFull(659c2a38-d083-4421-9330-46d779702f85)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/CustomerFull(659c2a38-d083-4421-9330-46d779702f85)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAFullCustomer()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/CustomerFull(659c2a38-d083-4421-9330-46d779702f85)");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2281,6 +1983,7 @@ public static CloseableHttpResponse GettingAFullCustomer() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2397,29 +2100,13 @@ DELETE /Companies({CompanyId})/CustomerFull({CustomerId})
 > Example Request
 
 
-<pre class="highlight javascript"><code>DELETE /Companies(14146)/CustomerFull(659c2a38-d083-4421-9330-46d779702f85)
-Authorization: Bearer (Access Token)
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X DELETE "https://crmdemo.iqmetrix.net/v1/Companies(14146)/CustomerFull(659c2a38-d083-4421-9330-46d779702f85)" -H "Authorization: Bearer (Access Token)"</code></pre>
+```shell
+curl -X DELETE "https://crmdemo.iqmetrix.net/v1/Companies(14146)/CustomerFull(659c2a38-d083-4421-9330-46d779702f85)" -H "Authorization: Bearer (Access Token)"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse DeletingAFullCustomer()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/CustomerFull(659c2a38-d083-4421-9330-46d779702f85)");
-    var request = new RestRequest(Method.DELETE);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2434,6 +2121,7 @@ public static CloseableHttpResponse DeletingAFullCustomer() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2483,31 +2171,13 @@ GET /Companies({CompanyId})/Customers({CustomerId})/ContactMethods?$skip={Skip}&
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/ContactMethods?$skip=1&top=10
-Authorization: Bearer (Access Token)
-Accept: application/hal+json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/ContactMethods?$skip=1&top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"</code></pre>
+```shell
+curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/ContactMethods?$skip=1&top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingAllContactMethodsForACustomer()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/ContactMethods?$skip=1&top=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/hal+json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2523,6 +2193,7 @@ public static CloseableHttpResponse GettingAllContactMethodsForACustomer() throw
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2623,13 +2294,8 @@ POST /Companies({CompanyId})/Customers({CustomerId})/ContactMethods
 > Example Request
 
 
-<pre class="highlight javascript"><code>POST /Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/ContactMethods
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X POST "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/ContactMethods" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "CustomerId": "659c2a38-d083-4421-9330-46d779702f85",
     "ContactMethodCategoryId": 3,
@@ -2638,26 +2304,11 @@ curl -X POST "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a3
     "DoNotContact": true,
     "Notes": "After 6pm",
     "Value": "(306) 222-3333"
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse AddingACustomerContactMethod()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/ContactMethods");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"CustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"ContactMethodCategoryId\":3,\"ContactMethodTypeId\":5,\"Default\":true,\"DoNotContact\":true,\"Notes\":\"After 6pm\",\"Value\":\"(306) 222-3333\"}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2676,6 +2327,7 @@ public static CloseableHttpResponse AddingACustomerContactMethod() throws IOExce
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2744,31 +2396,13 @@ GET /Companies({CompanyId})/Customers({CustomerId})/ContactMethods({ContactMetho
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/ContactMethods(0c877e33-e0a4-46ca-be34-49718f29e791)
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/ContactMethods(0c877e33-e0a4-46ca-be34-49718f29e791)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/ContactMethods(0c877e33-e0a4-46ca-be34-49718f29e791)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse GettingACustomerContactMethod()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/ContactMethods(0c877e33-e0a4-46ca-be34-49718f29e791)");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2784,6 +2418,7 @@ public static CloseableHttpResponse GettingACustomerContactMethod() throws IOExc
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2851,13 +2486,8 @@ PUT /Companies({CompanyId})/Customers({CustomerId})/ContactMethods({ContactMetho
 > Example Request
 
 
-<pre class="highlight javascript"><code>PUT /Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/ContactMethods(0c877e33-e0a4-46ca-be34-49718f29e791)
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
+```shell
 curl -X PUT "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/ContactMethods(0c877e33-e0a4-46ca-be34-49718f29e791)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
     "Id": "b25dd8b2-a24d-4107-8fbe-9c7b21e18137",
     "CustomerId": "659c2a38-d083-4421-9330-46d779702f85",
@@ -2870,26 +2500,11 @@ curl -X PUT "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38
     "Notes": "After 6pm",
     "Value": "(306) 222-3333",
     "Version": 1
-}'</code></pre>
+}'
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse UpdatingACustomerContactMethod()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/ContactMethods(0c877e33-e0a4-46ca-be34-49718f29e791)");
-    var request = new RestRequest(Method.PUT);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Id\":\"b25dd8b2-a24d-4107-8fbe-9c7b21e18137\",\"CustomerId\":\"659c2a38-d083-4421-9330-46d779702f85\",\"ContactMethodCategory\":\"Email\",\"ContactMethodCategoryId\":3,\"ContactMethodType\":\"Work phone\",\"ContactMethodTypeId\":5,\"Default\":true,\"DoNotContact\":true,\"Notes\":\"After 6pm\",\"Value\":\"(306) 222-3333\",\"Version\":1}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2908,6 +2523,7 @@ public static CloseableHttpResponse UpdatingACustomerContactMethod() throws IOEx
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -2980,29 +2596,13 @@ DELETE /Companies({CompanyId})/Customers({CustomerId})/ContactMethods({ContactMe
 > Example Request
 
 
-<pre class="highlight javascript"><code>DELETE /Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/ContactMethods(0c877e33-e0a4-46ca-be34-49718f29e791)
-Authorization: Bearer (Access Token)
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X DELETE "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/ContactMethods(0c877e33-e0a4-46ca-be34-49718f29e791)" -H "Authorization: Bearer (Access Token)"</code></pre>
+```shell
+curl -X DELETE "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/ContactMethods(0c877e33-e0a4-46ca-be34-49718f29e791)" -H "Authorization: Bearer (Access Token)"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse RemovingACustomerContactMethod()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(659c2a38-d083-4421-9330-46d779702f85)/ContactMethods(0c877e33-e0a4-46ca-be34-49718f29e791)");
-    var request = new RestRequest(Method.DELETE);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -3017,6 +2617,7 @@ public static CloseableHttpResponse RemovingACustomerContactMethod() throws IOEx
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -3073,31 +2674,13 @@ GET /Companies({CompanyId})/Customers?$filter={FilterQuery}$skip={Skip}&$top={To
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/Customers?$filter=PrimaryName eq 'bob'$skip=1&$top=10
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers?$filter=PrimaryName eq 'bob'$skip=1&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers?$filter=PrimaryName eq 'bob'$skip=1&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse SearchingForCustomers()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers?$filter=PrimaryName eq 'bob'$skip=1&$top=10");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -3113,6 +2696,7 @@ public static CloseableHttpResponse SearchingForCustomers() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -3237,31 +2821,13 @@ GET /Companies({CompanyId})/CustomerSearch?$filter={FilterQuery}
 > Example Request
 
 
-<pre class="highlight javascript"><code>GET /Companies(14146)/CustomerSearch?$filter=Criteria eq 'Bob'
-Authorization: Bearer (Access Token)
-Accept: application/json
-</code></pre>
 
-<pre class="highlight shell"><code>
-curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/CustomerSearch?$filter=Criteria eq 'Bob'" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+```shell
+curl -X GET "https://crmdemo.iqmetrix.net/v1/Companies(14146)/CustomerSearch?$filter=Criteria eq 'Bob'" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
+```
 
-<pre class="highlight csharp"><code>
-static IRestResponse CustomerSearch()
-{
-    var client = new RestClient("https://crmdemo.iqmetrix.net/v1/Companies(14146)/CustomerSearch?$filter=Criteria eq 'Bob'");
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-
-    
-
-    return client.Execute(request);
-}</code></pre>
-
-
-<pre class="highlight java"><code>
-
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -3277,6 +2843,7 @@ public static CloseableHttpResponse CustomerSearch() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 

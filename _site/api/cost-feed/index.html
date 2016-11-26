@@ -162,23 +162,23 @@ Ensure each company ID has only <strong>one</strong> cost per product.
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code>GUID</code>)</td>
+      <td style="text-align: left">Id (<code class="highlighter-rouge">GUID</code>)</td>
       <td style="text-align: left">Unique identifer</td>
     </tr>
     <tr>
-      <td style="text-align: left">Products (<code>Array[object]</code>)</td>
+      <td style="text-align: left">Products (<code class="highlighter-rouge">Array[object]</code>)</td>
       <td style="text-align: left">List of products for which the cost is being updated</td>
     </tr>
     <tr>
-      <td style="text-align: left">Products.Sku (<code>String</code>)</td>
+      <td style="text-align: left">Products.Sku (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Vendor product SKU</td>
     </tr>
     <tr>
-      <td style="text-align: left">Products.Cost (<code>Decimal</code>)</td>
+      <td style="text-align: left">Products.Cost (<code class="highlighter-rouge">Decimal</code>)</td>
       <td style="text-align: left">Vendor product cost applied to the associated companies</td>
     </tr>
     <tr>
-      <td style="text-align: left">Products.CompanyIds (<code>Array[integer]</code>)</td>
+      <td style="text-align: left">Products.CompanyIds (<code class="highlighter-rouge">Array[integer]</code>)</td>
       <td style="text-align: left">List of <a href="/api/company-tree#company">Company</a> identifiers to receive Vendor product cost</td>
     </tr>
   </tbody>
@@ -192,21 +192,15 @@ Ensure each company ID has only <strong>one</strong> cost per product.
   <p>Definition</p>
 </blockquote>
 
-<pre><code>POST /Suppliers({SupplierId})/Cost
+<div class="highlighter-rouge"><pre class="highlight"><code>POST /Suppliers({SupplierId})/Cost
 </code></pre>
+</div>
 
 <blockquote>
   <p>Example Request</p>
 </blockquote>
 
-<pre class="highlight javascript"><code>POST /Suppliers(14107)/Cost
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-</code></pre>
-
-<pre class="highlight shell"><code>
-curl -X POST "https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Cost" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X POST <span class="s2">"https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Cost"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
     "Products": [
         {
             "Sku": "1115884",
@@ -216,25 +210,12 @@ curl -X POST "https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Cost" -H "Au
             ]
         }
     ]
-}'</code></pre>
+}'</span>
+</code></pre>
+</div>
 
-<pre class="highlight csharp"><code>
-static IRestResponse AddingAProductToCostFeed()
-{
-    var client = new RestClient("https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Cost");
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader("Authorization", "Bearer (Access Token)"); 
-    request.AddHeader("Accept", "application/json"); 
-    request.AddHeader("Content-Type", "application/json"); 
-
-     request.AddParameter("application/json", "{\"Products\":[{\"Sku\":\"1115884\",\"Cost\":12.99,\"CompanyIds\":[14146]}]}", ParameterType.RequestBody);
-
-    return client.Execute(request);
-}</code></pre>
-
-<pre class="highlight java"><code>
-import org.apache.http.entity.StringEntity;
+<div class="language-java highlighter-rouge">
+<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -253,6 +234,7 @@ public static CloseableHttpResponse AddingAProductToCostFeed() throws IOExceptio
     
     return httpClient.execute(request);
 }</code></pre>
+</div>
 
 <pre class="highlight ruby"><code>require 'rest-client'
 
@@ -314,9 +296,9 @@ HTTP 202 Content-Type: application/json
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code>HTTP 400</code></td>
-      <td style="text-align: left"><code>Cannot find supplier identifier in the uri</code></td>
-      <td style="text-align: left">Occurs when entering an incorrect <code>SupplierId</code> in the uri</td>
+      <td style="text-align: left"><code class="highlighter-rouge">HTTP 400</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Cannot find supplier identifier in the uri</code></td>
+      <td style="text-align: left">Occurs when entering an incorrect <code class="highlighter-rouge">SupplierId</code> in the uri</td>
     </tr>
   </tbody>
 </table>
