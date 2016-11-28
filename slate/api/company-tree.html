@@ -92,6 +92,21 @@
   </head>
 
   <body class="api api_company-tree" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+
+    <div class="fixed-top">
+      <a class="navbar-logo" href="http://www.iqmetrix.com"><img src="../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">HOMEPAGE</a></li>
+          <li><a href="/api/changelog">CHANGELOG</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">SUPPORT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -906,6 +921,49 @@
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
 </code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingACompany</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingACompany</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
 
 <h4 id="uri-parameters">URI Parameters</h4>
 
@@ -918,12 +976,12 @@
 
 
 
-<h4>Response</h4>
+### Response Parameters
 
 
  <a href='#company'>Company</a>
 
-<h5>Example</h5>
+> Example Response
 
 <pre>
 HTTP 200 Content-Type: application/json
@@ -985,7 +1043,57 @@ Accept: application/json
 &ldquo;`
 
 
+&rdquo;`shell
+curl -X GET &ldquo;https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree&rdquo; -H &ldquo;Authorization: Bearer (Access Token)&rdquo; -H &ldquo;Accept: application/json&rdquo;
+&ldquo;`
 
+&rdquo;`csharp
+static IRestResponse GettingACompanyTree()
+{
+    var client = new RestClient(&ldquo;https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree&rdquo;);
+    var request = new RestRequest(Method.GET);
+     
+    request.AddHeader(&ldquo;Authorization&rdquo;, &ldquo;Bearer (Access Token)&rdquo;); 
+    request.AddHeader(&ldquo;Accept&rdquo;, &ldquo;application/json&rdquo;); 
+
+    
+
+    return client.Execute(request);
+}
+&ldquo;`
+
+
+&rdquo;`java
+
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse GettingACompanyTree() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpGet request = new HttpGet(&ldquo;https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree&rdquo;);
+     
+    request.addHeader(&ldquo;Authorization&rdquo;, &ldquo;Bearer (Access Token)&rdquo;); 
+    request.addHeader(&ldquo;Accept&rdquo;, &ldquo;application/json&rdquo;); 
+    
+    return httpClient.execute(request);
+}
+&ldquo;`
+
+&rdquo;`ruby
+require &lsquo;rest-client&rsquo;
+
+
+
+response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree&rsquo;, {
+     :'Authorization&rsquo; => 'Bearer (Access Token)&rsquo;,
+     :'Accept&rsquo; => 'application/json&rsquo;,
+    } 
+
+puts response
+&ldquo;`
 
 
 #### URI Parameters
@@ -998,12 +1106,12 @@ Accept: application/json
 
 
 
-<h4>Response</h4>
+### Response Parameters
 
 
  <a href='#companytree'>CompanyTree</a>
 
-<h5>Example</h5>
+> Example Response
 
 <pre>
 HTTP 200 Content-Type: application/json
@@ -1047,7 +1155,186 @@ Content-Type: application/json
 &ldquo;`
 
 
+&rdquo;`shell
+curl -X POST &ldquo;https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations&rdquo; -H &ldquo;Authorization: Bearer (Access Token)&rdquo; -H &ldquo;Accept: application/json&rdquo; -H &ldquo;Content-Type: application/json&rdquo; -d &rsquo;{
+    &ldquo;Name&rdquo;: &ldquo;Dufferin Mall&rdquo;,
+    &ldquo;Description&rdquo;: &ldquo;This Location is used to clear out discounted inventory&rdquo;,
+    &ldquo;Roles&rdquo;: [
+        {
+            &ldquo;Name&rdquo;: &ldquo;Location&rdquo;
+        }
+    ],
+    &ldquo;Area&rdquo;: {
+        &ldquo;Value&rdquo;: 1100,
+        &ldquo;Unit&rdquo;: &ldquo;SqFt&rdquo;
+    },
+    &ldquo;Address&rdquo;: {
+        &ldquo;AddressLine1&rdquo;: &ldquo;4970 Hillside Avenue&rdquo;,
+        &ldquo;AddressLine2&rdquo;: &ldquo;Apt 115&rdquo;,
+        &ldquo;City&rdquo;: &ldquo;Edmonton&rdquo;,
+        &ldquo;StateCode&rdquo;: &ldquo;ON&rdquo;,
+        &ldquo;StateName&rdquo;: &ldquo;Ontario&rdquo;,
+        &ldquo;CountryCode&rdquo;: &ldquo;CA&rdquo;,
+        &ldquo;CountryName&rdquo;: &ldquo;Canada&rdquo;,
+        &ldquo;Zip&rdquo;: &ldquo;P9H 9I4&rdquo;
+    },
+    &ldquo;Attributes&rdquo;: {},
+    &ldquo;ClientEntityId&rdquo;: &ldquo;123&rdquo;,
+    &ldquo;Contacts&rdquo;: [
+        {
+            &ldquo;Name&rdquo;: &ldquo;John Smith&rdquo;,
+            &ldquo;Description&rdquo;: &ldquo;Store Manager&rdquo;,
+            &ldquo;PhoneNumbers&rdquo;: [
+                {
+                    &ldquo;Description&rdquo;: &ldquo;Main Line&rdquo;,
+                    &ldquo;Number&rdquo;: &ldquo;5555555555&rdquo;,
+                    &ldquo;Extension&rdquo;: &ldquo;1234&rdquo;
+                }
+            ]
+        }
+    ],
+    &ldquo;Geography&rdquo;: {
+        &ldquo;Longitude&rdquo;: -104.612034,
+        &ldquo;Latitude&rdquo;: 50.443559
+    },
+    &ldquo;StoreHours&rdquo;: {
+        &ldquo;Monday&rdquo;: {
+            &ldquo;Open&rdquo;: {
+                &ldquo;Hour&rdquo;: 10,
+                &ldquo;Minute&rdquo;: 0
+            },
+            &ldquo;Close&rdquo;: {
+                &ldquo;Hour&rdquo;: 10,
+                &ldquo;Minute&rdquo;: 0
+            }
+        },
+        &ldquo;Tuesday&rdquo;: {
+            &ldquo;Open&rdquo;: {
+                &ldquo;Hour&rdquo;: 10,
+                &ldquo;Minute&rdquo;: 0
+            },
+            &ldquo;Close&rdquo;: {
+                &ldquo;Hour&rdquo;: 10,
+                &ldquo;Minute&rdquo;: 0
+            }
+        },
+        &ldquo;Wednesday&rdquo;: {
+            &ldquo;Open&rdquo;: {
+                &ldquo;Hour&rdquo;: 10,
+                &ldquo;Minute&rdquo;: 0
+            },
+            &ldquo;Close&rdquo;: {
+                &ldquo;Hour&rdquo;: 10,
+                &ldquo;Minute&rdquo;: 0
+            }
+        },
+        &ldquo;Thursday&rdquo;: {
+            &ldquo;Open&rdquo;: {
+                &ldquo;Hour&rdquo;: 10,
+                &ldquo;Minute&rdquo;: 0
+            },
+            &ldquo;Close&rdquo;: {
+                &ldquo;Hour&rdquo;: 10,
+                &ldquo;Minute&rdquo;: 0
+            }
+        },
+        &ldquo;Friday&rdquo;: {
+            &ldquo;Open&rdquo;: {
+                &ldquo;Hour&rdquo;: 10,
+                &ldquo;Minute&rdquo;: 0
+            },
+            &ldquo;Close&rdquo;: {
+                &ldquo;Hour&rdquo;: 10,
+                &ldquo;Minute&rdquo;: 0
+            }
+        },
+        &ldquo;Saturday&rdquo;: {
+            &ldquo;Open&rdquo;: {
+                &ldquo;Hour&rdquo;: 10,
+                &ldquo;Minute&rdquo;: 0
+            },
+            &ldquo;Close&rdquo;: {
+                &ldquo;Hour&rdquo;: 10,
+                &ldquo;Minute&rdquo;: 0
+            }
+        },
+        &ldquo;Sunday&rdquo;: {
+            &ldquo;Open&rdquo;: {
+                &ldquo;Hour&rdquo;: 10,
+                &ldquo;Minute&rdquo;: 0
+            },
+            &ldquo;Close&rdquo;: {
+                &ldquo;Hour&rdquo;: 10,
+                &ldquo;Minute&rdquo;: 0
+            }
+        }
+    },
+    &ldquo;StorePhoneNumbers&rdquo;: [
+        {
+            &ldquo;Description&rdquo;: &ldquo;Main Line&rdquo;,
+            &ldquo;Number&rdquo;: &ldquo;5555555555&rdquo;,
+            &ldquo;Extension&rdquo;: &ldquo;1234&rdquo;
+        }
+    ],
+    &ldquo;TimeZone&rdquo;: {
+        &ldquo;Id&rdquo;: &ldquo;Alaskan Standard Time&rdquo;,
+        &ldquo;DaylightSavingTimeEnabled&rdquo;: true
+    }
+}&rsquo;
+&ldquo;`
 
+&rdquo;`csharp
+static IRestResponse CreatingALocation()
+{
+    var client = new RestClient(&ldquo;https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations&rdquo;);
+    var request = new RestRequest(Method.POST);
+     
+    request.AddHeader(&ldquo;Authorization&rdquo;, &ldquo;Bearer (Access Token)&rdquo;); 
+    request.AddHeader(&ldquo;Accept&rdquo;, &ldquo;application/json&rdquo;); 
+    request.AddHeader(&ldquo;Content-Type&rdquo;, &ldquo;application/json&rdquo;); 
+
+     request.AddParameter(&ldquo;application/json&rdquo;, &ldquo;{"Name":"Dufferin Mall","Description":"This Location is used to clear out discounted inventory","Roles":[{"Name":"Location"}],"Area":{"Value":1100,"Unit":"SqFt"},"Address":{"AddressLine1":"4970 Hillside Avenue","AddressLine2":"Apt 115","City":"Edmonton","StateCode":"ON","StateName":"Ontario","CountryCode":"CA","CountryName":"Canada","Zip":"P9H 9I4"},"Attributes":{},"ClientEntityId":"123","Contacts":[{"Name":"John Smith","Description":"Store Manager","PhoneNumbers":[{"Description":"Main Line","Number":"5555555555","Extension":"1234"}]}],"Geography":{"Longitude":-104.612034,"Latitude":50.443559},"StoreHours":{"Monday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Tuesday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Wednesday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Thursday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Friday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Saturday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Sunday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}}},"StorePhoneNumbers":[{"Description":"Main Line","Number":"5555555555","Extension":"1234"}],"TimeZone":{"Id":"Alaskan Standard Time","DaylightSavingTimeEnabled":true}}&rdquo;, ParameterType.RequestBody);
+
+    return client.Execute(request);
+}
+&ldquo;`
+
+
+&rdquo;`java
+import org.apache.http.entity.StringEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse CreatingALocation() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpPost request = new HttpPost(&ldquo;https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations&rdquo;);
+     
+    request.addHeader(&ldquo;Authorization&rdquo;, &ldquo;Bearer (Access Token)&rdquo;); 
+    request.addHeader(&ldquo;Accept&rdquo;, &ldquo;application/json&rdquo;); 
+    request.addHeader(&ldquo;Content-Type&rdquo;, &ldquo;application/json&rdquo;); 
+    StringEntity body = new StringEntity(&ldquo;{"Name":"Dufferin Mall","Description":"This Location is used to clear out discounted inventory","Roles":[{"Name":"Location"}],"Area":{"Value":1100,"Unit":"SqFt"},"Address":{"AddressLine1":"4970 Hillside Avenue","AddressLine2":"Apt 115","City":"Edmonton","StateCode":"ON","StateName":"Ontario","CountryCode":"CA","CountryName":"Canada","Zip":"P9H 9I4"},"Attributes":{},"ClientEntityId":"123","Contacts":[{"Name":"John Smith","Description":"Store Manager","PhoneNumbers":[{"Description":"Main Line","Number":"5555555555","Extension":"1234"}]}],"Geography":{"Longitude":-104.612034,"Latitude":50.443559},"StoreHours":{"Monday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Tuesday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Wednesday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Thursday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Friday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Saturday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Sunday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}}},"StorePhoneNumbers":[{"Description":"Main Line","Number":"5555555555","Extension":"1234"}],"TimeZone":{"Id":"Alaskan Standard Time","DaylightSavingTimeEnabled":true}}&rdquo;);
+    request.setEntity(body);
+    
+    return httpClient.execute(request);
+}
+&ldquo;`
+
+&rdquo;`ruby
+require 'rest-client&rsquo;
+
+body = &ldquo;{"Name":"Dufferin Mall","Description":"This Location is used to clear out discounted inventory","Roles":[{"Name":"Location"}],"Area":{"Value":1100,"Unit":"SqFt"},"Address":{"AddressLine1":"4970 Hillside Avenue","AddressLine2":"Apt 115","City":"Edmonton","StateCode":"ON","StateName":"Ontario","CountryCode":"CA","CountryName":"Canada","Zip":"P9H 9I4"},"Attributes":{},"ClientEntityId":"123","Contacts":[{"Name":"John Smith","Description":"Store Manager","PhoneNumbers":[{"Description":"Main Line","Number":"5555555555","Extension":"1234"}]}],"Geography":{"Longitude":-104.612034,"Latitude":50.443559},"StoreHours":{"Monday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Tuesday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Wednesday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Thursday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Friday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Saturday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Sunday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}}},"StorePhoneNumbers":[{"Description":"Main Line","Number":"5555555555","Extension":"1234"}],"TimeZone":{"Id":"Alaskan Standard Time","DaylightSavingTimeEnabled":true}}&rdquo;;
+
+response = RestClient.post 'https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations&rsquo;, body, {
+     :'Authorization&rsquo; => 'Bearer (Access Token)&rsquo;,
+     :'Accept&rsquo; => 'application/json&rsquo;,
+     :'Content-Type&rsquo; => 'application/json&rsquo;,
+    } 
+
+puts response
+&ldquo;`
 
 
 #### URI Parameters
@@ -1068,12 +1355,12 @@ Content-Type: application/json
 
 <ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Roles</code> (<strong>Required</strong>) - Must be `Location`</li><ul><li><code>Name</code> (<strong>Required</strong>) </li></ul><li><code>Description</code> (Optional) </li><li><code>Area</code> (Optional) </li><ul><li><code>Value</code> (<strong>Required</strong>) - Only required if Area is not null. If provided, Unit must also be provided</li><li><code>Unit</code> (<strong>Required</strong>) - Only required if Area is not null. If provided, Value must also be provided</li></ul><li><code>Address</code> (Optional) </li><ul><li><code>AddressLine1</code> (Optional) </li><li><code>AddressLine2</code> (Optional) </li><li><code>City</code> (Optional) </li><li><code>StateCode</code> (Optional) </li><li><code>StateName</code> (Optional) </li><li><code>CountryCode</code> (Optional) - Required if�StateCode�is provided</li><li><code>CountryName</code> (Optional) </li><li><code>Zip</code> (Optional) </li></ul><li><code>Attributes</code> (Optional) </li><li><code>ClientEntityId</code> (Optional) </li><li><code>Contacts</code> (Optional) </li><ul><li><code>Name</code> (Optional) </li><li><code>Description</code> (Optional) </li><li><code>PhoneNumbers</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Number</code> (Optional) </li><li><code>Extension</code> (Optional) </li></ul></ul><li><code>Geography</code> (Optional) </li><ul><li><code>Longitude</code> (<strong>Required</strong>) - Only required if Geography is not null. If provided, Longitude must also be provided</li><li><code>Latitude</code> (<strong>Required</strong>) - Only required if Geography is not null. If provided, Latitude must also be provided</li></ul><li><code>StoreHours</code> (Optional) </li><ul><li><code>Monday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Tuesday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Wednesday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Thursday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Friday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Saturday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Sunday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul></ul><li><code>StorePhoneNumbers</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Number</code> (Optional) </li><li><code>Extension</code> (Optional) </li></ul><li><code>TimeZone</code> (Optional) </li><ul><li><code>Id</code> (Optional) </li><li><code>DaylightSavingTimeEnabled</code> (Optional) </li></ul></ul>
 
-<h4>Response</h4>
+### Response Parameters
 
 
  <a href='#location'>Location</a>
 
-<h5>Example</h5>
+> Example Response
 
 <pre>
 HTTP 201 Content-Type: application/json
@@ -1238,6 +1525,184 @@ There are <strong>two</strong> different ways to update a location.
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
 <span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
 </code></pre>
+<pre class="highlight shell"><code>curl -X PUT <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations(14202)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+    "Id": 14202,
+    "Name": "Dufferin Mall",
+    "Description": "This Location is used to clear out discounted inventory",
+    "Roles": [
+        {
+            "Name": "Location"
+        }
+    ],
+    "CreatedUTC": "2015-02-26T00:03:01.372Z",
+    "LastModifiedUTC": "2015-02-27T00:03:06.392Z",
+    "Area": {
+        "Value": 1100,
+        "Unit": "SqFt"
+    },
+    "Address": {
+        "AddressLine1": "4970 Hillside Avenue",
+        "AddressLine2": "Apt 115",
+        "City": "Edmonton",
+        "StateCode": "ON",
+        "StateName": "Ontario",
+        "CountryCode": "CA",
+        "CountryName": "Canada",
+        "Zip": "P9H 9I4"
+    },
+    "Attributes": {},
+    "ClientEntityId": "123",
+    "Contacts": [
+        {
+            "Name": "John Smith",
+            "Description": "Store Manager",
+            "PhoneNumbers": [
+                {
+                    "Description": "Main Line",
+                    "Number": "5555555555",
+                    "Extension": "1234"
+                }
+            ]
+        }
+    ],
+    "Geography": {
+        "Longitude": -104.612034,
+        "Latitude": 50.443559
+    },
+    "Relationships": [],
+    "SortName": "dufferin mall",
+    "StoreHours": {
+        "Monday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        },
+        "Tuesday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        },
+        "Wednesday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        },
+        "Thursday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        },
+        "Friday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        },
+        "Saturday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        },
+        "Sunday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        }
+    },
+    "StorePhoneNumbers": [
+        {
+            "Description": "Main Line",
+            "Number": "5555555555",
+            "Extension": "1234"
+        }
+    ],
+    "TimeZone": {
+        "Id": "Alaskan Standard Time",
+        "DaylightSavingTimeEnabled": true
+    },
+    "Version": 13
+}'</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">UpdatingALocation</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations(14202)"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">PUT</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+     <span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"{\"Id\":14202,\"Name\":\"Dufferin Mall\",\"Description\":\"This Location is used to clear out discounted inventory\",\"Roles\":[{\"Name\":\"Location\"}],\"CreatedUTC\":\"2015-02-26T00:03:01.372Z\",\"LastModifiedUTC\":\"2015-02-27T00:03:06.392Z\",\"Area\":{\"Value\":1100,\"Unit\":\"SqFt\"},\"Address\":{\"AddressLine1\":\"4970 Hillside Avenue\",\"AddressLine2\":\"Apt 115\",\"City\":\"Edmonton\",\"StateCode\":\"ON\",\"StateName\":\"Ontario\",\"CountryCode\":\"CA\",\"CountryName\":\"Canada\",\"Zip\":\"P9H 9I4\"},\"Attributes\":{},\"ClientEntityId\":\"123\",\"Contacts\":[{\"Name\":\"John Smith\",\"Description\":\"Store Manager\",\"PhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}]}],\"Geography\":{\"Longitude\":-104.612034,\"Latitude\":50.443559},\"Relationships\":[],\"SortName\":\"dufferin mall\",\"StoreHours\":{\"Monday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Tuesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Wednesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Thursday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Friday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Saturday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Sunday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}}},\"StorePhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}],\"TimeZone\":{\"Id\":\"Alaskan Standard Time\",\"DaylightSavingTimeEnabled\":true},\"Version\":13}"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code><span class="kn">import</span> <span class="nn">org.apache.http.entity.StringEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpPut</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">UpdatingALocation</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpPut</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPut</span><span class="o">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations(14202)"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">StringEntity</span> <span class="n">body</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringEntity</span><span class="o">(</span><span class="s">"{\"Id\":14202,\"Name\":\"Dufferin Mall\",\"Description\":\"This Location is used to clear out discounted inventory\",\"Roles\":[{\"Name\":\"Location\"}],\"CreatedUTC\":\"2015-02-26T00:03:01.372Z\",\"LastModifiedUTC\":\"2015-02-27T00:03:06.392Z\",\"Area\":{\"Value\":1100,\"Unit\":\"SqFt\"},\"Address\":{\"AddressLine1\":\"4970 Hillside Avenue\",\"AddressLine2\":\"Apt 115\",\"City\":\"Edmonton\",\"StateCode\":\"ON\",\"StateName\":\"Ontario\",\"CountryCode\":\"CA\",\"CountryName\":\"Canada\",\"Zip\":\"P9H 9I4\"},\"Attributes\":{},\"ClientEntityId\":\"123\",\"Contacts\":[{\"Name\":\"John Smith\",\"Description\":\"Store Manager\",\"PhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}]}],\"Geography\":{\"Longitude\":-104.612034,\"Latitude\":50.443559},\"Relationships\":[],\"SortName\":\"dufferin mall\",\"StoreHours\":{\"Monday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Tuesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Wednesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Thursday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Friday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Saturday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Sunday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}}},\"StorePhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}],\"TimeZone\":{\"Id\":\"Alaskan Standard Time\",\"DaylightSavingTimeEnabled\":true},\"Version\":13}"</span><span class="o">);</span>
+    <span class="n">request</span><span class="o">.</span><span class="na">setEntity</span><span class="o">(</span><span class="n">body</span><span class="o">);</span>
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">body</span> <span class="o">=</span> <span class="s2">"{</span><span class="se">\"</span><span class="s2">Id</span><span class="se">\"</span><span class="s2">:14202,</span><span class="se">\"</span><span class="s2">Name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Dufferin Mall</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Description</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">This Location is used to clear out discounted inventory</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Roles</span><span class="se">\"</span><span class="s2">:[{</span><span class="se">\"</span><span class="s2">Name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Location</span><span class="se">\"</span><span class="s2">}],</span><span class="se">\"</span><span class="s2">CreatedUTC</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2015-02-26T00:03:01.372Z</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">LastModifiedUTC</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2015-02-27T00:03:06.392Z</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Area</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Value</span><span class="se">\"</span><span class="s2">:1100,</span><span class="se">\"</span><span class="s2">Unit</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">SqFt</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">Address</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">AddressLine1</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">4970 Hillside Avenue</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">AddressLine2</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Apt 115</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">City</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Edmonton</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">StateCode</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ON</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">StateName</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Ontario</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">CountryCode</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">CA</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">CountryName</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Canada</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Zip</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">P9H 9I4</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">Attributes</span><span class="se">\"</span><span class="s2">:{},</span><span class="se">\"</span><span class="s2">ClientEntityId</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">123</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Contacts</span><span class="se">\"</span><span class="s2">:[{</span><span class="se">\"</span><span class="s2">Name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">John Smith</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Description</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Store Manager</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">PhoneNumbers</span><span class="se">\"</span><span class="s2">:[{</span><span class="se">\"</span><span class="s2">Description</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Main Line</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Number</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">5555555555</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Extension</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">1234</span><span class="se">\"</span><span class="s2">}]}],</span><span class="se">\"</span><span class="s2">Geography</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Longitude</span><span class="se">\"</span><span class="s2">:-104.612034,</span><span class="se">\"</span><span class="s2">Latitude</span><span class="se">\"</span><span class="s2">:50.443559},</span><span class="se">\"</span><span class="s2">Relationships</span><span class="se">\"</span><span class="s2">:[],</span><span class="se">\"</span><span class="s2">SortName</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">dufferin mall</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">StoreHours</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Monday</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Open</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0},</span><span class="se">\"</span><span class="s2">Close</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0}},</span><span class="se">\"</span><span class="s2">Tuesday</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Open</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0},</span><span class="se">\"</span><span class="s2">Close</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0}},</span><span class="se">\"</span><span class="s2">Wednesday</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Open</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0},</span><span class="se">\"</span><span class="s2">Close</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0}},</span><span class="se">\"</span><span class="s2">Thursday</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Open</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0},</span><span class="se">\"</span><span class="s2">Close</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0}},</span><span class="se">\"</span><span class="s2">Friday</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Open</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0},</span><span class="se">\"</span><span class="s2">Close</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0}},</span><span class="se">\"</span><span class="s2">Saturday</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Open</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0},</span><span class="se">\"</span><span class="s2">Close</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0}},</span><span class="se">\"</span><span class="s2">Sunday</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Open</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0},</span><span class="se">\"</span><span class="s2">Close</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0}}},</span><span class="se">\"</span><span class="s2">StorePhoneNumbers</span><span class="se">\"</span><span class="s2">:[{</span><span class="se">\"</span><span class="s2">Description</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Main Line</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Number</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">5555555555</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Extension</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">1234</span><span class="se">\"</span><span class="s2">}],</span><span class="se">\"</span><span class="s2">TimeZone</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Id</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Alaskan Standard Time</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">DaylightSavingTimeEnabled</span><span class="se">\"</span><span class="s2">:true},</span><span class="se">\"</span><span class="s2">Version</span><span class="se">\"</span><span class="s2">:13}"</span><span class="p">;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">put</span> <span class="s1">'https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations(14202)'</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="ss">:'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
 
 <h4 id="uri-parameters">URI Parameters</h4>
 
@@ -1260,11 +1725,13 @@ There are <strong>two</strong> different ways to update a location.
 
 <ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Roles</code> (<strong>Required</strong>) - Must be `Location`</li><ul><li><code>Name</code> (<strong>Required</strong>) </li></ul><li><code>Id</code> (<strong>Required</strong>) - Required for PUT requests</li><li><code>Description</code> (Optional) </li><li><code>Area</code> (Optional) </li><ul><li><code>Value</code> (<strong>Required</strong>) - Only required if Area is not null. If provided, Unit must also be provided</li><li><code>Unit</code> (<strong>Required</strong>) - Only required if Area is not null. If provided, Value must also be provided</li></ul><li><code>Address</code> (Optional) </li><ul><li><code>AddressLine1</code> (Optional) </li><li><code>AddressLine2</code> (Optional) </li><li><code>City</code> (Optional) </li><li><code>StateCode</code> (Optional) </li><li><code>StateName</code> (Optional) </li><li><code>CountryCode</code> (Optional) - Required if�StateCode�is provided</li><li><code>CountryName</code> (Optional) </li><li><code>Zip</code> (Optional) </li></ul><li><code>Attributes</code> (Optional) </li><li><code>ClientEntityId</code> (Optional) </li><li><code>Contacts</code> (Optional) </li><ul><li><code>Name</code> (Optional) </li><li><code>Description</code> (Optional) </li><li><code>PhoneNumbers</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Number</code> (Optional) </li><li><code>Extension</code> (Optional) </li></ul></ul><li><code>Geography</code> (Optional) </li><ul><li><code>Longitude</code> (<strong>Required</strong>) - Only required if Geography is not null. If provided, Longitude must also be provided</li><li><code>Latitude</code> (<strong>Required</strong>) - Only required if Geography is not null. If provided, Latitude must also be provided</li></ul><li><code>StoreHours</code> (Optional) </li><ul><li><code>Monday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Tuesday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Wednesday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Thursday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Friday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Saturday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Sunday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul></ul><li><code>StorePhoneNumbers</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Number</code> (Optional) </li><li><code>Extension</code> (Optional) </li></ul><li><code>TimeZone</code> (Optional) </li><ul><li><code>Id</code> (Optional) </li><li><code>DaylightSavingTimeEnabled</code> (Optional) </li></ul><li><code>Version</code> (<strong>Required</strong>) </li></ul>
 
-<h4>Response</h4>
+<h3 id="response-parameters">Response Parameters</h3>
 
 <p><a href='#location'>Location</a></p>
 
-<h5>Example</h5>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
 
 <pre>
 HTTP 200 Content-Type: application/json
@@ -1417,6 +1884,49 @@ HTTP 200 Content-Type: application/json
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
 </code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations(14202)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingALocationForACompany</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations(14202)"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingALocationForACompany</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations(14202)"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations(14202)'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
 
 <h4 id="uri-parameters">URI Parameters</h4>
 
@@ -1431,11 +1941,13 @@ HTTP 200 Content-Type: application/json
     </li>
     </ul>
 
-<h4>Response</h4>
+<h3 id="response-parameters">Response Parameters</h3>
 
 <p><a href='#location'>Location</a></p>
 
-<h5>Example</h5>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
 
 <pre>
 HTTP 200 Content-Type: application/json
@@ -1588,6 +2100,49 @@ HTTP 200 Content-Type: application/json
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
 </code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingAllLocationsForACompany</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingAllLocationsForACompany</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
 
 <h4 id="uri-parameters">URI Parameters</h4>
 
@@ -1598,11 +2153,13 @@ HTTP 200 Content-Type: application/json
     </li>
     </ul>
 
-<h4>Response</h4>
+<h3 id="response-parameters">Response Parameters</h3>
 
 <p>Array[<a href='#location'>Location</a>]</p>
 
-<h5>Example</h5>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
 
 <pre>
 HTTP 200 Content-Type: application/json
@@ -1764,6 +2321,59 @@ HTTP 200 Content-Type: application/json
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
 <span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
 </code></pre>
+<pre class="highlight shell"><code>curl -X POST <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Divisions"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+    "Name": "T-hut Wireless",
+    "Description": "Division of Kiosks",
+    "ClientEntityId": "187",
+    "Attributes": {}
+}'</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">CreatingADivision</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Divisions"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">POST</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+     <span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"{\"Name\":\"T-hut Wireless\",\"Description\":\"Division of Kiosks\",\"ClientEntityId\":\"187\",\"Attributes\":{}}"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code><span class="kn">import</span> <span class="nn">org.apache.http.entity.StringEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpPost</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">CreatingADivision</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpPost</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPost</span><span class="o">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Divisions"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">StringEntity</span> <span class="n">body</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringEntity</span><span class="o">(</span><span class="s">"{\"Name\":\"T-hut Wireless\",\"Description\":\"Division of Kiosks\",\"ClientEntityId\":\"187\",\"Attributes\":{}}"</span><span class="o">);</span>
+    <span class="n">request</span><span class="o">.</span><span class="na">setEntity</span><span class="o">(</span><span class="n">body</span><span class="o">);</span>
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">body</span> <span class="o">=</span> <span class="s2">"{</span><span class="se">\"</span><span class="s2">Name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">T-hut Wireless</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Description</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Division of Kiosks</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ClientEntityId</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">187</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Attributes</span><span class="se">\"</span><span class="s2">:{}}"</span><span class="p">;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Divisions'</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="ss">:'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
 
 <h4 id="uri-parameters">URI Parameters</h4>
 
@@ -1782,11 +2392,13 @@ HTTP 200 Content-Type: application/json
 
 <ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Description</code> (Optional) </li><li><code>ClientEntityId</code> (Optional) </li><li><code>Attributes</code> (Optional) </li></ul>
 
-<h4>Response</h4>
+<h3 id="response-parameters">Response Parameters</h3>
 
 <p><a href='#division'>Division</a></p>
 
-<h5>Example</h5>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
 
 <pre>
 HTTP 201 Content-Type: application/json
@@ -1841,6 +2453,59 @@ HTTP 201 Content-Type: application/json
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
 <span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
 </code></pre>
+<pre class="highlight shell"><code>curl -X POST <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Groups"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+    "Name": "Toronto",
+    "Description": "Group within Ontario",
+    "ClientEntityId": "187",
+    "Attributes": {}
+}'</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">CreatingAGroup</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Groups"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">POST</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+     <span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"{\"Name\":\"Toronto\",\"Description\":\"Group within Ontario\",\"ClientEntityId\":\"187\",\"Attributes\":{}}"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code><span class="kn">import</span> <span class="nn">org.apache.http.entity.StringEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpPost</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">CreatingAGroup</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpPost</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPost</span><span class="o">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Groups"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">StringEntity</span> <span class="n">body</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringEntity</span><span class="o">(</span><span class="s">"{\"Name\":\"Toronto\",\"Description\":\"Group within Ontario\",\"ClientEntityId\":\"187\",\"Attributes\":{}}"</span><span class="o">);</span>
+    <span class="n">request</span><span class="o">.</span><span class="na">setEntity</span><span class="o">(</span><span class="n">body</span><span class="o">);</span>
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">body</span> <span class="o">=</span> <span class="s2">"{</span><span class="se">\"</span><span class="s2">Name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Toronto</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Description</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Group within Ontario</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ClientEntityId</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">187</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Attributes</span><span class="se">\"</span><span class="s2">:{}}"</span><span class="p">;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Groups'</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="ss">:'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
 
 <h4 id="uri-parameters">URI Parameters</h4>
 
@@ -1859,11 +2524,13 @@ HTTP 201 Content-Type: application/json
 
 <ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Description</code> (Optional) </li><li><code>ClientEntityId</code> (Optional) </li><li><code>Attributes</code> (Optional) </li></ul>
 
-<h4>Response</h4>
+<h3 id="response-parameters">Response Parameters</h3>
 
 <p><a href='#group'>Group</a></p>
 
-<h5>Example</h5>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
 
 <pre>
 HTTP 201 Content-Type: application/json
@@ -1921,6 +2588,46 @@ This operation <strong>cannot be undone</strong>.
 <pre class="highlight javascript"><code><span class="nx">DELETE</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Tree</span><span class="o">/</span><span class="nx">Nodes</span><span class="p">(</span><span class="mi">14159</span><span class="p">)</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 </code></pre>
+<pre class="highlight shell"><code>curl -X DELETE <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">DeletingAGroupOrDivision</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">DELETE</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpDelete</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">DeletingAGroupOrDivision</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpDelete</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpDelete</span><span class="o">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">delete</span> <span class="s1">'https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
 
 <h4 id="uri-parameters">URI Parameters</h4>
 
@@ -1935,9 +2642,11 @@ This operation <strong>cannot be undone</strong>.
     </li>
     </ul>
 
-<h4>Response</h4>
+<h3 id="response-parameters">Response Parameters</h3>
 
-<h5>Example</h5>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
 
 <pre>
 HTTP 200 Content-Type: application/json
@@ -1949,7 +2658,7 @@ HTTP 200 Content-Type: application/json
 
 <p>This request returns an array of objects that summarize Entities matching the search criteria. </p>
 
-<p>The following resource types are considered &lsquo;Entities&rsquo;: {{Company}}, {{Division}}, {{Group}}, {{Location}}, device</p>
+<p>The following resource types are considered &#39;Entities&rsquo;: {{Company}}, {{Division}}, {{Group}}, {{Location}}, device</p>
 
 <blockquote>
 <p>Definition</p>
@@ -1963,6 +2672,49 @@ HTTP 200 Content-Type: application/json
 <pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Entities</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Nodes</span><span class="p">?</span><span class="nx">$filter</span><span class="o">=</span><span class="s1">'187'</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Entities(14146)/Nodes?</span><span class="nv">$filter</span><span class="s2">='187'"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">SearchingByCliententityid</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Entities(14146)/Nodes?$filter='187'"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">SearchingByCliententityid</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Entities(14146)/Nodes?$filter='187'"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://entitymanagerdemo.iqmetrix.net/v1/Entities(14146)/Nodes?$filter='</span><span class="mi">187</span><span class="s1">''</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
 <h4 id="uri-parameters">URI Parameters</h4>
@@ -1978,11 +2730,13 @@ HTTP 200 Content-Type: application/json
     </li>
     </ul>
 
-<h4>Response</h4>
+<h3 id="response-parameters">Response Parameters</h3>
 
 <p><ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li><li><code>Description</code> (String) </li><li><code>Role</code> (String) </li><li><code>Path</code> (Array) </li><ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li><li><code>Description</code> (String) </li><li><code>Role</code> (String) </li></ul></ul></p>
 
-<h5>Example</h5>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
 
 <pre>
 HTTP 200 Content-Type: application/json
