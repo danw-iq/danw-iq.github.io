@@ -20,6 +20,8 @@ var SAVE_LOCATION = "pages/api/";                                   //Location o
 var TEMPLATES_LOCATION = "templates/";                              //Location of nunjucks templates
 var GENERATED_RAML_LOCATION = "postman/";                           //Location of generated RAML files
 var GENERATED_LINKS_LOCATION = "_includes/generated_linkrefs.html"; //Location of where the resource links will be generated
+var DEFAULT_TEMPLATE = "default.nunjucks";                          //Default nunjucks template
+//var DEFAULT_TEMPLATE = "test.nunjucks";                          //Default nunjucks template
 var RAML_TEMPLATE = "templates/raml.nunjucks";                      //Used for generating postman-importable RAML in postman folder
 
 var filePaths = [];                                                 //Holds list of RAML files to be generated
