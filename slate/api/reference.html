@@ -110,11 +110,11 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="../images/navbar.png" />
+        <img src="../images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="../images/logo.png" />
+      <img src="../images/logo.png" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="javascript">javascript</a>
               <a href="#" data-language-name="shell">cURL</a>
@@ -132,9 +132,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <p>{% include linkrefs.html %}</p>
-
-<h1 id="overview">Overview</h1>
+        <h1 id="overview">Overview</h1>
 
 <p>The Reference API allows you to easily access a list of supported Countries, States, TimeZones and Currencies.</p>
 
@@ -271,7 +269,7 @@
 
 <h1 id="requests">Requests</h1>
 
-<h2 id="getting-all-countries">Getting All Countries</h2>
+<h2 id="get-all-countries"><span class='get'>GET</span> All Countries</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -328,8 +326,6 @@
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p>Array[<a href='#country'>Country</a>]</p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -353,7 +349,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="getting-all-time-zones">Getting All Time Zones</h2>
+<p>Array[<a href='#country'>Country</a>]</p>
+
+<h2 id="get-all-time-zones"><span class='get'>GET</span> All Time Zones</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -410,8 +408,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p>Array[<a href='#timezone'>TimeZone</a>]</p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -428,7 +424,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="getting-all-currencies">Getting All Currencies</h2>
+<p>Array[<a href='#timezone'>TimeZone</a>]</p>
+
+<h2 id="get-all-currencies"><span class='get'>GET</span> All Currencies</h2>
 
 <p>Currency resources are returned in ascending alphabetical order by Code.</p>
 
@@ -487,8 +485,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p>Array[<a href='#currency'>Currency</a>]</p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -508,6 +504,8 @@ HTTP 200 Content-Type: application/json
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
+
+<p>Array[<a href='#currency'>Currency</a>]</p>
 
       </div>
       <div class="dark-box">

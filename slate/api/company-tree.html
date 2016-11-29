@@ -110,11 +110,11 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="../images/navbar.png" />
+        <img src="../images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="../images/logo.png" />
+      <img src="../images/logo.png" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="javascript">javascript</a>
               <a href="#" data-language-name="shell">cURL</a>
@@ -132,9 +132,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <p>{% include linkrefs.html %}</p>
-
-<h1 id="overview">Overview</h1>
+        <h1 id="overview">Overview</h1>
 
 <p>A Company Tree is a representation of how a Company is structured and is used to: </p>
 
@@ -906,7 +904,7 @@
 
 <h1 id="requests">Requests</h1>
 
-<h2 id="getting-a-company">Getting a Company</h2>
+<h2 id="get-a-company"><span class='get'>GET</span> a Company</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -976,10 +974,11 @@
 
 
 
+
+
 ### Response Parameters
 
 
- <a href='#company'>Company</a>
 
 > Example Response
 
@@ -1024,7 +1023,12 @@ HTTP 200 Content-Type: application/json
 &ldquo;`
 
 
-## Getting a Company Tree
+
+ <a href='#company'>Company</a>
+
+
+
+## <span class='get'>GET</span> a Company Tree
 
 
 
@@ -1106,10 +1110,11 @@ puts response
 
 
 
+
+
 ### Response Parameters
 
 
- <a href='#companytree'>CompanyTree</a>
 
 > Example Response
 
@@ -1133,6 +1138,11 @@ HTTP 200 Content-Type: application/json
     ]
 }
 &ldquo;`
+
+
+
+ <a href='#companytree'>CompanyTree</a>
+
 
 
 ## Creating a Location
@@ -1355,10 +1365,11 @@ puts response
 
 <ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Roles</code> (<strong>Required</strong>) - Must be `Location`</li><ul><li><code>Name</code> (<strong>Required</strong>) </li></ul><li><code>Description</code> (Optional) </li><li><code>Area</code> (Optional) </li><ul><li><code>Value</code> (<strong>Required</strong>) - Only required if Area is not null. If provided, Unit must also be provided</li><li><code>Unit</code> (<strong>Required</strong>) - Only required if Area is not null. If provided, Value must also be provided</li></ul><li><code>Address</code> (Optional) </li><ul><li><code>AddressLine1</code> (Optional) </li><li><code>AddressLine2</code> (Optional) </li><li><code>City</code> (Optional) </li><li><code>StateCode</code> (Optional) </li><li><code>StateName</code> (Optional) </li><li><code>CountryCode</code> (Optional) - Required if�StateCode�is provided</li><li><code>CountryName</code> (Optional) </li><li><code>Zip</code> (Optional) </li></ul><li><code>Attributes</code> (Optional) </li><li><code>ClientEntityId</code> (Optional) </li><li><code>Contacts</code> (Optional) </li><ul><li><code>Name</code> (Optional) </li><li><code>Description</code> (Optional) </li><li><code>PhoneNumbers</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Number</code> (Optional) </li><li><code>Extension</code> (Optional) </li></ul></ul><li><code>Geography</code> (Optional) </li><ul><li><code>Longitude</code> (<strong>Required</strong>) - Only required if Geography is not null. If provided, Longitude must also be provided</li><li><code>Latitude</code> (<strong>Required</strong>) - Only required if Geography is not null. If provided, Latitude must also be provided</li></ul><li><code>StoreHours</code> (Optional) </li><ul><li><code>Monday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Tuesday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Wednesday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Thursday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Friday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Saturday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Sunday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul></ul><li><code>StorePhoneNumbers</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Number</code> (Optional) </li><li><code>Extension</code> (Optional) </li></ul><li><code>TimeZone</code> (Optional) </li><ul><li><code>Id</code> (Optional) </li><li><code>DaylightSavingTimeEnabled</code> (Optional) </li></ul></ul>
 
+
+
 ### Response Parameters
 
 
- <a href='#location'>Location</a>
 
 > Example Response
 
@@ -1500,7 +1511,12 @@ HTTP 201 Content-Type: application/json
 &ldquo;`
 
 
-## Updating a Location
+
+ <a href='#location'>Location</a>
+
+
+
+## <span class='put'>PUT</span> a Location
 
 There are <strong>two</strong> different ways to update a location. 
 
@@ -1727,8 +1743,6 @@ There are <strong>two</strong> different ways to update a location.
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><a href='#location'>Location</a></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -1869,7 +1883,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="getting-a-location-for-a-company">Getting a Location for a Company</h2>
+<p><a href='#location'>Location</a></p>
+
+<h2 id="get-a-location-for-a-company"><span class='get'>GET</span> a Location for a Company</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -1943,8 +1959,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><a href='#location'>Location</a></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -2085,7 +2099,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="getting-all-locations-for-a-company">Getting All Locations for a Company</h2>
+<p><a href='#location'>Location</a></p>
+
+<h2 id="get-all-locations-for-a-company"><span class='get'>GET</span> All Locations for a Company</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -2154,8 +2170,6 @@ HTTP 200 Content-Type: application/json
     </ul>
 
 <h3 id="response-parameters">Response Parameters</h3>
-
-<p>Array[<a href='#location'>Location</a>]</p>
 
 <blockquote>
 <p>Example Response</p>
@@ -2299,6 +2313,8 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
+<p>Array[<a href='#location'>Location</a>]</p>
+
 <h2 id="creating-a-division">Creating a Division</h2>
 
 <p>Divisions may be added to the root Company node, or to a Division or Group node. </p>
@@ -2394,8 +2410,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><a href='#division'>Division</a></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -2430,6 +2444,8 @@ HTTP 201 Content-Type: application/json
     </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p><a href='#division'>Division</a></p>
 
 <h2 id="creating-a-group">Creating a Group</h2>
 
@@ -2526,8 +2542,6 @@ HTTP 201 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><a href='#group'>Group</a></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -2563,6 +2577,8 @@ HTTP 201 Content-Type: application/json
     </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p><a href='#group'>Group</a></p>
 
 <h2 id="deleting-a-group-or-division">Deleting a Group or Division</h2>
 
@@ -2732,8 +2748,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li><li><code>Description</code> (String) </li><li><code>Role</code> (String) </li><li><code>Path</code> (Array) </li><ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li><li><code>Description</code> (String) </li><li><code>Role</code> (String) </li></ul></ul></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -2758,6 +2772,8 @@ HTTP 200 Content-Type: application/json
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
+
+<p><ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li><li><code>Description</code> (String) </li><li><code>Role</code> (String) </li><li><code>Path</code> (Array) </li><ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li><li><code>Description</code> (String) </li><li><code>Role</code> (String) </li></ul></ul></p>
 
 <h1 id="errors">Errors</h1>
 

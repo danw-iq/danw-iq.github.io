@@ -110,11 +110,11 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="../images/navbar.png" />
+        <img src="../images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="../images/logo.png" />
+      <img src="../images/logo.png" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="javascript">javascript</a>
               <a href="#" data-language-name="shell">cURL</a>
@@ -132,9 +132,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <p>{% include linkrefs.html %}</p>
-
-<h1 id="overview">Overview</h1>
+        <h1 id="overview">Overview</h1>
 
 <p>The Entity Store helps manage your Company structure. It also manages relationships your Company has with Suppliers, Manufacturers and Carriers. </p>
 
@@ -371,7 +369,7 @@
 
 <h1 id="requests">Requests</h1>
 
-<h2 id="getting-all-carriers">Getting All Carriers</h2>
+<h2 id="get-all-carriers"><span class='get'>GET</span> All Carriers</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -432,8 +430,6 @@
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p>Array[<a href='#carrier'>Carrier</a>]</p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -464,7 +460,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="getting-a-carrier">Getting a Carrier</h2>
+<p>Array[<a href='#carrier'>Carrier</a>]</p>
+
+<h2 id="get-a-carrier"><span class='get'>GET</span> a Carrier</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -534,8 +532,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><a href='#carrier'>Carrier</a></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -564,7 +560,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="getting-all-manufacturers">Getting All Manufacturers</h2>
+<p><a href='#carrier'>Carrier</a></p>
+
+<h2 id="get-all-manufacturers"><span class='get'>GET</span> All Manufacturers</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -625,8 +623,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p>Array[<a href='#manufacturer'>Manufacturer</a>]</p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -657,7 +653,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="getting-a-manufacturer">Getting a Manufacturer</h2>
+<p>Array[<a href='#manufacturer'>Manufacturer</a>]</p>
+
+<h2 id="get-a-manufacturer"><span class='get'>GET</span> a Manufacturer</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -727,8 +725,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><a href='#manufacturer'>Manufacturer</a></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -757,7 +753,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="getting-all-suppliers">Getting all Suppliers</h2>
+<p><a href='#manufacturer'>Manufacturer</a></p>
+
+<h2 id="get-all-suppliers"><span class='get'>GET</span> all Suppliers</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -818,8 +816,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p>Array[<a href='#supplier'>Supplier</a>]</p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -850,7 +846,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="getting-a-supplier">Getting a Supplier</h2>
+<p>Array[<a href='#supplier'>Supplier</a>]</p>
+
+<h2 id="get-a-supplier"><span class='get'>GET</span> a Supplier</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -920,8 +918,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><a href='#supplier'>Supplier</a></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -949,6 +945,8 @@ HTTP 200 Content-Type: application/json
     </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p><a href='#supplier'>Supplier</a></p>
 
       </div>
       <div class="dark-box">

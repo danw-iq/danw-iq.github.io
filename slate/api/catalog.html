@@ -110,11 +110,11 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="../images/navbar.png" />
+        <img src="../images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="../images/logo.png" />
+      <img src="../images/logo.png" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="javascript">javascript</a>
               <a href="#" data-language-name="shell">cURL</a>
@@ -132,9 +132,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <p>{% include linkrefs.html %}</p>
-
-<h1 id="overview">Overview</h1>
+        <h1 id="overview">Overview</h1>
 
 <p>Retailers can select products from the {{ProductLibrary_Concept}} to create a <strong>Retailer Catalog</strong>, a collection of products that can be sold.</p>
 
@@ -899,7 +897,7 @@
 
 <h1 id="requests">Requests</h1>
 
-<h2 id="getting-all-catalog-items">Getting All Catalog Items</h2>
+<h2 id="get-all-catalog-items"><span class='get'>GET</span> All Catalog Items</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -969,8 +967,6 @@
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><ul><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>IsArchived</code> (Boolean) </li><li><code>DateAddedUtc</code> (Datetime) </li><li><code>DateUpdatedUtc</code> (Datetime) </li><li><code>RmsId</code> (String) </li><li><code>Slug</code> (String) </li><li><code>ExtendedAttributes</code> (Array[<a href='/api/catalog/#attribute'>Attribute</a>]) </li><ul><li><code>Name</code> (String) </li><li><code>Value</code> (String) - Defaults to an empty string</li></ul><li><code>SourceIds</code> (Array) </li><li><code>BatchTracking</code> (Boolean) </li><li><code>MeasurementType</code> (String) </li></ul></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -997,7 +993,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="adding-a-catalog-item-from-product-library">Adding a Catalog Item from Product Library</h2>
+<p><ul><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>IsArchived</code> (Boolean) </li><li><code>DateAddedUtc</code> (Datetime) </li><li><code>DateUpdatedUtc</code> (Datetime) </li><li><code>RmsId</code> (String) </li><li><code>Slug</code> (String) </li><li><code>ExtendedAttributes</code> (Array[<a href='/api/catalog/#attribute'>Attribute</a>]) </li><ul><li><code>Name</code> (String) </li><li><code>Value</code> (String) - Defaults to an empty string</li></ul><li><code>SourceIds</code> (Array) </li><li><code>BatchTracking</code> (Boolean) </li><li><code>MeasurementType</code> (String) </li></ul></p>
+
+<h2 id="post-a-catalog-item-from-product-library"><span class='post'>POST</span> a Catalog Item from Product Library</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -1080,8 +1078,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><ul><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>IsArchived</code> (Boolean) </li><li><code>DateAddedUtc</code> (Datetime) </li><li><code>DateUpdatedUtc</code> (Datetime) </li><li><code>RmsId</code> (String) </li><li><code>Slug</code> (String) </li><li><code>ExtendedAttributes</code> (Array[<a href='/api/catalog/#attribute'>Attribute</a>]) </li><ul><li><code>Name</code> (String) </li><li><code>Value</code> (String) - Defaults to an empty string</li></ul><li><code>SourceIds</code> (Array) </li><li><code>BatchTracking</code> (Boolean) </li><li><code>MeasurementType</code> (String) </li></ul></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -1106,7 +1102,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="getting-catalog-items-by-subscription-list">Getting Catalog Items By Subscription List</h2>
+<p><ul><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>IsArchived</code> (Boolean) </li><li><code>DateAddedUtc</code> (Datetime) </li><li><code>DateUpdatedUtc</code> (Datetime) </li><li><code>RmsId</code> (String) </li><li><code>Slug</code> (String) </li><li><code>ExtendedAttributes</code> (Array[<a href='/api/catalog/#attribute'>Attribute</a>]) </li><ul><li><code>Name</code> (String) </li><li><code>Value</code> (String) - Defaults to an empty string</li></ul><li><code>SourceIds</code> (Array) </li><li><code>BatchTracking</code> (Boolean) </li><li><code>MeasurementType</code> (String) </li></ul></p>
+
+<h2 id="get-catalog-items-by-subscription-list"><span class='get'>GET</span> Catalog Items By Subscription List</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -1180,8 +1178,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><ul><li><code>Items</code> (Array[<a href='/api/catalog/#catalogitem'>CatalogItem</a>]) </li><ul><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>DateAddedUtc</code> (Datetime) </li><li><code>DateUpdatedUtc</code> (Datetime) </li><li><code>IsArchived</code> (Boolean) </li><li><code>RmsId</code> (String) </li><li><code>Slug</code> (String) </li><li><code>ExtendedAttributes</code> (Array[<a href='/api/catalog/#attribute'>Attribute</a>]) </li><ul><li><code>Name</code> (String) </li><li><code>Value</code> (String) - Defaults to an empty string</li></ul><li><code>SourceIds</code> (Array) </li><li><code>BatchTracking</code> (Boolean) </li><li><code>MeasurementType</code> (String) </li></ul></ul></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -1210,7 +1206,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="getting-extended-attributes-for-a-catalog-item">Getting Extended Attributes for a Catalog Item</h2>
+<p><ul><li><code>Items</code> (Array[<a href='/api/catalog/#catalogitem'>CatalogItem</a>]) </li><ul><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>DateAddedUtc</code> (Datetime) </li><li><code>DateUpdatedUtc</code> (Datetime) </li><li><code>IsArchived</code> (Boolean) </li><li><code>RmsId</code> (String) </li><li><code>Slug</code> (String) </li><li><code>ExtendedAttributes</code> (Array[<a href='/api/catalog/#attribute'>Attribute</a>]) </li><ul><li><code>Name</code> (String) </li><li><code>Value</code> (String) - Defaults to an empty string</li></ul><li><code>SourceIds</code> (Array) </li><li><code>BatchTracking</code> (Boolean) </li><li><code>MeasurementType</code> (String) </li></ul></ul></p>
+
+<h2 id="get-extended-attributes-for-a-catalog-item"><span class='get'>GET</span> Extended Attributes for a Catalog Item</h2>
 
 <p>Extended attributes are unvalidated extra properties that can be put on a CatalogItem. They consist of a unique string key and a string value with a max-length of 250 characters.</p>
 
@@ -1286,8 +1284,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p>Array[<a href='#attribute'>Attribute</a>]</p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -1303,7 +1299,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="adding-or-updating-extended-attributes-for-a-catalog-item">Adding or Updating Extended Attributes for a Catalog Item</h2>
+<p>Array[<a href='#attribute'>Attribute</a>]</p>
+
+<h2 id="post-or-put-extended-attributes-for-a-catalog-item"><span class='post'>POST</span> or <span class='put'>PUT</span> Extended Attributes for a Catalog Item</h2>
 
 <p>This request returns <strong>all</strong> Attributes for a Catalog Item, not just ones that were added or updated.</p>
 
@@ -1398,8 +1396,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p>Array[<a href='#attribute'>Attribute</a>]</p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -1415,7 +1411,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="removing-extended-attributes-from-a-catalog-item">Removing Extended Attributes from a Catalog Item</h2>
+<p>Array[<a href='#attribute'>Attribute</a>]</p>
+
+<h2 id="delete-extended-attributes-from-a-catalog-item"><span class='delete'>DELETE</span> Extended Attributes from a Catalog Item</h2>
 
 <p>This request allows you to remove extended attributes from a Catalog Item. The request body is an array of strings, where each string is the name of an attribute to be removed.</p>
 
@@ -1508,7 +1506,7 @@ puts response
 
 <pre>HTTP 204</pre>
 
-<h2 id="getting-product-details">Getting Product Details</h2>
+<h2 id="get-product-details"><span class='get'>GET</span> Product Details</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -1581,8 +1579,6 @@ puts response
     </ul>
 
 <h3 id="response-parameters">Response Parameters</h3>
-
-<p><a href='#product'>Product</a></p>
 
 <blockquote>
 <p>Example Response</p>
@@ -1734,7 +1730,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="getting-many-product-details-at-once">Getting Many Product Details At Once</h2>
+<p><a href='#product'>Product</a></p>
+
+<h2 id="get-many-product-details-at-once"><span class='get'>GET</span> Many Product Details At Once</h2>
 
 <p>This request returns a dictionary of CatalogItemIds and Product Details for the CatalogItem.</p>
 
@@ -1825,8 +1823,6 @@ puts response
 <ul><li><code>CatalogItemIds</code> (<strong>Required</strong>) - Array of {{CatalogItem}} identifiers</li></ul>
 
 <h3 id="response-parameters">Response Parameters</h3>
-
-<p><ul><li><code>CatalogItems</code> (Array) - JSON object/Dictionary</li><ul><li><code>{CatalogItemId}</code> (<a href='/api/catalog/#product'>Product</a>) </li></ul></ul></p>
 
 <blockquote>
 <p>Example Response</p>
@@ -1959,7 +1955,9 @@ HTTP 200 Content-Type: application/json
 
 </span></code></pre>
 
-<h2 id="getting-compatible-products-for-a-catalog-item">Getting Compatible Products for a Catalog Item</h2>
+<p><ul><li><code>CatalogItems</code> (Array) - JSON object/Dictionary</li><ul><li><code>{CatalogItemId}</code> (<a href='/api/catalog/#product'>Product</a>) </li></ul></ul></p>
+
+<h2 id="get-compatible-products-for-a-catalog-item"><span class='get'>GET</span> Compatible Products for a Catalog Item</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -2033,8 +2031,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><ul><li><code>Items</code> (Array) </li><ul><li><code>Name</code> (String) </li><li><code>Slug</code> (String) </li><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>HeroShotId</code> (Guid) </li><li><code>Manufacturer</code> (Object) </li><ul><li><code>Id</code> (Integer) - Identifier for a {{Manufacturer}}</li><li><code>Name</code> (String) </li></ul><li><code>ShortDescription</code> (String) </li><li><code>CanonicalClassification</code> (<a href='/api/catalog/#canonicalclassification'>CanonicalClassification</a>) </li><ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li><li><code>ParentCategories</code> (Array) </li><ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li></ul><li><code>TreeId</code> (Integer) </li></ul></ul><li><code>Facets</code> (Array) </li><ul><li><code>ClassificationAndCategories</code> (Array) </li><ul><li><code>Count</code> (Integer) </li><li><code>Item</code> (Integer) </li></ul><li><code>Manufacturers</code> (Array) </li><ul><li><code>Count</code> (Integer) </li><li><code>Item</code> (Object) </li><ul><li><code>Id</code> (Integer) - Identifier for a {{Manufacturer}}</li><li><code>Name</code> (String) </li></ul></ul><li><code>Vendors</code> (Array) </li><ul><li><code>Count</code> (Integer) </li><li><code>Item</code> (Object) </li><ul><li><code>Id</code> (Integer) - Identifier for a {{Manufacturer}}</li><li><code>Name</code> (String) </li></ul></ul></ul></ul></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -2099,7 +2095,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="getting-variations-for-a-catalog-item">Getting Variations for a Catalog Item</h2>
+<p><ul><li><code>Items</code> (Array) </li><ul><li><code>Name</code> (String) </li><li><code>Slug</code> (String) </li><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>HeroShotId</code> (Guid) </li><li><code>Manufacturer</code> (Object) </li><ul><li><code>Id</code> (Integer) - Identifier for a {{Manufacturer}}</li><li><code>Name</code> (String) </li></ul><li><code>ShortDescription</code> (String) </li><li><code>CanonicalClassification</code> (<a href='/api/catalog/#canonicalclassification'>CanonicalClassification</a>) </li><ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li><li><code>ParentCategories</code> (Array) </li><ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li></ul><li><code>TreeId</code> (Integer) </li></ul></ul><li><code>Facets</code> (Array) </li><ul><li><code>ClassificationAndCategories</code> (Array) </li><ul><li><code>Count</code> (Integer) </li><li><code>Item</code> (Integer) </li></ul><li><code>Manufacturers</code> (Array) </li><ul><li><code>Count</code> (Integer) </li><li><code>Item</code> (Object) </li><ul><li><code>Id</code> (Integer) - Identifier for a {{Manufacturer}}</li><li><code>Name</code> (String) </li></ul></ul><li><code>Vendors</code> (Array) </li><ul><li><code>Count</code> (Integer) </li><li><code>Item</code> (Object) </li><ul><li><code>Id</code> (Integer) - Identifier for a {{Manufacturer}}</li><li><code>Name</code> (String) </li></ul></ul></ul></ul></p>
+
+<h2 id="get-variations-for-a-catalog-item"><span class='get'>GET</span> Variations for a Catalog Item</h2>
 
 <p>For more information about Variations, see <a href='/concepts/product-structure/#variations'>Variations</a></p>
 
@@ -2175,8 +2173,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><ul><li><code>Items</code> (Array) </li><ul><li><code>Name</code> (String) </li><li><code>Slug</code> (String) </li><li><code>CatalogItemId</code> (Guid) </li><li><code>Revisions</code> (Array) </li><ul><li><code>Name</code> (String) </li><li><code>Slug</code> (String) </li><li><code>CatalogItemId</code> (Guid) </li></ul></ul></ul></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -2202,7 +2198,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="getting-products-by-vendor-sku">Getting Products by Vendor SKU</h2>
+<p><ul><li><code>Items</code> (Array) </li><ul><li><code>Name</code> (String) </li><li><code>Slug</code> (String) </li><li><code>CatalogItemId</code> (Guid) </li><li><code>Revisions</code> (Array) </li><ul><li><code>Name</code> (String) </li><li><code>Slug</code> (String) </li><li><code>CatalogItemId</code> (Guid) </li></ul></ul></ul></p>
+
+<h2 id="get-products-by-vendor-sku"><span class='get'>GET</span> Products by Vendor SKU</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -2280,8 +2278,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><ul><li><code>Sku</code> (String) </li><li><code>VendorId</code> (Integer) </li><li><code>Items</code> (Array) </li><ul><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>IsArchived</code> (Boolean) </li><li><code>DateAddedUtc</code> (Datetime) </li><li><code>DateUpdatedUtc</code> (Datetime) </li><li><code>RmsId</code> (String) </li><li><code>Slug</code> (String) </li><li><code>ExtendedAttributes</code> (Array[<a href='/api/catalog/#attribute'>Attribute</a>]) </li><ul><li><code>Name</code> (String) </li><li><code>Value</code> (String) - Defaults to an empty string</li></ul><li><code>SourceIds</code> (Array) </li><li><code>BatchTracking</code> (Boolean) </li><li><code>MeasurementType</code> (String) </li></ul></ul></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -2312,7 +2308,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="getting-products-by-category-or-classification">Getting Products by Category or Classification</h2>
+<p><ul><li><code>Sku</code> (String) </li><li><code>VendorId</code> (Integer) </li><li><code>Items</code> (Array) </li><ul><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>IsArchived</code> (Boolean) </li><li><code>DateAddedUtc</code> (Datetime) </li><li><code>DateUpdatedUtc</code> (Datetime) </li><li><code>RmsId</code> (String) </li><li><code>Slug</code> (String) </li><li><code>ExtendedAttributes</code> (Array[<a href='/api/catalog/#attribute'>Attribute</a>]) </li><ul><li><code>Name</code> (String) </li><li><code>Value</code> (String) - Defaults to an empty string</li></ul><li><code>SourceIds</code> (Array) </li><li><code>BatchTracking</code> (Boolean) </li><li><code>MeasurementType</code> (String) </li></ul></ul></p>
+
+<h2 id="get-products-by-category-or-classification"><span class='get'>GET</span> Products by Category or Classification</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -2394,8 +2392,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -2491,7 +2487,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="getting-products-by-manufacturer">Getting Products by Manufacturer</h2>
+<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
+
+<h2 id="get-products-by-manufacturer"><span class='get'>GET</span> Products by Manufacturer</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -2573,8 +2571,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -2670,7 +2666,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="getting-products-by-supplier">Getting Products by Supplier</h2>
+<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
+
+<h2 id="get-products-by-supplier"><span class='get'>GET</span> Products by Supplier</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -2752,8 +2750,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -2849,7 +2845,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="getting-products-available-for-shipping">Getting Products Available for Shipping</h2>
+<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
+
+<h2 id="get-products-available-for-shipping"><span class='get'>GET</span> Products Available for Shipping</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -2931,8 +2929,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -3027,6 +3023,8 @@ HTTP 200 Content-Type: application/json
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
 
 <h2 id="searching-for-products">Searching For Products</h2>
 
@@ -3122,8 +3120,6 @@ SearchTerms specified in the URI are compared against the following Product fiel
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -3218,6 +3214,8 @@ HTTP 200 Content-Type: application/json
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
 
 <h2 id="combining-search-filters">Combining Search Filters</h2>
 
@@ -3339,8 +3337,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -3435,6 +3431,8 @@ HTTP 200 Content-Type: application/json
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
 
 <h1 id="errors">Errors</h1>
 

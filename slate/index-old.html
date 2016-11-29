@@ -92,14 +92,29 @@
   </head>
 
   <body class="index-old" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+
+    <div class="fixed-top">
+      <a class="navbar-logo" href="http://www.iqmetrix.com"><img src="images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">HOMEPAGE</a></li>
+          <li><a href="/api/changelog">CHANGELOG</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">SUPPORT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" />
+        <img src="images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
+      <img src="images/logo.png" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="javascript">javascript</a>
               <a href="#" data-language-name="shell">cURL</a>
@@ -344,7 +359,7 @@ Ensure each company ID has only <em>one</em> cost per product.
 <tr>
 <td style="text-align: left">Products.CompanyIds</td>
 <td style="text-align: left">Array[integer]</td>
-<td style="text-align: left">List of <a href="api/company-tree#company">Company</a> identifiers to receive Vendor product cost</td>
+<td style="text-align: left">List of <a href="/api/company-tree#company">Company</a> identifiers to receive Vendor product cost</td>
 <td style="text-align: left"><code class="prettyprint">14146</code></td>
 </tr>
 </tbody></table>

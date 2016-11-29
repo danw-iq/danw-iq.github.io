@@ -110,11 +110,11 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="../images/navbar.png" />
+        <img src="../images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="../images/logo.png" />
+      <img src="../images/logo.png" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="javascript">javascript</a>
               <a href="#" data-language-name="shell">cURL</a>
@@ -132,9 +132,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <p>{% include linkrefs.html %}</p>
-
-<h1 id="overview">Overview</h1>
+        <h1 id="overview">Overview</h1>
 
 <p>The cost feed provides iQmetrix with the wholesale cost (inclusive cost for the company) for each product.<br>
 The cost feed allows suppliers to input a list of products, where each product includes one cost and list of associated companies.</p>
@@ -182,13 +180,13 @@ Ensure each company ID has only <strong>one</strong> cost per product.
 </tr>
 <tr>
 <td style="text-align: left">Products.CompanyIds (<code class="prettyprint">Array[integer]</code>)</td>
-<td style="text-align: left">List of <a href="company-tree#company">Company</a> identifiers to receive Vendor product cost</td>
+<td style="text-align: left">List of <a href="/api/company-tree#company">Company</a> identifiers to receive Vendor product cost</td>
 </tr>
 </tbody></table>
 
 <h1 id="requests">Requests</h1>
 
-<h2 id="adding-a-product-to-cost-feed">Adding a Product to Cost Feed</h2>
+<h2 id="post-a-product-to-cost-feed"><span class='post'>POST</span> a Product to Cost Feed</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -278,8 +276,6 @@ Ensure each company ID has only <strong>one</strong> cost per product.
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><a href='#cost'>Cost</a></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -300,6 +296,8 @@ HTTP 202 Content-Type: application/json
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p><a href='#cost'>Cost</a></p>
 
 <h1 id="errors">Errors</h1>
 

@@ -110,11 +110,11 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="../images/navbar.png" />
+        <img src="../images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="../images/logo.png" />
+      <img src="../images/logo.png" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="javascript">javascript</a>
               <a href="#" data-language-name="shell">cURL</a>
@@ -132,9 +132,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <p>{% include linkrefs.html %}</p>
-
-<h1 id="overview">Overview</h1>
+        <h1 id="overview">Overview</h1>
 
 <p>A <strong>Field Definition</strong> defines both how {{Product}} specification details are displayed on a screen, such as a website, and how it is stored in the Product Library.</p>
 
@@ -171,7 +169,7 @@
 
 <p>The result displayed on the page, with some styling, is shown below</p>
 
-<p><img src="{{ "../images/fielddefinition.png" | prepend: site.url }}" /></p>
+<p><img src="{{ "/images/fielddefinition.png" | prepend: site.url }}" /></p>
 
 <h1 id="endpoints">Endpoints</h1>
 
@@ -274,7 +272,7 @@
 
 <h1 id="requests">Requests</h1>
 
-<h2 id="getting-all-field-definitions">Getting All Field Definitions</h2>
+<h2 id="get-all-field-definitions"><span class='get'>GET</span> All Field Definitions</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -335,8 +333,6 @@
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p>Array[<a href='#fielddefinition'>FieldDefinition</a>]</p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -358,7 +354,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="getting-a-field-definition">Getting a Field Definition</h2>
+<p>Array[<a href='#fielddefinition'>FieldDefinition</a>]</p>
+
+<h2 id="get-a-field-definition"><span class='get'>GET</span> a Field Definition</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -428,8 +426,6 @@ HTTP 200 Content-Type: application/json
 
 <h3 id="response-parameters">Response Parameters</h3>
 
-<p><a href='#fielddefinition'>FieldDefinition</a></p>
-
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -448,6 +444,8 @@ HTTP 200 Content-Type: application/json
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<p><a href='#fielddefinition'>FieldDefinition</a></p>
 
 <h1 id="errors">Errors</h1>
 
