@@ -4,7 +4,7 @@ permalink: /api/assets/
 tags: []
 keywords: 
 audience: 
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary: 
 rouge: false
 ---
@@ -19,20 +19,20 @@ rouge: false
 
 ## Resources
 
-## Asset
+### Asset
 
 An **Asset** is an image or video associated with a Product.
 
-| Name | Description |
-|:-----|:------------|
-| id (`GUID`) | Unique identifier | 
-| name (`String`) | File name | 
-| height (`Integer`) | Height in pixels | 
-| href (`String`) | URL that points to an actual file where the digital asset is stored | 
-| md5Checksum (`String`) | String that can be used for upload integrity checks or comparing two assets | 
-| mimeType (`String`) | The mime type | 
-| width (`Integer`) | Width in pixels | 
-| success (`Boolean`) | A flag to indicate that the Asset was uploaded. This only appears when asset is first uploaded | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| id | GUID | Unique identifier | `09fe1ee4-42b1-43a6-bd80-cd2bda21e90a` |
+| name | String | File name | `49ebd282-4161-4a9d-9b40-a5a20d144b6f.png` |
+| height | Integer | Height in pixels | `1024` |
+| href | String | URL that points to an actual file where the digital asset is stored | `https://amsdemo.iqmetrix.net/images/09fe1ee4-42b1-43a6-bd80-cd2bda21e90a.png` |
+| md5Checksum | String | String that can be used for upload integrity checks or comparing two assets | `1f88a2813737aa0019a63069586055ed` |
+| mimeType | String | The mime type | `image/png` |
+| width | Integer | Width in pixels | `502` |
+| success | Boolean | A flag to indicate that the Asset was uploaded. This only appears when asset is first uploaded | `true` |
 
 
 
@@ -113,7 +113,7 @@ GET /assets/{AssetId}
 <ul>
     
     <li>
-        <code>AssetId</code> (<strong>Required</strong>)  - Identifier for the {{Asset}}
+        <code>AssetId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/assets/#asset'>Asset</a>
     </li>
     </ul>
 
@@ -164,7 +164,7 @@ GET /images/{AssetId}
 <ul>
     
     <li>
-        <code>AssetId</code> (<strong>Required</strong>)  - Identifier for the {{Asset}}
+        <code>AssetId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/assets/#asset'>Asset</a>
     </li>
     </ul>
 

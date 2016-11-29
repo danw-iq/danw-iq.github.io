@@ -2,8 +2,6 @@
 title:  {{title | fixTitle }}
 permalink: /api/{{title | replace(" ", "-") }}/
 
-rouge: false
-
 language_tabs:
   - javascript
   - shell: cURL
@@ -14,9 +12,7 @@ language_tabs:
 search: true
 ---
 
-%7B% include linkrefs.html %%7D
-
-{{ title | printVersions }}
+{# {% extends linkrefs.html %} #}
 
 {% for item in documentation %}{% if item.title == "overview" %}
 # Overview
@@ -46,7 +42,8 @@ search: true
 
 {% for resource in resources %}{% for method in resource.methods %}
 
-## {{method.displayName}}
+## {{method.displayName | replace("Getting", "<span class='get'>GET</span>") | replace("Adding", "<span class='post'>POST</span>") | replace("Removing", "<span class='delete'>DELETE</span>")
+ | replace("Updating", "<span class='put'>PUT</span>")}}
 
 {{method.description}}
 
@@ -58,18 +55,15 @@ search: true
 
 > Example Request
 
-{#
 ```javascript
 {{method.method | upper }} {{ resource.relativeUri | replaceWithExamples(resource.uriParameters) }}
 {% if method.headers %}{% for header, headerObj in method.headers %}{{header}}: {{headerObj.example}}
-{% endfor %}{% endif %}
-```
-#}
+{% endfor %}{% endif %}```
+
 
 ```shell
 curl -X {{ method.method | upper }} "{{ baseUri | replace("{UrlSuffix}", "demo") }}{{ resource.relativeUri | replaceWithExamples(resource.uriParameters) }}"{% if method.headers %}{% for header, headerObj in method.headers %} -H "{{header}}: {{headerObj.example}}"{% endfor %}{% endif %}{% if method.body["application/json"].example %} -d '{{ method.body["application/json"].example }}'{% elif method.body["application/json"].schema %}{% if method.method == "put" %} -d '{{ method.body["application/json"].schema | printExample(title, false) }}'{% else %} -d '{{ method.body["application/json"].schema | printExample(title, true) }}'{% endif %}{% endif %}
 ```
-{#
 
 ```csharp
 static IRestResponse {{ method.displayName | printMethodName }}()
@@ -84,9 +78,10 @@ static IRestResponse {{ method.displayName | printMethodName }}()
     return client.Execute(request);
 }
 ```
-#}
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>{% if method.method == "post" %}import org.apache.http.entity.StringEntity;{% endif %}{% if method.method == "put" %}import org.apache.http.entity.StringEntity;{% endif %}
+
+
+```java
+{% if method.method == "post" %}import org.apache.http.entity.StringEntity;{% endif %}{% if method.method == "put" %}import org.apache.http.entity.StringEntity;{% endif %}
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.Http{{ method.method | fixTitle }};
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -102,10 +97,11 @@ public static CloseableHttpResponse {{ method.displayName | printMethodName }}()
     request.setEntity(body);
     {% endif %}
     return httpClient.execute(request);
-}</code></pre>
-</div>
+}
+```
 
-<pre class="highlight ruby"><code>require 'rest-client'
+```ruby
+require 'rest-client'
 
 {% if method.body["application/json"] %}body = "{% if method.body["application/json"].example %}{{ method.body["application/json"].example | serialize }}{% elif method.body["application/json"].schema %}{% if method.method == "put" %}{{ method.body["application/json"].schema | printSerialized(title, false) }}{% else %}{{ method.body["application/json"].schema | printSerialized(title, true) }}{% endif %}";{% endif %}{% endif %}
 
@@ -113,7 +109,8 @@ response = RestClient.{{method.method}} '{{ baseUri | replace("{UrlSuffix}", "de
     {% for header, headerObj in method.headers %} :'{{header}}' => '{{headerObj.example}}',
     {% endfor %}}{% endif %} 
 
-puts response</code></pre>
+puts response
+```
 
 {% if resource.uriParameters %}
 #### URI Parameters
@@ -138,20 +135,54 @@ puts response</code></pre>
 
 {{ method.body["application/x-www-form-urlencoded"].formParameters | printFormParameters() }}{% endif %}
 
-<h4>Response Parameters</h4>
+{#
+### Response Parameters
 
 {% for code, body in method.responses %}{% if body %}{% for body, schema in body %}{% for scheme, schemeProperties in schema %}{% if schemeProperties.schema %}
 {% if scheme == "application/json" %} {{ schemeProperties.schema | printResponseSchema(title) }}{% endif %}{% endif %}
 
 > Example Response
 
-<pre class="highlight json">
+<pre>
 HTTP {{code}} Content-Type: {{scheme}}
-</pre>{% if schemeProperties.example %}<pre class="highlight json">{{ schemeProperties.example }}</pre>{% elif schemeProperties.schema %}<pre class="highlight json">{{ schemeProperties.schema | printExample(title, null) }}</pre>{% endif %}{% endfor %}{% endfor %}{% else %}
+</pre>{% if schemeProperties.example %}
+```json
+{{ schemeProperties.example }}
+```
+{% elif schemeProperties.schema %}
+```json
+{{ schemeProperties.schema | printExample(title, null) }}
+```
+{% endif %}{% endfor %}{% endfor %}{% else %}
+
+#}
+
+### Response Parameters
+
+{% for code, body in method.responses %}{% if body %}{% for body, schema in body %}{% for scheme, schemeProperties in schema %}
 
 > Example Response
 
-<pre class="highlight json">HTTP {{code}}</pre>
+<pre>
+HTTP {{code}} Content-Type: {{scheme}}
+</pre>{% if schemeProperties.example %}
+```json
+{{ schemeProperties.example }}
+```
+{% elif schemeProperties.schema %}
+```json
+{{ schemeProperties.schema | printExample(title, null) }}
+```
+{% endif %}
+
+{% if schemeProperties.schema %}
+{% if scheme == "application/json" %} {{ schemeProperties.schema | printResponseSchema(title) }}{% endif %}{% endif %}
+
+{% endfor %}{% endfor %}{% else %}
+
+> Example Response
+
+<pre>HTTP {{code}}</pre>
 
 {% endif %}{% endfor %}{% endfor %}{% endfor %}{% for item in documentation %}{% if item.title == "extended-examples" %}
 

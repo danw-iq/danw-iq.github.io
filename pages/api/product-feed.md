@@ -1,148 +1,174 @@
 ---
 title:  Product Feed
 permalink: /api/product-feed/
-
+tags: []
+keywords: 
+audience: 
+last_updated: 29-11-2016
+summary: 
 rouge: false
-
-language_tabs:
-  - javascript
-  - shell: cURL
-  - csharp: c#
-  - java
-  - ruby
-
-search: true
 ---
+
+<link rel="stylesheet" type="text/css" href="../../css/prism.css">
+
+<script src="../../js/prism.js"></script>
+
 
 {% include linkrefs.html %}
 
 
-
-
-# Overview
+## Overview
 
 {{warning}}The Product Feed endpoint will be changing to <a href="https://curation.iqmetrix.net/v1">https://curation.iqmetrix.net/v1</a>. An <code>HTTP 301 Moved Permanently</code> is currently in place for the RC and Demo environments. Please ensure that your web client is able to handle this redirect. Otherwise, you must update your system to use the new Product Feed API endpoint. Contact <a href="mailto:{{site.support_email}}?subject=Product Feed Endpoint Change">API Support Team</a> for the date and time of this change to the Production environment.{{end}}
 A **Product Feed** contains the Products information for a specific vendor. Each feed will have its own unique **Feed ID**.
 {{important}} A Product must contain, at minimum, the following fields: <strong>Product Name</strong>, <strong>Long Description</strong>, <strong>MSRP</strong>. {{end}}
 
 
-
-# Endpoints
+## Endpoints
 
 
 * Sandbox: <a href="https://curationdemo.iqmetrix.net/v1">https://curationdemo.iqmetrix.net/v1</a>
 * Production: <a href="https://curation.iqmetrix.net/v1">https://curation.iqmetrix.net/v1</a>
 
 
+## Resources
 
-# Resources
-
-
-## Product
+### Product
 
 Product information for the feed. It is **highly recommended** to include `ModelName` for every product created. See {{ProductStructure_Concept}} for more information.
 
-| Name | Description |
-|:-----|:------------|
-| Id (`Integer`) | Unique identifier | 
-| Assets (`Array[<a href='/api/product-feed/#asset'>Asset</a>]`) | Assets | 
-| Classification (`<a href='/api/product-feed/#classification'>Classification</a>`) | Refer to [Classification](/concepts/classification-tree) for more information | 
-| ClassificationTreeName (`String`) | Name of the classification tree | 
-| Fields (`Array[<a href='/api/product-feed/#field'>Field</a>]`) | A list of fields for the product. For the product being added, only include the definitions that apply | 
-| LastModifiedByVendorUtc (`DateTime`) | Provides the last date that the product feed was modified by the vendor, in UTC | 
-| Manufacturer (`String`) | The company that produces the product | 
-| ManufacturerSku (`String`) | The Product SKU from the manufacturer | 
-| ModelName (`String`) | [Master Product](/concepts/product-structure/#Master-Products) name | 
-| UPC (`String`) | Universal Product Code | 
-| VendorSkus (`Array[<a href='/api/product-feed/#vendorsku'>VendorSku</a>]`) | Vendor SKU information for the product | 
-| *ProviderClassification (`String`)* | *Reserved for internal use* | |
-| *UnsupportedAssets (`Array[object]`)* | *This is a legacy property that should not be used* | |
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Id | Integer | Unique identifier | `34` |
+| Assets | Array[<a href='/api/product-feed/#asset'>Asset</a>] | Assets |  |
+| Classification | <a href='/api/product-feed/#classification'>Classification</a> | Refer to [Classification](/concepts/classification-tree) for more information |  |
+| ClassificationTreeName | String | Name of the classification tree | `Cellular & Accessories` |
+| Fields | Array[<a href='/api/product-feed/#field'>Field</a>] | A list of fields for the product. For the product being added, only include the definitions that apply |  |
+| LastModifiedByVendorUtc | DateTime | Provides the last date that the product feed was modified by the vendor, in UTC | `2015-09-16T10:40:31.101Z` |
+| Manufacturer | String | The company that produces the product | `Motorola` |
+| ManufacturerSku | String | The Product SKU from the manufacturer | `1234` |
+| ModelName | String | [Master Product](/concepts/product-structure/#Master-Products) name | `Agent18 SlimShield Case for iPhone 6` |
+| UPC | String | Universal Product Code | `723755004337` |
+| VendorSkus | Array[<a href='/api/product-feed/#vendorsku'>VendorSku</a>] | Vendor SKU information for the product |  |
+| *ProviderClassification* | *String* | *Reserved for internal use* | |
+| *UnsupportedAssets* | *Array[object]* | *This is a legacy property that should not be used* | |
 
-## VendorSku
+### VendorSku
 
 Vendor information for the feed. It is **highly recommended** to include `Sku` for every product created.
 
-| Name | Description |
-|:-----|:------------|
-| Description (`String`) | SKU description | 
-| Sku (`String`) | Vendor product SKU | 
-| VendorName (`String`) | Name of the Vendor | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Description | String | SKU description | `Phone case` |
+| Sku | String | Vendor product SKU | `1115884` |
+| VendorName | String | Name of the Vendor | `Amazon` |
 
-## Classification
+### Classification
 
 Classification information for the feed. The `TreeId` is the identifer for the Industry (e.g. Cellular and Accessories), while the `Id` is the identifier (template) for the Product (e.g. Battery Pack). See {{ClassificationTree_Concept}} for more information.
 
-| Name | Description |
-|:-----|:------------|
-| Id (`Integer`) | Product classification identifier | 
-| Name (`String`) | The name of the Classification your product falls under | 
-| TreeId (`Integer`) | Classification Tree identifier | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Id | Integer | Product classification identifier | `4` |
+| Name | String | The name of the Classification your product falls under | `Smartphones` |
+| TreeId | Integer | Classification Tree identifier | `1` |
 
 
-## Field
+### Field
 
 At minimum, the Product Name field is required along with a corresponding value.
 
 To get a list of all field definitions, use the {{Getting_Field_Definitions}} method. 
 
-| Name | Description |
-|:-----|:------------|
-| Definition (`object`) | The field definition | 
-| Definition.Id (`Integer`) | The field definition identifier. The definition for this parameter varies based on the [Environments](/#environments) | 
-| Value (`String`) | The value for the field | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Definition | object | The field definition |  |
+| Definition.Id | Integer | The field definition identifier. The definition for this parameter varies based on the [Environments](/#environments) | `1` |
+| Value | String | The value for the field | `Android` |
 
 
-## Asset
+### Asset
 
 During the request, only the asset URLs are required. The response will contain additional information provided by the server.
 
 Refer to {{Asset_Glossary}} for more information.
 
-| Name | Description |
-|:-----|:------------|
-| Id (`GUID`) | Unique identifier | 
-| AssetUrl (`String`) | Original URL of asset provided in request | 
-| FileName (`String`) | Filename of the asset | 
-| IsConverted (`Boolean`) | Indicates if the asset have been converted | 
-| MimeType (`String`) | Type of Mime | 
-| OriginalUrl (`String`) | Original URL of asset | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Id | GUID | Unique identifier | `31294366-948a-420c-972f-ed1450e3cdd8` |
+| AssetUrl | String | Original URL of asset provided in request | `http://image.sample.com/b.png` |
+| FileName | String | Filename of the asset | `Note4-white.png` |
+| IsConverted | Boolean | Indicates if the asset have been converted | `false` |
+| MimeType | String | Type of Mime | `image/jpg` |
+| OriginalUrl | String | Original URL of asset | `http://image.sample.com/b.png` |
 
-## ProductFeed
+### ProductFeed
 
 **Product Feeds** are used to group all Products together for a particular vendor.
 
-| Name | Description |
-|:-----|:------------|
-| Id (`Integer`) | Unique identifier | 
-| LastReceivedUpdatesFromProviderUtc (`DateTime`) | Date and time of last received update, in UTC | 
-| Products (`Array[<a href='/api/product-feed/#product'>Product</a>]`) | List of [Products](#product) | 
-| ProviderName (`String`) | Name of the Product Feed | 
-| Version (`Integer`) | Latest revision number | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Id | Integer | Unique identifier | `34` |
+| LastReceivedUpdatesFromProviderUtc | DateTime | Date and time of last received update, in UTC | `2014-11-13T19:40:57.102Z` |
+| Products | Array[<a href='/api/product-feed/#product'>Product</a>] | List of [Products](#product) |  |
+| ProviderName | String | Name of the Product Feed | `Joe's Product Feed` |
+| Version | Integer | Latest revision number | `8` |
 
 
 
 
 
-# Requests
+## Requests
 
 
 
-## Adding a Product to a Feed
+<h3 id='adding-a-product-to-a-feed' class='clickable-header top-level-header'>Adding a Product to a Feed</h3>
 
 
 
-> Definition
+<h4>Request</h4>
 
-```
+<pre>
 POST /ProductFeeds({FeedId})/Products
-```
-
-> Example Request
+</pre>
 
 
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a></li><li><code>Accept: application/json</code></li><li><code>Content-Type: application/json</code></li></ul>
 
-```shell
-curl -X POST "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+
+
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>FeedId</code> (<strong>Required</strong>)  - Product Feed identifier
+    </li>
+    </ul>
+
+
+
+<h4>Request Parameters</h4>
+
+<ul><li><code>Fields</code> (<strong>Required</strong>) </li><ul><li><code>Definition</code> (<strong>Required</strong>) </li><ul><li><code>Id</code> (Optional) </li></ul><li><code>Value</code> (<strong>Required</strong>) </li></ul><li><code>Assets</code> (Optional) </li><ul><li><code>AssetUrl</code> (<strong>Required</strong>) </li></ul><li><code>Classification</code> (Optional) </li><ul><li><code>Id</code> (<strong>Required</strong>) </li><li><code>TreeId</code> (<strong>Required</strong>) </li></ul><li><code>ClassificationTreeName</code> (Optional) </li><li><code>LastModifiedByVendorUtc</code> (Optional) </li><li><code>Manufacturer</code> (Optional) </li><li><code>ManufacturerSku</code> (Optional) </li><li><code>ModelName</code> (Optional) </li><li><code>UPC</code> (Optional) </li><li><code>VendorSkus</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Sku</code> (Optional) </li><li><code>VendorName</code> (Optional) </li></ul></ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-adding-a-product-to-a-feed" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-adding-a-product-to-a-feed" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-adding-a-product-to-a-feed" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-adding-a-product-to-a-feed" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-adding-a-product-to-a-feed" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-adding-a-product-to-a-feed" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-adding-a-product-to-a-feed"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-adding-a-product-to-a-feed">
+<pre id="http-code-adding-a-product-to-a-feed"><code class="language-http">POST /ProductFeeds(34)/Products
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code><code class="language-csharp">{
   "Classification": {
     "TreeId": 1,
     "Id": 4
@@ -195,11 +221,83 @@ curl -X POST "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products" -H
     }
   ]
 }
-'
-```
+</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-adding-a-product-to-a-feed">
+<pre id="curl-code-adding-a-product-to-a-feed"><code class="language-http">curl -X POST "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+  "Classification": {
+    "TreeId": 1,
+    "Id": 4
+  },
+  "Fields": [
+    {
+      "Definition": {
+        "Id": 1,
+        "StringId": "Product Name"
+      },
+      "Value": "Agent18 SlimShield Case for iPhone 6 - Black"
+    },
+    {
+      "Definition": {
+        "Id": 129,
+        "StringId": "Color Tags"
+      },
+      "Value": "Black, Red"
+    },
+    {
+      "Definition": {
+        "Id": 76,
+        "StringId": "MSRP",
+        "InputType": "Currency"
+      },
+      "Value": "24.99 CAD"
+    }                          
+  ],
+  "Assets": [
+    {
+      "AssetUrl": "http://image.sample.com/a.jpg"
+    },
+    {
+      "AssetUrl": "http://image.sample.com/b.png"
+    },
+    {
+      "AssetUrl": "http://image.sample.com/c.mov"
+    }
+  ],
+  "ModelName": "Agent18 SlimShield Case for iPhone 6",
+  "LastModifiedByVendorUtc": "2015-09-16T10:40:31.101Z",
+  "Manufacturer": "Agent18",
+  "ManufacturerSku": "980113579",
+  "UPC": "723755004337",
+  "VendorSkus": [
+    {
+      "Description": "Online retailer",
+      "Sku": "1115884",
+      "VendorName": "Amazon"
+    }
+  ]
+}
+'</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-adding-a-product-to-a-feed">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-adding-a-product-to-a-feed"><code class="language-csharp">static IRestResponse AddingAProductToAFeed()
+{
+    var client = new RestClient("https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products");
+    var request = new RestRequest(Method.POST);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+    request.AddHeader("Content-Type", "application/json"); 
 
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
+     request.AddParameter("application/json", "{\"Classification\":{\"TreeId\":1,\"Id\":4},\"Fields\":[{\"Definition\":{\"Id\":1,\"StringId\":\"Product Name\"},\"Value\":\"Agent18 SlimShield Case for iPhone 6 - Black\"},{\"Definition\":{\"Id\":129,\"StringId\":\"Color Tags\"},\"Value\":\"Black, Red\"},{\"Definition\":{\"Id\":76,\"StringId\":\"MSRP\",\"InputType\":\"Currency\"},\"Value\":\"24.99 CAD\"}],\"Assets\":[{\"AssetUrl\":\"http://image.sample.com/a.jpg\"},{\"AssetUrl\":\"http://image.sample.com/b.png\"},{\"AssetUrl\":\"http://image.sample.com/c.mov\"}],\"ModelName\":\"Agent18 SlimShield Case for iPhone 6\",\"LastModifiedByVendorUtc\":\"2015-09-16T10:40:31.101Z\",\"Manufacturer\":\"Agent18\",\"ManufacturerSku\":\"980113579\",\"UPC\":\"723755004337\",\"VendorSkus\":[{\"Description\":\"Online retailer\",\"Sku\":\"1115884\",\"VendorName\":\"Amazon\"}]}", ParameterType.RequestBody);
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-adding-a-product-to-a-feed">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-adding-a-product-to-a-feed"><code class="language-java">import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -218,9 +316,10 @@ public static CloseableHttpResponse AddingAProductToAFeed() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-adding-a-product-to-a-feed">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-adding-a-product-to-a-feed"><code class="language-ruby">require 'rest-client'
 
 body = "{\"Classification\":{\"TreeId\":1,\"Id\":4},\"Fields\":[{\"Definition\":{\"Id\":1,\"StringId\":\"Product Name\"},\"Value\":\"Agent18 SlimShield Case for iPhone 6 - Black\"},{\"Definition\":{\"Id\":129,\"StringId\":\"Color Tags\"},\"Value\":\"Black, Red\"},{\"Definition\":{\"Id\":76,\"StringId\":\"MSRP\",\"InputType\":\"Currency\"},\"Value\":\"24.99 CAD\"}],\"Assets\":[{\"AssetUrl\":\"http://image.sample.com/a.jpg\"},{\"AssetUrl\":\"http://image.sample.com/b.png\"},{\"AssetUrl\":\"http://image.sample.com/c.mov\"}],\"ModelName\":\"Agent18 SlimShield Case for iPhone 6\",\"LastModifiedByVendorUtc\":\"2015-09-16T10:40:31.101Z\",\"Manufacturer\":\"Agent18\",\"ManufacturerSku\":\"980113579\",\"UPC\":\"723755004337\",\"VendorSkus\":[{\"Description\":\"Online retailer\",\"Sku\":\"1115884\",\"VendorName\":\"Amazon\"}]}
 
@@ -231,32 +330,19 @@ response = RestClient.post 'https://curationdemo.iqmetrix.net/v1/ProductFeeds(34
     } 
 
 puts response</code></pre>
+    </div>
+</div>
 
-
-#### URI Parameters
-<ul>
-    
-    <li>
-        <code>FeedId</code> (<strong>Required</strong>)  - Product Feed identifier
-    </li>
-    </ul>
-
-
-
-#### Request Parameters
-
-<ul><li><code>Fields</code> (<strong>Required</strong>) </li><ul><li><code>Definition</code> (<strong>Required</strong>) </li><ul><li><code>Id</code> (Optional) </li></ul><li><code>Value</code> (<strong>Required</strong>) </li></ul><li><code>Assets</code> (Optional) </li><ul><li><code>AssetUrl</code> (<strong>Required</strong>) </li></ul><li><code>Classification</code> (Optional) </li><ul><li><code>Id</code> (<strong>Required</strong>) </li><li><code>TreeId</code> (<strong>Required</strong>) </li></ul><li><code>ClassificationTreeName</code> (Optional) </li><li><code>LastModifiedByVendorUtc</code> (Optional) </li><li><code>Manufacturer</code> (Optional) </li><li><code>ManufacturerSku</code> (Optional) </li><li><code>ModelName</code> (Optional) </li><li><code>UPC</code> (Optional) </li><li><code>VendorSkus</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Sku</code> (Optional) </li><li><code>VendorName</code> (Optional) </li></ul></ul>
-
-<h4>Response Parameters</h4>
+<h4>Response</h4>
 
 
  Array[<a href='#product'>Product</a>]
 
-> Example Response
+<h5>Example</h5>
 
-<pre class="highlight json">
+<pre>
 HTTP 200 Content-Type: application/json
-</pre><pre class="highlight json">{
+</pre><pre>{
   "Id": 17,
     "Assets": [
         {
@@ -353,29 +439,73 @@ HTTP 200 Content-Type: application/json
 }
 </pre>
 
-## Getting All Products in a Feed
+<h3 id='getting-all-products-in-a-feed' class='clickable-header top-level-header'>Getting All Products in a Feed</h3>
 
 Returns all the <strong>Products</strong> in a particular <strong>Product Feed</strong> indicated by the feed's <strong>Feed ID</strong> parameter. 
 
 Useful when testing to ensure that products have been successfully added or removed.
 
 
-> Definition
+<h4>Request</h4>
 
-```
+<pre>
 GET /ProductFeeds({FeedId})/Products
-```
-
-> Example Request
+</pre>
 
 
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a></li><li><code>Accept: application/json</code></li></ul>
 
-```shell
-curl -X GET "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
 
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>
+
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>FeedId</code> (<strong>Required</strong>)  - Product Feed identifier
+    </li>
+    </ul>
+
+
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-all-products-in-a-feed" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-all-products-in-a-feed" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-all-products-in-a-feed" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-all-products-in-a-feed" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-all-products-in-a-feed" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-all-products-in-a-feed" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-all-products-in-a-feed"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-all-products-in-a-feed">
+<pre id="http-code-getting-all-products-in-a-feed"><code class="language-http">GET /ProductFeeds(34)/Products
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-all-products-in-a-feed">
+<pre id="curl-code-getting-all-products-in-a-feed"><code class="language-http">curl -X GET "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-all-products-in-a-feed">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-all-products-in-a-feed"><code class="language-csharp">static IRestResponse GettingAllProductsInAFeed()
+{
+    var client = new RestClient("https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products");
+    var request = new RestRequest(Method.GET);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-all-products-in-a-feed">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-all-products-in-a-feed"><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -391,9 +521,10 @@ public static CloseableHttpResponse GettingAllProductsInAFeed() throws IOExcepti
     
     return httpClient.execute(request);
 }</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-all-products-in-a-feed">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-all-products-in-a-feed"><code class="language-ruby">require 'rest-client'
 
 
 
@@ -403,28 +534,19 @@ response = RestClient.get 'https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)
     } 
 
 puts response</code></pre>
+    </div>
+</div>
 
-
-#### URI Parameters
-<ul>
-    
-    <li>
-        <code>FeedId</code> (<strong>Required</strong>)  - Product Feed identifier
-    </li>
-    </ul>
-
-
-
-<h4>Response Parameters</h4>
+<h4>Response</h4>
 
 
  Array[<a href='#product'>Product</a>]
 
-> Example Response
+<h5>Example</h5>
 
-<pre class="highlight json">
+<pre>
 HTTP 200 Content-Type: application/json
-</pre><pre class="highlight json">[
+</pre><pre>[
     {
         "Id": 34,
         "Assets": [
@@ -466,27 +588,71 @@ HTTP 200 Content-Type: application/json
     }
 ]</pre>
 
-## Getting a Product Feed
+<h3 id='getting-a-product-feed' class='clickable-header top-level-header'>Getting a Product Feed</h3>
 
 Returns an array of <a href="#product">Products</a>, as well as additional parameters.
 
 
-> Definition
+<h4>Request</h4>
 
-```
+<pre>
 GET /ProductFeeds({FeedId})
-```
-
-> Example Request
+</pre>
 
 
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a></li><li><code>Accept: application/json</code></li></ul>
 
-```shell
-curl -X GET "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
 
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>
+
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>FeedId</code> (<strong>Required</strong>) 
+    </li>
+    </ul>
+
+
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-a-product-feed" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-a-product-feed" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-a-product-feed" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-a-product-feed" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-a-product-feed" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-a-product-feed" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-a-product-feed"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-a-product-feed">
+<pre id="http-code-getting-a-product-feed"><code class="language-http">GET /ProductFeeds(34)
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-a-product-feed">
+<pre id="curl-code-getting-a-product-feed"><code class="language-http">curl -X GET "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-a-product-feed">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-a-product-feed"><code class="language-csharp">static IRestResponse GettingAProductFeed()
+{
+    var client = new RestClient("https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)");
+    var request = new RestRequest(Method.GET);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-a-product-feed">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-a-product-feed"><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -502,9 +668,10 @@ public static CloseableHttpResponse GettingAProductFeed() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-a-product-feed">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-a-product-feed"><code class="language-ruby">require 'rest-client'
 
 
 
@@ -514,28 +681,19 @@ response = RestClient.get 'https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)
     } 
 
 puts response</code></pre>
+    </div>
+</div>
 
-
-#### URI Parameters
-<ul>
-    
-    <li>
-        <code>FeedId</code> (<strong>Required</strong>) 
-    </li>
-    </ul>
-
-
-
-<h4>Response Parameters</h4>
+<h4>Response</h4>
 
 
  <a href='#productfeed'>ProductFeed</a>
 
-> Example Response
+<h5>Example</h5>
 
-<pre class="highlight json">
+<pre>
 HTTP 200 Content-Type: application/json
-</pre><pre class="highlight json">{
+</pre><pre>{
     "Id": 34,
     "LastReceivedUpdatesFromProviderUtc": "2014-11-13T19:40:57.102Z",
     "Products": [
@@ -583,26 +741,72 @@ HTTP 200 Content-Type: application/json
     "Version": 8
 }</pre>
 
-## Removing a Product from a Feed
+<h3 id='removing-a-product-from-a-feed' class='clickable-header top-level-header'>Removing a Product from a Feed</h3>
 
 Updates a Product Feed (FeedId) by removing a Product (ProductId). 
 
-> Definition
+<h4>Request</h4>
 
-```
+<pre>
 DELETE /ProductFeeds({FeedId})/Products({ProductId})
-```
-
-> Example Request
+</pre>
 
 
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a></li></ul>
 
-```shell
-curl -X DELETE "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products(2)" -H "Authorization: Bearer (Access Token)"
-```
 
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>
+
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>FeedId</code> (<strong>Required</strong>) 
+    </li>
+    
+    <li>
+        <code>ProductId</code> (<strong>Required</strong>) 
+    </li>
+    </ul>
+
+
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-removing-a-product-from-a-feed" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-removing-a-product-from-a-feed" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-removing-a-product-from-a-feed" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-removing-a-product-from-a-feed" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-removing-a-product-from-a-feed" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-removing-a-product-from-a-feed" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-removing-a-product-from-a-feed"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-removing-a-product-from-a-feed">
+<pre id="http-code-removing-a-product-from-a-feed"><code class="language-http">DELETE /ProductFeeds(34)/Products(2)
+Authorization: Bearer (Access Token)
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-removing-a-product-from-a-feed">
+<pre id="curl-code-removing-a-product-from-a-feed"><code class="language-http">curl -X DELETE "https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products(2)" -H "Authorization: Bearer (Access Token)"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-removing-a-product-from-a-feed">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-removing-a-product-from-a-feed"><code class="language-csharp">static IRestResponse RemovingAProductFromAFeed()
+{
+    var client = new RestClient("https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products(2)");
+    var request = new RestRequest(Method.DELETE);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-removing-a-product-from-a-feed">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-removing-a-product-from-a-feed"><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -617,9 +821,10 @@ public static CloseableHttpResponse RemovingAProductFromAFeed() throws IOExcepti
     
     return httpClient.execute(request);
 }</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-removing-a-product-from-a-feed">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-removing-a-product-from-a-feed"><code class="language-ruby">require 'rest-client'
 
 
 
@@ -628,35 +833,21 @@ response = RestClient.delete 'https://curationdemo.iqmetrix.net/v1/ProductFeeds(
     } 
 
 puts response</code></pre>
+    </div>
+</div>
 
-
-#### URI Parameters
-<ul>
-    
-    <li>
-        <code>FeedId</code> (<strong>Required</strong>) 
-    </li>
-    
-    <li>
-        <code>ProductId</code> (<strong>Required</strong>) 
-    </li>
-    </ul>
+<h4>Response</h4>
 
 
 
-<h4>Response Parameters</h4>
+<h5>Example</h5>
 
-
-
-> Example Response
-
-<pre class="highlight json">
+<pre>
 HTTP 204 Content-Type: application/json
 </pre>
 
-# Errors
+<h2 id="errors" class="clickable-header top-level-header">Errors</h2>
 
 | Error Code | Message | How to Resolve |
 |:-----------|:--------|:---------------|
 | `HTTP 404` | `NotFound` | Ensure URI parameters are correct |
-

@@ -50,4 +50,4 @@ defaults:
       path: ""
       type: "pages"
     values:
-      layout: "slate"
+      layout: "demo-temp"

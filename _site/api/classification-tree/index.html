@@ -1,98 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- 
+       /\      
+      /  \     
+     / _o \    
+    / <(\  \   
+   /   />`A \  
+  '----------` 
+
+  Authors:
+    Dan Wilcox
+    Melissa Kendall
+
+-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-    <style>
-      .highlight table td { padding: 5px; }
-.highlight table pre { margin: 0; }
-.highlight, .highlight .w {
-  color: #f8f8f2;
-  background-color: #272822;
-}
-.highlight .err {
-  color: #151515;
-  background-color: #ac4142;
-}
-.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
-  color: #505050;
-}
-.highlight .cp {
-  color: #f4bf75;
-}
-.highlight .nt {
-  color: #f4bf75;
-}
-.highlight .o, .highlight .ow {
-  color: #d0d0d0;
-}
-.highlight .p, .highlight .pi {
-  color: #d0d0d0;
-}
-.highlight .gi {
-  color: #90a959;
-}
-.highlight .gd {
-  color: #ac4142;
-}
-.highlight .gh {
-  color: #6a9fb5;
-  background-color: #151515;
-  font-weight: bold;
-}
-.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #aa759f;
-}
-.highlight .kc {
-  color: #d28445;
-}
-.highlight .kt {
-  color: #d28445;
-}
-.highlight .kd {
-  color: #d28445;
-}
-.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #90a959;
-}
-.highlight .sr {
-  color: #75b5aa;
-}
-.highlight .si {
-  color: #8f5536;
-}
-.highlight .se {
-  color: #8f5536;
-}
-.highlight .nn {
-  color: #f4bf75;
-}
-.highlight .nc {
-  color: #f4bf75;
-}
-.highlight .no {
-  color: #f4bf75;
-}
-.highlight .na {
-  color: #6a9fb5;
-}
-.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
-  color: #90a959;
-}
-.highlight .ss {
-  color: #90a959;
-}
-    </style>
     <title>Classification Tree | iQmetrix Developer Portal</title>
-    <link href="../../css/screen.css" rel="stylesheet" media="screen" />
-    <link href="../../css/print.css" rel="stylesheet" media="print" />
-    <script src="../../js/all.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/customstyles.css " rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/dashboard.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link href="../../css/sb-admin-2.css" rel="stylesheet">
+    <link href="../../css/prism.css " rel="stylesheet">
+    <link href="../../css/bootstrap-submenu.css" rel="stylesheet"> 
+    
+    <!-- Console CSS -->
+    <link href="../../css/api-console-light-theme.css" rel="stylesheet"> 
+  
+    <!-- Custom Fonts -->
+    <link href="../../css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+
+    <!-- Image popup source files -->
+    <!-- http://dimsemenov.com/plugins/magnific-popup/ -->
+    <link rel="stylesheet" type="text/css" href="/css/magnific-popup.css">
+    <script src="../../js/jquery.magnific-popup.js "></script>
+
+  
+    <script>
+        $(document).ready(function() {
+
+            // surround each image with an anchor class  for image popup
+            $('#page-wrapper img').each( function() {
+                var $img = $(this),
+                href = $img.attr('src');
+                $img.wrap('<a class="image-link" href=' + href + '></a>');
+                 
+            });
+
+            // make each image with image-link class popup "on click"
+            // !! Drawback -- all images could popup :(
+            $('.image-link').magnificPopup({
+                type:'image',
+                closeOnContentClick: true
+            });                    
+        });    
+    </script>
+    
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -100,238 +77,339 @@
     <![endif]-->
   </head>
 
-    <body class="api api_catalog api_catalog_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
-    <a href="#" id="nav-button">
-      <span>
-        NAV
-        <img src="../../images/navbar.png" />
-      </span>
-    </a>
-    <div class="tocify-wrapper">
-      <img src="../../images/logo.png" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="javascript">javascript</a>
-              <a href="#" data-language-name="shell">cURL</a>
-              <a href="#" data-language-name="csharp">c#</a>
-              <a href="#" data-language-name="java">java</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-        </div>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
-      <div id="toc">
-      </div>
-    </div>
+  <body>
 
-    <div class="page-wrapper">
-      <div class="dark-box"></div>
-      <div class="content">
-
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+          
+      <!-- new_topbar.html includes all header nav references and breadcrumb section -->
       
-<h1 id="overview">Overview</h1>
+      <!-- Top Nav Bar -->
+      <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.iqmetrix.com"><img src="http://localhost:4006/images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      </div>
+
+      <div id="navbar" class="collapse navbar-collapse" >      
+        <ul class="nav navbar-nav navbar-right">
+          <li class="topbar"><a href="http://localhost:4006">HOMEPAGE</a></li>
+          <li class="topbar"><a href="http://localhost:4006/api/changelog">CHANGELOG</a></li>
+          <li class="topbar"><a href="mailto:apisupport@iqmetrix.com?subject=Support">SUPPORT</a></li>
+        </ul>
+      </div>
+      </div>
+          
+    </nav>
+
+      <!-- Sidebar -->
+      <div class="navbar-default sidebar" id="sidebar-test" role="navigation">
+          <div class="sidebar-nav navbar-collapse" id="scrollspy">
+                
+          </div>
+          <!-- /.sidebar-collapse -->
+      </div>
+
+    <div id="page-wrapper">
+
+    <div class="container-fluid" id="content-example">
+
+      <div class="col-md-12"><div class="post-header">
+        <h1 class="post-title-main">Classification Tree</h1>
+
+      <div class="post-content">
+
+      <link rel="stylesheet" type="text/css" href="../../css/prism.css" />
+
+<script src="../../js/prism.js"></script>
+
+<h2 id="overview">Overview</h2>
 
 <p>A <strong>Classification Tree</strong> is a hierarchical structure describing a taxonomy of <a href="http://developers.iqmetrix.com/api/catalog/#product">Products</a>.</p>
 
 <p>To learn more about Classification Trees, see <a href="/concepts/classification-tree">Classification Tree</a>.</p>
 
-<h1 id="endpoints">Endpoints</h1>
+<h2 id="endpoints">Endpoints</h2>
 
 <ul>
   <li>Sandbox: <a href="https://productlibrarydemo.iqmetrix.net/v1">https://productlibrarydemo.iqmetrix.net/v1</a></li>
   <li>Production: <a href="https://productlibrary.iqmetrix.net/v1">https://productlibrary.iqmetrix.net/v1</a></li>
 </ul>
 
-<h1 id="resources">Resources</h1>
+<h2 id="resources">Resources</h2>
 
-<h2 id="classification">Classification</h2>
+<h3 id="classification">Classification</h3>
 
-<p>Classifications are used to group Products together by similar features.
-A Product can only have a single Classification.
+<p>Classifications are used to group Products together by similar features.<br />
+A Product can only have a single Classification.<br />
 For example, a Samsung Galaxy S6 Edge, HTC One M9 and iPhone 5C might all have a Classification of Smartphones.</p>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
+      <td style="text-align: left"><code class="highlighter-rouge">4</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Smartphones</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Order (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Order</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Sorting order</td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">ProductTemplate (<code class="highlighter-rouge">&lt;a href='/api/classification-tree/#producttemplate'&gt;ProductTemplate&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">ProductTemplate</td>
+      <td style="text-align: left"><a href="/api/classification-tree/#producttemplate">ProductTemplate</a></td>
+      <td style="text-align: left"> </td>
       <td style="text-align: left"> </td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="producttemplate">ProductTemplate</h2>
+<h3 id="producttemplate">ProductTemplate</h3>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
+      <td style="text-align: left"><code class="highlighter-rouge">16</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Wireless Device</code></td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="category">Category</h2>
+<h3 id="category">Category</h3>
 
-<p>A Category is a node in a Classification Tree that represents a logical grouping of related Classifications.
-For example, ‘iPhone’ and ‘Tablet’ Classifications might both be children of a ‘Device’ Category.
+<p>A Category is a node in a Classification Tree that represents a logical grouping of related Classifications.<br />
+For example, ‘iPhone’ and ‘Tablet’ Classifications might both be children of a ‘Device’ Category.<br />
 There is a limit to 20 levels of depth for Categories.</p>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
+      <td style="text-align: left"><code class="highlighter-rouge">2</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Devices</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Categories (<code class="highlighter-rouge">Array[object]</code>)</td>
+      <td style="text-align: left">Categories</td>
+      <td style="text-align: left">Array[object]</td>
       <td style="text-align: left">Child Categories</td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Classifications (<code class="highlighter-rouge">Array[object]</code>)</td>
+      <td style="text-align: left">Classifications</td>
+      <td style="text-align: left">Array[object]</td>
       <td style="text-align: left">Child Classifications</td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Order (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Order</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Sorting order</td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="classificationtree">ClassificationTree</h2>
+<h3 id="classificationtree">ClassificationTree</h3>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
-      <th> </th>
+      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
-      <td> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Cellular &amp; Accessories</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Description (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Description</td>
-      <td> </td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Description</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Classification of products for wireless retail</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Categories (<code class="highlighter-rouge">Array[&lt;a href='/api/classification-tree/#category'&gt;Category&lt;/a&gt;]</code>)</td>
+      <td style="text-align: left">Categories</td>
+      <td style="text-align: left">Array[<a href="/api/classification-tree/#category">Category</a>]</td>
       <td style="text-align: left">Categories in the Tree</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Classifications (<code class="highlighter-rouge">Array[&lt;a href='/api/classification-tree/#classification'&gt;Classification&lt;/a&gt;]</code>)</td>
+      <td style="text-align: left">Classifications</td>
+      <td style="text-align: left">Array[<a href="/api/classification-tree/#classification">Classification</a>]</td>
       <td style="text-align: left">Classifications for the Tree</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Owner (<code class="highlighter-rouge">&lt;a href='/api/classification-tree/#owner'&gt;Owner&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Owner</td>
+      <td style="text-align: left"><a href="/api/classification-tree/#owner">Owner</a></td>
       <td style="text-align: left">Information about the <a href="/api/company-tree/#company">Company</a> that owns this Tree</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Version (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Version</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Latest revision number</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">41</code></td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>IsCanonical (<code class="highlighter-rouge">Boolean</code>)</em></td>
+      <td style="text-align: left"><em>IsCanonical</em></td>
+      <td style="text-align: left"><em>Boolean</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="owner">Owner</h2>
+<h3 id="owner">Owner</h3>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left"><a href="/api/company-tree/#company">Company</a> Identifier</td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left"><a href="/api/company-tree/#company">Company</a> Name</td>
+      <td style="text-align: left"><code class="highlighter-rouge">iQmetrix</code></td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="requests">Requests</h1>
+<h2 id="requests">Requests</h2>
 
-<h2 id="getting-a-classification-tree">Getting a Classification Tree</h2>
+<h3 id="getting-a-classification-tree" class="clickable-header top-level-header">Getting a Classification Tree</h3>
 
-<blockquote>
-  <p>Definition</p>
-</blockquote>
+<h4>Request</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>GET /ClassificationTrees({ClassificationTreeId})
-</code></pre>
-</div>
+<pre>
+GET /ClassificationTrees({ClassificationTreeId})
+</pre>
 
-<blockquote>
-  <p>Example Request</p>
-</blockquote>
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code> - See <a href="/api/authentication/#obtaining-an-access-token">Obtaining an Access Token</a></li><li><code>Accept: application/json</code></li></ul>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://productlibrarydemo.iqmetrix.net/v1/ClassificationTrees(1)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
-</code></pre>
-</div>
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>ClassificationTreeId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/classification-tree/#classificationtree">ClassificationTree</a>
+    </li>
+    </ul>
 
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-a-classification-tree" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-a-classification-tree" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-a-classification-tree" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-a-classification-tree" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-a-classification-tree" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-a-classification-tree" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-a-classification-tree"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-a-classification-tree">
+<pre id="http-code-getting-a-classification-tree"><code class="language-http">GET /ClassificationTrees(1)
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-a-classification-tree">
+<pre id="curl-code-getting-a-classification-tree"><code class="language-http">curl -X GET "https://productlibrarydemo.iqmetrix.net/v1/ClassificationTrees(1)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-a-classification-tree">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-a-classification-tree"><code class="language-csharp">static IRestResponse GettingAClassificationTree()
+{
+    var client = new RestClient("https://productlibrarydemo.iqmetrix.net/v1/ClassificationTrees(1)");
+    var request = new RestRequest(Method.GET);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-a-classification-tree">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-a-classification-tree"><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -347,9 +425,10 @@ public static CloseableHttpResponse GettingAClassificationTree() throws IOExcept
     
     return httpClient.execute(request);
 }</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-a-classification-tree">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-a-classification-tree"><code class="language-ruby">require 'rest-client'
 
 
 
@@ -359,27 +438,19 @@ response = RestClient.get 'https://productlibrarydemo.iqmetrix.net/v1/Classifica
     } 
 
 puts response</code></pre>
+    </div>
+</div>
 
-<h4 id="uri-parameters">URI Parameters</h4>
-<ul>
-    
-    <li>
-        <code>ClassificationTreeId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/classification-tree/#classificationtree">ClassificationTree</a>
-    </li>
-    </ul>
-
-<h4>Response Parameters</h4>
+<h4>Response</h4>
 
 <p><a href="#classificationtree">ClassificationTree</a></p>
 
-<blockquote>
-  <p>Example Response</p>
-</blockquote>
+<h5>Example</h5>
 
-<pre class="highlight json">
+<pre>
 HTTP 200 Content-Type: application/json
 </pre>
-<pre class="highlight json">{
+<pre>{
     "Id": 1,
     "Name": "Cellular &amp; Accessories",
     "Description": "Classification of products for wireless retail",
@@ -410,7 +481,7 @@ HTTP 200 Content-Type: application/json
     "Version": 41
 }</pre>
 
-<h1 id="errors">Errors</h1>
+<h2 id="errors" class="clickable-header top-level-header">Errors</h2>
 
 <table>
   <thead>
@@ -435,18 +506,88 @@ HTTP 200 Content-Type: application/json
 </table>
 
 
-
       </div>
-      <div class="dark-box">
-            <div class="lang-selector">
-               <a href="#" data-language-name="javascript">javascript</a>
-               <a href="#" data-language-name="shell">cURL</a>
-               <a href="#" data-language-name="csharp">c#</a>
-               <a href="#" data-language-name="java">java</a>
-               <a href="#" data-language-name="ruby">ruby</a>
-            </div>
-         </div>
+
+
     </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../../js/metisMenu.min.js "></script>
+  
+    <!-- Custom Theme JavaScript -->
+    <script src="../../js/sb-admin-2.js "></script>
+    <script src="../../js/prism.js "></script>
+    <script src="../../js/bootstrap-submenu.js "></script>
+    <script>
+      jQuery('[data-submenu]').submenupicker();
+    </script>
+
+    <!-- TOC modified for iQmetrix Developer Portal layout -->
+    <script src="../../js/dynamicscrollspy.js "></script>
+    <script>
+
+        var pathname = window.location.pathname;
+
+       // if ( (pathname == '/api/') || (pathname.indexOf('api') == -1) ){  
+
+          /*var ul = $('.sidebar-nav ul');
+
+          $('h2').each(function() {
+              ul.append('<li><a href="#' + $(this).attr('id') + '">' + $(this).html() + '</a></li>');
+          });*/
+
+          $('#scrollspy').DynamicScrollspy({
+
+            //lowest-level header to be included (H2)
+            tH: 2, 
+
+            //highest-level header to be included (H3)
+            bH: 3, 
+
+            //generate random IDs?
+            genIDs: true, 
+
+            //offset for scrollspy
+            offset: 100, 
+
+            //add this class to top-most UL
+            ulClassNames: 'iq-toc', 
+
+            //active class (besides .active) to add
+            activeClass: '', 
+
+            //if testing, show heading tagName and ID
+            testing: false,
+
+            //use affix by default
+            affix: false
+          
+          });
+
+     //   } else {
+          //do nothing
+     //   }   
+
+    </script>
+
+    <!-- Console JS-->
+    <script src="../../js/api-console-vendor.js "></script>
+    <script src="../../js/api-console.js "></script>
+
+    <!-- Clipboard -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
+
+    <!-- Cookies, copy button, etc -->
+    <script src="../../js/customscripts.js"></script>
+
+    <script>
+      $.noConflict();
+    </script>
 
   </body>
 

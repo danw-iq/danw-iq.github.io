@@ -4,7 +4,7 @@ permalink: /api/RQ-Data-Connect/
 tags: []
 keywords: 
 audience: 
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary: 
 rouge: false
 noPopUp: true
@@ -16,8 +16,6 @@ noPopUp: true
 
 
 {% include linkrefs.html %}
-
-
 
 
 ## Overview
@@ -145,62 +143,62 @@ Reports are organized by category, for a complete list of reports in RQ Data Con
 
 
 
-## CategoryNumber
+### CategoryNumber
 
-| Name | Description |
-|:-----|:------------|
-| ID (`String`) | Category Identifier | 
-| Description (`String`) | Category name | 
-
-
-## RQCompanyTreeNode
-
-| Name | Description |
-|:-----|:------------|
-| ID (`INT`) | Identifier | 
-| Description (`VARCHAR(255)`) | Description | 
-| EntityID (`INT`) | Identifier for the appropriate {{CompanyTreeNode}} | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ID | String | Category Identifier | `1010271216` |
+| Description | String | Category name | `Rate Plans` |
 
 
-## ReasonCode
+### RQCompanyTreeNode
+
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ID | INT | Identifier | `0` |
+| Description | VARCHAR(255) | Description | `KENTEL Corp` |
+| EntityID | INT | Identifier for the appropriate <a href='http://developers.iqmetrix.com/api/company-tree/#companytreenode'>CompanyTreeNode</a> | `14146` |
+
+
+### ReasonCode
 
 A ReasonCode allows an employee to provide a reason for an action, such as a ChargeBack. For example, Point of Sale Error.
 
-| Name | Description |
-|:-----|:------------|
-| ID (`String`) | Identifier | 
-| Description (`String`) | Reason | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ID | String | Identifier | `1` |
+| Description | String | Reason | `Write Off` |
 
 
 
 
 
-## LocationType
+### LocationType
 
-| Name | Description |
-|:-----|:------------|
-| Type (`VARCHAR(8)`) | Name of a Location type in RQ | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Type | VARCHAR(8) | Name of a Location type in RQ | `Channel` |
 
-## Group
+### Group
 
-| Name | Description |
-|:-----|:------------|
-| GroupID (`INT`) | Identifier | 
-| GroupName (`VARCHAR(50)`) | Name | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| GroupID | INT | Identifier | `4` |
+| GroupName | VARCHAR(50) | Name | `100% (35% GP)` |
 
-## Coupon
+### Coupon
 
-| Name | Description |
-|:-----|:------------|
-| CouponID (`INT`) | Identifier | 
-| CouponName (`NVARCHAR(MAX)`) | Name | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CouponID | INT | Identifier | `1144` |
+| CouponName | NVARCHAR(MAX) | Name | `TEST2` |
 
-## StoreType
+### StoreType
 
-| Name | Description |
-|:-----|:------------|
-| Type (`INT`) | Identifier | 
-| StoreTypeName (`NVARCHAR(MAX)`) | Name | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Type | INT | Identifier | `3` |
+| StoreTypeName | NVARCHAR(MAX) | Name | `Kiosk` |
 
 
 
@@ -303,7 +301,7 @@ puts response</code></pre>
 
 
     
-<p><ul><li><code>access_token</code> (Guid) - {{AccessToken_Glossary}}</li><li><code>isValid</code> (Boolean) - A flag to indicate if the token is valid</li><li><code>ParentEntityId</code> (Integer) - Identifier for the {{Company}} the {{User}} belongs to</li><li><code>RQEmployeeId</code> (Integer) - Identifier for the employee in RQ associated with this session</li></ul></p>           
+<p><ul><li><code>access_token</code> (Guid) - {{AccessToken_Glossary}}</li><li><code>isValid</code> (Boolean) - A flag to indicate if the token is valid</li><li><code>ParentEntityId</code> (Integer) - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a> the <a href='http://developers.iqmetrix.com/api/user-manager/#user'>User</a> belongs to</li><li><code>RQEmployeeId</code> (Integer) - Identifier for the employee in RQ associated with this session</li></ul></p>           
     
 
 
@@ -433,7 +431,7 @@ puts response</code></pre>
 
 
     
-<p><ul><li><code>access_token</code> (Guid) - {{AccessToken_Glossary}}, this value can be used in the Authorization header</li><li><code>isValid</code> (Boolean) - A flag to indicate if the token is valid</li><li><code>ParentEntityId</code> (Integer) - Identifier for the {{Company}} the {{User}} belongs to</li><li><code>RQEmployeeId</code> (Integer) - Identifier for the employee in RQ associated with the token</li><li><code>basic_token</code> (String) - Basic token that can be used as the Auth URL Parameter for reports</li><li><code>PreferredEndpoint</code> (String) - A URL that represents the version of RQ Data Connect that is closest to your RQ database. Use this URL for best performance</li></ul></p>           
+<p><ul><li><code>access_token</code> (Guid) - {{AccessToken_Glossary}}, this value can be used in the Authorization header</li><li><code>isValid</code> (Boolean) - A flag to indicate if the token is valid</li><li><code>ParentEntityId</code> (Integer) - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a> the <a href='http://developers.iqmetrix.com/api/user-manager/#user'>User</a> belongs to</li><li><code>RQEmployeeId</code> (Integer) - Identifier for the employee in RQ associated with the token</li><li><code>basic_token</code> (String) - Basic token that can be used as the Auth URL Parameter for reports</li><li><code>PreferredEndpoint</code> (String) - A URL that represents the version of RQ Data Connect that is closest to your RQ database. Use this URL for best performance</li></ul></p>           
     
 
 
@@ -3882,7 +3880,7 @@ Binary *.xlsx file</pre>
 
 This request allows you to get a list of identifiers for a specific LocationType within a company.
 
-For example, `/lists/LocationIDs?LocationType=Region` will return a list of all Regions in the company including the RQ identifier and associated {{CompanyTreeNode}} identifier.      
+For example, `/lists/LocationIDs?LocationType=Region` will return a list of all Regions in the company including the RQ identifier and associated <a href='http://developers.iqmetrix.com/api/company-tree/#companytreenode'>CompanyTreeNode</a> identifier.      
 
 <h4>Request</h4>
 

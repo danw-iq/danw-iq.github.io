@@ -1,129 +1,91 @@
 ---
 title:  Partner Reporting
 permalink: /api/partner-reporting/
-
+tags: []
+keywords: 
+audience: 
+last_updated: 29-11-2016
+summary: 
 rouge: false
-
-language_tabs:
-  - javascript
-  - shell: cURL
-  - csharp: c#
-  - java
-  - ruby
-
-search: true
 ---
+
+<link rel="stylesheet" type="text/css" href="../../css/prism.css">
+
+<script src="../../js/prism.js"></script>
+
 
 {% include linkrefs.html %}
 
 
-
-
-# Overview
+## Overview
 
 The Partner Reporting API allows a Partner to retrieve sales transactions for dealers they have a relationship with.
 
 
-
-# Endpoints
+## Endpoints
 
 
 * Sandbox: <a href="https://reportingdemo.iqmetrix.net/v1">https://reportingdemo.iqmetrix.net/v1</a>
 * Production: <a href="https://reporting.iqmetrix.net/v1">https://reporting.iqmetrix.net/v1</a>
 
 
-
-# Resources
-
+## Resources
 
 
 
 
-## Transaction
+### Transaction
 
-| Name | Description |
-|:-----|:------------|
-| CompanyId (`Integer`) | Identifier for the Dealer | 
-| CompanyName (`String`) | Dealer name | 
-| StoreId (`Integer`) | Identifier for a [Location](/api/company-tree/#location) where the Transaction took place | 
-| StoreName (`String`) | Name of the [Location](/api/company-tree/#location) where the Transaction took place | 
-| RQEmployeeId (`Integer`) | Identifier of the sales person who tendered the Transaction. EmployeeId in RQ. Only unique in the context of a dealer | 
-| SalesPersonName (`String`) | Name of the sales person who tendered the Transaction | 
-| InvoiceId (`String`) | Identifier of the Invoice. Only unique in the context of a dealer | 
-| OriginalInvoiceId (`String`) | When SalesTransactionType is Refund, this property is the InvoiceId of the original invoice. Only unique in the context of a dealer | 
-| SalesTransactionDateTime (`DateTime`) | Date when the Transaction occured (store local time) | 
-| SalesTransactionType (`String`) | Type of Transaction (i.e. Sales, Refund) | 
-| ProductName (`String`) | Name of the Product on the Transaction | 
-| ProductSku (`String`) | Product SKU saved in RQ dealer database | 
-| ProductLibrarySlug (`String`) | iQmetrix internal product unique identifier. | 
-| Quantity (`Integer`) | Number of items sold on the Transaction | 
-| UnitCost (`Decimal`) | The unit cost of the Product | 
-| GrossProfit (`Decimal`) | Gross profit from the Transaction | 
-| TotalSales (`Decimal`) | Total sales from the Transaction | 
-| SerialNumber (`String`) | Serial Number of the Product on the Transaction | 
-| ManufacturerName (`String`) | Name of the [Manufacturer](/api/entity-store/#manufacturer) of the Product on the Transaction | 
-| ActivationType (`String`) | Activation type of the Transaction. See [ActivationTypes](/api/carrier-integration/#activationtype) for a list of acceptable values | 
-| CarrierName (`String`) | Name of the Carrier | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CompanyId | Integer | Identifier for the Dealer | `1548` |
+| CompanyName | String | Dealer name | `CompanyA` |
+| StoreId | Integer | Identifier for a [Location](/api/company-tree/#location) where the Transaction took place | `548` |
+| StoreName | String | Name of the [Location](/api/company-tree/#location) where the Transaction took place | `Vancouver City Centre Mall` |
+| RQEmployeeId | Integer | Identifier of the sales person who tendered the Transaction. EmployeeId in RQ. Only unique in the context of a dealer | `897` |
+| SalesPersonName | String | Name of the sales person who tendered the Transaction | `Mike Johnson` |
+| InvoiceId | String | Identifier of the Invoice. Only unique in the context of a dealer | `36977459` |
+| OriginalInvoiceId | String | When SalesTransactionType is Refund, this property is the InvoiceId of the original invoice. Only unique in the context of a dealer | `36977400` |
+| SalesTransactionDateTime | DateTime | Date when the Transaction occured (store local time) | `2015-12-03 17:35:00.000` |
+| SalesTransactionType | String | Type of Transaction (i.e. Sales, Refund) | `Sales` |
+| ProductName | String | Name of the Product on the Transaction | `Samsung Galaxy S4 16GB - Black Mist` |
+| ProductSku | String | Product SKU saved in RQ dealer database | `WDDDSM000146` |
+| ProductLibrarySlug | String | iQmetrix internal product unique identifier. | `M3310-V1-E13076` |
+| Quantity | Integer | Number of items sold on the Transaction | `1` |
+| UnitCost | Decimal | The unit cost of the Product | `5.99` |
+| GrossProfit | Decimal | Gross profit from the Transaction | `4.99` |
+| TotalSales | Decimal | Total sales from the Transaction | `19.99` |
+| SerialNumber | String | Serial Number of the Product on the Transaction | `359367059548016` |
+| ManufacturerName | String | Name of the [Manufacturer](/api/entity-store/#manufacturer) of the Product on the Transaction | `Samsung` |
+| ActivationType | String | Activation type of the Transaction. See [ActivationTypes](/api/carrier-integration/#activationtype) for a list of acceptable values | `New Activation` |
+| CarrierName | String | Name of the Carrier | `Sasktel Mobility` |
 
 
 
 
 
-# Requests
+## Requests
 
 
 
-## Getting Sales Transactions
+<h3 id='getting-sales-transactions' class='clickable-header top-level-header'>Getting Sales Transactions</h3>
 
 This report will return sales data for both **physical** products and **non-physical** products, such as activations, upgrades and refunds.
 
 
-> Definition
+<h4>Request</h4>
 
-```
+<pre>
 GET /partners({PartnerId})/salesTransactions?startDate={StartDate}&endDate={EndDate}&$skip={Skip}&$top={Top}
-```
-
-> Example Request
+</pre>
 
 
-
-```shell
-curl -X GET "https://reportingdemo.iqmetrix.net/v1/partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&endDate=2015-12-30T08:00:00.000Z&$skip=0&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"
-```
-
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import java.io.IOException;
-
-public static CloseableHttpResponse GettingSalesTransactions() throws IOException {
-    CloseableHttpClient httpClient = HttpClients.createDefault();
-    HttpGet request = new HttpGet("https://reportingdemo.iqmetrix.net/v1/partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&endDate=2015-12-30T08:00:00.000Z&$skip=0&$top=10");
-     
-    request.addHeader("Authorization", "Bearer (Access Token)"); 
-    request.addHeader("Accept", "application/json"); 
-    
-    return httpClient.execute(request);
-}</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a></li><li><code>Accept: application/json</code></li></ul>
 
 
 
-response = RestClient.get 'https://reportingdemo.iqmetrix.net/v1/partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&endDate=2015-12-30T08:00:00.000Z&$skip=0&$top=10', {
-     :'Authorization' => 'Bearer (Access Token)',
-     :'Accept' => 'application/json',
-    } 
-
-puts response</code></pre>
-
-
-#### URI Parameters
+<h4>URI Parameters</h4>
 <ul>
     
     <li>
@@ -149,16 +111,85 @@ puts response</code></pre>
 
 
 
-<h4>Response Parameters</h4>
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-sales-transactions" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-sales-transactions" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-sales-transactions" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-sales-transactions" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-sales-transactions" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-sales-transactions" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-sales-transactions"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-sales-transactions">
+<pre id="http-code-getting-sales-transactions"><code class="language-http">GET /partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&endDate=2015-12-30T08:00:00.000Z&$skip=0&$top=10
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-sales-transactions">
+<pre id="curl-code-getting-sales-transactions"><code class="language-http">curl -X GET "https://reportingdemo.iqmetrix.net/v1/partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&endDate=2015-12-30T08:00:00.000Z&$skip=0&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-sales-transactions">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-sales-transactions"><code class="language-csharp">static IRestResponse GettingSalesTransactions()
+{
+    var client = new RestClient("https://reportingdemo.iqmetrix.net/v1/partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&endDate=2015-12-30T08:00:00.000Z&$skip=0&$top=10");
+    var request = new RestRequest(Method.GET);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-sales-transactions">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-sales-transactions"><code class="language-java">
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse GettingSalesTransactions() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpGet request = new HttpGet("https://reportingdemo.iqmetrix.net/v1/partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&endDate=2015-12-30T08:00:00.000Z&$skip=0&$top=10");
+     
+    request.addHeader("Authorization", "Bearer (Access Token)"); 
+    request.addHeader("Accept", "application/json"); 
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-sales-transactions">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-sales-transactions"><code class="language-ruby">require 'rest-client'
+
+
+
+response = RestClient.get 'https://reportingdemo.iqmetrix.net/v1/partners(36)/salesTransactions?startDate=2015-12-03T08:00:00.000Z&endDate=2015-12-30T08:00:00.000Z&$skip=0&$top=10', {
+     :'Authorization' => 'Bearer (Access Token)',
+     :'Accept' => 'application/json',
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
 
 
  <ul><li><code>_links</code> (Object) - Relative URL's used for Pagination</li><ul><li><code>prev</code> (String) - Refers to a resource containing the previous page of results, null if there is no previous page</li><li><code>self</code> (String) - The request that returned these results</li><li><code>next</code> (String) - Refers to a resource containing the next page of results, null if this is the last page</li></ul><li><code>_metadata</code> (Object) - Data representing Pagination details</li><ul><li><code>count</code> (Integer) - The total number of results returned from the request</li><li><code>skip</code> (Integer) - Value of skip in the request URI, if not specified the value will be 0</li><li><code>top</code> (Integer) - Value of top in the request URI, if not specified the value will be 30</li></ul><li><code>items</code> (Array[<a href='/api/partner-reporting/#transaction'>Transaction</a>]) </li><ul><li><code>CompanyId</code> (Integer) </li><li><code>CompanyName</code> (String) </li><li><code>StoreId</code> (Integer) </li><li><code>StoreName</code> (String) </li><li><code>RQEmployeeId</code> (Integer) </li><li><code>SalesPersonName</code> (String) </li><li><code>InvoiceId</code> (String) </li><li><code>OriginalInvoiceId</code> (String) </li><li><code>SalesTransactionDateTime</code> (Datetime) </li><li><code>SalesTransactionType</code> (String) </li><li><code>ProductName</code> (String) </li><li><code>ProductSku</code> (String) </li><li><code>ProductLibrarySlug</code> (String) </li><li><code>Quantity</code> (Integer) </li><li><code>UnitCost</code> (Decimal) </li><li><code>GrossProfit</code> (Decimal) </li><li><code>TotalSales</code> (Decimal) </li><li><code>SerialNumber</code> (String) </li><li><code>ManufacturerName</code> (String) </li><li><code>ActivationType</code> (String) </li><li><code>CarrierName</code> (String) </li></ul></ul>
 
-> Example Response
+<h5>Example</h5>
 
-<pre class="highlight json">
+<pre>
 HTTP 200 Content-Type: application/json
-</pre><pre class="highlight json">{
+</pre><pre>{
   "_links": {
     "prev": null,
     "self": "/v1/partners(36)/salesTransactions?$skip=0&$top=10&StartDate=2015-10-03T17:35:00.000Z&EndDate=2016-12-30T12:00:00.000Z",
@@ -243,7 +274,7 @@ HTTP 200 Content-Type: application/json
 }
 </pre>
 
-# Pagination
+<h2 id="pagination" class="clickable-header top-level-header">Pagination</h2>
 
 The Parner Reporting API supports pagination of collections of resources for some requests.
 
@@ -285,11 +316,10 @@ The `next`.`href` refers to a resource containing a page with the **next** 5 ite
 The `prev`.`href` refers to a resource containing a page with the **previous** 5 items.
 
 
-# Errors
+<h2 id="errors" class="clickable-header top-level-header">Errors</h2>
 
 | HTTP Status Code | Description | How to Resolve |
 |:-----------------|:------------|:---------------|
 | `HTTP 401` | `Unauthorized Access` | Ensure the access code provided is valid |
 | `HTTP 404` | `Not Found` | Ensure the PartnerId provided in the URI is correct |
 | `HTTP 400` | `Bad Request` | Ensure URI parameters are valid |
-

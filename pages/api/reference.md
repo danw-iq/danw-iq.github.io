@@ -1,111 +1,141 @@
 ---
 title:  Reference
 permalink: /api/reference/
-
+tags: []
+keywords: 
+audience: 
+last_updated: 29-11-2016
+summary: 
 rouge: false
-
-language_tabs:
-  - javascript
-  - shell: cURL
-  - csharp: c#
-  - java
-  - ruby
-
-search: true
 ---
+
+<link rel="stylesheet" type="text/css" href="../../css/prism.css">
+
+<script src="../../js/prism.js"></script>
+
 
 {% include linkrefs.html %}
 
 
-
-
-# Overview
+## Overview
 
 The Reference API allows you to easily access a list of supported Countries, States, TimeZones and Currencies.
 
 
-
-# Endpoints
+## Endpoints
 
 
 * Sandbox: <a href="https://referencedemo.iqmetrix.net/v1">https://referencedemo.iqmetrix.net/v1</a>
 * Production: <a href="https://reference.iqmetrix.net/v1">https://reference.iqmetrix.net/v1</a>
 
 
+## Resources
 
-# Resources
+### Country
 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Id | Integer | Identifier | `1` |
+| Code | String | Country Code. Uses the ISO 3166-1 alpha-2 standard | `CA` |
+| Name | String | Country name | `Canada` |
+| Version | Integer | Latest version number | `1` |
+| States | Array[<a href='/api/reference/#state'>State</a>] | States/Provinces |  |
+| *Alpha3Code* | *String* | *Reserved for future use* | |
 
-## Country
+### State
 
-| Name | Description |
-|:-----|:------------|
-| Id (`Integer`) | Identifier | 
-| Code (`String`) | Country Code. Uses the ISO 3166-1 alpha-2 standard | 
-| Name (`String`) | Country name | 
-| Version (`Integer`) | Latest version number | 
-| States (`Array[<a href='/api/reference/#state'>State</a>]`) | States/Provinces | 
-| *Alpha3Code (`String`)* | *Reserved for future use* | |
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Name | String | Country name | `Alberta` |
+| Code | String | State/Province Code. Based off the ISO 3166-2 standard | `AB` |
+| *Id* | *Integer* | *Reserved for future use* | |
+| *Alpha3Code* | *String* | *Reserved for future use* | |
+| *CountryCode* | *String* | *Reserved for future use* | |
 
-## State
+### TimeZone
 
-| Name | Description |
-|:-----|:------------|
-| Name (`String`) | Country name | 
-| Code (`String`) | State/Province Code. Based off the ISO 3166-2 standard | 
-| *Id (`Integer`)* | *Reserved for future use* | |
-| *Alpha3Code (`String`)* | *Reserved for future use* | |
-| *CountryCode (`String`)* | *Reserved for future use* | |
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Id | String | Identifier | `Alaskan Standard Time` |
+| Name | String | Name | `(UTC-09:00) Alaska` |
+| SupportsDaylightSavingTime | Boolean | A flag to indicate if this TimeZone observes Daylight Savings Time | `true` |
 
-## TimeZone
-
-| Name | Description |
-|:-----|:------------|
-| Id (`String`) | Identifier | 
-| Name (`String`) | Name | 
-| SupportsDaylightSavingTime (`Boolean`) | A flag to indicate if this TimeZone observes Daylight Savings Time | 
-
-## Currency
+### Currency
 
 To represent a Currency symbol in unicode, use the format <code>&#(Code);</code>, for USD this would be <code>&#36;</code> which is displayed as &#36; 
 
-| Name | Description |
-|:-----|:------------|
-| Id (`Integer`) | Identifier | 
-| Name (`String`) | Currency Name | 
-| Code (`String`) | Identifier for the Currency | 
-| Symbol (`Array[integer]`) | Unicode decimal value for symbols associated with this currency | 
-| Version (`Integer`) | Latest version number | 
-| *LanguageNameMap (`String`)* | *Reserved for future use* | |
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Id | Integer | Identifier | `106` |
+| Name | String | Currency Name | `United States Dollar` |
+| Code | String | Identifier for the Currency | `USD` |
+| Symbol | Array[integer] | Unicode decimal value for symbols associated with this currency | `36` |
+| Version | Integer | Latest version number | `1` |
+| *LanguageNameMap* | *String* | *Reserved for future use* | |
 
 
 
 
 
-# Requests
+## Requests
 
 
 
-## Getting All Countries
+<h3 id='getting-all-countries' class='clickable-header top-level-header'>Getting All Countries</h3>
 
 
 
-> Definition
+<h4>Request</h4>
 
-```
+<pre>
 GET /Countries
-```
-
-> Example Request
+</pre>
 
 
+<h4>Headers</h4>
+<ul><li><code>Accept: application/json</code></li></ul>
 
-```shell
-curl -X GET "https://referencedemo.iqmetrix.net/v1/Countries" -H "Accept: application/json"
-```
 
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>
+
+
+
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-all-countries" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-all-countries" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-all-countries" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-all-countries" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-all-countries" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-all-countries" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-all-countries"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-all-countries">
+<pre id="http-code-getting-all-countries"><code class="language-http">GET /Countries
+Accept: application/json
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-all-countries">
+<pre id="curl-code-getting-all-countries"><code class="language-http">curl -X GET "https://referencedemo.iqmetrix.net/v1/Countries" -H "Accept: application/json"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-all-countries">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-all-countries"><code class="language-csharp">static IRestResponse GettingAllCountries()
+{
+    var client = new RestClient("https://referencedemo.iqmetrix.net/v1/Countries");
+    var request = new RestRequest(Method.GET);
+     
+    request.AddHeader("Accept", "application/json"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-all-countries">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-all-countries"><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -120,9 +150,10 @@ public static CloseableHttpResponse GettingAllCountries() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-all-countries">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-all-countries"><code class="language-ruby">require 'rest-client'
 
 
 
@@ -131,21 +162,19 @@ response = RestClient.get 'https://referencedemo.iqmetrix.net/v1/Countries', {
     } 
 
 puts response</code></pre>
+    </div>
+</div>
 
-
-
-
-
-<h4>Response Parameters</h4>
+<h4>Response</h4>
 
 
  Array[<a href='#country'>Country</a>]
 
-> Example Response
+<h5>Example</h5>
 
-<pre class="highlight json">
+<pre>
 HTTP 200 Content-Type: application/json
-</pre><pre class="highlight json">[
+</pre><pre>[
     {
         "Id": 1,
         "Code": "CA",
@@ -160,26 +189,61 @@ HTTP 200 Content-Type: application/json
     }
 ]</pre>
 
-## Getting All Time Zones
+<h3 id='getting-all-time-zones' class='clickable-header top-level-header'>Getting All Time Zones</h3>
 
 
 
-> Definition
+<h4>Request</h4>
 
-```
+<pre>
 GET /TimeZones
-```
-
-> Example Request
+</pre>
 
 
+<h4>Headers</h4>
+<ul><li><code>Accept: application/json</code></li></ul>
 
-```shell
-curl -X GET "https://referencedemo.iqmetrix.net/v1/TimeZones" -H "Accept: application/json"
-```
 
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>
+
+
+
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-all-time-zones" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-all-time-zones" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-all-time-zones" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-all-time-zones" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-all-time-zones" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-all-time-zones" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-all-time-zones"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-all-time-zones">
+<pre id="http-code-getting-all-time-zones"><code class="language-http">GET /TimeZones
+Accept: application/json
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-all-time-zones">
+<pre id="curl-code-getting-all-time-zones"><code class="language-http">curl -X GET "https://referencedemo.iqmetrix.net/v1/TimeZones" -H "Accept: application/json"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-all-time-zones">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-all-time-zones"><code class="language-csharp">static IRestResponse GettingAllTimeZones()
+{
+    var client = new RestClient("https://referencedemo.iqmetrix.net/v1/TimeZones");
+    var request = new RestRequest(Method.GET);
+     
+    request.AddHeader("Accept", "application/json"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-all-time-zones">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-all-time-zones"><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -194,9 +258,10 @@ public static CloseableHttpResponse GettingAllTimeZones() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-all-time-zones">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-all-time-zones"><code class="language-ruby">require 'rest-client'
 
 
 
@@ -205,21 +270,19 @@ response = RestClient.get 'https://referencedemo.iqmetrix.net/v1/TimeZones', {
     } 
 
 puts response</code></pre>
+    </div>
+</div>
 
-
-
-
-
-<h4>Response Parameters</h4>
+<h4>Response</h4>
 
 
  Array[<a href='#timezone'>TimeZone</a>]
 
-> Example Response
+<h5>Example</h5>
 
-<pre class="highlight json">
+<pre>
 HTTP 200 Content-Type: application/json
-</pre><pre class="highlight json">[
+</pre><pre>[
     {
         "Id": "Alaskan Standard Time",
         "Name": "(UTC-09:00) Alaska",
@@ -227,26 +290,61 @@ HTTP 200 Content-Type: application/json
     }
 ]</pre>
 
-## Getting All Currencies
+<h3 id='getting-all-currencies' class='clickable-header top-level-header'>Getting All Currencies</h3>
 
 Currency resources are returned in ascending alphabetical order by Code.
 
-> Definition
+<h4>Request</h4>
 
-```
+<pre>
 GET /Currencies
-```
-
-> Example Request
+</pre>
 
 
+<h4>Headers</h4>
+<ul><li><code>Accept: application/json</code></li></ul>
 
-```shell
-curl -X GET "https://referencedemo.iqmetrix.net/v1/Currencies" -H "Accept: application/json"
-```
 
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>
+
+
+
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-all-currencies" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-all-currencies" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-all-currencies" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-all-currencies" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-all-currencies" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-all-currencies" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-all-currencies"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-all-currencies">
+<pre id="http-code-getting-all-currencies"><code class="language-http">GET /Currencies
+Accept: application/json
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-all-currencies">
+<pre id="curl-code-getting-all-currencies"><code class="language-http">curl -X GET "https://referencedemo.iqmetrix.net/v1/Currencies" -H "Accept: application/json"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-all-currencies">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-all-currencies"><code class="language-csharp">static IRestResponse GettingAllCurrencies()
+{
+    var client = new RestClient("https://referencedemo.iqmetrix.net/v1/Currencies");
+    var request = new RestRequest(Method.GET);
+     
+    request.AddHeader("Accept", "application/json"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-all-currencies">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-all-currencies"><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -261,9 +359,10 @@ public static CloseableHttpResponse GettingAllCurrencies() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-all-currencies">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-all-currencies"><code class="language-ruby">require 'rest-client'
 
 
 
@@ -272,21 +371,19 @@ response = RestClient.get 'https://referencedemo.iqmetrix.net/v1/Currencies', {
     } 
 
 puts response</code></pre>
+    </div>
+</div>
 
-
-
-
-
-<h4>Response Parameters</h4>
+<h4>Response</h4>
 
 
  Array[<a href='#currency'>Currency</a>]
 
-> Example Response
+<h5>Example</h5>
 
-<pre class="highlight json">
+<pre>
 HTTP 200 Content-Type: application/json
-</pre><pre class="highlight json">[
+</pre><pre>[
     {
         "Id": 106,
         "Name": "United States Dollar",

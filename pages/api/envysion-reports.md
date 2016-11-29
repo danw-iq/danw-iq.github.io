@@ -4,7 +4,7 @@ permalink: /api/Envysion-Reports/
 tags: []
 keywords: 
 audience: 
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary: 
 rouge: false
 noPopUp: true
@@ -16,8 +16,6 @@ noPopUp: true
 
 
 {% include linkrefs.html %}
-
-
 
 
 ## Overview
@@ -37,180 +35,180 @@ This API supports many different methods of authentication, see {{Authentication
 
 ## Resources
 
-## Category
+### Category
 
-| Name | Description |
-|:-----|:------------|
-| CategoryNumber (`NVARCHAR (100)`) | Identifier for the Category | 
-| Category (`NVARCHAR (MAX)`) | Category Name | 
-| CategoryPath (`NVARCHAR (MAX)`) | Category | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CategoryNumber | NVARCHAR (100) | Identifier for the Category | `10101012` |
+| Category | NVARCHAR (MAX) | Category Name | `Financing` |
+| CategoryPath | NVARCHAR (MAX) | Category | `>> Activations >> Financing` |
 
-## Store
+### Store
 
-| Name | Description |
-|:-----|:------------|
-| StoreID (`Integer`) | Identifier for a Store in RQ | 
-| City (`String`) | City | 
-| Address (`String`) | Address | 
-| StoreName (`String`) | Store name | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| StoreID | Integer | Identifier for a Store in RQ | `1` |
+| City | String | City | `Phoenix` |
+| Address | String | Address | `27617 Commerce Center Dr` |
+| StoreName | String | Store name | `Altera Kiosk` |
 
-## CashIn
+### CashIn
 
-| Name | Description |
-|:-----|:------------|
-| amount (`MONEY`) | Cash in amount | 
-| cash_in_id (`INTEGER`) | Internal identifier in RQ | 
-| comment (`VARCHAR(2000)`) | Comment | 
-| employee_id (`INTEGER`) | Identifier for an employee in RQ | 
-| employee_id_2 (`INTEGER`) | Identifier for an employee in RQ | 
-| employee_name (`VARCHAR(MAX)`) | Name of employee who performed cash in | 
-| employee_name_2 (`VARCHAR(MAX)`) | Name of employee who verified cash in | 
-| in_date (`DateTime`) | Cash in date | 
-| store_id (`INTEGER`) | Identifier for a store in RQ | 
-| terminal_id (`INTEGER`) | Identifier for a terminal in RQ | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| amount | MONEY | Cash in amount | `0` |
+| cash_in_id | INTEGER | Internal identifier in RQ | `6882` |
+| comment | VARCHAR(2000) | Comment |  |
+| employee_id | INTEGER | Identifier for an employee in RQ | `4` |
+| employee_id_2 | INTEGER | Identifier for an employee in RQ | `4` |
+| employee_name | VARCHAR(MAX) | Name of employee who performed cash in | `John Tester` |
+| employee_name_2 | VARCHAR(MAX) | Name of employee who verified cash in | `John Tester` |
+| in_date | DateTime | Cash in date | `2009-10-27T09:35:30.767` |
+| store_id | INTEGER | Identifier for a store in RQ | `1` |
+| terminal_id | INTEGER | Identifier for a terminal in RQ | `0` |
 
-## CashOut
+### CashOut
 
-| Name | Description |
-|:-----|:------------|
-| amount (`MONEY`) | Cash out amount | 
-| cash_out_id (`INTEGER`) | Internal identifier in RQ | 
-| comment (`VARCHAR(5000)`) | Comment | 
-| employee_id (`INTEGER`) | Identifier for an employee in RQ | 
-| employee_id_2 (`INTEGER`) | Identifier for an employee in RQ | 
-| employee_name (`VARCHAR(MAX)`) | Name of employee who performed cash out | 
-| employee_name_2 (`VARCHAR(MAX)`) | Name of employee who verified cash out | 
-| out_date (`DateTime`) | Cash out date | 
-| store_id (`INTEGER`) | Identifier for a store in RQ | 
-| terminal_id (`INTEGER`) | Identifier for a terminal in RQ | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| amount | MONEY | Cash out amount | `332478` |
+| cash_out_id | INTEGER | Internal identifier in RQ | `104253` |
+| comment | VARCHAR(5000) | Comment | `b` |
+| employee_id | INTEGER | Identifier for an employee in RQ | `2863` |
+| employee_id_2 | INTEGER | Identifier for an employee in RQ | `2863` |
+| employee_name | VARCHAR(MAX) | Name of employee who performed cash out | `iQmetrix Employee` |
+| employee_name_2 | VARCHAR(MAX) | Name of employee who verified cash out | `iQmetrix Employee` |
+| out_date | DateTime | Cash out date | `2011-04-13T11:35:23.32` |
+| store_id | INTEGER | Identifier for a store in RQ | `1` |
+| terminal_id | INTEGER | Identifier for a terminal in RQ | `0` |
 
-## OriginalSalesInvoice
+### OriginalSalesInvoice
 
-| Name | Description |
-|:-----|:------------|
-| invoice_id (`INTEGER`) | Internal identifier in RQ | 
-| orig_date (`DateTime`) | Invoice date | 
-| orig_employee_id (`INTEGER`) | Identifier for an employee in RQ | 
-| orig_employee_name (`VARCHAR(MAX)`) | Name of employee on invoice | 
-| orig_invoice_id (`INTEGER`) | Identifier of invoice in RQ | 
-| orig_receipt (`VARCHAR(14)`) | Receipt number | 
-| orig_store_id (`INTEGER`) | Identifier for a store in RQ | 
-| orig_terminal_id (`INTEGER`) | Identifier for a terminal in RQ | 
-| orig_workstation (`VARCHAR(50)`) | Workstation | 
-| store_id (`INTEGER`) | Identifier for a store in RQ | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| invoice_id | INTEGER | Internal identifier in RQ | `1265314` |
+| orig_date | DateTime | Invoice date | `2013-04-09T08:23:51.93` |
+| orig_employee_id | INTEGER | Identifier for an employee in RQ | `45` |
+| orig_employee_name | VARCHAR(MAX) | Name of employee on invoice | `iQmetrix Employee` |
+| orig_invoice_id | INTEGER | Identifier of invoice in RQ | `1265312` |
+| orig_receipt | VARCHAR(14) | Receipt number | `00001IN1805` |
+| orig_store_id | INTEGER | Identifier for a store in RQ | `1` |
+| orig_terminal_id | INTEGER | Identifier for a terminal in RQ | `0` |
+| orig_workstation | VARCHAR(50) | Workstation | `null` |
+| store_id | INTEGER | Identifier for a store in RQ | `1` |
 
-## PunchClockEntry
+### PunchClockEntry
 
-| Name | Description |
-|:-----|:------------|
-| employee_id (`INTEGER`) | Identifier for an employee in RQ | 
-| employee_name (`NVARCHAR (MAX)`) | Name of employee on punch | 
-| employee_verified (`BIT`) | A flag to indicate employee verification of punch | 
-| in_comment (`VARCHAR(100)`) | Comment for punch in | 
-| manager_verified (`BIT`) | A flag to indicate manager verification of punch | 
-| out_comment (`VARCHAR(100)`) | Comment for punch out | 
-| punch_id (`INTEGER`) | Internal identifier for punch in RQ | 
-| statue (`TINYINT`) | Standard = 1, Edited = 1, Added = 2, Deleted = 3 | 
-| store_id (`INTEGER`) | Identifier for a store in RQ | 
-| time_in (`DateTime`) | Punch in time | 
-| time_out (`DateTime`) | Punch out time | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| employee_id | INTEGER | Identifier for an employee in RQ | `2` |
+| employee_name | NVARCHAR (MAX) | Name of employee on punch | `iQmetrix Employee` |
+| employee_verified | BIT | A flag to indicate employee verification of punch | `true` |
+| in_comment | VARCHAR(100) | Comment for punch in |  |
+| manager_verified | BIT | A flag to indicate manager verification of punch | `false` |
+| out_comment | VARCHAR(100) | Comment for punch out | `Auto-Punch Out` |
+| punch_id | INTEGER | Internal identifier for punch in RQ | `7341` |
+| statue | TINYINT | Standard = 1, Edited = 1, Added = 2, Deleted = 3 | `1` |
+| store_id | INTEGER | Identifier for a store in RQ | `1` |
+| time_in | DateTime | Punch in time | `2010-01-04T08:00:00` |
+| time_out | DateTime | Punch out time | `2010-01-04T12:33:00` |
 
-## PunchClockEntryRevision
+### PunchClockEntryRevision
 
-| Name | Description |
-|:-----|:------------|
-| comment (`VARCHAR(255)`) | Revision comment | 
-| employee (`VARCHAR(MAX)`) | Employee on revision | 
-| employee_id (`INTEGER`) | Identifier for an employee in RQ | 
-| orig_time_in (`DateTime`) | Original punch in time | 
-| orig_time_out (`DateTime`) | Original punch out time | 
-| punch_id (`INTEGER`) | Internal identifier for punch in RQ | 
-| revised_by_employee (`VARCHAR(MAX)`) | Employee making revision | 
-| revised_by_employee_id (`INTEGER`) | Identifier for an employee in RQ | 
-| revised_date (`DateTime`) | Date and time punch was revised | 
-| revised_time_in (`DateTime`) | Revised punch in | 
-| revised_time_out (`DateTime`) | Revised punch out | 
-| revision_id (`INTEGER`) | Internal identifier in RQ | 
-| revision_type (`TINYINT`) | Not Specified = 0, Edit = 1, Addition = 2, Deletion = 3 | 
-| store_id (`INTEGER`) | Identifier for a store in RQ | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| comment | VARCHAR(255) | Revision comment | `wrong location - entered correctly at corporate office` |
+| employee | VARCHAR(MAX) | Employee on revision | `Cathy Day` |
+| employee_id | INTEGER | Identifier for an employee in RQ | `107` |
+| orig_time_in | DateTime | Original punch in time | `2010-01-04T06:12:52.79` |
+| orig_time_out | DateTime | Original punch out time | `2010-01-04T15:06:36.677` |
+| punch_id | INTEGER | Internal identifier for punch in RQ | `6276` |
+| revised_by_employee | VARCHAR(MAX) | Employee making revision | `Dayle Paulson` |
+| revised_by_employee_id | INTEGER | Identifier for an employee in RQ | `7` |
+| revised_date | DateTime | Date and time punch was revised | `2010-01-14T16:06:18.25` |
+| revised_time_in | DateTime | Revised punch in | `null` |
+| revised_time_out | DateTime | Revised punch out | `null` |
+| revision_id | INTEGER | Internal identifier in RQ | `1567` |
+| revision_type | TINYINT | Not Specified = 0, Edit = 1, Addition = 2, Deletion = 3 | `3` |
+| store_id | INTEGER | Identifier for a store in RQ | `1` |
 
-## SaleInvoiceCoupon
+### SaleInvoiceCoupon
 
-| Name | Description |
-|:-----|:------------|
-| Amount (`MONEY`) | Amount on coupon | 
-| DateCreated (`DateTime`) | Date created | 
-| Description (`NVARCHAR(MAX)`) | Description | 
-| InvoiceIDByStore (`VARCHAR(14)`) | Invoice  | 
-| SaleInvoiceID (`INTEGER`) | Internal identifier in RQ | 
-| StoreID1 (`INTEGER`) | Identifier for a store in RQ | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Amount | MONEY | Amount on coupon | `3.5` |
+| DateCreated | DateTime | Date created | `2012-06-11T13:13:51.74` |
+| Description | NVARCHAR(MAX) | Description | `Normal Coupon` |
+| InvoiceIDByStore | VARCHAR(14) | Invoice  | `00001IN1001` |
+| SaleInvoiceID | INTEGER | Internal identifier in RQ | `1263859` |
+| StoreID1 | INTEGER | Identifier for a store in RQ | `1` |
 
-## SaleInvoicePayment
+### SaleInvoicePayment
 
-| Name | Description |
-|:-----|:------------|
-| amount (`MONEY`) | Amount | 
-| change_amount (`MONEY`) | Change given | 
-| comments (`TEXT`) | Comments | 
-| customer_id (`INTEGER`) | Identifier for a customer in RQ | 
-| customer_member_num (`VARCHAR(30)`) | Customer member number in RQ | 
-| employee_id (`INTEGER`) | Identifier for an employee in RQ | 
-| employee_name (`VARCHAR(MAX)`) | Name of employee in RQ | 
-| employee_name_3 (`VARCHAR(MAX)`) | Name of employee in RQ | 
-| invoice_id (`INTEGER`) | Internal identifier in RQ | 
-| is_bill_payment (`BIT`) | A flag to indicate if this is a bill payment | 
-| payment_type (`NVARCHAR(MAX)`) | Payment type | 
-| receipt_number (`VARCHAR(14)`) | Receipt number | 
-| store_id (`INTEGER`) | Identifier for a store in RQ | 
-| terminal_id (`INTEGER`) | Identifier for a terminal in RQ | 
-| trans_create_time (`DateTime`) | Transaction created time | 
-| trans_logged_time (`DateTime`) | Transaction logged time | 
-| workstation_name (`VARCHAR(50)`) | Workstation name | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| amount | MONEY | Amount | `152.25` |
+| change_amount | MONEY | Change given | `0` |
+| comments | TEXT | Comments |  |
+| customer_id | INTEGER | Identifier for a customer in RQ | `null` |
+| customer_member_num | VARCHAR(30) | Customer member number in RQ | `null` |
+| employee_id | INTEGER | Identifier for an employee in RQ | `4` |
+| employee_name | VARCHAR(MAX) | Name of employee in RQ | `John Tester` |
+| employee_name_3 | VARCHAR(MAX) | Name of employee in RQ | `John Tester` |
+| invoice_id | INTEGER | Internal identifier in RQ | `524371` |
+| is_bill_payment | BIT | A flag to indicate if this is a bill payment | `0` |
+| payment_type | NVARCHAR(MAX) | Payment type | `Cash` |
+| receipt_number | VARCHAR(14) | Receipt number | `00001IN117` |
+| store_id | INTEGER | Identifier for a store in RQ | `1` |
+| terminal_id | INTEGER | Identifier for a terminal in RQ | `0` |
+| trans_create_time | DateTime | Transaction created time | `2010-03-10T15:20:19.323` |
+| trans_logged_time | DateTime | Transaction logged time | `null` |
+| workstation_name | VARCHAR(50) | Workstation name | `null` |
 
-## SaleInvoiceProduct
+### SaleInvoiceProduct
 
-| Name | Description |
-|:-----|:------------|
-| Activation (`INTEGER`) | A flag to indicate if this is an activated product | 
-| AssociationNumber (`INTEGER`) | Association number in rq | 
-| category_number (`VARCHAR(150)`) | Internal identifier for a Category in RQ | 
-| category_path (`VARCHAR(150)`) | Category | 
-| cost (`MONEY`) | Cost | 
-| Discount (`MONEY`) | A flag to indicate if this is a discounted product | 
-| employee_id (`INTEGER`) | Identifier for an employee in RQ | 
-| employee_name (`VARCHAR(250)`) | Name of employee in RQ | 
-| invoice_id (`INTEGER`) | Internal identifier in RQ | 
-| item_logged_time (`DateTime`) | Time the product was added to the invoice | 
-| list_price (`MONEY`) | List price | 
-| override_amt (`MONEY`) | Override amount | 
-| Priority (`INTEGER`) | A number representing the priority of the product on the invoice | 
-| product_description (`NVARCHAR(MAX)`) | Description | 
-| product_id (`VARCHAR(250)`) | Identifier for a product in RQ | 
-| product_type (`VARCHAR(250)`) | Product type in RQ | 
-| quantity (`INTEGER`) | Quantity | 
-| receipt_number (`VARCHAR(50)`) | Receipt number in RQ | 
-| Return (`INTEGER`) | A flag to indicate if this is a returned product | 
-| sale_price (`MONEY`) | Sale price | 
-| store_id (`INTEGER`) | Identifier for a store in RQ | 
-| terminal_id (`INTEGER`) | Transaction logged time | 
-| workstation_name (`VARCHAR(100)`) | Workstation name | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Activation | INTEGER | A flag to indicate if this is an activated product | `0` |
+| AssociationNumber | INTEGER | Association number in rq | `1` |
+| category_number | VARCHAR(150) | Internal identifier for a Category in RQ | `10101126` |
+| category_path | VARCHAR(150) | Category | `>> Accessories >> Antennas` |
+| cost | MONEY | Cost | `6.96` |
+| Discount | MONEY | A flag to indicate if this is a discounted product | `0` |
+| employee_id | INTEGER | Identifier for an employee in RQ | `2892` |
+| employee_name | VARCHAR(250) | Name of employee in RQ | `iQmetrix Employee` |
+| invoice_id | INTEGER | Internal identifier in RQ | `1267257` |
+| item_logged_time | DateTime | Time the product was added to the invoice | `2015-03-03T07:40:29.493` |
+| list_price | MONEY | List price | `1` |
+| override_amt | MONEY | Override amount | `0` |
+| Priority | INTEGER | A number representing the priority of the product on the invoice | `1` |
+| product_description | NVARCHAR(MAX) | Description | `ADAPTER CABLE USB727/760- Test` |
+| product_id | VARCHAR(250) | Identifier for a product in RQ | `ASANUN000001` |
+| product_type | VARCHAR(250) | Product type in RQ | `Regular Global Product` |
+| quantity | INTEGER | Quantity | `1` |
+| receipt_number | VARCHAR(50) | Receipt number in RQ | `00416IN4417` |
+| Return | INTEGER | A flag to indicate if this is a returned product | `0` |
+| sale_price | MONEY | Sale price | `1` |
+| store_id | INTEGER | Identifier for a store in RQ | `221` |
+| terminal_id | INTEGER | Transaction logged time | `0` |
+| workstation_name | VARCHAR(100) | Workstation name | `TEMP-W530-W8` |
 
-## SaleInvoiceTax
+### SaleInvoiceTax
 
-| Name | Description |
-|:-----|:------------|
-| DateCreated (`DateTime`) | Created date | 
-| InvoiceIDByStore (`VARCHAR(14)`) | Invoice number | 
-| SaleInvoiceID (`INTEGER`) | Identifier for an invoice in RQ | 
-| StoreID1 (`INTEGER`) | Identifier for a store in RQ | 
-| Tax (`MONEY`) | Tax amount | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| DateCreated | DateTime | Created date | `2010-05-28T15:55:38.78` |
+| InvoiceIDByStore | VARCHAR(14) | Invoice number | `00001IN193` |
+| SaleInvoiceID | INTEGER | Identifier for an invoice in RQ | `812306` |
+| StoreID1 | INTEGER | Identifier for a store in RQ | `1` |
+| Tax | MONEY | Tax amount | `0` |
 
-## Relationship
+### Relationship
 
-| Name | Description |
-|:-----|:------------|
-| CompanyID (`INTEGER`) | Identifier for a {{Company}} | 
-| CompanyName (`VARCHAR(50)`) | Company name | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CompanyID | INTEGER | Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a> | `22575` |
+| CompanyName | VARCHAR(50) | Company name | `KENTEL` |
 
 
 
@@ -475,7 +473,7 @@ GET /partner/Envysion/Categories?CompanyId={CompanyId}&Auth={Auth}&Response={Res
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -718,7 +716,7 @@ GET /partner/Envysion/Stores?CompanyId={CompanyId}&Auth={Auth}&Response={Respons
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -965,7 +963,7 @@ GET /partner/Envysion/CashIns?CompanyId={CompanyId}&StartDate={StartDate}&StopDa
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -1248,7 +1246,7 @@ GET /partner/Envysion/CashOuts?CompanyId={CompanyId}&StartDate={StartDate}&StopD
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -1531,7 +1529,7 @@ GET /partner/Envysion/OriginalSaleInvoice?CompanyId={CompanyId}&StartDate={Start
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -1814,7 +1812,7 @@ GET /partner/Envysion/PunchClock?CompanyId={CompanyId}&StartDate={StartDate}&Sto
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -2101,7 +2099,7 @@ GET /partner/Envysion/PunchClockRevisions?CompanyId={CompanyId}&StartDate={Start
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -2400,7 +2398,7 @@ GET /partner/Envysion/SaleInvoiceCoupons?CompanyId={CompanyId}&StartDate={StartD
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -2667,7 +2665,7 @@ GET /partner/Envysion/SaleInvoicePayments?CompanyId={CompanyId}&StartDate={Start
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -2978,7 +2976,7 @@ GET /partner/Envysion/SaleInvoiceProducts?CompanyId={CompanyId}&StartDate={Start
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -3313,7 +3311,7 @@ GET /partner/Envysion/SaleInvoiceTaxes?CompanyId={CompanyId}&StartDate={StartDat
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>

@@ -4,7 +4,7 @@ permalink: /api/RQ-Data-Connect-Utilities/
 tags: []
 keywords: 
 audience: 
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary: 
 rouge: false
 noPopUp: true
@@ -16,8 +16,6 @@ noPopUp: true
 
 
 {% include linkrefs.html %}
-
-
 
 
 ## Overview
@@ -49,110 +47,110 @@ For a complete list of reports in RQ Data Connect, see [Report List](/rq-data-co
 
 ## Resources
 
-## EmployeeMasterListReportData
+### EmployeeMasterListReportData
 
-| Name | Description |
-|:-----|:------------|
-| Assigned Groups (`NVARCHAR(MAX)`) | Assigned Groups - states the groups assigned to the employee | 
-| Assigned Locations (`NVARCHAR(MAX)`) | Assigned Locations - states the locations assigned to the individual | 
-| City (`VARCHAR(50)`) | City - city of the employee as entered on their profile | 
-| Clear Fingerprints (`VARCHAR(2)`) | Clear Fingerprints - this will allow you to clear fingerprints | 
-| Commission Group (`VARCHAR(50)`) | Commission Group - commission group of the employee as entered on their profile | 
-| Compensation Type (`VARCHAR(21)`) | Compensation Type - compensation type of the employee as entered on their profile | 
-| Country (`VARCHAR(50)`) | Country - country of the employee as entered on their profile | 
-| Disabled (`VARCHAR(3)`) | Disabled - indicates whether or not the employee is disabled | 
-| Email Address (`VARCHAR(50)`) | Email Address - email address of the employee as entered on their profile (in the Email Settings section) | 
-| Email Display Name (`VARCHAR(50)`) | Email Display Name - email display name of the employee as entered on their profile (in the Email Settings section) | 
-| Email Password (`VARCHAR(1)`) | Email Password - email password of the employee as entered on their profile (in the Email Settings section) | 
-| Email Server (`VARCHAR(50)`) | Email Server - email server of the employee as entered on their profile (in the Email Settings section) | 
-| Email User Name (`VARCHAR(50)`) | Email Username -email username of the employee as entered on their profile (in the Email Settings section) | 
-| Employee ID (`INT`) | Identifier for the employee in RQ | 
-| Employee Name (`VARCHAR(51)`) | Employee Name - name of the employee as entered on their profile | 
-| Fingerprint Enabled (`VARCHAR(3)`) | Fingerprint Entered - indicates if the employee has fingerprints entered | 
-| Frequency (`VARCHAR(12)`) | Frequency - compensation frequency of the employee as entered on their profile | 
-| FrequencyEffective (`NVARCHAR(4000)`) | Frequency Effective - the frequency effective date of the employee as entered on their profile | 
-| Gender (`VARCHAR(9)`) | Gender - gender of the employee as entered on their profile | 
-| ID # (`VARCHAR(25)`) | ID # - employees ID listed under the admin tab of the profile | 
-| Image Uploaded (`VARCHAR(3)`) | Image Uploaded - indicates if the employee has a profile picture uploaded | 
-| Internal (`VARCHAR(12)`) | Interval - compensation interval of the employee as entered on their profile | 
-| Intrgration Username (`VARCHAR(255)`) | Username | 
-| Job Title (`VARCHAR(50)`) | Job Title - job title of the employee as entered on their profile | 
-| Language (`VARCHAR(255)`) | Language - employees primary language | 
-| Locked (`VARCHAR(3)`) | Locked - employee is locked so they can not be accessed | 
-| Part Time (`INT`) | Part Time - indicates if the employee is part time | 
-| Personal Days Available (`INT`) | Personal Days Available - will state the personal days available | 
-| Personal Email (`VARCHAR(50)`) | Personal Email - personal email of the employee as entered on their profile | 
-| Primary Location (`NVARCHAR(MAX)`) | Primary Location - primary location of the employee as entered on their profile | 
-| Rate Effective (`NVARCHAR(4000)`) | Rate Effective - rate effective date of the employee as entered on their profile | 
-| Rate (`MONEY`) | Rate - compensation rate of the employee as entered on their profile | 
-| Role (`VARCHAR(1)`) | Role - role of the employee as entered on their profile | 
-| Security Role (`NVARCHAR(MAX)`) | Security Role - security role of the employee as entered on their profile | 
-| Sick Days Available (`INT`) | Sick Days Available - will state the sick days available | 
-| Start Date (`NVARCHAR(4000)`) | Start Date - the start date of the employee | 
-| State / Prov (`VARCHAR(50)`) | State/Prov - state or province of the employee as entered on their profile | 
-| Supervisor (`VARCHAR(51)`) | Supervisor - supervisor of the employee as entered on their profile | 
-| Termination Date (`NVARCHAR(4000)`) | Termination Date - states the termination date of the employee | 
-| Termination Notes (`VARCHAR(255)`) | Termination Notes - states the notes for the termination | 
-| Username (`VARCHAR(51)`) | Username - username of the employee as entered in their profile | 
-| Vacation Days Available (`INT`) | Vacation Days Available - will state the vacation days available | 
-| Work # (`VARCHAR(50)`) | Work # - work number of the employee as entered on their profile | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Assigned Groups | NVARCHAR(MAX) | Assigned Groups - states the groups assigned to the employee | `Sales Representative` |
+| Assigned Locations | NVARCHAR(MAX) | Assigned Locations - states the locations assigned to the individual | `84 West Target Dothan Wiregrass Commons Mall - Test Long Store Name Here` |
+| City | VARCHAR(50) | City - city of the employee as entered on their profile | `Dothan` |
+| Clear Fingerprints | VARCHAR(2) | Clear Fingerprints - this will allow you to clear fingerprints | `No` |
+| Commission Group | VARCHAR(50) | Commission Group - commission group of the employee as entered on their profile | `Sales Representative` |
+| Compensation Type | VARCHAR(21) | Compensation Type - compensation type of the employee as entered on their profile | `Commission` |
+| Country | VARCHAR(50) | Country - country of the employee as entered on their profile | `USA` |
+| Disabled | VARCHAR(3) | Disabled - indicates whether or not the employee is disabled | `No` |
+| Email Address | VARCHAR(50) | Email Address - email address of the employee as entered on their profile (in the Email Settings section) | `hilary@kentel.com` |
+| Email Display Name | VARCHAR(50) | Email Display Name - email display name of the employee as entered on their profile (in the Email Settings section) | `hilary@kentel.com` |
+| Email Password | VARCHAR(1) | Email Password - email password of the employee as entered on their profile (in the Email Settings section) | `test` |
+| Email Server | VARCHAR(50) | Email Server - email server of the employee as entered on their profile (in the Email Settings section) | `outlook.kentel.com` |
+| Email User Name | VARCHAR(50) | Email Username -email username of the employee as entered on their profile (in the Email Settings section) | `hilary` |
+| Employee ID | INT | Identifier for the employee in RQ | `60` |
+| Employee Name | VARCHAR(51) | Employee Name - name of the employee as entered on their profile | `Hillary Oliver` |
+| Fingerprint Enabled | VARCHAR(3) | Fingerprint Entered - indicates if the employee has fingerprints entered | `No` |
+| Frequency | VARCHAR(12) | Frequency - compensation frequency of the employee as entered on their profile | `N/A` |
+| FrequencyEffective | NVARCHAR(4000) | Frequency Effective - the frequency effective date of the employee as entered on their profile | `Jan 10 2011` |
+| Gender | VARCHAR(9) | Gender - gender of the employee as entered on their profile | `Male` |
+| ID # | VARCHAR(25) | ID # - employees ID listed under the admin tab of the profile | `912345987654321` |
+| Image Uploaded | VARCHAR(3) | Image Uploaded - indicates if the employee has a profile picture uploaded | `No` |
+| Internal | VARCHAR(12) | Interval - compensation interval of the employee as entered on their profile | `N/A` |
+| Intrgration Username | VARCHAR(255) | Username | `hilary.kentel` |
+| Job Title | VARCHAR(50) | Job Title - job title of the employee as entered on their profile | `Wireless Consultant` |
+| Language | VARCHAR(255) | Language - employees primary language | `en-us` |
+| Locked | VARCHAR(3) | Locked - employee is locked so they can not be accessed | `No` |
+| Part Time | INT | Part Time - indicates if the employee is part time | `0` |
+| Personal Days Available | INT | Personal Days Available - will state the personal days available | `0` |
+| Personal Email | VARCHAR(50) | Personal Email - personal email of the employee as entered on their profile | `hilary@kentel.com` |
+| Primary Location | NVARCHAR(MAX) | Primary Location - primary location of the employee as entered on their profile | `Corporate Office` |
+| Rate Effective | NVARCHAR(4000) | Rate Effective - rate effective date of the employee as entered on their profile | `Jan 10 2011` |
+| Rate | MONEY | Rate - compensation rate of the employee as entered on their profile | `0` |
+| Role | VARCHAR(1) | Role - role of the employee as entered on their profile | `Store Manager` |
+| Security Role | NVARCHAR(MAX) | Security Role - security role of the employee as entered on their profile | `Sales Representative` |
+| Sick Days Available | INT | Sick Days Available - will state the sick days available | `0` |
+| Start Date | NVARCHAR(4000) | Start Date - the start date of the employee | `Dec 05 2010` |
+| State / Prov | VARCHAR(50) | State/Prov - state or province of the employee as entered on their profile | `AL` |
+| Supervisor | VARCHAR(51) | Supervisor - supervisor of the employee as entered on their profile | `Robyn Roberts` |
+| Termination Date | NVARCHAR(4000) | Termination Date - states the termination date of the employee | `Today` |
+| Termination Notes | VARCHAR(255) | Termination Notes - states the notes for the termination | `Vacation days to be paid` |
+| Username | VARCHAR(51) | Username - username of the employee as entered in their profile | `Hillary.Oliver` |
+| Vacation Days Available | INT | Vacation Days Available - will state the vacation days available | `0` |
+| Work # | VARCHAR(50) | Work # - work number of the employee as entered on their profile | `3347020770` |
 
-## LocationMasterListReportData
+### LocationMasterListReportData
 
-| Name | Description |
-|:-----|:------------|
-| Abbreviation (`VARCHAR(5)`) | Abbreviation - this cannot be edited | 
-| Address (`NVARCHAR(MAX)`) | Address - address assigned to location | 
-| AddressVerified (`VARCHAR(12)`) | Address Verified - if the address can not be verified then you will have the option to edit the Latitude and Longitude to verify it | 
-| AdjustDST (`BIT`) | Adjust DST - check if the location adjusts for daylight savings | 
-| BankDetails (`NVARCHAR(MAX)`) | Bank Details - the Banks name for the location | 
-| CashPolicy (`VARCHAR(13)`) | Cash Policy - states the cash policy (single/multi-drawer) | 
-| ChannelName (`NVARCHAR(MAX)`) | Channel - channel the region is assigned to | 
-| City (`VARCHAR(50)`) | City - city the location resides in | 
-| Comment_on_OE (`BIT`) | Comment on OE - show product and location comments on sales order | 
-| Country (`VARCHAR(50)`) | Country - country the location is located in | 
-| DepositTaken (`MONEY`) | Deposit Taken - lists the deposit if applicable | 
-| Disabled (`INT`) | Disable - indicates if the location is enabled or disabled | 
-| DistrictName (`NVARCHAR(MAX)`) | District - district the location is assigned to | 
-| EmailAddress (`VARCHAR(255)`) | Email Address - email address assigned to the location | 
-| FaxNumber (`VARCHAR(10)`) | Fax # - Fax # listed under the location | 
-| GeneralLocationNotes (`VARCHAR(255)`) | General Location Notes - notes specific to the location | 
-| GLCode (`VARCHAR(100)`) | Code - coded associated to the location | 
-| HideCustomerAddress (`BIT`) | Hide Customer Address - prevents the customers address from being seen on an invoice | 
-| InsuranceAmount (`MONEY`) | Insurance - cost of Insurance | 
-| InsuranceCompany (`NVARCHAR(MAX)`) | Insurance Company - name of the insurance company | 
-| LandlordName (`NVARCHAR(MAX)`) | Landlord Name - name of the landlord | 
-| LandlordNotes (`NVARCHAR(MAX)`) | Landlord Notes - notes specific to the landlord | 
-| Latitude (`DECIMAL`) | Latitude - latitude location of the store | 
-| LeaseEndDate (`DateTime`) | Lease End Date - the day the lease ends | 
-| LeaseNotes (`NVARCHAR(MAX)`) | Lease Notes - notes specific to the lease | 
-| LeaseStartDate (`DateTime`) | Lease Start Date - day the lease started | 
-| LocationCode (`VARCHAR(100)`) | Location Code - code entered in the property details tab in the Location Setup | 
-| LocationEntityID (`INT`) | Identifier of the store as a {{Location}} in Entity Store | 
-| Longitude (`DECIMAL`) | Longitude - longitude location of the store | 
-| ManagerCommissionable (`BIT`) | Manager Commissionable - indicates if the manager is commissionable. | 
-| ManagerEmployeeID (`INT`) | Manager - manager assigned to the location | 
-| MaxCashDrawer (`MONEY`) | Max Cash Drawer - maximum amount of cash allowed in a cash drawer | 
-| OtherCharges (`MONEY`) | Other Charges - other charges associated to the location | 
-| PAW_on_OE (`BIT`) | PAW on OE - launch PAW on sales orders | 
-| Phone_on_OE (`BIT`) | Force phone number for entry on sales orders | 
-| PhoneNumber (`VARCHAR(10)`) | Phone # - designated number for the location | 
-| PropertyTaxes (`MONEY`) | Property Taxes - applicable property taxes | 
-| RegionName (`NVARCHAR(MAX)`) | Region - region the district is assigned to | 
-| RelocationDate (`DateTime`) | Relocation Date - lists the date of the relocation if applicable | 
-| Rent (`MONEY`) | Rent - rent amount for the location | 
-| SaleInvoiceComment (`NVARCHAR(MAX)`) | Sale Invoice Comment - locations sales invoice comment | 
-| Serial_on_OE (`BIT`) | Serial # on OE - force serial # for entry on sales orders | 
-| SquareFootage (`INT`) | Square Feet - approx square feet of the store | 
-| StaffLevel (`DECIMAL`) | Staff Level - designated staffing level for the location | 
-| StateProv (`NVARCHAR(3)`) | State/Prov - state or province the location is located in | 
-| StoreID (`INT`) | Internal identifier for the store in RQ | 
-| StoreName (`NVARCHAR(MAX)`) | Store Name - name of the store | 
-| StoreType (`NVARCHAR(MAX)`) | Store Type - will state the store type | 
-| Taxes (`NVARCHAR(MAX)`) | Taxes - taxes assigned to the location | 
-| TimeZone (`VARCHAR(200)`) | Time Zone - time zone assigned to location | 
-| UseLocationEmail (`BIT`) | Use Location for Email - use the location for the email contact | 
-| ZipPostal (`VARCHAR(15)`) | Zip/Postal - zip/postal for the location | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Abbreviation | VARCHAR(5) | Abbreviation - this cannot be edited | `LIT22` |
+| Address | NVARCHAR(MAX) | Address - address assigned to location | `4970 Hillside Avenue` |
+| AddressVerified | VARCHAR(12) | Address Verified - if the address can not be verified then you will have the option to edit the Latitude and Longitude to verify it | `Not Verified` |
+| AdjustDST | BIT | Adjust DST - check if the location adjusts for daylight savings | `false` |
+| BankDetails | NVARCHAR(MAX) | Bank Details - the Banks name for the location | `CashSmart` |
+| CashPolicy | VARCHAR(13) | Cash Policy - states the cash policy (single/multi-drawer) | `Single-Drawer` |
+| ChannelName | NVARCHAR(MAX) | Channel - channel the region is assigned to | `Alabama` |
+| City | VARCHAR(50) | City - city the location resides in | `Kansas` |
+| Comment_on_OE | BIT | Comment on OE - show product and location comments on sales order | `false` |
+| Country | VARCHAR(50) | Country - country the location is located in | `United States` |
+| DepositTaken | MONEY | Deposit Taken - lists the deposit if applicable | `0` |
+| Disabled | INT | Disable - indicates if the location is enabled or disabled | `1` |
+| DistrictName | NVARCHAR(MAX) | District - district the location is assigned to | `Smithton` |
+| EmailAddress | VARCHAR(255) | Email Address - email address assigned to the location | `abarea@kentel.com` |
+| FaxNumber | VARCHAR(10) | Fax # - Fax # listed under the location | `5555555555` |
+| GeneralLocationNotes | VARCHAR(255) | General Location Notes - notes specific to the location | `note` |
+| GLCode | VARCHAR(100) | Code - coded associated to the location | `-MILLH` |
+| HideCustomerAddress | BIT | Hide Customer Address - prevents the customers address from being seen on an invoice | `false` |
+| InsuranceAmount | MONEY | Insurance - cost of Insurance | `0` |
+| InsuranceCompany | NVARCHAR(MAX) | Insurance Company - name of the insurance company | `Safefair` |
+| LandlordName | NVARCHAR(MAX) | Landlord Name - name of the landlord | `Jim Jones` |
+| LandlordNotes | NVARCHAR(MAX) | Landlord Notes - notes specific to the landlord | `sample note` |
+| Latitude | DECIMAL | Latitude - latitude location of the store | `50.443559` |
+| LeaseEndDate | DateTime | Lease End Date - the day the lease ends | `2014-12-24T00:00:00` |
+| LeaseNotes | NVARCHAR(MAX) | Lease Notes - notes specific to the lease | `note` |
+| LeaseStartDate | DateTime | Lease Start Date - day the lease started | `2014-11-26T00:00:00` |
+| LocationCode | VARCHAR(100) | Location Code - code entered in the property details tab in the Location Setup | `500` |
+| LocationEntityID | INT | Identifier of the store as a <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a> in Entity Store | `48540` |
+| Longitude | DECIMAL | Longitude - longitude location of the store | `-104.612034` |
+| ManagerCommissionable | BIT | Manager Commissionable - indicates if the manager is commissionable. | `false` |
+| ManagerEmployeeID | INT | Manager - manager assigned to the location | `233` |
+| MaxCashDrawer | MONEY | Max Cash Drawer - maximum amount of cash allowed in a cash drawer | `0` |
+| OtherCharges | MONEY | Other Charges - other charges associated to the location | `0` |
+| PAW_on_OE | BIT | PAW on OE - launch PAW on sales orders | `false` |
+| Phone_on_OE | BIT | Force phone number for entry on sales orders | `true` |
+| PhoneNumber | VARCHAR(10) | Phone # - designated number for the location | `4353424234` |
+| PropertyTaxes | MONEY | Property Taxes - applicable property taxes | `0` |
+| RegionName | NVARCHAR(MAX) | Region - region the district is assigned to | `Abarea` |
+| RelocationDate | DateTime | Relocation Date - lists the date of the relocation if applicable | `2016-02-26T00:00:00` |
+| Rent | MONEY | Rent - rent amount for the location | `0` |
+| SaleInvoiceComment | NVARCHAR(MAX) | Sale Invoice Comment - locations sales invoice comment | `Sale Invoice Comments` |
+| Serial_on_OE | BIT | Serial # on OE - force serial # for entry on sales orders | `false` |
+| SquareFootage | INT | Square Feet - approx square feet of the store | `0` |
+| StaffLevel | DECIMAL | Staff Level - designated staffing level for the location | `12` |
+| StateProv | NVARCHAR(3) | State/Prov - state or province the location is located in | `AL` |
+| StoreID | INT | Internal identifier for the store in RQ | `1187` |
+| StoreName | NVARCHAR(MAX) | Store Name - name of the store | `Dufferin Mall` |
+| StoreType | NVARCHAR(MAX) | Store Type - will state the store type | `Retail Store` |
+| Taxes | NVARCHAR(MAX) | Taxes - taxes assigned to the location | `GOODS AND SERVICES TAX (GST)` |
+| TimeZone | VARCHAR(200) | Time Zone - time zone assigned to location | `(GMT-06:00) Saskatchewan` |
+| UseLocationEmail | BIT | Use Location for Email - use the location for the email contact | `false` |
+| ZipPostal | VARCHAR(15) | Zip/Postal - zip/postal for the location | `90210` |
 
 
 
@@ -196,11 +194,11 @@ GET /reports/employeemasterlistreport?EnabledStatus={EnabledStatus}&ForWho={ForW
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>

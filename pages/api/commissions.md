@@ -1,84 +1,79 @@
 ---
 title:  Commissions
 permalink: /api/commissions/
-
+tags: []
+keywords: 
+audience: 
+last_updated: 29-11-2016
+summary: 
 rouge: false
-
-language_tabs:
-  - javascript
-  - shell: cURL
-  - csharp: c#
-  - java
-  - ruby
-
-search: true
 ---
+
+<link rel="stylesheet" type="text/css" href="../../css/prism.css">
+
+<script src="../../js/prism.js"></script>
+
 
 {% include linkrefs.html %}
 
 
-
-
-# Overview
+## Overview
 
 The Commissions API allows you to retrieve Commission data from your RQ database. 
 
 
-
-# Endpoints
+## Endpoints
 
 
 * Sandbox: <a href="https://commissiondemo.iqmetrix.net/v1">https://commissiondemo.iqmetrix.net/v1</a>
 * Production: <a href="https://commission.iqmetrix.net/v1">https://commission.iqmetrix.net/v1</a>
 
 
+## Resources
 
-# Resources
-
-
-## CommissionEntry
+### CommissionEntry
 
 Commission earned by an employee.
 
-| Name | Description |
-|:-----|:------------|
-| Id (`Integer`) | Unique Identifier | 
-| Comments (`String(255)`) | Comments | 
-| CommissionFixedCost (`Decimal`) | Fixed cost of commission applied. Anything above this value is commission | 
-| CommissionFloatingCost (`Decimal`) | Floating cost of commission applied. This value is determined by adding anything above this value to average cost | 
-| CommissionRate (`Decimal`) | Commission rate applied | 
-| CommissionSpiff (`Decimal`) | A type of commission structure used to pay employees, where a fixed dollar amount is paid per unit sold | 
-| CommissionSplitEmployeeSpecialId (`Integer`) | Special Identifier for the split commission Employee in RQ | 
-| CommissionSplitUserId (`Integer`) | Identifier for a [User](/api/user-manager/#user) that is the split commissionable employee | 
-| CommissionType (`Byte`) | Type of commission applied. If this is a Coupon commission, see [CouponCommissionTypes](#couponcommissiontypes) for a list of acceptable values, otherwise see [CommissionTypes](#commissiontypes) for a list of acceptable values | 
-| CouponID (`Integer`) | Identifier for a coupon associated with this commission in RQ | 
-| DateCreatedUtc (`DateTime`) | Time created in RQ, in UTC | 
-| EmployeeSpecialId (`Integer`) | Special Identifier for the Employee in RQ | 
-| UserId (`Integer`) | Identifier for a [User](/api/user-manager/#user) that is the primary commissionable employee | 
-| GlobalProductID (`Integer`) | Identifier of product associated with this commission in RQ | 
-| HasBeenReversed (`Boolean`) | A flag to indicate if this CommissionEntry has been reversed | 
-| InvoiceEditedDate (`DateTime`) | Time last edited with the Invoice Editor in RQ | 
-| InvoiceNumber (`String(14)`) | Invoice Number of the transaction which created this commission in RQ | 
-| IsChargeback (`Boolean`) | A flag to indicate if this commission was created by a chargeback in RQ | 
-| IsCommissionSplit (`Boolean`) | A flag to indicate if the commission is split with a second employee | 
-| IsFullChargeback (`Boolean`) | A flag to indicate if this commission was created by a full chargeback in RQ | 
-| IsSuspended (`Boolean`) | A flag to indicate if this commission has been suspended | 
-| LastUpdateDateUtc (`DateTime`) | Time created in the API, in UTC | 
-| LocationCode (`String`) | An identifier for the Location in an external system | 
-| LocationId (`Integer`) | Identifier for the [Location](/api/company-tree/#location) | 
-| MilestoneID (`GUID`) | Identifier for a milestone associated with this commission in RQ | 
-| Priority (`Integer`) | Priority of product on sale invoice associated with this commission in RQ | 
-| Quantity (`Integer`) | The number of times the unit commission is to be applied | 
-| RQCommissionId (`Integer`) | Identifier of the associated commission RQ | 
-| SaleInvoiceAndCouponID (`GUID`) | Identifier of the coupon on the sale invoice associated with this commission in RQ | 
-| SaleInvoiceID (`Integer`) | Identifier of the sale invoice which created this commission in RQ | 
-| SerialNumber (`String(100)`) | Serial number of the product associated with this commission in RQ | 
-| SplitRate1 (`Decimal`) | Percentage of the commission the primary employee receives, defaults to 100 | 
-| SplitRate2 (`Decimal`) | Percentage of the commission the split employee receives, defaults to 0 | 
-| TotalCommission (`Decimal`) | The total commission amount to be applied equal to (UnitCommission * Quantity) | 
-| TransactionGUID (`GUID`) | Identifier of the transaction which created this commission in RQ | 
-| TransactionType (`Byte`) | Type of transaction which created this commission. See [TransactionTypes](#transactiontypes) for a list of acceptable values | 
-| UnitCommission (`Decimal`) | The individual unit Commission amount | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Id | Integer | Unique Identifier | `24` |
+| Comments | String(255) | Comments | `Shared with Nick` |
+| CommissionFixedCost | Decimal | Fixed cost of commission applied. Anything above this value is commission | `10.0` |
+| CommissionFloatingCost | Decimal | Floating cost of commission applied. This value is determined by adding anything above this value to average cost | `10` |
+| CommissionRate | Decimal | Commission rate applied | `35.0` |
+| CommissionSpiff | Decimal | A type of commission structure used to pay employees, where a fixed dollar amount is paid per unit sold | `15.0` |
+| CommissionSplitEmployeeSpecialId | Integer | Special Identifier for the split commission Employee in RQ | `10002` |
+| CommissionSplitUserId | Integer | Identifier for a [User](/api/user-manager/#user) that is the split commissionable employee | `22214` |
+| CommissionType | Byte | Type of commission applied. If this is a Coupon commission, see [CouponCommissionTypes](#couponcommissiontypes) for a list of acceptable values, otherwise see [CommissionTypes](#commissiontypes) for a list of acceptable values | `1` |
+| CouponID | Integer | Identifier for a coupon associated with this commission in RQ | `8` |
+| DateCreatedUtc | DateTime | Time created in RQ, in UTC | `2015-08-18T15:00:00` |
+| EmployeeSpecialId | Integer | Special Identifier for the Employee in RQ | `1002` |
+| UserId | Integer | Identifier for a [User](/api/user-manager/#user) that is the primary commissionable employee | `2576` |
+| GlobalProductID | Integer | Identifier of product associated with this commission in RQ | `1210` |
+| HasBeenReversed | Boolean | A flag to indicate if this CommissionEntry has been reversed | `false` |
+| InvoiceEditedDate | DateTime | Time last edited with the Invoice Editor in RQ | `2015-09-10T20:01:49.00` |
+| InvoiceNumber | String(14) | Invoice Number of the transaction which created this commission in RQ | `84WEAIN5703` |
+| IsChargeback | Boolean | A flag to indicate if this commission was created by a chargeback in RQ | `false` |
+| IsCommissionSplit | Boolean | A flag to indicate if the commission is split with a second employee | `true` |
+| IsFullChargeback | Boolean | A flag to indicate if this commission was created by a full chargeback in RQ | `false` |
+| IsSuspended | Boolean | A flag to indicate if this commission has been suspended | `false` |
+| LastUpdateDateUtc | DateTime | Time created in the API, in UTC | `2015-09-09T20:41:59.69` |
+| LocationCode | String | An identifier for the Location in an external system | `LOC123` |
+| LocationId | Integer | Identifier for the [Location](/api/company-tree/#location) | `14202` |
+| MilestoneID | GUID | Identifier for a milestone associated with this commission in RQ | `74b95526-e46b-42da-baa5-19971dfe5b18` |
+| Priority | Integer | Priority of product on sale invoice associated with this commission in RQ | `1` |
+| Quantity | Integer | The number of times the unit commission is to be applied | `1` |
+| RQCommissionId | Integer | Identifier of the associated commission RQ | `445` |
+| SaleInvoiceAndCouponID | GUID | Identifier of the coupon on the sale invoice associated with this commission in RQ | `d6ee8427-eac6-44ef-ac69-4617e18d2f66` |
+| SaleInvoiceID | Integer | Identifier of the sale invoice which created this commission in RQ | `7` |
+| SerialNumber | String(100) | Serial number of the product associated with this commission in RQ | `8508194953` |
+| SplitRate1 | Decimal | Percentage of the commission the primary employee receives, defaults to 100 | `50.0` |
+| SplitRate2 | Decimal | Percentage of the commission the split employee receives, defaults to 0 | `50.0` |
+| TotalCommission | Decimal | The total commission amount to be applied equal to (UnitCommission * Quantity) | `5.32` |
+| TransactionGUID | GUID | Identifier of the transaction which created this commission in RQ | `a929571e-c432-4e9a-aef7-4302ed791251` |
+| TransactionType | Byte | Type of transaction which created this commission. See [TransactionTypes](#transactiontypes) for a list of acceptable values | `1` |
+| UnitCommission | Decimal | The individual unit Commission amount | `5.32` |
 
 
 
@@ -131,64 +126,31 @@ To learn more about Coupons see {{CouponOverview}}.
 | 4 | Vendor Rebate Adjustment |    
 
 
-# Requests
+## Requests
 
 
 
-## Getting All Commission Entries
+<h3 id='getting-all-commission-entries' class='clickable-header top-level-header'>Getting All Commission Entries</h3>
 
 By default, the sorting order of the response to this request will be **descending** order by `LastUpdateDateUtc`
 
-> Definition
+<h4>Request</h4>
 
-```
+<pre>
 GET /Companies({CompanyId})/CommissionEntries?$filter=LastUpdateDateUtc ge datetime'{StartDate}' and LastUpdateDateUtc le datetime'{EndDate}'&$skip={Skip}&$top={Top}
-```
-
-> Example Request
+</pre>
 
 
-
-```shell
-curl -X GET "https://commissiondemo.iqmetrix.net/v1/Companies(14146)/CommissionEntries?$filter=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&$skip=1&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"
-```
-
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import java.io.IOException;
-
-public static CloseableHttpResponse GettingAllCommissionEntries() throws IOException {
-    CloseableHttpClient httpClient = HttpClients.createDefault();
-    HttpGet request = new HttpGet("https://commissiondemo.iqmetrix.net/v1/Companies(14146)/CommissionEntries?$filter=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&$skip=1&$top=10");
-     
-    request.addHeader("Authorization", "Bearer (Access Token)"); 
-    request.addHeader("Accept", "application/hal+json"); 
-    
-    return httpClient.execute(request);
-}</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a></li><li><code>Accept: application/hal+json</code></li></ul>
 
 
 
-response = RestClient.get 'https://commissiondemo.iqmetrix.net/v1/Companies(14146)/CommissionEntries?$filter=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&$skip=1&$top=10', {
-     :'Authorization' => 'Bearer (Access Token)',
-     :'Accept' => 'application/hal+json',
-    } 
-
-puts response</code></pre>
-
-
-#### URI Parameters
+<h4>URI Parameters</h4>
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -210,16 +172,85 @@ puts response</code></pre>
 
 
 
-<h4>Response Parameters</h4>
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-all-commission-entries" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-all-commission-entries" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-all-commission-entries" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-all-commission-entries" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-all-commission-entries" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-all-commission-entries" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-all-commission-entries"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-all-commission-entries">
+<pre id="http-code-getting-all-commission-entries"><code class="language-http">GET /Companies(14146)/CommissionEntries?$filter=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&$skip=1&$top=10
+Authorization: Bearer (Access Token)
+Accept: application/hal+json
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-all-commission-entries">
+<pre id="curl-code-getting-all-commission-entries"><code class="language-http">curl -X GET "https://commissiondemo.iqmetrix.net/v1/Companies(14146)/CommissionEntries?$filter=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&$skip=1&$top=10" -H "Authorization: Bearer (Access Token)" -H "Accept: application/hal+json"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-all-commission-entries">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-all-commission-entries"><code class="language-csharp">static IRestResponse GettingAllCommissionEntries()
+{
+    var client = new RestClient("https://commissiondemo.iqmetrix.net/v1/Companies(14146)/CommissionEntries?$filter=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&$skip=1&$top=10");
+    var request = new RestRequest(Method.GET);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/hal+json"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-all-commission-entries">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-all-commission-entries"><code class="language-java">
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse GettingAllCommissionEntries() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpGet request = new HttpGet("https://commissiondemo.iqmetrix.net/v1/Companies(14146)/CommissionEntries?$filter=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&$skip=1&$top=10");
+     
+    request.addHeader("Authorization", "Bearer (Access Token)"); 
+    request.addHeader("Accept", "application/hal+json"); 
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-all-commission-entries">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-all-commission-entries"><code class="language-ruby">require 'rest-client'
+
+
+
+response = RestClient.get 'https://commissiondemo.iqmetrix.net/v1/Companies(14146)/CommissionEntries?$filter=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&$skip=1&$top=10', {
+     :'Authorization' => 'Bearer (Access Token)',
+     :'Accept' => 'application/hal+json',
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
 
 
 
 
-> Example Response
+<h5>Example</h5>
 
-<pre class="highlight json">
+<pre>
 HTTP 200 Content-Type: application/hal+json
-</pre><pre class="highlight json">{
+</pre><pre>{
     "_links": {
         "prev": null,
         "self": {
@@ -280,7 +311,7 @@ HTTP 200 Content-Type: application/hal+json
     }
 }</pre>
 
-# Pagination
+<h2 id="pagination" class="clickable-header top-level-header">Pagination</h2>
 
 The Commissions API supports pagination of collections of resources.
 
@@ -322,4 +353,3 @@ The `self`.`href` value is the relative version of the API call that returned th
 The `next`.`href` refers to a resource containing a page with the **next** 5 items.
 
 The `prev`.`href` refers to a resource containing a page with the **previous** 5 items.
-

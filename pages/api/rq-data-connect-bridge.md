@@ -4,7 +4,7 @@ permalink: /api/RQ-Data-Connect-Bridge/
 tags: []
 keywords: 
 audience: 
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary: 
 rouge: false
 noPopUp: true
@@ -16,8 +16,6 @@ noPopUp: true
 
 
 {% include linkrefs.html %}
-
-
 
 
 ## Overview
@@ -39,27 +37,27 @@ RQ Data Connect Bridge supports many different methods of authentication, see {{
 
 ## Resources
 
-## TableColumn
+### TableColumn
 
 Each table in the latest version of RQ will have a TableColumn resource for each of its columns
 
-| Name | Description |
-|:-----|:------------|
-| TableName (`String`) | Name of the table | 
-| Column_Name (`String`) | Name of the column | 
-| Length (`Integer`) | Maximum acceptable input size, where applicable | 
-| ORDINAL_POSITION (`Integer`) | Position of the column in the table | 
-| Type (`String`) | Database type | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| TableName | String | Name of the table | `iQclerk_ARPaymentInvoicesAndPayments` |
+| Column_Name | String | Name of the column | `ReferenceNumber` |
+| Length | Integer | Maximum acceptable input size, where applicable | `30` |
+| ORDINAL_POSITION | Integer | Position of the column in the table | `8` |
+| Type | String | Database type | `varchar` |
 
-## Delta
+### Delta
 
 A resource representing changes to a table in the latest version of RQ.
 
-| Name | Description |
-|:-----|:------------|
-| DeltaCount (`Integer`) | Number of rows that have changes | 
-| DeltaTimeSec (`Integer`) |  | 
-| Table (`String`) | Name of a table in the latest version of RQ | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| DeltaCount | Integer | Number of rows that have changes | `68` |
+| DeltaTimeSec | Integer |  | `28704556` |
+| Table | String | Name of a table in the latest version of RQ | `CarrierIntegrationCustomerHandsets` |
 
 
 

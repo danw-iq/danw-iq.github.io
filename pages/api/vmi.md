@@ -4,7 +4,7 @@ permalink: /api/vmi/
 tags: []
 keywords: 
 audience:
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary:
 rouge: false
 ---
@@ -143,7 +143,7 @@ You should choose a production endpoint that is geographically closest to your d
 
 
 
-## VendorIdentity
+### VendorIdentity
 
 Authentication for the VMI API is done by including a VendorIdentity resource in a `<vendor>` section at the beginning of each request.
 
@@ -152,12 +152,12 @@ VendorIdentitiy information is supplied by iQmetrix and used to authenticate req
 
 {{note}}VendorIdentity authentication information is <a href="{{'#environments' | prepend: site.api_baseurl}}">Environment</a> specific{{end}}
 
-| Name | Description |
-|:-----|:------------|
-| VendorID (`GUID`) | Vendor identifier | 
-| Username (`String`) | Username | 
-| Password (`String`) | Password | 
-| Client (`<a href='/api/vmi/#clientagent'>ClientAgent</a>`) | Client identity | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| VendorID | GUID | Vendor identifier | `9DC6AA95-856B-42C9-8AAF-392A2A02AC77` |
+| Username | String | Username | `sampleusername` |
+| Password | String | Password | `samplepassword` |
+| Client | <a href='/api/vmi/#clientagent'>ClientAgent</a> | Client identity |  |
 
 
 
@@ -168,222 +168,222 @@ VendorIdentitiy information is supplied by iQmetrix and used to authenticate req
 
 
 
-## ClientAgent
+### ClientAgent
 
 `VendorAccountNumber` can be used instead of `StoreID`. Omit or set `StoreID` to -1 if using `VendorAccountNumber`.
 
-| Name | Description |
-|:-----|:------------|
-| ClientID (`GUID`) | Database identifier for corresponding client | 
-| Name (`String`) | Company name | 
-| StoreID (`Integer`) | Store identifer the vendor is targeting | 
-| VendorAccountNumber (`String`) | Account number assigned by vendor. | 
-
-
-## CompanyInformation
-
-| Name | Description |
-|:-----|:------------|
-| CompanyID (`GUID`) | Unique identifier provided by iQmetrix | 
-| Name (`String`) | Company name | 
-
-
-## PurchaseOrderShipmentNotice
-
-| Name | Description |
-|:-----|:------------|
-| PurchaseOrderID (`GUID`) | Unique identifier | 
-| ProductItemID (`Integer`) | GlobalProductId from RQ | 
-| Quantity (`Integer`) | Number of items shipped | 
-| RQPurchaseOrderID (`Integer`) | Identifier for the Purchase Order in RQ | 
-| SerialNumbers (`Array[string]`) | Serial numbers from serialized products (e.g. Phone or SIM card) | 
-| ShipmentNumber (`String`) | Vendor defined identifier for the shipment | 
-| VendorInvoiceNumber (`String`) | Value supplied by the vendor when creating the purchase order | 
-| VendorSKU (`String`) | The vendor part number/sku | 
-
-
-
-
-
-
-## PurchaseOrder
-
-| Name | Description |
-|:-----|:------------|
-| PurchaseOrderID (`GUID`) | Unique identifier | 
-| PurchaseOrderData (`<a href='/api/vmi/#purchaseorderdata'>PurchaseOrderData</a>`) | Purchase order | 
-| ProductsOrdered (`Array[<a href='/api/vmi/#productinformation'>ProductInformation</a>]`) | Products ordered | 
-
-
-## PurchaseOrderData
-
-| Name | Description |
-|:-----|:------------|
-| PurchaseOrderID (`GUID`) | Unique identifier | 
-| BillToStoreID (`Integer`) | RQ StoreId | 
-| BillToStoreName (`String`) | RQ store name | 
-| BillToVendorAccountNumber (`String`) | Vendor account number to use for billing. Can be used in place of `BillToStoreId` | 
-| IsDeleted (`Boolean`) | A flag to indicate if this purchase order has been deleted in RQ | 
-| CreatedByVMI (`Boolean`) | A flag to indicate if this was created by the VMI API (true) or RQ (false) | 
-| CreatedDate (`String`) | The date and time the purchase order was created, if it was created in RQ | 
-| Comments (`String`) | Any comments for the purchase order | 
-| EstimatedArrivalDate (`String`) | Estimated date of arrival | 
-| OrderTotal (`Decimal`) | Cost of the order, provided by a vendor for informational purposes only | 
-| RetailiQPurchaseOrderID (`Integer`) | Identifier of purchase order in RQ | 
-| RetailiQPurchaseOrderNumber (`String`) | Purchase order number in RQ | 
-| ShippingTotal (`Decimal`) | Cost of shipping | 
-| ShipToStoreID (`Integer`) | Identifier of store to use for shipping | 
-| ShipToStoreName (`String`) | Name of store to use for shipping | 
-| ShipToVendorAccountNumber (`String`) | Vendor account number to use for shipping. Can be used in place of `ShipToStoreId` | 
-| VendorInvoiceNumber (`String`) | Invoice number for the vendor | 
-| VendorName (`String`) | Name of the vendor | 
-
-
-## ProductInformation
-
-| Name | Description |
-|:-----|:------------|
-| CategoryPath (`String`) | Category location of product. path of category delimited by '>>' | 
-| DateEOL (`DateTime`) | End of life date | 
-| DateReceived (`String`) | Product receiving stauts in RQ | 
-| DoNotOrder (`Boolean`) | A flag to indicate if the product should not be ordered | 
-| Enabled (`Boolean`) | A flag to indicate if product is enabled | 
-| GrossQuantityReturned (`Integer`) | Gross amount returned | 
-| GrossQuantitySold (`Integer`) | Gross amount sold | 
-| MaximumLevel (`Integer`) | Maximum number of Products that can be added to the PurchaseOrder | 
-| MinimumLevel (`Integer`) | Minimum number of Products that can be added to the PurchaseOrder | 
-| MinMaxLocked (`Boolean`) | A flag to indicate if the Min and Max values are locked (unchangeable) | 
-| ProductCost (`Decimal`) | Required for PO creation or default from RQ will be used | 
-| ProductID (`GUID`) | Unique identifier | 
-| ProductItemID (`Integer`) | GlobalProductId from RQ | 
-| ProductName (`String`) | Name | 
-| ProductReceived (`Boolean`) | A flag to indicate if product was received | 
-| ProductSKU (`String`) | ProductIdentifier in RQ | 
-| QuantityCommittedOnOrderEntry (`Integer`) | Amount committed on an order entry | 
-| QuantityInStock (`Integer`) | Amount in stock | 
-| QuantityInTransfer (`Integer`) | Amount in transfer | 
-| QuantityOnBackOrder (`Integer`) | Amount on back order | 
-| QuantityOnLoan (`Integer`) | Amount on loan | 
-| QuantityOnOrder (`Integer`) | Amount on order | 
-| QuantityOnRMA (`Integer`) | Amount on RMA | 
-| QuantityOnUncommittedOrder (`Integer`) | Amount on uncommitted order | 
-| QuantityOrdered (`Integer`) | Amount ordered | 
-| QuantityReceived (`Integer`) | Amount received | 
-| QuantitySold (`Integer`) | Amount sold | 
-| QuantitySuggestedByVendor (`Integer`) | Amount suggested by vendor | 
-| RetailPrice (`Decimal`) | Retail price | 
-| SaleBegin (`DateTime`) | Sale begin date | 
-| SaleEnd (`DateTime`) | Sale end date | 
-| SalePrice (`Decimal`) | Sale price | 
-| VendorSKU (`String`) | Vendor SKU | 
-
-
-## StoreInformation
-
-| Name | Description |
-|:-----|:------------|
-| StoreID (`Integer`) | Unique identifier | 
-| Name (`String`) | Name | 
-| Abbreviation (`String`) | Abbrevation | 
-| Address (`String`) | Address | 
-| City (`String`) | City | 
-| Country (`String`) | Country | 
-| District (`String`) | District | 
-| PhoneNumber (`String`) | Phone Number | 
-| PostalZipCode (`String`) | Postal or Zip Code | 
-| ProvinceState (`String`) | Province or State | 
-| Region (`String`) | Region | 
-| ShipToStoreID (`Integer`) | Shipping store ID | 
-| BillToStoreID (`Integer`) | RQ StoreID | 
-| VendorAccountNumber (`String`) | Account number assigned by vendor. | 
-
-
-## ProductAndStoreInformation
-
-| Name | Description |
-|:-----|:------------|
-| CategoryPath (`String`) | Category location of product. path of category delimited by '>>' | 
-| ChannelID (`GUID`) | Identifier for a Channel in RQ | 
-| ChannelName (`String`) | Channel name | 
-| DateEOL (`DateTime`) | End of life date | 
-| DateReceived (`String`) | Product receiving stauts in RQ | 
-| DistrictID (`Integer`) | Identifier for a District in RQ | 
-| DistrictName (`String`) | District name | 
-| DoNotOrder (`Boolean`) | A flag to indicate if the product should not be ordered | 
-| Enabled (`Boolean`) | A flag to indicate if product is enabled | 
-| GrossQuantityReturned (`Integer`) | Gross amount returned | 
-| GrossQuantitySold (`Integer`) | Gross amount sold | 
-| MaximumLevel (`Integer`) | Maximum number of Products that can be added to the PurchaseOrder | 
-| MinimumLevel (`Integer`) | Minimum number of Products that can be added to the PurchaseOrder | 
-| MinMaxLocked (`Boolean`) | A flag to indicate if the Min and Max values are locked (unchangeable) | 
-| ProductCost (`Decimal`) | Required for PO creation or default from RQ will be used | 
-| ProductID (`GUID`) | Unique identifier | 
-| ProductItemID (`Integer`) | GlobalProductId from RQ | 
-| ProductName (`String`) | Name | 
-| ProductReceived (`Boolean`) | A flag to indicate if product was received | 
-| ProductSKU (`String`) | ProductIdentifier in RQ | 
-| QuantityCommittedOnOrderEntry (`Integer`) | Amount committed on an order entry | 
-| QuantityInStock (`Integer`) | Amount in stock | 
-| QuantityInTransfer (`Integer`) | Amount in transfer | 
-| QuantityOnBackOrder (`Integer`) | Amount on back order | 
-| QuantityOnLoan (`Integer`) | Amount on loan | 
-| QuantityOnOrder (`Integer`) | Amount on order | 
-| QuantityOnRMA (`Integer`) | Amount on RMA | 
-| QuantityOnUncommittedOrder (`Integer`) | Amount on uncommitted order | 
-| QuantityOrdered (`Integer`) | Amount ordered | 
-| QuantityReceived (`Integer`) | Amount received | 
-| QuantitySold (`Integer`) | Amount sold | 
-| QuantitySuggestedByVendor (`Integer`) | Amount suggested by vendor | 
-| RegionID (`Integer`) | Identifier for a Region in RQ | 
-| RegionName (`String`) | Region name | 
-| RetailPrice (`Decimal`) | Retail price | 
-| SaleBegin (`DateTime`) | Sale begin date | 
-| SaleEnd (`DateTime`) | Sale end date | 
-| SalePrice (`Decimal`) | Sale price | 
-| StoreID (`Integer`) | Unique identifier | 
-| StoreName (`String`) | Name | 
-| VendorSKU (`String`) | Vendor SKU | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ClientID | GUID | Database identifier for corresponding client | `c46ccb4d-2d44-4289-950a-b9cb51d58ac4` |
+| Name | String | Company name | `DropshipTestDemo` |
+| StoreID | Integer | Store identifer the vendor is targeting | `4` |
+| VendorAccountNumber | String | Account number assigned by vendor. | `-1` |
+
+
+### CompanyInformation
+
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CompanyID | GUID | Unique identifier provided by iQmetrix | `9DC6AA95-856B-42C9-8AAF-392A2A02AC77` |
+| Name | String | Company name | `DropshipTestDemo` |
+
+
+### PurchaseOrderShipmentNotice
+
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| PurchaseOrderID | GUID | Unique identifier | `84DACFD3-4095-4D50-A02E-781B86B7408E` |
+| ProductItemID | Integer | GlobalProductId from RQ | `11142` |
+| Quantity | Integer | Number of items shipped | `1` |
+| RQPurchaseOrderID | Integer | Identifier for the Purchase Order in RQ | `22073` |
+| SerialNumbers | Array[string] | Serial numbers from serialized products (e.g. Phone or SIM card) | `490154203237518` |
+| ShipmentNumber | String | Vendor defined identifier for the shipment | `SHIP001` |
+| VendorInvoiceNumber | String | Value supplied by the vendor when creating the purchase order | `1002` |
+| VendorSKU | String | The vendor part number/sku | `SSGS5CB` |
+
+
+
+
+
+
+### PurchaseOrder
+
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| PurchaseOrderID | GUID | Unique identifier | `28890F70-8FC9-4A9B-9458-410A8D08502D` |
+| PurchaseOrderData | <a href='/api/vmi/#purchaseorderdata'>PurchaseOrderData</a> | Purchase order |  |
+| ProductsOrdered | Array[<a href='/api/vmi/#productinformation'>ProductInformation</a>] | Products ordered |  |
+
+
+### PurchaseOrderData
+
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| PurchaseOrderID | GUID | Unique identifier | `28890F70-8FC9-4A9B-9458-410A8D08502D` |
+| BillToStoreID | Integer | RQ StoreId | `55` |
+| BillToStoreName | String | RQ store name | `Cornwall west` |
+| BillToVendorAccountNumber | String | Vendor account number to use for billing. Can be used in place of `BillToStoreId` | `1` |
+| IsDeleted | Boolean | A flag to indicate if this purchase order has been deleted in RQ | `false` |
+| CreatedByVMI | Boolean | A flag to indicate if this was created by the VMI API (true) or RQ (false) | `false` |
+| CreatedDate | String | The date and time the purchase order was created, if it was created in RQ | `3/16/2014 12:00:00 AM` |
+| Comments | String | Any comments for the purchase order | `comments` |
+| EstimatedArrivalDate | String | Estimated date of arrival | `3/2/2014 12:00:00 AM` |
+| OrderTotal | Decimal | Cost of the order, provided by a vendor for informational purposes only | `99.99` |
+| RetailiQPurchaseOrderID | Integer | Identifier of purchase order in RQ | `22075` |
+| RetailiQPurchaseOrderNumber | String | Purchase order number in RQ | `DALEKPO5` |
+| ShippingTotal | Decimal | Cost of shipping | `99.99` |
+| ShipToStoreID | Integer | Identifier of store to use for shipping | `55` |
+| ShipToStoreName | String | Name of store to use for shipping | `Cornwall west` |
+| ShipToVendorAccountNumber | String | Vendor account number to use for shipping. Can be used in place of `ShipToStoreId` | `1` |
+| VendorInvoiceNumber | String | Invoice number for the vendor | `15782` |
+| VendorName | String | Name of the vendor | `SampleVendor` |
+
+
+### ProductInformation
+
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CategoryPath | String | Category location of product. path of category delimited by '>>' | `Activation >> Dropship` |
+| DateEOL | DateTime | End of life date | `1/01/2016 12:00:00 AM` |
+| DateReceived | String | Product receiving stauts in RQ | `01/21/2016 16:58:23` |
+| DoNotOrder | Boolean | A flag to indicate if the product should not be ordered | `false` |
+| Enabled | Boolean | A flag to indicate if product is enabled | `true` |
+| GrossQuantityReturned | Integer | Gross amount returned | `11` |
+| GrossQuantitySold | Integer | Gross amount sold | `10` |
+| MaximumLevel | Integer | Maximum number of Products that can be added to the PurchaseOrder | `100` |
+| MinimumLevel | Integer | Minimum number of Products that can be added to the PurchaseOrder | `10` |
+| MinMaxLocked | Boolean | A flag to indicate if the Min and Max values are locked (unchangeable) | `true` |
+| ProductCost | Decimal | Required for PO creation or default from RQ will be used | `99.99` |
+| ProductID | GUID | Unique identifier | `86EE477F-C6B7-48FA-AA0A-105662D9A3ED` |
+| ProductItemID | Integer | GlobalProductId from RQ | `11142` |
+| ProductName | String | Name | `Samsung Galaxy S6` |
+| ProductReceived | Boolean | A flag to indicate if product was received | `false` |
+| ProductSKU | String | ProductIdentifier in RQ | `CECPSM000017` |
+| QuantityCommittedOnOrderEntry | Integer | Amount committed on an order entry | `0` |
+| QuantityInStock | Integer | Amount in stock | `8` |
+| QuantityInTransfer | Integer | Amount in transfer | `3` |
+| QuantityOnBackOrder | Integer | Amount on back order | `0` |
+| QuantityOnLoan | Integer | Amount on loan | `5` |
+| QuantityOnOrder | Integer | Amount on order | `6` |
+| QuantityOnRMA | Integer | Amount on RMA | `9` |
+| QuantityOnUncommittedOrder | Integer | Amount on uncommitted order | `2` |
+| QuantityOrdered | Integer | Amount ordered | `4` |
+| QuantityReceived | Integer | Amount received | `4` |
+| QuantitySold | Integer | Amount sold | `30` |
+| QuantitySuggestedByVendor | Integer | Amount suggested by vendor | `50` |
+| RetailPrice | Decimal | Retail price | `99.99` |
+| SaleBegin | DateTime | Sale begin date | `01/01/2014 12:00:00 AM` |
+| SaleEnd | DateTime | Sale end date | `01/10/2014 12:00:00 AM` |
+| SalePrice | Decimal | Sale price | `79.99` |
+| VendorSKU | String | Vendor SKU | `SSGS5CB` |
+
+
+### StoreInformation
+
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| StoreID | Integer | Unique identifier | `36` |
+| Name | String | Name | `Cornwall West` |
+| Abbreviation | String | Abbrevation | `CWW` |
+| Address | String | Address | `2102 11th Ave` |
+| City | String | City | `Regina` |
+| Country | String | Country | `Canada` |
+| District | String | District | `Regina` |
+| PhoneNumber | String | Phone Number | `5555555555` |
+| PostalZipCode | String | Postal or Zip Code | `S2S 2S2` |
+| ProvinceState | String | Province or State | `Saskatchewan` |
+| Region | String | Region | `Regina` |
+| ShipToStoreID | Integer | Shipping store ID | `55` |
+| BillToStoreID | Integer | RQ StoreID | `55` |
+| VendorAccountNumber | String | Account number assigned by vendor. | `123` |
+
+
+### ProductAndStoreInformation
+
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CategoryPath | String | Category location of product. path of category delimited by '>>' | `Activation >> Dropship` |
+| ChannelID | GUID | Identifier for a Channel in RQ | `4bbb842d-0340-4ffc-9216-bf170c861424` |
+| ChannelName | String | Channel name | `First Channel` |
+| DateEOL | DateTime | End of life date | `1/01/2016 12:00:00 AM` |
+| DateReceived | String | Product receiving stauts in RQ | `01/21/2016 16:58:23` |
+| DistrictID | Integer | Identifier for a District in RQ | `1` |
+| DistrictName | String | District name | `First Region` |
+| DoNotOrder | Boolean | A flag to indicate if the product should not be ordered | `false` |
+| Enabled | Boolean | A flag to indicate if product is enabled | `true` |
+| GrossQuantityReturned | Integer | Gross amount returned | `11` |
+| GrossQuantitySold | Integer | Gross amount sold | `10` |
+| MaximumLevel | Integer | Maximum number of Products that can be added to the PurchaseOrder | `100` |
+| MinimumLevel | Integer | Minimum number of Products that can be added to the PurchaseOrder | `10` |
+| MinMaxLocked | Boolean | A flag to indicate if the Min and Max values are locked (unchangeable) | `true` |
+| ProductCost | Decimal | Required for PO creation or default from RQ will be used | `99.99` |
+| ProductID | GUID | Unique identifier | `86EE477F-C6B7-48FA-AA0A-105662D9A3ED` |
+| ProductItemID | Integer | GlobalProductId from RQ | `11142` |
+| ProductName | String | Name | `Samsung Galaxy S6` |
+| ProductReceived | Boolean | A flag to indicate if product was received | `false` |
+| ProductSKU | String | ProductIdentifier in RQ | `CECPSM000017` |
+| QuantityCommittedOnOrderEntry | Integer | Amount committed on an order entry | `0` |
+| QuantityInStock | Integer | Amount in stock | `8` |
+| QuantityInTransfer | Integer | Amount in transfer | `3` |
+| QuantityOnBackOrder | Integer | Amount on back order | `0` |
+| QuantityOnLoan | Integer | Amount on loan | `5` |
+| QuantityOnOrder | Integer | Amount on order | `6` |
+| QuantityOnRMA | Integer | Amount on RMA | `9` |
+| QuantityOnUncommittedOrder | Integer | Amount on uncommitted order | `2` |
+| QuantityOrdered | Integer | Amount ordered | `4` |
+| QuantityReceived | Integer | Amount received | `4` |
+| QuantitySold | Integer | Amount sold | `30` |
+| QuantitySuggestedByVendor | Integer | Amount suggested by vendor | `50` |
+| RegionID | Integer | Identifier for a Region in RQ | `1` |
+| RegionName | String | Region name | `First District` |
+| RetailPrice | Decimal | Retail price | `99.99` |
+| SaleBegin | DateTime | Sale begin date | `01/01/2014 12:00:00 AM` |
+| SaleEnd | DateTime | Sale end date | `01/10/2014 12:00:00 AM` |
+| SalePrice | Decimal | Sale price | `79.99` |
+| StoreID | Integer | Unique identifier | `36` |
+| StoreName | String | Name | `Cornwall West` |
+| VendorSKU | String | Vendor SKU | `SSGS5CB` |
 
 
-## ReceivingInfo
+### ReceivingInfo
 
-| Name | Description |
-|:-----|:------------|
-| DateReceived (`DateTime`) | Date product was received | 
-| ProductCost (`Decimal`) | Product cost | 
-| ProductItemID (`Integer`) | Identifier of the Product in RQ | 
-| ProductName (`String`) | Product name | 
-| Quantity (`Integer`) | Quantity | 
-| RQPurchaseOrderNumber (`String`) | Identifier of the PO in RQ | 
-| SerialNumber (`String`) | Serial number | 
-| ShipToStoreID (`Integer`) | Identifier of store to use for shipping | 
-| ShipToStoreName (`String`) | Name of store to use for shipping | 
-| RQReceivingNumber (`String`) | Receiving number in RQ | 
-| VendorName (`String`) | Name of the vendor | 
-| VendorSKU (`String`) | The vendor part number/sku | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| DateReceived | DateTime | Date product was received | `1/21/2016 4:58:24 PM` |
+| ProductCost | Decimal | Product cost | `650` |
+| ProductItemID | Integer | Identifier of the Product in RQ | `20` |
+| ProductName | String | Product name | `Samsung Galaxy Alpha Flipbook - Black/Magenta` |
+| Quantity | Integer | Quantity | `11` |
+| RQPurchaseOrderNumber | String | Identifier of the PO in RQ | `TT101PO1` |
+| SerialNumber | String | Serial number |  |
+| ShipToStoreID | Integer | Identifier of store to use for shipping | `55` |
+| ShipToStoreName | String | Name of store to use for shipping | `Cornwall west` |
+| RQReceivingNumber | String | Receiving number in RQ | `TT101RE1` |
+| VendorName | String | Name of the vendor | `SampleVendor` |
+| VendorSKU | String | The vendor part number/sku | `SSGS5CB` |
 
 
-## EmployeeInformation
+### EmployeeInformation
 
-| Name | Description |
-|:-----|:------------|
-| CellPhone (`String`) | Cell phone | 
-| CompanyName (`String`) | Company name | 
-| Email (`String`) | Email | 
-| Enabled (`Boolean`) | A flag to indicate if this Employee is enabled at the store | 
-| EndDate (`DateTime`) | Date employee stopped working at store, if applicable | 
-| FirstName (`String`) | First name | 
-| LastName (`String`) | Last name | 
-| Role (`String`) | Employee role at store | 
-| StartDate (`String`) | Date employee started working at store | 
-| StoreAddress (`String`) | Address | 
-| StoreCity (`String`) | City | 
-| StoreCountry (`String`) | Country | 
-| StoreEmail (`String`) | Store email | 
-| StoreID (`Integer`) | Identifier for a Store in RQ | 
-| StoreName (`String`) | Store name | 
-| StorePostalCode (`String`) | Zip or Postal code | 
-| StoreProvinceOrState (`String`) | State or Province | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CellPhone | String | Cell phone | `5555555555` |
+| CompanyName | String | Company name | `KENTEL` |
+| Email | String | Email | `johnt@kentel.com` |
+| Enabled | Boolean | A flag to indicate if this Employee is enabled at the store | `true` |
+| EndDate | DateTime | Date employee stopped working at store, if applicable |  |
+| FirstName | String | First name | `John` |
+| LastName | String | Last name | `Tester` |
+| Role | String | Employee role at store | `Store Manager` |
+| StartDate | String | Date employee started working at store |  |
+| StoreAddress | String | Address | `123 Main Street` |
+| StoreCity | String | City | `Moon City` |
+| StoreCountry | String | Country | `US` |
+| StoreEmail | String | Store email | `atlantis@kentel.com` |
+| StoreID | Integer | Identifier for a Store in RQ | `4` |
+| StoreName | String | Store name | `Atlantis` |
+| StorePostalCode | String | Zip or Postal code | `90210` |
+| StoreProvinceOrState | String | State or Province | `ND` |
 
 
 
@@ -472,42 +472,42 @@ VendorIdentitiy information is supplied by iQmetrix and used to authenticate req
 
 
 
-## RMA
+### RMA
 
-| Name | Description |
-|:-----|:------------|
-| ProductData (`Array[<a href='/api/vmi/#rmaproduct'>RMAProduct</a>]`) | Product data | 
-| RMAID (`Integer`) | Identifier | 
-| RMAIDByStore (`String`) | Identifier for the RMA in RQ | 
-| StoreID (`Integer`) | Identifier for a store in RQ | 
-| VendorID (`Integer`) | Identifier for a vendor | 
-| CreatedByVMI (`Boolean`) | A flag to indicate if the RMA was created by VMI | 
-| VendorRMANumber (`String`) | Vendor RMA number | 
-| ShippingCost (`Decimal`) | Shipping cost | 
-| Committed (`Integer`) | A flag to indicate if the RMA is committed (1) or not (0) | 
-| DateCommitted (`DateTime`) | Date the RMA was committed | 
-| ShippedAway (`Integer`) | A flag to indicate if the RMA was shipped away (1) or not (0) | 
-| Completed (`Integer`) | A flag to indicate if the RMA is completed (1) or not (0) | 
-| Comments (`String`) | Comments | 
-| DateCreated (`DateTime`) | Date the RMA was created | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ProductData | Array[<a href='/api/vmi/#rmaproduct'>RMAProduct</a>] | Product data |  |
+| RMAID | Integer | Identifier | `16` |
+| RMAIDByStore | String | Identifier for the RMA in RQ | `ATTEXSB3` |
+| StoreID | Integer | Identifier for a store in RQ | `0` |
+| VendorID | Integer | Identifier for a vendor | `0` |
+| CreatedByVMI | Boolean | A flag to indicate if the RMA was created by VMI | `false` |
+| VendorRMANumber | String | Vendor RMA number | `123456` |
+| ShippingCost | Decimal | Shipping cost | `0` |
+| Committed | Integer | A flag to indicate if the RMA is committed (1) or not (0) | `0` |
+| DateCommitted | DateTime | Date the RMA was committed | `2017-01-01T00:00:00` |
+| ShippedAway | Integer | A flag to indicate if the RMA was shipped away (1) or not (0) | `0` |
+| Completed | Integer | A flag to indicate if the RMA is completed (1) or not (0) | `0` |
+| Comments | String | Comments | `Sent` |
+| DateCreated | DateTime | Date the RMA was created | `2016-11-04T00:00:00` |
 
 
 
 
 
 
-## ProductData
+### ProductData
 
-| Name | Description |
-|:-----|:------------|
-| RQProductSku (`String`) | Return value | 
-| RQProductID (`Integer`) | RQ product identifier | 
-| SerialNumberRemoved (`String`) | Serial number of the item (if applicable) | 
-| VendorInvoiceNumber (`String`) | Vendor invoice number | 
-| TotalQuantity (`Integer`) | Quantity being placed on RMA (include non-sellable) | 
-| NonSellableQuantity (`Integer`) | Quantitiy of non-sellable items | 
-| UnitCost (`Decimal`) | Unit cost | 
-| ActionTaken (`String`) | Acceptable values include: NotSet, Credit, Replacement, Rejected or Repaired  | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| RQProductSku | String | Return value | `CDATSS000019` |
+| RQProductID | Integer | RQ product identifier | `19` |
+| SerialNumberRemoved | String | Serial number of the item (if applicable) | `789987741147111` |
+| VendorInvoiceNumber | String | Vendor invoice number | `123456` |
+| TotalQuantity | Integer | Quantity being placed on RMA (include non-sellable) | `1` |
+| NonSellableQuantity | Integer | Quantitiy of non-sellable items | `0` |
+| UnitCost | Decimal | Unit cost | `0` |
+| ActionTaken | String | Acceptable values include: NotSet, Credit, Replacement, Rejected or Repaired  | `Credit` |
 
 
 
@@ -542,7 +542,7 @@ POST /?op=CreatePurchaseOrder
 
 #### Request Parameters
 
-<ul><li><code>CreatePurchaseOrder</code> (<strong>Required</strong>) </li><ul><li><code>Vendor</code> (<strong>Required</strong>) - Case-sensitive</li><ul><li><code>VendorID</code> (<strong>Required</strong>) </li><li><code>Username</code> (<strong>Required</strong>) </li><li><code>Password</code> (<strong>Required</strong>) </li><li><code>Client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) </li><li><code>StoreID</code> (<strong>Required</strong>) </li><li><code>Name</code> (Optional) </li><li><code>VendorAccountNumber</code> (Optional) </li></ul></ul><li><code>PurchaseOrder</code> (<strong>Required</strong>) - The {{PurchaseOrder}}</li><ul><li><code>PurchaseOrderData</code> (<strong>Required</strong>) </li><ul><li><code>BillToStoreID</code> (<strong>Required</strong>) - Defaults to -1. Either this value or BillToVendorAccountNumber must be supplied</li><li><code>EstimatedArrivalDate</code> (<strong>Required</strong>) - Format mm/dd/yyyy</li><li><code>ShipToStoreID</code> (<strong>Required</strong>) - Defaults to -1. Either this value or ShipToVendorAccountNumber must be supplied</li><li><code>VendorInvoiceNumber</code> (<strong>Required</strong>) - Vendor supplied invoice number, this must be unique</li><li><code>CreatedByVMI</code> (Optional) - defaults to false</li><li><code>CreatedDate</code> (Optional) </li><li><code>Comments</code> (Optional) </li><li><code>OrderTotal</code> (Optional) - Defaults to -1</li><li><code>ShippingTotal</code> (Optional) - Defaults to -1</li></ul><li><code>ProductsOrdered</code> (<strong>Required</strong>) - Products ordered</li><ul><li><code>ProductInformation</code> (<strong>Required</strong>) </li><ul><li><code>QuantityOrdered</code> (<strong>Required</strong>) </li><li><code>VendorSKU</code> (<strong>Required</strong>) </li><li><code>DateReceived</code> (Optional) </li><li><code>Enabled</code> (Optional) </li><li><code>MaximumLevel</code> (Optional) - defaults to -1</li><li><code>MinimumLevel</code> (Optional) - defaults to -1</li><li><code>ProductCost</code> (Optional) - defaults to -1</li><li><code>ProductID</code> (Optional) </li><li><code>ProductItemID</code> (Optional) </li><li><code>ProductName</code> (Optional) </li><li><code>ProductReceived</code> (Optional) </li><li><code>ProductSKU</code> (Optional) </li><li><code>QuantityCommittedOnOrderEntry</code> (Optional) - defaults to -1</li><li><code>QuantityInStock</code> (Optional) - defaults to -1</li><li><code>QuantityInTransfer</code> (Optional) - defaults to -1</li><li><code>QuantityOnBackOrder</code> (Optional) - defaults to -1</li><li><code>QuantityOnLoan</code> (Optional) - defaults to -1</li><li><code>QuantityOnOrder</code> (Optional) - defaults to -1</li><li><code>QuantityOnRMA</code> (Optional) - defaults to -1</li><li><code>QuantityReceived</code> (Optional) - defaults to -1</li><li><code>QuantitySold</code> (Optional) - defaults to -1</li></ul></ul></ul></ul></ul>
+<ul><li><code>CreatePurchaseOrder</code> (<strong>Required</strong>) </li><ul><li><code>Vendor</code> (<strong>Required</strong>) - Case-sensitive</li><ul><li><code>VendorID</code> (<strong>Required</strong>) </li><li><code>Username</code> (<strong>Required</strong>) </li><li><code>Password</code> (<strong>Required</strong>) </li><li><code>Client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) </li><li><code>StoreID</code> (<strong>Required</strong>) </li><li><code>Name</code> (Optional) </li><li><code>VendorAccountNumber</code> (Optional) </li></ul></ul><li><code>PurchaseOrder</code> (<strong>Required</strong>) - The <a href='http://developers.iqmetrix.com/api/cmi/#purchaseorder'>PurchaseOrder</a></li><ul><li><code>PurchaseOrderData</code> (<strong>Required</strong>) </li><ul><li><code>BillToStoreID</code> (<strong>Required</strong>) - Defaults to -1. Either this value or BillToVendorAccountNumber must be supplied</li><li><code>EstimatedArrivalDate</code> (<strong>Required</strong>) - Format mm/dd/yyyy</li><li><code>ShipToStoreID</code> (<strong>Required</strong>) - Defaults to -1. Either this value or ShipToVendorAccountNumber must be supplied</li><li><code>VendorInvoiceNumber</code> (<strong>Required</strong>) - Vendor supplied invoice number, this must be unique</li><li><code>CreatedByVMI</code> (Optional) - defaults to false</li><li><code>CreatedDate</code> (Optional) </li><li><code>Comments</code> (Optional) </li><li><code>OrderTotal</code> (Optional) - Defaults to -1</li><li><code>ShippingTotal</code> (Optional) - Defaults to -1</li></ul><li><code>ProductsOrdered</code> (<strong>Required</strong>) - Products ordered</li><ul><li><code>ProductInformation</code> (<strong>Required</strong>) </li><ul><li><code>QuantityOrdered</code> (<strong>Required</strong>) </li><li><code>VendorSKU</code> (<strong>Required</strong>) </li><li><code>DateReceived</code> (Optional) </li><li><code>Enabled</code> (Optional) </li><li><code>MaximumLevel</code> (Optional) - defaults to -1</li><li><code>MinimumLevel</code> (Optional) - defaults to -1</li><li><code>ProductCost</code> (Optional) - defaults to -1</li><li><code>ProductID</code> (Optional) </li><li><code>ProductItemID</code> (Optional) </li><li><code>ProductName</code> (Optional) </li><li><code>ProductReceived</code> (Optional) </li><li><code>ProductSKU</code> (Optional) </li><li><code>QuantityCommittedOnOrderEntry</code> (Optional) - defaults to -1</li><li><code>QuantityInStock</code> (Optional) - defaults to -1</li><li><code>QuantityInTransfer</code> (Optional) - defaults to -1</li><li><code>QuantityOnBackOrder</code> (Optional) - defaults to -1</li><li><code>QuantityOnLoan</code> (Optional) - defaults to -1</li><li><code>QuantityOnOrder</code> (Optional) - defaults to -1</li><li><code>QuantityOnRMA</code> (Optional) - defaults to -1</li><li><code>QuantityReceived</code> (Optional) - defaults to -1</li><li><code>QuantitySold</code> (Optional) - defaults to -1</li></ul></ul></ul></ul></ul>
 
 ###### Example
 
@@ -2958,7 +2958,7 @@ POST /?op=GetPurchaseOrderShipmentNotices
 
 #### Request Parameters
 
-<ul><li><code>GetPurchaseOrderShipmentNotices</code> (<strong>Required</strong>) </li><ul><li><code>vendor</code> (<strong>Required</strong>) - case-sensitive</li><ul><li><code>VendorID</code> (<strong>Required</strong>) </li><li><code>Username</code> (<strong>Required</strong>) </li><li><code>Password</code> (<strong>Required</strong>) </li><li><code>Client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) </li><li><code>StoreID</code> (<strong>Required</strong>) </li><li><code>Name</code> (Optional) </li><li><code>VendorAccountNumber</code> (Optional) </li></ul></ul><li><code>purchaseOrderID</code> (Optional) - Identifier for a {{PurchaseOrder}}</li></ul></ul>
+<ul><li><code>GetPurchaseOrderShipmentNotices</code> (<strong>Required</strong>) </li><ul><li><code>vendor</code> (<strong>Required</strong>) - case-sensitive</li><ul><li><code>VendorID</code> (<strong>Required</strong>) </li><li><code>Username</code> (<strong>Required</strong>) </li><li><code>Password</code> (<strong>Required</strong>) </li><li><code>Client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) </li><li><code>StoreID</code> (<strong>Required</strong>) </li><li><code>Name</code> (Optional) </li><li><code>VendorAccountNumber</code> (Optional) </li></ul></ul><li><code>purchaseOrderID</code> (Optional) - Identifier for a <a href='http://developers.iqmetrix.com/api/cmi/#purchaseorder'>PurchaseOrder</a></li></ul></ul>
 
 ###### Example
 
@@ -3612,7 +3612,7 @@ POST /?op=UpdatePurchaseOrder
 
 #### Request Parameters
 
-<ul><li><code>UpdatePurchaseOrder</code> (<strong>Required</strong>) </li><ul><li><code>vendor</code> (<strong>Required</strong>) - case-sensitive</li><ul><li><code>VendorID</code> (<strong>Required</strong>) </li><li><code>Username</code> (<strong>Required</strong>) </li><li><code>Password</code> (<strong>Required</strong>) </li><li><code>Client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) </li><li><code>Name</code> (Optional) </li><li><code>StoreID</code> (Optional) </li><li><code>VendorAccountNumber</code> (Optional) </li></ul></ul><li><code>purchaseOrder</code> (Optional) - The {{PurchaseOrder}}</li><ul><li><code>PurchaseOrderID</code> (<strong>Required</strong>) - Identifier for the PurchaseOrder</li><li><code>PurchaseOrderData</code> (<strong>Required</strong>) </li><ul><li><code>Comments</code> (Optional) </li><li><code>EstimatedArrivalDate</code> (Optional) - Format mm/dd/yyyy</li><li><code>VendorInvoiceNumber</code> (Optional) - Vendor supplied invoice number, this must be unique</li></ul><li><code>ProductsOrdered</code> (Optional) - Products ordered</li><ul><li><code>ProductInformation</code> (<strong>Required</strong>) </li><ul><li><code>QuantityOrdered</code> (<strong>Required</strong>) </li><li><code>VendorSKU</code> (<strong>Required</strong>) </li><li><code>DateReceived</code> (Optional) </li><li><code>Enabled</code> (Optional) </li><li><code>MaximumLevel</code> (Optional) - defaults to -1</li><li><code>MinimumLevel</code> (Optional) - defaults to -1</li><li><code>ProductCost</code> (Optional) - defaults to -1</li><li><code>ProductID</code> (Optional) </li><li><code>ProductItemID</code> (Optional) </li><li><code>ProductName</code> (Optional) </li><li><code>ProductReceived</code> (Optional) </li><li><code>ProductSKU</code> (Optional) </li><li><code>QuantityCommittedOnOrderEntry</code> (Optional) - defaults to -1</li><li><code>QuantityInStock</code> (Optional) - defaults to -1</li><li><code>QuantityInTransfer</code> (Optional) - defaults to -1</li><li><code>QuantityOnBackOrder</code> (Optional) - defaults to -1</li><li><code>QuantityOnLoan</code> (Optional) - defaults to -1</li><li><code>QuantityOnOrder</code> (Optional) - defaults to -1</li><li><code>QuantityOnRMA</code> (Optional) - defaults to -1</li><li><code>QuantityReceived</code> (Optional) - defaults to -1</li><li><code>QuantitySold</code> (Optional) - defaults to -1</li></ul></ul></ul></ul></ul>
+<ul><li><code>UpdatePurchaseOrder</code> (<strong>Required</strong>) </li><ul><li><code>vendor</code> (<strong>Required</strong>) - case-sensitive</li><ul><li><code>VendorID</code> (<strong>Required</strong>) </li><li><code>Username</code> (<strong>Required</strong>) </li><li><code>Password</code> (<strong>Required</strong>) </li><li><code>Client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) </li><li><code>Name</code> (Optional) </li><li><code>StoreID</code> (Optional) </li><li><code>VendorAccountNumber</code> (Optional) </li></ul></ul><li><code>purchaseOrder</code> (Optional) - The <a href='http://developers.iqmetrix.com/api/cmi/#purchaseorder'>PurchaseOrder</a></li><ul><li><code>PurchaseOrderID</code> (<strong>Required</strong>) - Identifier for the PurchaseOrder</li><li><code>PurchaseOrderData</code> (<strong>Required</strong>) </li><ul><li><code>Comments</code> (Optional) </li><li><code>EstimatedArrivalDate</code> (Optional) - Format mm/dd/yyyy</li><li><code>VendorInvoiceNumber</code> (Optional) - Vendor supplied invoice number, this must be unique</li></ul><li><code>ProductsOrdered</code> (Optional) - Products ordered</li><ul><li><code>ProductInformation</code> (<strong>Required</strong>) </li><ul><li><code>QuantityOrdered</code> (<strong>Required</strong>) </li><li><code>VendorSKU</code> (<strong>Required</strong>) </li><li><code>DateReceived</code> (Optional) </li><li><code>Enabled</code> (Optional) </li><li><code>MaximumLevel</code> (Optional) - defaults to -1</li><li><code>MinimumLevel</code> (Optional) - defaults to -1</li><li><code>ProductCost</code> (Optional) - defaults to -1</li><li><code>ProductID</code> (Optional) </li><li><code>ProductItemID</code> (Optional) </li><li><code>ProductName</code> (Optional) </li><li><code>ProductReceived</code> (Optional) </li><li><code>ProductSKU</code> (Optional) </li><li><code>QuantityCommittedOnOrderEntry</code> (Optional) - defaults to -1</li><li><code>QuantityInStock</code> (Optional) - defaults to -1</li><li><code>QuantityInTransfer</code> (Optional) - defaults to -1</li><li><code>QuantityOnBackOrder</code> (Optional) - defaults to -1</li><li><code>QuantityOnLoan</code> (Optional) - defaults to -1</li><li><code>QuantityOnOrder</code> (Optional) - defaults to -1</li><li><code>QuantityOnRMA</code> (Optional) - defaults to -1</li><li><code>QuantityReceived</code> (Optional) - defaults to -1</li><li><code>QuantitySold</code> (Optional) - defaults to -1</li></ul></ul></ul></ul></ul>
 
 ###### Example
 
@@ -3745,7 +3745,7 @@ POST /?op=CancelUncommittedPurchaseOrder
 
 #### Request Parameters
 
-<ul><li><code>CancelUncommittedPurchaseOrder</code> (<strong>Required</strong>) </li><ul><li><code>vendor</code> (<strong>Required</strong>) - case-sensitive</li><ul><li><code>VendorID</code> (<strong>Required</strong>) </li><li><code>Username</code> (<strong>Required</strong>) </li><li><code>Password</code> (<strong>Required</strong>) </li><li><code>Client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) </li><li><code>Name</code> (Optional) </li><li><code>StoreID</code> (Optional) </li><li><code>VendorAccountNumber</code> (Optional) </li></ul></ul><li><code>purchaseOrderID</code> (<strong>Required</strong>) - Identifier for a {{PurchaseOrder}}</li></ul></ul>
+<ul><li><code>CancelUncommittedPurchaseOrder</code> (<strong>Required</strong>) </li><ul><li><code>vendor</code> (<strong>Required</strong>) - case-sensitive</li><ul><li><code>VendorID</code> (<strong>Required</strong>) </li><li><code>Username</code> (<strong>Required</strong>) </li><li><code>Password</code> (<strong>Required</strong>) </li><li><code>Client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) </li><li><code>Name</code> (Optional) </li><li><code>StoreID</code> (Optional) </li><li><code>VendorAccountNumber</code> (Optional) </li></ul></ul><li><code>purchaseOrderID</code> (<strong>Required</strong>) - Identifier for a <a href='http://developers.iqmetrix.com/api/cmi/#purchaseorder'>PurchaseOrder</a></li></ul></ul>
 
 ###### Example
 
@@ -3827,7 +3827,7 @@ POST /?op=CreateUncommittedPurchaseOrder
 
 #### Request Parameters
 
-<ul><li><code>CreateUncommittedPurchaseOrder</code> (<strong>Required</strong>) </li><ul><li><code>vendor</code> (Optional) - Case-sensitive</li><ul><li><code>VendorID</code> (<strong>Required</strong>) </li><li><code>Username</code> (<strong>Required</strong>) </li><li><code>Password</code> (<strong>Required</strong>) </li><li><code>Client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) </li><li><code>StoreID</code> (<strong>Required</strong>) </li><li><code>Name</code> (Optional) </li><li><code>VendorAccountNumber</code> (Optional) </li></ul></ul><li><code>purchaseOrder</code> (Optional) - The {{PurchaseOrder}}</li><ul><li><code>PurchaseOrderData</code> (<strong>Required</strong>) </li><ul><li><code>BillToStoreID</code> (<strong>Required</strong>) - Defaults to -1. Either this value or BillToVendorAccountNumber must be supplied</li><li><code>EstimatedArrivalDate</code> (<strong>Required</strong>) - Format mm/dd/yyyy</li><li><code>ShipToStoreID</code> (<strong>Required</strong>) - Defaults to -1. Either this value or ShipToVendorAccountNumber must be supplied</li><li><code>VendorInvoiceNumber</code> (<strong>Required</strong>) - Vendor supplied invoice number, this must be unique</li><li><code>CreatedByVMI</code> (Optional) - defaults to false</li><li><code>CreatedDate</code> (Optional) </li><li><code>Comments</code> (Optional) </li><li><code>OrderTotal</code> (Optional) - Defaults to -1</li><li><code>ShippingTotal</code> (Optional) - Defaults to -1</li></ul><li><code>ProductsOrdered</code> (<strong>Required</strong>) - Products ordered</li><ul><li><code>ProductInformation</code> (<strong>Required</strong>) </li><ul><li><code>QuantityOrdered</code> (<strong>Required</strong>) </li><li><code>VendorSKU</code> (<strong>Required</strong>) </li><li><code>DateReceived</code> (Optional) </li><li><code>Enabled</code> (Optional) </li><li><code>MaximumLevel</code> (Optional) - defaults to -1</li><li><code>MinimumLevel</code> (Optional) - defaults to -1</li><li><code>ProductCost</code> (Optional) - defaults to -1</li><li><code>ProductID</code> (Optional) </li><li><code>ProductItemID</code> (Optional) </li><li><code>ProductName</code> (Optional) </li><li><code>ProductReceived</code> (Optional) </li><li><code>ProductSKU</code> (Optional) </li><li><code>QuantityCommittedOnOrderEntry</code> (Optional) - defaults to -1</li><li><code>QuantityInStock</code> (Optional) - defaults to -1</li><li><code>QuantityInTransfer</code> (Optional) - defaults to -1</li><li><code>QuantityOnBackOrder</code> (Optional) - defaults to -1</li><li><code>QuantityOnLoan</code> (Optional) - defaults to -1</li><li><code>QuantityOnOrder</code> (Optional) - defaults to -1</li><li><code>QuantityOnRMA</code> (Optional) - defaults to -1</li><li><code>QuantityReceived</code> (Optional) - defaults to -1</li><li><code>QuantitySold</code> (Optional) - defaults to -1</li></ul></ul></ul></ul></ul>
+<ul><li><code>CreateUncommittedPurchaseOrder</code> (<strong>Required</strong>) </li><ul><li><code>vendor</code> (Optional) - Case-sensitive</li><ul><li><code>VendorID</code> (<strong>Required</strong>) </li><li><code>Username</code> (<strong>Required</strong>) </li><li><code>Password</code> (<strong>Required</strong>) </li><li><code>Client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) </li><li><code>StoreID</code> (<strong>Required</strong>) </li><li><code>Name</code> (Optional) </li><li><code>VendorAccountNumber</code> (Optional) </li></ul></ul><li><code>purchaseOrder</code> (Optional) - The <a href='http://developers.iqmetrix.com/api/cmi/#purchaseorder'>PurchaseOrder</a></li><ul><li><code>PurchaseOrderData</code> (<strong>Required</strong>) </li><ul><li><code>BillToStoreID</code> (<strong>Required</strong>) - Defaults to -1. Either this value or BillToVendorAccountNumber must be supplied</li><li><code>EstimatedArrivalDate</code> (<strong>Required</strong>) - Format mm/dd/yyyy</li><li><code>ShipToStoreID</code> (<strong>Required</strong>) - Defaults to -1. Either this value or ShipToVendorAccountNumber must be supplied</li><li><code>VendorInvoiceNumber</code> (<strong>Required</strong>) - Vendor supplied invoice number, this must be unique</li><li><code>CreatedByVMI</code> (Optional) - defaults to false</li><li><code>CreatedDate</code> (Optional) </li><li><code>Comments</code> (Optional) </li><li><code>OrderTotal</code> (Optional) - Defaults to -1</li><li><code>ShippingTotal</code> (Optional) - Defaults to -1</li></ul><li><code>ProductsOrdered</code> (<strong>Required</strong>) - Products ordered</li><ul><li><code>ProductInformation</code> (<strong>Required</strong>) </li><ul><li><code>QuantityOrdered</code> (<strong>Required</strong>) </li><li><code>VendorSKU</code> (<strong>Required</strong>) </li><li><code>DateReceived</code> (Optional) </li><li><code>Enabled</code> (Optional) </li><li><code>MaximumLevel</code> (Optional) - defaults to -1</li><li><code>MinimumLevel</code> (Optional) - defaults to -1</li><li><code>ProductCost</code> (Optional) - defaults to -1</li><li><code>ProductID</code> (Optional) </li><li><code>ProductItemID</code> (Optional) </li><li><code>ProductName</code> (Optional) </li><li><code>ProductReceived</code> (Optional) </li><li><code>ProductSKU</code> (Optional) </li><li><code>QuantityCommittedOnOrderEntry</code> (Optional) - defaults to -1</li><li><code>QuantityInStock</code> (Optional) - defaults to -1</li><li><code>QuantityInTransfer</code> (Optional) - defaults to -1</li><li><code>QuantityOnBackOrder</code> (Optional) - defaults to -1</li><li><code>QuantityOnLoan</code> (Optional) - defaults to -1</li><li><code>QuantityOnOrder</code> (Optional) - defaults to -1</li><li><code>QuantityOnRMA</code> (Optional) - defaults to -1</li><li><code>QuantityReceived</code> (Optional) - defaults to -1</li><li><code>QuantitySold</code> (Optional) - defaults to -1</li></ul></ul></ul></ul></ul>
 
 ###### Example
 

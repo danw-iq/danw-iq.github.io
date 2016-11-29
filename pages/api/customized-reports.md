@@ -4,7 +4,7 @@ permalink: /api/Customized-Reports/
 tags: []
 keywords: 
 audience: 
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary: 
 rouge: false
 noPopUp: true
@@ -16,8 +16,6 @@ noPopUp: true
 
 
 {% include linkrefs.html %}
-
-
 
 
 ## Overview
@@ -37,43 +35,43 @@ This API supports many different methods of authentication, see {{Authentication
 
 ## Resources
 
-## SalesExtendedDetailReportData
+### SalesExtendedDetailReportData
 
-| Name | Description |
-|:-----|:------------|
-| ChannelName (`NVARCHAR(MAX)`) | Name of a Channel in RQ | 
-| Cost (`MONEY`) | Cost | 
-| CustomerID (`INTEGER`) | Identifier of a customer in RQ | 
-| CustomerName (`VARCHAR(101)`) | Name of a customer in RQ | 
-| DateCreated (`DateTime`) | Sale date | 
-| EmployeeID (`INTEGER`) | Identifier of an employee in RQ | 
-| EmployeeName (`VARCHAR(51)`) | Name of an employee in RQ | 
-| InvoiceNumber (`VARCHAR(14)`) | Invoice number | 
-| LineID (`BIGINT`) |  | 
-| Price (`MONEY`) | Price | 
-| ProductSKU (`VARCHAR(32)`) | Product SKU | 
-| Quantity (`INTEGER`) | Quantity | 
-| RQPriority (`INTEGER`) |  | 
-| SerialNumber (`VARCHAR (100) `) | Serial number | 
-| StoreID (`INTEGER`) | Identifier for a store in RQ | 
-| StoreName (`NVARCHAR(MAX)`) | Name of a store in RQ | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ChannelName | NVARCHAR(MAX) | Name of a Channel in RQ | `English Channel` |
+| Cost | MONEY | Cost | `14.5` |
+| CustomerID | INTEGER | Identifier of a customer in RQ | `85259` |
+| CustomerName | VARCHAR(101) | Name of a customer in RQ | `John Tester` |
+| DateCreated | DateTime | Sale date | `2016-06-07T16:17:36.643` |
+| EmployeeID | INTEGER | Identifier of an employee in RQ | `3302` |
+| EmployeeName | VARCHAR(51) | Name of an employee in RQ | `iQmetrix Employee` |
+| InvoiceNumber | VARCHAR(14) | Invoice number | `77123IN1` |
+| LineID | BIGINT |  | `1` |
+| Price | MONEY | Price | `29.99` |
+| ProductSKU | VARCHAR(32) | Product SKU | `ASLCAP000089` |
+| Quantity | INTEGER | Quantity | `1` |
+| RQPriority | INTEGER |  | `1` |
+| SerialNumber | VARCHAR (100)  | Serial number | `2222222` |
+| StoreID | INTEGER | Identifier for a store in RQ | `6680` |
+| StoreName | NVARCHAR(MAX) | Name of a store in RQ | `100: Pair Up Wireless LLC - Garland` |
 
-## SecurityAuditReportPivotData
+### SecurityAuditReportPivotData
 
 This resource will include every security role in your RQ database.
 
-| Name | Description |
-|:-----|:------------|
-| ModuleName (`VARCHAR(MAX)`) | Name of a security module in RQ | 
-| SecurityRoleName (`VARCHAR(MAX)`) | Access for the given security role for this security module | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ModuleName | VARCHAR(MAX) | Name of a security module in RQ | `A/R: A/R Master List` |
+| SecurityRoleName | VARCHAR(MAX) | Access for the given security role for this security module | `No Access` |
 
-## SecurityAuditReportData
+### SecurityAuditReportData
 
-| Name | Description |
-|:-----|:------------|
-| RoleDescription (`NVARCHAR(MAX)`) | Name of a role in RQ | 
-| ModuleName (`VARCHAR(MAX)`) | Name of a security module in RQ | 
-| SecurityLevel (`VARCHAR(MAX)`) | Security level for the module (ModuleName) for a security role (RoleDescription) | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| RoleDescription | NVARCHAR(MAX) | Name of a role in RQ | `Administrator` |
+| ModuleName | VARCHAR(MAX) | Name of a security module in RQ | `Inventory: Starting Inventory Count Import` |
+| SecurityLevel | VARCHAR(MAX) | Security level for the module (ModuleName) for a security role (RoleDescription) | `Full Access` |
 
 
 
@@ -393,8 +391,8 @@ Note that this report has multiple responses, depending on the Pivot value speci
 
 | Data | Pivot | Response |
 |:-----|:------|:---------|
-| A resource for each security module in RQ | true | {{SecurityAuditReportPivotData}} |
-| A resource for each security role/module combination in RQ | false | {{SecurityAuditReportData}} |
+| A resource for each security module in RQ | true | <a href='http://developers.iqmetrix.com/api/Customized-Reports/#securityauditreportpivotdata'>SecurityAuditReportPivotData</a> |
+| A resource for each security role/module combination in RQ | false | <a href='http://developers.iqmetrix.com/api/Customized-Reports/#securityauditreportdata'>SecurityAuditReportData</a> |
 
 <h4>Request</h4>
 
@@ -412,7 +410,7 @@ GET /customizedreports/SecurityAuditReport?Pivot={Pivot}&Auth={Auth}&Response={R
 <ul>
     
     <li>
-        <code>Pivot</code> (<strong>Required</strong>)  - Acceptable values include true to return {{SecurityAuditReportPivotData}} or false to return {{SecurityAuditReportData}}
+        <code>Pivot</code> (<strong>Required</strong>)  - Acceptable values include true to return <a href='http://developers.iqmetrix.com/api/Customized-Reports/#securityauditreportpivotdata'>SecurityAuditReportPivotData</a> or false to return <a href='http://developers.iqmetrix.com/api/Customized-Reports/#securityauditreportdata'>SecurityAuditReportData</a>
     </li>
     
     <li>

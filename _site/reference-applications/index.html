@@ -1,98 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- 
+       /\      
+      /  \     
+     / _o \    
+    / <(\  \   
+   /   />`A \  
+  '----------` 
+
+  Authors:
+    Dan Wilcox
+    Melissa Kendall
+
+-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-    <style>
-      .highlight table td { padding: 5px; }
-.highlight table pre { margin: 0; }
-.highlight, .highlight .w {
-  color: #f8f8f2;
-  background-color: #272822;
-}
-.highlight .err {
-  color: #151515;
-  background-color: #ac4142;
-}
-.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
-  color: #505050;
-}
-.highlight .cp {
-  color: #f4bf75;
-}
-.highlight .nt {
-  color: #f4bf75;
-}
-.highlight .o, .highlight .ow {
-  color: #d0d0d0;
-}
-.highlight .p, .highlight .pi {
-  color: #d0d0d0;
-}
-.highlight .gi {
-  color: #90a959;
-}
-.highlight .gd {
-  color: #ac4142;
-}
-.highlight .gh {
-  color: #6a9fb5;
-  background-color: #151515;
-  font-weight: bold;
-}
-.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #aa759f;
-}
-.highlight .kc {
-  color: #d28445;
-}
-.highlight .kt {
-  color: #d28445;
-}
-.highlight .kd {
-  color: #d28445;
-}
-.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #90a959;
-}
-.highlight .sr {
-  color: #75b5aa;
-}
-.highlight .si {
-  color: #8f5536;
-}
-.highlight .se {
-  color: #8f5536;
-}
-.highlight .nn {
-  color: #f4bf75;
-}
-.highlight .nc {
-  color: #f4bf75;
-}
-.highlight .no {
-  color: #f4bf75;
-}
-.highlight .na {
-  color: #6a9fb5;
-}
-.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
-  color: #90a959;
-}
-.highlight .ss {
-  color: #90a959;
-}
-    </style>
     <title>Sample Applications | iQmetrix Developer Portal</title>
-    <link href="../../css/screen.css" rel="stylesheet" media="screen" />
-    <link href="../../css/print.css" rel="stylesheet" media="print" />
-    <script src="../../js/all.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/customstyles.css " rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/dashboard.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link href="../../css/sb-admin-2.css" rel="stylesheet">
+    <link href="../../css/prism.css " rel="stylesheet">
+    <link href="../../css/bootstrap-submenu.css" rel="stylesheet"> 
+    
+    <!-- Console CSS -->
+    <link href="../../css/api-console-light-theme.css" rel="stylesheet"> 
+  
+    <!-- Custom Fonts -->
+    <link href="../../css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+
+    <!-- Image popup source files -->
+    <!-- http://dimsemenov.com/plugins/magnific-popup/ -->
+    <link rel="stylesheet" type="text/css" href="/css/magnific-popup.css">
+    <script src="../../js/jquery.magnific-popup.js "></script>
+
+  
+    <script>
+        $(document).ready(function() {
+
+            // surround each image with an anchor class  for image popup
+            $('#page-wrapper img').each( function() {
+                var $img = $(this),
+                href = $img.attr('src');
+                $img.wrap('<a class="image-link" href=' + href + '></a>');
+                 
+            });
+
+            // make each image with image-link class popup "on click"
+            // !! Drawback -- all images could popup :(
+            $('.image-link').magnificPopup({
+                type:'image',
+                closeOnContentClick: true
+            });                    
+        });    
+    </script>
+    
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -100,33 +77,51 @@
     <![endif]-->
   </head>
 
-    <body class="api api_catalog api_catalog_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
-    <a href="#" id="nav-button">
-      <span>
-        NAV
-        <img src="../../images/navbar.png" />
-      </span>
-    </a>
-    <div class="tocify-wrapper">
-      <img src="../../images/logo.png" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="javascript">javascript</a>
-              <a href="#" data-language-name="shell">cURL</a>
-              <a href="#" data-language-name="csharp">c#</a>
-              <a href="#" data-language-name="java">java</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-        </div>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
-      <div id="toc">
-      </div>
-    </div>
+  <body>
 
-    <div class="page-wrapper">
-      <div class="dark-box"></div>
-      <div class="content">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+          
+      <!-- new_topbar.html includes all header nav references and breadcrumb section -->
+      
+      <!-- Top Nav Bar -->
+      <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.iqmetrix.com"><img src="http://localhost:4006/images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      </div>
+
+      <div id="navbar" class="collapse navbar-collapse" >      
+        <ul class="nav navbar-nav navbar-right">
+          <li class="topbar"><a href="http://localhost:4006">HOMEPAGE</a></li>
+          <li class="topbar"><a href="http://localhost:4006/api/changelog">CHANGELOG</a></li>
+          <li class="topbar"><a href="mailto:apisupport@iqmetrix.com?subject=Support">SUPPORT</a></li>
+        </ul>
+      </div>
+      </div>
+          
+    </nav>
+
+      <!-- Sidebar -->
+      <div class="navbar-default sidebar" id="sidebar-test" role="navigation">
+          <div class="sidebar-nav navbar-collapse" id="scrollspy">
+                
+          </div>
+          <!-- /.sidebar-collapse -->
+      </div>
+
+    <div id="page-wrapper">
+
+    <div class="container-fluid" id="content-example">
+
+      <div class="col-md-12"><div class="post-header">
+        <h1 class="post-title-main">Sample Applications</h1>
+
+      <div class="post-content">
 
       
 <h2 id="magentosync">MagentoSync</h2>
@@ -170,16 +165,87 @@
 
 
       </div>
-      <div class="dark-box">
-            <div class="lang-selector">
-               <a href="#" data-language-name="javascript">javascript</a>
-               <a href="#" data-language-name="shell">cURL</a>
-               <a href="#" data-language-name="csharp">c#</a>
-               <a href="#" data-language-name="java">java</a>
-               <a href="#" data-language-name="ruby">ruby</a>
-            </div>
-         </div>
+
+
     </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../../js/metisMenu.min.js "></script>
+  
+    <!-- Custom Theme JavaScript -->
+    <script src="../../js/sb-admin-2.js "></script>
+    <script src="../../js/prism.js "></script>
+    <script src="../../js/bootstrap-submenu.js "></script>
+    <script>
+      jQuery('[data-submenu]').submenupicker();
+    </script>
+
+    <!-- TOC modified for iQmetrix Developer Portal layout -->
+    <script src="../../js/dynamicscrollspy.js "></script>
+    <script>
+
+        var pathname = window.location.pathname;
+
+       // if ( (pathname == '/api/') || (pathname.indexOf('api') == -1) ){  
+
+          /*var ul = $('.sidebar-nav ul');
+
+          $('h2').each(function() {
+              ul.append('<li><a href="#' + $(this).attr('id') + '">' + $(this).html() + '</a></li>');
+          });*/
+
+          $('#scrollspy').DynamicScrollspy({
+
+            //lowest-level header to be included (H2)
+            tH: 2, 
+
+            //highest-level header to be included (H3)
+            bH: 3, 
+
+            //generate random IDs?
+            genIDs: true, 
+
+            //offset for scrollspy
+            offset: 100, 
+
+            //add this class to top-most UL
+            ulClassNames: 'iq-toc', 
+
+            //active class (besides .active) to add
+            activeClass: '', 
+
+            //if testing, show heading tagName and ID
+            testing: false,
+
+            //use affix by default
+            affix: false
+          
+          });
+
+     //   } else {
+          //do nothing
+     //   }   
+
+    </script>
+
+    <!-- Console JS-->
+    <script src="../../js/api-console-vendor.js "></script>
+    <script src="../../js/api-console.js "></script>
+
+    <!-- Clipboard -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
+
+    <!-- Cookies, copy button, etc -->
+    <script src="../../js/customscripts.js"></script>
+
+    <script>
+      $.noConflict();
+    </script>
 
   </body>
 

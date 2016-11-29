@@ -1,98 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- 
+       /\      
+      /  \     
+     / _o \    
+    / <(\  \   
+   /   />`A \  
+  '----------` 
+
+  Authors:
+    Dan Wilcox
+    Melissa Kendall
+
+-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-    <style>
-      .highlight table td { padding: 5px; }
-.highlight table pre { margin: 0; }
-.highlight, .highlight .w {
-  color: #f8f8f2;
-  background-color: #272822;
-}
-.highlight .err {
-  color: #151515;
-  background-color: #ac4142;
-}
-.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
-  color: #505050;
-}
-.highlight .cp {
-  color: #f4bf75;
-}
-.highlight .nt {
-  color: #f4bf75;
-}
-.highlight .o, .highlight .ow {
-  color: #d0d0d0;
-}
-.highlight .p, .highlight .pi {
-  color: #d0d0d0;
-}
-.highlight .gi {
-  color: #90a959;
-}
-.highlight .gd {
-  color: #ac4142;
-}
-.highlight .gh {
-  color: #6a9fb5;
-  background-color: #151515;
-  font-weight: bold;
-}
-.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #aa759f;
-}
-.highlight .kc {
-  color: #d28445;
-}
-.highlight .kt {
-  color: #d28445;
-}
-.highlight .kd {
-  color: #d28445;
-}
-.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #90a959;
-}
-.highlight .sr {
-  color: #75b5aa;
-}
-.highlight .si {
-  color: #8f5536;
-}
-.highlight .se {
-  color: #8f5536;
-}
-.highlight .nn {
-  color: #f4bf75;
-}
-.highlight .nc {
-  color: #f4bf75;
-}
-.highlight .no {
-  color: #f4bf75;
-}
-.highlight .na {
-  color: #6a9fb5;
-}
-.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
-  color: #90a959;
-}
-.highlight .ss {
-  color: #90a959;
-}
-    </style>
     <title>Company Tree | iQmetrix Developer Portal</title>
-    <link href="../../css/screen.css" rel="stylesheet" media="screen" />
-    <link href="../../css/print.css" rel="stylesheet" media="print" />
-    <script src="../../js/all.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/customstyles.css " rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/dashboard.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link href="../../css/sb-admin-2.css" rel="stylesheet">
+    <link href="../../css/prism.css " rel="stylesheet">
+    <link href="../../css/bootstrap-submenu.css" rel="stylesheet"> 
+    
+    <!-- Console CSS -->
+    <link href="../../css/api-console-light-theme.css" rel="stylesheet"> 
+  
+    <!-- Custom Fonts -->
+    <link href="../../css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+
+    <!-- Image popup source files -->
+    <!-- http://dimsemenov.com/plugins/magnific-popup/ -->
+    <link rel="stylesheet" type="text/css" href="/css/magnific-popup.css">
+    <script src="../../js/jquery.magnific-popup.js "></script>
+
+  
+    <script>
+        $(document).ready(function() {
+
+            // surround each image with an anchor class  for image popup
+            $('#page-wrapper img').each( function() {
+                var $img = $(this),
+                href = $img.attr('src');
+                $img.wrap('<a class="image-link" href=' + href + '></a>');
+                 
+            });
+
+            // make each image with image-link class popup "on click"
+            // !! Drawback -- all images could popup :(
+            $('.image-link').magnificPopup({
+                type:'image',
+                closeOnContentClick: true
+            });                    
+        });    
+    </script>
+    
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -100,36 +77,57 @@
     <![endif]-->
   </head>
 
-    <body class="api api_catalog api_catalog_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
-    <a href="#" id="nav-button">
-      <span>
-        NAV
-        <img src="../../images/navbar.png" />
-      </span>
-    </a>
-    <div class="tocify-wrapper">
-      <img src="../../images/logo.png" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="javascript">javascript</a>
-              <a href="#" data-language-name="shell">cURL</a>
-              <a href="#" data-language-name="csharp">c#</a>
-              <a href="#" data-language-name="java">java</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-        </div>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
-      <div id="toc">
-      </div>
-    </div>
+  <body>
 
-    <div class="page-wrapper">
-      <div class="dark-box"></div>
-      <div class="content">
-
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+          
+      <!-- new_topbar.html includes all header nav references and breadcrumb section -->
       
-<h1 id="overview">Overview</h1>
+      <!-- Top Nav Bar -->
+      <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.iqmetrix.com"><img src="http://localhost:4006/images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      </div>
+
+      <div id="navbar" class="collapse navbar-collapse" >      
+        <ul class="nav navbar-nav navbar-right">
+          <li class="topbar"><a href="http://localhost:4006">HOMEPAGE</a></li>
+          <li class="topbar"><a href="http://localhost:4006/api/changelog">CHANGELOG</a></li>
+          <li class="topbar"><a href="mailto:apisupport@iqmetrix.com?subject=Support">SUPPORT</a></li>
+        </ul>
+      </div>
+      </div>
+          
+    </nav>
+
+      <!-- Sidebar -->
+      <div class="navbar-default sidebar" id="sidebar-test" role="navigation">
+          <div class="sidebar-nav navbar-collapse" id="scrollspy">
+                
+          </div>
+          <!-- /.sidebar-collapse -->
+      </div>
+
+    <div id="page-wrapper">
+
+    <div class="container-fluid" id="content-example">
+
+      <div class="col-md-12"><div class="post-header">
+        <h1 class="post-title-main">Company Tree</h1>
+
+      <div class="post-content">
+
+      <link rel="stylesheet" type="text/css" href="../../css/prism.css" />
+
+<script src="../../js/prism.js"></script>
+
+<h2 id="overview">Overview</h2>
 
 <p>A Company Tree is a representation of how a Company is structured and is used to:</p>
 
@@ -199,195 +197,235 @@
   </tbody>
 </table>
 
-<h1 id="endpoints">Endpoints</h1>
+<h2 id="endpoints">Endpoints</h2>
 
 <ul>
   <li>Sandbox: <a href="https://entitymanagerdemo.iqmetrix.net/v1">https://entitymanagerdemo.iqmetrix.net/v1</a></li>
   <li>Production: <a href="https://entitymanager.iqmetrix.net/v1">https://entitymanager.iqmetrix.net/v1</a></li>
 </ul>
 
-<h1 id="resources">Resources</h1>
+<h2 id="resources">Resources</h2>
 
-<h2 id="company">Company</h2>
+<h3 id="company">Company</h3>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
-      <th> </th>
+      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Unique identifier</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">14146</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code class="highlighter-rouge">String(250)</code>)</td>
       <td style="text-align: left">Name</td>
-      <td> </td>
+      <td style="text-align: left">String(250)</td>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Kentel Corp</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Description (<code class="highlighter-rouge">String(255)</code>)</td>
       <td style="text-align: left">Description</td>
-      <td> </td>
+      <td style="text-align: left">String(255)</td>
+      <td style="text-align: left">Description</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Wireless accessories provider with store locations all across the globe.</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles (<code class="highlighter-rouge">Array[object]</code>)</td>
+      <td style="text-align: left">Roles</td>
+      <td style="text-align: left">Array[object]</td>
       <td style="text-align: left">The value must be Company</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles.Name (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">Roles.Name</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">Company</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">ClientEntityId (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">ClientEntityId</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier in an external system</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">123</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">CreatedUtc (<code class="highlighter-rouge">DateTime</code>)</td>
+      <td style="text-align: left">CreatedUtc</td>
+      <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Created date in UTC</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-05-20T23:06:29.7700813Z</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">LastModifiedUtc (<code class="highlighter-rouge">DateTime</code>)</td>
+      <td style="text-align: left">LastModifiedUtc</td>
+      <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Last modified date in UTC</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-05-20T23:06:29.7700813Z</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Attributes (<code class="highlighter-rouge">Object</code>)</td>
+      <td style="text-align: left">Attributes</td>
+      <td style="text-align: left">Object</td>
       <td style="text-align: left">Set of key-value pairs that contain extra data</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Logo (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#asset'&gt;Asset&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Logo</td>
+      <td style="text-align: left"><a href="/api/company-tree/#asset">Asset</a></td>
       <td style="text-align: left">A reference to an <a href="/api/assets/#asset">Asset</a></td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Relationships (<code class="highlighter-rouge">Array[&lt;a href='/api/company-tree/#relationship'&gt;Relationship&lt;/a&gt;]</code>)</td>
+      <td style="text-align: left">Relationships</td>
+      <td style="text-align: left">Array[<a href="/api/company-tree/#relationship">Relationship</a>]</td>
       <td style="text-align: left">See <a href="#company-relationships">Company Relationships</a></td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">SortName (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">SortName</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">A string used for sorting</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">kentel corp</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Version (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Version</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Latest revision number</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>CorrelationId (<code class="highlighter-rouge">String</code>)</em></td>
+      <td style="text-align: left"><em>CorrelationId</em></td>
+      <td style="text-align: left"><em>String</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>Role (<code class="highlighter-rouge">String</code>)</em></td>
+      <td style="text-align: left"><em>Role</em></td>
+      <td style="text-align: left"><em>String</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>TypeId (<code class="highlighter-rouge">Integer</code>)</em></td>
+      <td style="text-align: left"><em>TypeId</em></td>
+      <td style="text-align: left"><em>Integer</em></td>
       <td style="text-align: left"><em>Reserved for future use</em></td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="relationship">Relationship</h2>
+<h3 id="relationship">Relationship</h3>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
-      <th> </th>
+      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for the relationship</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">6267</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Source (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Source</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for a <a href="http://developers.iqmetrix.com/api/epc/#vendor">Vendor</a>, <a href="http://developers.iqmetrix.com/api/entity-store/#carrier">Carrier</a> or  or <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a></td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">14146</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Destination (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Destination</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier for a <a href="http://developers.iqmetrix.com/api/company-tree/#group">Group</a>, <a href="http://developers.iqmetrix.com/api/company-tree/#location">Location</a>, <a href="http://developers.iqmetrix.com/api/company-tree/#division">Division</a> or <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a></td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">14147</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">CreatedUtc (<code class="highlighter-rouge">DateTime</code>)</td>
+      <td style="text-align: left">CreatedUtc</td>
+      <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Date the relationship was formed, in UTC</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-11-20T18:22:10.931Z</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Version (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Version</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Latest revision number</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>Definition (<code class="highlighter-rouge">Integer</code>)</em></td>
+      <td style="text-align: left"><em>Definition</em></td>
+      <td style="text-align: left"><em>Integer</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="asset">Asset</h2>
+<h3 id="asset">Asset</h3>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code class="highlighter-rouge">GUID</code>)</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">GUID</td>
       <td style="text-align: left">Unique identifier</td>
+      <td style="text-align: left"><code class="highlighter-rouge">d22291d9-db1d-45e2-ab60-32ac9c145323</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">File name</td>
+      <td style="text-align: left"><code class="highlighter-rouge">globe-rocket.jpg</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Height (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Height</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Height in pixels</td>
+      <td style="text-align: left"><code class="highlighter-rouge">341</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Href (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">Href</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">URL that points to an actual file where the digital asset is stored</td>
+      <td style="text-align: left"><code class="highlighter-rouge">https://amsdemostorage.blob.core.windows.net/assets/d22291d9-db1d-45e2-ab60-32ac9c145323.jpg</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Md5Checksum (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">Md5Checksum</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">String that can be used for upload integrity checks or comparing two assets</td>
+      <td style="text-align: left"><code class="highlighter-rouge">d2d0b491ad3eecd9d8c3dabb0610197d</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">MimeType (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">MimeType</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Mime type</td>
+      <td style="text-align: left"><code class="highlighter-rouge">image/jpeg</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Width (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Width</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Width in pixels</td>
+      <td style="text-align: left"><code class="highlighter-rouge">450</code></td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="companytree">CompanyTree</h2>
+<h3 id="companytree">CompanyTree</h3>
 
 <p>Your Company Tree is a hierarchial representation of how your Company is structured, including the root Company, Groups, Divisions and Locations.</p>
 
@@ -397,34 +435,46 @@
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Company identifier</td>
+      <td style="text-align: left"><code class="highlighter-rouge">14146</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code class="highlighter-rouge">String(250)</code>)</td>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left">String(250)</td>
       <td style="text-align: left">Company name</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Kentel Corp</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Description (<code class="highlighter-rouge">String(255)</code>)</td>
       <td style="text-align: left">Description</td>
+      <td style="text-align: left">String(255)</td>
+      <td style="text-align: left">Description</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Wireless accessories provider with store locations all across the globe.</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Role (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Role</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Role</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Company</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Nodes (<code class="highlighter-rouge">Array[&lt;a href='/api/company-tree/#companytreenode'&gt;CompanyTreeNode&lt;/a&gt;]</code>)</td>
+      <td style="text-align: left">Nodes</td>
+      <td style="text-align: left">Array[<a href="/api/company-tree/#companytreenode">CompanyTreeNode</a>]</td>
       <td style="text-align: left">The Company Tree hierarchy made up of Nodes</td>
+      <td style="text-align: left"> </td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="companytreenode">CompanyTreeNode</h2>
+<h3 id="companytreenode">CompanyTreeNode</h3>
 
 <p>CompanyTreeNodes are used to represent hierarchy in a Company Tree. A Node can represent a <a href="http://developers.iqmetrix.com/api/company-tree/#group">Group</a>, <a href="http://developers.iqmetrix.com/api/company-tree/#division">Division</a>, <a href="http://developers.iqmetrix.com/api/company-tree/#location">Location</a> or device.</p>
 
@@ -432,34 +482,46 @@
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Identifier</td>
+      <td style="text-align: left"><code class="highlighter-rouge">14159</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code class="highlighter-rouge">String(250)</code>)</td>
       <td style="text-align: left">Name</td>
+      <td style="text-align: left">String(250)</td>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left"><code class="highlighter-rouge">T-hut Wireless</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Description (<code class="highlighter-rouge">String(255)</code>)</td>
       <td style="text-align: left">Description</td>
+      <td style="text-align: left">String(255)</td>
+      <td style="text-align: left">Description</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Division of Kiosks</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Role (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">Role</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Role, possible values include: Company, Group, Division and Location</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Division</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Nodes (<code class="highlighter-rouge">Array[object]</code>)</td>
+      <td style="text-align: left">Nodes</td>
+      <td style="text-align: left">Array[object]</td>
       <td style="text-align: left">Children</td>
+      <td style="text-align: left"> </td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="location">Location</h2>
+<h3 id="location">Location</h3>
 
 <p>A <strong>Location</strong> is a physical or virtual presence that may hold inventory or process transactions.</p>
 
@@ -467,175 +529,208 @@
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
-      <th> </th>
+      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Unique identifier</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">14202</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code class="highlighter-rouge">String(250)</code>)</td>
       <td style="text-align: left">Name</td>
-      <td> </td>
+      <td style="text-align: left">String(250)</td>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Dufferin Mall</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Description (<code class="highlighter-rouge">String(255)</code>)</td>
       <td style="text-align: left">Description</td>
-      <td> </td>
+      <td style="text-align: left">String(255)</td>
+      <td style="text-align: left">Description</td>
+      <td style="text-align: left"><code class="highlighter-rouge">This Location is used to clear out discounted inventory</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles (<code class="highlighter-rouge">Array[object]</code>)</td>
+      <td style="text-align: left">Roles</td>
+      <td style="text-align: left">Array[object]</td>
       <td style="text-align: left">The Role of this Location, the value must be Location</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles.Name (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">Roles.Name</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">Location</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">CreatedUTC (<code class="highlighter-rouge">DateTime</code>)</td>
+      <td style="text-align: left">CreatedUTC</td>
+      <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Created date in UTC</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-02-26T00:03:01.372Z</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">LastModifiedUTC (<code class="highlighter-rouge">DateTime</code>)</td>
+      <td style="text-align: left">LastModifiedUTC</td>
+      <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Last modified date in UTC</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-02-27T00:03:06.392Z</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Area (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#area'&gt;Area&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Area</td>
+      <td style="text-align: left"><a href="/api/company-tree/#area">Area</a></td>
       <td style="text-align: left">Measurement of floor space</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Address (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#address'&gt;Address&lt;/a&gt;</code>)</td>
       <td style="text-align: left">Address</td>
-      <td> </td>
+      <td style="text-align: left"><a href="/api/company-tree/#address">Address</a></td>
+      <td style="text-align: left">Address</td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Attributes (<code class="highlighter-rouge">Object</code>)</td>
+      <td style="text-align: left">Attributes</td>
+      <td style="text-align: left">Object</td>
       <td style="text-align: left">Set of key-value pairs that contain extra data</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">ClientEntityId (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">ClientEntityId</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier in an external system</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">123</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Contacts (<code class="highlighter-rouge">Array[&lt;a href='/api/company-tree/#contact'&gt;Contact&lt;/a&gt;]</code>)</td>
+      <td style="text-align: left">Contacts</td>
+      <td style="text-align: left">Array[<a href="/api/company-tree/#contact">Contact</a>]</td>
       <td style="text-align: left">Contact information</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Geography (<code class="highlighter-rouge">object</code>)</td>
+      <td style="text-align: left">Geography</td>
+      <td style="text-align: left">object</td>
       <td style="text-align: left">Geographic coordinates of this Location</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Geography.Longitude (<code class="highlighter-rouge">Decimal</code>)</td>
+      <td style="text-align: left">Geography.Longitude</td>
+      <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Longitude, must be between -180 and 180</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">-104.612034</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Geography.Latitude (<code class="highlighter-rouge">Decimal</code>)</td>
+      <td style="text-align: left">Geography.Latitude</td>
+      <td style="text-align: left">Decimal</td>
       <td style="text-align: left">Latitude, must be between -90 and 90</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">50.443559</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Relationships (<code class="highlighter-rouge">Array[object]</code>)</td>
+      <td style="text-align: left">Relationships</td>
+      <td style="text-align: left">Array[object]</td>
       <td style="text-align: left">Relationship information, such as the parent node in the Company Tree</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">SortName (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">SortName</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">A string used for sorting</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">dufferin mall</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">StoreHours (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#storehours'&gt;StoreHours&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">StoreHours</td>
+      <td style="text-align: left"><a href="/api/company-tree/#storehours">StoreHours</a></td>
       <td style="text-align: left">Store hours for this Location</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">StorePhoneNumbers (<code class="highlighter-rouge">Array[object]</code>)</td>
+      <td style="text-align: left">StorePhoneNumbers</td>
+      <td style="text-align: left">Array[object]</td>
       <td style="text-align: left">Phone numbers</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">StorePhoneNumbers.Description (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">StorePhoneNumbers.Description</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Description</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">Main Line</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">StorePhoneNumbers.Number (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">StorePhoneNumbers.Number</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Phone number</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">5555555555</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">StorePhoneNumbers.Extension (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">StorePhoneNumbers.Extension</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Extension</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">1234</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">TimeZone (<code class="highlighter-rouge">object</code>)</td>
+      <td style="text-align: left">TimeZone</td>
+      <td style="text-align: left">object</td>
       <td style="text-align: left">Timezone information for the Location</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Id (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier. For a list of acceptable values, see <a href="/api/reference/#getting-all-time-zones">Getting All Time Zones</a></td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">Alaskan Standard Time</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">DaylightSavingTimeEnabled (<code class="highlighter-rouge">Boolean</code>)</td>
+      <td style="text-align: left">DaylightSavingTimeEnabled</td>
+      <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the Time Zone observes Daylight Savings Time</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Version (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Version</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Latest revision number</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">13</code></td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>CorrelationId (<code class="highlighter-rouge">String</code>)</em></td>
+      <td style="text-align: left"><em>CorrelationId</em></td>
+      <td style="text-align: left"><em>String</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>LocationType (<code class="highlighter-rouge">String</code>)</em></td>
+      <td style="text-align: left"><em>LocationType</em></td>
+      <td style="text-align: left"><em>String</em></td>
       <td style="text-align: left"><em>Reserved for future use</em></td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>LocationSubType (<code class="highlighter-rouge">String</code>)</em></td>
+      <td style="text-align: left"><em>LocationSubType</em></td>
+      <td style="text-align: left"><em>String</em></td>
       <td style="text-align: left"><em>Reserved for future use</em></td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>Logo (<code class="highlighter-rouge">Object</code>)</em></td>
+      <td style="text-align: left"><em>Logo</em></td>
+      <td style="text-align: left"><em>Object</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>Role (<code class="highlighter-rouge">String</code>)</em></td>
+      <td style="text-align: left"><em>Role</em></td>
+      <td style="text-align: left"><em>String</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>TypeId (<code class="highlighter-rouge">Integer</code>)</em></td>
+      <td style="text-align: left"><em>TypeId</em></td>
+      <td style="text-align: left"><em>Integer</em></td>
       <td style="text-align: left"><em>Reserved for future use</em></td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="division">Division</h2>
+<h3 id="division">Division</h3>
 
 <p>Division, as well as Groups, serve as generic buckets clients can use to organize the company tree. Divisions could be used to represent sub-brand or sub-company of a main company.</p>
 
@@ -645,95 +740,112 @@
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
-      <th> </th>
+      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Unique identifier</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">14159</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code class="highlighter-rouge">String(250)</code>)</td>
       <td style="text-align: left">Name</td>
-      <td> </td>
+      <td style="text-align: left">String(250)</td>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left"><code class="highlighter-rouge">T-hut Wireless</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Description (<code class="highlighter-rouge">String(255)</code>)</td>
       <td style="text-align: left">Description</td>
-      <td> </td>
+      <td style="text-align: left">String(255)</td>
+      <td style="text-align: left">Description</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Division of Kiosks</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles (<code class="highlighter-rouge">Array[object]</code>)</td>
+      <td style="text-align: left">Roles</td>
+      <td style="text-align: left">Array[object]</td>
       <td style="text-align: left">The value must be Division</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles.Name (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">Roles.Name</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">Division</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">ClientEntityId (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">ClientEntityId</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier in an external system</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">187</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">CreatedUTC (<code class="highlighter-rouge">DateTime</code>)</td>
+      <td style="text-align: left">CreatedUTC</td>
+      <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Created date in UTC</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-05-20T23:06:29.7700813Z</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">LastModifiedUTC (<code class="highlighter-rouge">DateTime</code>)</td>
+      <td style="text-align: left">LastModifiedUTC</td>
+      <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Last modified date in UTC</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-05-20T23:06:29.7700813Z</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Attributes (<code class="highlighter-rouge">Object</code>)</td>
+      <td style="text-align: left">Attributes</td>
+      <td style="text-align: left">Object</td>
       <td style="text-align: left">Set of key-value pairs that contain extra data</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Logo (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#asset'&gt;Asset&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Logo</td>
+      <td style="text-align: left"><a href="/api/company-tree/#asset">Asset</a></td>
       <td style="text-align: left">A reference to an Asset</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Relationships (<code class="highlighter-rouge">Array[object]</code>)</td>
+      <td style="text-align: left">Relationships</td>
+      <td style="text-align: left">Array[object]</td>
       <td style="text-align: left">Relationship information, such child Locations, Suppliers and Carriers</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">SortName (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">SortName</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">A string used for sorting</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">t-hut wireless</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Version (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Version</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Latest revision number</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>CorrelationId (<code class="highlighter-rouge">String</code>)</em></td>
+      <td style="text-align: left"><em>CorrelationId</em></td>
+      <td style="text-align: left"><em>String</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>Role (<code class="highlighter-rouge">String</code>)</em></td>
+      <td style="text-align: left"><em>Role</em></td>
+      <td style="text-align: left"><em>String</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>TypeId (<code class="highlighter-rouge">Integer</code>)</em></td>
+      <td style="text-align: left"><em>TypeId</em></td>
+      <td style="text-align: left"><em>Integer</em></td>
       <td style="text-align: left"><em>Reserved for future use</em></td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="group">Group</h2>
+<h3 id="group">Group</h3>
 
 <p>Managerial or geographical groupings.</p>
 
@@ -743,95 +855,112 @@
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
-      <th> </th>
+      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Unique identifier</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">14166</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Name (<code class="highlighter-rouge">String(250)</code>)</td>
       <td style="text-align: left">Name</td>
-      <td> </td>
+      <td style="text-align: left">String(250)</td>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Toronto</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Description (<code class="highlighter-rouge">String(255)</code>)</td>
       <td style="text-align: left">Description</td>
-      <td> </td>
+      <td style="text-align: left">String(255)</td>
+      <td style="text-align: left">Description</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Group within Ontario</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles (<code class="highlighter-rouge">Array[object]</code>)</td>
+      <td style="text-align: left">Roles</td>
+      <td style="text-align: left">Array[object]</td>
       <td style="text-align: left">The value must be Group</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Roles.Name (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">Roles.Name</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Name</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">Group</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">ClientEntityId (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">ClientEntityId</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier in an external system</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">187</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">CreatedUTC (<code class="highlighter-rouge">DateTime</code>)</td>
+      <td style="text-align: left">CreatedUTC</td>
+      <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Created date in UTC</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-05-20T23:06:29.7700813Z</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">LastModifiedUTC (<code class="highlighter-rouge">DateTime</code>)</td>
+      <td style="text-align: left">LastModifiedUTC</td>
+      <td style="text-align: left">DateTime</td>
       <td style="text-align: left">Last modified date in UTC</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">2015-05-20T23:06:29.7700813Z</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Attributes (<code class="highlighter-rouge">Object</code>)</td>
+      <td style="text-align: left">Attributes</td>
+      <td style="text-align: left">Object</td>
       <td style="text-align: left">Set of key-value pairs that contain extra data</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Logo (<code class="highlighter-rouge">&lt;a href='/api/assets/#asset'&gt;Asset&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Logo</td>
+      <td style="text-align: left"><a href="/api/assets/#asset">Asset</a></td>
       <td style="text-align: left">A reference to an Asset</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Relationships (<code class="highlighter-rouge">Array[object]</code>)</td>
+      <td style="text-align: left">Relationships</td>
+      <td style="text-align: left">Array[object]</td>
       <td style="text-align: left">Relationship information, such child Locations, Suppliers and Carriers</td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">SortName (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">SortName</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">A string used for sorting</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">toronto</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Version (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Version</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Latest revision number</td>
-      <td> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">1</code></td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>CorrelationId (<code class="highlighter-rouge">String</code>)</em></td>
+      <td style="text-align: left"><em>CorrelationId</em></td>
+      <td style="text-align: left"><em>String</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>Role (<code class="highlighter-rouge">String</code>)</em></td>
+      <td style="text-align: left"><em>Role</em></td>
+      <td style="text-align: left"><em>String</em></td>
       <td style="text-align: left"><em>Reserved for internal use</em></td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>TypeId (<code class="highlighter-rouge">Integer</code>)</em></td>
+      <td style="text-align: left"><em>TypeId</em></td>
+      <td style="text-align: left"><em>Integer</em></td>
       <td style="text-align: left"><em>Reserved for future use</em></td>
-      <td> </td>
+      <td style="text-align: left"> </td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="address">Address</h2>
+<h3 id="address">Address</h3>
 
 <p>A <strong>Location</strong> is a physical or virtual presence that may hold inventory or process transactions.</p>
 
@@ -839,224 +968,335 @@
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">AddressLine1 (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">AddressLine1</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">First line of Address</td>
+      <td style="text-align: left"><code class="highlighter-rouge">4970 Hillside Avenue</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">AddressLine2 (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">AddressLine2</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Second line of Address</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Apt 115</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">City (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">City</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">City</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Edmonton</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">StateCode (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">StateCode</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Code for the State in which this address resides. Based off the ISO 3166-2 standard. For a list of acceptable codes, see <a href="/api/reference/#getting-all-countries">Getting All Countries</a></td>
+      <td style="text-align: left"><code class="highlighter-rouge">ON</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">StateName (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">StateName</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">State/Province. Uses the ISO 3166-2 standard</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Ontario</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">CountryCode (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">CountryCode</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Country Code. Uses the ISO 3166-1 alpha-2 standard. For a list of acceptable codes, see <a href="/api/reference/#getting-all-countries">Getting All Countries</a></td>
+      <td style="text-align: left"><code class="highlighter-rouge">CA</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">CountryName (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">CountryName</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Country</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Canada</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Zip (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">Zip</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Zip or Postal Code</td>
+      <td style="text-align: left"><code class="highlighter-rouge">P9H 9I4</code></td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="area">Area</h2>
+<h3 id="area">Area</h3>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Value (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Value</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left">Value of the Area</td>
+      <td style="text-align: left"><code class="highlighter-rouge">1100</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Unit (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">Unit</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Unit used for the Value, acceptable values are SqFt and SqM</td>
+      <td style="text-align: left"><code class="highlighter-rouge">SqFt</code></td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="timezone">TimeZone</h2>
+<h3 id="timezone">TimeZone</h3>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Id (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">Id</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Identifier. For a list of acceptable values, see <a href="/api/reference/#getting-all-time-zones">Getting All Time Zones</a></td>
+      <td style="text-align: left"><code class="highlighter-rouge">Alaskan Standard Time</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">DaylightSavingTimeEnabled (<code class="highlighter-rouge">Boolean</code>)</td>
+      <td style="text-align: left">DaylightSavingTimeEnabled</td>
+      <td style="text-align: left">Boolean</td>
       <td style="text-align: left">A flag to indicate if the Time Zone observes Daylight Savings Time</td>
+      <td style="text-align: left"><code class="highlighter-rouge">true</code></td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="storehours">StoreHours</h2>
+<h3 id="storehours">StoreHours</h3>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Monday (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Monday</td>
+      <td style="text-align: left"><a href="/api/company-tree/#weekday">WeekDay</a></td>
       <td style="text-align: left">Hours on Monday</td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Tuesday (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Tuesday</td>
+      <td style="text-align: left"><a href="/api/company-tree/#weekday">WeekDay</a></td>
       <td style="text-align: left">Hours on Tuesday</td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Wednesday (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Wednesday</td>
+      <td style="text-align: left"><a href="/api/company-tree/#weekday">WeekDay</a></td>
       <td style="text-align: left">Hours on Wednesday</td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Thursday (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Thursday</td>
+      <td style="text-align: left"><a href="/api/company-tree/#weekday">WeekDay</a></td>
       <td style="text-align: left">Hours on Thursday</td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Friday (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Friday</td>
+      <td style="text-align: left"><a href="/api/company-tree/#weekday">WeekDay</a></td>
       <td style="text-align: left">Hours on Monday</td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Saturday (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Saturday</td>
+      <td style="text-align: left"><a href="/api/company-tree/#weekday">WeekDay</a></td>
       <td style="text-align: left">Hours on Saturday</td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Sunday (<code class="highlighter-rouge">&lt;a href='/api/company-tree/#weekday'&gt;WeekDay&lt;/a&gt;</code>)</td>
+      <td style="text-align: left">Sunday</td>
+      <td style="text-align: left"><a href="/api/company-tree/#weekday">WeekDay</a></td>
       <td style="text-align: left">Hours on Sunday</td>
+      <td style="text-align: left"> </td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="weekday">WeekDay</h2>
+<h3 id="weekday">WeekDay</h3>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Open (<code class="highlighter-rouge">object</code>)</td>
+      <td style="text-align: left">Open</td>
+      <td style="text-align: left">object</td>
       <td style="text-align: left">Open time</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Open.Hour (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Open.Minute (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Open.Hour</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left"> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">10</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Close (<code class="highlighter-rouge">object</code>)</td>
+      <td style="text-align: left">Open.Minute</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Close</td>
+      <td style="text-align: left">object</td>
       <td style="text-align: left">Close time</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Close.Hour (<code class="highlighter-rouge">Integer</code>)</td>
       <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">Close.Minute (<code class="highlighter-rouge">Integer</code>)</td>
+      <td style="text-align: left">Close.Hour</td>
+      <td style="text-align: left">Integer</td>
       <td style="text-align: left"> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">10</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Close.Minute</td>
+      <td style="text-align: left">Integer</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"><code class="highlighter-rouge">0</code></td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="contact">Contact</h2>
+<h3 id="contact">Contact</h3>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">Name</th>
+      <th style="text-align: left">Data Type</th>
       <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Name (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Name</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Name</td>
+      <td style="text-align: left"><code class="highlighter-rouge">John Smith</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">Description (<code class="highlighter-rouge">String</code>)</td>
       <td style="text-align: left">Description</td>
+      <td style="text-align: left">String</td>
+      <td style="text-align: left">Description</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Store Manager</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">PhoneNumbers (<code class="highlighter-rouge">array</code>)</td>
+      <td style="text-align: left">PhoneNumbers</td>
+      <td style="text-align: left">array</td>
       <td style="text-align: left">Phone numbers</td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
-      <td style="text-align: left">PhoneNumbers.Description (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">PhoneNumbers.Description</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Description</td>
+      <td style="text-align: left"><code class="highlighter-rouge">Main Line</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">PhoneNumbers.Number (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">PhoneNumbers.Number</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Phone number</td>
+      <td style="text-align: left"><code class="highlighter-rouge">5555555555</code></td>
     </tr>
     <tr>
-      <td style="text-align: left">PhoneNumbers.Extension (<code class="highlighter-rouge">String</code>)</td>
+      <td style="text-align: left">PhoneNumbers.Extension</td>
+      <td style="text-align: left">String</td>
       <td style="text-align: left">Extension</td>
+      <td style="text-align: left"><code class="highlighter-rouge">1234</code></td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="requests">Requests</h1>
+<h2 id="requests">Requests</h2>
 
-<h2 id="getting-a-company">Getting a Company</h2>
+<h3 id="getting-a-company" class="clickable-header top-level-header">Getting a Company</h3>
 
-<blockquote>
-  <p>Definition</p>
-</blockquote>
+<h4>Request</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})
-</code></pre>
-</div>
+<pre>
+GET /Companies({CompanyId})
+</pre>
 
-<blockquote>
-  <p>Example Request</p>
-</blockquote>
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code> - See <a href="/api/authentication/#obtaining-an-access-token">Obtaining an Access Token</a></li><li><code>Accept: application/json</code></li></ul>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
-</code></pre>
-</div>
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
+    </li>
+    </ul>
 
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-a-company" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-a-company" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-a-company" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-a-company" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-a-company" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-a-company" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-a-company"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-a-company">
+<pre id="http-code-getting-a-company"><code class="language-http">GET /Companies(14146)
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-a-company">
+<pre id="curl-code-getting-a-company"><code class="language-http">curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-a-company">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-a-company"><code class="language-csharp">static IRestResponse GettingACompany()
+{
+    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)");
+    var request = new RestRequest(Method.GET);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-a-company">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-a-company"><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1072,9 +1312,10 @@ public static CloseableHttpResponse GettingACompany() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-a-company">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-a-company"><code class="language-ruby">require 'rest-client'
 
 
 
@@ -1084,27 +1325,19 @@ response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Companies(1
     } 
 
 puts response</code></pre>
+    </div>
+</div>
 
-<h4 id="uri-parameters">URI Parameters</h4>
-<ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
-    </li>
-    </ul>
-
-<h4>Response Parameters</h4>
+<h4>Response</h4>
 
 <p><a href="#company">Company</a></p>
 
-<blockquote>
-  <p>Example Response</p>
-</blockquote>
+<h5>Example</h5>
 
-<pre class="highlight json">
+<pre>
 HTTP 200 Content-Type: application/json
 </pre>
-<pre class="highlight json">{
+<pre>{
     "Id": 14146,
     "Name": "Kentel Corp",
     "Description": "Wireless accessories provider with store locations all across the globe.",
@@ -1139,26 +1372,63 @@ HTTP 200 Content-Type: application/json
     "Version": 1
 }</pre>
 
-<h2 id="getting-a-company-tree">Getting a Company Tree</h2>
+<h3 id="getting-a-company-tree" class="clickable-header top-level-header">Getting a Company Tree</h3>
 
-<blockquote>
-  <p>Definition</p>
-</blockquote>
+<h4>Request</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})/Tree
-</code></pre>
-</div>
+<pre>
+GET /Companies({CompanyId})/Tree
+</pre>
 
-<blockquote>
-  <p>Example Request</p>
-</blockquote>
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code> - See <a href="/api/authentication/#obtaining-an-access-token">Obtaining an Access Token</a></li><li><code>Accept: application/json</code></li></ul>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
-</code></pre>
-</div>
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
+    </li>
+    </ul>
 
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-a-company-tree" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-a-company-tree" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-a-company-tree" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-a-company-tree" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-a-company-tree" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-a-company-tree" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-a-company-tree"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-a-company-tree">
+<pre id="http-code-getting-a-company-tree"><code class="language-http">GET /Companies(14146)/Tree
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-a-company-tree">
+<pre id="curl-code-getting-a-company-tree"><code class="language-http">curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-a-company-tree">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-a-company-tree"><code class="language-csharp">static IRestResponse GettingACompanyTree()
+{
+    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree");
+    var request = new RestRequest(Method.GET);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-a-company-tree">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-a-company-tree"><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1174,9 +1444,10 @@ public static CloseableHttpResponse GettingACompanyTree() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-a-company-tree">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-a-company-tree"><code class="language-ruby">require 'rest-client'
 
 
 
@@ -1186,27 +1457,19 @@ response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Companies(1
     } 
 
 puts response</code></pre>
+    </div>
+</div>
 
-<h4 id="uri-parameters-1">URI Parameters</h4>
-<ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
-    </li>
-    </ul>
-
-<h4>Response Parameters</h4>
+<h4>Response</h4>
 
 <p><a href="#companytree">CompanyTree</a></p>
 
-<blockquote>
-  <p>Example Response</p>
-</blockquote>
+<h5>Example</h5>
 
-<pre class="highlight json">
+<pre>
 HTTP 200 Content-Type: application/json
 </pre>
-<pre class="highlight json">{
+<pre>{
     "Id": 14146,
     "Name": "Kentel Corp",
     "Description": "Wireless accessories provider with store locations all across the globe.",
@@ -1222,21 +1485,50 @@ HTTP 200 Content-Type: application/json
     ]
 }</pre>
 
-<h2 id="creating-a-location">Creating a Location</h2>
+<h3 id="creating-a-location" class="clickable-header top-level-header">Creating a Location</h3>
 
-<blockquote>
-  <p>Definition</p>
-</blockquote>
+<h4>Request</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>POST /Companies({CompanyId})/Tree/Nodes({NodeId})/Locations
-</code></pre>
-</div>
+<pre>
+POST /Companies({CompanyId})/Tree/Nodes({NodeId})/Locations
+</pre>
 
-<blockquote>
-  <p>Example Request</p>
-</blockquote>
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code> - See <a href="/api/authentication/#obtaining-an-access-token">Obtaining an Access Token</a></li><li><code>Accept: application/json</code></li><li><code>Content-Type: application/json</code></li></ul>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X POST <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
+    </li>
+    
+    <li>
+        <code>NodeId</code> (<strong>Required</strong>)  - Identifier of the parent for the <a href="http://developers.iqmetrix.com/api/company-tree/#location">Location</a>
+    </li>
+    </ul>
+
+<h4>Request Parameters</h4>
+
+<ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Roles</code> (<strong>Required</strong>) - Must be `Location`</li><ul><li><code>Name</code> (<strong>Required</strong>) </li></ul><li><code>Description</code> (Optional) </li><li><code>Area</code> (Optional) </li><ul><li><code>Value</code> (<strong>Required</strong>) - Only required if Area is not null. If provided, Unit must also be provided</li><li><code>Unit</code> (<strong>Required</strong>) - Only required if Area is not null. If provided, Value must also be provided</li></ul><li><code>Address</code> (Optional) </li><ul><li><code>AddressLine1</code> (Optional) </li><li><code>AddressLine2</code> (Optional) </li><li><code>City</code> (Optional) </li><li><code>StateCode</code> (Optional) </li><li><code>StateName</code> (Optional) </li><li><code>CountryCode</code> (Optional) - Required if�StateCode�is provided</li><li><code>CountryName</code> (Optional) </li><li><code>Zip</code> (Optional) </li></ul><li><code>Attributes</code> (Optional) </li><li><code>ClientEntityId</code> (Optional) </li><li><code>Contacts</code> (Optional) </li><ul><li><code>Name</code> (Optional) </li><li><code>Description</code> (Optional) </li><li><code>PhoneNumbers</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Number</code> (Optional) </li><li><code>Extension</code> (Optional) </li></ul></ul><li><code>Geography</code> (Optional) </li><ul><li><code>Longitude</code> (<strong>Required</strong>) - Only required if Geography is not null. If provided, Longitude must also be provided</li><li><code>Latitude</code> (<strong>Required</strong>) - Only required if Geography is not null. If provided, Latitude must also be provided</li></ul><li><code>StoreHours</code> (Optional) </li><ul><li><code>Monday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Tuesday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Wednesday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Thursday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Friday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Saturday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Sunday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul></ul><li><code>StorePhoneNumbers</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Number</code> (Optional) </li><li><code>Extension</code> (Optional) </li></ul><li><code>TimeZone</code> (Optional) </li><ul><li><code>Id</code> (Optional) </li><li><code>DaylightSavingTimeEnabled</code> (Optional) </li></ul></ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-creating-a-location" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-creating-a-location" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-creating-a-location" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-creating-a-location" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-creating-a-location" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-creating-a-location" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-creating-a-location"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-creating-a-location">
+<pre id="http-code-creating-a-location"><code class="language-http">POST /Companies(14146)/Tree/Nodes(14159)/Locations
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code><code class="language-csharp">{
     "Name": "Dufferin Mall",
     "Description": "This Location is used to clear out discounted inventory",
     "Roles": [
@@ -1360,12 +1652,154 @@ HTTP 200 Content-Type: application/json
         "Id": "Alaskan Standard Time",
         "DaylightSavingTimeEnabled": true
     }
-}'</span>
-</code></pre>
-</div>
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-creating-a-location">
+<pre id="curl-code-creating-a-location"><code class="language-http">curl -X POST "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+    "Name": "Dufferin Mall",
+    "Description": "This Location is used to clear out discounted inventory",
+    "Roles": [
+        {
+            "Name": "Location"
+        }
+    ],
+    "Area": {
+        "Value": 1100,
+        "Unit": "SqFt"
+    },
+    "Address": {
+        "AddressLine1": "4970 Hillside Avenue",
+        "AddressLine2": "Apt 115",
+        "City": "Edmonton",
+        "StateCode": "ON",
+        "StateName": "Ontario",
+        "CountryCode": "CA",
+        "CountryName": "Canada",
+        "Zip": "P9H 9I4"
+    },
+    "Attributes": {},
+    "ClientEntityId": "123",
+    "Contacts": [
+        {
+            "Name": "John Smith",
+            "Description": "Store Manager",
+            "PhoneNumbers": [
+                {
+                    "Description": "Main Line",
+                    "Number": "5555555555",
+                    "Extension": "1234"
+                }
+            ]
+        }
+    ],
+    "Geography": {
+        "Longitude": -104.612034,
+        "Latitude": 50.443559
+    },
+    "StoreHours": {
+        "Monday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        },
+        "Tuesday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        },
+        "Wednesday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        },
+        "Thursday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        },
+        "Friday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        },
+        "Saturday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        },
+        "Sunday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        }
+    },
+    "StorePhoneNumbers": [
+        {
+            "Description": "Main Line",
+            "Number": "5555555555",
+            "Extension": "1234"
+        }
+    ],
+    "TimeZone": {
+        "Id": "Alaskan Standard Time",
+        "DaylightSavingTimeEnabled": true
+    }
+}'</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-creating-a-location">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-creating-a-location"><code class="language-csharp">static IRestResponse CreatingALocation()
+{
+    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations");
+    var request = new RestRequest(Method.POST);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+    request.AddHeader("Content-Type", "application/json"); 
 
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
+     request.AddParameter("application/json", "{\"Name\":\"Dufferin Mall\",\"Description\":\"This Location is used to clear out discounted inventory\",\"Roles\":[{\"Name\":\"Location\"}],\"Area\":{\"Value\":1100,\"Unit\":\"SqFt\"},\"Address\":{\"AddressLine1\":\"4970 Hillside Avenue\",\"AddressLine2\":\"Apt 115\",\"City\":\"Edmonton\",\"StateCode\":\"ON\",\"StateName\":\"Ontario\",\"CountryCode\":\"CA\",\"CountryName\":\"Canada\",\"Zip\":\"P9H 9I4\"},\"Attributes\":{},\"ClientEntityId\":\"123\",\"Contacts\":[{\"Name\":\"John Smith\",\"Description\":\"Store Manager\",\"PhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}]}],\"Geography\":{\"Longitude\":-104.612034,\"Latitude\":50.443559},\"StoreHours\":{\"Monday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Tuesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Wednesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Thursday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Friday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Saturday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Sunday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}}},\"StorePhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}],\"TimeZone\":{\"Id\":\"Alaskan Standard Time\",\"DaylightSavingTimeEnabled\":true}}", ParameterType.RequestBody);
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-creating-a-location">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-creating-a-location"><code class="language-java">import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1384,9 +1818,10 @@ public static CloseableHttpResponse CreatingALocation() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-creating-a-location">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-creating-a-location"><code class="language-ruby">require 'rest-client'
 
 body = "{\"Name\":\"Dufferin Mall\",\"Description\":\"This Location is used to clear out discounted inventory\",\"Roles\":[{\"Name\":\"Location\"}],\"Area\":{\"Value\":1100,\"Unit\":\"SqFt\"},\"Address\":{\"AddressLine1\":\"4970 Hillside Avenue\",\"AddressLine2\":\"Apt 115\",\"City\":\"Edmonton\",\"StateCode\":\"ON\",\"StateName\":\"Ontario\",\"CountryCode\":\"CA\",\"CountryName\":\"Canada\",\"Zip\":\"P9H 9I4\"},\"Attributes\":{},\"ClientEntityId\":\"123\",\"Contacts\":[{\"Name\":\"John Smith\",\"Description\":\"Store Manager\",\"PhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}]}],\"Geography\":{\"Longitude\":-104.612034,\"Latitude\":50.443559},\"StoreHours\":{\"Monday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Tuesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Wednesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Thursday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Friday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Saturday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Sunday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}}},\"StorePhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}],\"TimeZone\":{\"Id\":\"Alaskan Standard Time\",\"DaylightSavingTimeEnabled\":true}}";
 
@@ -1397,35 +1832,19 @@ response = RestClient.post 'https://entitymanagerdemo.iqmetrix.net/v1/Companies(
     } 
 
 puts response</code></pre>
+    </div>
+</div>
 
-<h4 id="uri-parameters-2">URI Parameters</h4>
-<ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
-    </li>
-    
-    <li>
-        <code>NodeId</code> (<strong>Required</strong>)  - Identifier of the parent for the <a href="http://developers.iqmetrix.com/api/company-tree/#location">Location</a>
-    </li>
-    </ul>
-
-<h4 id="request-parameters">Request Parameters</h4>
-
-<ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Roles</code> (<strong>Required</strong>) - Must be `Location`</li><ul><li><code>Name</code> (<strong>Required</strong>) </li></ul><li><code>Description</code> (Optional) </li><li><code>Area</code> (Optional) </li><ul><li><code>Value</code> (<strong>Required</strong>) - Only required if Area is not null. If provided, Unit must also be provided</li><li><code>Unit</code> (<strong>Required</strong>) - Only required if Area is not null. If provided, Value must also be provided</li></ul><li><code>Address</code> (Optional) </li><ul><li><code>AddressLine1</code> (Optional) </li><li><code>AddressLine2</code> (Optional) </li><li><code>City</code> (Optional) </li><li><code>StateCode</code> (Optional) </li><li><code>StateName</code> (Optional) </li><li><code>CountryCode</code> (Optional) - Required if�StateCode�is provided</li><li><code>CountryName</code> (Optional) </li><li><code>Zip</code> (Optional) </li></ul><li><code>Attributes</code> (Optional) </li><li><code>ClientEntityId</code> (Optional) </li><li><code>Contacts</code> (Optional) </li><ul><li><code>Name</code> (Optional) </li><li><code>Description</code> (Optional) </li><li><code>PhoneNumbers</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Number</code> (Optional) </li><li><code>Extension</code> (Optional) </li></ul></ul><li><code>Geography</code> (Optional) </li><ul><li><code>Longitude</code> (<strong>Required</strong>) - Only required if Geography is not null. If provided, Longitude must also be provided</li><li><code>Latitude</code> (<strong>Required</strong>) - Only required if Geography is not null. If provided, Latitude must also be provided</li></ul><li><code>StoreHours</code> (Optional) </li><ul><li><code>Monday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Tuesday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Wednesday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Thursday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Friday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Saturday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Sunday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul></ul><li><code>StorePhoneNumbers</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Number</code> (Optional) </li><li><code>Extension</code> (Optional) </li></ul><li><code>TimeZone</code> (Optional) </li><ul><li><code>Id</code> (Optional) </li><li><code>DaylightSavingTimeEnabled</code> (Optional) </li></ul></ul>
-
-<h4>Response Parameters</h4>
+<h4>Response</h4>
 
 <p><a href="#location">Location</a></p>
 
-<blockquote>
-  <p>Example Response</p>
-</blockquote>
+<h5>Example</h5>
 
-<pre class="highlight json">
+<pre>
 HTTP 201 Content-Type: application/json
 </pre>
-<pre class="highlight json">{
+<pre>{
     "Id": 14202,
     "Name": "Dufferin Mall",
     "Description": "This Location is used to clear out discounted inventory",
@@ -1557,7 +1976,7 @@ HTTP 201 Content-Type: application/json
     "Version": 13
 }</pre>
 
-<h2 id="updating-a-location">Updating a Location</h2>
+<h3 id="updating-a-location" class="clickable-header top-level-header">Updating a Location</h3>
 
 <p>There are <strong>two</strong> different ways to update a location.</p>
 
@@ -1568,19 +1987,52 @@ HTTP 201 Content-Type: application/json
 
 <p>Option 1 requires knowing the <code>NodeId</code> of the parent of the <a href="http://developers.iqmetrix.com/api/company-tree/#location">Location</a>, but has <strong>stronger</strong> validation.</p>
 
-<blockquote>
-  <p>Definition</p>
-</blockquote>
+<h4>Request</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>PUT /Companies({CompanyId})/Tree/Nodes({NodeId})/Locations({LocationId})
-</code></pre>
-</div>
+<pre>
+PUT /Companies({CompanyId})/Tree/Nodes({NodeId})/Locations({LocationId})
+</pre>
 
-<blockquote>
-  <p>Example Request</p>
-</blockquote>
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code> - See <a href="/api/authentication/#obtaining-an-access-token">Obtaining an Access Token</a></li><li><code>Accept: application/json</code></li><li><code>Content-Type: application/json</code></li></ul>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X PUT <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations(14202)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
+    </li>
+    
+    <li>
+        <code>NodeId</code> (<strong>Required</strong>)  - Identifier of the parent for the <a href="http://developers.iqmetrix.com/api/company-tree/#location">Location</a>
+    </li>
+    
+    <li>
+        <code>LocationId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#location">Location</a>
+    </li>
+    </ul>
+
+<h4>Request Parameters</h4>
+
+<ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Roles</code> (<strong>Required</strong>) - Must be `Location`</li><ul><li><code>Name</code> (<strong>Required</strong>) </li></ul><li><code>Id</code> (<strong>Required</strong>) - Required for PUT requests</li><li><code>Description</code> (Optional) </li><li><code>Area</code> (Optional) </li><ul><li><code>Value</code> (<strong>Required</strong>) - Only required if Area is not null. If provided, Unit must also be provided</li><li><code>Unit</code> (<strong>Required</strong>) - Only required if Area is not null. If provided, Value must also be provided</li></ul><li><code>Address</code> (Optional) </li><ul><li><code>AddressLine1</code> (Optional) </li><li><code>AddressLine2</code> (Optional) </li><li><code>City</code> (Optional) </li><li><code>StateCode</code> (Optional) </li><li><code>StateName</code> (Optional) </li><li><code>CountryCode</code> (Optional) - Required if�StateCode�is provided</li><li><code>CountryName</code> (Optional) </li><li><code>Zip</code> (Optional) </li></ul><li><code>Attributes</code> (Optional) </li><li><code>ClientEntityId</code> (Optional) </li><li><code>Contacts</code> (Optional) </li><ul><li><code>Name</code> (Optional) </li><li><code>Description</code> (Optional) </li><li><code>PhoneNumbers</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Number</code> (Optional) </li><li><code>Extension</code> (Optional) </li></ul></ul><li><code>Geography</code> (Optional) </li><ul><li><code>Longitude</code> (<strong>Required</strong>) - Only required if Geography is not null. If provided, Longitude must also be provided</li><li><code>Latitude</code> (<strong>Required</strong>) - Only required if Geography is not null. If provided, Latitude must also be provided</li></ul><li><code>StoreHours</code> (Optional) </li><ul><li><code>Monday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Tuesday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Wednesday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Thursday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Friday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Saturday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Sunday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul></ul><li><code>StorePhoneNumbers</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Number</code> (Optional) </li><li><code>Extension</code> (Optional) </li></ul><li><code>TimeZone</code> (Optional) </li><ul><li><code>Id</code> (Optional) </li><li><code>DaylightSavingTimeEnabled</code> (Optional) </li></ul><li><code>Version</code> (<strong>Required</strong>) </li></ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-updating-a-location" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-updating-a-location" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-updating-a-location" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-updating-a-location" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-updating-a-location" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-updating-a-location" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-updating-a-location"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-updating-a-location">
+<pre id="http-code-updating-a-location"><code class="language-http">PUT /Companies(14146)/Tree/Nodes(14159)/Locations(14202)
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code><code class="language-csharp">{
     "Id": 14202,
     "Name": "Dufferin Mall",
     "Description": "This Location is used to clear out discounted inventory",
@@ -1710,12 +2162,160 @@ HTTP 201 Content-Type: application/json
         "DaylightSavingTimeEnabled": true
     },
     "Version": 13
-}'</span>
-</code></pre>
-</div>
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-updating-a-location">
+<pre id="curl-code-updating-a-location"><code class="language-http">curl -X PUT "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations(14202)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+    "Id": 14202,
+    "Name": "Dufferin Mall",
+    "Description": "This Location is used to clear out discounted inventory",
+    "Roles": [
+        {
+            "Name": "Location"
+        }
+    ],
+    "CreatedUTC": "2015-02-26T00:03:01.372Z",
+    "LastModifiedUTC": "2015-02-27T00:03:06.392Z",
+    "Area": {
+        "Value": 1100,
+        "Unit": "SqFt"
+    },
+    "Address": {
+        "AddressLine1": "4970 Hillside Avenue",
+        "AddressLine2": "Apt 115",
+        "City": "Edmonton",
+        "StateCode": "ON",
+        "StateName": "Ontario",
+        "CountryCode": "CA",
+        "CountryName": "Canada",
+        "Zip": "P9H 9I4"
+    },
+    "Attributes": {},
+    "ClientEntityId": "123",
+    "Contacts": [
+        {
+            "Name": "John Smith",
+            "Description": "Store Manager",
+            "PhoneNumbers": [
+                {
+                    "Description": "Main Line",
+                    "Number": "5555555555",
+                    "Extension": "1234"
+                }
+            ]
+        }
+    ],
+    "Geography": {
+        "Longitude": -104.612034,
+        "Latitude": 50.443559
+    },
+    "Relationships": [],
+    "SortName": "dufferin mall",
+    "StoreHours": {
+        "Monday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        },
+        "Tuesday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        },
+        "Wednesday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        },
+        "Thursday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        },
+        "Friday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        },
+        "Saturday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        },
+        "Sunday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
+            },
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
+            }
+        }
+    },
+    "StorePhoneNumbers": [
+        {
+            "Description": "Main Line",
+            "Number": "5555555555",
+            "Extension": "1234"
+        }
+    ],
+    "TimeZone": {
+        "Id": "Alaskan Standard Time",
+        "DaylightSavingTimeEnabled": true
+    },
+    "Version": 13
+}'</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-updating-a-location">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-updating-a-location"><code class="language-csharp">static IRestResponse UpdatingALocation()
+{
+    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations(14202)");
+    var request = new RestRequest(Method.PUT);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+    request.AddHeader("Content-Type", "application/json"); 
 
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
+     request.AddParameter("application/json", "{\"Id\":14202,\"Name\":\"Dufferin Mall\",\"Description\":\"This Location is used to clear out discounted inventory\",\"Roles\":[{\"Name\":\"Location\"}],\"CreatedUTC\":\"2015-02-26T00:03:01.372Z\",\"LastModifiedUTC\":\"2015-02-27T00:03:06.392Z\",\"Area\":{\"Value\":1100,\"Unit\":\"SqFt\"},\"Address\":{\"AddressLine1\":\"4970 Hillside Avenue\",\"AddressLine2\":\"Apt 115\",\"City\":\"Edmonton\",\"StateCode\":\"ON\",\"StateName\":\"Ontario\",\"CountryCode\":\"CA\",\"CountryName\":\"Canada\",\"Zip\":\"P9H 9I4\"},\"Attributes\":{},\"ClientEntityId\":\"123\",\"Contacts\":[{\"Name\":\"John Smith\",\"Description\":\"Store Manager\",\"PhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}]}],\"Geography\":{\"Longitude\":-104.612034,\"Latitude\":50.443559},\"Relationships\":[],\"SortName\":\"dufferin mall\",\"StoreHours\":{\"Monday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Tuesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Wednesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Thursday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Friday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Saturday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Sunday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}}},\"StorePhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}],\"TimeZone\":{\"Id\":\"Alaskan Standard Time\",\"DaylightSavingTimeEnabled\":true},\"Version\":13}", ParameterType.RequestBody);
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-updating-a-location">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-updating-a-location"><code class="language-java">import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1734,9 +2334,10 @@ public static CloseableHttpResponse UpdatingALocation() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-updating-a-location">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-updating-a-location"><code class="language-ruby">require 'rest-client'
 
 body = "{\"Id\":14202,\"Name\":\"Dufferin Mall\",\"Description\":\"This Location is used to clear out discounted inventory\",\"Roles\":[{\"Name\":\"Location\"}],\"CreatedUTC\":\"2015-02-26T00:03:01.372Z\",\"LastModifiedUTC\":\"2015-02-27T00:03:06.392Z\",\"Area\":{\"Value\":1100,\"Unit\":\"SqFt\"},\"Address\":{\"AddressLine1\":\"4970 Hillside Avenue\",\"AddressLine2\":\"Apt 115\",\"City\":\"Edmonton\",\"StateCode\":\"ON\",\"StateName\":\"Ontario\",\"CountryCode\":\"CA\",\"CountryName\":\"Canada\",\"Zip\":\"P9H 9I4\"},\"Attributes\":{},\"ClientEntityId\":\"123\",\"Contacts\":[{\"Name\":\"John Smith\",\"Description\":\"Store Manager\",\"PhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}]}],\"Geography\":{\"Longitude\":-104.612034,\"Latitude\":50.443559},\"Relationships\":[],\"SortName\":\"dufferin mall\",\"StoreHours\":{\"Monday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Tuesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Wednesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Thursday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Friday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Saturday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Sunday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}}},\"StorePhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}],\"TimeZone\":{\"Id\":\"Alaskan Standard Time\",\"DaylightSavingTimeEnabled\":true},\"Version\":13}";
 
@@ -1747,39 +2348,19 @@ response = RestClient.put 'https://entitymanagerdemo.iqmetrix.net/v1/Companies(1
     } 
 
 puts response</code></pre>
+    </div>
+</div>
 
-<h4 id="uri-parameters-3">URI Parameters</h4>
-<ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
-    </li>
-    
-    <li>
-        <code>NodeId</code> (<strong>Required</strong>)  - Identifier of the parent for the <a href="http://developers.iqmetrix.com/api/company-tree/#location">Location</a>
-    </li>
-    
-    <li>
-        <code>LocationId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#location">Location</a>
-    </li>
-    </ul>
-
-<h4 id="request-parameters-1">Request Parameters</h4>
-
-<ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Roles</code> (<strong>Required</strong>) - Must be `Location`</li><ul><li><code>Name</code> (<strong>Required</strong>) </li></ul><li><code>Id</code> (<strong>Required</strong>) - Required for PUT requests</li><li><code>Description</code> (Optional) </li><li><code>Area</code> (Optional) </li><ul><li><code>Value</code> (<strong>Required</strong>) - Only required if Area is not null. If provided, Unit must also be provided</li><li><code>Unit</code> (<strong>Required</strong>) - Only required if Area is not null. If provided, Value must also be provided</li></ul><li><code>Address</code> (Optional) </li><ul><li><code>AddressLine1</code> (Optional) </li><li><code>AddressLine2</code> (Optional) </li><li><code>City</code> (Optional) </li><li><code>StateCode</code> (Optional) </li><li><code>StateName</code> (Optional) </li><li><code>CountryCode</code> (Optional) - Required if�StateCode�is provided</li><li><code>CountryName</code> (Optional) </li><li><code>Zip</code> (Optional) </li></ul><li><code>Attributes</code> (Optional) </li><li><code>ClientEntityId</code> (Optional) </li><li><code>Contacts</code> (Optional) </li><ul><li><code>Name</code> (Optional) </li><li><code>Description</code> (Optional) </li><li><code>PhoneNumbers</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Number</code> (Optional) </li><li><code>Extension</code> (Optional) </li></ul></ul><li><code>Geography</code> (Optional) </li><ul><li><code>Longitude</code> (<strong>Required</strong>) - Only required if Geography is not null. If provided, Longitude must also be provided</li><li><code>Latitude</code> (<strong>Required</strong>) - Only required if Geography is not null. If provided, Latitude must also be provided</li></ul><li><code>StoreHours</code> (Optional) </li><ul><li><code>Monday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Tuesday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Wednesday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Thursday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Friday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Saturday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Sunday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul></ul><li><code>StorePhoneNumbers</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Number</code> (Optional) </li><li><code>Extension</code> (Optional) </li></ul><li><code>TimeZone</code> (Optional) </li><ul><li><code>Id</code> (Optional) </li><li><code>DaylightSavingTimeEnabled</code> (Optional) </li></ul><li><code>Version</code> (<strong>Required</strong>) </li></ul>
-
-<h4>Response Parameters</h4>
+<h4>Response</h4>
 
 <p><a href="#location">Location</a></p>
 
-<blockquote>
-  <p>Example Response</p>
-</blockquote>
+<h5>Example</h5>
 
-<pre class="highlight json">
+<pre>
 HTTP 200 Content-Type: application/json
 </pre>
-<pre class="highlight json">{
+<pre>{
     "Id": 14202,
     "Name": "Dufferin Mall",
     "Description": "This Location is used to clear out discounted inventory",
@@ -1911,26 +2492,67 @@ HTTP 200 Content-Type: application/json
     "Version": 13
 }</pre>
 
-<h2 id="getting-a-location-for-a-company">Getting a Location for a Company</h2>
+<h3 id="getting-a-location-for-a-company" class="clickable-header top-level-header">Getting a Location for a Company</h3>
 
-<blockquote>
-  <p>Definition</p>
-</blockquote>
+<h4>Request</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})/Locations({LocationId})
-</code></pre>
-</div>
+<pre>
+GET /Companies({CompanyId})/Locations({LocationId})
+</pre>
 
-<blockquote>
-  <p>Example Request</p>
-</blockquote>
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code> - See <a href="/api/authentication/#obtaining-an-access-token">Obtaining an Access Token</a></li><li><code>Accept: application/json</code></li></ul>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations(14202)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
-</code></pre>
-</div>
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
+    </li>
+    
+    <li>
+        <code>LocationId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#location">Location</a>
+    </li>
+    </ul>
 
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-a-location-for-a-company" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-a-location-for-a-company" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-a-location-for-a-company" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-a-location-for-a-company" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-a-location-for-a-company" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-a-location-for-a-company" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-a-location-for-a-company"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-a-location-for-a-company">
+<pre id="http-code-getting-a-location-for-a-company"><code class="language-http">GET /Companies(14146)/Locations(14202)
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-a-location-for-a-company">
+<pre id="curl-code-getting-a-location-for-a-company"><code class="language-http">curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations(14202)" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-a-location-for-a-company">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-a-location-for-a-company"><code class="language-csharp">static IRestResponse GettingALocationForACompany()
+{
+    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations(14202)");
+    var request = new RestRequest(Method.GET);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-a-location-for-a-company">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-a-location-for-a-company"><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -1946,9 +2568,10 @@ public static CloseableHttpResponse GettingALocationForACompany() throws IOExcep
     
     return httpClient.execute(request);
 }</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-a-location-for-a-company">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-a-location-for-a-company"><code class="language-ruby">require 'rest-client'
 
 
 
@@ -1958,31 +2581,19 @@ response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Companies(1
     } 
 
 puts response</code></pre>
+    </div>
+</div>
 
-<h4 id="uri-parameters-4">URI Parameters</h4>
-<ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
-    </li>
-    
-    <li>
-        <code>LocationId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#location">Location</a>
-    </li>
-    </ul>
-
-<h4>Response Parameters</h4>
+<h4>Response</h4>
 
 <p><a href="#location">Location</a></p>
 
-<blockquote>
-  <p>Example Response</p>
-</blockquote>
+<h5>Example</h5>
 
-<pre class="highlight json">
+<pre>
 HTTP 200 Content-Type: application/json
 </pre>
-<pre class="highlight json">{
+<pre>{
     "Id": 14202,
     "Name": "Dufferin Mall",
     "Description": "This Location is used to clear out discounted inventory",
@@ -2114,26 +2725,63 @@ HTTP 200 Content-Type: application/json
     "Version": 13
 }</pre>
 
-<h2 id="getting-all-locations-for-a-company">Getting All Locations for a Company</h2>
+<h3 id="getting-all-locations-for-a-company" class="clickable-header top-level-header">Getting All Locations for a Company</h3>
 
-<blockquote>
-  <p>Definition</p>
-</blockquote>
+<h4>Request</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>GET /Companies({CompanyId})/Locations
-</code></pre>
-</div>
+<pre>
+GET /Companies({CompanyId})/Locations
+</pre>
 
-<blockquote>
-  <p>Example Request</p>
-</blockquote>
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code> - See <a href="/api/authentication/#obtaining-an-access-token">Obtaining an Access Token</a></li><li><code>Accept: application/json</code></li></ul>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
-</code></pre>
-</div>
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
+    </li>
+    </ul>
 
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-all-locations-for-a-company" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-all-locations-for-a-company" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-all-locations-for-a-company" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-all-locations-for-a-company" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-all-locations-for-a-company" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-all-locations-for-a-company" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-all-locations-for-a-company"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-all-locations-for-a-company">
+<pre id="http-code-getting-all-locations-for-a-company"><code class="language-http">GET /Companies(14146)/Locations
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-all-locations-for-a-company">
+<pre id="curl-code-getting-all-locations-for-a-company"><code class="language-http">curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-all-locations-for-a-company">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-all-locations-for-a-company"><code class="language-csharp">static IRestResponse GettingAllLocationsForACompany()
+{
+    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations");
+    var request = new RestRequest(Method.GET);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-all-locations-for-a-company">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-all-locations-for-a-company"><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2149,9 +2797,10 @@ public static CloseableHttpResponse GettingAllLocationsForACompany() throws IOEx
     
     return httpClient.execute(request);
 }</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-all-locations-for-a-company">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-all-locations-for-a-company"><code class="language-ruby">require 'rest-client'
 
 
 
@@ -2161,27 +2810,19 @@ response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Companies(1
     } 
 
 puts response</code></pre>
+    </div>
+</div>
 
-<h4 id="uri-parameters-5">URI Parameters</h4>
-<ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
-    </li>
-    </ul>
-
-<h4>Response Parameters</h4>
+<h4>Response</h4>
 
 <p>Array[<a href="#location">Location</a>]</p>
 
-<blockquote>
-  <p>Example Response</p>
-</blockquote>
+<h5>Example</h5>
 
-<pre class="highlight json">
+<pre>
 HTTP 200 Content-Type: application/json
 </pre>
-<pre class="highlight json">[
+<pre>[
     {
         "Id": 14202,
         "Name": "Dufferin Mall",
@@ -2315,7 +2956,7 @@ HTTP 200 Content-Type: application/json
     }
 ]</pre>
 
-<h2 id="creating-a-division">Creating a Division</h2>
+<h3 id="creating-a-division" class="clickable-header top-level-header">Creating a Division</h3>
 
 <p>Divisions may be added to the root Company node, or to a Division or Group node.</p>
 
@@ -2323,29 +2964,81 @@ HTTP 200 Content-Type: application/json
 
 <p>That is, you can have a Division and Group with the same name under the same parent or two Division with the same name in different parts of the tree, but you cannot have two Divisions with the same name and the same parent.</p>
 
-<blockquote>
-  <p>Definition</p>
-</blockquote>
+<h4>Request</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>POST /Companies({CompanyId})/Tree/Nodes({NodeId})/Divisions
-</code></pre>
-</div>
+<pre>
+POST /Companies({CompanyId})/Tree/Nodes({NodeId})/Divisions
+</pre>
 
-<blockquote>
-  <p>Example Request</p>
-</blockquote>
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code> - See <a href="/api/authentication/#obtaining-an-access-token">Obtaining an Access Token</a></li><li><code>Accept: application/json</code></li><li><code>Content-Type: application/json</code></li></ul>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X POST <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Divisions"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
+    </li>
+    
+    <li>
+        <code>NodeId</code> (<strong>Required</strong>)  - Identifier of a Node
+    </li>
+    </ul>
+
+<h4>Request Parameters</h4>
+
+<ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Description</code> (Optional) </li><li><code>ClientEntityId</code> (Optional) </li><li><code>Attributes</code> (Optional) </li></ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-creating-a-division" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-creating-a-division" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-creating-a-division" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-creating-a-division" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-creating-a-division" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-creating-a-division" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-creating-a-division"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-creating-a-division">
+<pre id="http-code-creating-a-division"><code class="language-http">POST /Companies(14146)/Tree/Nodes(14159)/Divisions
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code><code class="language-csharp">{
     "Name": "T-hut Wireless",
     "Description": "Division of Kiosks",
     "ClientEntityId": "187",
     "Attributes": {}
-}'</span>
-</code></pre>
-</div>
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-creating-a-division">
+<pre id="curl-code-creating-a-division"><code class="language-http">curl -X POST "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Divisions" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+    "Name": "T-hut Wireless",
+    "Description": "Division of Kiosks",
+    "ClientEntityId": "187",
+    "Attributes": {}
+}'</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-creating-a-division">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-creating-a-division"><code class="language-csharp">static IRestResponse CreatingADivision()
+{
+    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Divisions");
+    var request = new RestRequest(Method.POST);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+    request.AddHeader("Content-Type", "application/json"); 
 
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
+     request.AddParameter("application/json", "{\"Name\":\"T-hut Wireless\",\"Description\":\"Division of Kiosks\",\"ClientEntityId\":\"187\",\"Attributes\":{}}", ParameterType.RequestBody);
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-creating-a-division">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-creating-a-division"><code class="language-java">import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2364,9 +3057,10 @@ public static CloseableHttpResponse CreatingADivision() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-creating-a-division">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-creating-a-division"><code class="language-ruby">require 'rest-client'
 
 body = "{\"Name\":\"T-hut Wireless\",\"Description\":\"Division of Kiosks\",\"ClientEntityId\":\"187\",\"Attributes\":{}}";
 
@@ -2377,35 +3071,19 @@ response = RestClient.post 'https://entitymanagerdemo.iqmetrix.net/v1/Companies(
     } 
 
 puts response</code></pre>
+    </div>
+</div>
 
-<h4 id="uri-parameters-6">URI Parameters</h4>
-<ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
-    </li>
-    
-    <li>
-        <code>NodeId</code> (<strong>Required</strong>)  - Identifier of a Node
-    </li>
-    </ul>
-
-<h4 id="request-parameters-2">Request Parameters</h4>
-
-<ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Description</code> (Optional) </li><li><code>ClientEntityId</code> (Optional) </li><li><code>Attributes</code> (Optional) </li></ul>
-
-<h4>Response Parameters</h4>
+<h4>Response</h4>
 
 <p><a href="#division">Division</a></p>
 
-<blockquote>
-  <p>Example Response</p>
-</blockquote>
+<h5>Example</h5>
 
-<pre class="highlight json">
+<pre>
 HTTP 201 Content-Type: application/json
 </pre>
-<pre class="highlight json">{
+<pre>{
     "Id": 14159,
     "Name": "T-hut Wireless",
     "Description": "Division of Kiosks",
@@ -2432,7 +3110,7 @@ HTTP 201 Content-Type: application/json
     "Version": 1
 }</pre>
 
-<h2 id="creating-a-group">Creating a Group</h2>
+<h3 id="creating-a-group" class="clickable-header top-level-header">Creating a Group</h3>
 
 <p>Groups may be added to the root Company node, or to a Division or Group node.</p>
 
@@ -2440,29 +3118,81 @@ HTTP 201 Content-Type: application/json
 
 <p>That is, you can have a Division and Group with the same name under the same parent or two Groups with the same name in different parts of the tree, but you cannot have two Groups with the same name and the same parent.</p>
 
-<blockquote>
-  <p>Definition</p>
-</blockquote>
+<h4>Request</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>POST /Companies({CompanyId})/Tree/Nodes({NodeId})/Groups
-</code></pre>
-</div>
+<pre>
+POST /Companies({CompanyId})/Tree/Nodes({NodeId})/Groups
+</pre>
 
-<blockquote>
-  <p>Example Request</p>
-</blockquote>
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code> - See <a href="/api/authentication/#obtaining-an-access-token">Obtaining an Access Token</a></li><li><code>Accept: application/json</code></li><li><code>Content-Type: application/json</code></li></ul>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X POST <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Groups"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
+    </li>
+    
+    <li>
+        <code>NodeId</code> (<strong>Required</strong>)  - Identifier of a Node
+    </li>
+    </ul>
+
+<h4>Request Parameters</h4>
+
+<ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Description</code> (Optional) </li><li><code>ClientEntityId</code> (Optional) </li><li><code>Attributes</code> (Optional) </li></ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-creating-a-group" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-creating-a-group" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-creating-a-group" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-creating-a-group" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-creating-a-group" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-creating-a-group" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-creating-a-group"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-creating-a-group">
+<pre id="http-code-creating-a-group"><code class="language-http">POST /Companies(14146)/Tree/Nodes(14159)/Groups
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code><code class="language-csharp">{
     "Name": "Toronto",
     "Description": "Group within Ontario",
     "ClientEntityId": "187",
     "Attributes": {}
-}'</span>
-</code></pre>
-</div>
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-creating-a-group">
+<pre id="curl-code-creating-a-group"><code class="language-http">curl -X POST "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Groups" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+    "Name": "Toronto",
+    "Description": "Group within Ontario",
+    "ClientEntityId": "187",
+    "Attributes": {}
+}'</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-creating-a-group">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-creating-a-group"><code class="language-csharp">static IRestResponse CreatingAGroup()
+{
+    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Groups");
+    var request = new RestRequest(Method.POST);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+    request.AddHeader("Content-Type", "application/json"); 
 
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
+     request.AddParameter("application/json", "{\"Name\":\"Toronto\",\"Description\":\"Group within Ontario\",\"ClientEntityId\":\"187\",\"Attributes\":{}}", ParameterType.RequestBody);
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-creating-a-group">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-creating-a-group"><code class="language-java">import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2481,9 +3211,10 @@ public static CloseableHttpResponse CreatingAGroup() throws IOException {
     
     return httpClient.execute(request);
 }</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-creating-a-group">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-creating-a-group"><code class="language-ruby">require 'rest-client'
 
 body = "{\"Name\":\"Toronto\",\"Description\":\"Group within Ontario\",\"ClientEntityId\":\"187\",\"Attributes\":{}}";
 
@@ -2494,35 +3225,19 @@ response = RestClient.post 'https://entitymanagerdemo.iqmetrix.net/v1/Companies(
     } 
 
 puts response</code></pre>
+    </div>
+</div>
 
-<h4 id="uri-parameters-7">URI Parameters</h4>
-<ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
-    </li>
-    
-    <li>
-        <code>NodeId</code> (<strong>Required</strong>)  - Identifier of a Node
-    </li>
-    </ul>
-
-<h4 id="request-parameters-3">Request Parameters</h4>
-
-<ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Description</code> (Optional) </li><li><code>ClientEntityId</code> (Optional) </li><li><code>Attributes</code> (Optional) </li></ul>
-
-<h4>Response Parameters</h4>
+<h4>Response</h4>
 
 <p><a href="#group">Group</a></p>
 
-<blockquote>
-  <p>Example Response</p>
-</blockquote>
+<h5>Example</h5>
 
-<pre class="highlight json">
+<pre>
 HTTP 201 Content-Type: application/json
 </pre>
-<pre class="highlight json">{
+<pre>{
     "Id": 14166,
     "Name": "Toronto",
     "Description": "Group within Ontario",
@@ -2550,7 +3265,7 @@ HTTP 201 Content-Type: application/json
     "Version": 1
 }</pre>
 
-<h2 id="deleting-a-group-or-division">Deleting a Group or Division</h2>
+<h3 id="deleting-a-group-or-division" class="clickable-header top-level-header">Deleting a Group or Division</h3>
 
 <div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning: </b>
 This operation <strong>cannot be undone</strong>.
@@ -2562,24 +3277,63 @@ This operation <strong>cannot be undone</strong>.
 
 <p>If the Node or any of its children include Entities other than Groups or Divisions, the request will be rejected.</p>
 
-<blockquote>
-  <p>Definition</p>
-</blockquote>
+<h4>Request</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>DELETE /Companies({CompanyId})/Tree/Nodes({NodeId})
-</code></pre>
-</div>
+<pre>
+DELETE /Companies({CompanyId})/Tree/Nodes({NodeId})
+</pre>
 
-<blockquote>
-  <p>Example Request</p>
-</blockquote>
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code> - See <a href="/api/authentication/#obtaining-an-access-token">Obtaining an Access Token</a></li></ul>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X DELETE <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span>
-</code></pre>
-</div>
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
+    </li>
+    
+    <li>
+        <code>NodeId</code> (<strong>Required</strong>)  - Identifier of a Node to be deleted
+    </li>
+    </ul>
 
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-deleting-a-group-or-division" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-deleting-a-group-or-division" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-deleting-a-group-or-division" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-deleting-a-group-or-division" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-deleting-a-group-or-division" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-deleting-a-group-or-division" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-deleting-a-group-or-division"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-deleting-a-group-or-division">
+<pre id="http-code-deleting-a-group-or-division"><code class="language-http">DELETE /Companies(14146)/Tree/Nodes(14159)
+Authorization: Bearer (Access Token)
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-deleting-a-group-or-division">
+<pre id="curl-code-deleting-a-group-or-division"><code class="language-http">curl -X DELETE "https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)" -H "Authorization: Bearer (Access Token)"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-deleting-a-group-or-division">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-deleting-a-group-or-division"><code class="language-csharp">static IRestResponse DeletingAGroupOrDivision()
+{
+    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)");
+    var request = new RestRequest(Method.DELETE);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-deleting-a-group-or-division">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-deleting-a-group-or-division"><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2594,9 +3348,10 @@ public static CloseableHttpResponse DeletingAGroupOrDivision() throws IOExceptio
     
     return httpClient.execute(request);
 }</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-deleting-a-group-or-division">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-deleting-a-group-or-division"><code class="language-ruby">require 'rest-client'
 
 
 
@@ -2605,30 +3360,18 @@ response = RestClient.delete 'https://entitymanagerdemo.iqmetrix.net/v1/Companie
     } 
 
 puts response</code></pre>
+    </div>
+</div>
 
-<h4 id="uri-parameters-8">URI Parameters</h4>
-<ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
-    </li>
-    
-    <li>
-        <code>NodeId</code> (<strong>Required</strong>)  - Identifier of a Node to be deleted
-    </li>
-    </ul>
+<h4>Response</h4>
 
-<h4>Response Parameters</h4>
+<h5>Example</h5>
 
-<blockquote>
-  <p>Example Response</p>
-</blockquote>
-
-<pre class="highlight json">
+<pre>
 HTTP 200 Content-Type: application/json
 </pre>
 
-<h2 id="searching-by-cliententityid">Searching by ClientEntityId</h2>
+<h3 id="searching-by-cliententityid" class="clickable-header top-level-header">Searching by ClientEntityId</h3>
 
 <p>This request allows you to search your Company Tree using the <code class="highlighter-rouge">ClientEntityId</code> field.</p>
 
@@ -2636,24 +3379,65 @@ HTTP 200 Content-Type: application/json
 
 <p>The following resource types are considered ‘Entities’: <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>, <a href="http://developers.iqmetrix.com/api/company-tree/#division">Division</a>, <a href="http://developers.iqmetrix.com/api/company-tree/#group">Group</a>, <a href="http://developers.iqmetrix.com/api/company-tree/#location">Location</a>, device</p>
 
-<blockquote>
-  <p>Definition</p>
-</blockquote>
+<h4>Request</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>GET /Entities({CompanyId})/Nodes?$filter='{ClientEntityId}'
-</code></pre>
-</div>
+<pre>
+GET /Entities({CompanyId})/Nodes?$filter='{ClientEntityId}'
+</pre>
 
-<blockquote>
-  <p>Example Request</p>
-</blockquote>
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code> - See <a href="/api/authentication/#obtaining-an-access-token">Obtaining an Access Token</a></li><li><code>Accept: application/json</code></li></ul>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl -X GET <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Entities(14146)/Nodes?</span><span class="nv">$filter</span><span class="s2">='187'"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
-</code></pre>
-</div>
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
+    </li>
+    
+    <li>
+        <code>ClientEntityId</code> (<strong>Required</strong>)  - The value to search for
+    </li>
+    </ul>
 
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-searching-by-cliententityid" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-searching-by-cliententityid" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-searching-by-cliententityid" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-searching-by-cliententityid" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-searching-by-cliententityid" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-searching-by-cliententityid" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-searching-by-cliententityid"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-searching-by-cliententityid">
+<pre id="http-code-searching-by-cliententityid"><code class="language-http">GET /Entities(14146)/Nodes?$filter='187'
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-searching-by-cliententityid">
+<pre id="curl-code-searching-by-cliententityid"><code class="language-http">curl -X GET "https://entitymanagerdemo.iqmetrix.net/v1/Entities(14146)/Nodes?$filter='187'" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-searching-by-cliententityid">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-searching-by-cliententityid"><code class="language-csharp">static IRestResponse SearchingByCliententityid()
+{
+    var client = new RestClient("https://entitymanagerdemo.iqmetrix.net/v1/Entities(14146)/Nodes?$filter='187'");
+    var request = new RestRequest(Method.GET);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-searching-by-cliententityid">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-searching-by-cliententityid"><code class="language-java">
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -2669,9 +3453,10 @@ public static CloseableHttpResponse SearchingByCliententityid() throws IOExcepti
     
     return httpClient.execute(request);
 }</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-searching-by-cliententityid">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-searching-by-cliententityid"><code class="language-ruby">require 'rest-client'
 
 
 
@@ -2681,31 +3466,19 @@ response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Entities(14
     } 
 
 puts response</code></pre>
+    </div>
+</div>
 
-<h4 id="uri-parameters-9">URI Parameters</h4>
-<ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href="http://developers.iqmetrix.com/api/company-tree/#company">Company</a>
-    </li>
-    
-    <li>
-        <code>ClientEntityId</code> (<strong>Required</strong>)  - The value to search for
-    </li>
-    </ul>
-
-<h4>Response Parameters</h4>
+<h4>Response</h4>
 
 <ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li><li><code>Description</code> (String) </li><li><code>Role</code> (String) </li><li><code>Path</code> (Array) </li><ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li><li><code>Description</code> (String) </li><li><code>Role</code> (String) </li></ul></ul>
 
-<blockquote>
-  <p>Example Response</p>
-</blockquote>
+<h5>Example</h5>
 
-<pre class="highlight json">
+<pre>
 HTTP 200 Content-Type: application/json
 </pre>
-<pre class="highlight json">[
+<pre>[
     {
         "Id": 14202,
         "Name": "Dufferin Mall",
@@ -2722,7 +3495,7 @@ HTTP 200 Content-Type: application/json
     }
 ]</pre>
 
-<h1 id="errors">Errors</h1>
+<h2 id="errors" class="clickable-header top-level-header">Errors</h2>
 
 <table>
   <thead>
@@ -2797,18 +3570,88 @@ HTTP 200 Content-Type: application/json
 </table>
 
 
-
       </div>
-      <div class="dark-box">
-            <div class="lang-selector">
-               <a href="#" data-language-name="javascript">javascript</a>
-               <a href="#" data-language-name="shell">cURL</a>
-               <a href="#" data-language-name="csharp">c#</a>
-               <a href="#" data-language-name="java">java</a>
-               <a href="#" data-language-name="ruby">ruby</a>
-            </div>
-         </div>
+
+
     </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../../js/metisMenu.min.js "></script>
+  
+    <!-- Custom Theme JavaScript -->
+    <script src="../../js/sb-admin-2.js "></script>
+    <script src="../../js/prism.js "></script>
+    <script src="../../js/bootstrap-submenu.js "></script>
+    <script>
+      jQuery('[data-submenu]').submenupicker();
+    </script>
+
+    <!-- TOC modified for iQmetrix Developer Portal layout -->
+    <script src="../../js/dynamicscrollspy.js "></script>
+    <script>
+
+        var pathname = window.location.pathname;
+
+       // if ( (pathname == '/api/') || (pathname.indexOf('api') == -1) ){  
+
+          /*var ul = $('.sidebar-nav ul');
+
+          $('h2').each(function() {
+              ul.append('<li><a href="#' + $(this).attr('id') + '">' + $(this).html() + '</a></li>');
+          });*/
+
+          $('#scrollspy').DynamicScrollspy({
+
+            //lowest-level header to be included (H2)
+            tH: 2, 
+
+            //highest-level header to be included (H3)
+            bH: 3, 
+
+            //generate random IDs?
+            genIDs: true, 
+
+            //offset for scrollspy
+            offset: 100, 
+
+            //add this class to top-most UL
+            ulClassNames: 'iq-toc', 
+
+            //active class (besides .active) to add
+            activeClass: '', 
+
+            //if testing, show heading tagName and ID
+            testing: false,
+
+            //use affix by default
+            affix: false
+          
+          });
+
+     //   } else {
+          //do nothing
+     //   }   
+
+    </script>
+
+    <!-- Console JS-->
+    <script src="../../js/api-console-vendor.js "></script>
+    <script src="../../js/api-console.js "></script>
+
+    <!-- Clipboard -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.5/clipboard.min.js"></script>
+
+    <!-- Cookies, copy button, etc -->
+    <script src="../../js/customscripts.js"></script>
+
+    <script>
+      $.noConflict();
+    </script>
 
   </body>
 

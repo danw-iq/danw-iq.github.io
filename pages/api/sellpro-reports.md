@@ -4,7 +4,7 @@ permalink: /api/SellPro-Reports/
 tags: []
 keywords: 
 audience: 
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary: 
 rouge: false
 noPopUp: true
@@ -16,8 +16,6 @@ noPopUp: true
 
 
 {% include linkrefs.html %}
-
-
 
 
 ## Overview
@@ -41,100 +39,100 @@ This API supports many different methods of authentication, see {{Authentication
 
 ## Resources
 
-## EmployeeListReportData
+### EmployeeListReportData
 
-| Name | Description |
-|:-----|:------------|
-| Address (`VARCHAR(50)`) | Address - employee's address | 
-| Cellular_Number (`NVARCHAR(MAX)`) | Cell Phone # - employee's cell phone number | 
-| City (`VARCHAR(50)`) | City - employee's city | 
-| DefaultLocation (`INT`) | Primary Location - primary location if one has been assigned. DefaultLocation and DefaultZoneForWho are used to determine this value | 
-| DefaultZoneForWho (`TINYINT`) | Primary Location - primary location if one has been assigned. DefaultLocation and DefaultZoneForWho are used to determine this value | 
-| Email (`VARCHAR(50)`) | Email Address - employee's work email address | 
-| EmailAddress (`VARCHAR(50)`) | Email  | 
-| Employee_Name (`VARCHAR(51)`) | Employee - name of the employee as entered on their employee profile | 
-| ID_Number (`INT`) | Internal identifier for employee in RQ | 
-| IsPartTime (`BIT`) | Part Time - indicates if an employee is Part Time | 
-| Last_Name (`VARCHAR(25)`) | Employee last name | 
-| LastHireDate (`VARCHAR(50)`) | Hire Date - day and date the employee was hired | 
-| Location (`VARCHAR(51)`) | Location - Only present if Unique is not -1. Every location the employee is assigned to | 
-| PersonalEmail (`VARCHAR(50)`) | Personal Email - employee's personal email address | 
-| Postal_Code (`VARCHAR(15)`) | Zip/Postal Code - zip code (USA) or postal code (Canada) | 
-| Province (`VARCHAR(50)`) | Province - employee's province or state | 
-| RoleDescription (`NVARCHAR(MAX)`) | Security Role - security role assigned to this employee | 
-| ScheduledTerminationDate (`DateTime`) | Scheduled termination date | 
-| SMS_Number (`VARCHAR(50)`) | SMS # - employee's text number | 
-| SpecialIdentifier (`VARCHAR(25)`) | ID # - ID number assigned when hired | 
-| StartDate (`DateTime`) | Start Date | 
-| Status (`VARCHAR(8)`) | Status - shows if the employee is enabled or disabled if Any Status is selected | 
-| TerminationDate (`DateTime`) | Termination Date - date of termination (date the employee was disabled) | 
-| Title (`VARCHAR(50)`) | Title - title assigned to this employee | 
-| Username (`VARCHAR(25)`) | Username - username of the employee as entered on their employee profile | 
-| Work_Number (`DateTime`) | Work Phone # - employee's work number | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Address | VARCHAR(50) | Address - employee's address | `127 starlight lane` |
+| Cellular_Number | NVARCHAR(MAX) | Cell Phone # - employee's cell phone number | `5555555555` |
+| City | VARCHAR(50) | City - employee's city | `Fargo` |
+| DefaultLocation | INT | Primary Location - primary location if one has been assigned. DefaultLocation and DefaultZoneForWho are used to determine this value | `null` |
+| DefaultZoneForWho | TINYINT | Primary Location - primary location if one has been assigned. DefaultLocation and DefaultZoneForWho are used to determine this value | `null` |
+| Email | VARCHAR(50) | Email Address - employee's work email address | `sams@kentel.com` |
+| EmailAddress | VARCHAR(50) | Email  | `sams@kentel.com` |
+| Employee_Name | VARCHAR(51) | Employee - name of the employee as entered on their employee profile | `Sam Smith` |
+| ID_Number | INT | Internal identifier for employee in RQ | `59` |
+| IsPartTime | BIT | Part Time - indicates if an employee is Part Time | `false` |
+| Last_Name | VARCHAR(25) | Employee last name | `Smith` |
+| LastHireDate | VARCHAR(50) | Hire Date - day and date the employee was hired | `2015-07-03T22:31:05.403` |
+| Location | VARCHAR(51) | Location - Only present if Unique is not -1. Every location the employee is assigned to | `100: My Network LLC - Anchorage` |
+| PersonalEmail | VARCHAR(50) | Personal Email - employee's personal email address | `sam@yopmail.com` |
+| Postal_Code | VARCHAR(15) | Zip/Postal Code - zip code (USA) or postal code (Canada) | `90123` |
+| Province | VARCHAR(50) | Province - employee's province or state | `ND` |
+| RoleDescription | NVARCHAR(MAX) | Security Role - security role assigned to this employee | `Sales Representative` |
+| ScheduledTerminationDate | DateTime | Scheduled termination date | `2015-11-22T08:00:00.000` |
+| SMS_Number | VARCHAR(50) | SMS # - employee's text number | `5555555555@yopmail.com` |
+| SpecialIdentifier | VARCHAR(25) | ID # - ID number assigned when hired | `912345987654321` |
+| StartDate | DateTime | Start Date | `2010-11-22T10:06:35.133` |
+| Status | VARCHAR(8) | Status - shows if the employee is enabled or disabled if Any Status is selected | `Enabled` |
+| TerminationDate | DateTime | Termination Date - date of termination (date the employee was disabled) | `2015-11-22T08:00:25.345` |
+| Title | VARCHAR(50) | Title - title assigned to this employee | `Wireless Consultant` |
+| Username | VARCHAR(25) | Username - username of the employee as entered on their employee profile | `Sam.Smith` |
+| Work_Number | DateTime | Work Phone # - employee's work number | `5555555555` |
 
-## LocationMasterListReportData
+### LocationMasterListReportData
 
-| Name | Description |
-|:-----|:------------|
-| Abbreviation (`VARCHAR(5)`) | Abbreviation - this cannot be edited | 
-| Address (`NVARCHAR(MAX)`) | Address - address assigned to location | 
-| AddressVerified (`VARCHAR(12)`) | Address Verified - if the address can not be verified then you will have the option to edit the Latitude and Longitude to verify it | 
-| AdjustDST (`BIT`) | Adjust DST - check if the location adjusts for daylight savings | 
-| BankDetails (`NVARCHAR(MAX)`) | Bank Details - the Banks name for the location | 
-| CashPolicy (`VARCHAR(13)`) | Cash Policy - states the cash policy (single/multi-drawer) | 
-| ChannelName (`NVARCHAR(MAX)`) | Channel - channel the region is assigned to | 
-| City (`VARCHAR(50)`) | City - city the location resides in | 
-| Comment_on_OE (`BIT`) | Comment on OE - show product and location comments on sales order | 
-| Country (`VARCHAR(50)`) | Country - country the location is located in | 
-| DepositTaken (`MONEY`) | Deposit Taken - lists the deposit if applicable | 
-| Disabled (`INT`) | Disable - indicates if the location is enabled or disabled | 
-| DistrictName (`NVARCHAR(MAX)`) | District - district the location is assigned to | 
-| EmailAddress (`VARCHAR(255)`) | Email Address - email address assigned to the location | 
-| FaxNumber (`VARCHAR(10)`) | Fax # - Fax # listed under the location | 
-| GeneralLocationNotes (`VARCHAR(255)`) | General Location Notes - notes specific to the location | 
-| GLCode (`VARCHAR(100)`) | Code - coded associated to the location | 
-| HideCustomerAddress (`BIT`) | Hide Customer Address - prevents the customers address from being seen on an invoice | 
-| InsuranceAmount (`MONEY`) | Insurance - cost of Insurance | 
-| InsuranceCompany (`NVARCHAR(MAX)`) | Insurance Company - name of the insurance company | 
-| LandlordName (`NVARCHAR(MAX)`) | Landlord Name - name of the landlord | 
-| LandlordNotes (`NVARCHAR(MAX)`) | Landlord Notes - notes specific to the landlord | 
-| Latitude (`DECIMAL`) | Latitude - latitude location of the store | 
-| LeaseEndDate (`DateTime`) | Lease End Date - the day the lease ends | 
-| LeaseNotes (`NVARCHAR(MAX)`) | Lease Notes - notes specific to the lease | 
-| LeaseStartDate (`DateTime`) | Lease Start Date - day the lease started | 
-| LocationCode (`VARCHAR(100)`) | Location Code - code entered in the property details tab in the Location Setup | 
-| LocationEntityID (`INT`) | Identifier of the store as a {{Location}} in Entity Store | 
-| Longitude (`DECIMAL`) | Longitude - longitude location of the store | 
-| ManagerCommissionable (`BIT`) | Manager Commissionable - indicates if the manager is commissionable. | 
-| ManagerEmployeeID (`INT`) | Manager - manager assigned to the location | 
-| MaxCashDrawer (`MONEY`) | Max Cash Drawer - maximum amount of cash allowed in a cash drawer | 
-| OtherCharges (`MONEY`) | Other Charges - other charges associated to the location | 
-| PAW_on_OE (`BIT`) | PAW on OE - launch PAW on sales orders | 
-| Phone_on_OE (`BIT`) | Force phone number for entry on sales orders | 
-| PhoneNumber (`VARCHAR(10)`) | Phone # - designated number for the location | 
-| PropertyTaxes (`MONEY`) | Property Taxes - applicable property taxes | 
-| RegionName (`NVARCHAR(MAX)`) | Region - region the district is assigned to | 
-| RelocationDate (`DateTime`) | Relocation Date - lists the date of the relocation if applicable | 
-| Rent (`MONEY`) | Rent - rent amount for the location | 
-| SaleInvoiceComment (`NVARCHAR(MAX)`) | Sale Invoice Comment - locations sales invoice comment | 
-| Serial_on_OE (`BIT`) | Serial # on OE - force serial # for entry on sales orders | 
-| SquareFootage (`INT`) | Square Feet - approx square feet of the store | 
-| StaffLevel (`DECIMAL`) | Staff Level - designated staffing level for the location | 
-| StateProv (`NVARCHAR(3)`) | State/Prov - state or province the location is located in | 
-| StoreID (`INT`) | Internal identifier for the store in RQ | 
-| StoreName (`NVARCHAR(MAX)`) | Store Name - name of the store | 
-| StoreType (`NVARCHAR(MAX)`) | Store Type - will state the store type | 
-| Taxes (`NVARCHAR(MAX)`) | Taxes - taxes assigned to the location | 
-| TimeZone (`VARCHAR(200)`) | Time Zone - time zone assigned to location | 
-| UseLocationEmail (`BIT`) | Use Location for Email - use the location for the email contact | 
-| ZipPostal (`VARCHAR(15)`) | Zip/Postal - zip/postal for the location | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Abbreviation | VARCHAR(5) | Abbreviation - this cannot be edited | `LIT22` |
+| Address | NVARCHAR(MAX) | Address - address assigned to location | `4970 Hillside Avenue` |
+| AddressVerified | VARCHAR(12) | Address Verified - if the address can not be verified then you will have the option to edit the Latitude and Longitude to verify it | `Not Verified` |
+| AdjustDST | BIT | Adjust DST - check if the location adjusts for daylight savings | `false` |
+| BankDetails | NVARCHAR(MAX) | Bank Details - the Banks name for the location | `CashSmart` |
+| CashPolicy | VARCHAR(13) | Cash Policy - states the cash policy (single/multi-drawer) | `Single-Drawer` |
+| ChannelName | NVARCHAR(MAX) | Channel - channel the region is assigned to | `Alabama` |
+| City | VARCHAR(50) | City - city the location resides in | `Kansas` |
+| Comment_on_OE | BIT | Comment on OE - show product and location comments on sales order | `false` |
+| Country | VARCHAR(50) | Country - country the location is located in | `United States` |
+| DepositTaken | MONEY | Deposit Taken - lists the deposit if applicable | `0` |
+| Disabled | INT | Disable - indicates if the location is enabled or disabled | `1` |
+| DistrictName | NVARCHAR(MAX) | District - district the location is assigned to | `Smithton` |
+| EmailAddress | VARCHAR(255) | Email Address - email address assigned to the location | `abarea@kentel.com` |
+| FaxNumber | VARCHAR(10) | Fax # - Fax # listed under the location | `5555555555` |
+| GeneralLocationNotes | VARCHAR(255) | General Location Notes - notes specific to the location | `note` |
+| GLCode | VARCHAR(100) | Code - coded associated to the location | `-MILLH` |
+| HideCustomerAddress | BIT | Hide Customer Address - prevents the customers address from being seen on an invoice | `false` |
+| InsuranceAmount | MONEY | Insurance - cost of Insurance | `0` |
+| InsuranceCompany | NVARCHAR(MAX) | Insurance Company - name of the insurance company | `Safefair` |
+| LandlordName | NVARCHAR(MAX) | Landlord Name - name of the landlord | `Jim Jones` |
+| LandlordNotes | NVARCHAR(MAX) | Landlord Notes - notes specific to the landlord | `sample note` |
+| Latitude | DECIMAL | Latitude - latitude location of the store | `50.443559` |
+| LeaseEndDate | DateTime | Lease End Date - the day the lease ends | `2014-12-24T00:00:00` |
+| LeaseNotes | NVARCHAR(MAX) | Lease Notes - notes specific to the lease | `note` |
+| LeaseStartDate | DateTime | Lease Start Date - day the lease started | `2014-11-26T00:00:00` |
+| LocationCode | VARCHAR(100) | Location Code - code entered in the property details tab in the Location Setup | `500` |
+| LocationEntityID | INT | Identifier of the store as a <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a> in Entity Store | `48540` |
+| Longitude | DECIMAL | Longitude - longitude location of the store | `-104.612034` |
+| ManagerCommissionable | BIT | Manager Commissionable - indicates if the manager is commissionable. | `false` |
+| ManagerEmployeeID | INT | Manager - manager assigned to the location | `233` |
+| MaxCashDrawer | MONEY | Max Cash Drawer - maximum amount of cash allowed in a cash drawer | `0` |
+| OtherCharges | MONEY | Other Charges - other charges associated to the location | `0` |
+| PAW_on_OE | BIT | PAW on OE - launch PAW on sales orders | `false` |
+| Phone_on_OE | BIT | Force phone number for entry on sales orders | `true` |
+| PhoneNumber | VARCHAR(10) | Phone # - designated number for the location | `4353424234` |
+| PropertyTaxes | MONEY | Property Taxes - applicable property taxes | `0` |
+| RegionName | NVARCHAR(MAX) | Region - region the district is assigned to | `Abarea` |
+| RelocationDate | DateTime | Relocation Date - lists the date of the relocation if applicable | `2016-02-26T00:00:00` |
+| Rent | MONEY | Rent - rent amount for the location | `0` |
+| SaleInvoiceComment | NVARCHAR(MAX) | Sale Invoice Comment - locations sales invoice comment | `Sale Invoice Comments` |
+| Serial_on_OE | BIT | Serial # on OE - force serial # for entry on sales orders | `false` |
+| SquareFootage | INT | Square Feet - approx square feet of the store | `0` |
+| StaffLevel | DECIMAL | Staff Level - designated staffing level for the location | `12` |
+| StateProv | NVARCHAR(3) | State/Prov - state or province the location is located in | `AL` |
+| StoreID | INT | Internal identifier for the store in RQ | `1187` |
+| StoreName | NVARCHAR(MAX) | Store Name - name of the store | `Dufferin Mall` |
+| StoreType | NVARCHAR(MAX) | Store Type - will state the store type | `Retail Store` |
+| Taxes | NVARCHAR(MAX) | Taxes - taxes assigned to the location | `GOODS AND SERVICES TAX (GST)` |
+| TimeZone | VARCHAR(200) | Time Zone - time zone assigned to location | `(GMT-06:00) Saskatchewan` |
+| UseLocationEmail | BIT | Use Location for Email - use the location for the email contact | `false` |
+| ZipPostal | VARCHAR(15) | Zip/Postal - zip/postal for the location | `90210` |
 
-## Relationship
+### Relationship
 
-| Name | Description |
-|:-----|:------------|
-| CompanyID (`INTEGER`) | Identifier for a {{Company}} | 
-| CompanyName (`VARCHAR(50)`) | Company name | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CompanyID | INTEGER | Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a> | `14831` |
+| CompanyName | VARCHAR(50) | Company name | `KENTEL` |
 
 
 
@@ -400,7 +398,7 @@ GET /partner/SellPro/employeelistreport?CompanyId={CompanyId}&Status={Status}&Un
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}, for a list see Getting Partner Relationships
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>, for a list see Getting Partner Relationships
     </li>
     
     <li>
@@ -424,11 +422,11 @@ GET /partner/SellPro/employeelistreport?CompanyId={CompanyId}&Status={Status}&Un
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>
@@ -767,7 +765,7 @@ GET /partner/SellPro/locationmasterlistreport?CompanyId={CompanyId}&Auth={Auth}&
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}, for a list see Getting Partner Relationships
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>, for a list see Getting Partner Relationships
     </li>
     
     <li>

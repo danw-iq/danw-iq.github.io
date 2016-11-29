@@ -4,7 +4,7 @@ permalink: /api/RQ-Data-Connect-Commission-Reports/
 tags: []
 keywords: 
 audience: 
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary: 
 rouge: false
 noPopUp: true
@@ -16,8 +16,6 @@ noPopUp: true
 
 
 {% include linkrefs.html %}
-
-
 
 
 ## Overview
@@ -49,97 +47,97 @@ For a complete list of reports in RQ Data Connect, see [Report List](/rq-data-co
 
 ## Resources
 
-## VendorRebateHistoryReportData
+### VendorRebateHistoryReportData
 
-| Name | Description |
-|:-----|:------------|
-| ActivationAssociationNumber (`INT`) | Every product that is part of the same activation from the Phone Activation Wizard will have the same ActivationAssociationNumber. | 
-| ActivationRowID (`UNIQUEIDENTIFIER`) | Identifier in RQ | 
-| Adjusted (`VARCHAR(3)`) | Adjusted - indicates if the rebate was adjusted | 
-| AssociationNumber (`SMALLINT`) | When adding products with PAW all associated products from the sale have the same association number tied together, this value increments based on how many sales are made on that order | 
-| CarrierPrice (`MONEY`) | Carrier Price - value or revenue that a carrier assigns this feature | 
-| ChannelName (`VARCHAR(100)`) | Channel - channel for the rows location | 
-| ChargeBack (`DateTime`) | Charge Back - Yes or No column for if it is a Charge Back or not | 
-| Collected (`MONEY`) | Collected - amount received from the carrier | 
-| Comments (`VARCHAR(500)`) | Comments - any comments that were added as part of the reconciliation process | 
-| Comments2 (`VARCHAR(500)`) | Comments2 - any comments that were added as part of the reconciliation process | 
-| ContractNumber (`VARCHAR(50)`) | Contract # - number of the contract, recorded at the time of sale | 
-| CustomerID1 (`INT`) | Customer Identifier - customer identifier as entered on the customers profile | 
-| CustomerName1 (`VARCHAR(101)`) | Customer - name of the customer as entered on their profile | 
-| DateCreated (`DateTime`) | Sold On - date and time the invoice was tendered | 
-| DateReconciled (`DateTime`) | Reconciled On - date and time the rebate was reconciled | 
-| DistrictName (`VARCHAR(100)`) | District - district for the rows location | 
-| EmployeeID (`INT`) | Internal identifier for an employee in RQ, see EmployeeName | 
-| EmployeeID1 (`INT`) | Internal identifier for an employee in RQ, see EmployeeName1 | 
-| EmployeeName (`VARCHAR(51)`) | Reconciled By - name of the employee logged in when the rebate was reconciled | 
-| EmployeeName1 (`VARCHAR(51)`) | Sales Person - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box | 
-| ExtraField (`VARCHAR(30)`) | Extra Field - an optional field | 
-| Flagged (`VARCHAR(3)`) | Flagged - flagged in the Vendor Rebate Reconciliation screen | 
-| GlobalProductID (`INT`) | Identifier for a Product in RQ | 
-| InvoiceComments (`VARCHAR(50)`) | Comments | 
-| InvoicedAt (`VARCHAR(100)`) | Invoiced At - name of the location which takes the inventory on a refund, usually the same as Invoiced By but will be different if a second location process a refund | 
-| InvoicedAt_StoreID (`INT`) | Internal identifier for a store in RQ | 
-| InvoicedBy (`VARCHAR(100)`) | Invoiced By - name of the location which credited with the sale, usually the same as Invoiced At but will be different if a second location process a refund | 
-| InvoicedBy_StoreID (`INT`) | Internal identifier for a store in RQ | 
-| InvoiceIDByStore (`VARCHAR(14)`) | Invoice # - invoice number assigned by RQ | 
-| InvoiceRowID (`UNIQUEIDENTIFIER`) | Internal identifier in RQ | 
-| JournalNumber (`VARCHAR(20)`) | Journal # - vendor account journal on which the rebate was reconciled | 
-| OriginalSaleDate (`DateTime`) | Original Sales Date - date of the original sale | 
-| OriginalSaleInvoiceID (`INT`) | Internal identifier in RQ | 
-| OriginalSaleInvoiceIDByStore (`VARCHAR(14)`) | Original Invoice - invoice number of the original transaction | 
-| PartialCB (`MONEY`) | Partial CB - amount the carrier is charging back | 
-| PortNumber (`VARCHAR(30)`) | Port Number - if entered in transaction | 
-| Postal_code (`VARCHAR(15)`) | Zip/Postal Code - zip code (USA) or postal code (Canada) | 
-| ProductIdentifier (`VARCHAR(12)`) | Product SKU - RQ generated SKU | 
-| ProductName (`VARCHAR(100)`) | Product Name - description of the product as it appears in the inventory | 
-| ProductRowID (`UNIQUEIDENTIFIER`) | Internal identifier in RQ | 
-| Quantity (`INT`) | Qty - total quantity of this product SKU on the invoice | 
-| RatePlan (`VARCHAR(100)`) | Rate Plan - name of the rate plan | 
-| RatePlan2 (`VARCHAR(100)`) | Rate Plan 2 - second rate plan if necessary | 
-| Reconciled (`VARCHAR(3)`) | Reconciled - has been marked as reconciled in the Vendor Rebate Reconciliation screen | 
-| RegionID (`INT`) | Identifier for a region in RQ | 
-| RegionName (`VARCHAR(100)`) | Region - region for the rows location | 
-| RelatedCost (`MONEY`) | Related Cost - purchase cost for the product associated with this rebate | 
-| RelatedPrice (`MONEY`) | Related Price - price the customer paid for the product related to this rebate | 
-| RelatedProduct (`VARCHAR(100)`) | Related Product - product associated with this rebate | 
-| RelatedProductSerialNumbers (`VARCHAR(1000)`) | Related SN - serial number associated with this rebate, if any | 
-| RelatedProductSKU (`VARCHAR(12)`) | Related SKU - product SKU of the product associated with this rebate | 
-| SaleInvoiceID (`INT`) | Internal identifier in RQ | 
-| SerialNumber (`VARCHAR(100)`) | Tracking # - tracking number associated with this entry | 
-| SocCode (`VARCHAR(50)`) | SOC Code - SOC Code if one was used | 
-| SocCode2 (`VARCHAR(50)`) | SOC Code2 - Second SOC Code if used | 
-| SpecialIdentifier (`VARCHAR(25)`) | Sales Person ID - ID number assigned to this sales person and recorded on the Admin tab of their Employee Profile | 
-| SpecialIdentifier1 (`VARCHAR (25)`) | Internal identifier in RQ | 
-| TermCode (`VARCHAR(200)`) | Term Code - [may not show in your database] indicates new activation, upgrade, etc. | 
-| TotalPrice (`MONEY`) | Total Rebate - total value of the rebate on this invoice calculated as Qty X Unit Rebate | 
-| UnitPrice (`MONEY`) | Unit Rebate - dollar value of this rebate | 
-| VendorAccountName (`VARCHAR(100)`) | Vendor Account Name - vendor account for this rebate | 
-| VendorName (`NVARCHAR(MAX)`) | Vendor name in RQ | 
-| VendorNumber (`NVARCHAR(3)`) | Vendor # - vendor account number entered for Vendor # By Location [if used] | 
-| VendorSKU (`VARCHAR(25)`) | Vendor SKU | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ActivationAssociationNumber | INT | Every product that is part of the same activation from the Phone Activation Wizard will have the same ActivationAssociationNumber. | `2` |
+| ActivationRowID | UNIQUEIDENTIFIER | Identifier in RQ | `0d4652a7-a673-437a-817e-4641961ba3e6` |
+| Adjusted | VARCHAR(3) | Adjusted - indicates if the rebate was adjusted | `No` |
+| AssociationNumber | SMALLINT | When adding products with PAW all associated products from the sale have the same association number tied together, this value increments based on how many sales are made on that order | `3` |
+| CarrierPrice | MONEY | Carrier Price - value or revenue that a carrier assigns this feature | `0` |
+| ChannelName | VARCHAR(100) | Channel - channel for the rows location | `English Channel` |
+| ChargeBack | DateTime | Charge Back - Yes or No column for if it is a Charge Back or not | `No` |
+| Collected | MONEY | Collected - amount received from the carrier | `null` |
+| Comments | VARCHAR(500) | Comments - any comments that were added as part of the reconciliation process |  |
+| Comments2 | VARCHAR(500) | Comments2 - any comments that were added as part of the reconciliation process | `null` |
+| ContractNumber | VARCHAR(50) | Contract # - number of the contract, recorded at the time of sale | `123456789` |
+| CustomerID1 | INT | Customer Identifier - customer identifier as entered on the customers profile | `130834` |
+| CustomerName1 | VARCHAR(101) | Customer - name of the customer as entered on their profile | `Bob Jones` |
+| DateCreated | DateTime | Sold On - date and time the invoice was tendered | `2016-01-04T14:33:15.737` |
+| DateReconciled | DateTime | Reconciled On - date and time the rebate was reconciled | `null` |
+| DistrictName | VARCHAR(100) | District - district for the rows location | `District B2` |
+| EmployeeID | INT | Internal identifier for an employee in RQ, see EmployeeName | `0` |
+| EmployeeID1 | INT | Internal identifier for an employee in RQ, see EmployeeName1 | `218` |
+| EmployeeName | VARCHAR(51) | Reconciled By - name of the employee logged in when the rebate was reconciled |  |
+| EmployeeName1 | VARCHAR(51) | Sales Person - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box | `iQmetrix User` |
+| ExtraField | VARCHAR(30) | Extra Field - an optional field | `1234567890` |
+| Flagged | VARCHAR(3) | Flagged - flagged in the Vendor Rebate Reconciliation screen | `No` |
+| GlobalProductID | INT | Identifier for a Product in RQ | `812` |
+| InvoiceComments | VARCHAR(50) | Comments |  |
+| InvoicedAt | VARCHAR(100) | Invoiced At - name of the location which takes the inventory on a refund, usually the same as Invoiced By but will be different if a second location process a refund | `Regina Store` |
+| InvoicedAt_StoreID | INT | Internal identifier for a store in RQ | `1` |
+| InvoicedBy | VARCHAR(100) | Invoiced By - name of the location which credited with the sale, usually the same as Invoiced At but will be different if a second location process a refund | `Regina Store` |
+| InvoicedBy_StoreID | INT | Internal identifier for a store in RQ | `1` |
+| InvoiceIDByStore | VARCHAR(14) | Invoice # - invoice number assigned by RQ | `HJKIIIN2` |
+| InvoiceRowID | UNIQUEIDENTIFIER | Internal identifier in RQ | `db8f28cf-5017-47f4-9ccf-b90cff32185d` |
+| JournalNumber | VARCHAR(20) | Journal # - vendor account journal on which the rebate was reconciled |  |
+| OriginalSaleDate | DateTime | Original Sales Date - date of the original sale | `null` |
+| OriginalSaleInvoiceID | INT | Internal identifier in RQ | `null` |
+| OriginalSaleInvoiceIDByStore | VARCHAR(14) | Original Invoice - invoice number of the original transaction | `null` |
+| PartialCB | MONEY | Partial CB - amount the carrier is charging back | `0` |
+| PortNumber | VARCHAR(30) | Port Number - if entered in transaction |  |
+| Postal_code | VARCHAR(15) | Zip/Postal Code - zip code (USA) or postal code (Canada) | `56789` |
+| ProductIdentifier | VARCHAR(12) | Product SKU - RQ generated SKU | `ACVZRB000001` |
+| ProductName | VARCHAR(100) | Product Name - description of the product as it appears in the inventory | `Verizon New Act_EquipmentRebate` |
+| ProductRowID | UNIQUEIDENTIFIER | Internal identifier in RQ | `27be5c76-b0ba-4a34-ba7d-fa34aba0ab9c` |
+| Quantity | INT | Qty - total quantity of this product SKU on the invoice | `1` |
+| RatePlan | VARCHAR(100) | Rate Plan - name of the rate plan | `Act $9.99 to $20.98` |
+| RatePlan2 | VARCHAR(100) | Rate Plan 2 - second rate plan if necessary |  |
+| Reconciled | VARCHAR(3) | Reconciled - has been marked as reconciled in the Vendor Rebate Reconciliation screen | `No` |
+| RegionID | INT | Identifier for a region in RQ | `9` |
+| RegionName | VARCHAR(100) | Region - region for the rows location | `Region B` |
+| RelatedCost | MONEY | Related Cost - purchase cost for the product associated with this rebate | `404` |
+| RelatedPrice | MONEY | Related Price - price the customer paid for the product related to this rebate | `69.99` |
+| RelatedProduct | VARCHAR(100) | Related Product - product associated with this rebate | `Samsung Galaxy S4` |
+| RelatedProductSerialNumbers | VARCHAR(1000) | Related SN - serial number associated with this rebate, if any | `ACVZCB0026` |
+| RelatedProductSKU | VARCHAR(12) | Related SKU - product SKU of the product associated with this rebate | `ACVZCB000244` |
+| SaleInvoiceID | INT | Internal identifier in RQ | `126526` |
+| SerialNumber | VARCHAR(100) | Tracking # - tracking number associated with this entry | `123000000000000` |
+| SocCode | VARCHAR(50) | SOC Code - SOC Code if one was used | `123000000000000` |
+| SocCode2 | VARCHAR(50) | SOC Code2 - Second SOC Code if used |  |
+| SpecialIdentifier | VARCHAR(25) | Sales Person ID - ID number assigned to this sales person and recorded on the Admin tab of their Employee Profile | `1` |
+| SpecialIdentifier1 | VARCHAR (25) | Internal identifier in RQ |  |
+| TermCode | VARCHAR(200) | Term Code - [may not show in your database] indicates new activation, upgrade, etc. |  |
+| TotalPrice | MONEY | Total Rebate - total value of the rebate on this invoice calculated as Qty X Unit Rebate | `0` |
+| UnitPrice | MONEY | Unit Rebate - dollar value of this rebate | `0` |
+| VendorAccountName | VARCHAR(100) | Vendor Account Name - vendor account for this rebate | `Verizon 2` |
+| VendorName | NVARCHAR(MAX) | Vendor name in RQ | `Verizon` |
+| VendorNumber | NVARCHAR(3) | Vendor # - vendor account number entered for Vendor # By Location [if used] |  |
+| VendorSKU | VARCHAR(25) | Vendor SKU |  |
 
-## PartialChargeBackHistoryReportData
+### PartialChargeBackHistoryReportData
 
-| Name | Description |
-|:-----|:------------|
-| CarrierPrice (`DECIMAL`) | Carrier Price - value or revenue that a carrier assigns this feature | 
-| ChargeBack (`MONEY`) | Charge Back - amount the carrier is charging back | 
-| ChargeBackID (`INT`) | RQ identifier for a Charge Back | 
-| ChargeBackIDByStore (`VARCHAR (30)`) | Charge Back # - charge back invoice number assigned by RQ | 
-| DateAdjusted (`DateTime`) | Applied Date - date the charge back was applied | 
-| DateCreated (`DateTime`) | Charge Back Date - date the charge back took effect | 
-| EmployeeName (`VARCHAR (51)`) | Charged Back By - name of the employee logged into RQ when the Charge Back was done | 
-| InvoiceDate (`DateTime`) | Invoice Date - date of the original sale invoice | 
-| InvoiceIDByStore (`VARCHAR (14)`) | Invoice # - invoice number assigned by RQ | 
-| ProductIdentifier (`VARCHAR (12)`) | Product SKU - the RQ generated SKU | 
-| ProductName (`NVARCHAR (MAX)`) | Product Name - description of the product as it appears in the inventory | 
-| Quantity (`INT`) | Qty - total count of particular charged back SKUs on the charge back invoice | 
-| SaleInvoiceID (`INT`) | Identifier for an invoice in RQ | 
-| SerialNumber (`VARCHAR (100)`) | Tracking # - the tracking number associated with this entry, most frequently the customers mobile number | 
-| TotalPrice (`MONEY`) | Total Rebate - original rebate less the return amount | 
-| UnitPrice (`MONEY`) | Unit Rebate - reconciled amount, either the actual original amount or the adjusted from reconciliation amount | 
-| VendorName (`NVARCHAR(MAX)`) | Name for a vendor in RQ | 
-| VendorSKU (`VARCHAR(25)`) | Vendor SKU | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CarrierPrice | DECIMAL | Carrier Price - value or revenue that a carrier assigns this feature | `0` |
+| ChargeBack | MONEY | Charge Back - amount the carrier is charging back | `-1` |
+| ChargeBackID | INT | RQ identifier for a Charge Back | `25` |
+| ChargeBackIDByStore | VARCHAR (30) | Charge Back # - charge back invoice number assigned by RQ | `REDSTCB10` |
+| DateAdjusted | DateTime | Applied Date - date the charge back was applied | `2016-05-10T00:00:00` |
+| DateCreated | DateTime | Charge Back Date - date the charge back took effect | `2016-05-10T08:18:57.377` |
+| EmployeeName | VARCHAR (51) | Charged Back By - name of the employee logged into RQ when the Charge Back was done | `iQmetrix User` |
+| InvoiceDate | DateTime | Invoice Date - date of the original sale invoice | `2016-03-16T00:00:00` |
+| InvoiceIDByStore | VARCHAR (14) | Invoice # - invoice number assigned by RQ | `REDSTIN916` |
+| ProductIdentifier | VARCHAR (12) | Product SKU - the RQ generated SKU | `ASBORB000098` |
+| ProductName | NVARCHAR (MAX) | Product Name - description of the product as it appears in the inventory | `Apple iPhone 6 Plus 16GB Space Gray - AT&T` |
+| Quantity | INT | Qty - total count of particular charged back SKUs on the charge back invoice | `1` |
+| SaleInvoiceID | INT | Identifier for an invoice in RQ | `127354` |
+| SerialNumber | VARCHAR (100) | Tracking # - the tracking number associated with this entry, most frequently the customers mobile number | `123` |
+| TotalPrice | MONEY | Total Rebate - original rebate less the return amount | `699` |
+| UnitPrice | MONEY | Unit Rebate - reconciled amount, either the actual original amount or the adjusted from reconciliation amount | `700` |
+| VendorName | NVARCHAR(MAX) | Name for a vendor in RQ |  |
+| VendorSKU | VARCHAR(25) | Vendor SKU |  |
 
 
 
@@ -186,11 +184,11 @@ GET /reports/partialchargebackhistoryreport?StartDate={StartDate}&StopDate={Stop
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>
@@ -522,7 +520,7 @@ GET /reports/vendorrebatehistoryreport?StartDate={StartDate}&StopDate={StopDate}
     </li>
     
     <li>
-        <code>CategoryNumber</code> (<strong>Required</strong>)  - Identifier for a {{CategoryNumber}}. For a complete list see <a href="/api/RQ-Data-Connect/#getting-category-numbers">Getting Category Numbers</a>
+        <code>CategoryNumber</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#categorynumber'>CategoryNumber</a>. For a complete list see <a href="/api/RQ-Data-Connect/#getting-category-numbers">Getting Category Numbers</a>
     </li>
     
     <li>
@@ -534,11 +532,11 @@ GET /reports/vendorrebatehistoryreport?StartDate={StartDate}&StopDate={StopDate}
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>
@@ -1070,7 +1068,7 @@ GET /reports/vendorrebatehistoryreport_bycategoryandstore?StartDate={StartDate}&
     </li>
     
     <li>
-        <code>CategoryNumber</code> (<strong>Required</strong>)  - Identifier for a {{CategoryNumber}}. For a complete list see <a href="/api/RQ-Data-Connect/#getting-category-numbers">Getting Category Numbers</a>
+        <code>CategoryNumber</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#categorynumber'>CategoryNumber</a>. For a complete list see <a href="/api/RQ-Data-Connect/#getting-category-numbers">Getting Category Numbers</a>
     </li>
     
     <li>
@@ -1082,11 +1080,11 @@ GET /reports/vendorrebatehistoryreport_bycategoryandstore?StartDate={StartDate}&
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>
@@ -1617,7 +1615,7 @@ GET /reports/vendorrebatehistoryreport_bycategoryandemployees?StartDate={StartDa
     </li>
     
     <li>
-        <code>CategoryNumber</code> (<strong>Required</strong>)  - Identifier for a {{CategoryNumber}}. For a complete list see <a href="/api/RQ-Data-Connect/#getting-category-numbers">Getting Category Numbers</a>
+        <code>CategoryNumber</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#categorynumber'>CategoryNumber</a>. For a complete list see <a href="/api/RQ-Data-Connect/#getting-category-numbers">Getting Category Numbers</a>
     </li>
     
     <li>
@@ -1629,11 +1627,11 @@ GET /reports/vendorrebatehistoryreport_bycategoryandemployees?StartDate={StartDa
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>

@@ -4,7 +4,7 @@ permalink: /api/cmi/
 tags: []
 keywords: 
 audience:
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary:
 rouge: false
 ---
@@ -48,159 +48,159 @@ You should choose a production endpoint that is geographically closest to your d
 
 
 
-## ClientIdentity
+### ClientIdentity
 
 Authentication for the CMI API is done by including a ClientIdentity resource in a `<client>` section at the beginning of each request.
 
 ClientIdentitiy information is supplied by iQmetrix and used to authenticate requests made to the CMI API.
 {{note}}ClientIdentity authentication information is <a href="{{'#environments' | prepend: site.api_baseurl}}">Environment</a> specific{{end}}
 
-| Name | Description |
-|:-----|:------------|
-| ClientID (`GUID`) | Client specific identifier supplied by iQmetrix | 
-| Username (`String`) | Client specific username supplied by iQmetrix | 
-| Password (`String`) | Client specific password supplied by iQmetrix | 
-| StoreId (`Integer`) | If provided, this value should be `-1`, which denotes all stores | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ClientID | GUID | Client specific identifier supplied by iQmetrix | `9DC6AA95-856B-42C9-8AAF-392A2A02AC77` |
+| Username | String | Client specific username supplied by iQmetrix | `sampleusername` |
+| Password | String | Client specific password supplied by iQmetrix | `samplepassword` |
+| StoreId | Integer | If provided, this value should be `-1`, which denotes all stores | `-1` |
 
 
-## PurchaseOrderShipmentNotice
+### PurchaseOrderShipmentNotice
 
-| Name | Description |
-|:-----|:------------|
-| PurchaseOrderID (`GUID`) | Unique identifier | 
-| ProductItemID (`Integer`) | GlobalProductId from RQ | 
-| Quantity (`Integer`) | Number of items shipped | 
-| RQPurchaseOrderID (`Integer`) | Identifier for the Purchase Order in RQ | 
-| SerialNumbers (`Array[string]`) | Serial numbers. Must match Quantity | 
-| ShipmentNumber (`String`) | Vendor defined identifier for the shipment | 
-| VendorInvoiceNumber (`String`) | Value supplied by the vendor when creating the purchase order | 
-| VendorSKU (`String`) | The vendor part number/sku | 
-
-
-
-
-
-
-## PurchaseOrder
-
-| Name | Description |
-|:-----|:------------|
-| PurchaseOrderID (`GUID`) | Unique identifier | 
-| PurchaseOrderData (`<a href='/api/cmi/#purchaseorderdata'>PurchaseOrderData</a>`) | Purchase order | 
-| ProductsOrdered (`Array[<a href='/api/cmi/#productinformation'>ProductInformation</a>]`) | Products ordered | 
-| ProductsReceived (`Array[<a href='/api/cmi/#productinformation'>ProductInformation</a>]`) | Products received | 
-| SerialsReceived (`Array[<a href='/api/cmi/#productserialnumber'>ProductSerialNumber</a>]`) | Serials received | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| PurchaseOrderID | GUID | Unique identifier | `84DACFD3-4095-4D50-A02E-781B86B7408E` |
+| ProductItemID | Integer | GlobalProductId from RQ | `11142` |
+| Quantity | Integer | Number of items shipped | `1` |
+| RQPurchaseOrderID | Integer | Identifier for the Purchase Order in RQ | `22073` |
+| SerialNumbers | Array[string] | Serial numbers. Must match Quantity | `97000012` |
+| ShipmentNumber | String | Vendor defined identifier for the shipment | `SHIP001` |
+| VendorInvoiceNumber | String | Value supplied by the vendor when creating the purchase order | `1002` |
+| VendorSKU | String | The vendor part number/sku | `ABC123` |
 
 
 
 
-## PurchaseOrderData
-
-| Name | Description |
-|:-----|:------------|
-| PurchaseOrderID (`GUID`) | Unique identifier | 
-| BillToStoreID (`Integer`) | RQ StoreId | 
-| BillToStoreName (`String`) | RQ store name | 
-| BillToVendorAccountNumber (`String`) | Vendor account number to use for billing. Can be used in place of `BillToStoreId` | 
-| IsDeleted (`Boolean`) | A flag to indicate if this purchase order has been deleted in RQ | 
-| CreatedByVMI (`Boolean`) | A flag to indicate if this was created by the VMI API (true) or RQ (false) | 
-| CreatedDate (`DateTime`) | The date and time the purchase order was created, if it was created in RQ | 
-| Comments (`String`) | Any comments for the purchase order | 
-| EstimatedArrivalDate (`String`) | Estimated date of arrival | 
-| OrderTotal (`Decimal`) | Cost of the order, provided by a vendor for informational purposes only | 
-| RetailiQPurchaseOrderID (`Integer`) | Identifier of purchase order in RQ | 
-| RetailiQPurchaseOrderNumber (`String`) | Purchase order number in RQ | 
-| ShippingTotal (`Decimal`) | Cost of shipping | 
-| ShipToStoreID (`Integer`) | Identifier of store to use for shipping. Either this value or ShipToVendorAccountNumber must be supplied | 
-| ShipToStoreName (`String`) | Name of store to use for shipping | 
-| ShipToVendorAccountNumber (`String`) | Vendor account number to use for shipping. Can be used in place of `ShipToStoreId` | 
-| VendorInvoiceNumber (`String`) | Invoice number for the vendor, must be unique | 
-| VendorName (`String`) | Name of the vendor | 
 
 
-## ProductInformation
+### PurchaseOrder
 
-| Name | Description |
-|:-----|:------------|
-| ProductID (`GUID`) | Unique identifier | 
-| ProductName (`String`) | Name | 
-| CategoryPath (`String`) | Category location of product. path of category delimited by '>>' | 
-| DateEOL (`DateTime`) | End of life date | 
-| DateReceived (`String`) | Product receiving stauts in RQ | 
-| DoNotOrder (`Boolean`) | A flag to indicate if the product should not be ordered | 
-| Enabled (`Boolean`) | A flag to indicate if product is enabled | 
-| GrossQuantitySold (`Integer`) | Gross amount sold | 
-| GrossQuantityReturned (`Integer`) | Gross amount returned | 
-| MaximumLevel (`Integer`) | Maximum number of Products that can be added to the PurchaseOrder | 
-| MinimumLevel (`Integer`) | Minimum number of Products that can be added to the PurchaseOrder | 
-| MinMaxLocked (`Boolean`) | A flag to indicate if the Min and Max values are locked (unchangeable) | 
-| ProductCost (`Decimal`) | Required for PO creation or default from RQ will be used | 
-| ProductItemID (`Integer`) | GlobalProductId from RQ | 
-| ProductReceived (`Boolean`) | A flag to indicate if product was received | 
-| ProductSKU (`String`) | ProductIdentifier in RQ | 
-| QuantityCommittedOnOrderEntry (`Integer`) | Amount committed on an order entry | 
-| QuantityInStock (`Integer`) | Amount in stock | 
-| QuantityInTransfer (`Integer`) | Amount in transfer | 
-| QuantityOnBackOrder (`Integer`) | Amount on back order | 
-| QuantityOnLoan (`Integer`) | Amount on loan | 
-| QuantityOnOrder (`Integer`) | Amount on order | 
-| QuantityOnRMA (`Integer`) | Amount on RMA | 
-| QuantityOnUncommittedOrder (`Integer`) | Amount on uncommitted order | 
-| QuantityOrdered (`Integer`) | Amount ordered | 
-| QuantityReceived (`Integer`) | Amount received | 
-| QuantitySold (`Integer`) | Amount sold | 
-| QuantitySuggestedByVendor (`Integer`) | Amount suggested by vendor | 
-| RetailPrice (`Decimal`) | Retail price | 
-| SaleBegin (`DateTime`) | Sale begin date | 
-| SaleEnd (`DateTime`) | Sale end date | 
-| SalePrice (`Decimal`) | Sale price | 
-| VendorSKU (`String`) | Vendor SKU | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| PurchaseOrderID | GUID | Unique identifier | `28890F70-8FC9-4A9B-9458-410A8D08502D` |
+| PurchaseOrderData | <a href='/api/cmi/#purchaseorderdata'>PurchaseOrderData</a> | Purchase order |  |
+| ProductsOrdered | Array[<a href='/api/cmi/#productinformation'>ProductInformation</a>] | Products ordered |  |
+| ProductsReceived | Array[<a href='/api/cmi/#productinformation'>ProductInformation</a>] | Products received |  |
+| SerialsReceived | Array[<a href='/api/cmi/#productserialnumber'>ProductSerialNumber</a>] | Serials received |  |
 
 
-## ProductSerialNumber
-
-| Name | Description |
-|:-----|:------------|
-| ProductItemID (`Integer`) | GlobalProductId from RQ | 
-| DateReceived (`DateTime`) | Date received | 
-| NonSellable (`Boolean`) | A flag to indicate if the product is sellable (`false`) or nonsellable (`true`) in RQ | 
-| SerialNumber (`String`) | Serial number | 
 
 
-## ReceivingInfo
+### PurchaseOrderData
 
-| Name | Description |
-|:-----|:------------|
-| ProductItemID (`Integer`) | GlobalProductId from RQ | 
-| ProductName (`String`) | Name | 
-| ShipToStoreID (`Integer`) | Shipping store ID | 
-| ShipToStoreName (`String`) | Name of store to use for shipping | 
-| RQPurchaseOrderNumber (`String`) | Purchase Order number from RQ | 
-| VendorSKU (`String`) | Vendor SKU | 
-| Quantity (`Integer`) | Number of items received | 
-| ProductCost (`Decimal`) | Product cost | 
-| DateReceived (`String`) | Date received | 
-| RQReceivingNumber (`String`) | The receiving number from RQ | 
-| SerialNumber (`String`) | Serial number | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| PurchaseOrderID | GUID | Unique identifier | `28890F70-8FC9-4A9B-9458-410A8D08502D` |
+| BillToStoreID | Integer | RQ StoreId | `55` |
+| BillToStoreName | String | RQ store name | `Cornwall west` |
+| BillToVendorAccountNumber | String | Vendor account number to use for billing. Can be used in place of `BillToStoreId` | `1` |
+| IsDeleted | Boolean | A flag to indicate if this purchase order has been deleted in RQ | `false` |
+| CreatedByVMI | Boolean | A flag to indicate if this was created by the VMI API (true) or RQ (false) | `false` |
+| CreatedDate | DateTime | The date and time the purchase order was created, if it was created in RQ | `3/16/2014 12:00:00 AM` |
+| Comments | String | Any comments for the purchase order | `comments` |
+| EstimatedArrivalDate | String | Estimated date of arrival | `3/2/2014 12:00:00 AM` |
+| OrderTotal | Decimal | Cost of the order, provided by a vendor for informational purposes only | `99.99` |
+| RetailiQPurchaseOrderID | Integer | Identifier of purchase order in RQ | `22075` |
+| RetailiQPurchaseOrderNumber | String | Purchase order number in RQ | `DALEKPO5` |
+| ShippingTotal | Decimal | Cost of shipping | `99.99` |
+| ShipToStoreID | Integer | Identifier of store to use for shipping. Either this value or ShipToVendorAccountNumber must be supplied | `55` |
+| ShipToStoreName | String | Name of store to use for shipping | `Cornwall west` |
+| ShipToVendorAccountNumber | String | Vendor account number to use for shipping. Can be used in place of `ShipToStoreId` | `1` |
+| VendorInvoiceNumber | String | Invoice number for the vendor, must be unique | `563783` |
+| VendorName | String | Name of the vendor | `SampleVendor` |
 
 
-## StoreInformation
+### ProductInformation
 
-| Name | Description |
-|:-----|:------------|
-| StoreID (`Integer`) | Identifier | 
-| Name (`String`) | Name | 
-| Abbreviation (`String`) | Abbrevation | 
-| Address (`String`) | Address | 
-| City (`String`) | City | 
-| Country (`String`) | Country | 
-| District (`String`) | District | 
-| PhoneNumber (`String`) | Phone Number | 
-| PostalZipCode (`String`) | Postal or Zip Code | 
-| ProvinceState (`String`) | Province or State | 
-| Region (`String`) | Region | 
-| ShipToStoreID (`Integer`) | Shipping store ID | 
-| BillToStoreID (`Integer`) | RQ StoreID | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ProductID | GUID | Unique identifier | `86EE477F-C6B7-48FA-AA0A-105662D9A3ED` |
+| ProductName | String | Name | `Samsung Galaxy S6` |
+| CategoryPath | String | Category location of product. path of category delimited by '>>' | `Activation >> Dropship` |
+| DateEOL | DateTime | End of life date | `1/01/2016 12:00:00 AM` |
+| DateReceived | String | Product receiving stauts in RQ | `01/21/2016 16:58:23` |
+| DoNotOrder | Boolean | A flag to indicate if the product should not be ordered | `false` |
+| Enabled | Boolean | A flag to indicate if product is enabled | `true` |
+| GrossQuantitySold | Integer | Gross amount sold | `-1` |
+| GrossQuantityReturned | Integer | Gross amount returned | `-1` |
+| MaximumLevel | Integer | Maximum number of Products that can be added to the PurchaseOrder | `100` |
+| MinimumLevel | Integer | Minimum number of Products that can be added to the PurchaseOrder | `10` |
+| MinMaxLocked | Boolean | A flag to indicate if the Min and Max values are locked (unchangeable) | `false` |
+| ProductCost | Decimal | Required for PO creation or default from RQ will be used | `99.99` |
+| ProductItemID | Integer | GlobalProductId from RQ | `11142` |
+| ProductReceived | Boolean | A flag to indicate if product was received | `false` |
+| ProductSKU | String | ProductIdentifier in RQ | `CECPSM000017` |
+| QuantityCommittedOnOrderEntry | Integer | Amount committed on an order entry | `0` |
+| QuantityInStock | Integer | Amount in stock | `8` |
+| QuantityInTransfer | Integer | Amount in transfer | `3` |
+| QuantityOnBackOrder | Integer | Amount on back order | `0` |
+| QuantityOnLoan | Integer | Amount on loan | `5` |
+| QuantityOnOrder | Integer | Amount on order | `6` |
+| QuantityOnRMA | Integer | Amount on RMA | `9` |
+| QuantityOnUncommittedOrder | Integer | Amount on uncommitted order | `2` |
+| QuantityOrdered | Integer | Amount ordered | `4` |
+| QuantityReceived | Integer | Amount received | `4` |
+| QuantitySold | Integer | Amount sold | `30` |
+| QuantitySuggestedByVendor | Integer | Amount suggested by vendor | `50` |
+| RetailPrice | Decimal | Retail price | `99.99` |
+| SaleBegin | DateTime | Sale begin date | `01/01/2014 12:00:00 AM` |
+| SaleEnd | DateTime | Sale end date | `01/10/2014 12:00:00 AM` |
+| SalePrice | Decimal | Sale price | `79.99` |
+| VendorSKU | String | Vendor SKU | `SSGS5CB` |
+
+
+### ProductSerialNumber
+
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ProductItemID | Integer | GlobalProductId from RQ | `11142` |
+| DateReceived | DateTime | Date received | `3/11/2014 2:29:25 PM` |
+| NonSellable | Boolean | A flag to indicate if the product is sellable (`false`) or nonsellable (`true`) in RQ | `true` |
+| SerialNumber | String | Serial number | `132456456456111` |
+
+
+### ReceivingInfo
+
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ProductItemID | Integer | GlobalProductId from RQ | `11142` |
+| ProductName | String | Name | `Samsung Galaxy S6` |
+| ShipToStoreID | Integer | Shipping store ID | `55` |
+| ShipToStoreName | String | Name of store to use for shipping | `Cornwall west` |
+| RQPurchaseOrderNumber | String | Purchase Order number from RQ | `CORNWPO3550` |
+| VendorSKU | String | Vendor SKU | `ABC123` |
+| Quantity | Integer | Number of items received | `1` |
+| ProductCost | Decimal | Product cost | `99.99` |
+| DateReceived | String | Date received | `3/11/2014 2:29:25 PM` |
+| RQReceivingNumber | String | The receiving number from RQ | `CORNWRE6055` |
+| SerialNumber | String | Serial number | `132456456456111` |
+
+
+### StoreInformation
+
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| StoreID | Integer | Identifier | `36` |
+| Name | String | Name | `Cornwall West` |
+| Abbreviation | String | Abbrevation | `CWW` |
+| Address | String | Address | `2102 11th Ave` |
+| City | String | City | `Regina` |
+| Country | String | Country | `Canada` |
+| District | String | District | `Regina` |
+| PhoneNumber | String | Phone Number | `5555555555` |
+| PostalZipCode | String | Postal or Zip Code | `S2S 2S2` |
+| ProvinceState | String | Province or State | `Saskatchewan` |
+| Region | String | Region | `Regina` |
+| ShipToStoreID | Integer | Shipping store ID | `55` |
+| BillToStoreID | Integer | RQ StoreID | `55` |
 
 
 

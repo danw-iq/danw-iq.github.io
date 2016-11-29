@@ -16,8 +16,6 @@ rouge: false
 
 %7B% include linkrefs.html %%7D
 
-{{ title | printVersions }}
-
 {% for item in documentation %}{% if item.title == "overview" %}
 ## Overview
 

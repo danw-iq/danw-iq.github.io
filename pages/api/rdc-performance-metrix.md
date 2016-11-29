@@ -4,7 +4,7 @@ permalink: /api/RQ-Data-Connect-Performance-Metrix-Reports/
 tags: []
 keywords: 
 audience: 
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary: 
 rouge: false
 noPopUp: true
@@ -16,8 +16,6 @@ noPopUp: true
 
 
 {% include linkrefs.html %}
-
-
 
 
 ## Overview
@@ -49,43 +47,43 @@ For a complete list of reports in RQ Data Connect, see [Report List](/rq-data-co
 
 ## Resources
 
-## GraphedPerformanceMetrixReportData
+### GraphedPerformanceMetrixReportData
 
-| Name | Description |
-|:-----|:------------|
-| ID (`INT`) | Identifier for a performance metrix group in RQ | 
-| Name (`NVARCHAR(MAX)`) | Name of a performance metrix group in RQ | 
-| AttachmentRate (`VARCHAR(23)`) | Comparison of Performance Groups for the Attachment Rate displayed as a ratio | 
-| AttachmentRateTarget (`VARCHAR(23)`) | Attachment rate target | 
-| DisplayFormat (`INT`) | 1: Ratio Format, 2: Percentage Format | 
-| IsAttachmentRate (`BIT`) | A flag to indicate if performance group is an attachment rate | 
-| Margin (`MONEY`) | Margin on sales in this performance group | 
-| MarginTarget (`MONEY`) | Margin target | 
-| Priority (`INT`) | Priority | 
-| Profit (`MONEY`) | Net profit amount of sales in this performance group | 
-| ProfitTarget (`MONEY`) | Profit target | 
-| Quantity (`INT`) | Net count of SKUs sold in this performance group | 
-| QuantityTarget (`INT`) | Quantity target | 
-| Sales (`MONEY`) | Net dollar amount of sales in this performance group | 
-| SalesTarget (`MONEY`) | Sales target | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ID | INT | Identifier for a performance metrix group in RQ | `6` |
+| Name | NVARCHAR(MAX) | Name of a performance metrix group in RQ | `51247 Test_update` |
+| AttachmentRate | VARCHAR(23) | Comparison of Performance Groups for the Attachment Rate displayed as a ratio | `1249 : 2` |
+| AttachmentRateTarget | VARCHAR(23) | Attachment rate target | `0 : 0` |
+| DisplayFormat | INT | 1: Ratio Format, 2: Percentage Format | `2` |
+| IsAttachmentRate | BIT | A flag to indicate if performance group is an attachment rate | `true` |
+| Margin | MONEY | Margin on sales in this performance group | `null` |
+| MarginTarget | MONEY | Margin target | `null` |
+| Priority | INT | Priority | `-1` |
+| Profit | MONEY | Net profit amount of sales in this performance group | `null` |
+| ProfitTarget | MONEY | Profit target | `null` |
+| Quantity | INT | Net count of SKUs sold in this performance group | `null` |
+| QuantityTarget | INT | Quantity target | `null` |
+| Sales | MONEY | Net dollar amount of sales in this performance group | `null` |
+| SalesTarget | MONEY | Sales target | `null` |
 
-## GraphedPerformanceMetrixBreakdownReportData
+### GraphedPerformanceMetrixBreakdownReportData
 
-| Name | Description |
-|:-----|:------------|
-| ID (`INT`) | Internal idenfier in RQ | 
-| Name (`NVARCHAR(MAX)`) | Name of company, region, division, location or employee depending on ByWho URL parameter | 
-| GroupInvoiceCount (`INT`) | This number represents the size of the section of pie graph | 
-| IsAttachmentRate (`BIT`) | A flag to indicate if performance group is an attachment rate | 
-| Margin (`MONEY`) | Margin | 
-| MarginTarget (`DECIMAL`) | Margin target | 
-| Profit (`MONEY`) | Profit | 
-| ProfitTarget (`MONEY`) | Profit target | 
-| Quantity (`INT`) | Quantity | 
-| QuantityTarget (`INT`) | Quantity target | 
-| Sales (`MONEY`) | Total sales | 
-| SalesTarget (`MONEY`) | Sales target | 
-| TotalInvoiceCount (`INT`) | This number represents the total size of the graph  | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ID | INT | Internal idenfier in RQ | `1` |
+| Name | NVARCHAR(MAX) | Name of company, region, division, location or employee depending on ByWho URL parameter | `84 West` |
+| GroupInvoiceCount | INT | This number represents the size of the section of pie graph | `839` |
+| IsAttachmentRate | BIT | A flag to indicate if performance group is an attachment rate | `false` |
+| Margin | MONEY | Margin | `-1691.5747` |
+| MarginTarget | DECIMAL | Margin target | `0` |
+| Profit | MONEY | Profit | `-45860859.08` |
+| ProfitTarget | MONEY | Profit target | `0` |
+| Quantity | INT | Quantity | `530` |
+| QuantityTarget | INT | Quantity target | `0` |
+| Sales | MONEY | Total sales | `27111.34` |
+| SalesTarget | MONEY | Sales target | `0` |
+| TotalInvoiceCount | INT | This number represents the total size of the graph  | `2772` |
 
 
 
@@ -140,11 +138,11 @@ GET /reports/graphedperformancemetricsreport_performancemetrix?PeriodID={PeriodI
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>
@@ -479,11 +477,11 @@ GET /reports/graphedperformancemetricsreport_breakdown?PeriodID={PeriodID}&Start
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>

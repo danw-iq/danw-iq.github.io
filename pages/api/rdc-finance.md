@@ -4,7 +4,7 @@ permalink: /api/RQ-Data-Connect-Finance-Reports/
 tags: []
 keywords: 
 audience: 
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary: 
 rouge: false
 noPopUp: true
@@ -16,8 +16,6 @@ noPopUp: true
 
 
 {% include linkrefs.html %}
-
-
 
 
 ## Overview
@@ -49,190 +47,190 @@ For a complete list of reports in RQ Data Connect, see [Report List](/rq-data-co
 
 ## Resources
 
-## ChargeBackSummaryReportLocationData
+### ChargeBackSummaryReportLocationData
 
-| Name | Description |
-|:-----|:------------|
-| Quantity (`INT`) | Qty | 
-| StoreID (`INT`) | Internal identifier for a store in RQ | 
-| StoreName (`NVARCHAR (MAX)`) | Location | 
-| TotalValue (`MONEY`) | Total Value - dollar value of the charge backs | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Quantity | INT | Qty | `1` |
+| StoreID | INT | Internal identifier for a store in RQ | `6679` |
+| StoreName | NVARCHAR (MAX) | Location | `100: My Network LLC - Anchorage` |
+| TotalValue | MONEY | Total Value - dollar value of the charge backs | `-100` |
 
-## ChargeBackSummaryReportCategoryData
+### ChargeBackSummaryReportCategoryData
 
-| Name | Description |
-|:-----|:------------|
-| CategoryName (`NVARCHAR (MAX)`) | Category Name | 
-| CategoryNumber (`NVARCHAR (100)`) | Internal identifier for a Category in RQ | 
-| CategoryPath (`NVARCHAR (MAX)`) | Category | 
-| Quantity (`INT`) | Qty | 
-| TotalValue (`MONEY`) | Total Value - dollar value of the charge backs | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CategoryName | NVARCHAR (MAX) | Category Name | `Financing` |
+| CategoryNumber | NVARCHAR (100) | Internal identifier for a Category in RQ | `10101012` |
+| CategoryPath | NVARCHAR (MAX) | Category | `>> Activations >> Financing` |
+| Quantity | INT | Qty | `1` |
+| TotalValue | MONEY | Total Value - dollar value of the charge backs | `-100` |
 
-## ChargeBackSummaryReportProductSummaryData
+### ChargeBackSummaryReportProductSummaryData
 
-| Name | Description |
-|:-----|:------------|
-| GlobalProductID (`INT`) | Internal identifier for a product in RQ | 
-| ProductIdentifier (`VARCHAR (12)`) | Product SKU | 
-| ProductName (`NVARCHAR (MAX)`) | Product Name | 
-| Quantity (`INT`) | Qty | 
-| TotalValue (`MONEY`) | Total Value - dollar value of the charge backs | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| GlobalProductID | INT | Internal identifier for a product in RQ | `9809` |
+| ProductIdentifier | VARCHAR (12) | Product SKU | `ACFNRB000008` |
+| ProductName | NVARCHAR (MAX) | Product Name | `Vendor Rebate` |
+| Quantity | INT | Qty | `1` |
+| TotalValue | MONEY | Total Value - dollar value of the charge backs | `-100` |
 
-## ChargeBackSummaryReportProductDetailData
+### ChargeBackSummaryReportProductDetailData
 
-| Name | Description |
-|:-----|:------------|
-| AssociationNumber (`SMALLINT`) | When adding products with PAW all associated products from the sale have the same association number tied together, this value increments based on how many sales are made on that order | 
-| CarrierPrice (`MONEY`) | Carrier Price - value or revenue assigned by the carrier | 
-| CategoryName (`VARCHAR(100)`) | Category - inventory category to which the SKU belongs | 
-| CategoryNumber (`VARCHAR(100)`) | Internal identifier for a Category in RQ | 
-| ChargeBackCode (`VARCHAR(500)`) | Charge Back Code - specific code for this charge back | 
-| ChargedBackByEmployee (`VARCHAR(160)`) | Tendered By - name of the employee logged into RQ when the invoice was tendered | 
-| ChargedBackByEmployeeID (`INT`) | Identifier for an employee in RQ | 
-| Comments (`NVARCHAR(MAX)`) | Comments - any comments associated with this charge back | 
-| CustomerID (`INT`) | Internal identifier for a customer in RQ | 
-| CustomerName (`VARCHAR(160)`) | Customer Name - name of the customer as entered on their profile | 
-| DateChargedBack (`DateTime`) | Charged Back - date of the charge back | 
-| DateInvoiced (`DateTime`) | Invoiced - date originally invoiced | 
-| FullChargeBackID (`IDUNIQUEIDENTIFIER`) | Internal identifier in RQ | 
-| FullChargeBackIDByStore (`VARCHAR(30)`) | Charge Back # - invoice number for the charge back | 
-| GlobalProductID (`INT`) | Internal identifier in RQ | 
-| InvoicedByEmployee (`VARCHAR(160)`) | Sales Person - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box | 
-| InvoicedByEmployeeID (`INT`) | Internal identifier for an Employee in RQ | 
-| ProductIdentifier (`VARCHAR(12)`) | Product SKU - SKU of the product charged back | 
-| ProductName (`VARCHAR(100)`) | Product Name - description of the product charged back | 
-| Quantity (`INT`) | Qty - total count of charge backs | 
-| RelatedProduct (`VARCHAR(100)`) | Related Product - related product, if applicable | 
-| RelatedProductID (`INT`) | Internal identifier for a product in RQ | 
-| SaleInvoiceID (`INT`) | Internal identifier for an invoice in RQ | 
-| SaleInvoiceIDByStore (`VARCHAR(30)`) | Invoice # - original invoice number | 
-| SerialNumber (`VARCHAR(100)`) | Tracking Number - tracking number associated with the product charged back | 
-| TotalValue (`MONEY`) | Total Value - dollar value of the charge backs | 
-| VendorName (`NVARCHAR(MAX)`) | Name for a vendor in RQ | 
-| VendorSKU (`VARCHAR(25)`) | Vendor SKU in RQ | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| AssociationNumber | SMALLINT | When adding products with PAW all associated products from the sale have the same association number tied together, this value increments based on how many sales are made on that order | `7` |
+| CarrierPrice | MONEY | Carrier Price - value or revenue assigned by the carrier | `0` |
+| CategoryName | VARCHAR(100) | Category - inventory category to which the SKU belongs | `10101012` |
+| CategoryNumber | VARCHAR(100) | Internal identifier for a Category in RQ | `Financing` |
+| ChargeBackCode | VARCHAR(500) | Charge Back Code - specific code for this charge back | `iQmetrix User` |
+| ChargedBackByEmployee | VARCHAR(160) | Tendered By - name of the employee logged into RQ when the invoice was tendered | `1` |
+| ChargedBackByEmployeeID | INT | Identifier for an employee in RQ | `1` |
+| Comments | NVARCHAR(MAX) | Comments - any comments associated with this charge back |  |
+| CustomerID | INT | Internal identifier for a customer in RQ | `null` |
+| CustomerName | VARCHAR(160) | Customer Name - name of the customer as entered on their profile | `No Customer` |
+| DateChargedBack | DateTime | Charged Back - date of the charge back | `2016-05-20T07:57:42.417` |
+| DateInvoiced | DateTime | Invoiced - date originally invoiced | `2016-05-20T06:47:10.543` |
+| FullChargeBackID | IDUNIQUEIDENTIFIER | Internal identifier in RQ | `322aa012-82dc-4373-a7d6-82faa2b4738b` |
+| FullChargeBackIDByStore | VARCHAR(30) | Charge Back # - invoice number for the charge back | `77224FC1` |
+| GlobalProductID | INT | Internal identifier in RQ | `9809` |
+| InvoicedByEmployee | VARCHAR(160) | Sales Person - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box | `iQmetrix User` |
+| InvoicedByEmployeeID | INT | Internal identifier for an Employee in RQ | `1` |
+| ProductIdentifier | VARCHAR(12) | Product SKU - SKU of the product charged back | `ACFNRB000008` |
+| ProductName | VARCHAR(100) | Product Name - description of the product charged back | `Vendor Rebate` |
+| Quantity | INT | Qty - total count of charge backs | `1` |
+| RelatedProduct | VARCHAR(100) | Related Product - related product, if applicable |  |
+| RelatedProductID | INT | Internal identifier for a product in RQ | `0` |
+| SaleInvoiceID | INT | Internal identifier for an invoice in RQ | `129036` |
+| SaleInvoiceIDByStore | VARCHAR(30) | Invoice # - original invoice number | `77224IN5` |
+| SerialNumber | VARCHAR(100) | Tracking Number - tracking number associated with the product charged back | `1123123132` |
+| TotalValue | MONEY | Total Value - dollar value of the charge backs | `-100` |
+| VendorName | NVARCHAR(MAX) | Name for a vendor in RQ |  |
+| VendorSKU | VARCHAR(25) | Vendor SKU in RQ |  |
 
-## ChargeBackSummaryReportEmployeeData
+### ChargeBackSummaryReportEmployeeData
 
-| Name | Description |
-|:-----|:------------|
-| Commission (`MONEY`) | Commission | 
-| InvoicedByEmployee (`VARCHAR (51)`) | Employee | 
-| InvoicedByEmployeeID (`INT`) | Internal identifier for an Employee in RQ | 
-| Quantity (`INT`) | Qty | 
-| TotalValue (`MONEY`) | Total Value - dollar value of the charge backs | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Commission | MONEY | Commission | `0` |
+| InvoicedByEmployee | VARCHAR (51) | Employee | `iQmetrix User` |
+| InvoicedByEmployeeID | INT | Internal identifier for an Employee in RQ | `1` |
+| Quantity | INT | Qty | `1` |
+| TotalValue | MONEY | Total Value - dollar value of the charge backs | `5` |
 
-## ChargeBackSummaryReportHardwareCollectionData
+### ChargeBackSummaryReportHardwareCollectionData
 
-| Name | Description |
-|:-----|:------------|
-| AssociationNumber (`SMALLINT`) | When adding products with PAW all associated products from the sale have the same association number tied together, this value increments based on how many sales are made on that order | 
-| CommissionRebate1 (`NVARCHAR(1000)`) | Commission Rebate 1 - name of the first commission rebate | 
-| CommissionRebate2 (`NVARCHAR(1000)`) | Commission Rebate 2 - name of the second commission rebate | 
-| CustomerID (`INT`) | Identifier for a customer in RQ | 
-| CustomerName (`VARCHAR(160)`) | Customer Name - name of the customer as entered on their profile | 
-| DateInvoiced (`DateTime`) | Tendered On - date tendered | 
-| EquipmentRebate (`NVARCHAR(1000)`) | Equipment Rebate - name of the equipment rebate | 
-| HardwareRebateGlobalProductID (`INT`) | Internal identifier for a product in RQ | 
-| HardwareRebateSKU (`VARCHAR(12)`) | Equipment Rebate SKU - SKU of the equipment rebate | 
-| InvoicedByEmployee (`VARCHAR(160)`) | Sales Person - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box | 
-| InvoicedByEmployeeID (`INT`) | Internal identifier for an employee in RQ | 
-| IsFullChargedBack1 (`VARCHAR(10)`) | Charged Back - yes if charged back | 
-| IsFullChargedBack2 (`VARCHAR(10)`) | Charged Back - yes if charged back | 
-| IsFullChargedBack3 (`VARCHAR(10)`) | Charged Back - yes if charged back | 
-| PhoneNumber (`VARCHAR(30)`) | Phone - Mobile number of the device | 
-| Price (`MONEY`) | Price - actual invoiced price | 
-| RatePlanRebate2GlobalProductID (`INT`) | Internal identifier in RQ | 
-| RatePlanRebate2SKU (`VARCHAR(12)`) | Commission Rebate 2 SKU - SKU of the second commission rebate | 
-| RatePlanRebateGlobalProductID (`INT`) | Internal identifier in RQ | 
-| RatePlanRebateSKU (`VARCHAR(12)`) | Commission Rebate SKU - SKU of the first commission rebate | 
-| RelatedProduct (`VARCHAR(100)`) | Related Product - product associated with this rebate | 
-| RelatedProductID (`INT`) | Internal identifier in RQ | 
-| SaleInvoiceID (`INT`) | Internal identifier in RQ | 
-| SaleInvoiceIDByStore (`VARCHAR(30)`) | Invoice # - original invoice number | 
-| SerialNumber (`VARCHAR(100)`) | Serial number | 
-| StoreID (`INT`) | Collection Date - date collected | 
-| StoreName (`VARCHAR(100)`) | Tendered At - location where tendered | 
-| VendorName (`NVARCHAR(MAX)`) | Name for a vendor in RQ | 
-| VendorSKU (`VARCHAR(25)`) | Vendor SKU | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| AssociationNumber | SMALLINT | When adding products with PAW all associated products from the sale have the same association number tied together, this value increments based on how many sales are made on that order | `7` |
+| CommissionRebate1 | NVARCHAR(1000) | Commission Rebate 1 - name of the first commission rebate | `SaslTel New Activation` |
+| CommissionRebate2 | NVARCHAR(1000) | Commission Rebate 2 - name of the second commission rebate |  |
+| CustomerID | INT | Identifier for a customer in RQ | `null` |
+| CustomerName | VARCHAR(160) | Customer Name - name of the customer as entered on their profile | `No Customer` |
+| DateInvoiced | DateTime | Tendered On - date tendered | `2016-05-20T06:47:10.543` |
+| EquipmentRebate | NVARCHAR(1000) | Equipment Rebate - name of the equipment rebate |  |
+| HardwareRebateGlobalProductID | INT | Internal identifier for a product in RQ | `1` |
+| HardwareRebateSKU | VARCHAR(12) | Equipment Rebate SKU - SKU of the equipment rebate | `CPCCRB000104` |
+| InvoicedByEmployee | VARCHAR(160) | Sales Person - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box | `iQmetrix User` |
+| InvoicedByEmployeeID | INT | Internal identifier for an employee in RQ | `1` |
+| IsFullChargedBack1 | VARCHAR(10) | Charged Back - yes if charged back |  |
+| IsFullChargedBack2 | VARCHAR(10) | Charged Back - yes if charged back |  |
+| IsFullChargedBack3 | VARCHAR(10) | Charged Back - yes if charged back |  |
+| PhoneNumber | VARCHAR(30) | Phone - Mobile number of the device |  |
+| Price | MONEY | Price - actual invoiced price | `99.99` |
+| RatePlanRebate2GlobalProductID | INT | Internal identifier in RQ | `2` |
+| RatePlanRebate2SKU | VARCHAR(12) | Commission Rebate 2 SKU - SKU of the second commission rebate |  |
+| RatePlanRebateGlobalProductID | INT | Internal identifier in RQ | `3` |
+| RatePlanRebateSKU | VARCHAR(12) | Commission Rebate SKU - SKU of the first commission rebate |  |
+| RelatedProduct | VARCHAR(100) | Related Product - product associated with this rebate |  |
+| RelatedProductID | INT | Internal identifier in RQ | `0` |
+| SaleInvoiceID | INT | Internal identifier in RQ | `423` |
+| SaleInvoiceIDByStore | VARCHAR(30) | Invoice # - original invoice number |  |
+| SerialNumber | VARCHAR(100) | Serial number |  |
+| StoreID | INT | Collection Date - date collected | `6679` |
+| StoreName | VARCHAR(100) | Tendered At - location where tendered | `100: My Network LLC - Anchorage` |
+| VendorName | NVARCHAR(MAX) | Name for a vendor in RQ |  |
+| VendorSKU | VARCHAR(25) | Vendor SKU |  |
 
-## PaymentIntegrationTransactionReportData
+### PaymentIntegrationTransactionReportData
 
-| Name | Description |
-|:-----|:------------|
-| InvoiceID (`INT`) | Unique identifier for the invoice in RQ | 
-| StoreInvoiceID (`VARCHAR(14)`) | Invoice identifier displayed to the user and on the printed invoice | 
-| CustomerName (`VARCHAR(101)`) | Customer name | 
-| EmployeeName (`VARCHAR(51)`) | Employee name | 
-| InvoiceTypeID (`INT`) | Identifier for the InvoiceType, see InvoiceType property | 
-| InvoiceType (`VARCHAR(15)`) | Name of the <a href='#invoicetype'>InvoiceType</a> | 
-| LocationEntityID (`INT`) | Identifier of the store as a {{Location}} in Entity Store | 
-| AuthType (`VARCHAR(4)`) | Indicates sale or refund | 
-| TransType (`VARCHAR(8)`) | What type of transaction this is (Credit/Debit) | 
-| CardTypeID (`INT`) | Identifier for the CardType. See CardType property | 
-| CardType (`VARCHAR(50)`) | Name of the {{CardType}}. See <a href='#getting-card-types'>Getting Card Types</a> for a list of possible values | 
-| Amount (`MONEY`) | Amount requested | 
-| EntryTypeID (`INT`) | Identifier for the EntryType, see EntryType property | 
-| EntryType (`VARCHAR(50)`) | Name of the {{EntryType}}. See <a href='#getting-entry-types'>Getting Entry Types</a> for a list of possible values | 
-| MerchantNumber (`VARCHAR(50)`) | The Merchant Number / ID used in payment credentials for this transaction | 
-| TerminalNumber (`VARCHAR(50)`) | The Terminal Number / ID used in payment credentials for this transaction | 
-| AuthDateUTC (`DateTime`) | Date of Transaction in UTC | 
-| AuthorizationNumber (`VARCHAR(10)`) | Authorization Number from Payment Processor | 
-| CardholderName (`VARCHAR(100)`) | Name of Cardholder | 
-| CardBin (`VARCHAR(6)`) | The payment cards Bank Identifiation Number (BIN) | 
-| LastFourDigits (`VARCHAR(4)`) | Last four digits of card | 
-| TransactionResult (`VARCHAR(110)`) | Indicated Approved or Declined | 
-| ReversedVoided (`INT`) | A flag to indicate if the transaction was reversed/voided (1) or not (0) | 
-| ReversedVoidedReason (`VARCHAR(150)`) | String explanation on why the original transaction was voided. Only appears on void transactions, not on the original sale transation | 
-| VoidedByEmployeeEntityID (`NVARCHAR(50)`) | Identifier for a {{User}} who voided this transaction | 
-| VoidedDate (`DateTime`) | Date Transaction was voided in UTC | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| InvoiceID | INT | Unique identifier for the invoice in RQ | `122337` |
+| StoreInvoiceID | VARCHAR(14) | Invoice identifier displayed to the user and on the printed invoice | `84WEAIN5981` |
+| CustomerName | VARCHAR(101) | Customer name | `Alice Kim` |
+| EmployeeName | VARCHAR(51) | Employee name | `Sam Smith` |
+| InvoiceTypeID | INT | Identifier for the InvoiceType, see InvoiceType property | `1` |
+| InvoiceType | VARCHAR(15) | Name of the <a href='#invoicetype'>InvoiceType</a> | `Invoice` |
+| LocationEntityID | INT | Identifier of the store as a <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a> in Entity Store | `14192` |
+| AuthType | VARCHAR(4) | Indicates sale or refund | `Sale` |
+| TransType | VARCHAR(8) | What type of transaction this is (Credit/Debit) | `Credit` |
+| CardTypeID | INT | Identifier for the CardType. See CardType property | `2` |
+| CardType | VARCHAR(50) | Name of the <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect-Finance-Reports/#cardtype'>CardType</a>. See <a href='#getting-card-types'>Getting Card Types</a> for a list of possible values | `Visa` |
+| Amount | MONEY | Amount requested | `4` |
+| EntryTypeID | INT | Identifier for the EntryType, see EntryType property | `2` |
+| EntryType | VARCHAR(50) | Name of the <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect-Finance-Reports/#entrytype'>EntryType</a>. See <a href='#getting-entry-types'>Getting Entry Types</a> for a list of possible values | `Swiped` |
+| MerchantNumber | VARCHAR(50) | The Merchant Number / ID used in payment credentials for this transaction | `1111` |
+| TerminalNumber | VARCHAR(50) | The Terminal Number / ID used in payment credentials for this transaction | `90572837` |
+| AuthDateUTC | DateTime | Date of Transaction in UTC | `2015-01-28T16:31:58.877` |
+| AuthorizationNumber | VARCHAR(10) | Authorization Number from Payment Processor | `ABS251` |
+| CardholderName | VARCHAR(100) | Name of Cardholder | `John Test` |
+| CardBin | VARCHAR(6) | The payment cards Bank Identifiation Number (BIN) | `545454` |
+| LastFourDigits | VARCHAR(4) | Last four digits of card | `5454` |
+| TransactionResult | VARCHAR(110) | Indicated Approved or Declined | `Approved` |
+| ReversedVoided | INT | A flag to indicate if the transaction was reversed/voided (1) or not (0) | `0` |
+| ReversedVoidedReason | VARCHAR(150) | String explanation on why the original transaction was voided. Only appears on void transactions, not on the original sale transation | `Auto Void from Incomplete Invoice` |
+| VoidedByEmployeeEntityID | NVARCHAR(50) | Identifier for a <a href='http://developers.iqmetrix.com/api/user-manager/#user'>User</a> who voided this transaction | `512` |
+| VoidedDate | DateTime | Date Transaction was voided in UTC | `2015-01-30T16:31:58.877` |
 
-## TaxDetailsReportData
+### TaxDetailsReportData
 
-| Name | Description |
-|:-----|:------------|
-| DateCreated (`DateTime`) | Invoice Date - date the invoice was tendered | 
-| SaleInvoiceID (`INT`) | Internal identifier for an Invoice in RQ | 
-| InvoiceIDByStore (`VARCHAR(14)`) | Invoice #- invoice number assigned by RQ | 
-| TenderedBy (`VARCHAR(51)`) | Invoiced By- name of the location which credited with the sale, usually the same as Invoiced At but will be different if a second location process a refund | 
-| TenderedAt (`NVARCHAR(MAX)`) | Invoiced At- name of the location which takes the inventory on a refund, usually the same as Invoiced By but will be different if a second location process a refund | 
-| CustomerName (`VARCHAR(151)`) | Customer Name - name of the customer as entered on their profile | 
-| Comments (`NVARCHAR(MAX)`) | Invoice Comments - any comments on the invoice | 
-| Invoiced (`MONEY`) | Total Invoiced - total dollar value of the invoice | 
-| Sales (`MONEY`) | Total Sales - total dollar value of the sales on the invoice, usually the same as Total Invoiced except in the case of gift card sales | 
-| Cost (`MONEY`) | Total Cost - total purchase cost for all product on the invoice | 
-| Profit (`MONEY`) | Total GP - gross profit for the invoice | 
-| Adjusted (`VARCHAR(32)`) | Adjusted - indicates if the invoice was adjusted | 
-| Taxable (`VARCHAR(32)`) | Taxable - indicates if this line is taxable | 
-| Refund (`VARCHAR(32)`) | Refund - indicates if this is a refund | 
-| VendorRebates (`MONEY`) | Total Vendor Rebates - total vendor rebate dollar amount | 
-| VendorRebatesTax (`MONEY`) | Tax On Vendor Rebates - dollar amount of tax on any vendor rebates | 
-| Coupons (`MONEY`) | Total Coupons - total dollar amount of coupons | 
-| CouponsTax (`MONEY`) | Tax On Coupons - total dollar amount of tax collected on coupons | 
-| YourPriceTaxableSales (`MONEY`) | Full Your Price Taxable Amount - total your price taxable amount (based on the price the product was sold for) | 
-| ListPriceTaxableSales (`MONEY`) | Full List Price Taxable Amount - total list price taxable amount (based on the original retail price rung up at the POS based on the inventory settings, prior to giving a discount) | 
-| GreaterOfTaxableSales (`MONEY`) | Full Greater of Your Price And Cost Taxable Amount - based on (greater of the price the product sold for, or the cost of the product) | 
-| FlatTaxableSales (`MONEY`) | Full Flat Taxable Amount - based on the price the product was sold for | 
-| NonTaxableSales (`MONEY`) | Tax Exempt Amount - total tax exempt amount | 
-| TaxCollected (`MONEY`) | Total Tax Paid Amount - total dollar amount of tax paid | 
-| TaxExemptReasonCode (`VARCHAR(1)`) |  | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| DateCreated | DateTime | Invoice Date - date the invoice was tendered | `2015-12-31T12:35:07.05` |
+| SaleInvoiceID | INT | Internal identifier for an Invoice in RQ | `166519` |
+| InvoiceIDByStore | VARCHAR(14) | Invoice #- invoice number assigned by RQ | `MIL44AH9` |
+| TenderedBy | VARCHAR(51) | Invoiced By- name of the location which credited with the sale, usually the same as Invoiced At but will be different if a second location process a refund | `John Test` |
+| TenderedAt | NVARCHAR(MAX) | Invoiced At- name of the location which takes the inventory on a refund, usually the same as Invoiced By but will be different if a second location process a refund | `Cornwall` |
+| CustomerName | VARCHAR(151) | Customer Name - name of the customer as entered on their profile | `Alice Smith` |
+| Comments | NVARCHAR(MAX) | Invoice Comments - any comments on the invoice | `Return` |
+| Invoiced | MONEY | Total Invoiced - total dollar value of the invoice | `-910.94` |
+| Sales | MONEY | Total Sales - total dollar value of the sales on the invoice, usually the same as Total Invoiced except in the case of gift card sales | `-910.94` |
+| Cost | MONEY | Total Cost - total purchase cost for all product on the invoice | `-405.67` |
+| Profit | MONEY | Total GP - gross profit for the invoice | `-505.27` |
+| Adjusted | VARCHAR(32) | Adjusted - indicates if the invoice was adjusted | `No` |
+| Taxable | VARCHAR(32) | Taxable - indicates if this line is taxable | `Yes` |
+| Refund | VARCHAR(32) | Refund - indicates if this is a refund | `Yes` |
+| VendorRebates | MONEY | Total Vendor Rebates - total vendor rebate dollar amount | `0` |
+| VendorRebatesTax | MONEY | Tax On Vendor Rebates - dollar amount of tax on any vendor rebates | `0` |
+| Coupons | MONEY | Total Coupons - total dollar amount of coupons | `0` |
+| CouponsTax | MONEY | Tax On Coupons - total dollar amount of tax collected on coupons | `0` |
+| YourPriceTaxableSales | MONEY | Full Your Price Taxable Amount - total your price taxable amount (based on the price the product was sold for) | `-910.94` |
+| ListPriceTaxableSales | MONEY | Full List Price Taxable Amount - total list price taxable amount (based on the original retail price rung up at the POS based on the inventory settings, prior to giving a discount) | `0` |
+| GreaterOfTaxableSales | MONEY | Full Greater of Your Price And Cost Taxable Amount - based on (greater of the price the product sold for, or the cost of the product) | `-69.94` |
+| FlatTaxableSales | MONEY | Full Flat Taxable Amount - based on the price the product was sold for | `0` |
+| NonTaxableSales | MONEY | Tax Exempt Amount - total tax exempt amount | `0` |
+| TaxCollected | MONEY | Total Tax Paid Amount - total dollar amount of tax paid | `-59.79` |
+| TaxExemptReasonCode | VARCHAR(1) |  |  |
 
-## EntryType
+### EntryType
 
-| Name | Description |
-|:-----|:------------|
-| EntryTypeID (`INT`) | Identifier | 
-| EntryTypeDescription (`VARCHAR(50)`) | Description | 
-| Message (`NVARCHAR(MAX)`) | Message | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| EntryTypeID | INT | Identifier | `1` |
+| EntryTypeDescription | VARCHAR(50) | Description | `Swiped` |
+| Message | NVARCHAR(MAX) | Message | `Swiped` |
 
-## CardType
+### CardType
 
-| Name | Description |
-|:-----|:------------|
-| CardTypeID (`INT`) | Identifier | 
-| FullName (`VARCHAR(50)`) | Full card name | 
-| Mnemonic (`VARCHAR(2)`) | Card abbreviation | 
-| AccountNumberLength (`INT`) | Length of account number | 
-| CvvLength (`INT`) | Length of CVV number on card | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CardTypeID | INT | Identifier | `2` |
+| FullName | VARCHAR(50) | Full card name | `Mastercard` |
+| Mnemonic | VARCHAR(2) | Card abbreviation | `MC` |
+| AccountNumberLength | INT | Length of account number | `16` |
+| CvvLength | INT | Length of CVV number on card | `3` |
 
 
 
@@ -261,12 +259,12 @@ Note that this report has multiple responses, depending on the ReportPart specif
 
 | Report Part | Response |
 |:------------|:---------|
-| 1 | {{ChargeBackSummaryReportLocationData}} |
-| 2 | {{ChargeBackSummaryReportCategoryData}} |
-| 3 | {{ChargeBackSummaryReportProductSummaryData}} |
-| 4 | {{ChargeBackSummaryReportProductDetailData}} |
-| 5 | {{ChargeBackSummaryReportEmployeeData}} |
-| 6 | {{ChargeBackSummaryReportHardwareCollectionData}} |
+| 1 | <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect-Finance-Reports/#chargebacksummaryreportlocationdata'>ChargeBackSummaryReportLocationData</a> |
+| 2 | <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect-Finance-Reports/#chargebacksummaryreportcategorydata'>ChargeBackSummaryReportCategoryData</a> |
+| 3 | <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect-Finance-Reports/#chargebacksummaryreportproductsummarydata'>ChargeBackSummaryReportProductSummaryData</a> |
+| 4 | <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect-Finance-Reports/#chargebacksummaryreportproductdetaildata'>ChargeBackSummaryReportProductDetailData</a> |
+| 5 | <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect-Finance-Reports/#chargebacksummaryreportemployeedata'>ChargeBackSummaryReportEmployeeData</a> |
+| 6 | <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect-Finance-Reports/#chargebacksummaryreporthardwarecollectiondata'>ChargeBackSummaryReportHardwareCollectionData</a> |
 
 
 <h4>Request</h4>
@@ -289,7 +287,7 @@ GET /reports/chargebacksummaryreport?SearchMethod={SearchMethod}&CategoryNumber=
     </li>
     
     <li>
-        <code>CategoryNumber</code> (<strong>Required</strong>)  - Identifier for a {{CategoryNumber}}. For a complete list see <a href="/api/RQ-Data-Connect/#getting-category-numbers">Getting Category Numbers</a>
+        <code>CategoryNumber</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#categorynumber'>CategoryNumber</a>. For a complete list see <a href="/api/RQ-Data-Connect/#getting-category-numbers">Getting Category Numbers</a>
     </li>
     
     <li>
@@ -325,11 +323,11 @@ GET /reports/chargebacksummaryreport?SearchMethod={SearchMethod}&CategoryNumber=
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>
@@ -592,7 +590,7 @@ GET /reports/paymentintegrationtransactionbydatereport?StartDate={StartDate}&Sto
     </li>
     
     <li>
-        <code>LocationEntityIDs</code> (Optional)  - Comma seperated list of identifiers for {{Locations}} in Entity Store. To determine the LocationEntityId for a store in RQ, see <a href='/api/RQ-Data-Connect/#getting-a-list-of-stores-in-rq'>Getting A List of Stores in RQ</a>
+        <code>LocationEntityIDs</code> (Optional)  - Comma seperated list of identifiers for <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Locations</a> in Entity Store. To determine the LocationEntityId for a store in RQ, see <a href='/api/RQ-Data-Connect/#getting-a-list-of-stores-in-rq'>Getting A List of Stores in RQ</a>
     </li>
     
     <li>
@@ -944,11 +942,11 @@ GET /reports/taxdetailsreport?StartDate={StartDate}&StopDate={StopDate}&ForWho={
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>

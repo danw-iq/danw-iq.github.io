@@ -4,7 +4,7 @@ permalink: /api/Billing-Reports/
 tags: []
 keywords: 
 audience: 
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary: 
 rouge: false
 noPopUp: true
@@ -19,8 +19,6 @@ noPopUp: true
 
 
 
-
-
 ## Endpoints
 
 * Sandbox: <a href="https://rqdataconnectdemo.iqmetrix.net/private/">https://rqdataconnectdemo.iqmetrix.net/private/</a>
@@ -28,102 +26,102 @@ noPopUp: true
 
 ## Resources
 
-## SaleInvoice
+### SaleInvoice
 
-| Name | Description |
-|:-----|:------------|
-| CustomerId (`INT`) | Identifier for a customer | 
-| InvoiceId (`INT`) | Identifier for this invoice | 
-| PaymentTypeId (`INT`) | Identifier for a Payment Type | 
-| AccountsReceivableId (`INT`) |  | 
-| AccountsReceivableName (`VARCHAR(14)`) |  | 
-| InvoiceName (`VARCHAR(14)`) | Invoice name | 
-| CustomerName (`VARCHAR(50)`) | Customer name | 
-| DatabaseName (`VARCHAR(25)`) | Database name | 
-| TotalAmount (`MONEY`) | Total amount | 
-| TotalPaid (`MONEY`) | Total paid | 
-| CreatedDate (`DateTime`) | Created date | 
-| OriginalId (`INT`) | Identifier of the original invoice | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CustomerId | INT | Identifier for a customer | `13699` |
+| InvoiceId | INT | Identifier for this invoice | `1` |
+| PaymentTypeId | INT | Identifier for a Payment Type | `3` |
+| AccountsReceivableId | INT |  | `68` |
+| AccountsReceivableName | VARCHAR(14) |  | `TTL10AR1` |
+| InvoiceName | VARCHAR(14) | Invoice name | `TARGEIN1` |
+| CustomerName | VARCHAR(50) | Customer name | `KENTEL corp` |
+| DatabaseName | VARCHAR(25) | Database name | `KENTE` |
+| TotalAmount | MONEY | Total amount | `38.14` |
+| TotalPaid | MONEY | Total paid | `50` |
+| CreatedDate | DateTime | Created date | `2010-07-03T11:07:19.59` |
+| OriginalId | INT | Identifier of the original invoice | `1` |
 
-## EnabledRecurringInvoiceData
+### EnabledRecurringInvoiceData
 
-| Name | Description |
-|:-----|:------------|
-| CustomerId (`INT`) | Identifier for a customer | 
-| AccountsReceivableId (`INT`) |  | 
-| AccountsReceivableName (`VARCHAR(14)`) |  | 
-| StartDate (`DateTime`) | Start date | 
-| StopDate (`DateTime`) | End date | 
-| RecurringInvoiceId (`INT`) | Identifier for the recurring invoice | 
-| RecurringInvoiceName (`VARCHAR(14)`) | Recurring invoice name | 
-| ProductId (`INT`) | Product Id | 
-| Quantity (`INT`) | Quantity | 
-| Price (`MONEY`) | Price | 
-| Sku (`VARCHAR(12)`) | SKU | 
-| Description (`NVARCHAR(MAX)`) | Description | 
-
-
-## SaleInvoicesByProductFilterData
-
-| Name | Description |
-|:-----|:------------|
-| CustomerId (`INT`) | Identifier for a customer | 
-| SaleInvoiceId (`INT`) | Identifier for the sale invoice | 
-| Quantity (`INT`) | Quantity | 
-| Price (`MONEY`) | Price | 
-| AccountsReceivableId (`INT`) |  | 
-| AccountsReceivableName (`VARCHAR(14)`) |  | 
-| Year (`INT`) | Year (full) | 
-| Month (`INT`) | Month as an integer | 
-| OriginalId (`INT`) | Original invoice id | 
-| RefundCodeId (`UNIQUEIDENTIFIER`) | Identifier for a refund code | 
-| SaleInvoiceName (`VARCHAR(14)`) | Sale invoice name | 
-| CustomerName (`VARCHAR(50)`) | Customer name | 
-| DatabaseName (`VARCHAR(25)`) | Database name | 
-
-## SummaryOfSaaSProductData
-
-| Name | Description |
-|:-----|:------------|
-| CustomerID (`INT`) | Identifier for a customer | 
-| LocationCount (`INT`) | Number of locations | 
-| WorkstationCount (`INT`) | Number of workstations | 
-| RqMobileCount (`INT`) | Number of RQ Mobile devices | 
-
-## InvoicesWithMatchingEpinIDData
-
-| Name | Description |
-|:-----|:------------|
-| InvoiceID (`VARCHAR(14)`) | Identifier for an invoice | 
-| ProductSKU (`VARCHAR(12)`) | Product SKU | 
-| SaleInvoiceID (`INT`) | Identifier for an invoice | 
-| Priority (`INT`) | Priority | 
-| PinTypeID (`INT`) | Identifier for a pin type | 
-| PinCode (`VARCHAR(30)`) | EPIN pin code | 
-| SerialNumber (`VARCHAR(100)`) | Serial number | 
-| Amount (`MONEY`) | Amount | 
-| CostToCustomer (`MONEY`) | Customer cost | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CustomerId | INT | Identifier for a customer | `124059` |
+| AccountsReceivableId | INT |  | `68` |
+| AccountsReceivableName | VARCHAR(14) |  | `TTL10AR1` |
+| StartDate | DateTime | Start date | `2014-12-16T00:00:00` |
+| StopDate | DateTime | End date |  |
+| RecurringInvoiceId | INT | Identifier for the recurring invoice | `8` |
+| RecurringInvoiceName | VARCHAR(14) | Recurring invoice name | `ML101RI1` |
+| ProductId | INT | Product Id | `5002` |
+| Quantity | INT | Quantity | `1` |
+| Price | MONEY | Price | `100` |
+| Sku | VARCHAR(12) | SKU | `ASBANS000070` |
+| Description | NVARCHAR(MAX) | Description | `NSP` |
 
 
-## InvoicesPaidToAccountData
+### SaleInvoicesByProductFilterData
 
-| Name | Description |
-|:-----|:------------|
-| CustomerId (`INT`) | Identifier for a customer | 
-| SaleInvoiceId (`INT`) |  | 
-| ProductId (`INT`) | Identifier for a product | 
-| Quantity (`INT`) | Quantity | 
-| Price (`MONEY`) | Price | 
-| Sku (`VARCHAR(12)`) | SKU | 
-| Description (`NVARCHAR(MAX)`) | Description | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CustomerId | INT | Identifier for a customer | `2922` |
+| SaleInvoiceId | INT | Identifier for the sale invoice | `2` |
+| Quantity | INT | Quantity | `1` |
+| Price | MONEY | Price | `49.99` |
+| AccountsReceivableId | INT |  | `5` |
+| AccountsReceivableName | VARCHAR(14) |  |  |
+| Year | INT | Year (full) | `2011` |
+| Month | INT | Month as an integer | `1` |
+| OriginalId | INT | Original invoice id | `0` |
+| RefundCodeId | UNIQUEIDENTIFIER | Identifier for a refund code | `159c193f-1904-deaa-2fed-a318b17f2b70` |
+| SaleInvoiceName | VARCHAR(14) | Sale invoice name | `84WEAIN1` |
+| CustomerName | VARCHAR(50) | Customer name | `KENTEL corp` |
+| DatabaseName | VARCHAR(25) | Database name | `KENTE` |
 
-## GlobalProduct
+### SummaryOfSaaSProductData
 
-| Name | Description |
-|:-----|:------------|
-| GlobalProductID (`INT`) | Identifier for a {{GlobalProduct}} | 
-| ProductIdentifier (`VARCHAR(12)`) | Product identifier | 
-| ProductName (`NVARCHAR(MAX)`) | Product name | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CustomerID | INT | Identifier for a customer | `85161` |
+| LocationCount | INT | Number of locations | `0` |
+| WorkstationCount | INT | Number of workstations | `0` |
+| RqMobileCount | INT | Number of RQ Mobile devices | `0` |
+
+### InvoicesWithMatchingEpinIDData
+
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| InvoiceID | VARCHAR(14) | Identifier for an invoice | `84WEAIN16524` |
+| ProductSKU | VARCHAR(12) | Product SKU | `INEPNS000001` |
+| SaleInvoiceID | INT | Identifier for an invoice | `130511` |
+| Priority | INT | Priority | `1` |
+| PinTypeID | INT | Identifier for a pin type | `21` |
+| PinCode | VARCHAR(30) | EPIN pin code | `9875564858978` |
+| SerialNumber | VARCHAR(100) | Serial number | `987465328` |
+| Amount | MONEY | Amount | `50` |
+| CostToCustomer | MONEY | Customer cost | `50` |
+
+
+### InvoicesPaidToAccountData
+
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CustomerId | INT | Identifier for a customer | `54514` |
+| SaleInvoiceId | INT |  | `1891` |
+| ProductId | INT | Identifier for a product | `1355` |
+| Quantity | INT | Quantity | `1` |
+| Price | MONEY | Price | `79.99` |
+| Sku | VARCHAR(12) | SKU | `ASMIRI000016` |
+| Description | NVARCHAR(MAX) | Description | `Blackberry Curve 3 Grey` |
+
+### GlobalProduct
+
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| GlobalProductID | INT | Identifier for a <a href='http://developers.iqmetrix.com/api/Billing-Reports/#globalproduct'>GlobalProduct</a> | `1` |
+| ProductIdentifier | VARCHAR(12) | Product identifier | `ASCLMO000001` |
+| ProductName | NVARCHAR(MAX) | Product name | `CLA Mot V262/265 Platinum_TestCLA` |
 
 
 
@@ -153,7 +151,7 @@ GET /billing/GetSaleInvoicesByIDS?CompanyID={CompanyID}&SaleInvoiceIds={SaleInvo
 <ul>
     
     <li>
-        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -444,7 +442,7 @@ GET /billing/GetTrafficCounts?CompanyID={CompanyID}&StartDate={StartDate}&StopDa
 <ul>
     
     <li>
-        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -695,7 +693,7 @@ GET /billing/GetInvoicesWithMatchingEpinIDS?CompanyID={CompanyID}&IDs={IDs}&Auth
 <ul>
     
     <li>
-        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -974,7 +972,7 @@ GET /billing/GetSummaryOfSaaSProducts?CompanyID={CompanyID}&StartDate={StartDate
 <ul>
     
     <li>
-        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -1253,7 +1251,7 @@ GET /billing/GetEnabledRecurringInvoices?CompanyID={CompanyID}&LanguageCode={Lan
 <ul>
     
     <li>
-        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -1552,7 +1550,7 @@ GET /billing/GetInvoicesWithUnpaidBalance?CompanyID={CompanyID}&StartDate={Start
 <ul>
     
     <li>
-        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -1807,7 +1805,7 @@ GET /billing/GetSaleInvoicesByProductFilter?CompanyID={CompanyID}&StartDate={Sta
 <ul>
     
     <li>
-        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -1819,7 +1817,7 @@ GET /billing/GetSaleInvoicesByProductFilter?CompanyID={CompanyID}&StartDate={Sta
     </li>
     
     <li>
-        <code>GlobalProductIds</code> (<strong>Required</strong>)  - Comma seperated list of identifiers for {{GlobalProducts}}
+        <code>GlobalProductIds</code> (<strong>Required</strong>)  - Comma seperated list of identifiers for <a href='http://developers.iqmetrix.com/api/Billing-Reports/#globalproduct'>GlobalProducts</a>
     </li>
     
     <li>
@@ -2110,7 +2108,7 @@ GET /billing/GetInvoicesPaidToAccount?CompanyID={CompanyID}&StartDate={StartDate
 <ul>
     
     <li>
-        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -2385,7 +2383,7 @@ GET /billing/GetARPaymentInvoice?CompanyID={CompanyID}&Auth={Auth}&Response={Res
 <ul>
     
     <li>
-        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -2636,7 +2634,7 @@ GET /billing/GetAllGlobalProducts?CompanyID={CompanyID}&Auth={Auth}&Response={Re
 <ul>
     
     <li>
-        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>

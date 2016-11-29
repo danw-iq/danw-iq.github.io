@@ -1,50 +1,45 @@
 ---
 title:  Supplier Availability
 permalink: /api/supplier-availability/
-
+tags: []
+keywords: 
+audience: 
+last_updated: 29-11-2016
+summary: 
 rouge: false
-
-language_tabs:
-  - javascript
-  - shell: cURL
-  - csharp: c#
-  - java
-  - ruby
-
-search: true
 ---
+
+<link rel="stylesheet" type="text/css" href="../../css/prism.css">
+
+<script src="../../js/prism.js"></script>
+
 
 {% include linkrefs.html %}
 
 
-
-
-# Overview
+## Overview
 
 Suppliers have the ability to configure availability of products.
 
 
-
-# Endpoints
+## Endpoints
 
 
 * Sandbox: <a href="https://dropshipdemo.iqmetrix.net/v1">https://dropshipdemo.iqmetrix.net/v1</a>
 * Production: <a href="https://dropship.iqmetrix.net/v1">https://dropship.iqmetrix.net/v1</a>
 
 
+## Resources
 
-# Resources
+### Availability
 
-
-## Availability
-
-| Name | Description |
-|:-----|:------------|
-| Id (`GUID`) | Unique identifier | 
-| Products (`Array[object]`) | Products for the Availability Feed | 
-| Products.IsAvailable (`Boolean`) | A flag to indicate if the Product is Available | 
-| Products.Sku (`String`) | Vendor SKU | 
-| Products.Quantity (`Integer`) | Product quantity | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Id | GUID | Unique identifier | `c2a97823-196b-4b3e-891a-ba01665797e4` |
+| Products | Array[object] | Products for the Availability Feed |  |
+| Products.IsAvailable | Boolean | A flag to indicate if the Product is Available | `true` |
+| Products.Sku | String | Vendor SKU | `9101AGAP6` |
+| Products.Quantity | Integer | Product quantity | `10` |
 
 
 
@@ -52,26 +47,57 @@ Suppliers have the ability to configure availability of products.
 
 
 
-# Requests
+## Requests
 
 
 
-## Configuring Product Availability
+<h3 id='configuring-product-availability' class='clickable-header top-level-header'>Configuring Product Availability</h3>
 
 
 
-> Definition
+<h4>Request</h4>
 
-```
+<pre>
 POST /Suppliers({SupplierId})/Availability
-```
-
-> Example Request
+</pre>
 
 
+<h4>Headers</h4>
+<ul><li><code>Authorization: Bearer (Access Token)</code> - See <a href='/api/authentication/#obtaining-an-access-token'>Obtaining an Access Token</a></li><li><code>Accept: application/json</code></li><li><code>Content-Type: application/json</code></li></ul>
 
-```shell
-curl -X POST "https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Availability" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+
+
+<h4>URI Parameters</h4>
+<ul>
+    
+    <li>
+        <code>SupplierId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/entity-store/#supplier'>Supplier</a>
+    </li>
+    </ul>
+
+
+
+<h4>Request Parameters</h4>
+
+<ul><li><code>Products</code> (<strong>Required</strong>) </li><ul><li><code>Sku</code> (<strong>Required</strong>) </li><li><code>IsAvailable</code> (Optional) </li><li><code>Quantity</code> (Optional) </li></ul></ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-configuring-product-availability" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-configuring-product-availability" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-configuring-product-availability" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-configuring-product-availability" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-configuring-product-availability" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-configuring-product-availability" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-configuring-product-availability"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-configuring-product-availability">
+<pre id="http-code-configuring-product-availability"><code class="language-http">POST /Suppliers(14107)/Availability
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code><code class="language-csharp">{
     "Products": [
         {
             "IsAvailable": true,
@@ -79,11 +105,38 @@ curl -X POST "https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Availability
             "Quantity": 10
         }
     ]
-}'
-```
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-configuring-product-availability">
+<pre id="curl-code-configuring-product-availability"><code class="language-http">curl -X POST "https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Availability" -H "Authorization: Bearer (Access Token)" -H "Accept: application/json" -H "Content-Type: application/json" -d '{
+    "Products": [
+        {
+            "IsAvailable": true,
+            "Sku": "9101AGAP6",
+            "Quantity": 10
+        }
+    ]
+}'</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-configuring-product-availability">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-configuring-product-availability"><code class="language-csharp">static IRestResponse ConfiguringProductAvailability()
+{
+    var client = new RestClient("https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Availability");
+    var request = new RestRequest(Method.POST);
+     
+    request.AddHeader("Authorization", "Bearer (Access Token)"); 
+    request.AddHeader("Accept", "application/json"); 
+    request.AddHeader("Content-Type", "application/json"); 
 
-<div class="language-java highlighter-rouge">
-<pre class="highlight"><code>import org.apache.http.entity.StringEntity;
+     request.AddParameter("application/json", "{\"Products\":[{\"IsAvailable\":true,\"Sku\":\"9101AGAP6\",\"Quantity\":10}]}", ParameterType.RequestBody);
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-configuring-product-availability">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-configuring-product-availability"><code class="language-java">import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -102,9 +155,10 @@ public static CloseableHttpResponse ConfiguringProductAvailability() throws IOEx
     
     return httpClient.execute(request);
 }</code></pre>
-</div>
-
-<pre class="highlight ruby"><code>require 'rest-client'
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-configuring-product-availability">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-configuring-product-availability"><code class="language-ruby">require 'rest-client'
 
 body = "{\"Products\":[{\"IsAvailable\":true,\"Sku\":\"9101AGAP6\",\"Quantity\":10}]}";
 
@@ -115,32 +169,19 @@ response = RestClient.post 'https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107
     } 
 
 puts response</code></pre>
+    </div>
+</div>
 
-
-#### URI Parameters
-<ul>
-    
-    <li>
-        <code>SupplierId</code> (<strong>Required</strong>)  - Identifier for the {{Supplier}}
-    </li>
-    </ul>
-
-
-
-#### Request Parameters
-
-<ul><li><code>Products</code> (<strong>Required</strong>) </li><ul><li><code>Sku</code> (<strong>Required</strong>) </li><li><code>IsAvailable</code> (Optional) </li><li><code>Quantity</code> (Optional) </li></ul></ul>
-
-<h4>Response Parameters</h4>
+<h4>Response</h4>
 
 
  <a href='#availability'>Availability</a>
 
-> Example Response
+<h5>Example</h5>
 
-<pre class="highlight json">
+<pre>
 HTTP 202 Content-Type: application/json
-</pre><pre class="highlight json">{
+</pre><pre>{
     "Id": "c2a97823-196b-4b3e-891a-ba01665797e4",
     "Products": [
         {
@@ -151,10 +192,9 @@ HTTP 202 Content-Type: application/json
     ]
 }</pre>
 
-# Errors
+<h2 id="errors" class="clickable-header top-level-header">Errors</h2>
 
 
 | Error Code | Message | How to Resolve |
 |:-----------|:--------|:---------------|
 | `HTTP 400` | `Cannot find supplier identifier in the uri` | Occurs when entering an incorrect SupplierId in the uri |
-

@@ -4,7 +4,7 @@ permalink: /api/Facebook-Offline-Conversions-Reports/
 tags: []
 keywords: 
 audience: 
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary: 
 rouge: false
 noPopUp: true
@@ -16,8 +16,6 @@ noPopUp: true
 
 
 {% include linkrefs.html %}
-
-
 
 
 ## Overview
@@ -37,32 +35,32 @@ This API supports many different methods of authentication, see {{Authentication
 
 ## Resources
 
-## Relationship
+### Relationship
 
-| Name | Description |
-|:-----|:------------|
-| CompanyID (`INTEGER`) | Identifier for a {{Company}} | 
-| CompanyName (`VARCHAR(50)`) | Company name | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CompanyID | INTEGER | Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a> | `14682` |
+| CompanyName | VARCHAR(50) | Company name | `KENTEL` |
 
-## MarketingReportData
+### MarketingReportData
 
-| Name | Description |
-|:-----|:------------|
-| Email (`VARCHAR(200)`) | Email | 
-| Phone (`VARCHAR(200)`) | Phone number | 
-| FirstName (`VARCHAR(50)`) | First name | 
-| LastName (`VARCHAR(50)`) | Last name | 
-| City (`VARCHAR(50)`) | City | 
-| Province (`VARCHAR(50)`) | Province/State | 
-| PostalCode (`VARCHAR(15)`) | Postal/Zip code | 
-| Country (`VARCHAR(50)`) | Country | 
-| Category (`NVARCHAR(MAX)`) | Category in RQ | 
-| ProductLibraryID (`VARCHAR(50)`) | Identifier for a {{Product}} in Product Library | 
-| UnitPrice (`MONEY`) | Unit price | 
-| ListPrice (`MONEY`) | List price | 
-| Quantity (`INT`) | Quantity | 
-| ProductLibraryName (`NVARCHAR(MAX)`) | Name of the Product in Product Library | 
-| ProductLibraryCanonicalName (`NVARCHAR(MAX)`) | Name of the Product's Classification in Product Library | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Email | VARCHAR(200) | Email | `johntest@kentel.com` |
+| Phone | VARCHAR(200) | Phone number | `5555555555` |
+| FirstName | VARCHAR(50) | First name | `John` |
+| LastName | VARCHAR(50) | Last name | `Test` |
+| City | VARCHAR(50) | City | `Regina` |
+| Province | VARCHAR(50) | Province/State | `SK` |
+| PostalCode | VARCHAR(15) | Postal/Zip code | `H0H0H0` |
+| Country | VARCHAR(50) | Country | `Canada` |
+| Category | NVARCHAR(MAX) | Category in RQ | `Activations,Smart Phones` |
+| ProductLibraryID | VARCHAR(50) | Identifier for a <a href='http://developers.iqmetrix.com/api/catalog/#product'>Product</a> in Product Library | `M5592-E12435` |
+| UnitPrice | MONEY | Unit price | `250` |
+| ListPrice | MONEY | List price | `299.99` |
+| Quantity | INT | Quantity | `1` |
+| ProductLibraryName | NVARCHAR(MAX) | Name of the Product in Product Library | `Galaxy Gear Watch - Black` |
+| ProductLibraryCanonicalName | NVARCHAR(MAX) | Name of the Product's Classification in Product Library | `Smartphones` |
 
 
 
@@ -327,7 +325,7 @@ GET /partner/FacebookOfflineConversions/MarketingReport?CompanyID={CompanyID}&St
 <ul>
     
     <li>
-        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyID</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>

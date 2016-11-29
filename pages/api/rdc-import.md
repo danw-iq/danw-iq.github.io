@@ -4,7 +4,7 @@ permalink: /api/RQ-Data-Connect-Import/
 tags: []
 keywords: 
 audience: 
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary: 
 rouge: false
 noPopUp: true
@@ -16,8 +16,6 @@ noPopUp: true
 
 
 {% include linkrefs.html %}
-
-
 
 
 ## Overview
@@ -49,16 +47,16 @@ For a complete list of reports in RQ Data Connect, see [Report List](/rq-data-co
 
 ## Resources
 
-## TrafficCount
+### TrafficCount
 
-| Name | Description |
-|:-----|:------------|
-| TrafficCountID (`INT`) | Identifier | 
-| StartDate (`DateTime`) | Start date | 
-| EndDate (`DateTime`) | End date | 
-| TrafficCount (`INT`) | Traffic count | 
-| StoreID (`INT`) | Identifier for a store in RQ | 
-| GLCode (`VARCHAR(100)`) | General Ledger code. For more information about G/L, {{support_GLAccountSetup}}. | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| TrafficCountID | INT | Identifier | `656` |
+| StartDate | DateTime | Start date | `2016-11-09T10:00:00` |
+| EndDate | DateTime | End date | `2016-11-09T11:00:00` |
+| TrafficCount | INT | Traffic count | `20` |
+| StoreID | INT | Identifier for a store in RQ | `1` |
+| GLCode | VARCHAR(100) | General Ledger code. For more information about G/L, {{support_GLAccountSetup}}. | `84WEA` |
 
 
 
@@ -106,7 +104,7 @@ GET /Import/TrafficCount?StoreID={StoreID}&StartDate={StartDate}&StopDate={StopD
     </li>
     
     <li>
-        <code>TrafficCountID</code> (Optional)  - Identifier for a {{TrafficCount}}. Provide this value to update a specific traffic count row in the database
+        <code>TrafficCountID</code> (Optional)  - Identifier for a <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect-Import/#trafficcount'>TrafficCount</a>. Provide this value to update a specific traffic count row in the database
     </li>
     
     <li>

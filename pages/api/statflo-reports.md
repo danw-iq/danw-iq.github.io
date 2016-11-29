@@ -4,7 +4,7 @@ permalink: /api/StatFlo-Reports/
 tags: []
 keywords: 
 audience: 
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary: 
 rouge: false
 noPopUp: true
@@ -16,8 +16,6 @@ noPopUp: true
 
 
 {% include linkrefs.html %}
-
-
 
 
 ## Overview
@@ -41,363 +39,363 @@ This API supports many different methods of authentication, see {{Authentication
 
 ## Resources
 
-## ActivationGrossProfitReportData
+### ActivationGrossProfitReportData
 
-| Name | Description |
-|:-----|:------------|
-| InvoiceDate (`DateTime`) | Date - date of the transaction | 
-| InvoiceID (`INT`) | Identifier for an invoice in RQ | 
-| InvoiceIDByStore (`VARCHAR(14)`) | Invoice # - invoice number of the transaction | 
-| StoreTypeName (`NVARCHAR(MAX)`) | Location Type - location type where the transaction was performed | 
-| LocationName (`NVARCHAR(MAX)`) | Location -  location where the transaction occurred | 
-| Profit (`MONEY`) | Profit - amount of profit made on the activation, includes the total profit for the parameters run | 
-| CustomerID (`INT`) | Identifier for the customer in RQ | 
-| CustomerName (`VARCHAR(151)`) | Customer - name of the customer on the invoice | 
-| PhoneDescription (`NVARCHAR(MAX)`) | Phone - phone used in the activation | 
-| PhoneNumber (`VARCHAR(30)`) | Phone # - phone number entered into the Phone Activation Wizard | 
-| TermDescription (`NVARCHAR(MAX)`) | Term - term selected with the activation | 
-| RatePlanDescription (`NVARCHAR(MAX)`) | Rate Plan - rate plan selected for the activation | 
-| VendorAccountName (`VARCHAR(100)`) | Vendor Account - vendor account used in the activation | 
-| EmployeeName (`VARCHAR(51)`) | Employee - sales person on the invoice | 
-| DistrictName (`NVARCHAR(MAX)`) | District - district the store is in | 
-| RegionName (`NVARCHAR(MAX)`) | Region - region the store is in | 
-| ChannelName (`NVARCHAR(MAX)`) | Channel - channel the store is in | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| InvoiceDate | DateTime | Date - date of the transaction | `2016-10-12T09:16:24.63` |
+| InvoiceID | INT | Identifier for an invoice in RQ | `129920` |
+| InvoiceIDByStore | VARCHAR(14) | Invoice # - invoice number of the transaction | `84WEAIN15624` |
+| StoreTypeName | NVARCHAR(MAX) | Location Type - location type where the transaction was performed | `Retail Store` |
+| LocationName | NVARCHAR(MAX) | Location -  location where the transaction occurred | `84 West` |
+| Profit | MONEY | Profit - amount of profit made on the activation, includes the total profit for the parameters run | `667.99` |
+| CustomerID | INT | Identifier for the customer in RQ | `108560` |
+| CustomerName | VARCHAR(151) | Customer - name of the customer on the invoice | `AAA AND ASSOCIATES` |
+| PhoneDescription | NVARCHAR(MAX) | Phone - phone used in the activation | `Apple iPhone 6 Plus 16GB White - AT&T` |
+| PhoneNumber | VARCHAR(30) | Phone # - phone number entered into the Phone Activation Wizard | `3065014785` |
+| TermDescription | NVARCHAR(MAX) | Term - term selected with the activation | `CRU 2 YR Business New Act` |
+| RatePlanDescription | NVARCHAR(MAX) | Rate Plan - rate plan selected for the activation | `2 YR CRU Business Legacy Plan $0.01 - $9.99` |
+| VendorAccountName | VARCHAR(100) | Vendor Account - vendor account used in the activation | `AT&T` |
+| EmployeeName | VARCHAR(51) | Employee - sales person on the invoice | `iQmetrix User` |
+| DistrictName | NVARCHAR(MAX) | District - district the store is in | `Valley Area District` |
+| RegionName | NVARCHAR(MAX) | Region - region the store is in | `Region A` |
+| ChannelName | NVARCHAR(MAX) | Channel - channel the store is in | `Regina Channel` |
 
-## CouponSummaryReportData
+### CouponSummaryReportData
 
-| Name | Description |
-|:-----|:------------|
-| Date (`DateTime`) | Date - every day in the date range selected | 
-| QuantityApplied (`INT`) | Qty Applied - total quantity of coupons applied for the day | 
-| QuantityRefunded (`INT`) | Qty Refunded - total quantity of coupons refunded for the day | 
-| NetQuantity (`INT`) | Net Qty - net quantity of coupons for the day calculated as Qty Applied - Qty Refunded | 
-| TotalValue (`MONEY`) | Total Value - net dollar value of all coupons for the day | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Date | DateTime | Date - every day in the date range selected | `2016-01-01T00:00:00` |
+| QuantityApplied | INT | Qty Applied - total quantity of coupons applied for the day | `1` |
+| QuantityRefunded | INT | Qty Refunded - total quantity of coupons refunded for the day | `1` |
+| NetQuantity | INT | Net Qty - net quantity of coupons for the day calculated as Qty Applied - Qty Refunded | `0` |
+| TotalValue | MONEY | Total Value - net dollar value of all coupons for the day | `-10` |
 
-## CustomerListReportData
+### CustomerListReportData
 
-| Name | Description |
-|:-----|:------------|
-| Address (`VARCHAR(50)`) | Address - first line of the address | 
-| Address2 (`VARCHAR(50)`) | Address 2 - second line of the address, if necessary | 
-| BillingAccountNumber (`NVARCHAR(MAX)`) | BAN -  if your company uses BAN you will enter it in the Customer profile and it will show here | 
-| City (`VARCHAR(50)`) | City - customer's city | 
-| ContactNumber (`VARCHAR(200)`) | Contact # - the number that is selected on the customer's profile, it can be any of the number options there | 
-| ContactTypeName (`NVARCHAR(MAX)`) | Contact Type - as defined in General Customer Setup and assigned in the Custom Fields section on the customer's profile | 
-| Country (`VARCHAR(50)`) | Country - customer's country | 
-| CustomerCompanyName (`VARCHAR(50)`) | Company Name - may be blank depending on the kind of customer | 
-| CustomerFirstName (`VARCHAR(50)`) | First Name - may be blank depending on the kind of customer | 
-| CustomerID (`INT`) | Identifier for a Customer in RQ | 
-| CustomerLastName (`VARCHAR(50)`) | Last Name - may be blank depending on the kind of customer | 
-| DateCreated (`DateTime`) | Created On - day and time the customer's profile was created | 
-| DeclineToProvideEmail (`BIT`) | Decline Email - the option for customers to decline email | 
-| Email (`VARCHAR(200)`) | Email - may be blank, if so, the context menu will not have the Email Customer option | 
-| EmployeeName (`VARCHAR(51)`) | Created By - employee who created the profile | 
-| EmployeeNameAssignedTo (`VARCHAR(51)`) | Assigned To - may be blank if the customer has not been assigned to an employee | 
-| IndustryTypeName (`NVARCHAR(MAX)`) | Industry Type - as defined in General Customer Setup and assigned in the Custom Fields section on the customer's profile | 
-| MultiLevelPriceID (`INT`) | Pricing Group - as defined in Multi-Level Pricing - Setup and assigned in the Discount Level field in the More Information section on the customer's profile | 
-| NumberOfActivations (`INT`) | # of Activations - number of Activations the customer has completed as recorded in RQ | 
-| PositionTypeName (`NVARCHAR(MAX)`) | Position Type - as defined in General Customer Setup and assigned in the Custom Fields section on the customer's profile | 
-| PostalCode (`VARCHAR(15)`) | Zip/Postal Code - zip code (USA) or postal code (Canada) | 
-| Province (`VARCHAR(50)`) | State/Province - customer's state or province | 
-| TracPointMemberNumber (`VARCHAR(30)`) | Member # - this number is automatically generated when a new customer is created | 
-| TypeOfCustomer (`INT`) | Type Of Customer - 0 for Company, or 3 for Individual | 
-| VIPCustomer (`TINYINT`) | VIP Customer - will be checked if this is a VIP Customer  | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Address | VARCHAR(50) | Address - first line of the address | `12 Hello St.` |
+| Address2 | VARCHAR(50) | Address 2 - second line of the address, if necessary | `n/a` |
+| BillingAccountNumber | NVARCHAR(MAX) | BAN -  if your company uses BAN you will enter it in the Customer profile and it will show here |  |
+| City | VARCHAR(50) | City - customer's city | `Fargo` |
+| ContactNumber | VARCHAR(200) | Contact # - the number that is selected on the customer's profile, it can be any of the number options there | `5555555555` |
+| ContactTypeName | NVARCHAR(MAX) | Contact Type - as defined in General Customer Setup and assigned in the Custom Fields section on the customer's profile |  |
+| Country | VARCHAR(50) | Country - customer's country | `United States` |
+| CustomerCompanyName | VARCHAR(50) | Company Name - may be blank depending on the kind of customer | `KENTEL` |
+| CustomerFirstName | VARCHAR(50) | First Name - may be blank depending on the kind of customer | `Carrie` |
+| CustomerID | INT | Identifier for a Customer in RQ | `2108754` |
+| CustomerLastName | VARCHAR(50) | Last Name - may be blank depending on the kind of customer | `Madison` |
+| DateCreated | DateTime | Created On - day and time the customer's profile was created | `2016-01-26T20:55:53.227` |
+| DeclineToProvideEmail | BIT | Decline Email - the option for customers to decline email | `false` |
+| Email | VARCHAR(200) | Email - may be blank, if so, the context menu will not have the Email Customer option | `carry@test.iq` |
+| EmployeeName | VARCHAR(51) | Created By - employee who created the profile | `iQmetrix Employee` |
+| EmployeeNameAssignedTo | VARCHAR(51) | Assigned To - may be blank if the customer has not been assigned to an employee | `iQmetrix Employee` |
+| IndustryTypeName | NVARCHAR(MAX) | Industry Type - as defined in General Customer Setup and assigned in the Custom Fields section on the customer's profile |  |
+| MultiLevelPriceID | INT | Pricing Group - as defined in Multi-Level Pricing - Setup and assigned in the Discount Level field in the More Information section on the customer's profile | `1` |
+| NumberOfActivations | INT | # of Activations - number of Activations the customer has completed as recorded in RQ | `0` |
+| PositionTypeName | NVARCHAR(MAX) | Position Type - as defined in General Customer Setup and assigned in the Custom Fields section on the customer's profile |  |
+| PostalCode | VARCHAR(15) | Zip/Postal Code - zip code (USA) or postal code (Canada) | `90123` |
+| Province | VARCHAR(50) | State/Province - customer's state or province | `ND` |
+| TracPointMemberNumber | VARCHAR(30) | Member # - this number is automatically generated when a new customer is created | `C2981754hduw` |
+| TypeOfCustomer | INT | Type Of Customer - 0 for Company, or 3 for Individual | `3` |
+| VIPCustomer | TINYINT | VIP Customer - will be checked if this is a VIP Customer  | `0` |
 
-## EmployeeMasterListReportData
+### EmployeeMasterListReportData
 
-| Name | Description |
-|:-----|:------------|
-| Assigned Groups (`NVARCHAR(MAX)`) | Assigned Groups - states the groups assigned to the employee | 
-| Assigned Locations (`NVARCHAR(MAX)`) | Assigned Locations - states the locations assigned to the individual | 
-| City (`VARCHAR(50)`) | City - city of the employee as entered on their profile | 
-| Clear Fingerprints (`VARCHAR(2)`) | Clear Fingerprints - this will allow you to clear fingerprints | 
-| Commission Group (`VARCHAR(50)`) | Commission Group - commission group of the employee as entered on their profile | 
-| Compensation Type (`VARCHAR(21)`) | Compensation Type - compensation type of the employee as entered on their profile | 
-| Country (`VARCHAR(50)`) | Country - country of the employee as entered on their profile | 
-| Disabled (`VARCHAR(3)`) | Disabled - indicates whether or not the employee is disabled | 
-| Email Address (`VARCHAR(50)`) | Email Address - email address of the employee as entered on their profile (in the Email Settings section) | 
-| Email Display Name (`VARCHAR(50)`) | Email Display Name - email display name of the employee as entered on their profile (in the Email Settings section) | 
-| Email Password (`VARCHAR(1)`) | Email Password - email password of the employee as entered on their profile (in the Email Settings section) | 
-| Email Server (`VARCHAR(50)`) | Email Server - email server of the employee as entered on their profile (in the Email Settings section) | 
-| Email User Name (`VARCHAR(50)`) | Email Username -email username of the employee as entered on their profile (in the Email Settings section) | 
-| Employee ID (`INT`) | Identifier for the employee in RQ | 
-| Employee Name (`VARCHAR(51)`) | Employee Name - name of the employee as entered on their profile | 
-| Fingerprint Enabled (`VARCHAR(3)`) | Fingerprint Entered - indicates if the employee has fingerprints entered | 
-| Frequency (`VARCHAR(12)`) | Frequency - compensation frequency of the employee as entered on their profile | 
-| FrequencyEffective (`NVARCHAR(4000)`) | Frequency Effective - the frequency effective date of the employee as entered on their profile | 
-| Gender (`VARCHAR(9)`) | Gender - gender of the employee as entered on their profile | 
-| ID # (`VARCHAR(25)`) | ID # - employees ID listed under the admin tab of the profile | 
-| Image Uploaded (`VARCHAR(3)`) | Image Uploaded - indicates if the employee has a profile picture uploaded | 
-| Internal (`VARCHAR(12)`) | Interval - compensation interval of the employee as entered on their profile | 
-| Intrgration Username (`VARCHAR(255)`) | Username | 
-| Job Title (`VARCHAR(50)`) | Job Title - job title of the employee as entered on their profile | 
-| Language (`VARCHAR(255)`) | Language - employees primary language | 
-| Locked (`VARCHAR(3)`) | Locked - employee is locked so they can not be accessed | 
-| Part Time (`INT`) | Part Time - indicates if the employee is part time | 
-| Personal Days Available (`INT`) | Personal Days Available - will state the personal days available | 
-| Personal Email (`VARCHAR(50)`) | Personal Email - personal email of the employee as entered on their profile | 
-| Primary Location (`NVARCHAR(MAX)`) | Primary Location - primary location of the employee as entered on their profile | 
-| Rate Effective (`NVARCHAR(4000)`) | Rate Effective - rate effective date of the employee as entered on their profile | 
-| Rate (`MONEY`) | Rate - compensation rate of the employee as entered on their profile | 
-| Role (`VARCHAR(1)`) | Role - role of the employee as entered on their profile | 
-| Security Role (`NVARCHAR(MAX)`) | Security Role - security role of the employee as entered on their profile | 
-| Sick Days Available (`INT`) | Sick Days Available - will state the sick days available | 
-| Start Date (`NVARCHAR(4000)`) | Start Date - the start date of the employee | 
-| State / Prov (`VARCHAR(50)`) | State/Prov - state or province of the employee as entered on their profile | 
-| Supervisor (`VARCHAR(51)`) | Supervisor - supervisor of the employee as entered on their profile | 
-| Termination Date (`NVARCHAR(4000)`) | Termination Date - states the termination date of the employee | 
-| Termination Notes (`VARCHAR(255)`) | Termination Notes - states the notes for the termination | 
-| Username (`VARCHAR(51)`) | Username - username of the employee as entered in their profile | 
-| Vacation Days Available (`INT`) | Vacation Days Available - will state the vacation days available | 
-| Work # (`VARCHAR(50)`) | Work # - work number of the employee as entered on their profile | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Assigned Groups | NVARCHAR(MAX) | Assigned Groups - states the groups assigned to the employee | `Sales Representative` |
+| Assigned Locations | NVARCHAR(MAX) | Assigned Locations - states the locations assigned to the individual | `84 West Target Dothan Wiregrass Commons Mall - Test Long Store Name Here` |
+| City | VARCHAR(50) | City - city of the employee as entered on their profile | `Dothan` |
+| Clear Fingerprints | VARCHAR(2) | Clear Fingerprints - this will allow you to clear fingerprints | `No` |
+| Commission Group | VARCHAR(50) | Commission Group - commission group of the employee as entered on their profile | `Sales Representative` |
+| Compensation Type | VARCHAR(21) | Compensation Type - compensation type of the employee as entered on their profile | `Commission` |
+| Country | VARCHAR(50) | Country - country of the employee as entered on their profile | `USA` |
+| Disabled | VARCHAR(3) | Disabled - indicates whether or not the employee is disabled | `No` |
+| Email Address | VARCHAR(50) | Email Address - email address of the employee as entered on their profile (in the Email Settings section) | `hilary@kentel.com` |
+| Email Display Name | VARCHAR(50) | Email Display Name - email display name of the employee as entered on their profile (in the Email Settings section) | `hilary@kentel.com` |
+| Email Password | VARCHAR(1) | Email Password - email password of the employee as entered on their profile (in the Email Settings section) | `test` |
+| Email Server | VARCHAR(50) | Email Server - email server of the employee as entered on their profile (in the Email Settings section) | `outlook.kentel.com` |
+| Email User Name | VARCHAR(50) | Email Username -email username of the employee as entered on their profile (in the Email Settings section) | `hilary` |
+| Employee ID | INT | Identifier for the employee in RQ | `60` |
+| Employee Name | VARCHAR(51) | Employee Name - name of the employee as entered on their profile | `Hillary Oliver` |
+| Fingerprint Enabled | VARCHAR(3) | Fingerprint Entered - indicates if the employee has fingerprints entered | `No` |
+| Frequency | VARCHAR(12) | Frequency - compensation frequency of the employee as entered on their profile | `N/A` |
+| FrequencyEffective | NVARCHAR(4000) | Frequency Effective - the frequency effective date of the employee as entered on their profile | `Jan 10 2011` |
+| Gender | VARCHAR(9) | Gender - gender of the employee as entered on their profile | `Male` |
+| ID # | VARCHAR(25) | ID # - employees ID listed under the admin tab of the profile | `912345987654321` |
+| Image Uploaded | VARCHAR(3) | Image Uploaded - indicates if the employee has a profile picture uploaded | `No` |
+| Internal | VARCHAR(12) | Interval - compensation interval of the employee as entered on their profile | `N/A` |
+| Intrgration Username | VARCHAR(255) | Username | `hilary.kentel` |
+| Job Title | VARCHAR(50) | Job Title - job title of the employee as entered on their profile | `Wireless Consultant` |
+| Language | VARCHAR(255) | Language - employees primary language | `en-us` |
+| Locked | VARCHAR(3) | Locked - employee is locked so they can not be accessed | `No` |
+| Part Time | INT | Part Time - indicates if the employee is part time | `0` |
+| Personal Days Available | INT | Personal Days Available - will state the personal days available | `0` |
+| Personal Email | VARCHAR(50) | Personal Email - personal email of the employee as entered on their profile | `hilary@kentel.com` |
+| Primary Location | NVARCHAR(MAX) | Primary Location - primary location of the employee as entered on their profile | `Corporate Office` |
+| Rate Effective | NVARCHAR(4000) | Rate Effective - rate effective date of the employee as entered on their profile | `Jan 10 2011` |
+| Rate | MONEY | Rate - compensation rate of the employee as entered on their profile | `0` |
+| Role | VARCHAR(1) | Role - role of the employee as entered on their profile | `Store Manager` |
+| Security Role | NVARCHAR(MAX) | Security Role - security role of the employee as entered on their profile | `Sales Representative` |
+| Sick Days Available | INT | Sick Days Available - will state the sick days available | `0` |
+| Start Date | NVARCHAR(4000) | Start Date - the start date of the employee | `Dec 05 2010` |
+| State / Prov | VARCHAR(50) | State/Prov - state or province of the employee as entered on their profile | `AL` |
+| Supervisor | VARCHAR(51) | Supervisor - supervisor of the employee as entered on their profile | `Robyn Roberts` |
+| Termination Date | NVARCHAR(4000) | Termination Date - states the termination date of the employee | `Today` |
+| Termination Notes | VARCHAR(255) | Termination Notes - states the notes for the termination | `Vacation days to be paid` |
+| Username | VARCHAR(51) | Username - username of the employee as entered in their profile | `Hillary.Oliver` |
+| Vacation Days Available | INT | Vacation Days Available - will state the vacation days available | `0` |
+| Work # | VARCHAR(50) | Work # - work number of the employee as entered on their profile | `3347020770` |
 
-## GraphedPerformanceMetrixReportData
+### GraphedPerformanceMetrixReportData
 
-| Name | Description |
-|:-----|:------------|
-| ID (`INT`) | Identifier for a performance metrix group in RQ | 
-| Name (`NVARCHAR(MAX)`) | Name of a performance metrix group in RQ | 
-| AttachmentRate (`VARCHAR(23)`) | Comparison of Performance Groups for the Attachment Rate displayed as a ratio | 
-| AttachmentRateTarget (`VARCHAR(23)`) | Attachment rate target | 
-| DisplayFormat (`INT`) | 1: Ratio Format, 2: Percentage Format | 
-| IsAttachmentRate (`BIT`) | A flag to indicate if performance group is an attachment rate | 
-| Margin (`MONEY`) | Margin on sales in this performance group | 
-| MarginTarget (`MONEY`) | Margin target | 
-| Priority (`INT`) | Priority | 
-| Profit (`MONEY`) | Net profit amount of sales in this performance group | 
-| ProfitTarget (`MONEY`) | Profit target | 
-| Quantity (`INT`) | Net count of SKUs sold in this performance group | 
-| QuantityTarget (`INT`) | Quantity target | 
-| Sales (`MONEY`) | Net dollar amount of sales in this performance group | 
-| SalesTarget (`MONEY`) | Sales target | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ID | INT | Identifier for a performance metrix group in RQ | `6` |
+| Name | NVARCHAR(MAX) | Name of a performance metrix group in RQ | `51247 Test_update` |
+| AttachmentRate | VARCHAR(23) | Comparison of Performance Groups for the Attachment Rate displayed as a ratio | `1249 : 2` |
+| AttachmentRateTarget | VARCHAR(23) | Attachment rate target | `0 : 0` |
+| DisplayFormat | INT | 1: Ratio Format, 2: Percentage Format | `2` |
+| IsAttachmentRate | BIT | A flag to indicate if performance group is an attachment rate | `true` |
+| Margin | MONEY | Margin on sales in this performance group | `null` |
+| MarginTarget | MONEY | Margin target | `null` |
+| Priority | INT | Priority | `-1` |
+| Profit | MONEY | Net profit amount of sales in this performance group | `null` |
+| ProfitTarget | MONEY | Profit target | `null` |
+| Quantity | INT | Net count of SKUs sold in this performance group | `null` |
+| QuantityTarget | INT | Quantity target | `null` |
+| Sales | MONEY | Net dollar amount of sales in this performance group | `null` |
+| SalesTarget | MONEY | Sales target | `null` |
 
-## GraphedPerformanceMetrixBreakdownReportData
+### GraphedPerformanceMetrixBreakdownReportData
 
-| Name | Description |
-|:-----|:------------|
-| ID (`INT`) | Internal idenfier in RQ | 
-| Name (`NVARCHAR(MAX)`) | Name of company, region, division, location or employee depending on ByWho URL parameter | 
-| GroupInvoiceCount (`INT`) | This number represents the size of the section of pie graph | 
-| IsAttachmentRate (`BIT`) | A flag to indicate if performance group is an attachment rate | 
-| Margin (`MONEY`) | Margin | 
-| MarginTarget (`DECIMAL`) | Margin target | 
-| Profit (`MONEY`) | Profit | 
-| ProfitTarget (`MONEY`) | Profit target | 
-| Quantity (`INT`) | Quantity | 
-| QuantityTarget (`INT`) | Quantity target | 
-| Sales (`MONEY`) | Total sales | 
-| SalesTarget (`MONEY`) | Sales target | 
-| TotalInvoiceCount (`INT`) | This number represents the total size of the graph  | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ID | INT | Internal idenfier in RQ | `1` |
+| Name | NVARCHAR(MAX) | Name of company, region, division, location or employee depending on ByWho URL parameter | `84 West` |
+| GroupInvoiceCount | INT | This number represents the size of the section of pie graph | `839` |
+| IsAttachmentRate | BIT | A flag to indicate if performance group is an attachment rate | `false` |
+| Margin | MONEY | Margin | `-1691.5747` |
+| MarginTarget | DECIMAL | Margin target | `0` |
+| Profit | MONEY | Profit | `-45860859.08` |
+| ProfitTarget | MONEY | Profit target | `0` |
+| Quantity | INT | Quantity | `530` |
+| QuantityTarget | INT | Quantity target | `0` |
+| Sales | MONEY | Total sales | `27111.34` |
+| SalesTarget | MONEY | Sales target | `0` |
+| TotalInvoiceCount | INT | This number represents the total size of the graph  | `2772` |
 
-## LocationMasterListReportData
+### LocationMasterListReportData
 
-| Name | Description |
-|:-----|:------------|
-| Abbreviation (`VARCHAR(5)`) | Abbreviation - this cannot be edited | 
-| Address (`NVARCHAR(MAX)`) | Address - address assigned to location | 
-| AddressVerified (`VARCHAR(12)`) | Address Verified - if the address can not be verified then you will have the option to edit the Latitude and Longitude to verify it | 
-| AdjustDST (`BIT`) | Adjust DST - check if the location adjusts for daylight savings | 
-| BankDetails (`NVARCHAR(MAX)`) | Bank Details - the Banks name for the location | 
-| CashPolicy (`VARCHAR(13)`) | Cash Policy - states the cash policy (single/multi-drawer) | 
-| ChannelName (`NVARCHAR(MAX)`) | Channel - channel the region is assigned to | 
-| City (`VARCHAR(50)`) | City - city the location resides in | 
-| Comment_on_OE (`BIT`) | Comment on OE - show product and location comments on sales order | 
-| Country (`VARCHAR(50)`) | Country - country the location is located in | 
-| DepositTaken (`MONEY`) | Deposit Taken - lists the deposit if applicable | 
-| Disabled (`INT`) | Disable - indicates if the location is enabled or disabled | 
-| DistrictName (`NVARCHAR(MAX)`) | District - district the location is assigned to | 
-| EmailAddress (`VARCHAR(255)`) | Email Address - email address assigned to the location | 
-| FaxNumber (`VARCHAR(10)`) | Fax # - Fax # listed under the location | 
-| GeneralLocationNotes (`VARCHAR(255)`) | General Location Notes - notes specific to the location | 
-| GLCode (`VARCHAR(100)`) | Code - coded associated to the location | 
-| HideCustomerAddress (`BIT`) | Hide Customer Address - prevents the customers address from being seen on an invoice | 
-| InsuranceAmount (`MONEY`) | Insurance - cost of Insurance | 
-| InsuranceCompany (`NVARCHAR(MAX)`) | Insurance Company - name of the insurance company | 
-| LandlordName (`NVARCHAR(MAX)`) | Landlord Name - name of the landlord | 
-| LandlordNotes (`NVARCHAR(MAX)`) | Landlord Notes - notes specific to the landlord | 
-| Latitude (`DECIMAL`) | Latitude - latitude location of the store | 
-| LeaseEndDate (`DateTime`) | Lease End Date - the day the lease ends | 
-| LeaseNotes (`NVARCHAR(MAX)`) | Lease Notes - notes specific to the lease | 
-| LeaseStartDate (`DateTime`) | Lease Start Date - day the lease started | 
-| LocationCode (`VARCHAR(100)`) | Location Code - code entered in the property details tab in the Location Setup | 
-| LocationEntityID (`INT`) | Identifier of the store as a {{Location}} in Entity Store | 
-| Longitude (`DECIMAL`) | Longitude - longitude location of the store | 
-| ManagerCommissionable (`BIT`) | Manager Commissionable - indicates if the manager is commissionable. | 
-| ManagerEmployeeID (`INT`) | Manager - manager assigned to the location | 
-| MaxCashDrawer (`MONEY`) | Max Cash Drawer - maximum amount of cash allowed in a cash drawer | 
-| OtherCharges (`MONEY`) | Other Charges - other charges associated to the location | 
-| PAW_on_OE (`BIT`) | PAW on OE - launch PAW on sales orders | 
-| Phone_on_OE (`BIT`) | Force phone number for entry on sales orders | 
-| PhoneNumber (`VARCHAR(10)`) | Phone # - designated number for the location | 
-| PropertyTaxes (`MONEY`) | Property Taxes - applicable property taxes | 
-| RegionName (`NVARCHAR(MAX)`) | Region - region the district is assigned to | 
-| RelocationDate (`DateTime`) | Relocation Date - lists the date of the relocation if applicable | 
-| Rent (`MONEY`) | Rent - rent amount for the location | 
-| SaleInvoiceComment (`NVARCHAR(MAX)`) | Sale Invoice Comment - locations sales invoice comment | 
-| Serial_on_OE (`BIT`) | Serial # on OE - force serial # for entry on sales orders | 
-| SquareFootage (`INT`) | Square Feet - approx square feet of the store | 
-| StaffLevel (`DECIMAL`) | Staff Level - designated staffing level for the location | 
-| StateProv (`NVARCHAR(3)`) | State/Prov - state or province the location is located in | 
-| StoreID (`INT`) | Internal identifier for the store in RQ | 
-| StoreName (`NVARCHAR(MAX)`) | Store Name - name of the store | 
-| StoreType (`NVARCHAR(MAX)`) | Store Type - will state the store type | 
-| Taxes (`NVARCHAR(MAX)`) | Taxes - taxes assigned to the location | 
-| TimeZone (`VARCHAR(200)`) | Time Zone - time zone assigned to location | 
-| UseLocationEmail (`BIT`) | Use Location for Email - use the location for the email contact | 
-| ZipPostal (`VARCHAR(15)`) | Zip/Postal - zip/postal for the location | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Abbreviation | VARCHAR(5) | Abbreviation - this cannot be edited | `LIT22` |
+| Address | NVARCHAR(MAX) | Address - address assigned to location | `4970 Hillside Avenue` |
+| AddressVerified | VARCHAR(12) | Address Verified - if the address can not be verified then you will have the option to edit the Latitude and Longitude to verify it | `Not Verified` |
+| AdjustDST | BIT | Adjust DST - check if the location adjusts for daylight savings | `false` |
+| BankDetails | NVARCHAR(MAX) | Bank Details - the Banks name for the location | `CashSmart` |
+| CashPolicy | VARCHAR(13) | Cash Policy - states the cash policy (single/multi-drawer) | `Single-Drawer` |
+| ChannelName | NVARCHAR(MAX) | Channel - channel the region is assigned to | `Alabama` |
+| City | VARCHAR(50) | City - city the location resides in | `Kansas` |
+| Comment_on_OE | BIT | Comment on OE - show product and location comments on sales order | `false` |
+| Country | VARCHAR(50) | Country - country the location is located in | `United States` |
+| DepositTaken | MONEY | Deposit Taken - lists the deposit if applicable | `0` |
+| Disabled | INT | Disable - indicates if the location is enabled or disabled | `1` |
+| DistrictName | NVARCHAR(MAX) | District - district the location is assigned to | `Smithton` |
+| EmailAddress | VARCHAR(255) | Email Address - email address assigned to the location | `abarea@kentel.com` |
+| FaxNumber | VARCHAR(10) | Fax # - Fax # listed under the location | `5555555555` |
+| GeneralLocationNotes | VARCHAR(255) | General Location Notes - notes specific to the location | `note` |
+| GLCode | VARCHAR(100) | Code - coded associated to the location | `-MILLH` |
+| HideCustomerAddress | BIT | Hide Customer Address - prevents the customers address from being seen on an invoice | `false` |
+| InsuranceAmount | MONEY | Insurance - cost of Insurance | `0` |
+| InsuranceCompany | NVARCHAR(MAX) | Insurance Company - name of the insurance company | `Safefair` |
+| LandlordName | NVARCHAR(MAX) | Landlord Name - name of the landlord | `Jim Jones` |
+| LandlordNotes | NVARCHAR(MAX) | Landlord Notes - notes specific to the landlord | `sample note` |
+| Latitude | DECIMAL | Latitude - latitude location of the store | `50.443559` |
+| LeaseEndDate | DateTime | Lease End Date - the day the lease ends | `2014-12-24T00:00:00` |
+| LeaseNotes | NVARCHAR(MAX) | Lease Notes - notes specific to the lease | `note` |
+| LeaseStartDate | DateTime | Lease Start Date - day the lease started | `2014-11-26T00:00:00` |
+| LocationCode | VARCHAR(100) | Location Code - code entered in the property details tab in the Location Setup | `500` |
+| LocationEntityID | INT | Identifier of the store as a <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a> in Entity Store | `48540` |
+| Longitude | DECIMAL | Longitude - longitude location of the store | `-104.612034` |
+| ManagerCommissionable | BIT | Manager Commissionable - indicates if the manager is commissionable. | `false` |
+| ManagerEmployeeID | INT | Manager - manager assigned to the location | `233` |
+| MaxCashDrawer | MONEY | Max Cash Drawer - maximum amount of cash allowed in a cash drawer | `0` |
+| OtherCharges | MONEY | Other Charges - other charges associated to the location | `0` |
+| PAW_on_OE | BIT | PAW on OE - launch PAW on sales orders | `false` |
+| Phone_on_OE | BIT | Force phone number for entry on sales orders | `true` |
+| PhoneNumber | VARCHAR(10) | Phone # - designated number for the location | `4353424234` |
+| PropertyTaxes | MONEY | Property Taxes - applicable property taxes | `0` |
+| RegionName | NVARCHAR(MAX) | Region - region the district is assigned to | `Abarea` |
+| RelocationDate | DateTime | Relocation Date - lists the date of the relocation if applicable | `2016-02-26T00:00:00` |
+| Rent | MONEY | Rent - rent amount for the location | `0` |
+| SaleInvoiceComment | NVARCHAR(MAX) | Sale Invoice Comment - locations sales invoice comment | `Sale Invoice Comments` |
+| Serial_on_OE | BIT | Serial # on OE - force serial # for entry on sales orders | `false` |
+| SquareFootage | INT | Square Feet - approx square feet of the store | `0` |
+| StaffLevel | DECIMAL | Staff Level - designated staffing level for the location | `12` |
+| StateProv | NVARCHAR(3) | State/Prov - state or province the location is located in | `AL` |
+| StoreID | INT | Internal identifier for the store in RQ | `1187` |
+| StoreName | NVARCHAR(MAX) | Store Name - name of the store | `Dufferin Mall` |
+| StoreType | NVARCHAR(MAX) | Store Type - will state the store type | `Retail Store` |
+| Taxes | NVARCHAR(MAX) | Taxes - taxes assigned to the location | `GOODS AND SERVICES TAX (GST)` |
+| TimeZone | VARCHAR(200) | Time Zone - time zone assigned to location | `(GMT-06:00) Saskatchewan` |
+| UseLocationEmail | BIT | Use Location for Email - use the location for the email contact | `false` |
+| ZipPostal | VARCHAR(15) | Zip/Postal - zip/postal for the location | `90210` |
 
-## ProductDetailReportData
+### ProductDetailReportData
 
-| Name | Description |
-|:-----|:------------|
-| Activation_RowID (`UNIQUEIDENTIFIER`) | Internal identifier in RQ | 
-| AdjustedUnitPrice (`MONEY`) | Adjusted Unit Price - price that the product was actually sold for | 
-| BillingAccountNumber (`NVARCHAR(MAX)`) | BAN -  if your company uses BAN you will enter it in the Customer profile and it will show here | 
-| CarrierPrice (`MONEY`) | Carrier Price - value or revenue that a carrier assigns this feature | 
-| CategoryPath (`NVARCHAR(MAX)`) | Category - the category the product belongs to | 
-| ChannelName (`NVARCHAR(MAX)`) | Channel - channel for the rows location | 
-| Comments (`TEXT`) | Invoice Comments - comments added to the invoice | 
-| ContractNumber (`VARCHAR (50)`) | Contract # - number of the contract, recorded at the time of sale | 
-| CustomerID (`INT`) | Internal identifier for a customer in RQ | 
-| CustomerName (`VARCHAR (101)`) | Customer - name of the customer as entered on their profile | 
-| DateCreated (`DateTime`) | Sold On - date and time the invoice was tendered | 
-| DistrictName (`NVARCHAR(MAX)`) | District - district for the rows location | 
-| EmployeeName (`VARCHAR (51)`) | Sold By - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box | 
-| EmployeeID (`INT`) | Internal identifier for an employee in RQ | 
-| GlobalProductID (`INT`) | Internal identifier in RQ | 
-| InvoicedAt (`NVARCHAR(MAX)`) | Invoiced At - name of the location which takes the inventory on a refund, usually the same as Invoiced By but will be different if a second location process a refund | 
-| InvoicedAt_StoreID (`INT`) | Internal identifier for a store in RQ | 
-| InvoicedBy (`NVARCHAR(MAX)`) | Invoiced By - name of the location which credited with the sale, usually the same as Invoiced At but will be different if a second location process a refund | 
-| InvoicedBy_StoreID (`INT`) | Internal identifier for a store in RQ | 
-| InvoiceIDByStore (`VARCHAR (14)`) | Invoice # - invoice number assigned by RQ | 
-| IsOrderServiceDropShipProduct (`BIT`) | Internal identifier in RQ | 
-| IsOrderServiceShippingProduct (`BIT`) | Internal identifier in RQ | 
-| ListPrice (`MONEY`) | List Price - current price as noted on the pricing tab in the inventory console for the product | 
-| OriginalUnitPrice (`MONEY`) | Orig. Unit Price - original price on the invoice | 
-| Priority (`INT`) | The order that the products were saved in on an Invoice | 
-| ProductCouponDiscount (`MONEY`) | Coupon discount on the product | 
-| ProductIdentifier (`VARCHAR(12)`) | Product SKU - the RQ generated SKU | 
-| ProductName (`NVARCHAR(MAX)`) | Product Name - name of the product as it appears in the inventory | 
-| Quantity (`INT`) | Qty - total number of times the Product SKU appears on the invoice | 
-| Refund (`BIT`) | Refund - indicates if a negative quantity of this item was sold | 
-| RegionName (`NVARCHAR(MAX)`) | Region - region for the rows location | 
-| RetailerCatalogID (`VARCHAR (50)`) | Internal identifier in RQ | 
-| SaleInvoice_RowID (`UNIQUEIDENTIFIER`) | Internal identifier in RQ | 
-| SaleInvoiceID (`INT`) | Identifier for an invoice in RQ | 
-| SaleInvoiceProduct_RowID (`UNIQUEIDENTIFIER`) | Internal identifier in RQ | 
-| SerialNumber (`VARCHAR (100)`) | Tracking # - tracking number associated with this product, serialized products only | 
-| SoldAsUsed (`BIT`) | Sold As Used - indicates the product was used when sold | 
-| SpecialProductID (`INT`) | Internal identifier in RQ | 
-| StoreInStoreFlowIsEnabledForStore (`BIT`) | Internal identifier in RQ | 
-| StoreInStoreGrossProfit (`MONEY`) | SIS Gross Profit - profit, calculated as Total Sales - Cost for a SIS location. | 
-| StoreInStoreListPrice (`MONEY`) | SIS List Price - Price from the store-in-store setup of the product | 
-| StoreInStorePrice (`MONEY`) | SIS Price - The default price when sold through the store-in-store flow | 
-| StoreTypeName (`NVARCHAR(MAX)`) | Location Type - the location type the the transaction was performed at | 
-| TenderedBy (`VARCHAR (51)`) | Tendered By - name of the employee logged into RQ when the invoice was tendered | 
-| TenderedBy_EmployeeID (`INT`) | Internal identifier for an employee in RQ | 
-| TotalCost (`MONEY`) | Total Cost - total purchase cost for the product(s) on the invoice | 
-| TotalDiscount (`DECIMAL (8, 4)`) | Total Discount - net discount amount for the Product SKU on the particular invoice | 
-| TotalPrice (`MONEY`) | Total Sales - net dollar amount for the Product SKU on the particular invoice | 
-| UnitCost (`MONEY`) | Unit Cost - purchase cost per unit | 
-| UnitPrice (`MONEY`) | Sold For - price that appeared on the invoice (including hide on invoice items), i.e. negative if a refund | 
-| VendorName (`NVARCHAR(MAX)`) | Name for a vendor in RQ | 
-| VendorSKU (`VARCHAR(25)`) | Vendor SKU | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Activation_RowID | UNIQUEIDENTIFIER | Internal identifier in RQ | `d3d65281-5201-4927-9bac-6f3a47ddf56b` |
+| AdjustedUnitPrice | MONEY | Adjusted Unit Price - price that the product was actually sold for | `25` |
+| BillingAccountNumber | NVARCHAR(MAX) | BAN -  if your company uses BAN you will enter it in the Customer profile and it will show here |  |
+| CarrierPrice | MONEY | Carrier Price - value or revenue that a carrier assigns this feature | `null` |
+| CategoryPath | NVARCHAR(MAX) | Category - the category the product belongs to | `>> Phones >> Galaxies` |
+| ChannelName | NVARCHAR(MAX) | Channel - channel for the rows location | `English Channel` |
+| Comments | TEXT | Invoice Comments - comments added to the invoice |  |
+| ContractNumber | VARCHAR (50) | Contract # - number of the contract, recorded at the time of sale | `12345` |
+| CustomerID | INT | Internal identifier for a customer in RQ | `131149` |
+| CustomerName | VARCHAR (101) | Customer - name of the customer as entered on their profile | `Bob Jones` |
+| DateCreated | DateTime | Sold On - date and time the invoice was tendered | `2016-05-13T12:18:08.723` |
+| DistrictName | NVARCHAR(MAX) | District - district for the rows location | `Westminster` |
+| EmployeeName | VARCHAR (51) | Sold By - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box | `iQmetrix User` |
+| EmployeeID | INT | Internal identifier for an employee in RQ | `4` |
+| GlobalProductID | INT | Internal identifier in RQ | `5179` |
+| InvoicedAt | NVARCHAR(MAX) | Invoiced At - name of the location which takes the inventory on a refund, usually the same as Invoiced By but will be different if a second location process a refund | `100: My Network LLC - Anchorage` |
+| InvoicedAt_StoreID | INT | Internal identifier for a store in RQ | `1` |
+| InvoicedBy | NVARCHAR(MAX) | Invoiced By - name of the location which credited with the sale, usually the same as Invoiced At but will be different if a second location process a refund | `100: My Network LLC - Anchorage` |
+| InvoicedBy_StoreID | INT | Internal identifier for a store in RQ | `1` |
+| InvoiceIDByStore | VARCHAR (14) | Invoice # - invoice number assigned by RQ | `77224IN3` |
+| IsOrderServiceDropShipProduct | BIT | Internal identifier in RQ | `null` |
+| IsOrderServiceShippingProduct | BIT | Internal identifier in RQ | `null` |
+| ListPrice | MONEY | List Price - current price as noted on the pricing tab in the inventory console for the product | `449.95` |
+| OriginalUnitPrice | MONEY | Orig. Unit Price - original price on the invoice | `25` |
+| Priority | INT | The order that the products were saved in on an Invoice | `1` |
+| ProductCouponDiscount | MONEY | Coupon discount on the product | `0` |
+| ProductIdentifier | VARCHAR(12) | Product SKU - the RQ generated SKU | `ASHCSA000120` |
+| ProductName | NVARCHAR(MAX) | Product Name - name of the product as it appears in the inventory | `Samsung Galaxy Rugby LTE` |
+| Quantity | INT | Qty - total number of times the Product SKU appears on the invoice | `1` |
+| Refund | BIT | Refund - indicates if a negative quantity of this item was sold | `0` |
+| RegionName | NVARCHAR(MAX) | Region - region for the rows location | `London` |
+| RetailerCatalogID | VARCHAR (50) | Internal identifier in RQ | `null` |
+| SaleInvoice_RowID | UNIQUEIDENTIFIER | Internal identifier in RQ | `8c6537ae-75a5-4155-82b2-c8647ed05f3d` |
+| SaleInvoiceID | INT | Identifier for an invoice in RQ | `128962` |
+| SaleInvoiceProduct_RowID | UNIQUEIDENTIFIER | Internal identifier in RQ | `0099b78f-ba02-4a91-afd4-2f7eb0fbbb06` |
+| SerialNumber | VARCHAR (100) | Tracking # - tracking number associated with this product, serialized products only | `1111111` |
+| SoldAsUsed | BIT | Sold As Used - indicates the product was used when sold | `false` |
+| SpecialProductID | INT | Internal identifier in RQ | `0` |
+| StoreInStoreFlowIsEnabledForStore | BIT | Internal identifier in RQ | `false` |
+| StoreInStoreGrossProfit | MONEY | SIS Gross Profit - profit, calculated as Total Sales - Cost for a SIS location. | `null` |
+| StoreInStoreListPrice | MONEY | SIS List Price - Price from the store-in-store setup of the product | `null` |
+| StoreInStorePrice | MONEY | SIS Price - The default price when sold through the store-in-store flow | `null` |
+| StoreTypeName | NVARCHAR(MAX) | Location Type - the location type the the transaction was performed at | `Costco` |
+| TenderedBy | VARCHAR (51) | Tendered By - name of the employee logged into RQ when the invoice was tendered | `iQmetrix User` |
+| TenderedBy_EmployeeID | INT | Internal identifier for an employee in RQ | `277` |
+| TotalCost | MONEY | Total Cost - total purchase cost for the product(s) on the invoice | `0` |
+| TotalDiscount | DECIMAL (8, 4) | Total Discount - net discount amount for the Product SKU on the particular invoice | `424.95` |
+| TotalPrice | MONEY | Total Sales - net dollar amount for the Product SKU on the particular invoice | `25` |
+| UnitCost | MONEY | Unit Cost - purchase cost per unit | `0` |
+| UnitPrice | MONEY | Sold For - price that appeared on the invoice (including hide on invoice items), i.e. negative if a refund | `25` |
+| VendorName | NVARCHAR(MAX) | Name for a vendor in RQ |  |
+| VendorSKU | VARCHAR(25) | Vendor SKU |  |
 
-## ProductDetailReportTaxColumnData
+### ProductDetailReportTaxColumnData
 
-| Name | Description |
-|:-----|:------------|
-| ColName (`VARCHAR`) | Tax name | 
-| ColCaption (`NVARCHAR(MAX)`) | Description | 
-| CreditCardPaymentType (`VARCHAR (20)`) | Credit card information | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ColName | VARCHAR | Tax name | `T102` |
+| ColCaption | NVARCHAR(MAX) | Description | `Flat tax` |
+| CreditCardPaymentType | VARCHAR (20) | Credit card information | `null` |
 
-## ProductDetailReportTaxDetailData
+### ProductDetailReportTaxDetailData
 
-| Name | Description |
-|:-----|:------------|
-| Amount (`MONEY `) | Amount | 
-| GlobalProductID (`INT`) | Identifier of a Product in RQ | 
-| Priority (`INT`) | Priority | 
-| SaleInvoiceID (`INT`) | Identifier of a sale invoice in RQ | 
-| SerialNumber (`VARCHAR (100) `) | Serial number | 
-| TaxID (`VARCHAR`) | Tax identifier | 
-| TaxName (`NVARCHAR(MAX)`) | Tax name | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Amount | MONEY  | Amount | `22.5` |
+| GlobalProductID | INT | Identifier of a Product in RQ | `5179` |
+| Priority | INT | Priority | `1` |
+| SaleInvoiceID | INT | Identifier of a sale invoice in RQ | `128996` |
+| SerialNumber | VARCHAR (100)  | Serial number | `2222222` |
+| TaxID | VARCHAR | Tax identifier | `T102` |
+| TaxName | NVARCHAR(MAX) | Tax name | `Brad flat tax` |
 
-## VendorRebateHistoryReportData
+### VendorRebateHistoryReportData
 
-| Name | Description |
-|:-----|:------------|
-| ActivationAssociationNumber (`INT`) | Every product that is part of the same activation from the Phone Activation Wizard will have the same ActivationAssociationNumber. | 
-| ActivationRowID (`UNIQUEIDENTIFIER`) | Identifier in RQ | 
-| Adjusted (`VARCHAR(3)`) | Adjusted - indicates if the rebate was adjusted | 
-| AssociationNumber (`SMALLINT`) | When adding products with PAW all associated products from the sale have the same association number tied together, this value increments based on how many sales are made on that order | 
-| CarrierPrice (`MONEY`) | Carrier Price - value or revenue that a carrier assigns this feature | 
-| ChannelName (`VARCHAR(100)`) | Channel - channel for the rows location | 
-| ChargeBack (`DateTime`) | Charge Back - Yes or No column for if it is a Charge Back or not | 
-| Collected (`MONEY`) | Collected - amount received from the carrier | 
-| Comments (`VARCHAR(500)`) | Comments - any comments that were added as part of the reconciliation process | 
-| Comments2 (`VARCHAR(500)`) | Comments2 - any comments that were added as part of the reconciliation process | 
-| ContractNumber (`VARCHAR(50)`) | Contract # - number of the contract, recorded at the time of sale | 
-| CustomerID1 (`INT`) | Customer Identifier - customer identifier as entered on the customers profile | 
-| CustomerName1 (`VARCHAR(101)`) | Customer - name of the customer as entered on their profile | 
-| DateCreated (`DateTime`) | Sold On - date and time the invoice was tendered | 
-| DateReconciled (`DateTime`) | Reconciled On - date and time the rebate was reconciled | 
-| DistrictName (`VARCHAR(100)`) | District - district for the rows location | 
-| EmployeeID (`INT`) | Internal identifier for an employee in RQ, see EmployeeName | 
-| EmployeeID1 (`INT`) | Internal identifier for an employee in RQ, see EmployeeName1 | 
-| EmployeeName (`VARCHAR(51)`) | Reconciled By - name of the employee logged in when the rebate was reconciled | 
-| EmployeeName1 (`VARCHAR(51)`) | Sales Person - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box | 
-| ExtraField (`VARCHAR(30)`) | Extra Field - an optional field | 
-| Flagged (`VARCHAR(3)`) | Flagged - flagged in the Vendor Rebate Reconciliation screen | 
-| GlobalProductID (`INT`) | Identifier for a Product in RQ | 
-| InvoiceComments (`VARCHAR(50)`) | Comments | 
-| InvoicedAt (`VARCHAR(100)`) | Invoiced At - name of the location which takes the inventory on a refund, usually the same as Invoiced By but will be different if a second location process a refund | 
-| InvoicedAt_StoreID (`INT`) | Internal identifier for a store in RQ | 
-| InvoicedBy (`VARCHAR(100)`) | Invoiced By - name of the location which credited with the sale, usually the same as Invoiced At but will be different if a second location process a refund | 
-| InvoicedBy_StoreID (`INT`) | Internal identifier for a store in RQ | 
-| InvoiceIDByStore (`VARCHAR(14)`) | Invoice # - invoice number assigned by RQ | 
-| InvoiceRowID (`UNIQUEIDENTIFIER`) | Internal identifier in RQ | 
-| JournalNumber (`VARCHAR(20)`) | Journal # - vendor account journal on which the rebate was reconciled | 
-| OriginalSaleDate (`DateTime`) | Original Sales Date - date of the original sale | 
-| OriginalSaleInvoiceID (`INT`) | Internal identifier in RQ | 
-| OriginalSaleInvoiceIDByStore (`VARCHAR(14)`) | Original Invoice - invoice number of the original transaction | 
-| PartialCB (`MONEY`) | Partial CB - amount the carrier is charging back | 
-| PortNumber (`VARCHAR(30)`) | Port Number - if entered in transaction | 
-| Postal_code (`VARCHAR(15)`) | Zip/Postal Code - zip code (USA) or postal code (Canada) | 
-| ProductIdentifier (`VARCHAR(12)`) | Product SKU - RQ generated SKU | 
-| ProductName (`VARCHAR(100)`) | Product Name - description of the product as it appears in the inventory | 
-| ProductRowID (`UNIQUEIDENTIFIER`) | Literally no description in the database but originates from [iQclerk_SaleInvoicesAndProducts].[RowID] | 
-| Quantity (`INT`) | Qty - total quantity of this product SKU on the invoice | 
-| RatePlan (`VARCHAR(100)`) | Rate Plan - name of the rate plan | 
-| RatePlan2 (`VARCHAR(100)`) | Rate Plan 2 - second rate plan if necessary | 
-| Reconciled (`VARCHAR(3)`) | Reconciled - has been marked as reconciled in the Vendor Rebate Reconciliation screen | 
-| RegionID (`INT`) | Identifier for a region in RQ | 
-| RegionName (`VARCHAR(100)`) | Region - region for the rows location | 
-| RelatedCost (`MONEY`) | Related Cost - purchase cost for the product associated with this rebate | 
-| RelatedPrice (`MONEY`) | Related Price - price the customer paid for the product related to this rebate | 
-| RelatedProduct (`VARCHAR(100)`) | Related Product - product associated with this rebate | 
-| RelatedProductSerialNumbers (`VARCHAR(1000)`) | Related SN - serial number associated with this rebate, if any | 
-| RelatedProductSKU (`VARCHAR(12)`) | Related SKU - product SKU of the product associated with this rebate | 
-| SaleInvoiceID (`INT`) | Internal identifier in RQ | 
-| SerialNumber (`VARCHAR(100)`) | Tracking # - tracking number associated with this entry | 
-| SocCode (`VARCHAR(50)`) | SOC Code - SOC Code if one was used | 
-| SocCode2 (`VARCHAR(50)`) | SOC Code2 - Second SOC Code if used | 
-| SpecialIdentifier (`VARCHAR(25)`) | Sales Person ID - ID number assigned to this sales person and recorded on the Admin tab of their Employee Profile | 
-| SpecialIdentifier1 (`VARCHAR (25)`) | Internal identifier in RQ | 
-| TermCode (`VARCHAR(200)`) | Term Code - [may not show in your database] indicates new activation, upgrade, etc. | 
-| TotalPrice (`MONEY`) | Total Rebate - total value of the rebate on this invoice calculated as Qty X Unit Rebate | 
-| UnitPrice (`MONEY`) | Unit Rebate - dollar value of this rebate | 
-| VendorAccountName (`VARCHAR(100)`) | Vendor Account Name - vendor account for this rebate | 
-| VendorName (`NVARCHAR(MAX)`) | Vendor name in RQ | 
-| VendorNumber (`NVARCHAR(3)`) | Vendor # - vendor account number entered for Vendor # By Location [if used] | 
-| VendorSKU (`VARCHAR(25)`) | Vendor SKU | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ActivationAssociationNumber | INT | Every product that is part of the same activation from the Phone Activation Wizard will have the same ActivationAssociationNumber. | `2` |
+| ActivationRowID | UNIQUEIDENTIFIER | Identifier in RQ | `0d4652a7-a673-437a-817e-4641961ba3e6` |
+| Adjusted | VARCHAR(3) | Adjusted - indicates if the rebate was adjusted | `No` |
+| AssociationNumber | SMALLINT | When adding products with PAW all associated products from the sale have the same association number tied together, this value increments based on how many sales are made on that order | `3` |
+| CarrierPrice | MONEY | Carrier Price - value or revenue that a carrier assigns this feature | `0` |
+| ChannelName | VARCHAR(100) | Channel - channel for the rows location | `English Channel` |
+| ChargeBack | DateTime | Charge Back - Yes or No column for if it is a Charge Back or not | `No` |
+| Collected | MONEY | Collected - amount received from the carrier | `null` |
+| Comments | VARCHAR(500) | Comments - any comments that were added as part of the reconciliation process |  |
+| Comments2 | VARCHAR(500) | Comments2 - any comments that were added as part of the reconciliation process | `null` |
+| ContractNumber | VARCHAR(50) | Contract # - number of the contract, recorded at the time of sale | `123456789` |
+| CustomerID1 | INT | Customer Identifier - customer identifier as entered on the customers profile | `130834` |
+| CustomerName1 | VARCHAR(101) | Customer - name of the customer as entered on their profile | `Bob Jones` |
+| DateCreated | DateTime | Sold On - date and time the invoice was tendered | `2016-01-04T14:33:15.737` |
+| DateReconciled | DateTime | Reconciled On - date and time the rebate was reconciled | `null` |
+| DistrictName | VARCHAR(100) | District - district for the rows location | `District B2` |
+| EmployeeID | INT | Internal identifier for an employee in RQ, see EmployeeName | `0` |
+| EmployeeID1 | INT | Internal identifier for an employee in RQ, see EmployeeName1 | `218` |
+| EmployeeName | VARCHAR(51) | Reconciled By - name of the employee logged in when the rebate was reconciled |  |
+| EmployeeName1 | VARCHAR(51) | Sales Person - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box | `iQmetrix User` |
+| ExtraField | VARCHAR(30) | Extra Field - an optional field | `1234567890` |
+| Flagged | VARCHAR(3) | Flagged - flagged in the Vendor Rebate Reconciliation screen | `No` |
+| GlobalProductID | INT | Identifier for a Product in RQ | `812` |
+| InvoiceComments | VARCHAR(50) | Comments |  |
+| InvoicedAt | VARCHAR(100) | Invoiced At - name of the location which takes the inventory on a refund, usually the same as Invoiced By but will be different if a second location process a refund | `Regina Store` |
+| InvoicedAt_StoreID | INT | Internal identifier for a store in RQ | `1` |
+| InvoicedBy | VARCHAR(100) | Invoiced By - name of the location which credited with the sale, usually the same as Invoiced At but will be different if a second location process a refund | `Regina Store` |
+| InvoicedBy_StoreID | INT | Internal identifier for a store in RQ | `1` |
+| InvoiceIDByStore | VARCHAR(14) | Invoice # - invoice number assigned by RQ | `HJKIIIN2` |
+| InvoiceRowID | UNIQUEIDENTIFIER | Internal identifier in RQ | `db8f28cf-5017-47f4-9ccf-b90cff32185d` |
+| JournalNumber | VARCHAR(20) | Journal # - vendor account journal on which the rebate was reconciled |  |
+| OriginalSaleDate | DateTime | Original Sales Date - date of the original sale | `null` |
+| OriginalSaleInvoiceID | INT | Internal identifier in RQ | `null` |
+| OriginalSaleInvoiceIDByStore | VARCHAR(14) | Original Invoice - invoice number of the original transaction | `null` |
+| PartialCB | MONEY | Partial CB - amount the carrier is charging back | `0` |
+| PortNumber | VARCHAR(30) | Port Number - if entered in transaction |  |
+| Postal_code | VARCHAR(15) | Zip/Postal Code - zip code (USA) or postal code (Canada) | `56789` |
+| ProductIdentifier | VARCHAR(12) | Product SKU - RQ generated SKU | `ACVZRB000001` |
+| ProductName | VARCHAR(100) | Product Name - description of the product as it appears in the inventory | `Verizon New Act_EquipmentRebate` |
+| ProductRowID | UNIQUEIDENTIFIER | Literally no description in the database but originates from [iQclerk_SaleInvoicesAndProducts].[RowID] | `27be5c76-b0ba-4a34-ba7d-fa34aba0ab9c` |
+| Quantity | INT | Qty - total quantity of this product SKU on the invoice | `1` |
+| RatePlan | VARCHAR(100) | Rate Plan - name of the rate plan | `Act $9.99 to $20.98` |
+| RatePlan2 | VARCHAR(100) | Rate Plan 2 - second rate plan if necessary |  |
+| Reconciled | VARCHAR(3) | Reconciled - has been marked as reconciled in the Vendor Rebate Reconciliation screen | `No` |
+| RegionID | INT | Identifier for a region in RQ | `9` |
+| RegionName | VARCHAR(100) | Region - region for the rows location | `Region B` |
+| RelatedCost | MONEY | Related Cost - purchase cost for the product associated with this rebate | `404` |
+| RelatedPrice | MONEY | Related Price - price the customer paid for the product related to this rebate | `69.99` |
+| RelatedProduct | VARCHAR(100) | Related Product - product associated with this rebate | `Samsung Galaxy S4` |
+| RelatedProductSerialNumbers | VARCHAR(1000) | Related SN - serial number associated with this rebate, if any | `ACVZCB0026` |
+| RelatedProductSKU | VARCHAR(12) | Related SKU - product SKU of the product associated with this rebate | `ACVZCB000244` |
+| SaleInvoiceID | INT | Internal identifier in RQ | `126526` |
+| SerialNumber | VARCHAR(100) | Tracking # - tracking number associated with this entry | `123000000000000` |
+| SocCode | VARCHAR(50) | SOC Code - SOC Code if one was used | `123000000000000` |
+| SocCode2 | VARCHAR(50) | SOC Code2 - Second SOC Code if used |  |
+| SpecialIdentifier | VARCHAR(25) | Sales Person ID - ID number assigned to this sales person and recorded on the Admin tab of their Employee Profile | `1` |
+| SpecialIdentifier1 | VARCHAR (25) | Internal identifier in RQ |  |
+| TermCode | VARCHAR(200) | Term Code - [may not show in your database] indicates new activation, upgrade, etc. |  |
+| TotalPrice | MONEY | Total Rebate - total value of the rebate on this invoice calculated as Qty X Unit Rebate | `0` |
+| UnitPrice | MONEY | Unit Rebate - dollar value of this rebate | `0` |
+| VendorAccountName | VARCHAR(100) | Vendor Account Name - vendor account for this rebate | `Verizon 2` |
+| VendorName | NVARCHAR(MAX) | Vendor name in RQ | `Verizon` |
+| VendorNumber | NVARCHAR(3) | Vendor # - vendor account number entered for Vendor # By Location [if used] |  |
+| VendorSKU | VARCHAR(25) | Vendor SKU |  |
 
-## Relationship
+### Relationship
 
-| Name | Description |
-|:-----|:------------|
-| CompanyID (`INTEGER`) | Identifier for a {{Company}} | 
-| CompanyName (`VARCHAR(50)`) | Company name | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CompanyID | INTEGER | Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a> | `21090` |
+| CompanyName | VARCHAR(50) | Company name | `KENTEL` |
 
 
 
@@ -663,7 +661,7 @@ GET /partner/StatFlo/ActivationGrossProfitReport?CompanyId={CompanyId}&StartDate
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}, for a list see Getting Partner Relationships
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>, for a list see Getting Partner Relationships
     </li>
     
     <li>
@@ -691,11 +689,11 @@ GET /partner/StatFlo/ActivationGrossProfitReport?CompanyId={CompanyId}&StartDate
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>
@@ -999,7 +997,7 @@ GET /partner/StatFlo/CouponSummaryReport?CompanyId={CompanyId}&StartDate={StartD
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}, for a list see Getting Partner Relationships
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>, for a list see Getting Partner Relationships
     </li>
     
     <li>
@@ -1023,11 +1021,11 @@ GET /partner/StatFlo/CouponSummaryReport?CompanyId={CompanyId}&StartDate={StartD
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>
@@ -1283,7 +1281,7 @@ GET /partner/StatFlo/CustomerListReport?CompanyId={CompanyId}&StartDate={StartDa
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}, for a list see Getting Partner Relationships
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>, for a list see Getting Partner Relationships
     </li>
     
     <li>
@@ -1315,11 +1313,11 @@ GET /partner/StatFlo/CustomerListReport?CompanyId={CompanyId}&StartDate={StartDa
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>
@@ -1651,7 +1649,7 @@ GET /partner/StatFlo/EmployeeMasterListReport?CompanyId={CompanyId}&EnabledStatu
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}, for a list see Getting Partner Relationships
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>, for a list see Getting Partner Relationships
     </li>
     
     <li>
@@ -1667,11 +1665,11 @@ GET /partner/StatFlo/EmployeeMasterListReport?CompanyId={CompanyId}&EnabledStatu
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>
@@ -2075,7 +2073,7 @@ GET /partner/StatFlo/GraphedPerformanceMetricsReport_PerformanceMetrix?CompanyId
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}, for a list see Getting Partner Relationships
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>, for a list see Getting Partner Relationships
     </li>
     
     <li>
@@ -2103,11 +2101,11 @@ GET /partner/StatFlo/GraphedPerformanceMetricsReport_PerformanceMetrix?CompanyId
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>
@@ -2403,7 +2401,7 @@ GET /partner/StatFlo/GraphedPerformanceMetricsReport_Breakdown?CompanyId={Compan
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}, for a list see Getting Partner Relationships
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>, for a list see Getting Partner Relationships
     </li>
     
     <li>
@@ -2447,11 +2445,11 @@ GET /partner/StatFlo/GraphedPerformanceMetricsReport_Breakdown?CompanyId={Compan
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>
@@ -2739,7 +2737,7 @@ GET /partner/StatFlo/LocationMasterListReport?CompanyId={CompanyId}&Auth={Auth}&
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}, for a list see Getting Partner Relationships
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>, for a list see Getting Partner Relationships
     </li>
     
     <li>
@@ -3166,9 +3164,9 @@ Note that this report has multiple responses, depending on the ReportPart specif
 
 | Report Part | Response |
 |:------------|:---------|
-| 1 | {{StatFlo-Reports_ProductDetailReportData}} |
-| 2 | {{StatFlo-Reports_ProductDetailReportTaxDetailData}} |
-| 3 | {{StatFlo-Reports_ProductDetailReportTaxColumnData}} |
+| 1 | <a href='http://developers.iqmetrix.com/api/StatFlo-Reports/#productdetailreportdata'>ProductDetailReportData</a> |
+| 2 | <a href='http://developers.iqmetrix.com/api/StatFlo-Reports/#productdetailreporttaxdetaildata'>ProductDetailReportTaxDetailData</a> |
+| 3 | <a href='http://developers.iqmetrix.com/api/StatFlo-Reports/#productdetailreporttaxcolumndata'>ProductDetailReportTaxColumnData</a> |
 
 
 <h4>Request</h4>
@@ -3187,7 +3185,7 @@ GET /partner/StatFlo/ProductDetailReport?CompanyId={CompanyId}&StartDate={StartD
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}, for a list see Getting Partner Relationships
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>, for a list see Getting Partner Relationships
     </li>
     
     <li>
@@ -3203,7 +3201,7 @@ GET /partner/StatFlo/ProductDetailReport?CompanyId={CompanyId}&StartDate={StartD
     </li>
     
     <li>
-        <code>CategoryNumber</code> (<strong>Required</strong>)  - Identifier for a {{CategoryNumber}}. For a complete list see <a href="#getting-category-numbers">Getting Category Numbers</a>
+        <code>CategoryNumber</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#categorynumber'>CategoryNumber</a>. For a complete list see <a href="#getting-category-numbers">Getting Category Numbers</a>
     </li>
     
     <li>
@@ -3223,11 +3221,11 @@ GET /partner/StatFlo/ProductDetailReport?CompanyId={CompanyId}&StartDate={StartD
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>
@@ -3678,7 +3676,7 @@ GET /partner/StatFlo/VendorRebateHistoryReport?CompanyId={CompanyId}&StartDate={
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}, for a list see Getting Partner Relationships
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>, for a list see Getting Partner Relationships
     </li>
     
     <li>
@@ -3710,7 +3708,7 @@ GET /partner/StatFlo/VendorRebateHistoryReport?CompanyId={CompanyId}&StartDate={
     </li>
     
     <li>
-        <code>CategoryNumber</code> (<strong>Required</strong>)  - Identifier for a {{CategoryNumber}}. For a complete list see <a href="#getting-category-numbers">Getting Category Numbers</a>
+        <code>CategoryNumber</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#categorynumber'>CategoryNumber</a>. For a complete list see <a href="#getting-category-numbers">Getting Category Numbers</a>
     </li>
     
     <li>
@@ -3722,11 +3720,11 @@ GET /partner/StatFlo/VendorRebateHistoryReport?CompanyId={CompanyId}&StartDate={
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>

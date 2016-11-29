@@ -4,7 +4,7 @@ permalink: /api/RQ-Data-Connect-Inventory-Reports/
 tags: []
 keywords: 
 audience: 
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary: 
 rouge: false
 noPopUp: true
@@ -16,8 +16,6 @@ noPopUp: true
 
 
 {% include linkrefs.html %}
-
-
 
 
 ## Overview
@@ -49,199 +47,199 @@ For a complete list of reports in RQ Data Connect, see [Report List](/rq-data-co
 
 ## Resources
 
-## AdjustmentHistoryInvoiceDetailReportData
+### AdjustmentHistoryInvoiceDetailReportData
 
-| Name | Description |
-|:-----|:------------|
-| AdjustmentType (`TINYINT`) | Type: 0 = Not Set : 1 = Quantity : 2 = Unit Cost : 3 = New Product : 4 = Delete Product | 
-| Comments (`VARCHAR (1000)`) | Comments - any comments entered regarding the adjustment; if the adjustment was done via the reconcile receiving invoices screen, it will be noted here automatically | 
-| CountSheetID (`INT`) | Internal identifier for a Count Sheet in RQ | 
-| CountSheetIDByStore (`VARCHAR (14)`) | Count Sheet # - if an adjustment is generated from an inventory count sheet it will be noted here | 
-| DateCreated (`DateTime`) | Adjusted On - date and time the adjustment was made | 
-| EmployeeName (`VARCHAR (51)`) | Created By - name of the employee who did the adjustment | 
-| IsReceiving (`BIT`) | Is Adjustment from receiving Products or not (adjustments made either made through receiving, or manual adjustment) | 
-| StoreName (`NVARCHAR (MAX)`) | Location - where the adjustment was made | 
-| TotalInvoice (`MONEY`) | Total Invoice - total dollar amount of the adjustment invoice | 
-| TransactionID (`INT`) | Internal RQ identifier | 
-| TransactionIDByStore (`VARCHAR (14)`) | Transaction # - transaction number, including corrected purchase orders | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| AdjustmentType | TINYINT | Type: 0 = Not Set : 1 = Quantity : 2 = Unit Cost : 3 = New Product : 4 = Delete Product | `1` |
+| Comments | VARCHAR (1000) | Comments - any comments entered regarding the adjustment; if the adjustment was done via the reconcile receiving invoices screen, it will be noted here automatically | `Comment` |
+| CountSheetID | INT | Internal identifier for a Count Sheet in RQ | `1` |
+| CountSheetIDByStore | VARCHAR (14) | Count Sheet # - if an adjustment is generated from an inventory count sheet it will be noted here | `1` |
+| DateCreated | DateTime | Adjusted On - date and time the adjustment was made | `2015-12-16T07:39:39.49` |
+| EmployeeName | VARCHAR (51) | Created By - name of the employee who did the adjustment | `iQmetrix User` |
+| IsReceiving | BIT | Is Adjustment from receiving Products or not (adjustments made either made through receiving, or manual adjustment) | `false` |
+| StoreName | NVARCHAR (MAX) | Location - where the adjustment was made | `100: My Network LLC - Anchorage` |
+| TotalInvoice | MONEY | Total Invoice - total dollar amount of the adjustment invoice | `0` |
+| TransactionID | INT | Internal RQ identifier | `19240` |
+| TransactionIDByStore | VARCHAR (14) | Transaction # - transaction number, including corrected purchase orders | `84WEAIA1187` |
 
-## AdjustmentHistoryProductDetailReportData
+### AdjustmentHistoryProductDetailReportData
 
-| Name | Description |
-|:-----|:------------|
-| Comments (`VARCHAR (100)`) | Comments - any comments entered regarding the adjustment; if an adjustment was made via the reconcile receiving invoices screen, it will automatically be entered in comments | 
-| CountSheetID (`INT`) | Internal identifier for a Count Sheet in RQ | 
-| CountSheetIDByStore (`VARCHAR (14)`) | Count Sheet # - if an adjustment is generated from an inventory count sheet it will be noted here | 
-| DateCreated (`DateTime`) | Adjusted On - date and time the adjustment was made | 
-| EmployeeName (`VARCHAR (51)`) | Created By - name of the employee who did the adjustment | 
-| IsReceiving (`BIT`) | Is Adjustment from receiving Products or not (adjustments made either made through receiving, or manual adjustment) | 
-| ProductIdentifier (`VARCHAR (12)`) | Product SKU - RQ generated SKU for the product adjusted | 
-| ProductName (`NVARCHAR (MAX)`) | Product Name - name of the product as it appears in inventory | 
-| Quantity (`INT`) | Quantity - total quantity of the product adjusted | 
-| ReasonCode (`NVARCHAR (MAX)`) | Reason Code - reason code selected from the drop down list at the time of adjustment | 
-| SerialNumber (`VARCHAR (100)`) | Tracking # - tracking number, if there is one | 
-| StoreName (`NVARCHAR (MAX)`) | Location - where the adjustment was made | 
-| TotalCost (`MONEY`) | Total Cost - total cost for that product calculated as Quantity X Unit Cost | 
-| TransactionID (`INT`) | Internal RQ identifier | 
-| TransactionIDByStore (`VARCHAR (14)`) | Transaction # - transaction number, including corrected purchase orders | 
-| UnitCost (`MONEY`) | Unit Cost - purchase cost per unit; weighted average cost for non-serialized products and true cost for serialized products | 
-| VendorName (`NVARCHAR(MAX)`) | Name for a vendor in RQ | 
-| VendorSKU (`VARCHAR(25)`) | Vendor SKU | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Comments | VARCHAR (100) | Comments - any comments entered regarding the adjustment; if an adjustment was made via the reconcile receiving invoices screen, it will automatically be entered in comments | `Comment` |
+| CountSheetID | INT | Internal identifier for a Count Sheet in RQ | `0` |
+| CountSheetIDByStore | VARCHAR (14) | Count Sheet # - if an adjustment is generated from an inventory count sheet it will be noted here |  |
+| DateCreated | DateTime | Adjusted On - date and time the adjustment was made | `2015-12-16T07:39:39.49` |
+| EmployeeName | VARCHAR (51) | Created By - name of the employee who did the adjustment | `iQmetrix User` |
+| IsReceiving | BIT | Is Adjustment from receiving Products or not (adjustments made either made through receiving, or manual adjustment) | `false` |
+| ProductIdentifier | VARCHAR (12) | Product SKU - RQ generated SKU for the product adjusted | `ASMAAP000017` |
+| ProductName | NVARCHAR (MAX) | Product Name - name of the product as it appears in inventory | `Samsung Galaxy S4` |
+| Quantity | INT | Quantity - total quantity of the product adjusted | `5` |
+| ReasonCode | NVARCHAR (MAX) | Reason Code - reason code selected from the drop down list at the time of adjustment | `Unexplained Shrinkage` |
+| SerialNumber | VARCHAR (100) | Tracking # - tracking number, if there is one | `123000000000000` |
+| StoreName | NVARCHAR (MAX) | Location - where the adjustment was made | `100: My Network LLC - Anchorage` |
+| TotalCost | MONEY | Total Cost - total cost for that product calculated as Quantity X Unit Cost | `0` |
+| TransactionID | INT | Internal RQ identifier | `19240` |
+| TransactionIDByStore | VARCHAR (14) | Transaction # - transaction number, including corrected purchase orders | `84WEAIA1187` |
+| UnitCost | MONEY | Unit Cost - purchase cost per unit; weighted average cost for non-serialized products and true cost for serialized products | `0` |
+| VendorName | NVARCHAR(MAX) | Name for a vendor in RQ |  |
+| VendorSKU | VARCHAR(25) | Vendor SKU |  |
 
-## InventoryListingReportData
+### InventoryListingReportData
 
-| Name | Description |
-|:-----|:------------|
-| BarCode (`VARCHAR (20)`) | Bar Code - any bar code(s) you have assigned to this product | 
-| BinStatus (`VARCHAR(100)`) | Status - dependent on the Status setting in the search criteria but can be In Stock, On RMA, Transfer In, Transfer Out, On Order, On Loan or Non Sellable | 
-| CategoryPath (`NVARCHAR (MAX)`) | Category - inventory category | 
-| ChannelName (`NVARCHAR (MAX)`) | Channel - channel for the rows location | 
-| DateEOL (`DateTime`) | EOL - date this product will be End of Life | 
-| DiscontinuedDate (`DateTime`) | Discontinued Date - date that this product was, or will be, discontinued | 
-| DistrictName (`NVARCHAR (MAX)`) | District - district for the rows location | 
-| DoNotOrder (`BIT`) | Do Not Order - yes/no field noting whether this product has been marked Do Not Order | 
-| IsUsed (`BIT`) | Used - this will show checked if the product is in a used status | 
-| ManufacturerPartNumber (`VARCHAR (50)`) | Manufacturer SKU - SKU assigned by the manufacturer (can be anything user specifies, not necessarily from manufacturer) | 
-| NoSale (`BIT`) | Do Not Sell - yes/no field noting whether this product has been marked Do Not Sell | 
-| ProductIdentifier (`VARCHAR (12)`) | Product SKU - RQ generated SKU | 
-| ProductName (`NVARCHAR (MAX)`) | Product Name - name of the product as it appears in the inventory | 
-| Quantity (`INT`) | Quantity - total number in stock at the location | 
-| RefundPeriodLength (`INT`) | Refund Period (days) - number of days that product can be refunded in | 
-| RegionName (`NVARCHAR (MAX)`) | Region - region for the rows location | 
-| SerialNumber (`VARCHAR(100)`) | Tracking # - any serial number attached to the particular product | 
-| SpecialOrder (`BIT`) | Special Order - yes/no field noting this product as a Special Order | 
-| StoreName (`NVARCHAR (MAX)`) | Location - where the product is in stock | 
-| StoreTypeName (`NVARCHAR (MAX)`) | Location Type - location type where the product is in stock | 
-| TotalCost (`MONEY`) | Total Cost - Quantity X Unit Cost | 
-| UnitCost (`MONEY`) | Unit Cost - purchase cost per unit; weighted average cost for non-serialized products and true cost for serialized products | 
-| VendorName (`NVARCHAR (MAX)`) | Vendor - vendor from whom the individual product was purchased | 
-| VendorPartNumber (`VARCHAR (25)`) | Vendor SKU - SKU assigned by the vendor | 
-| WarehouseLocation (`VARCHAR (100)`) | Warehouse Location - where the stock is located in the warehouse, if used | 
-| WriteOff (`BIT`) | Write Off - yes/no field noting this product as a Write Off | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| BarCode | VARCHAR (20) | Bar Code - any bar code(s) you have assigned to this product |  |
+| BinStatus | VARCHAR(100) | Status - dependent on the Status setting in the search criteria but can be In Stock, On RMA, Transfer In, Transfer Out, On Order, On Loan or Non Sellable | `String_InStock` |
+| CategoryPath | NVARCHAR (MAX) | Category - inventory category | `>> @ Activations (Price Sheets) >> AT&T Price Sheet >> Equipment` |
+| ChannelName | NVARCHAR (MAX) | Channel - channel for the rows location | `English Channel` |
+| DateEOL | DateTime | EOL - date this product will be End of Life | `null` |
+| DiscontinuedDate | DateTime | Discontinued Date - date that this product was, or will be, discontinued | `null` |
+| DistrictName | NVARCHAR (MAX) | District - district for the rows location | `Westminster` |
+| DoNotOrder | BIT | Do Not Order - yes/no field noting whether this product has been marked Do Not Order | `false` |
+| IsUsed | BIT | Used - this will show checked if the product is in a used status | `false` |
+| ManufacturerPartNumber | VARCHAR (50) | Manufacturer SKU - SKU assigned by the manufacturer (can be anything user specifies, not necessarily from manufacturer) |  |
+| NoSale | BIT | Do Not Sell - yes/no field noting whether this product has been marked Do Not Sell | `false` |
+| ProductIdentifier | VARCHAR (12) | Product SKU - RQ generated SKU | `AAATAP000093` |
+| ProductName | NVARCHAR (MAX) | Product Name - name of the product as it appears in the inventory | `Apple iPhone 6 Plus 16GB Space Gray - AT&T` |
+| Quantity | INT | Quantity - total number in stock at the location | `1` |
+| RefundPeriodLength | INT | Refund Period (days) - number of days that product can be refunded in | `null` |
+| RegionName | NVARCHAR (MAX) | Region - region for the rows location | `London` |
+| SerialNumber | VARCHAR(100) | Tracking # - any serial number attached to the particular product | `2342342341` |
+| SpecialOrder | BIT | Special Order - yes/no field noting this product as a Special Order | `false` |
+| StoreName | NVARCHAR (MAX) | Location - where the product is in stock | `100: My Network LLC - Anchorage` |
+| StoreTypeName | NVARCHAR (MAX) | Location Type - location type where the product is in stock | `Costco` |
+| TotalCost | MONEY | Total Cost - Quantity X Unit Cost | `699` |
+| UnitCost | MONEY | Unit Cost - purchase cost per unit; weighted average cost for non-serialized products and true cost for serialized products | `699` |
+| VendorName | NVARCHAR (MAX) | Vendor - vendor from whom the individual product was purchased | `Offwire` |
+| VendorPartNumber | VARCHAR (25) | Vendor SKU - SKU assigned by the vendor |  |
+| WarehouseLocation | VARCHAR (100) | Warehouse Location - where the stock is located in the warehouse, if used |  |
+| WriteOff | BIT | Write Off - yes/no field noting this product as a Write Off | `false` |
 
-## RMAHistoryInvoiceReportData
+### RMAHistoryInvoiceReportData
 
-| Name | Description |
-|:-----|:------------|
-| ChannelName (`NVARCHAR (MAX)`) | Channel - channel for the rows location | 
-| Comments (`VARCHAR (1000)`) | Comments - comments entered on the RMA form will be displayed here | 
-| Committed (`BIT`) | Committed - indicates if the RMA is committed or non-committed | 
-| Completed (`BIT`) | Completed - indicates if the RMA is completed | 
-| CreditInvoiceNumber (`VARCHAR (20)`) | Credit Invoice # - number of the credit invoice from vendor used to provide an audit trail | 
-| CustomerID (`INT`) | Identifier for a customer in RQ | 
-| CustomerName (`VARCHAR (101)`) | Customer - it is possible to RMA a customer owned product (very rare); customer name will be recorded here | 
-| DateCommitted (`DateTime`) | Committed On - date and time committed | 
-| DateCreated (`DateTime`) | Created On - date and time the RMA was created | 
-| DistrictName (`NVARCHAR (MAX)`) | District - district for the rows location | 
-| EmployeeName (`VARCHAR (51)`) | Created By - name of the employee logged into RQ when the RMA was created | 
-| ReceivingComments (`VARCHAR (1000)`) | Receiving Comments - comments entered during the RMA completion process will be displayed here | 
-| RegionName (`NVARCHAR (MAX)`) | Region - region for the rows location | 
-| RMANumber (`VARCHAR (15)`) | Vendor RMA # - RMA # provided by the vendor, should be noted to provide an audit trail. | 
-| ShippedAway (`BIT`) | Shipped Away - indicates if the Shipped box on the RMA has been checked | 
-| ShippingCost (`MONEY`) | Shipping Cost - total of the cost to return the product | 
-| ShippingMethod (`VARCHAR (30)`) | Shipping Method - shipping company name will appear here | 
-| StockBalanceID (`INT`) | Identifier in RQ | 
-| StockBalanceIDByStore (`VARCHAR (14)`) | RMA # - RMA number assigned by RQ | 
-| StoreName (`NVARCHAR (MAX)`) | Location - location that created the RMA | 
-| TotalCost (`MONEY`) | Total Cost - total cost of items sent away on RMA | 
-| TotalCostCredited (`MONEY`) | Total Cost Credited - amount credited by vendor for products on the RMA. It grabs the average cost under the product. | 
-| VendorName (`NVARCHAR (MAX)`) | Vendor - vendor receiving the RMA | 
-| WaybillNumber (`VARCHAR (50)`) | Way Bill # - tracking number provided by shipping company, e.g. UPS, Purolator, etc. | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ChannelName | NVARCHAR (MAX) | Channel - channel for the rows location | `English Channel` |
+| Comments | VARCHAR (1000) | Comments - comments entered on the RMA form will be displayed here | `Phone missing from package delivered on invoice #87742` |
+| Committed | BIT | Committed - indicates if the RMA is committed or non-committed | `true` |
+| Completed | BIT | Completed - indicates if the RMA is completed | `true` |
+| CreditInvoiceNumber | VARCHAR (20) | Credit Invoice # - number of the credit invoice from vendor used to provide an audit trail |  |
+| CustomerID | INT | Identifier for a customer in RQ | `-1` |
+| CustomerName | VARCHAR (101) | Customer - it is possible to RMA a customer owned product (very rare); customer name will be recorded here |  |
+| DateCommitted | DateTime | Committed On - date and time committed | `2011-03-02T17:10:11.78` |
+| DateCreated | DateTime | Created On - date and time the RMA was created | `2011-03-02T17:10:11.78` |
+| DistrictName | NVARCHAR (MAX) | District - district for the rows location | `Valley Area District` |
+| EmployeeName | VARCHAR (51) | Created By - name of the employee logged into RQ when the RMA was created | `iQmetrix User` |
+| ReceivingComments | VARCHAR (1000) | Receiving Comments - comments entered during the RMA completion process will be displayed here | `Received Credit on 2/22/11.` |
+| RegionName | NVARCHAR (MAX) | Region - region for the rows location | `Region A` |
+| RMANumber | VARCHAR (15) | Vendor RMA # - RMA # provided by the vendor, should be noted to provide an audit trail. | `112482` |
+| ShippedAway | BIT | Shipped Away - indicates if the Shipped box on the RMA has been checked | `true` |
+| ShippingCost | MONEY | Shipping Cost - total of the cost to return the product | `8.5` |
+| ShippingMethod | VARCHAR (30) | Shipping Method - shipping company name will appear here | `Regular` |
+| StockBalanceID | INT | Identifier in RQ | `1` |
+| StockBalanceIDByStore | VARCHAR (14) | RMA # - RMA number assigned by RQ | `84WEASB1` |
+| StoreName | NVARCHAR (MAX) | Location - location that created the RMA | `84 West` |
+| TotalCost | MONEY | Total Cost - total cost of items sent away on RMA | `460` |
+| TotalCostCredited | MONEY | Total Cost Credited - amount credited by vendor for products on the RMA. It grabs the average cost under the product. | `459` |
+| VendorName | NVARCHAR (MAX) | Vendor - vendor receiving the RMA | `Reliance` |
+| WaybillNumber | VARCHAR (50) | Way Bill # - tracking number provided by shipping company, e.g. UPS, Purolator, etc. |  |
 
-## RMAHistoryProductReportData
+### RMAHistoryProductReportData
 
-| Name | Description |
-|:-----|:------------|
-| ActionTaken (`TINYINT`) | Type - indicated the type of RMA: Credit, Replacement, Rejected or Repaired (1:Credit, 2:Replacement, 3:Rejected, 4:Repaired) | 
-| ChannelName (`NVARCHAR (MAX)`) | Channel - channel for the rows location | 
-| DateCreated (`DateTime`) | Created On - date and time the RMA was created | 
-| DateReceived (`DateTime`) | Received On - date and time the RMA was received | 
-| DateShipped (`DateTime`) | Shipped On - date and time the Shipped box was checked | 
-| DistrictName (`NVARCHAR (MAX)`) | District - district for the rows location | 
-| EmployeeName1 (`VARCHAR (51)`) | Shipped By - name of the employee logged into RQ when the RMA was shipped | 
-| EmployeeName2 (`VARCHAR (51)`) | TransferHistoryInvoiceDetailReportData | 
-| ProductIdentifier (`VARCHAR (12)`) | Product SKU - RQ generated SKU | 
-| ProductName (`NVARCHAR (MAX)`) | Product Name - name of the product as it appears in the inventory | 
-| Quantity (`INT`) | Quantity - total number of that product SKU on the purchase order | 
-| RegionName (`NVARCHAR (MAX)`) | Region - region for the rows location | 
-| RMANumber (`VARCHAR (15)`) | Vendor RMA # - RMA # provided by the vendor, should be noted to provide an audit trail | 
-| SerialNumberAdded (`VARCHAR (100)`) | Tracking # Received - tracking number received as replacement | 
-| SerialNumberRemoved (`VARCHAR (100)`) | Tracking # Shipped - tracking number shipped from inventory | 
-| StockBalanceID (`INT`) | Identifier in RQ | 
-| StockBalanceIDByStore (`VARCHAR (14)`) | RMA # - RMA number assigned by RQ | 
-| StoreName (`NVARCHAR (MAX)`) | Location - location that created the RMA | 
-| TotalCost (`MONEY`) | Total Cost - total cost of items sent away on RMA | 
-| TotalCostCredited (`MONEY`) | Total Cost Credited - dollar amount credited by vendor for products on the RMA | 
-| UnitCost (`MONEY`) | Unit Cost - purchase cost per unit sent away on RMA; weighted average cost for non-serialized products and true cost for serialized products | 
-| UnitCostCredited (`MONEY`) | Unit Cost Credited - dollar amount of the credit granted by the vendor per unit | 
-| VendorInvoiceNumber (`VARCHAR (20)`) | Vendor Invoice # - invoice number assigned by the vendor for the purchase order | 
-| VendorName (`NVARCHAR (MAX)`) | RMA Vendor - vendor to whom the product was returned | 
-| VendorPartNumber (`VARCHAR (25)`) | RMA Vendor SKU - SKU assigned by the RMA Vendor | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ActionTaken | TINYINT | Type - indicated the type of RMA: Credit, Replacement, Rejected or Repaired (1:Credit, 2:Replacement, 3:Rejected, 4:Repaired) | `1` |
+| ChannelName | NVARCHAR (MAX) | Channel - channel for the rows location | `English Channel` |
+| DateCreated | DateTime | Created On - date and time the RMA was created | `2011-03-02T17:10:11.78` |
+| DateReceived | DateTime | Received On - date and time the RMA was received | `2011-03-02T17:18:44.913` |
+| DateShipped | DateTime | Shipped On - date and time the Shipped box was checked | `2011-03-02T17:10:12.17` |
+| DistrictName | NVARCHAR (MAX) | District - district for the rows location | `Valley Area District` |
+| EmployeeName1 | VARCHAR (51) | Shipped By - name of the employee logged into RQ when the RMA was shipped | `iQmetrix User` |
+| EmployeeName2 | VARCHAR (51) | TransferHistoryInvoiceDetailReportData | `iQmetrix User` |
+| ProductIdentifier | VARCHAR (12) | Product SKU - RQ generated SKU | `ACPHUT000163` |
+| ProductName | NVARCHAR (MAX) | Product Name - name of the product as it appears in the inventory | `HTC Droid Incredible` |
+| Quantity | INT | Quantity - total number of that product SKU on the purchase order | `1` |
+| RegionName | NVARCHAR (MAX) | Region - region for the rows location | `Region A` |
+| RMANumber | VARCHAR (15) | Vendor RMA # - RMA # provided by the vendor, should be noted to provide an audit trail | `112482` |
+| SerialNumberAdded | VARCHAR (100) | Tracking # Received - tracking number received as replacement |  |
+| SerialNumberRemoved | VARCHAR (100) | Tracking # Shipped - tracking number shipped from inventory | `A1000017AB0E93` |
+| StockBalanceID | INT | Identifier in RQ | `1` |
+| StockBalanceIDByStore | VARCHAR (14) | RMA # - RMA number assigned by RQ | `84WEASB1` |
+| StoreName | NVARCHAR (MAX) | Location - location that created the RMA | `84 West` |
+| TotalCost | MONEY | Total Cost - total cost of items sent away on RMA | `460` |
+| TotalCostCredited | MONEY | Total Cost Credited - dollar amount credited by vendor for products on the RMA | `459` |
+| UnitCost | MONEY | Unit Cost - purchase cost per unit sent away on RMA; weighted average cost for non-serialized products and true cost for serialized products | `460` |
+| UnitCostCredited | MONEY | Unit Cost Credited - dollar amount of the credit granted by the vendor per unit | `459` |
+| VendorInvoiceNumber | VARCHAR (20) | Vendor Invoice # - invoice number assigned by the vendor for the purchase order |  |
+| VendorName | NVARCHAR (MAX) | RMA Vendor - vendor to whom the product was returned | `Reliance` |
+| VendorPartNumber | VARCHAR (25) | RMA Vendor SKU - SKU assigned by the RMA Vendor |  |
 
-## TransferHistoryInvoiceDetailReportData
+### TransferHistoryInvoiceDetailReportData
 
-| Name | Description |
-|:-----|:------------|
-| BillingStoreName (`NVARCHAR(MAX)`) | Bill To - location to be billed | 
-| CancelledByID (`INT`) | Internal identifier in RQ | 
-| CancelledByName (`VARCHAR (51)`) | Cancelled By - employee logged into RQ when the transfer was cancelled | 
-| CancelledDate (`DateTime`) | Cancelled On - date and time the transfer was cancelled | 
-| Committed (`BIT`) | Committed - indicates if the transfer has been committed or not | 
-| Completed (`BIT`) | Completed - indicates if the transfer has been completed, i.e. received by the requesting location | 
-| DateCommitted (`DateTime`) | Committed On - date and time the transfer was committed | 
-| DateRequested (`DateTime`) | Requested On - date and time the product(s) were requested | 
-| EstimatedArrivalDate (`DateTime`) | ETA - original estimate of date of delivery | 
-| ReceivingChannelName (`NVARCHAR(MAX)`) | Received At Channel - channel that received the inventory | 
-| ReceivingComments (`VARCHAR (500)`) | Receiving Comments - any commented entered at the time the transfer was received | 
-| ReceivingDistrictName (`NVARCHAR(MAX)`) | Received At District - district that received the inventory | 
-| ReceivingRegionName (`NVARCHAR(MAX)`) | Received At Region - region that received the inventory | 
-| ReceivingStoreName (`NVARCHAR(MAX)`) | Received At - location that received the product(s) shipped from another location | 
-| RequestingComments (`VARCHAR (500)`) | Requesting Comments - any comments entered at the time the transfer request was made | 
-| RequestingEmployeeName (`VARCHAR (51)`) | Requested By - employee logged into RQ when the request was made | 
-| ShippingChannelName (`NVARCHAR(MAX)`) | Shipped From Channel - channel that shipped the inventory | 
-| ShippingComments (`VARCHAR (500)`) | Shipping Comments - any comments entered at the time the transfer was shipped | 
-| ShippingCost (`MONEY`) | Shipping Cost - total cost to ship the product(s) | 
-| ShippingDistrictName (`NVARCHAR(MAX)`) | Shipped From District - district that shipped the inventory | 
-| ShippingMethod (`VARCHAR (30)`) | Shipping Method - selected at the time of shipping | 
-| ShippingRegionName (`NVARCHAR(MAX)`) | Shipped From Region - region that shipped the inventory | 
-| ShippingStoreName (`NVARCHAR(MAX)`) | Shipped From - location that shipped the product(s) to another location | 
-| TotalInvoice (`MONEY`) | Total Invoice - total dollar amount of the cost of the product(s) on being transferred | 
-| TransferID (`INT`) | Identifier for a transfer in RQ | 
-| TransferIDByStore (`VARCHAR (14)`) | Transfer # - transfer number generated by RQ | 
-| WaybillNumber (`VARCHAR (100)`) | Way Bill # - tracking number provided by shipping company, e.g. UPS, Purolator, etc. | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| BillingStoreName | NVARCHAR(MAX) | Bill To - location to be billed | `100: My Network LLC - Anchorage` |
+| CancelledByID | INT | Internal identifier in RQ | `null` |
+| CancelledByName | VARCHAR (51) | Cancelled By - employee logged into RQ when the transfer was cancelled | `null` |
+| CancelledDate | DateTime | Cancelled On - date and time the transfer was cancelled | `null` |
+| Committed | BIT | Committed - indicates if the transfer has been committed or not | `true` |
+| Completed | BIT | Completed - indicates if the transfer has been completed, i.e. received by the requesting location | `true` |
+| DateCommitted | DateTime | Committed On - date and time the transfer was committed | `2016-04-19T14:57:20.32` |
+| DateRequested | DateTime | Requested On - date and time the product(s) were requested | `2016-04-19T14:57:20.32` |
+| EstimatedArrivalDate | DateTime | ETA - original estimate of date of delivery | `2016-04-20T00:00:00` |
+| ReceivingChannelName | NVARCHAR(MAX) | Received At Channel - channel that received the inventory | `English Channel` |
+| ReceivingComments | VARCHAR (500) | Receiving Comments - any commented entered at the time the transfer was received |  |
+| ReceivingDistrictName | NVARCHAR(MAX) | Received At District - district that received the inventory | `Westminster` |
+| ReceivingRegionName | NVARCHAR(MAX) | Received At Region - region that received the inventory | `London` |
+| ReceivingStoreName | NVARCHAR(MAX) | Received At - location that received the product(s) shipped from another location | `100: My Network LLC - Anchorage` |
+| RequestingComments | VARCHAR (500) | Requesting Comments - any comments entered at the time the transfer request was made |  |
+| RequestingEmployeeName | VARCHAR (51) | Requested By - employee logged into RQ when the request was made | `iQmetrix User` |
+| ShippingChannelName | NVARCHAR(MAX) | Shipped From Channel - channel that shipped the inventory | `English Channel` |
+| ShippingComments | VARCHAR (500) | Shipping Comments - any comments entered at the time the transfer was shipped |  |
+| ShippingCost | MONEY | Shipping Cost - total cost to ship the product(s) | `0` |
+| ShippingDistrictName | NVARCHAR(MAX) | Shipped From District - district that shipped the inventory | `Valley Area District` |
+| ShippingMethod | VARCHAR (30) | Shipping Method - selected at the time of shipping | `Regular` |
+| ShippingRegionName | NVARCHAR(MAX) | Shipped From Region - region that shipped the inventory | `Region A` |
+| ShippingStoreName | NVARCHAR(MAX) | Shipped From - location that shipped the product(s) to another location | `84 West` |
+| TotalInvoice | MONEY | Total Invoice - total dollar amount of the cost of the product(s) on being transferred | `500` |
+| TransferID | INT | Identifier for a transfer in RQ | `4326` |
+| TransferIDByStore | VARCHAR (14) | Transfer # - transfer number generated by RQ | `77224TR1` |
+| WaybillNumber | VARCHAR (100) | Way Bill # - tracking number provided by shipping company, e.g. UPS, Purolator, etc. | `53454354` |
 
-## TransferHistoryProductDetailReportData
+### TransferHistoryProductDetailReportData
 
-| Name | Description |
-|:-----|:------------|
-| CancelledByID (`INT`) | Internal identifier in RQ | 
-| CancelledByName (`VARCHAR (51)`) | Cancelled By - cancelling employee | 
-| CancelledDate (`DateTime`) | Cancelled On - date the transfer was cancelled | 
-| CategoryPath (`NVARCHAR(MAX)`) | Category - inventory category this product lives in | 
-| DateReceived (`DateTime`) | Received On - date the item(s) were received on | 
-| DateShipped (`DateTime`) | Shipped On - date the item(s) was shipped | 
-| ProductIdentifier (`VARCHAR(12)`) | Product SKU - RQ generated SKU | 
-| ProductName (`NVARCHAR(MAX)`) | Product Name - name of this product as it appears in inventory | 
-| Quantity (`INT`) | Quantity - quantity of item transferred | 
-| ReceivingChannelName (`NVARCHAR(MAX)`) | Received At Channel - channel that received the inventory | 
-| ReceivingDistrictName (`NVARCHAR(MAX)`) | Received At District - district that received the inventory | 
-| ReceivingEmployeeName (`VARCHAR (51)`) | Received By - employee who received the transfer | 
-| ReceivingRegionName (`NVARCHAR(MAX)`) | Received At Region - region that received the inventory | 
-| ReceivingStoreName (`NVARCHAR(MAX)`) | Received At - location that received the product(s) shipped from another location | 
-| RequestingEmployeeName (`VARCHAR (51)`) | Requested By - employee who requested the transfer | 
-| SerialNumber (`VARCHAR (100)`) | Tracking # - tracking # for the item shipped | 
-| ShippingChannelName (`NVARCHAR(MAX)`) | Shipped From Channel - channel that shipped the inventory | 
-| ShippingDistrictName (`NVARCHAR(MAX)`) | Shipped From District - district that shipped the inventory | 
-| ShippingEmployeeName (`VARCHAR (51)`) | Shipped By - employee who shipped the transfer | 
-| ShippingRegionName (`NVARCHAR(MAX)`) | Shipped From Region - region that shipped the inventory | 
-| ShippingStoreName (`NVARCHAR(MAX)`) | Shipped From - location that shipped the product(s) to another location | 
-| TotalCost (`MONEY`) | Total Cost - cost per item multiplied by how many of the item were transferred | 
-| TransferID (`INT`) | Internal identifier in RQ | 
-| TransferIDByStore (`VARCHAR(14)`) | Transfer # - transfer number generated by RQ | 
-| UnitCost (`MONEY`) | Unit Cost - cost per item | 
-| VendorName (`NVARCHAR(MAX)`) | Vendor - vendor the item was purchased from | 
-| VendorPartNumber (`VARCHAR (25)`) | Vendor SKU - vendor SKU | 
-| WaybillNumber (`VARCHAR (100)`) | Way Bill # - tracking number provided by shipping company, e.g. UPS, Purolator, etc. | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CancelledByID | INT | Internal identifier in RQ | `null` |
+| CancelledByName | VARCHAR (51) | Cancelled By - cancelling employee | `null` |
+| CancelledDate | DateTime | Cancelled On - date the transfer was cancelled | `null` |
+| CategoryPath | NVARCHAR(MAX) | Category - inventory category this product lives in | `>> Phones >> Galaxies` |
+| DateReceived | DateTime | Received On - date the item(s) were received on | `2011-06-02T10:04:51.59` |
+| DateShipped | DateTime | Shipped On - date the item(s) was shipped | `2011-06-02T09:41:08.027` |
+| ProductIdentifier | VARCHAR(12) | Product SKU - RQ generated SKU | `ASBORI000028` |
+| ProductName | NVARCHAR(MAX) | Product Name - name of this product as it appears in inventory | `BG Curve2 Posh PK` |
+| Quantity | INT | Quantity - quantity of item transferred | `1` |
+| ReceivingChannelName | NVARCHAR(MAX) | Received At Channel - channel that received the inventory | `English Channel` |
+| ReceivingDistrictName | NVARCHAR(MAX) | Received At District - district that received the inventory | `Westminster` |
+| ReceivingEmployeeName | VARCHAR (51) | Received By - employee who received the transfer | `Courtney Noon` |
+| ReceivingRegionName | NVARCHAR(MAX) | Received At Region - region that received the inventory | `London` |
+| ReceivingStoreName | NVARCHAR(MAX) | Received At - location that received the product(s) shipped from another location | `100: My Network LLC - Anchorage` |
+| RequestingEmployeeName | VARCHAR (51) | Requested By - employee who requested the transfer | `iQmetrix User` |
+| SerialNumber | VARCHAR (100) | Tracking # - tracking # for the item shipped |  |
+| ShippingChannelName | NVARCHAR(MAX) | Shipped From Channel - channel that shipped the inventory | `English Channel` |
+| ShippingDistrictName | NVARCHAR(MAX) | Shipped From District - district that shipped the inventory | `Valley Area District` |
+| ShippingEmployeeName | VARCHAR (51) | Shipped By - employee who shipped the transfer | `Courtney Noon` |
+| ShippingRegionName | NVARCHAR(MAX) | Shipped From Region - region that shipped the inventory | `Region A` |
+| ShippingStoreName | NVARCHAR(MAX) | Shipped From - location that shipped the product(s) to another location | `84 West` |
+| TotalCost | MONEY | Total Cost - cost per item multiplied by how many of the item were transferred | `9.6705` |
+| TransferID | INT | Internal identifier in RQ | `718` |
+| TransferIDByStore | VARCHAR(14) | Transfer # - transfer number generated by RQ | `WIREGTR73` |
+| UnitCost | MONEY | Unit Cost - cost per item | `9.6705` |
+| VendorName | NVARCHAR(MAX) | Vendor - vendor the item was purchased from | `LTD Wireless` |
+| VendorPartNumber | VARCHAR (25) | Vendor SKU - vendor SKU | `bgcrv2poshpk` |
+| WaybillNumber | VARCHAR (100) | Way Bill # - tracking number provided by shipping company, e.g. UPS, Purolator, etc. | `53454354` |
 
 
 
@@ -288,7 +286,7 @@ GET /reports/adjustmenthistoryinvoicedetailreport?ReasonCode={ReasonCode}&StartD
 <ul>
     
     <li>
-        <code>ReasonCode</code> (<strong>Required</strong>)  - Identifier for a {{ReasonCode}}. Use -1 to specify All Reason Codes. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-reason-codes">Getting Reason Codes</a>
+        <code>ReasonCode</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#reasoncode'>ReasonCode</a>. Use -1 to specify All Reason Codes. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-reason-codes">Getting Reason Codes</a>
     </li>
     
     <li>
@@ -308,11 +306,11 @@ GET /reports/adjustmenthistoryinvoicedetailreport?ReasonCode={ReasonCode}&StartD
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>
@@ -600,7 +598,7 @@ GET /reports/adjustmenthistoryproductdetailreport?ReasonCode={ReasonCode}&StartD
 <ul>
     
     <li>
-        <code>ReasonCode</code> (<strong>Required</strong>)  - Identifier for a {{ReasonCode}}. Use -1 to specify All Reason Codes. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-reason-codes">Getting Reason Codes</a>
+        <code>ReasonCode</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#reasoncode'>ReasonCode</a>. Use -1 to specify All Reason Codes. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-reason-codes">Getting Reason Codes</a>
     </li>
     
     <li>
@@ -620,11 +618,11 @@ GET /reports/adjustmenthistoryproductdetailreport?ReasonCode={ReasonCode}&StartD
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>
@@ -936,7 +934,7 @@ GET /reports/inventorylistingreport?CategoryNumber={CategoryNumber}&BinStatus={B
 <ul>
     
     <li>
-        <code>CategoryNumber</code> (<strong>Required</strong>)  - Identifier for a {{CategoryNumber}}. For a complete list see <a href="/api/RQ-Data-Connect/#getting-category-numbers">Getting Category Numbers</a>
+        <code>CategoryNumber</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#categorynumber'>CategoryNumber</a>. For a complete list see <a href="/api/RQ-Data-Connect/#getting-category-numbers">Getting Category Numbers</a>
     </li>
     
     <li>
@@ -964,11 +962,11 @@ GET /reports/inventorylistingreport?CategoryNumber={CategoryNumber}&BinStatus={B
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>
@@ -1328,11 +1326,11 @@ GET /reports/rmahistoryinvoicereport?StartDate={StartDate}&StopDate={StopDate}&V
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>
@@ -1680,11 +1678,11 @@ GET /reports/rmahistoryproductreport?StartDate={StartDate}&StopDate={StopDate}&V
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>

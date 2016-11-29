@@ -4,7 +4,7 @@ permalink: /api/RQ-Data-Connect-Customer-Reports/
 tags: []
 keywords: 
 audience: 
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary: 
 rouge: false
 noPopUp: true
@@ -16,8 +16,6 @@ noPopUp: true
 
 
 {% include linkrefs.html %}
-
-
 
 
 ## Overview
@@ -49,35 +47,35 @@ For a complete list of reports in RQ Data Connect, see [Report List](/rq-data-co
 
 ## Resources
 
-## CustomerListReportData
+### CustomerListReportData
 
-| Name | Description |
-|:-----|:------------|
-| Address (`VARCHAR(50)`) | Address - first line of the address | 
-| Address2 (`VARCHAR(50)`) | Address 2 - second line of the address, if necessary | 
-| BillingAccountNumber (`NVARCHAR(MAX)`) | BAN -  if your company uses BAN you will enter it in the Customer profile and it will show here | 
-| City (`VARCHAR(50)`) | City - customer's city | 
-| ContactNumber (`VARCHAR(200)`) | Contact # - the number that is selected on the customer's profile, it can be any of the number options there | 
-| ContactTypeName (`NVARCHAR(MAX)`) | Contact Type - as defined in General Customer Setup and assigned in the Custom Fields section on the customer's profile | 
-| Country (`VARCHAR(50)`) | Country - customer's country | 
-| CustomerCompanyName (`VARCHAR(50)`) | Company Name - may be blank depending on the kind of customer | 
-| CustomerFirstName (`VARCHAR(50)`) | First Name - may be blank depending on the kind of customer | 
-| CustomerID (`INT`) | Identifier for a Customer in RQ | 
-| CustomerLastName (`VARCHAR(50)`) | Last Name - may be blank depending on the kind of customer | 
-| DateCreated (`DateTime`) | Created On - day and time the customer's profile was created | 
-| DeclineToProvideEmail (`BIT`) | Decline Email - the option for customers to decline email | 
-| Email (`VARCHAR(200)`) | Email - may be blank, if so, the context menu will not have the Email Customer option | 
-| EmployeeName (`VARCHAR(51)`) | Created By - employee who created the profile | 
-| EmployeeNameAssignedTo (`VARCHAR(51)`) | Assigned To - may be blank if the customer has not been assigned to an employee | 
-| IndustryTypeName (`NVARCHAR(MAX)`) | Industry Type - as defined in General Customer Setup and assigned in the Custom Fields section on the customer's profile | 
-| MultiLevelPriceID (`INT`) | Pricing Group - as defined in Multi-Level Pricing - Setup and assigned in the Discount Level field in the More Information section on the customer's profile | 
-| NumberOfActivations (`INT`) | # of Activations - number of Activations the customer has completed as recorded in RQ | 
-| PositionTypeName (`NVARCHAR(MAX)`) | Position Type - as defined in General Customer Setup and assigned in the Custom Fields section on the customer's profile | 
-| PostalCode (`VARCHAR(15)`) | Zip/Postal Code - zip code (USA) or postal code (Canada) | 
-| Province (`VARCHAR(50)`) | State/Province - customer's state or province | 
-| TracPointMemberNumber (`VARCHAR(30)`) | Member # - this number is automatically generated when a new customer is created | 
-| TypeOfCustomer (`INT`) | Type Of Customer - 0 for Company, or 3 for Individual | 
-| VIPCustomer (`TINYINT`) | VIP Customer - will be checked if this is a VIP Customer  | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Address | VARCHAR(50) | Address - first line of the address | `12 Hello St.` |
+| Address2 | VARCHAR(50) | Address 2 - second line of the address, if necessary | `n/a` |
+| BillingAccountNumber | NVARCHAR(MAX) | BAN -  if your company uses BAN you will enter it in the Customer profile and it will show here |  |
+| City | VARCHAR(50) | City - customer's city | `Fargo` |
+| ContactNumber | VARCHAR(200) | Contact # - the number that is selected on the customer's profile, it can be any of the number options there | `5555555555` |
+| ContactTypeName | NVARCHAR(MAX) | Contact Type - as defined in General Customer Setup and assigned in the Custom Fields section on the customer's profile |  |
+| Country | VARCHAR(50) | Country - customer's country | `United States` |
+| CustomerCompanyName | VARCHAR(50) | Company Name - may be blank depending on the kind of customer | `KENTEL` |
+| CustomerFirstName | VARCHAR(50) | First Name - may be blank depending on the kind of customer | `Carrie` |
+| CustomerID | INT | Identifier for a Customer in RQ | `2108754` |
+| CustomerLastName | VARCHAR(50) | Last Name - may be blank depending on the kind of customer | `Madison` |
+| DateCreated | DateTime | Created On - day and time the customer's profile was created | `2016-01-26T20:55:53.227` |
+| DeclineToProvideEmail | BIT | Decline Email - the option for customers to decline email | `false` |
+| Email | VARCHAR(200) | Email - may be blank, if so, the context menu will not have the Email Customer option | `carry@test.iq` |
+| EmployeeName | VARCHAR(51) | Created By - employee who created the profile | `iQmetrix Employee` |
+| EmployeeNameAssignedTo | VARCHAR(51) | Assigned To - may be blank if the customer has not been assigned to an employee | `iQmetrix Employee` |
+| IndustryTypeName | NVARCHAR(MAX) | Industry Type - as defined in General Customer Setup and assigned in the Custom Fields section on the customer's profile |  |
+| MultiLevelPriceID | INT | Pricing Group - as defined in Multi-Level Pricing - Setup and assigned in the Discount Level field in the More Information section on the customer's profile | `1` |
+| NumberOfActivations | INT | # of Activations - number of Activations the customer has completed as recorded in RQ | `0` |
+| PositionTypeName | NVARCHAR(MAX) | Position Type - as defined in General Customer Setup and assigned in the Custom Fields section on the customer's profile |  |
+| PostalCode | VARCHAR(15) | Zip/Postal Code - zip code (USA) or postal code (Canada) | `90123` |
+| Province | VARCHAR(50) | State/Province - customer's state or province | `ND` |
+| TracPointMemberNumber | VARCHAR(30) | Member # - this number is automatically generated when a new customer is created | `C2981754hduw` |
+| TypeOfCustomer | INT | Type Of Customer - 0 for Company, or 3 for Individual | `3` |
+| VIPCustomer | TINYINT | VIP Customer - will be checked if this is a VIP Customer  | `0` |
 
 
 
@@ -135,11 +133,11 @@ GET /reports/customerlistreport?StartDate={StartDate}&StopDate={StopDate}&TypeOf
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>

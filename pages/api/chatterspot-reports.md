@@ -4,7 +4,7 @@ permalink: /api/Chatterspot-Reports/
 tags: []
 keywords: 
 audience: 
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary: 
 rouge: false
 noPopUp: true
@@ -16,8 +16,6 @@ noPopUp: true
 
 
 {% include linkrefs.html %}
-
-
 
 
 ## Overview
@@ -41,109 +39,109 @@ This API supports many different methods of authentication, see {{Authentication
 
 ## Resources
 
-## Relationship
+### Relationship
 
-| Name | Description |
-|:-----|:------------|
-| CompanyID (`INTEGER`) | Identifier for a {{Company}} | 
-| CompanyName (`VARCHAR(50)`) | Company name | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| CompanyID | INTEGER | Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a> | `14682` |
+| CompanyName | VARCHAR(50) | Company name | `KENTEL` |
 
-## GenerateMarketingReportData
+### GenerateMarketingReportData
 
-| Name | Description |
-|:-----|:------------|
-| Customer Address (`VARCHAR(50)`) | Customer address | 
-| Customer NAME (`VARCHAR(101)`) | Customer name | 
-| Customer Zip Code (`VARCHAR(15)`) | Customer zip code | 
-| Email (`VARCHAR(200)`) | Customer email | 
-| Employee Name (`VARCHAR(51)`) | Employee name | 
-| External Store ID (`VARCHAR(255)`) | Identifier for a location in an external system | 
-| GlobalProductID (`INTEGER`) | Identifier for a Product in RQ | 
-| Gross Profit (`MONEY`) | Gross profit | 
-| Id_number (`INTEGER`) | Identifier for customer in RQ | 
-| IMEI (`VARCHAR(100)`) | IMEI | 
-| Member Number (`VARCHAR(50)`) | Customer member number | 
-| MobileNumber (`VARCHAR(200)`) | Customer mobile number | 
-| Product Cost (`MONEY`) | Product cost | 
-| Quantity (`INTEGER`) | Quantity | 
-| RQ Employee ID (`INTEGER`) | Identifier for an employee in RQ | 
-| RQ Invoice (`VARCHAR(14)`) | Identifier for an invoice in RQ | 
-| RQ Product Description (`NVARCHAR(MAX)`) | Description for a product in RQ | 
-| RQ SKU (`VARCHAR(12)`) | Product SKU in RQ | 
-| Selling Price (`MONEY`) | Selling price | 
-| Transaction Date (`DateTime`) | Transaction date | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Customer Address | VARCHAR(50) | Customer address | `3811 Smith Street` |
+| Customer NAME | VARCHAR(101) | Customer name | `John Tester` |
+| Customer Zip Code | VARCHAR(15) | Customer zip code | `75219` |
+| Email | VARCHAR(200) | Customer email | `johnb@test.com` |
+| Employee Name | VARCHAR(51) | Employee name | `IQMETRIX USER` |
+| External Store ID | VARCHAR(255) | Identifier for a location in an external system | `2356` |
+| GlobalProductID | INTEGER | Identifier for a Product in RQ | `92` |
+| Gross Profit | MONEY | Gross profit | `19.99` |
+| Id_number | INTEGER | Identifier for customer in RQ | `1421` |
+| IMEI | VARCHAR(100) | IMEI | `6783584733` |
+| Member Number | VARCHAR(50) | Customer member number | `5103830` |
+| MobileNumber | VARCHAR(200) | Customer mobile number | `6783584733` |
+| Product Cost | MONEY | Product cost | `0` |
+| Quantity | INTEGER | Quantity | `1` |
+| RQ Employee ID | INTEGER | Identifier for an employee in RQ | `138` |
+| RQ Invoice | VARCHAR(14) | Identifier for an invoice in RQ | `FAIVGIN569` |
+| RQ Product Description | NVARCHAR(MAX) | Description for a product in RQ | `IDEN -TELENAV: UNLIMITED ROUTES $10 -- NEED DATA ACCESS PLAN` |
+| RQ SKU | VARCHAR(12) | Product SKU in RQ | `CANXRB000072` |
+| Selling Price | MONEY | Selling price | `19.99` |
+| Transaction Date | DateTime | Transaction date | `2016-02-04T14:38:43.753` |
 
-## ProductDetailReportData
+### ProductDetailReportData
 
-| Name | Description |
-|:-----|:------------|
-| Activation_RowID (`UNIQUEIDENTIFIER`) | Internal identifier in RQ | 
-| AdjustedUnitPrice (`MONEY`) | Adjusted Unit Price - price that the product was actually sold for | 
-| CarrierPrice (`MONEY`) | Carrier Price - value or revenue that a carrier assigns this feature | 
-| CategoryPath (`NVARCHAR(MAX)`) | Category - the category the product belongs to | 
-| ChannelName (`NVARCHAR(MAX)`) | Channel - channel for the rows location | 
-| Comments (`TEXT`) | Invoice Comments - comments added to the invoice | 
-| ContractNumber (`VARCHAR (50)`) | Contract # - number of the contract, recorded at the time of sale | 
-| CustomerID (`INT`) | Internal identifier for a customer in RQ | 
-| CustomerName (`VARCHAR (101)`) | Customer - name of the customer as entered on their profile | 
-| DateCreated (`DateTime`) | Sold On - date and time the invoice was tendered | 
-| DistrictName (`NVARCHAR(MAX)`) | District - district for the rows location | 
-| EmployeeName (`VARCHAR (51)`) | Sold By - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box | 
-| GlobalProductID (`INT`) | Internal identifier in RQ | 
-| InvoicedAt (`NVARCHAR(MAX)`) | Invoiced At - name of the location which takes the inventory on a refund, usually the same as Invoiced By but will be different if a second location process a refund | 
-| InvoicedBy (`NVARCHAR(MAX)`) | Invoiced By - name of the location which credited with the sale, usually the same as Invoiced At but will be different if a second location process a refund | 
-| InvoiceIDByStore (`VARCHAR (14)`) | Invoice # - invoice number assigned by RQ | 
-| IsOrderServiceDropShipProduct (`BIT`) | Internal identifier in RQ | 
-| IsOrderServiceShippingProduct (`BIT`) | Internal identifier in RQ | 
-| ListPrice (`MONEY`) | List Price - current price as noted on the pricing tab in the inventory console for the product | 
-| OriginalUnitPrice (`MONEY`) | Orig. Unit Price - original price on the invoice | 
-| Priority (`INT`) | The order that the products were saved in on an Invoice | 
-| ProductCouponDiscount (`MONEY`) | Coupon discount on the product | 
-| ProductIdentifier (`VARCHAR(12)`) | Product SKU - the RQ generated SKU | 
-| ProductName (`NVARCHAR(MAX)`) | Product Name - name of the product as it appears in the inventory | 
-| Quantity (`INT`) | Qty - total number of times the Product SKU appears on the invoice | 
-| Refund (`BIT`) | Refund - indicates if a negative quantity of this item was sold | 
-| RegionName (`NVARCHAR(MAX)`) | Region - region for the rows location | 
-| RetailerCatalogID (`VARCHAR (50)`) | Internal identifier in RQ | 
-| SaleInvoice_RowID (`UNIQUEIDENTIFIER`) | Internal identifier in RQ | 
-| SaleInvoiceID (`INT`) | Identifier for an invoice in RQ | 
-| SaleInvoiceProduct_RowID (`UNIQUEIDENTIFIER`) | Internal identifier in RQ | 
-| SerialNumber (`VARCHAR (100)`) | Tracking # - tracking number associated with this product, serialized products only | 
-| SoldAsUsed (`BIT`) | Sold As Used - indicates the product was used when sold | 
-| SpecialProductID (`INT`) | Internal identifier in RQ | 
-| StoreInStoreFlowIsEnabledForStore (`BIT`) | Internal identifier in RQ | 
-| StoreInStoreGrossProfit (`MONEY`) | SIS Gross Profit - profit, calculated as Total Sales - Cost for a SIS location. | 
-| StoreInStoreListPrice (`MONEY`) | SIS List Price - Price from the store-in-store setup of the product | 
-| StoreInStorePrice (`MONEY`) | SIS Price - The default price when sold through the store-in-store flow | 
-| StoreTypeName (`NVARCHAR(MAX)`) | Location Type - the location type the the transaction was performed at | 
-| TenderedBy (`VARCHAR (51)`) | Tendered By - name of the employee logged into RQ when the invoice was tendered | 
-| TotalCost (`MONEY`) | Total Cost - total purchase cost for the product(s) on the invoice | 
-| TotalDiscount (`DECIMAL (8, 4)`) | Total Discount - net discount amount for the Product SKU on the particular invoice | 
-| TotalPrice (`MONEY`) | Total Sales - net dollar amount for the Product SKU on the particular invoice | 
-| UnitCost (`MONEY`) | Unit Cost - purchase cost per unit | 
-| UnitPrice (`MONEY`) | Sold For - price that appeared on the invoice (including hide on invoice items), i.e. negative if a refund | 
-| VendorName (`NVARCHAR(MAX)`) | Name for a vendor in RQ | 
-| VendorSKU (`VARCHAR(25)`) | Vendor SKU | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Activation_RowID | UNIQUEIDENTIFIER | Internal identifier in RQ | `d3d65281-5201-4927-9bac-6f3a47ddf56b` |
+| AdjustedUnitPrice | MONEY | Adjusted Unit Price - price that the product was actually sold for | `25` |
+| CarrierPrice | MONEY | Carrier Price - value or revenue that a carrier assigns this feature | `null` |
+| CategoryPath | NVARCHAR(MAX) | Category - the category the product belongs to | `>> Phones >> Galaxies` |
+| ChannelName | NVARCHAR(MAX) | Channel - channel for the rows location | `English Channel` |
+| Comments | TEXT | Invoice Comments - comments added to the invoice |  |
+| ContractNumber | VARCHAR (50) | Contract # - number of the contract, recorded at the time of sale | `12345` |
+| CustomerID | INT | Internal identifier for a customer in RQ | `131149` |
+| CustomerName | VARCHAR (101) | Customer - name of the customer as entered on their profile | `Bob Jones` |
+| DateCreated | DateTime | Sold On - date and time the invoice was tendered | `2016-05-13T12:18:08.723` |
+| DistrictName | NVARCHAR(MAX) | District - district for the rows location | `Westminster` |
+| EmployeeName | VARCHAR (51) | Sold By - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box | `iQmetrix User` |
+| GlobalProductID | INT | Internal identifier in RQ | `5179` |
+| InvoicedAt | NVARCHAR(MAX) | Invoiced At - name of the location which takes the inventory on a refund, usually the same as Invoiced By but will be different if a second location process a refund | `100: My Network LLC - Anchorage` |
+| InvoicedBy | NVARCHAR(MAX) | Invoiced By - name of the location which credited with the sale, usually the same as Invoiced At but will be different if a second location process a refund | `100: My Network LLC - Anchorage` |
+| InvoiceIDByStore | VARCHAR (14) | Invoice # - invoice number assigned by RQ | `77224IN3` |
+| IsOrderServiceDropShipProduct | BIT | Internal identifier in RQ | `null` |
+| IsOrderServiceShippingProduct | BIT | Internal identifier in RQ | `null` |
+| ListPrice | MONEY | List Price - current price as noted on the pricing tab in the inventory console for the product | `449.95` |
+| OriginalUnitPrice | MONEY | Orig. Unit Price - original price on the invoice | `25` |
+| Priority | INT | The order that the products were saved in on an Invoice | `1` |
+| ProductCouponDiscount | MONEY | Coupon discount on the product | `0` |
+| ProductIdentifier | VARCHAR(12) | Product SKU - the RQ generated SKU | `ASHCSA000120` |
+| ProductName | NVARCHAR(MAX) | Product Name - name of the product as it appears in the inventory | `Samsung Galaxy Rugby LTE` |
+| Quantity | INT | Qty - total number of times the Product SKU appears on the invoice | `1` |
+| Refund | BIT | Refund - indicates if a negative quantity of this item was sold | `0` |
+| RegionName | NVARCHAR(MAX) | Region - region for the rows location | `London` |
+| RetailerCatalogID | VARCHAR (50) | Internal identifier in RQ | `null` |
+| SaleInvoice_RowID | UNIQUEIDENTIFIER | Internal identifier in RQ | `8c6537ae-75a5-4155-82b2-c8647ed05f3d` |
+| SaleInvoiceID | INT | Identifier for an invoice in RQ | `128962` |
+| SaleInvoiceProduct_RowID | UNIQUEIDENTIFIER | Internal identifier in RQ | `0099b78f-ba02-4a91-afd4-2f7eb0fbbb06` |
+| SerialNumber | VARCHAR (100) | Tracking # - tracking number associated with this product, serialized products only | `1111111` |
+| SoldAsUsed | BIT | Sold As Used - indicates the product was used when sold | `false` |
+| SpecialProductID | INT | Internal identifier in RQ | `0` |
+| StoreInStoreFlowIsEnabledForStore | BIT | Internal identifier in RQ | `false` |
+| StoreInStoreGrossProfit | MONEY | SIS Gross Profit - profit, calculated as Total Sales - Cost for a SIS location. | `null` |
+| StoreInStoreListPrice | MONEY | SIS List Price - Price from the store-in-store setup of the product | `null` |
+| StoreInStorePrice | MONEY | SIS Price - The default price when sold through the store-in-store flow | `null` |
+| StoreTypeName | NVARCHAR(MAX) | Location Type - the location type the the transaction was performed at | `Costco` |
+| TenderedBy | VARCHAR (51) | Tendered By - name of the employee logged into RQ when the invoice was tendered | `iQmetrix User` |
+| TotalCost | MONEY | Total Cost - total purchase cost for the product(s) on the invoice | `0` |
+| TotalDiscount | DECIMAL (8, 4) | Total Discount - net discount amount for the Product SKU on the particular invoice | `424.95` |
+| TotalPrice | MONEY | Total Sales - net dollar amount for the Product SKU on the particular invoice | `25` |
+| UnitCost | MONEY | Unit Cost - purchase cost per unit | `0` |
+| UnitPrice | MONEY | Sold For - price that appeared on the invoice (including hide on invoice items), i.e. negative if a refund | `25` |
+| VendorName | NVARCHAR(MAX) | Name for a vendor in RQ |  |
+| VendorSKU | VARCHAR(25) | Vendor SKU |  |
 
-## ProductDetailReportTaxColumnData
+### ProductDetailReportTaxColumnData
 
-| Name | Description |
-|:-----|:------------|
-| ColName (`VARCHAR`) | Tax name | 
-| ColCaption (`NVARCHAR(MAX)`) | Description | 
-| CreditCardPaymentType (`VARCHAR (20)`) | Credit card information | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| ColName | VARCHAR | Tax name | `T102` |
+| ColCaption | NVARCHAR(MAX) | Description | `Flat tax` |
+| CreditCardPaymentType | VARCHAR (20) | Credit card information | `null` |
 
-## ProductDetailReportTaxDetailData
+### ProductDetailReportTaxDetailData
 
-| Name | Description |
-|:-----|:------------|
-| Amount (`MONEY `) | Amount | 
-| GlobalProductID (`INT`) | Identifier of a Product in RQ | 
-| Priority (`INT`) | Priority | 
-| SaleInvoiceID (`INT`) | Identifier of a sale invoice in RQ | 
-| SerialNumber (`VARCHAR (100) `) | Serial number | 
-| TaxID (`VARCHAR`) | Tax identifier | 
-| TaxName (`NVARCHAR(MAX)`) | Tax name | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Amount | MONEY  | Amount | `22.5` |
+| GlobalProductID | INT | Identifier of a Product in RQ | `5179` |
+| Priority | INT | Priority | `1` |
+| SaleInvoiceID | INT | Identifier of a sale invoice in RQ | `128996` |
+| SerialNumber | VARCHAR (100)  | Serial number | `2222222` |
+| TaxID | VARCHAR | Tax identifier | `T102` |
+| TaxName | NVARCHAR(MAX) | Tax name | `Brad flat tax` |
 
 
 
@@ -408,7 +406,7 @@ GET /partner/Chatterspot/GenerateMarketingReport?CompanyId={CompanyId}&StartDate
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -739,7 +737,7 @@ GET /partner/Chatterspot/ProductDetailReport?CompanyId={CompanyId}&StartDate={St
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a {{Company}}, for a list see Getting Partner Relationships
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>, for a list see Getting Partner Relationships
     </li>
     
     <li>
@@ -755,7 +753,7 @@ GET /partner/Chatterspot/ProductDetailReport?CompanyId={CompanyId}&StartDate={St
     </li>
     
     <li>
-        <code>CategoryNumber</code> (<strong>Required</strong>)  - Identifier for a {{CategoryNumber}}. For a complete list see <a href="#getting-category-numbers">Getting Category Numbers</a>
+        <code>CategoryNumber</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#categorynumber'>CategoryNumber</a>. For a complete list see <a href="#getting-category-numbers">Getting Category Numbers</a>
     </li>
     
     <li>
@@ -775,11 +773,11 @@ GET /partner/Chatterspot/ProductDetailReport?CompanyId={CompanyId}&StartDate={St
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>

@@ -4,7 +4,7 @@ permalink: /api/RQ-Data-Connect-Employee-Reports/
 tags: []
 keywords: 
 audience: 
-last_updated: 23-11-2016
+last_updated: 29-11-2016
 summary: 
 rouge: false
 noPopUp: true
@@ -16,8 +16,6 @@ noPopUp: true
 
 
 {% include linkrefs.html %}
-
-
 
 
 ## Overview
@@ -49,66 +47,66 @@ For a complete list of reports in RQ Data Connect, see [Report List](/rq-data-co
 
 ## Resources
 
-## EmployeeListReportData
+### EmployeeListReportData
 
-| Name | Description |
-|:-----|:------------|
-| Address (`VARCHAR(50)`) | Address - employee's address | 
-| Cellular_Number (`NVARCHAR(MAX)`) | Cell Phone # - employee's cell phone number | 
-| City (`VARCHAR(50)`) | City - employee's city | 
-| DefaultLocation (`INT`) | Primary Location - primary location if one has been assigned. DefaultLocation and DefaultZoneForWho are used to determine this value | 
-| DefaultZoneForWho (`TINYINT`) | Primary Location - primary location if one has been assigned. DefaultLocation and DefaultZoneForWho are used to determine this value | 
-| Email (`VARCHAR(50)`) | Email Address - employee's work email address | 
-| EmailAddress (`VARCHAR(50)`) | Email  | 
-| Employee_Name (`VARCHAR(51)`) | Employee - name of the employee as entered on their employee profile | 
-| ID_Number (`INT`) | Internal identifier for employee in RQ | 
-| IsPartTime (`BIT`) | Part Time - indicates if an employee is Part Time | 
-| Last_Name (`VARCHAR(25)`) | Employee last name | 
-| LastHireDate (`VARCHAR(50)`) | Hire Date - day and date the employee was hired | 
-| Location (`VARCHAR(51)`) | Location - Only present if Unique is not -1. Every location the employee is assigned to | 
-| PersonalEmail (`VARCHAR(50)`) | Personal Email - employee's personal email address | 
-| Postal_Code (`VARCHAR(15)`) | Zip/Postal Code - zip code (USA) or postal code (Canada) | 
-| Province (`VARCHAR(50)`) | Province - employee's province or state | 
-| RoleDescription (`NVARCHAR(MAX)`) | Security Role - security role assigned to this employee | 
-| ScheduledTerminationDate (`DateTime`) | Scheduled termination date | 
-| SMS_Number (`VARCHAR(50)`) | SMS # - employee's text number | 
-| SpecialIdentifier (`VARCHAR(25)`) | ID # - ID number assigned when hired | 
-| StartDate (`DateTime`) | Start Date | 
-| Status (`VARCHAR(8)`) | Status - shows if the employee is enabled or disabled if Any Status is selected | 
-| TerminationDate (`DateTime`) | Termination Date - date of termination (date the employee was disabled) | 
-| Title (`VARCHAR(50)`) | Title - title assigned to this employee | 
-| Username (`VARCHAR(25)`) | Username - username of the employee as entered on their employee profile | 
-| Work_Number (`DateTime`) | Work Phone # - employee's work number | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| Address | VARCHAR(50) | Address - employee's address | `127 starlight lane` |
+| Cellular_Number | NVARCHAR(MAX) | Cell Phone # - employee's cell phone number | `5555555555` |
+| City | VARCHAR(50) | City - employee's city | `Fargo` |
+| DefaultLocation | INT | Primary Location - primary location if one has been assigned. DefaultLocation and DefaultZoneForWho are used to determine this value | `null` |
+| DefaultZoneForWho | TINYINT | Primary Location - primary location if one has been assigned. DefaultLocation and DefaultZoneForWho are used to determine this value | `null` |
+| Email | VARCHAR(50) | Email Address - employee's work email address | `sams@kentel.com` |
+| EmailAddress | VARCHAR(50) | Email  | `sams@kentel.com` |
+| Employee_Name | VARCHAR(51) | Employee - name of the employee as entered on their employee profile | `Sam Smith` |
+| ID_Number | INT | Internal identifier for employee in RQ | `59` |
+| IsPartTime | BIT | Part Time - indicates if an employee is Part Time | `false` |
+| Last_Name | VARCHAR(25) | Employee last name | `Smith` |
+| LastHireDate | VARCHAR(50) | Hire Date - day and date the employee was hired | `2015-07-03T22:31:05.403` |
+| Location | VARCHAR(51) | Location - Only present if Unique is not -1. Every location the employee is assigned to | `100: My Network LLC - Anchorage` |
+| PersonalEmail | VARCHAR(50) | Personal Email - employee's personal email address | `sam@yopmail.com` |
+| Postal_Code | VARCHAR(15) | Zip/Postal Code - zip code (USA) or postal code (Canada) | `90123` |
+| Province | VARCHAR(50) | Province - employee's province or state | `ND` |
+| RoleDescription | NVARCHAR(MAX) | Security Role - security role assigned to this employee | `Sales Representative` |
+| ScheduledTerminationDate | DateTime | Scheduled termination date | `2015-11-22T08:00:00.000` |
+| SMS_Number | VARCHAR(50) | SMS # - employee's text number | `5555555555@yopmail.com` |
+| SpecialIdentifier | VARCHAR(25) | ID # - ID number assigned when hired | `912345987654321` |
+| StartDate | DateTime | Start Date | `2010-11-22T10:06:35.133` |
+| Status | VARCHAR(8) | Status - shows if the employee is enabled or disabled if Any Status is selected | `Enabled` |
+| TerminationDate | DateTime | Termination Date - date of termination (date the employee was disabled) | `2015-11-22T08:00:25.345` |
+| Title | VARCHAR(50) | Title - title assigned to this employee | `Wireless Consultant` |
+| Username | VARCHAR(25) | Username - username of the employee as entered on their employee profile | `Sam.Smith` |
+| Work_Number | DateTime | Work Phone # - employee's work number | `5555555555` |
 
-## TimeAndAttendanceReportData
+### TimeAndAttendanceReportData
 
-| Name | Description |
-|:-----|:------------|
-| DoubleOTClockedMinutes (`INT`) | Double OT Clocked - total of double overtime hours calculated, calculated using decimal time rather than hours:minutes | 
-| DoubleOTScheduleMinutes (`INT`) | Double OT Scheduled - total of double overtime hours scheduled, calculated using decimal time rather than hours:minutes | 
-| EmployeeCompensationType (`VARCHAR(50)`) | Compensation - type of compensation for the employee | 
-| EmployeeGroup (`VARCHAR(50)`) | Commission - type of commission for the employee | 
-| EmployeeID (`INT`) | Identifier for an Employee in RQ | 
-| EmployeeLastName (`VARCHAR(25)`) | Employee last name | 
-| EmployeeName (`VARCHAR(51)`) | Employee - any employee who was scheduled to work or punched in within in the report's criteria | 
-| EmployeeUsername (`VARCHAR(51)`) | Username - username of the employee who was scheduled to work or punched in within in the report's criteria | 
-| IsPartTime (`VARCHAR(50)`) | Part Time - a check box indicating if an employee is Part Time | 
-| ManagerVerified (`TINYINT`) | Internal flag used in RQ | 
-| OTClockedMinutes (`INT`) | Overtime Clocked - total of overtime hours clocked, calculated using decimal time rather than hours:minutes | 
-| OTScheduleMinutes (`INT`) | Overtime Scheduled - total of overtime hours scheduled, calculated using decimal time rather than hours:minutes | 
-| PartTimeVacationEarned (`DECIMAL`) | PT Vacation Earned - total amount of part time vacation earned, calculated using decimal time rather than hours:minutes | 
-| PersonalUsedHours (`DECIMAL`) | Personal Used - total amount of personal days used, calculated using decimal time rather than hours:minutes | 
-| PT_DoubleOTVacationEarned (`DECIMAL`) | Double OT Vacation - total amount of Double OT vacation earned, calculated using decimal time rather than hours:minutes | 
-| PT_OTVacationEarned (`DECIMAL`) | OT Vacation Earned - total amount of OT vacation earned, calculated using decimal time rather than hours:minutes | 
-| SickUsedHours (`DECIMAL`) | Sick Used - total amount of sick time used, calculated using decimal time rather than hours:minutes | 
-| SpecialIdentifier (`VARCHAR(25)`) | ID # - ID number assigned when hired | 
-| SupervisorName (`VARCHAR(51)`) | Supervisor - name of the employee's supervisor | 
-| SupervisorUsername (`VARCHAR(51)`) | Supervisor Username - username of the name of the employee's supervisor | 
-| ThresholdConflict (`INT`) | A flag to indicate if the employee is working in multiple locations that have different work weeks or OT parameters, highlighted in red in the report | 
-| Title (`VARCHAR(50)`) | Title - title assigned to this employee | 
-| TotalClockedMinutes (`INT`) | Total Clocked - total of all hours clocked, calculated using decimal time rather than hours:minutes | 
-| TotalScheduleMinutes (`INT`) | Total Scheduled - total of all hours scheduled, calculated using decimal time rather than hours:minutes | 
-| VacationUsedHours (`DECIMAL`) | Vacation Used - total of amount of vacation used, calculated using decimal time rather than hours:minutes | 
+| Name | Data Type | Description | Example |
+|:-----|:----------|:------------|:--------|
+| DoubleOTClockedMinutes | INT | Double OT Clocked - total of double overtime hours calculated, calculated using decimal time rather than hours:minutes | `0` |
+| DoubleOTScheduleMinutes | INT | Double OT Scheduled - total of double overtime hours scheduled, calculated using decimal time rather than hours:minutes | `0` |
+| EmployeeCompensationType | VARCHAR(50) | Compensation - type of compensation for the employee | `3` |
+| EmployeeGroup | VARCHAR(50) | Commission - type of commission for the employee | `100% (35% GP)` |
+| EmployeeID | INT | Identifier for an Employee in RQ | `186` |
+| EmployeeLastName | VARCHAR(25) | Employee last name | `Smith` |
+| EmployeeName | VARCHAR(51) | Employee - any employee who was scheduled to work or punched in within in the report's criteria | `Brooke Smith` |
+| EmployeeUsername | VARCHAR(51) | Username - username of the employee who was scheduled to work or punched in within in the report's criteria | `Brooke.Smith` |
+| IsPartTime | VARCHAR(50) | Part Time - a check box indicating if an employee is Part Time | `0` |
+| ManagerVerified | TINYINT | Internal flag used in RQ | `0` |
+| OTClockedMinutes | INT | Overtime Clocked - total of overtime hours clocked, calculated using decimal time rather than hours:minutes | `0` |
+| OTScheduleMinutes | INT | Overtime Scheduled - total of overtime hours scheduled, calculated using decimal time rather than hours:minutes | `105` |
+| PartTimeVacationEarned | DECIMAL | PT Vacation Earned - total amount of part time vacation earned, calculated using decimal time rather than hours:minutes | `0` |
+| PersonalUsedHours | DECIMAL | Personal Used - total amount of personal days used, calculated using decimal time rather than hours:minutes | `0` |
+| PT_DoubleOTVacationEarned | DECIMAL | Double OT Vacation - total amount of Double OT vacation earned, calculated using decimal time rather than hours:minutes | `0` |
+| PT_OTVacationEarned | DECIMAL | OT Vacation Earned - total amount of OT vacation earned, calculated using decimal time rather than hours:minutes | `0` |
+| SickUsedHours | DECIMAL | Sick Used - total amount of sick time used, calculated using decimal time rather than hours:minutes | `0` |
+| SpecialIdentifier | VARCHAR(25) | ID # - ID number assigned when hired | `912345987654321` |
+| SupervisorName | VARCHAR(51) | Supervisor - name of the employee's supervisor | `Bob Roberts` |
+| SupervisorUsername | VARCHAR(51) | Supervisor Username - username of the name of the employee's supervisor | `Bob.Roberts` |
+| ThresholdConflict | INT | A flag to indicate if the employee is working in multiple locations that have different work weeks or OT parameters, highlighted in red in the report | `0` |
+| Title | VARCHAR(50) | Title - title assigned to this employee | `Store Clerk` |
+| TotalClockedMinutes | INT | Total Clocked - total of all hours clocked, calculated using decimal time rather than hours:minutes | `0` |
+| TotalScheduleMinutes | INT | Total Scheduled - total of all hours scheduled, calculated using decimal time rather than hours:minutes | `105` |
+| VacationUsedHours | DECIMAL | Vacation Used - total of amount of vacation used, calculated using decimal time rather than hours:minutes | `0` |
 
 
 
@@ -159,11 +157,11 @@ GET /reports/employeelistreport?Status={Status}&Unique={Unique}&GroupID={GroupID
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>
@@ -518,11 +516,11 @@ GET /reports/timeandattendancereport?StartDate={StartDate}&StopDate={StopDate}&F
     </li>
     
     <li>
-        <code>LocationType</code> (Optional)  - A {{LocationType}} to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
     </li>
     
     <li>
-        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of {{RQCompanyTreeNode}} identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
     </li>
     
     <li>
