@@ -134,7 +134,7 @@
       <div class="content">
         <h1 id="overview">Overview</h1>
 
-<p>A <strong>Classification Tree</strong> is a hierarchical structure describing a taxonomy of {{Products}}. </p>
+<p>A <strong>Classification Tree</strong> is a hierarchical structure describing a taxonomy of <a href='http://developers.iqmetrix.com/api/catalog/#product'>Products</a>. </p>
 
 <p>To learn more about Classification Trees, see {{ClassificationTree_Concept}}.</p>
 
@@ -152,6 +152,13 @@
 <p>Classifications are used to group Products together by similar features.
 A Product can only have a single Classification.
 For example, a Samsung Galaxy S6 Edge, HTC One M9 and iPhone 5C might all have a Classification of Smartphones.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductTemplate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -178,6 +185,11 @@ For example, a Samsung Galaxy S6 Edge, HTC One M9 and iPhone 5C might all have a
 </tbody></table>
 
 <h2 id="producttemplate">ProductTemplate</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wireless Device"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -200,6 +212,14 @@ For example, a Samsung Galaxy S6 Edge, HTC One M9 and iPhone 5C might all have a
 <p>A Category is a node in a Classification Tree that represents a logical grouping of related Classifications.
 For example, &lsquo;iPhone&rsquo; and &#39;Tablet&rsquo; Classifications might both be children of a &#39;Device&rsquo; Category.
 There is a limit to 20 levels of depth for Categories.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Devices"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Categories"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Classifications"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -230,6 +250,16 @@ There is a limit to 20 levels of depth for Categories.</p>
 </tbody></table>
 
 <h2 id="classificationtree">ClassificationTree</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cellular &amp; Accessories"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Classification of products for wireless retail"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Categories"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Classifications"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"41"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -272,6 +302,11 @@ There is a limit to 20 levels of depth for Categories.</p>
 </tbody></table>
 
 <h2 id="owner">Owner</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iQmetrix"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -355,7 +390,7 @@ There is a limit to 20 levels of depth for Categories.</p>
 <ul>
     
     <li>
-        <code>ClassificationTreeId</code> (<strong>Required</strong>)  - Identifier for the {{ClassificationTree}}
+        <code>ClassificationTreeId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/classification-tree/#classificationtree'>ClassificationTree</a>
     </li>
     </ul>
 

@@ -134,7 +134,7 @@
       <div class="content">
         <h1 id="overview">Overview</h1>
 
-<p>A <strong>Field Definition</strong> defines both how {{Product}} specification details are displayed on a screen, such as a website, and how it is stored in the Product Library.</p>
+<p>A <strong>Field Definition</strong> defines both how <a href='http://developers.iqmetrix.com/api/catalog/#product'>Product</a> specification details are displayed on a screen, such as a website, and how it is stored in the Product Library.</p>
 
 <p>As an example, the following Field Definition describes how battery capacity for a product might be displayed.</p>
 <pre class="highlight csharp"><code><span class="p">{</span>
@@ -183,6 +183,18 @@
 <h2 id="fielddefinition">FieldDefinition</h2>
 
 <p>{{note}} Use the <strong>StringId</strong> identifier instead of <strong>Id</strong>, as Id may change across Environments {{end}}</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StringId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product Name"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"InputType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestSingleLine"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsRequired"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LanguageInvariantUnit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mm"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DisplayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product Name"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Options"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -415,12 +427,12 @@ HTTP 200 Content-Type: application/json
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-<h4 id="uri-parameters">URI Parameters</h4>
+uri-parameters&quot;>URI Parameters</h4>
 
 <ul>
     
     <li>
-        <code>FieldDefinitionId</code> (<strong>Required</strong>)  - Identifier for the {{FieldDefinition}}
+        <code>FieldDefinitionId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/field-definitions/#fielddefinition'>FieldDefinition</a>
     </li>
     </ul>
 

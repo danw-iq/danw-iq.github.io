@@ -145,7 +145,7 @@
 <ul>
 <li>ProductDocumentId - Identifier for a {{ProductDocument}}</li>
 <li>VariationId - Identifier for a {{Variation}}</li>
-<li>EntityId - Identifier for a {{Company}} or {{Carrier}} associated with a Revision, as described in <a href="/api/product-structure/#creating-a-revision">Creating a Revision</a></li>
+<li>EntityId - Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a> or <a href='http://developers.iqmetrix.com/api/entity-store/#carrier'>Carrier</a> associated with a Revision, as described in <a href="/api/product-structure/#creating-a-revision">Creating a Revision</a></li>
 <li>Region - Must contain 2 or 4 characters, either a Country Code, or Country Code plus a State Code, as described in <a href="/api/product-structure/#creating-a-revision">Creating a Revision</a></li>
 </ul>
 
@@ -178,6 +178,17 @@
 <h2 id="catalogitem">CatalogItem</h2>
 
 <p>Archived CatalogItem resources can still be updated and retrieved individually, but are excluded from search results</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21Z8F4AQ"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateAddedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-09T20:12:05.987"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateUpdatedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-09T20:12:05.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsArchived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RmsId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ExtendedAttributes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -234,6 +245,11 @@
 <h2 id="attribute">Attribute</h2>
 
 <p>Extended attributes are unvalidated extra properties that can be put on a CatalogItem.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Country of Manufacture"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"China"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -254,6 +270,58 @@
 <h2 id="catalogsearchresult">CatalogSearchResult</h2>
 
 <p>A CatalogSearchResult resource is used to return information about Product resources that match a given criteria, defined in the request.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Items"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Galaxy S6 edge+ 32GB - Black Sapphire"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CanonicalClassification"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ParentCategories"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Devices"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21Z8F4AQ"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClassificationTreeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ColorDefinition"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"5c6e2779-79d1-4fbd-b6a8-36b81e851b15"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black Sapphire"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ColorTags"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ColorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#303232"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Swatch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateAddedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-10-14T12:00:00.000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"HeroShotId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f60963-5515-44bc-9509-71aef6463580"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Identifiers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsLinkedToCuratedProduct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsDropShippable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsMasterProduct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"13149"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Msrp"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="err">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Next is Now"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VariationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"14107"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOZAMA Inc."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Facets"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"ClassificationAndCategories"</span><span class="err">:</span><span class="w">
+        </span><span class="s2">"Count"</span><span class="err">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Manufacturers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MetaData"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Page"</span><span class="err">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TotalResults"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -460,6 +528,52 @@
 </tbody></table>
 
 <h2 id="product">Product</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Galaxy S6 edge+ 32GB - Black Sapphire"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Assets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CanonicalClassification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ColorDefinition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateAddedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-09T20:12:05.987"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateUpdatedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-09T20:12:05.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ExtendedAttributes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"HeroShotId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f60963-5515-44bc-9509-71aef6463580"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"HeroShotUri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://imagehost/images/44f60963-5515-44bc-9509-71aef6463580"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsArchived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsLinkedToCuratedProduct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsSaleable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LongDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The world’s first dual-edge display was born from a need to create something new..."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"13149"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ManufacturerSkus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MasterProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1248"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MSRP"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="err">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Owner"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ReleaseDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-10-14T12:00:00.000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RmsId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Next is Now"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Specifications"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UpcCodes"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Value"</span><span class="err">:</span><span class="w"> </span><span class="s2">"874688002478/16W"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UPC"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VariationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VariationInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VendorSkus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -642,6 +756,15 @@
 </tbody></table>
 
 <h2 id="canonicalclassification">CanonicalClassification</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ParentCategories"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Devices"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TreeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -671,13 +794,24 @@
 </tr>
 <tr>
 <td style="text-align: left">TreeId (<code class="prettyprint">Integer</code>)</td>
-<td style="text-align: left">Identifier for the {{ClassificationTree}}</td>
+<td style="text-align: left">Identifier for the <a href='http://developers.iqmetrix.com/api/classification-tree/#classificationtree'>ClassificationTree</a></td>
 </tr>
 </tbody></table>
 
 <h2 id="colordefinition">ColorDefinition</h2>
 
 <p>A ColorDefinition allows you to define the available Colors for a Product</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c6e2779-79d1-4fbd-b6a8-36b81e851b15"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black Sapphire"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ColorTagIds"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ColorTags"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ColorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#303232"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Swatch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -720,6 +854,12 @@
 </tbody></table>
 
 <h2 id="swatch">Swatch</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ColorCode"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AssetId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ColorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#C0C8D0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -742,6 +882,14 @@
 </tbody></table>
 
 <h2 id="asset">Asset</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"732130d2-b673-461c-812b-f2b614d6076e"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iqmetrix.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://amsdemostorage.blob.core.windows.net/assets/732130d2-b673-461c-812b-f2b614d6076e.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsHidden"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -772,6 +920,14 @@
 </tbody></table>
 
 <h2 id="sku">Sku</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JBLPULSEBLKAM"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -802,6 +958,13 @@
 </tbody></table>
 
 <h2 id="region">Region</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canada"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"British Columbia"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -828,6 +991,15 @@
 </tbody></table>
 
 <h2 id="variationinformation">VariationInformation</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"VariationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Fields"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"FieldId"</span><span class="err">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product Name"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -862,6 +1034,15 @@
 </tbody></table>
 
 <h2 id="identifier">Identifier</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EM-JE040-RA"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SkuType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ManufacturerSku"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer SKU"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -961,7 +1142,7 @@
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     </ul>
 
@@ -1068,7 +1249,7 @@ HTTP 200 Content-Type: application/json
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     </ul>
 
@@ -1168,7 +1349,7 @@ HTTP 200 Content-Type: application/json
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -1274,11 +1455,11 @@ HTTP 200 Content-Type: application/json
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
-        <code>CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the {{CatalogItem}}
+        <code>CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the <a href='http://developers.iqmetrix.com/api/catalog/#catalogitem'>CatalogItem</a>
     </li>
     </ul>
 
@@ -1382,11 +1563,11 @@ HTTP 200 Content-Type: application/json
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
-        <code>CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the {{CatalogItem}}
+        <code>CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the <a href='http://developers.iqmetrix.com/api/catalog/#catalogitem'>CatalogItem</a>
     </li>
     </ul>
 
@@ -1490,11 +1671,11 @@ puts response
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
-        <code>CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the {{CatalogItem}}
+        <code>CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the <a href='http://developers.iqmetrix.com/api/catalog/#catalogitem'>CatalogItem</a>
     </li>
     </ul>
 
@@ -1570,11 +1751,11 @@ puts response
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
-        <code>CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the {{CatalogItem}}
+        <code>CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the <a href='http://developers.iqmetrix.com/api/catalog/#catalogitem'>CatalogItem</a>
     </li>
     </ul>
 
@@ -1814,13 +1995,13 @@ puts response
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     </ul>
 
 <h4 id="request-parameters">Request Parameters</h4>
 
-<ul><li><code>CatalogItemIds</code> (<strong>Required</strong>) - Array of {{CatalogItem}} identifiers</li></ul>
+<ul><li><code>CatalogItemIds</code> (<strong>Required</strong>) - Array of <a href='http://developers.iqmetrix.com/api/catalog/#catalogitem'>CatalogItem</a> identifiers</li></ul>
 
 <h3 id="response-parameters">Response Parameters</h3>
 
@@ -2021,11 +2202,11 @@ HTTP 200 Content-Type: application/json
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
-        <code>CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the {{CatalogItem}}
+        <code>CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the <a href='http://developers.iqmetrix.com/api/catalog/#catalogitem'>CatalogItem</a>
     </li>
     </ul>
 
@@ -2095,7 +2276,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><ul><li><code>Items</code> (Array) </li><ul><li><code>Name</code> (String) </li><li><code>Slug</code> (String) </li><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>HeroShotId</code> (Guid) </li><li><code>Manufacturer</code> (Object) </li><ul><li><code>Id</code> (Integer) - Identifier for a {{Manufacturer}}</li><li><code>Name</code> (String) </li></ul><li><code>ShortDescription</code> (String) </li><li><code>CanonicalClassification</code> (<a href='/api/catalog/#canonicalclassification'>CanonicalClassification</a>) </li><ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li><li><code>ParentCategories</code> (Array) </li><ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li></ul><li><code>TreeId</code> (Integer) </li></ul></ul><li><code>Facets</code> (Array) </li><ul><li><code>ClassificationAndCategories</code> (Array) </li><ul><li><code>Count</code> (Integer) </li><li><code>Item</code> (Integer) </li></ul><li><code>Manufacturers</code> (Array) </li><ul><li><code>Count</code> (Integer) </li><li><code>Item</code> (Object) </li><ul><li><code>Id</code> (Integer) - Identifier for a {{Manufacturer}}</li><li><code>Name</code> (String) </li></ul></ul><li><code>Vendors</code> (Array) </li><ul><li><code>Count</code> (Integer) </li><li><code>Item</code> (Object) </li><ul><li><code>Id</code> (Integer) - Identifier for a {{Manufacturer}}</li><li><code>Name</code> (String) </li></ul></ul></ul></ul></p>
+<p><ul><li><code>Items</code> (Array) </li><ul><li><code>Name</code> (String) </li><li><code>Slug</code> (String) </li><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>HeroShotId</code> (Guid) </li><li><code>Manufacturer</code> (Object) </li><ul><li><code>Id</code> (Integer) - Identifier for a <a href='http://developers.iqmetrix.com/api/entity-store/#manufacturer'>Manufacturer</a></li><li><code>Name</code> (String) </li></ul><li><code>ShortDescription</code> (String) </li><li><code>CanonicalClassification</code> (<a href='/api/catalog/#canonicalclassification'>CanonicalClassification</a>) </li><ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li><li><code>ParentCategories</code> (Array) </li><ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li></ul><li><code>TreeId</code> (Integer) </li></ul></ul><li><code>Facets</code> (Array) </li><ul><li><code>ClassificationAndCategories</code> (Array) </li><ul><li><code>Count</code> (Integer) </li><li><code>Item</code> (Integer) </li></ul><li><code>Manufacturers</code> (Array) </li><ul><li><code>Count</code> (Integer) </li><li><code>Item</code> (Object) </li><ul><li><code>Id</code> (Integer) - Identifier for a <a href='http://developers.iqmetrix.com/api/entity-store/#manufacturer'>Manufacturer</a></li><li><code>Name</code> (String) </li></ul></ul><li><code>Vendors</code> (Array) </li><ul><li><code>Count</code> (Integer) </li><li><code>Item</code> (Object) </li><ul><li><code>Id</code> (Integer) - Identifier for a <a href='http://developers.iqmetrix.com/api/entity-store/#manufacturer'>Manufacturer</a></li><li><code>Name</code> (String) </li></ul></ul></ul></ul></p>
 
 <h2 id="get-variations-for-a-catalog-item"><span class='get'>GET</span> Variations for a Catalog Item</h2>
 
@@ -2163,11 +2344,11 @@ HTTP 200 Content-Type: application/json
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
-        <code>CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the {{CatalogItem}}
+        <code>CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the <a href='http://developers.iqmetrix.com/api/catalog/#catalogitem'>CatalogItem</a>
     </li>
     </ul>
 
@@ -2264,7 +2445,7 @@ HTTP 200 Content-Type: application/json
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -2374,11 +2555,11 @@ HTTP 200 Content-Type: application/json
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
-        <code>CategoryOrClassificationId</code> (Optional)  - Identifier for the {{Category}} or {{Classification}}
+        <code>CategoryOrClassificationId</code> (Optional)  - Identifier for the <a href='http://developers.iqmetrix.com/api/classification-tree/#category'>Category</a> or <a href='http://developers.iqmetrix.com/api/classification-tree/#classification'>Classification</a>
     </li>
     
     <li>
@@ -2390,7 +2571,7 @@ HTTP 200 Content-Type: application/json
     </li>
     </ul>
 
-<h3 id="response-parameters">Response Parameters</h3>
+response-parameters&quot;>Response Parameters</h3>
 
 <blockquote>
 <p>Example Response</p>
@@ -2553,11 +2734,11 @@ HTTP 200 Content-Type: application/json
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
-        <code>ManufacturerIds</code> (Optional)  - Array of integers representing identifiers for {{Manufacturers}}
+        <code>ManufacturerIds</code> (Optional)  - Array of integers representing identifiers for <a href='http://developers.iqmetrix.com/api/entity-store/#manufacturer'>Manufacturers</a>
     </li>
     
     <li>
@@ -2569,7 +2750,7 @@ HTTP 200 Content-Type: application/json
     </li>
     </ul>
 
-<h3 id="response-parameters">Response Parameters</h3>
+response-parameters&quot;>Response Parameters</h3>
 
 <blockquote>
 <p>Example Response</p>
@@ -2732,7 +2913,7 @@ HTTP 200 Content-Type: application/json
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -2911,7 +3092,7 @@ HTTP 200 Content-Type: application/json
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -3094,7 +3275,7 @@ SearchTerms specified in the URI are compared against the following Product fiel
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -3283,7 +3464,7 @@ HTTP 200 Content-Type: application/json
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -3291,7 +3472,7 @@ HTTP 200 Content-Type: application/json
     </li>
     
     <li>
-        <code>ManufacturerIds</code> (Optional)  - Array of integers representing identifiers for {{Manufacturers}}
+        <code>ManufacturerIds</code> (Optional)  - Array of integers representing identifiers for <a href='http://developers.iqmetrix.com/api/entity-store/#manufacturer'>Manufacturers</a>
     </li>
     
     <li>
@@ -3299,11 +3480,11 @@ HTTP 200 Content-Type: application/json
     </li>
     
     <li>
-        <code>CategoryOrClassificationId</code> (Optional)  - Identifier for the {{Category}} or {{Classification}}
+        <code>CategoryOrClassificationId</code> (Optional)  - Identifier for the <a href='http://developers.iqmetrix.com/api/classification-tree/#category'>Category</a> or <a href='http://developers.iqmetrix.com/api/classification-tree/#classification'>Classification</a>
     </li>
     
     <li>
-        <code>ClassificationTreeId</code> (Optional)  - Identifier for a {{ClassificationTree}} to search within. If CategoryOrClassificationId is provided, this value is ignored
+        <code>ClassificationTreeId</code> (Optional)  - Identifier for a <a href='http://developers.iqmetrix.com/api/classification-tree/#classificationtree'>ClassificationTree</a> to search within. If CategoryOrClassificationId is provided, this value is ignored
     </li>
     
     <li>

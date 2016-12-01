@@ -147,7 +147,7 @@
 
 <h3 id="company-relationships">Company Relationships</h3>
 
-<p>A Company {{Relationship}} describes the interaction between a {{Company}} and a Manufacturer, Supplier, Partner, Company Tree Node, etc.</p>
+<p>A Company <a href='http://developers.iqmetrix.com/api/company-tree/#relationship'>Relationship</a> describes the interaction between a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a> and a Manufacturer, Supplier, Partner, Company Tree Node, etc.</p>
 
 <p>Depending on the type of Relationship, the identifier for each Entity may appear in the <code class="prettyprint">Source</code> or <code class="prettyprint">Destination</code> field.</p>
 
@@ -209,6 +209,22 @@
 <h1 id="resources">Resources</h1>
 
 <h2 id="company">Company</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wireless accessories provider with store locations all across the globe."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Company"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClientEntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CreatedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastModifiedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Attributes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Relationships"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kentel corp"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -283,6 +299,14 @@
 </tbody></table>
 
 <h2 id="relationship">Relationship</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6267"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14147"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CreatedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-20T18:22:10.931Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -296,11 +320,11 @@
 </tr>
 <tr>
 <td style="text-align: left">Source (<code class="prettyprint">Integer</code>)</td>
-<td style="text-align: left">Identifier for a {{Vendor}}, {{Carrier}} or {{Partner}} or {{Company}}</td>
+<td style="text-align: left">Identifier for a {{Vendor}}, <a href='http://developers.iqmetrix.com/api/entity-store/#carrier'>Carrier</a> or {{Partner}} or <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></td>
 </tr>
 <tr>
 <td style="text-align: left">Destination (<code class="prettyprint">Integer</code>)</td>
-<td style="text-align: left">Identifier for a {{Group}}, {{Location}}, {{Division}} or {{Company}}</td>
+<td style="text-align: left">Identifier for a <a href='http://developers.iqmetrix.com/api/company-tree/#group'>Group</a>, <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a>, <a href='http://developers.iqmetrix.com/api/company-tree/#division'>Division</a> or <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></td>
 </tr>
 <tr>
 <td style="text-align: left">CreatedUtc (<code class="prettyprint">DateTime</code>)</td>
@@ -317,6 +341,16 @@
 </tbody></table>
 
 <h2 id="asset">Asset</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d22291d9-db1d-45e2-ab60-32ac9c145323"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"globe-rocket.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Height"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://amsdemostorage.blob.core.windows.net/assets/d22291d9-db1d-45e2-ab60-32ac9c145323.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Md5Checksum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d2d0b491ad3eecd9d8c3dabb0610197d"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/jpeg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Width"</span><span class="p">:</span><span class="w"> </span><span class="s2">"450"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -359,6 +393,14 @@
 <p>Your Company Tree is a hierarchial representation of how your Company is structured, including the root Company, Groups, Divisions and Locations.</p>
 
 <p>To learn more about Company Trees, see {{CompanyTree_Concept}}.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wireless accessories provider with store locations all across the globe."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Nodes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -390,7 +432,15 @@
 
 <h2 id="companytreenode">CompanyTreeNode</h2>
 
-<p>CompanyTreeNodes are used to represent hierarchy in a Company Tree. A Node can represent a {{Group}}, {{Division}}, {{Location}} or device.</p>
+<p>CompanyTreeNodes are used to represent hierarchy in a Company Tree. A Node can represent a <a href='http://developers.iqmetrix.com/api/company-tree/#group'>Group</a>, <a href='http://developers.iqmetrix.com/api/company-tree/#division'>Division</a>, <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a> or device.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14159"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T-hut Wireless"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Division of Kiosks"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Division"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Nodes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -423,6 +473,35 @@
 <h2 id="location">Location</h2>
 
 <p>A <strong>Location</strong> is a physical or virtual presence that may hold inventory or process transactions.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14202"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dufferin Mall"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This Location is used to clear out discounted inventory"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Location"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CreatedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-26T00:03:01.372Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastModifiedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-27T00:03:06.392Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Area"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Attributes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClientEntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Contacts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Geography"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Longitude"</span><span class="err">:</span><span class="w"> </span><span class="s2">"-104.612034"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.443559"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Relationships"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dufferin mall"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StoreHours"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StorePhoneNumbers"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Description"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Main Line"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5555555555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TimeZone"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Alaskan Standard Time"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DaylightSavingTimeEnabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -565,6 +644,22 @@
 <p>Division, as well as Groups, serve as generic buckets clients can use to organize the company tree. Divisions could be used to represent sub-brand or sub-company of a main company.</p>
 
 <p>To learn more about Divisions, see {{Division_Concept}}.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14159"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T-hut Wireless"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Division of Kiosks"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Division"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClientEntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"187"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CreatedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastModifiedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Attributes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Relationships"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"t-hut wireless"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -643,6 +738,22 @@
 <p>Managerial or geographical groupings.</p>
 
 <p>To learn more about Groups, see {{Group_Concept}}.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14166"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Toronto"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Group within Ontario"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Group"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClientEntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"187"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CreatedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastModifiedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Attributes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Relationships"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"toronto"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -719,6 +830,17 @@
 <h2 id="address">Address</h2>
 
 <p>A <strong>Location</strong> is a physical or virtual presence that may hold inventory or process transactions.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"AddressLine1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4970 Hillside Avenue"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AddressLine2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apt 115"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Edmonton"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ON"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ontario"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canada"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P9H 9I4"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -761,6 +883,11 @@
 </tbody></table>
 
 <h2 id="area">Area</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SqFt"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -779,6 +906,11 @@
 </tbody></table>
 
 <h2 id="timezone">TimeZone</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alaskan Standard Time"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DaylightSavingTimeEnabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -797,6 +929,16 @@
 </tbody></table>
 
 <h2 id="storehours">StoreHours</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Monday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Tuesday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Wednesday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Thursday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Friday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Saturday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Sunday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -835,6 +977,15 @@
 </tbody></table>
 
 <h2 id="weekday">WeekDay</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Open"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Hour"</span><span class="err">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Close"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Hour"</span><span class="err">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -869,6 +1020,15 @@
 </tbody></table>
 
 <h2 id="contact">Contact</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Store Manager"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PhoneNumbers"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"Description"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Main Line"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5555555555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <table><thead>
 <tr>
@@ -968,7 +1128,7 @@
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     </ul>
 
@@ -1104,7 +1264,7 @@ puts response
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     </ul>
 
@@ -1351,11 +1511,11 @@ puts response
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
-        <code>NodeId</code> (<strong>Required</strong>)  - Identifier of the parent for the {{Location}}
+        <code>NodeId</code> (<strong>Required</strong>)  - Identifier of the parent for the <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a>
     </li>
     </ul>
 
@@ -1525,7 +1685,7 @@ There are <strong>two</strong> different ways to update a location.
   <li>Option 2 - <code>PUT /Companies({CompanyId})/Locations({LocationId})</code></li>
 </ul>
 
-<p>Option 1 requires knowing the <code>NodeId</code> of the parent of the {{Location}}, but has <strong>stronger</strong> validation.</p>
+<p>Option 1 requires knowing the <code>NodeId</code> of the parent of the <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a>, but has <strong>stronger</strong> validation.</p>
 
 <blockquote>
 <p>Definition</p>
@@ -1725,15 +1885,15 @@ There are <strong>two</strong> different ways to update a location.
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
-        <code>NodeId</code> (<strong>Required</strong>)  - Identifier of the parent for the {{Location}}
+        <code>NodeId</code> (<strong>Required</strong>)  - Identifier of the parent for the <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a>
     </li>
     
     <li>
-        <code>LocationId</code> (<strong>Required</strong>)  - Identifier for the {{Location}}
+        <code>LocationId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a>
     </li>
     </ul>
 
@@ -1949,11 +2109,11 @@ HTTP 200 Content-Type: application/json
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
-        <code>LocationId</code> (<strong>Required</strong>)  - Identifier for the {{Location}}
+        <code>LocationId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a>
     </li>
     </ul>
 
@@ -2101,7 +2261,7 @@ HTTP 200 Content-Type: application/json
 
 <p><a href='#location'>Location</a></p>
 
-<h2 id="get-all-locations-for-a-company"><span class='get'>GET</span> All Locations for a Company</h2>
+get-all-locations-for-a-company&rdquo;><span class='get'>GET</span> All Locations for a Company</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -2165,7 +2325,7 @@ HTTP 200 Content-Type: application/json
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     </ul>
 
@@ -2396,7 +2556,7 @@ HTTP 200 Content-Type: application/json
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -2528,7 +2688,7 @@ HTTP 201 Content-Type: application/json
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -2650,7 +2810,7 @@ This operation <strong>cannot be undone</strong>.
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
@@ -2658,7 +2818,7 @@ This operation <strong>cannot be undone</strong>.
     </li>
     </ul>
 
-<h3 id="response-parameters">Response Parameters</h3>
+response-parameters&quot;>Response Parameters</h3>
 
 <blockquote>
 <p>Example Response</p>
@@ -2674,7 +2834,7 @@ HTTP 200 Content-Type: application/json
 
 <p>This request returns an array of objects that summarize Entities matching the search criteria. </p>
 
-<p>The following resource types are considered &#39;Entities&rsquo;: {{Company}}, {{Division}}, {{Group}}, {{Location}}, device</p>
+<p>The following resource types are considered &#39;Entities&rsquo;: <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>, <a href='http://developers.iqmetrix.com/api/company-tree/#division'>Division</a>, <a href='http://developers.iqmetrix.com/api/company-tree/#group'>Group</a>, <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a>, device</p>
 
 <blockquote>
 <p>Definition</p>
@@ -2733,12 +2893,12 @@ HTTP 200 Content-Type: application/json
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-<h4 id="uri-parameters">URI Parameters</h4>
+uri-parameters&quot;>URI Parameters</h4>
 
 <ul>
     
     <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the {{Company}}
+        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
     </li>
     
     <li>
