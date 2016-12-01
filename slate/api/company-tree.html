@@ -213,8 +213,9 @@
     </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wireless accessories provider with store locations all across the globe."</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Name"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Company"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ClientEntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"CreatedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"LastModifiedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
@@ -269,11 +270,11 @@
 <td style="text-align: left">Set of key-value pairs that contain extra data</td>
 </tr>
 <tr>
-<td style="text-align: left">Logo (<code class="prettyprint">&lt;a href=&#39;/api/company-tree/#asset&#39;&gt;Asset&lt;/a&gt;</code>)</td>
+<td style="text-align: left">Logo (<code class="prettyprint">[company-tree](/api/asset/#Asset)</code>)</td>
 <td style="text-align: left">A reference to an <a href="/api/assets/#asset">Asset</a></td>
 </tr>
 <tr>
-<td style="text-align: left">Relationships (<code class="prettyprint">Array[&lt;a href=&#39;/api/company-tree/#relationship&#39;&gt;Relationship&lt;/a&gt;]</code>)</td>
+<td style="text-align: left">Relationships (<code class="prettyprint">Array[[company-tree](/api/relationship/#Relationship)]</code>)</td>
 <td style="text-align: left">See <a href="#company-relationships">Company Relationships</a></td>
 </tr>
 <tr>
@@ -425,7 +426,7 @@
 <td style="text-align: left">Role</td>
 </tr>
 <tr>
-<td style="text-align: left">Nodes (<code class="prettyprint">Array[&lt;a href=&#39;/api/company-tree/#companytreenode&#39;&gt;CompanyTreeNode&lt;/a&gt;]</code>)</td>
+<td style="text-align: left">Nodes (<code class="prettyprint">Array[[company-tree](/api/companytreenode/#CompanyTreeNode)]</code>)</td>
 <td style="text-align: left">The Company Tree hierarchy made up of Nodes</td>
 </tr>
 </tbody></table>
@@ -477,8 +478,9 @@
     </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14202"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dufferin Mall"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This Location is used to clear out discounted inventory"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Name"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Location"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Location"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"CreatedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-26T00:03:01.372Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"LastModifiedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-27T00:03:06.392Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Area"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
@@ -486,18 +488,21 @@
     </span><span class="nt">"Attributes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ClientEntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Contacts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Geography"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Longitude"</span><span class="err">:</span><span class="w"> </span><span class="s2">"-104.612034"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Geography"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-104.612034"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.443559"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Relationships"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"SortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dufferin mall"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"StoreHours"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"StorePhoneNumbers"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Description"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Main Line"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StorePhoneNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Main Line"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5555555555"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"TimeZone"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Alaskan Standard Time"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TimeZone"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alaskan Standard Time"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"DaylightSavingTimeEnabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -538,11 +543,11 @@
 <td style="text-align: left">Last modified date in UTC</td>
 </tr>
 <tr>
-<td style="text-align: left">Area (<code class="prettyprint">&lt;a href=&#39;/api/company-tree/#area&#39;&gt;Area&lt;/a&gt;</code>)</td>
+<td style="text-align: left">Area (<code class="prettyprint">[company-tree](/api/area/#Area)</code>)</td>
 <td style="text-align: left">Measurement of floor space</td>
 </tr>
 <tr>
-<td style="text-align: left">Address (<code class="prettyprint">&lt;a href=&#39;/api/company-tree/#address&#39;&gt;Address&lt;/a&gt;</code>)</td>
+<td style="text-align: left">Address (<code class="prettyprint">[company-tree](/api/address/#Address)</code>)</td>
 <td style="text-align: left">Address</td>
 </tr>
 <tr>
@@ -554,7 +559,7 @@
 <td style="text-align: left">Identifier in an external system</td>
 </tr>
 <tr>
-<td style="text-align: left">Contacts (<code class="prettyprint">Array[&lt;a href=&#39;/api/company-tree/#contact&#39;&gt;Contact&lt;/a&gt;]</code>)</td>
+<td style="text-align: left">Contacts (<code class="prettyprint">Array[[company-tree](/api/contact/#Contact)]</code>)</td>
 <td style="text-align: left">Contact information</td>
 </tr>
 <tr>
@@ -578,7 +583,7 @@
 <td style="text-align: left">A string used for sorting</td>
 </tr>
 <tr>
-<td style="text-align: left">StoreHours (<code class="prettyprint">&lt;a href=&#39;/api/company-tree/#storehours&#39;&gt;StoreHours&lt;/a&gt;</code>)</td>
+<td style="text-align: left">StoreHours (<code class="prettyprint">[company-tree](/api/storehours/#StoreHours)</code>)</td>
 <td style="text-align: left">Store hours for this Location</td>
 </tr>
 <tr>
@@ -648,8 +653,9 @@
     </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14159"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T-hut Wireless"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Division of Kiosks"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Name"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Division"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Division"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ClientEntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"187"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"CreatedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"LastModifiedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
@@ -704,7 +710,7 @@
 <td style="text-align: left">Set of key-value pairs that contain extra data</td>
 </tr>
 <tr>
-<td style="text-align: left">Logo (<code class="prettyprint">&lt;a href=&#39;/api/company-tree/#asset&#39;&gt;Asset&lt;/a&gt;</code>)</td>
+<td style="text-align: left">Logo (<code class="prettyprint">[company-tree](/api/asset/#Asset)</code>)</td>
 <td style="text-align: left">A reference to an Asset</td>
 </tr>
 <tr>
@@ -742,8 +748,9 @@
     </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14166"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Toronto"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Group within Ontario"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Name"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Group"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Group"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ClientEntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"187"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"CreatedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"LastModifiedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
@@ -798,7 +805,7 @@
 <td style="text-align: left">Set of key-value pairs that contain extra data</td>
 </tr>
 <tr>
-<td style="text-align: left">Logo (<code class="prettyprint">&lt;a href=&#39;/api/assets/#asset&#39;&gt;Asset&lt;/a&gt;</code>)</td>
+<td style="text-align: left">Logo (<code class="prettyprint">[assets](/api/asset/#Asset)</code>)</td>
 <td style="text-align: left">A reference to an Asset</td>
 </tr>
 <tr>
@@ -947,42 +954,44 @@
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">Monday (<code class="prettyprint">&lt;a href=&#39;/api/company-tree/#weekday&#39;&gt;WeekDay&lt;/a&gt;</code>)</td>
+<td style="text-align: left">Monday (<code class="prettyprint">[company-tree](/api/weekday/#WeekDay)</code>)</td>
 <td style="text-align: left">Hours on Monday</td>
 </tr>
 <tr>
-<td style="text-align: left">Tuesday (<code class="prettyprint">&lt;a href=&#39;/api/company-tree/#weekday&#39;&gt;WeekDay&lt;/a&gt;</code>)</td>
+<td style="text-align: left">Tuesday (<code class="prettyprint">[company-tree](/api/weekday/#WeekDay)</code>)</td>
 <td style="text-align: left">Hours on Tuesday</td>
 </tr>
 <tr>
-<td style="text-align: left">Wednesday (<code class="prettyprint">&lt;a href=&#39;/api/company-tree/#weekday&#39;&gt;WeekDay&lt;/a&gt;</code>)</td>
+<td style="text-align: left">Wednesday (<code class="prettyprint">[company-tree](/api/weekday/#WeekDay)</code>)</td>
 <td style="text-align: left">Hours on Wednesday</td>
 </tr>
 <tr>
-<td style="text-align: left">Thursday (<code class="prettyprint">&lt;a href=&#39;/api/company-tree/#weekday&#39;&gt;WeekDay&lt;/a&gt;</code>)</td>
+<td style="text-align: left">Thursday (<code class="prettyprint">[company-tree](/api/weekday/#WeekDay)</code>)</td>
 <td style="text-align: left">Hours on Thursday</td>
 </tr>
 <tr>
-<td style="text-align: left">Friday (<code class="prettyprint">&lt;a href=&#39;/api/company-tree/#weekday&#39;&gt;WeekDay&lt;/a&gt;</code>)</td>
+<td style="text-align: left">Friday (<code class="prettyprint">[company-tree](/api/weekday/#WeekDay)</code>)</td>
 <td style="text-align: left">Hours on Monday</td>
 </tr>
 <tr>
-<td style="text-align: left">Saturday (<code class="prettyprint">&lt;a href=&#39;/api/company-tree/#weekday&#39;&gt;WeekDay&lt;/a&gt;</code>)</td>
+<td style="text-align: left">Saturday (<code class="prettyprint">[company-tree](/api/weekday/#WeekDay)</code>)</td>
 <td style="text-align: left">Hours on Saturday</td>
 </tr>
 <tr>
-<td style="text-align: left">Sunday (<code class="prettyprint">&lt;a href=&#39;/api/company-tree/#weekday&#39;&gt;WeekDay&lt;/a&gt;</code>)</td>
+<td style="text-align: left">Sunday (<code class="prettyprint">[company-tree](/api/weekday/#WeekDay)</code>)</td>
 <td style="text-align: left">Hours on Sunday</td>
 </tr>
 </tbody></table>
 
 <h2 id="weekday">WeekDay</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"Open"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Hour"</span><span class="err">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Open"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Close"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Hour"</span><span class="err">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Close"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1023,8 +1032,9 @@
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Store Manager"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"PhoneNumbers"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Description"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Main Line"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PhoneNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Main Line"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5555555555"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1184,7 +1194,7 @@ HTTP 200 Content-Type: application/json
 
 
 
- <a href='#company'>Company</a>
+ [company](#Company)
 
 
 
@@ -1301,7 +1311,7 @@ HTTP 200 Content-Type: application/json
 
 
 
- <a href='#companytree'>CompanyTree</a>
+ [companytree](#CompanyTree)
 
 
 
@@ -1672,7 +1682,7 @@ HTTP 201 Content-Type: application/json
 
 
 
- <a href='#location'>Location</a>
+ [location](#Location)
 
 
 
@@ -2043,7 +2053,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><a href='#location'>Location</a></p>
+<p><a href="#Location">location</a></p>
 
 <h2 id="get-a-location-for-a-company"><span class='get'>GET</span> a Location for a Company</h2>
 
@@ -2104,7 +2114,7 @@ HTTP 200 Content-Type: application/json
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-<h4 id="uri-parameters">URI Parameters</h4>
+uri-parameters&rdquo;>URI Parameters</h4>
 
 <ul>
     
@@ -2259,9 +2269,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><a href='#location'>Location</a></p>
+<p><a href="#Location">location</a></p>
 
-get-all-locations-for-a-company&rdquo;><span class='get'>GET</span> All Locations for a Company</h2>
+<h2 id="get-all-locations-for-a-company"><span class='get'>GET</span> All Locations for a Company</h2>
 
 <blockquote>
 <p>Definition</p>
@@ -2320,7 +2330,7 @@ get-all-locations-for-a-company&rdquo;><span class='get'>GET</span> All Location
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-<h4 id="uri-parameters">URI Parameters</h4>
+uri-parameters&quot;>URI Parameters</h4>
 
 <ul>
     
@@ -2473,7 +2483,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>Array[<a href='#location'>Location</a>]</p>
+<p>Array[<a href="#Location">location</a>]</p>
 
 <h2 id="creating-a-division">Creating a Division</h2>
 
@@ -2605,7 +2615,7 @@ HTTP 201 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><a href='#division'>Division</a></p>
+<p><a href="#Division">division</a></p>
 
 <h2 id="creating-a-group">Creating a Group</h2>
 
@@ -2738,7 +2748,7 @@ HTTP 201 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><a href='#group'>Group</a></p>
+<p><a href="#Group">group</a></p>
 
 <h2 id="deleting-a-group-or-division">Deleting a Group or Division</h2>
 
@@ -2818,7 +2828,7 @@ This operation <strong>cannot be undone</strong>.
     </li>
     </ul>
 
-response-parameters&quot;>Response Parameters</h3>
+<h3 id="response-parameters">Response Parameters</h3>
 
 <blockquote>
 <p>Example Response</p>
@@ -2828,7 +2838,7 @@ response-parameters&quot;>Response Parameters</h3>
 HTTP 200 Content-Type: application/json
 </pre>
 
-<h2 id="searching-by-cliententityid">Searching by ClientEntityId</h2>
+searching-by-cliententityid&quot;>Searching by ClientEntityId</h2>
 
 <p>This request allows you to search your Company Tree using the <code class="prettyprint">ClientEntityId</code> field. </p>
 
@@ -2893,7 +2903,7 @@ HTTP 200 Content-Type: application/json
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-uri-parameters&quot;>URI Parameters</h4>
+<h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
     

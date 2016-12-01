@@ -157,8 +157,9 @@ Ensure each company ID has only <strong>one</strong> cost per product.
 <h2 id="cost">Cost</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2e18496c-8f73-4298-8c96-a07816926734"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Products"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Sku"</span><span class="err">:</span><span class="w"> </span><span class="s2">"1115884"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1115884"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.99"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"CompanyIds"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -305,9 +306,9 @@ HTTP 202 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><a href='#cost'>Cost</a></p>
+<p><a href="#Cost">cost</a></p>
 
-errors&quot;>Errors</h1>
+<h1 id="errors">Errors</h1>
 
 <table><thead>
 <tr>

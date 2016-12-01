@@ -225,7 +225,7 @@
 <td style="text-align: left">Unique identifier for a <a href="#product">Product</a></td>
 </tr>
 <tr>
-<td style="text-align: left">ExtendedAttributes (<code class="prettyprint">Array[&lt;a href=&#39;/api/catalog/#attribute&#39;&gt;Attribute&lt;/a&gt;]</code>)</td>
+<td style="text-align: left">ExtendedAttributes (<code class="prettyprint">Array[[catalog](/api/attribute/#Attribute)]</code>)</td>
 <td style="text-align: left">Attributes</td>
 </tr>
 <tr>
@@ -271,22 +271,27 @@
 
 <p>A CatalogSearchResult resource is used to return information about Product resources that match a given criteria, defined in the request.</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"Items"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Name"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Galaxy S6 edge+ 32GB - Black Sapphire"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"CanonicalClassification"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Galaxy S6 edge+ 32GB - Black Sapphire"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CanonicalClassification"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"ParentCategories"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ParentCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Devices"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21Z8F4AQ"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ClassificationTreeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"ColorDefinition"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"5c6e2779-79d1-4fbd-b6a8-36b81e851b15"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ColorDefinition"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c6e2779-79d1-4fbd-b6a8-36b81e851b15"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black Sapphire"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"ColorTags"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ColorTags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ColorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#303232"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Swatch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
@@ -297,27 +302,33 @@
     </span><span class="nt">"IsLinkedToCuratedProduct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"IsDropShippable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"IsMasterProduct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"13149"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13149"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Msrp"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Amount"</span><span class="err">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Msrp"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ProductVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Next is Now"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"VariationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"14107"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14107"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOZAMA Inc."</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Facets"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"ClassificationAndCategories"</span><span class="err">:</span><span class="w">
-        </span><span class="s2">"Count"</span><span class="err">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Facets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"ClassificationAndCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Manufacturers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"MetaData"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Page"</span><span class="err">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MetaData"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"TotalResults"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -402,7 +413,7 @@
 <td style="text-align: left">A valid Hex code representing this color</td>
 </tr>
 <tr>
-<td style="text-align: left">Items.ColorDefinition.Swatch (<code class="prettyprint">&lt;a href=&#39;/api/catalog/#swatch&#39;&gt;Swatch&lt;/a&gt;</code>)</td>
+<td style="text-align: left">Items.ColorDefinition.Swatch (<code class="prettyprint">[catalog](/api/swatch/#Swatch)</code>)</td>
 <td style="text-align: left">An icon to display on a screen next to a color showing the actual color of the product. Can be provided as an image Asset or hex code</td>
 </tr>
 <tr>
@@ -418,7 +429,7 @@
 <td style="text-align: left"><a href="/api/glossary/#hero-shot">Hero Shot</a> identifier</td>
 </tr>
 <tr>
-<td style="text-align: left">Items.Identifiers (<code class="prettyprint">Array[&lt;a href=&#39;/api/catalog/#identifier&#39;&gt;Identifier&lt;/a&gt;]</code>)</td>
+<td style="text-align: left">Items.Identifiers (<code class="prettyprint">Array[[catalog](/api/identifier/#Identifier)]</code>)</td>
 <td style="text-align: left">Identifiers</td>
 </tr>
 <tr>
@@ -502,11 +513,11 @@
 <td style="text-align: left">Identifier of a Classification or Category</td>
 </tr>
 <tr>
-<td style="text-align: left">Facets.Manufacturers (<code class="prettyprint">Array[&lt;a href=&#39;/api/catalog/#manufacturer&#39;&gt;Manufacturer&lt;/a&gt;]</code>)</td>
+<td style="text-align: left">Facets.Manufacturers (<code class="prettyprint">Array[[catalog](/api/manufacturer/#Manufacturer)]</code>)</td>
 <td style="text-align: left">Manufacturer information for the Items</td>
 </tr>
 <tr>
-<td style="text-align: left">Facets.Vendors (<code class="prettyprint">Array[&lt;a href=&#39;/api/catalog/#manufacturer&#39;&gt;Manufacturer&lt;/a&gt;]</code>)</td>
+<td style="text-align: left">Facets.Vendors (<code class="prettyprint">Array[[catalog](/api/manufacturer/#Manufacturer)]</code>)</td>
 <td style="text-align: left">Vendor information for the Items</td>
 </tr>
 <tr>
@@ -536,8 +547,9 @@
     </span><span class="nt">"ColorDefinition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"DateAddedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-09T20:12:05.987"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"DateUpdatedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-09T20:12:05.99"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ExtendedAttributes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"HeroShotId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f60963-5515-44bc-9509-71aef6463580"</span><span class="p">,</span><span class="w">
@@ -546,26 +558,31 @@
     </span><span class="nt">"IsLinkedToCuratedProduct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"IsSaleable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"LongDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The world’s first dual-edge display was born from a need to create something new..."</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"13149"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13149"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OtterBox"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ManufacturerSkus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"MasterProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1248"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"MSRP"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Amount"</span><span class="err">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MSRP"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Owner"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Owner"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ReleaseDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-10-14T12:00:00.000"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"RmsId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Next is Now"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Specifications"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Name"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Specifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"UpcCodes"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Value"</span><span class="err">:</span><span class="w"> </span><span class="s2">"874688002478/16W"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UpcCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"874688002478/16W"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UPC"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"VariationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
@@ -590,15 +607,15 @@
 <td style="text-align: left">Name</td>
 </tr>
 <tr>
-<td style="text-align: left">Assets (<code class="prettyprint">Array[&lt;a href=&#39;/api/catalog/#asset&#39;&gt;Asset&lt;/a&gt;]</code>)</td>
+<td style="text-align: left">Assets (<code class="prettyprint">Array[[catalog](/api/asset/#Asset)]</code>)</td>
 <td style="text-align: left">Asset information</td>
 </tr>
 <tr>
-<td style="text-align: left">CanonicalClassification (<code class="prettyprint">&lt;a href=&#39;/api/catalog/#canonicalclassification&#39;&gt;CanonicalClassification&lt;/a&gt;</code>)</td>
+<td style="text-align: left">CanonicalClassification (<code class="prettyprint">[catalog](/api/canonicalclassification/#CanonicalClassification)</code>)</td>
 <td style="text-align: left">ClassificationTree details</td>
 </tr>
 <tr>
-<td style="text-align: left">ColorDefinition (<code class="prettyprint">&lt;a href=&#39;/api/catalog/#colordefinition&#39;&gt;ColorDefinition&lt;/a&gt;</code>)</td>
+<td style="text-align: left">ColorDefinition (<code class="prettyprint">[catalog](/api/colordefinition/#ColorDefinition)</code>)</td>
 <td style="text-align: left">Information about the color of the Product</td>
 </tr>
 <tr>
@@ -622,7 +639,7 @@
 <td style="text-align: left">Entity name</td>
 </tr>
 <tr>
-<td style="text-align: left">ExtendedAttributes (<code class="prettyprint">Array[&lt;a href=&#39;/api/catalog/#attribute&#39;&gt;Attribute&lt;/a&gt;]</code>)</td>
+<td style="text-align: left">ExtendedAttributes (<code class="prettyprint">Array[[catalog](/api/attribute/#Attribute)]</code>)</td>
 <td style="text-align: left">Attributes</td>
 </tr>
 <tr>
@@ -662,7 +679,7 @@
 <td style="text-align: left">Name of the <a href="/api/entity-store/#manufacturer">Manufacturer</a></td>
 </tr>
 <tr>
-<td style="text-align: left">ManufacturerSkus (<code class="prettyprint">Array[&lt;a href=&#39;/api/catalog/#sku&#39;&gt;Sku&lt;/a&gt;]</code>)</td>
+<td style="text-align: left">ManufacturerSkus (<code class="prettyprint">Array[[catalog](/api/sku/#Sku)]</code>)</td>
 <td style="text-align: left">Manufacturer SKUs</td>
 </tr>
 <tr>
@@ -694,7 +711,7 @@
 <td style="text-align: left">For private products, Name of the Company that owns this Product</td>
 </tr>
 <tr>
-<td style="text-align: left">Region (<code class="prettyprint">&lt;a href=&#39;/api/catalog/#region&#39;&gt;Region&lt;/a&gt;</code>)</td>
+<td style="text-align: left">Region (<code class="prettyprint">[catalog](/api/region/#Region)</code>)</td>
 <td style="text-align: left">Region information, for Regional Carrier Revisions</td>
 </tr>
 <tr>
@@ -718,7 +735,7 @@
 <td style="text-align: left">Name</td>
 </tr>
 <tr>
-<td style="text-align: left">Specifications.Fields (<code class="prettyprint">&lt;a href=&#39;/api/catalog/#field&#39;&gt;Field&lt;/a&gt;</code>)</td>
+<td style="text-align: left">Specifications.Fields (<code class="prettyprint">[catalog](/api/field/#Field)</code>)</td>
 <td style="text-align: left">Group of ProductFields</td>
 </tr>
 <tr>
@@ -742,11 +759,11 @@
 <td style="text-align: left">Identifier for the Variation</td>
 </tr>
 <tr>
-<td style="text-align: left">VariationInfo (<code class="prettyprint">Array[&lt;a href=&#39;/api/catalog/#variationinformation&#39;&gt;VariationInformation&lt;/a&gt;]</code>)</td>
+<td style="text-align: left">VariationInfo (<code class="prettyprint">Array[[catalog](/api/variationinformation/#VariationInformation)]</code>)</td>
 <td style="text-align: left"><a href="/concepts/product-structure/#variations">Variation</a> information for the Product</td>
 </tr>
 <tr>
-<td style="text-align: left">VendorSkus (<code class="prettyprint">Array[&lt;a href=&#39;/api/catalog/#sku&#39;&gt;Sku&lt;/a&gt;]</code>)</td>
+<td style="text-align: left">VendorSkus (<code class="prettyprint">Array[[catalog](/api/sku/#Sku)]</code>)</td>
 <td style="text-align: left">Vendor SKUs</td>
 </tr>
 <tr>
@@ -759,8 +776,9 @@
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"ParentCategories"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ParentCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Devices"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"TreeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -805,8 +823,9 @@
     </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c6e2779-79d1-4fbd-b6a8-36b81e851b15"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black Sapphire"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ColorTagIds"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"ColorTags"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ColorTags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"ColorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#303232"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Swatch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="w">
@@ -848,7 +867,7 @@
 <td style="text-align: left">A valid Hex code representing this color</td>
 </tr>
 <tr>
-<td style="text-align: left">Swatch (<code class="prettyprint">&lt;a href=&#39;/api/catalog/#swatch&#39;&gt;Swatch&lt;/a&gt;</code>)</td>
+<td style="text-align: left">Swatch (<code class="prettyprint">[catalog](/api/swatch/#Swatch)</code>)</td>
 <td style="text-align: left">An icon to display on a screen next to a color showing the actual color of the product. Can be provided as an image Asset or hex code</td>
 </tr>
 </tbody></table>
@@ -923,8 +942,9 @@
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JBLPULSEBLKAM"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -994,8 +1014,9 @@
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"VariationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1248-V1"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Fields"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"FieldId"</span><span class="err">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"FieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product Name"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1037,8 +1058,9 @@
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EM-JE040-RA"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"SkuType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ManufacturerSku"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer SKU"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1174,7 +1196,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p><ul><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>IsArchived</code> (Boolean) </li><li><code>DateAddedUtc</code> (Datetime) </li><li><code>DateUpdatedUtc</code> (Datetime) </li><li><code>RmsId</code> (String) </li><li><code>Slug</code> (String) </li><li><code>ExtendedAttributes</code> (Array[<a href='/api/catalog/#attribute'>Attribute</a>]) </li><ul><li><code>Name</code> (String) </li><li><code>Value</code> (String) - Defaults to an empty string</li></ul><li><code>SourceIds</code> (Array) </li><li><code>BatchTracking</code> (Boolean) </li><li><code>MeasurementType</code> (String) </li></ul></p>
+<p><ul><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>IsArchived</code> (Boolean) </li><li><code>DateAddedUtc</code> (Datetime) </li><li><code>DateUpdatedUtc</code> (Datetime) </li><li><code>RmsId</code> (String) </li><li><code>Slug</code> (String) </li><li><code>ExtendedAttributes</code> (Array[<a href="/api/attribute/#Attribute">catalog</a>]) </li><ul><li><code>Name</code> (String) </li><li><code>Value</code> (String) - Defaults to an empty string</li></ul><li><code>SourceIds</code> (Array) </li><li><code>BatchTracking</code> (Boolean) </li><li><code>MeasurementType</code> (String) </li></ul></p>
 
 <h2 id="post-a-catalog-item-from-product-library"><span class='post'>POST</span> a Catalog Item from Product Library</h2>
 
@@ -1283,7 +1305,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><ul><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>IsArchived</code> (Boolean) </li><li><code>DateAddedUtc</code> (Datetime) </li><li><code>DateUpdatedUtc</code> (Datetime) </li><li><code>RmsId</code> (String) </li><li><code>Slug</code> (String) </li><li><code>ExtendedAttributes</code> (Array[<a href='/api/catalog/#attribute'>Attribute</a>]) </li><ul><li><code>Name</code> (String) </li><li><code>Value</code> (String) - Defaults to an empty string</li></ul><li><code>SourceIds</code> (Array) </li><li><code>BatchTracking</code> (Boolean) </li><li><code>MeasurementType</code> (String) </li></ul></p>
+<p><ul><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>IsArchived</code> (Boolean) </li><li><code>DateAddedUtc</code> (Datetime) </li><li><code>DateUpdatedUtc</code> (Datetime) </li><li><code>RmsId</code> (String) </li><li><code>Slug</code> (String) </li><li><code>ExtendedAttributes</code> (Array[<a href="/api/attribute/#Attribute">catalog</a>]) </li><ul><li><code>Name</code> (String) </li><li><code>Value</code> (String) - Defaults to an empty string</li></ul><li><code>SourceIds</code> (Array) </li><li><code>BatchTracking</code> (Boolean) </li><li><code>MeasurementType</code> (String) </li></ul></p>
 
 <h2 id="get-catalog-items-by-subscription-list"><span class='get'>GET</span> Catalog Items By Subscription List</h2>
 
@@ -1387,7 +1409,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><ul><li><code>Items</code> (Array[<a href='/api/catalog/#catalogitem'>CatalogItem</a>]) </li><ul><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>DateAddedUtc</code> (Datetime) </li><li><code>DateUpdatedUtc</code> (Datetime) </li><li><code>IsArchived</code> (Boolean) </li><li><code>RmsId</code> (String) </li><li><code>Slug</code> (String) </li><li><code>ExtendedAttributes</code> (Array[<a href='/api/catalog/#attribute'>Attribute</a>]) </li><ul><li><code>Name</code> (String) </li><li><code>Value</code> (String) - Defaults to an empty string</li></ul><li><code>SourceIds</code> (Array) </li><li><code>BatchTracking</code> (Boolean) </li><li><code>MeasurementType</code> (String) </li></ul></ul></p>
+<p><ul><li><code>Items</code> (Array[<a href="/api/catalogitem/#CatalogItem">catalog</a>]) </li><ul><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>DateAddedUtc</code> (Datetime) </li><li><code>DateUpdatedUtc</code> (Datetime) </li><li><code>IsArchived</code> (Boolean) </li><li><code>RmsId</code> (String) </li><li><code>Slug</code> (String) </li><li><code>ExtendedAttributes</code> (Array[<a href="/api/attribute/#Attribute">catalog</a>]) </li><ul><li><code>Name</code> (String) </li><li><code>Value</code> (String) - Defaults to an empty string</li></ul><li><code>SourceIds</code> (Array) </li><li><code>BatchTracking</code> (Boolean) </li><li><code>MeasurementType</code> (String) </li></ul></ul></p>
 
 <h2 id="get-extended-attributes-for-a-catalog-item"><span class='get'>GET</span> Extended Attributes for a Catalog Item</h2>
 
@@ -1480,7 +1502,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>Array[<a href='#attribute'>Attribute</a>]</p>
+<p>Array[<a href="#Attribute">attribute</a>]</p>
 
 <h2 id="post-or-put-extended-attributes-for-a-catalog-item"><span class='post'>POST</span> or <span class='put'>PUT</span> Extended Attributes for a Catalog Item</h2>
 
@@ -1592,7 +1614,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>Array[<a href='#attribute'>Attribute</a>]</p>
+<p>Array[<a href="#Attribute">attribute</a>]</p>
 
 <h2 id="delete-extended-attributes-from-a-catalog-item"><span class='delete'>DELETE</span> Extended Attributes from a Catalog Item</h2>
 
@@ -1911,7 +1933,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><a href='#product'>Product</a></p>
+<p><a href="#Product">product</a></p>
 
 <h2 id="get-many-product-details-at-once"><span class='get'>GET</span> Many Product Details At Once</h2>
 
@@ -2136,7 +2158,7 @@ HTTP 200 Content-Type: application/json
 
 </span></code></pre>
 
-<p><ul><li><code>CatalogItems</code> (Array) - JSON object/Dictionary</li><ul><li><code>{CatalogItemId}</code> (<a href='/api/catalog/#product'>Product</a>) </li></ul></ul></p>
+<p><ul><li><code>CatalogItems</code> (Array) - JSON object/Dictionary</li><ul><li><code>{CatalogItemId}</code> (<a href="/api/product/#Product">catalog</a>) </li></ul></ul></p>
 
 <h2 id="get-compatible-products-for-a-catalog-item"><span class='get'>GET</span> Compatible Products for a Catalog Item</h2>
 
@@ -2276,7 +2298,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><ul><li><code>Items</code> (Array) </li><ul><li><code>Name</code> (String) </li><li><code>Slug</code> (String) </li><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>HeroShotId</code> (Guid) </li><li><code>Manufacturer</code> (Object) </li><ul><li><code>Id</code> (Integer) - Identifier for a <a href='http://developers.iqmetrix.com/api/entity-store/#manufacturer'>Manufacturer</a></li><li><code>Name</code> (String) </li></ul><li><code>ShortDescription</code> (String) </li><li><code>CanonicalClassification</code> (<a href='/api/catalog/#canonicalclassification'>CanonicalClassification</a>) </li><ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li><li><code>ParentCategories</code> (Array) </li><ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li></ul><li><code>TreeId</code> (Integer) </li></ul></ul><li><code>Facets</code> (Array) </li><ul><li><code>ClassificationAndCategories</code> (Array) </li><ul><li><code>Count</code> (Integer) </li><li><code>Item</code> (Integer) </li></ul><li><code>Manufacturers</code> (Array) </li><ul><li><code>Count</code> (Integer) </li><li><code>Item</code> (Object) </li><ul><li><code>Id</code> (Integer) - Identifier for a <a href='http://developers.iqmetrix.com/api/entity-store/#manufacturer'>Manufacturer</a></li><li><code>Name</code> (String) </li></ul></ul><li><code>Vendors</code> (Array) </li><ul><li><code>Count</code> (Integer) </li><li><code>Item</code> (Object) </li><ul><li><code>Id</code> (Integer) - Identifier for a <a href='http://developers.iqmetrix.com/api/entity-store/#manufacturer'>Manufacturer</a></li><li><code>Name</code> (String) </li></ul></ul></ul></ul></p>
+<p><ul><li><code>Items</code> (Array) </li><ul><li><code>Name</code> (String) </li><li><code>Slug</code> (String) </li><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>HeroShotId</code> (Guid) </li><li><code>Manufacturer</code> (Object) </li><ul><li><code>Id</code> (Integer) - Identifier for a <a href='http://developers.iqmetrix.com/api/entity-store/#manufacturer'>Manufacturer</a></li><li><code>Name</code> (String) </li></ul><li><code>ShortDescription</code> (String) </li><li><code>CanonicalClassification</code> (<a href="/api/canonicalclassification/#CanonicalClassification">catalog</a>) </li><ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li><li><code>ParentCategories</code> (Array) </li><ul><li><code>Id</code> (Integer) </li><li><code>Name</code> (String) </li></ul><li><code>TreeId</code> (Integer) </li></ul></ul><li><code>Facets</code> (Array) </li><ul><li><code>ClassificationAndCategories</code> (Array) </li><ul><li><code>Count</code> (Integer) </li><li><code>Item</code> (Integer) </li></ul><li><code>Manufacturers</code> (Array) </li><ul><li><code>Count</code> (Integer) </li><li><code>Item</code> (Object) </li><ul><li><code>Id</code> (Integer) - Identifier for a <a href='http://developers.iqmetrix.com/api/entity-store/#manufacturer'>Manufacturer</a></li><li><code>Name</code> (String) </li></ul></ul><li><code>Vendors</code> (Array) </li><ul><li><code>Count</code> (Integer) </li><li><code>Item</code> (Object) </li><ul><li><code>Id</code> (Integer) - Identifier for a <a href='http://developers.iqmetrix.com/api/entity-store/#manufacturer'>Manufacturer</a></li><li><code>Name</code> (String) </li></ul></ul></ul></ul></p>
 
 <h2 id="get-variations-for-a-catalog-item"><span class='get'>GET</span> Variations for a Catalog Item</h2>
 
@@ -2489,7 +2511,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><ul><li><code>Sku</code> (String) </li><li><code>VendorId</code> (Integer) </li><li><code>Items</code> (Array) </li><ul><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>IsArchived</code> (Boolean) </li><li><code>DateAddedUtc</code> (Datetime) </li><li><code>DateUpdatedUtc</code> (Datetime) </li><li><code>RmsId</code> (String) </li><li><code>Slug</code> (String) </li><li><code>ExtendedAttributes</code> (Array[<a href='/api/catalog/#attribute'>Attribute</a>]) </li><ul><li><code>Name</code> (String) </li><li><code>Value</code> (String) - Defaults to an empty string</li></ul><li><code>SourceIds</code> (Array) </li><li><code>BatchTracking</code> (Boolean) </li><li><code>MeasurementType</code> (String) </li></ul></ul></p>
+<p><ul><li><code>Sku</code> (String) </li><li><code>VendorId</code> (Integer) </li><li><code>Items</code> (Array) </li><ul><li><code>CatalogItemId</code> (Guid) </li><li><code>CatalogSku</code> (String) </li><li><code>IsArchived</code> (Boolean) </li><li><code>DateAddedUtc</code> (Datetime) </li><li><code>DateUpdatedUtc</code> (Datetime) </li><li><code>RmsId</code> (String) </li><li><code>Slug</code> (String) </li><li><code>ExtendedAttributes</code> (Array[<a href="/api/attribute/#Attribute">catalog</a>]) </li><ul><li><code>Name</code> (String) </li><li><code>Value</code> (String) - Defaults to an empty string</li></ul><li><code>SourceIds</code> (Array) </li><li><code>BatchTracking</code> (Boolean) </li><li><code>MeasurementType</code> (String) </li></ul></ul></p>
 
 <h2 id="get-products-by-category-or-classification"><span class='get'>GET</span> Products by Category or Classification</h2>
 
@@ -2571,7 +2593,7 @@ HTTP 200 Content-Type: application/json
     </li>
     </ul>
 
-response-parameters&quot;>Response Parameters</h3>
+<h3 id="response-parameters">Response Parameters</h3>
 
 <blockquote>
 <p>Example Response</p>
@@ -2668,7 +2690,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
+<p><a href="#CatalogSearchResult">catalogsearchresult</a></p>
 
 <h2 id="get-products-by-manufacturer"><span class='get'>GET</span> Products by Manufacturer</h2>
 
@@ -2750,7 +2772,7 @@ HTTP 200 Content-Type: application/json
     </li>
     </ul>
 
-response-parameters&quot;>Response Parameters</h3>
+<h3 id="response-parameters">Response Parameters</h3>
 
 <blockquote>
 <p>Example Response</p>
@@ -2847,7 +2869,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
+<p><a href="#CatalogSearchResult">catalogsearchresult</a></p>
 
 <h2 id="get-products-by-supplier"><span class='get'>GET</span> Products by Supplier</h2>
 
@@ -2908,7 +2930,7 @@ HTTP 200 Content-Type: application/json
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-<h4 id="uri-parameters">URI Parameters</h4>
+uri-parameters&quot;>URI Parameters</h4>
 
 <ul>
     
@@ -3026,7 +3048,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
+<p><a href="#CatalogSearchResult">catalogsearchresult</a></p>
 
 <h2 id="get-products-available-for-shipping"><span class='get'>GET</span> Products Available for Shipping</h2>
 
@@ -3205,7 +3227,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
+<p><a href="#CatalogSearchResult">catalogsearchresult</a></p>
 
 <h2 id="searching-for-products">Searching For Products</h2>
 
@@ -3396,7 +3418,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
+<p><a href="#CatalogSearchResult">catalogsearchresult</a></p>
 
 <h2 id="combining-search-filters">Combining Search Filters</h2>
 
@@ -3613,7 +3635,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><a href='#catalogsearchresult'>CatalogSearchResult</a></p>
+<p><a href="#CatalogSearchResult">catalogsearchresult</a></p>
 
 <h1 id="errors">Errors</h1>
 

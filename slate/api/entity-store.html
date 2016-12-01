@@ -157,8 +157,9 @@
     </span><span class="nt">"Logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Relationships"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carrier"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Name"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Carrier"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carrier"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"SortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"helios"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -248,8 +249,9 @@
     </span><span class="nt">"Logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Relationships"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Name"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Manufacturer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"SortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"otterbox"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -339,8 +341,9 @@
     </span><span class="nt">"Logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Relationships"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vendor"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w">
-        </span><span class="s2">"Name"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Vendor"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vendor"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"SortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nozama inc."</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -511,7 +514,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>Array[<a href='#carrier'>Carrier</a>]</p>
+<p>Array[<a href="#Carrier">carrier</a>]</p>
 
 <h2 id="get-a-carrier"><span class='get'>GET</span> a Carrier</h2>
 
@@ -572,7 +575,7 @@ HTTP 200 Content-Type: application/json
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-uri-parameters&quot;>URI Parameters</h4>
+<h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
     
@@ -611,10 +614,9 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><a href='#carrier'>Carrier</a></p>
+<p><a href="#Carrier">carrier</a></p>
 
-<h2 id="get-all-manufacturers"><span class='get'>GET</span> All Manufacturers</h2>
-
+<h2 id="get-all-manufacturers"><span class='get'>GET</span> All Manufacturers
 <blockquote>
 <p>Definition</p>
 </blockquote>
@@ -704,7 +706,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>Array[<a href='#manufacturer'>Manufacturer</a>]</p>
+<p>Array[<a href="#Manufacturer">manufacturer</a>]</p>
 
 <h2 id="get-a-manufacturer"><span class='get'>GET</span> a Manufacturer</h2>
 
@@ -804,7 +806,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><a href='#manufacturer'>Manufacturer</a></p>
+<p><a href="#Manufacturer">manufacturer</a></p>
 
 <h2 id="get-all-suppliers"><span class='get'>GET</span> all Suppliers</h2>
 
@@ -897,7 +899,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>Array[<a href='#supplier'>Supplier</a>]</p>
+<p>Array[<a href="#Supplier">supplier</a>]</p>
 
 <h2 id="get-a-supplier"><span class='get'>GET</span> a Supplier</h2>
 
@@ -997,7 +999,7 @@ HTTP 200 Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><a href='#supplier'>Supplier</a></p>
+<p><a href="#Supplier">supplier</a></p>
 
       </div>
       <div class="dark-box">
