@@ -3130,10 +3130,9 @@
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/adjustmenthistoryinvoicedetailreport?ReasonCode=-1&amp;StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;SerialNumber=990003427999221&amp;ProductIdentifier=ASCLMO000001&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">adjustmenthistoryinvoicedetailreport</span><span class="p">?</span><span class="nx">ReasonCode</span><span class="o">=-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">SerialNumber</span><span class="o">=</span><span class="mi">990003427999221</span><span class="o">&amp;</span><span class="nx">ProductIdentifier</span><span class="o">=</span><span class="nx">ASCLMO000001</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/adjustmenthistoryinvoicedetailreport?ReasonCode=-1&amp;StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;SerialNumber=990003427999221&amp;ProductIdentifier=ASCLMO000001&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -3351,10 +3350,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/adjustmenthistoryproductdetailreport?ReasonCode=-1&amp;StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us&amp;ProductIdentifier=ASCLMO000001
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">adjustmenthistoryproductdetailreport</span><span class="p">?</span><span class="nx">ReasonCode</span><span class="o">=-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span><span class="o">&amp;</span><span class="nx">ProductIdentifier</span><span class="o">=</span><span class="nx">ASCLMO000001</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/adjustmenthistoryproductdetailreport?ReasonCode=-1&amp;StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us&amp;ProductIdentifier=ASCLMO000001"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -3599,10 +3597,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/AgedSeralizedInventoryReport?SearchMethod=3&amp;SearchCriteria2=-1&amp;StoreIDLoggedIn=1&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">AgedSeralizedInventoryReport</span><span class="p">?</span><span class="nx">SearchMethod</span><span class="o">=</span><span class="mi">3</span><span class="o">&amp;</span><span class="nx">SearchCriteria2</span><span class="o">=-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">StoreIDLoggedIn</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">4</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="p">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/AgedSeralizedInventoryReport?SearchMethod=3&amp;SearchCriteria2=-1&amp;StoreIDLoggedIn=1&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -3858,10 +3855,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/AutoOrderingReport?Search=ByCategory&amp;OrderBy=Priority&amp;VendorID=-1&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;CategoryNumber=10&amp;ProductsToShow=1&amp;StoreTypeID=-1&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">AutoOrderingReport</span><span class="p">?</span><span class="nx">Search</span><span class="o">=</span><span class="nx">ByCategory</span><span class="o">&amp;</span><span class="nx">OrderBy</span><span class="o">=</span><span class="nx">Priority</span><span class="o">&amp;</span><span class="nx">VendorID</span><span class="o">=-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">4</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">CategoryNumber</span><span class="o">=</span><span class="mi">10</span><span class="o">&amp;</span><span class="nx">ProductsToShow</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">StoreTypeID</span><span class="o">=-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="p">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/AutoOrderingReport?Search=ByCategory&amp;OrderBy=Priority&amp;VendorID=-1&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;CategoryNumber=10&amp;ProductsToShow=1&amp;StoreTypeID=-1&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -4160,10 +4156,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/backorderlistingreport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;VendorID=-1&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">backorderlistingreport</span><span class="p">?</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">VendorID</span><span class="o">=-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/backorderlistingreport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;VendorID=-1&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -4399,10 +4394,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/countsheethistoryreport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;ProductIdentifier=ASCLMO000001&amp;SerialNumber=866988333292854&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">countsheethistoryreport</span><span class="p">?</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">ProductIdentifier</span><span class="o">=</span><span class="nx">ASCLMO000001</span><span class="o">&amp;</span><span class="nx">SerialNumber</span><span class="o">=</span><span class="mi">866988333292854</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/countsheethistoryreport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;ProductIdentifier=ASCLMO000001&amp;SerialNumber=866988333292854&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -4665,10 +4659,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/CompletedRMAsReport?ReportType=RMAs&amp;StockBalanceID=78&amp;SearchMethod=3&amp;SearchCriteria=-1&amp;StoreIDs=1&amp;SBState=4&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">CompletedRMAsReport</span><span class="p">?</span><span class="nx">ReportType</span><span class="o">=</span><span class="nx">RMAs</span><span class="o">&amp;</span><span class="nx">StockBalanceID</span><span class="o">=</span><span class="mi">78</span><span class="o">&amp;</span><span class="nx">SearchMethod</span><span class="o">=</span><span class="mi">3</span><span class="o">&amp;</span><span class="nx">SearchCriteria</span><span class="o">=-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">StoreIDs</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">SBState</span><span class="o">=</span><span class="mi">4</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="p">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/CompletedRMAsReport?ReportType=RMAs&amp;StockBalanceID=78&amp;SearchMethod=3&amp;SearchCriteria=-1&amp;StoreIDs=1&amp;SBState=4&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -4871,10 +4864,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/consignmenthistoryreport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">consignmenthistoryreport</span><span class="p">?</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/consignmenthistoryreport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -5109,10 +5101,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/discontinuedinventoryreport?CategoryNumber=10&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">discontinuedinventoryreport</span><span class="p">?</span><span class="nx">CategoryNumber</span><span class="o">=</span><span class="mi">10</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="p">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/discontinuedinventoryreport?CategoryNumber=10&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -5346,10 +5337,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/inventoryavailabilitysummaryreport?ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;SearchType=1&amp;ProductIdentifier=ASCLMO000001&amp;CategoryNumber=10&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">inventoryavailabilitysummaryreport</span><span class="p">?</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">SearchType</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ProductIdentifier</span><span class="o">=</span><span class="nx">ASCLMO000001</span><span class="o">&amp;</span><span class="nx">CategoryNumber</span><span class="o">=</span><span class="mi">10</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="p">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/inventoryavailabilitysummaryreport?ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;SearchType=1&amp;ProductIdentifier=ASCLMO000001&amp;CategoryNumber=10&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -5625,10 +5615,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/inventorylistingreport?CategoryNumber=10&amp;BinStatus=1&amp;QtyStatus=4&amp;BlindInventory=0&amp;DateAsOf=2016-01-01T08:00:00.000Z&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">inventorylistingreport</span><span class="p">?</span><span class="nx">CategoryNumber</span><span class="o">=</span><span class="mi">10</span><span class="o">&amp;</span><span class="nx">BinStatus</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">QtyStatus</span><span class="o">=</span><span class="mi">4</span><span class="o">&amp;</span><span class="nx">BlindInventory</span><span class="o">=</span><span class="mi">0</span><span class="o">&amp;</span><span class="nx">DateAsOf</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/inventorylistingreport?CategoryNumber=10&amp;BinStatus=1&amp;QtyStatus=4&amp;BlindInventory=0&amp;DateAsOf=2016-01-01T08:00:00.000Z&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -5906,10 +5895,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/inventoryremovalhistoryreport?StoreID=1&amp;SearchMethod=1&amp;StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">inventoryremovalhistoryreport</span><span class="p">?</span><span class="nx">StoreID</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">SearchMethod</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/inventoryremovalhistoryreport?StoreID=1&amp;SearchMethod=1&amp;StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -6101,10 +6089,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/inventorytotalsbylocationreport?StoreTypeID=-1&amp;CategoryNumber=10&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">inventorytotalsbylocationreport</span><span class="p">?</span><span class="nx">StoreTypeID</span><span class="o">=-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">CategoryNumber</span><span class="o">=</span><span class="mi">10</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="p">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/inventorytotalsbylocationreport?StoreTypeID=-1&amp;CategoryNumber=10&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -6270,7 +6257,7 @@ Accept-Encoding: gzip
 <span class="n">Binary</span> <span class="o">*</span><span class="p">.</span><span class="n">xlsx</span> <span class="n">file</span>
 </code></pre>
 
-headers&quot;>Headers</h4>
+<h4 id="headers">Headers</h4>
 
 <p>This specifies the format of the data sent to the API.</p>
 
@@ -6319,10 +6306,9 @@ headers&quot;>Headers</h4>
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/nonsellablehistoryreport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;CategoryNumber=10&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;ProductIdentifier=ASCLMO000001&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">nonsellablehistoryreport</span><span class="p">?</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">CategoryNumber</span><span class="o">=</span><span class="mi">10</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">ProductIdentifier</span><span class="o">=</span><span class="nx">ASCLMO000001</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/nonsellablehistoryreport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;CategoryNumber=10&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;ProductIdentifier=ASCLMO000001&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -6583,10 +6569,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/overreceivinginventoryreport?StartDate=1970-01-01T08:00:00.000ZStopDate=2016-01-01T08:00:00.000Z&amp;PurchaseOrderID=-1&amp;PurchaseOrderIDByStore=84WEAPO1151&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">overreceivinginventoryreport</span><span class="p">?</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">ZStopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">PurchaseOrderID</span><span class="o">=-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">PurchaseOrderIDByStore</span><span class="o">=</span><span class="mi">84</span><span class="nx">WEAPO1151</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/overreceivinginventoryreport?StartDate=1970-01-01T08:00:00.000ZStopDate=2016-01-01T08:00:00.000Z&amp;PurchaseOrderID=-1&amp;PurchaseOrderIDByStore=84WEAPO1151&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -6644,7 +6629,7 @@ Accept-Encoding: gzip
 <pre class="highlight c"><code><span class="n">This</span> <span class="n">format</span> <span class="n">not</span> <span class="n">available</span>
 </code></pre>
 
-<h4 id="uri-parameters">URI Parameters</h4>
+uri-parameters&quot;>URI Parameters</h4>
 
 <ul>
     <li><code>StartDate</code> (<strong>Required</strong>)  - Date at which report will begin</li>
@@ -6794,7 +6779,7 @@ Accept-Encoding: gzip
 
 <p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=Excel</code>.</p>
 
-<h2 id="get-the-products-on-consignment-report"><span class='get'>GET</span> the Products on Consignment Report</h2>
+get-the-products-on-consignment-report&quot;><span class='get'>GET</span> the Products on Consignment Report</h2>
 
 <p>For more information see {{support_ProductsOnConsignmentReport}}.</p>
 
@@ -6807,10 +6792,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/productsonconsignmentreport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;StoreID=1&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;PurchaseOrderIDByStore=84WEAPO1151&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">productsonconsignmentreport</span><span class="p">?</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StoreID</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">PurchaseOrderIDByStore</span><span class="o">=</span><span class="mi">84</span><span class="nx">WEAPO1151</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/productsonconsignmentreport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;StoreID=1&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;PurchaseOrderIDByStore=84WEAPO1151&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -7008,8 +6992,7 @@ Accept-Encoding: gzip
 
 <p>This is the default result obtained by omitting the URI parameter <code class="prettyprint">Auth=JsonDataTable</code>. This response type wraps the data in a &ldquo;Records&rdquo; array and adds a &ldquo;Schema&rdquo; array, which contains information about each column in the report.</p>
 
-<h5 id="for-xml">For XML</h5>
-
+<h5 id="for-xml">For XML
 <p><code class="prettyprint">Content-Type: text/xml</code></p>
 
 <p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=XmlDataTable</code>. 
@@ -7043,10 +7026,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/purchasehistoryreport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;SearchMethod=1&amp;Filter=1&amp;CategoryNumber=10&amp;ProductIdentifier=ASCLMO000001&amp;VendorID=-1&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">purchasehistoryreport</span><span class="p">?</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">SearchMethod</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">Filter</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">CategoryNumber</span><span class="o">=</span><span class="mi">10</span><span class="o">&amp;</span><span class="nx">ProductIdentifier</span><span class="o">=</span><span class="nx">ASCLMO000001</span><span class="o">&amp;</span><span class="nx">VendorID</span><span class="o">=-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/purchasehistoryreport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;SearchMethod=1&amp;Filter=1&amp;CategoryNumber=10&amp;ProductIdentifier=ASCLMO000001&amp;VendorID=-1&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -7211,7 +7193,7 @@ Accept-Encoding: gzip
 
 <p>This is the default result obtained by omitting the URI parameter <code class="prettyprint">Auth=JsonDataTable</code>. This response type wraps the data in a &ldquo;Records&rdquo; array and adds a &ldquo;Schema&rdquo; array, which contains information about each column in the report.</p>
 
-<h5 id="for-xml">For XML</h5>
+for-xml&quot;>For XML</h5>
 
 <p><code class="prettyprint">Content-Type: text/xml</code></p>
 
@@ -7246,10 +7228,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/PurchaseOrderAmendmentReport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;PONumber=WETM2PO325&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">PurchaseOrderAmendmentReport</span><span class="p">?</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">4</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">PONumber</span><span class="o">=</span><span class="nx">WETM2PO325</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/PurchaseOrderAmendmentReport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;PONumber=WETM2PO325&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -7485,10 +7466,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/ReceivingInvoiceHistoryReport_ByProduct?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;VendorID=-1&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;CategoryNumber=10&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">ReceivingInvoiceHistoryReport_ByProduct</span><span class="p">?</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">VendorID</span><span class="o">=-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">4</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">CategoryNumber</span><span class="o">=</span><span class="mi">10</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/ReceivingInvoiceHistoryReport_ByProduct?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;VendorID=-1&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;CategoryNumber=10&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -7741,10 +7721,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/ReceivingInvoiceHistoryReport_ByInvoice?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;VendorID=-1&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;CategoryNumber=10&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">ReceivingInvoiceHistoryReport_ByInvoice</span><span class="p">?</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">VendorID</span><span class="o">=-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">4</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">CategoryNumber</span><span class="o">=</span><span class="mi">10</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/ReceivingInvoiceHistoryReport_ByInvoice?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;VendorID=-1&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;CategoryNumber=10&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -8021,10 +8000,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/rmahistoryinvoicereport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;VendorID=-1&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">rmahistoryinvoicereport</span><span class="p">?</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">VendorID</span><span class="o">=-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/rmahistoryinvoicereport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;VendorID=-1&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -8096,7 +8074,8 @@ Accept-Encoding: gzip
     <li><code>Response</code> (Optional)  - Default is JSON. For other methods of response, see {{ResponseOptions}}</li>
 </ul>
 
-<h3 id="response-parameters">Response Parameters
+<h3 id="response-parameters">Response Parameters</h3>
+
 <p>Array[<a href="#RMAHistoryInvoiceReportData">rmahistoryinvoicereportdata</a>]</p>
 
 <blockquote>
@@ -8290,10 +8269,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/rmahistoryproductreport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;VendorID=-1&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">rmahistoryproductreport</span><span class="p">?</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">VendorID</span><span class="o">=-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/rmahistoryproductreport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;VendorID=-1&amp;ForWho=1&amp;ForWhoIDs=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -8515,7 +8493,7 @@ Accept-Encoding: gzip
 <span class="n">Binary</span> <span class="o">*</span><span class="p">.</span><span class="n">xlsx</span> <span class="n">file</span>
 </code></pre>
 
-<h4 id="headers">Headers</h4>
+headers&quot;>Headers</h4>
 
 <p>This specifies the format of the data sent to the API.</p>
 
@@ -8564,10 +8542,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/StaleInventoryReport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;QtyThreshold=-1&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;CategoryNumber=10&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">StaleInventoryReport</span><span class="p">?</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">QtyThreshold</span><span class="o">=-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">4</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">CategoryNumber</span><span class="o">=</span><span class="mi">10</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/StaleInventoryReport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;QtyThreshold=-1&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;CategoryNumber=10&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -8625,8 +8602,7 @@ Accept-Encoding: gzip
 <pre class="highlight c"><code><span class="n">This</span> <span class="n">format</span> <span class="n">not</span> <span class="n">available</span>
 </code></pre>
 
-<h4 id="uri-parameters">URI Parameters</h4>
-
+<h4 id="uri-parameters">URI Parameters
 <ul>
     <li><code>StartDate</code> (<strong>Required</strong>)  - Date at which report will begin</li>
     <li><code>StopDate</code> (<strong>Required</strong>)  - Date at which report will end</li>
@@ -8641,7 +8617,7 @@ Accept-Encoding: gzip
     <li><code>Response</code> (Optional)  - Default is JSON. For other methods of response, see {{ResponseOptions}}</li>
 </ul>
 
-<h3 id="response-parameters">Response Parameters</h3>
+response-parameters&quot;>Response Parameters</h3>
 
 <p>Array[<a href="#StaleInventoryReportData">staleinventoryreportdata</a>]</p>
 
@@ -8759,7 +8735,7 @@ Accept-Encoding: gzip
 
 <p>This specifies the format of the data sent to the API.</p>
 
-<h5 id="for-json">For JSON:</h5>
+for-json&quot;>For JSON:</h5>
 
 <p><code class="prettyprint">Content-Type: application/json</code></p>
 
@@ -8804,10 +8780,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/transferhistoryinvoicedetailreport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;ShippedForWho=1&amp;ShippedForWhoIDs=6679&amp;ReceivedForWho=1&amp;ReceivedForWhoIDs=6679&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">transferhistoryinvoicedetailreport</span><span class="p">?</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">ShippedForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ShippedForWhoIDs</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">ReceivedForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ReceivedForWhoIDs</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/transferhistoryinvoicedetailreport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;ShippedForWho=1&amp;ShippedForWhoIDs=6679&amp;ReceivedForWho=1&amp;ReceivedForWhoIDs=6679&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
@@ -9086,10 +9061,9 @@ Accept-Encoding: gzip
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>GET /reports/transferhistoryproductdetailreport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;ShippedForWho=1&amp;ShippedForWhoIDs=6679&amp;ReceivedForWho=1&amp;ReceivedForWhoIDs=6679&amp;LanguageCode=en-us
-Authorization: Bearer (Access Token)
-Accept-Encoding: gzip
-
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">transferhistoryproductdetailreport</span><span class="p">?</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">ShippedForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ShippedForWhoIDs</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">ReceivedForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ReceivedForWhoIDs</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
 </code></pre>
 <pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/transferhistoryproductdetailreport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;ShippedForWho=1&amp;ShippedForWhoIDs=6679&amp;ReceivedForWho=1&amp;ReceivedForWhoIDs=6679&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
 </code></pre>
