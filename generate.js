@@ -16,12 +16,12 @@ var qPromise = require('q');                                        //Promise ma
 var POSTMAN_FOLDER = "postman//";                                   //Used to set the folder RAML will be read from
 var PACKAGE_FILE = "package.json";                                  //Location of package file
 var FOLDER_DIR = "raml/";                                           //Location of the RAML files, should always be raml/
-var SAVE_LOCATION = "pages/api/";                                   //Location of where the MD files will be generated **THIS FOLDER MUST EXIST OR THE SCRIPT WILL FAIL SILENTLY***
+var SAVE_LOCATION = "source/api/"; /*"pages/api/";*/                //Location of where the MD files will be generated **THIS FOLDER MUST EXIST OR THE SCRIPT WILL FAIL SILENTLY***
 var TEMPLATES_LOCATION = "templates/";                              //Location of nunjucks templates
 var GENERATED_RAML_LOCATION = "postman/";                           //Location of generated RAML files
-var GENERATED_LINKS_LOCATION = "_includes/generated_linkrefs.html"; //Location of where the resource links will be generated
-var DEFAULT_TEMPLATE = "default.nunjucks";                          //Default nunjucks template
-//var DEFAULT_TEMPLATE = "test.nunjucks";                          //Default nunjucks template
+var GENERATED_LINKS_LOCATION = "source/_includes/generated_linkrefs.html"; //Location of where the resource links will be generated
+/*var DEFAULT_TEMPLATE = "default.nunjucks";*/                          //Default nunjucks template
+var DEFAULT_TEMPLATE = "test.nunjucks";                          //Default nunjucks template
 var RAML_TEMPLATE = "templates/raml.nunjucks";                      //Used for generating postman-importable RAML in postman folder
 
 var filePaths = [];                                                 //Holds list of RAML files to be generated
@@ -52,7 +52,7 @@ var CUSTOM_TEMPLATES = {
     "rdc-employees": { "template": "rq-data-connect" },
     "rdc-finance": { "template": "rq-data-connect" },
     "rdc-import": { "template": "rq-data-connect" },    
-    "rdc-inventory": { "template": "rq-data-connect" },
+    "rdc-inventory": { "template": "rdc-test" },
     "rdc-performance-metrix": { "template": "rq-data-connect" },
     "rdc-sales": { "template": "rq-data-connect" },
     "rdc-utilities": { "template": "rq-data-connect" }
@@ -210,6 +210,7 @@ function writeResourceLinks() {
 //Read each RAML file to be generated
 function processFiles() {
 
+
     for (var i = 0; i < filePaths.length; i++) {
 
         //Generate it?
@@ -272,7 +273,8 @@ function writeFile(fileName, template) {
 
     //Determine file to read, write and template to use
     var readFile = FOLDER_DIR + fileName + ".raml";
-    var writeFile = SAVE_LOCATION + fileName + ".md";
+    //var writeFile = SAVE_LOCATION + fileName + ".md";
+    var writeFile = SAVE_LOCATION + fileName + ".html.md";
     var config = raml2md.getDefaultConfig(template);
     
     raml2md.render(readFile, config, RESOURCES).then(function(result) {
