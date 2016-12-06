@@ -450,8 +450,8 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">201</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
-</span></code></pre>
+<pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
+</code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16446</span><span class="p">,</span><span class="w">
     </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
@@ -562,8 +562,8 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">201</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
-</span></code></pre>
+<pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
+</code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16446</span><span class="p">,</span><span class="w">
     </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
@@ -653,8 +653,8 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
-</span></code></pre>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16446</span><span class="p">,</span><span class="w">
@@ -745,8 +745,8 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
-</span></code></pre>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16446</span><span class="p">,</span><span class="w">
@@ -840,8 +840,8 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
-</span></code></pre>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">78</span><span class="p">,</span><span class="w">
@@ -934,8 +934,8 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
-</span></code></pre>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">78</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -951,7 +951,7 @@
 
 <p><a href="#PricingTerm">pricingterm</a></p>
 
-<h2 id="post-a-sale-price"><span class='post'>POST</span> a Sale Price</h2>
+post-a-sale-price&quot;><span class='post'>POST</span> a Sale Price</h2>
 
 <p>When creating a SaleOverridePrice, the following rules are enforced:
 <ul>
@@ -1037,7 +1037,8 @@
     <li><code>PricingId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/pricing/#pricing'>Pricing</a></li>
 </ul>
 
-<h4 id="request-parameters">Request Parameters
+<h4 id="request-parameters">Request Parameters</h4>
+
 <ul><li><code>IsDefault</code> (<strong>Required</strong>) - There can only be one default SaleOverridePrice for a Pricing. If StartDate and StopDate are provided, this must be false</li><li><code>SalePrice</code> (Optional) - Must be greater than or equal to 0, defaults to 0</li><li><code>StartDateUTC</code> (Optional) - If provided, StopDate must be provided, StartDate must be before StopDate and IsDefault must be false</li><li><code>StopDateUTC</code> (Optional) - If provided, StartDate must be provided, StartDate must be before StopDate and IsDefault must be false</li></ul>
 
 <h3 id="response-parameters">Response Parameters</h3>
@@ -1045,8 +1046,8 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">201</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
-</span></code></pre>
+<pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
+</code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1177</span><span class="p">,</span><span class="w">
     </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
@@ -1131,8 +1132,8 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
-</span></code></pre>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1177</span><span class="p">,</span><span class="w">
@@ -1221,8 +1222,7 @@
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-<h4 id="uri-parameters">URI Parameters</h4>
-
+<h4 id="uri-parameters">URI Parameters
 <ul>
     <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
     <li><code>PricingId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/pricing/#pricing'>Pricing</a></li>
@@ -1238,8 +1238,8 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
-</span></code></pre>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1177</span><span class="p">,</span><span class="w">
     </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
@@ -1321,8 +1321,8 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
-</span></code></pre>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
 
 <h2 id="get-product-pricing-by-pricing-term"><span class='get'>GET</span> Product Pricing by Pricing Term</h2>
 
@@ -1396,8 +1396,8 @@
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
-</span></code></pre>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16446</span><span class="p">,</span><span class="w">
