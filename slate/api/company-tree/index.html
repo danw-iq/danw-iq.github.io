@@ -86,15 +86,15 @@
   color: #90a959;
 }
     </style>
-    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="../javascripts/all.js"></script>
+    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all.js"></script>
   </head>
 
-  <body class="api api_company-tree" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+  <body class="api api_company-tree api_company-tree_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
 
     <div class="fixed-top">
-      <a class="navbar-logo" href="http://www.iqmetrix.com"><img src="../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <a class="navbar-logo" href="http://www.iqmetrix.com"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
       <div class="navbar-right">
         <ul class="topnav" id="myTopnav">
           <li><a class="active" href="/">HOMEPAGE</a></li>
@@ -110,11 +110,11 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="../images/navbar.png" alt="Navbar" />
+        <img src="../../images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="../images/logo.png" alt="Logo" />
+      <img src="../../images/logo.png" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="javascript">javascript</a>
               <a href="#" data-language-name="shell">cURL</a>
@@ -147,7 +147,7 @@
 
 <h3 id="company-relationships">Company Relationships</h3>
 
-<p>A Company <a href='http://developers.iqmetrix.com/api/company-tree/#relationship'>Relationship</a> describes the interaction between a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a> and a Manufacturer, Supplier, Partner, Company Tree Node, etc.</p>
+<p>A Company <a href='http://developers.iqmetrix.com/api/Chatterspot-Reports/#relationship'>Relationship</a> describes the interaction between a <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a> and a Manufacturer, Supplier, Partner, Company Tree Node, etc.</p>
 
 <p>Depending on the type of Relationship, the identifier for each Entity may appear in the <code class="prettyprint">Source</code> or <code class="prettyprint">Destination</code> field.</p>
 
@@ -321,7 +321,7 @@
 </tr>
 <tr>
 <td style="text-align: left">Source (<code class="prettyprint">Integer</code>)</td>
-<td style="text-align: left">Identifier for a {{Vendor}}, <a href='http://developers.iqmetrix.com/api/entity-store/#carrier'>Carrier</a> or {{Partner}} or <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></td>
+<td style="text-align: left">Identifier for a <a href='http://developers.iqmetrix.com/api/epc/#vendor'>Vendor</a>, <a href='http://developers.iqmetrix.com/api/entity-store/#carrier'>Carrier</a> or {{Partner}} or <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></td>
 </tr>
 <tr>
 <td style="text-align: left">Destination (<code class="prettyprint">Integer</code>)</td>
@@ -1136,559 +1136,490 @@
 <h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
-    </li>
-    </ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wireless accessories provider with store locations all across the globe."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"ClientEntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CreatedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastModifiedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-05-20T23:06:29.7700813Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nt">"Logo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d22291d9-db1d-45e2-ab60-32ac9c145323"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"globe-rocket.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Height"</span><span class="p">:</span><span class="w"> </span><span class="mi">341</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://amsdemostorage.blob.core.windows.net/assets/d22291d9-db1d-45e2-ab60-32ac9c145323.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Md5Checksum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d2d0b491ad3eecd9d8c3dabb0610197d"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/jpeg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Width"</span><span class="p">:</span><span class="w"> </span><span class="mi">450</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6267</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Source"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Destination"</span><span class="p">:</span><span class="w"> </span><span class="mi">14147</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CreatedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-20T18:22:10.931Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"SortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kentel corp"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><a href="#Company">company</a></p>
+
+<h2 id="get-a-company-tree"><span class='get'>GET</span> a Company Tree</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/Tree
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Tree</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingACompanyTree</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
 
 
 
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
 
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingACompanyTree</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree"</span><span class="o">);</span>
 
-### Response Parameters
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
 
-
-
-> Example Response
-
-<pre>
-HTTP 200 Content-Type: application/json
-</pre>
-&ldquo;`json
-{
-    &quot;Id&rdquo;: 14146,
-    &ldquo;Name&rdquo;: &ldquo;Kentel Corp&rdquo;,
-    &ldquo;Description&rdquo;: &ldquo;Wireless accessories provider with store locations all across the globe.&rdquo;,
-    &ldquo;Roles&rdquo;: [
-        {
-            &ldquo;Name&rdquo;: &ldquo;Company&rdquo;
-        }
-    ],
-    &ldquo;ClientEntityId&rdquo;: &ldquo;123&rdquo;,
-    &ldquo;CreatedUtc&rdquo;: &ldquo;2015-05-20T23:06:29.7700813Z&rdquo;,
-    &ldquo;LastModifiedUtc&rdquo;: &ldquo;2015-05-20T23:06:29.7700813Z&rdquo;,
-    &ldquo;Attributes&rdquo;: {},
-    &ldquo;Logo&rdquo;: {
-        &ldquo;Id&rdquo;: &ldquo;d22291d9-db1d-45e2-ab60-32ac9c145323&rdquo;,
-        &ldquo;Name&rdquo;: &ldquo;globe-rocket.jpg&rdquo;,
-        &ldquo;Height&rdquo;: 341,
-        &ldquo;Href&rdquo;: &ldquo;https://amsdemostorage.blob.core.windows.net/assets/d22291d9-db1d-45e2-ab60-32ac9c145323.jpg&rdquo;,
-        &ldquo;Md5Checksum&rdquo;: &ldquo;d2d0b491ad3eecd9d8c3dabb0610197d&rdquo;,
-        &ldquo;MimeType&rdquo;: &ldquo;image/jpeg&rdquo;,
-        &ldquo;Width&rdquo;: 450
-    },
-    &ldquo;Relationships&rdquo;: [
-        {
-            &ldquo;Id&rdquo;: 6267,
-            &ldquo;Source&rdquo;: 14146,
-            &ldquo;Destination&rdquo;: 14147,
-            &ldquo;CreatedUtc&rdquo;: &ldquo;2015-11-20T18:22:10.931Z&rdquo;,
-            &ldquo;Version&rdquo;: 1
-        }
-    ],
-    &ldquo;SortName&rdquo;: &ldquo;kentel corp&rdquo;,
-    &ldquo;Version&rdquo;: 1
-}
-&ldquo;`
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 
 
 
- [company](#Company)
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
 
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
 
+<h4 id="uri-parameters">URI Parameters</h4>
 
-## <span class='get'>GET</span> a Company Tree
-
-
-
-> Definition
-
-&rdquo;`
-GET /Companies({CompanyId})/Tree
-&ldquo;`
-
-> Example Request
-
-&rdquo;`javascript
-GET /Companies(14146)/Tree
-Authorization: Bearer (Access Token)
-Accept: application/json
-&ldquo;`
-
-
-&rdquo;`shell
-curl -X GET &ldquo;https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree&rdquo; -H &ldquo;Authorization: Bearer (Access Token)&rdquo; -H &ldquo;Accept: application/json&rdquo;
-&ldquo;`
-
-&rdquo;`csharp
-static IRestResponse GettingACompanyTree()
-{
-    var client = new RestClient(&ldquo;https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree&rdquo;);
-    var request = new RestRequest(Method.GET);
-     
-    request.AddHeader(&ldquo;Authorization&rdquo;, &ldquo;Bearer (Access Token)&rdquo;); 
-    request.AddHeader(&ldquo;Accept&rdquo;, &ldquo;application/json&rdquo;); 
-
-    
-
-    return client.Execute(request);
-}
-&ldquo;`
-
-
-&rdquo;`java
-
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import java.io.IOException;
-
-public static CloseableHttpResponse GettingACompanyTree() throws IOException {
-    CloseableHttpClient httpClient = HttpClients.createDefault();
-    HttpGet request = new HttpGet(&ldquo;https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree&rdquo;);
-     
-    request.addHeader(&ldquo;Authorization&rdquo;, &ldquo;Bearer (Access Token)&rdquo;); 
-    request.addHeader(&ldquo;Accept&rdquo;, &ldquo;application/json&rdquo;); 
-    
-    return httpClient.execute(request);
-}
-&ldquo;`
-
-&rdquo;`ruby
-require &lsquo;rest-client&rsquo;
-
-
-
-response = RestClient.get 'https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree&rsquo;, {
-     :'Authorization&rsquo; => 'Bearer (Access Token)&rsquo;,
-     :'Accept&rsquo; => 'application/json&rsquo;,
-    } 
-
-puts response
-&ldquo;`
-
-
-#### URI Parameters
 <ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
-    </li>
-    </ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+</ul>
 
+<h3 id="response-parameters">Response Parameters</h3>
 
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wireless accessories provider with store locations all across the globe."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Nodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14159</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T-hut Wireless"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Division of Kiosks"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Division"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Nodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
+<p><a href="#CompanyTree">companytree</a></p>
 
+<h2 id="post-a-location"><span class='post'>POST</span> a Location</h2>
 
-### Response Parameters
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST /Companies({CompanyId})/Tree/Nodes({NodeId})/Locations
+</code></pre>
 
-
-
-> Example Response
-
-<pre>
-HTTP 200 Content-Type: application/json
-</pre>
-&rdquo;`json
-{
-    &ldquo;Id&rdquo;: 14146,
-    &ldquo;Name&rdquo;: &ldquo;Kentel Corp&rdquo;,
-    &ldquo;Description&rdquo;: &ldquo;Wireless accessories provider with store locations all across the globe.&rdquo;,
-    &ldquo;Role&rdquo;: &ldquo;Company&rdquo;,
-    &ldquo;Nodes&rdquo;: [
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">POST</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Tree</span><span class="o">/</span><span class="nx">Nodes</span><span class="p">(</span><span class="mi">14159</span><span class="p">)</span><span class="o">/</span><span class="nx">Locations</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X POST <span class="s2">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+    "Name": "Dufferin Mall",
+    "Description": "This Location is used to clear out discounted inventory",
+    "Roles": [
         {
-            &ldquo;Id&rdquo;: 14159,
-            &ldquo;Name&rdquo;: &ldquo;T-hut Wireless&rdquo;,
-            &ldquo;Description&rdquo;: &ldquo;Division of Kiosks&rdquo;,
-            &ldquo;Role&rdquo;: &ldquo;Division&rdquo;,
-            &ldquo;Nodes&rdquo;: []
-        }
-    ]
-}
-&ldquo;`
-
-
-
- [companytree](#CompanyTree)
-
-
-
-## Creating a Location
-
-
-
-> Definition
-
-&rdquo;`
-POST /Companies({CompanyId})/Tree/Nodes({NodeId})/Locations
-&ldquo;`
-
-> Example Request
-
-&rdquo;`javascript
-POST /Companies(14146)/Tree/Nodes(14159)/Locations
-Authorization: Bearer (Access Token)
-Accept: application/json
-Content-Type: application/json
-&ldquo;`
-
-
-&rdquo;`shell
-curl -X POST &ldquo;https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations&rdquo; -H &ldquo;Authorization: Bearer (Access Token)&rdquo; -H &ldquo;Accept: application/json&rdquo; -H &ldquo;Content-Type: application/json&rdquo; -d &rsquo;{
-    &ldquo;Name&rdquo;: &ldquo;Dufferin Mall&rdquo;,
-    &ldquo;Description&rdquo;: &ldquo;This Location is used to clear out discounted inventory&rdquo;,
-    &ldquo;Roles&rdquo;: [
-        {
-            &ldquo;Name&rdquo;: &ldquo;Location&rdquo;
+            "Name": "Location"
         }
     ],
-    &ldquo;Area&rdquo;: {
-        &ldquo;Value&rdquo;: 1100,
-        &ldquo;Unit&rdquo;: &ldquo;SqFt&rdquo;
+    "Area": {
+        "Value": 1100,
+        "Unit": "SqFt"
     },
-    &ldquo;Address&rdquo;: {
-        &ldquo;AddressLine1&rdquo;: &ldquo;4970 Hillside Avenue&rdquo;,
-        &ldquo;AddressLine2&rdquo;: &ldquo;Apt 115&rdquo;,
-        &ldquo;City&rdquo;: &ldquo;Edmonton&rdquo;,
-        &ldquo;StateCode&rdquo;: &ldquo;ON&rdquo;,
-        &ldquo;StateName&rdquo;: &ldquo;Ontario&rdquo;,
-        &ldquo;CountryCode&rdquo;: &ldquo;CA&rdquo;,
-        &ldquo;CountryName&rdquo;: &ldquo;Canada&rdquo;,
-        &ldquo;Zip&rdquo;: &ldquo;P9H 9I4&rdquo;
+    "Address": {
+        "AddressLine1": "4970 Hillside Avenue",
+        "AddressLine2": "Apt 115",
+        "City": "Edmonton",
+        "StateCode": "ON",
+        "StateName": "Ontario",
+        "CountryCode": "CA",
+        "CountryName": "Canada",
+        "Zip": "P9H 9I4"
     },
-    &ldquo;Attributes&rdquo;: {},
-    &ldquo;ClientEntityId&rdquo;: &ldquo;123&rdquo;,
-    &ldquo;Contacts&rdquo;: [
+    "Attributes": {},
+    "ClientEntityId": "123",
+    "Contacts": [
         {
-            &ldquo;Name&rdquo;: &ldquo;John Smith&rdquo;,
-            &ldquo;Description&rdquo;: &ldquo;Store Manager&rdquo;,
-            &ldquo;PhoneNumbers&rdquo;: [
+            "Name": "John Smith",
+            "Description": "Store Manager",
+            "PhoneNumbers": [
                 {
-                    &ldquo;Description&rdquo;: &ldquo;Main Line&rdquo;,
-                    &ldquo;Number&rdquo;: &ldquo;5555555555&rdquo;,
-                    &ldquo;Extension&rdquo;: &ldquo;1234&rdquo;
+                    "Description": "Main Line",
+                    "Number": "5555555555",
+                    "Extension": "1234"
                 }
             ]
         }
     ],
-    &ldquo;Geography&rdquo;: {
-        &ldquo;Longitude&rdquo;: -104.612034,
-        &ldquo;Latitude&rdquo;: 50.443559
+    "Geography": {
+        "Longitude": -104.612034,
+        "Latitude": 50.443559
     },
-    &ldquo;StoreHours&rdquo;: {
-        &ldquo;Monday&rdquo;: {
-            &ldquo;Open&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
+    "StoreHours": {
+        "Monday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
             },
-            &ldquo;Close&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
             }
         },
-        &ldquo;Tuesday&rdquo;: {
-            &ldquo;Open&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
+        "Tuesday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
             },
-            &ldquo;Close&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
             }
         },
-        &ldquo;Wednesday&rdquo;: {
-            &ldquo;Open&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
+        "Wednesday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
             },
-            &ldquo;Close&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
             }
         },
-        &ldquo;Thursday&rdquo;: {
-            &ldquo;Open&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
+        "Thursday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
             },
-            &ldquo;Close&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
             }
         },
-        &ldquo;Friday&rdquo;: {
-            &ldquo;Open&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
+        "Friday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
             },
-            &ldquo;Close&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
             }
         },
-        &ldquo;Saturday&rdquo;: {
-            &ldquo;Open&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
+        "Saturday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
             },
-            &ldquo;Close&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
             }
         },
-        &ldquo;Sunday&rdquo;: {
-            &ldquo;Open&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
+        "Sunday": {
+            "Open": {
+                "Hour": 10,
+                "Minute": 0
             },
-            &ldquo;Close&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
+            "Close": {
+                "Hour": 10,
+                "Minute": 0
             }
         }
     },
-    &ldquo;StorePhoneNumbers&rdquo;: [
+    "StorePhoneNumbers": [
         {
-            &ldquo;Description&rdquo;: &ldquo;Main Line&rdquo;,
-            &ldquo;Number&rdquo;: &ldquo;5555555555&rdquo;,
-            &ldquo;Extension&rdquo;: &ldquo;1234&rdquo;
+            "Description": "Main Line",
+            "Number": "5555555555",
+            "Extension": "1234"
         }
     ],
-    &ldquo;TimeZone&rdquo;: {
-        &ldquo;Id&rdquo;: &ldquo;Alaskan Standard Time&rdquo;,
-        &ldquo;DaylightSavingTimeEnabled&rdquo;: true
+    "TimeZone": {
+        "Id": "Alaskan Standard Time",
+        "DaylightSavingTimeEnabled": true
     }
-}&rsquo;
-&ldquo;`
+}'</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">CreatingALocation</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">POST</span><span class="p">);</span>
 
-&rdquo;`csharp
-static IRestResponse CreatingALocation()
-{
-    var client = new RestClient(&ldquo;https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations&rdquo;);
-    var request = new RestRequest(Method.POST);
-     
-    request.AddHeader(&ldquo;Authorization&rdquo;, &ldquo;Bearer (Access Token)&rdquo;); 
-    request.AddHeader(&ldquo;Accept&rdquo;, &ldquo;application/json&rdquo;); 
-    request.AddHeader(&ldquo;Content-Type&rdquo;, &ldquo;application/json&rdquo;); 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
 
-     request.AddParameter(&ldquo;application/json&rdquo;, &ldquo;{"Name":"Dufferin Mall","Description":"This Location is used to clear out discounted inventory","Roles":[{"Name":"Location"}],"Area":{"Value":1100,"Unit":"SqFt"},"Address":{"AddressLine1":"4970 Hillside Avenue","AddressLine2":"Apt 115","City":"Edmonton","StateCode":"ON","StateName":"Ontario","CountryCode":"CA","CountryName":"Canada","Zip":"P9H 9I4"},"Attributes":{},"ClientEntityId":"123","Contacts":[{"Name":"John Smith","Description":"Store Manager","PhoneNumbers":[{"Description":"Main Line","Number":"5555555555","Extension":"1234"}]}],"Geography":{"Longitude":-104.612034,"Latitude":50.443559},"StoreHours":{"Monday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Tuesday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Wednesday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Thursday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Friday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Saturday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Sunday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}}},"StorePhoneNumbers":[{"Description":"Main Line","Number":"5555555555","Extension":"1234"}],"TimeZone":{"Id":"Alaskan Standard Time","DaylightSavingTimeEnabled":true}}&rdquo;, ParameterType.RequestBody);
+     <span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"{\"Name\":\"Dufferin Mall\",\"Description\":\"This Location is used to clear out discounted inventory\",\"Roles\":[{\"Name\":\"Location\"}],\"Area\":{\"Value\":1100,\"Unit\":\"SqFt\"},\"Address\":{\"AddressLine1\":\"4970 Hillside Avenue\",\"AddressLine2\":\"Apt 115\",\"City\":\"Edmonton\",\"StateCode\":\"ON\",\"StateName\":\"Ontario\",\"CountryCode\":\"CA\",\"CountryName\":\"Canada\",\"Zip\":\"P9H 9I4\"},\"Attributes\":{},\"ClientEntityId\":\"123\",\"Contacts\":[{\"Name\":\"John Smith\",\"Description\":\"Store Manager\",\"PhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}]}],\"Geography\":{\"Longitude\":-104.612034,\"Latitude\":50.443559},\"StoreHours\":{\"Monday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Tuesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Wednesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Thursday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Friday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Saturday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Sunday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}}},\"StorePhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}],\"TimeZone\":{\"Id\":\"Alaskan Standard Time\",\"DaylightSavingTimeEnabled\":true}}"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
 
-    return client.Execute(request);
-}
-&ldquo;`
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code><span class="kn">import</span> <span class="nn">org.apache.http.entity.StringEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpPost</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
 
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">CreatingALocation</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpPost</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPost</span><span class="o">(</span><span class="s">"https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations"</span><span class="o">);</span>
 
-&rdquo;`java
-import org.apache.http.entity.StringEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import java.io.IOException;
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">StringEntity</span> <span class="n">body</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringEntity</span><span class="o">(</span><span class="s">"{\"Name\":\"Dufferin Mall\",\"Description\":\"This Location is used to clear out discounted inventory\",\"Roles\":[{\"Name\":\"Location\"}],\"Area\":{\"Value\":1100,\"Unit\":\"SqFt\"},\"Address\":{\"AddressLine1\":\"4970 Hillside Avenue\",\"AddressLine2\":\"Apt 115\",\"City\":\"Edmonton\",\"StateCode\":\"ON\",\"StateName\":\"Ontario\",\"CountryCode\":\"CA\",\"CountryName\":\"Canada\",\"Zip\":\"P9H 9I4\"},\"Attributes\":{},\"ClientEntityId\":\"123\",\"Contacts\":[{\"Name\":\"John Smith\",\"Description\":\"Store Manager\",\"PhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}]}],\"Geography\":{\"Longitude\":-104.612034,\"Latitude\":50.443559},\"StoreHours\":{\"Monday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Tuesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Wednesday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Thursday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Friday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Saturday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}},\"Sunday\":{\"Open\":{\"Hour\":10,\"Minute\":0},\"Close\":{\"Hour\":10,\"Minute\":0}}},\"StorePhoneNumbers\":[{\"Description\":\"Main Line\",\"Number\":\"5555555555\",\"Extension\":\"1234\"}],\"TimeZone\":{\"Id\":\"Alaskan Standard Time\",\"DaylightSavingTimeEnabled\":true}}"</span><span class="o">);</span>
+    <span class="n">request</span><span class="o">.</span><span class="na">setEntity</span><span class="o">(</span><span class="n">body</span><span class="o">);</span>
 
-public static CloseableHttpResponse CreatingALocation() throws IOException {
-    CloseableHttpClient httpClient = HttpClients.createDefault();
-    HttpPost request = new HttpPost(&ldquo;https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations&rdquo;);
-     
-    request.addHeader(&ldquo;Authorization&rdquo;, &ldquo;Bearer (Access Token)&rdquo;); 
-    request.addHeader(&ldquo;Accept&rdquo;, &ldquo;application/json&rdquo;); 
-    request.addHeader(&ldquo;Content-Type&rdquo;, &ldquo;application/json&rdquo;); 
-    StringEntity body = new StringEntity(&ldquo;{"Name":"Dufferin Mall","Description":"This Location is used to clear out discounted inventory","Roles":[{"Name":"Location"}],"Area":{"Value":1100,"Unit":"SqFt"},"Address":{"AddressLine1":"4970 Hillside Avenue","AddressLine2":"Apt 115","City":"Edmonton","StateCode":"ON","StateName":"Ontario","CountryCode":"CA","CountryName":"Canada","Zip":"P9H 9I4"},"Attributes":{},"ClientEntityId":"123","Contacts":[{"Name":"John Smith","Description":"Store Manager","PhoneNumbers":[{"Description":"Main Line","Number":"5555555555","Extension":"1234"}]}],"Geography":{"Longitude":-104.612034,"Latitude":50.443559},"StoreHours":{"Monday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Tuesday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Wednesday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Thursday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Friday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Saturday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Sunday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}}},"StorePhoneNumbers":[{"Description":"Main Line","Number":"5555555555","Extension":"1234"}],"TimeZone":{"Id":"Alaskan Standard Time","DaylightSavingTimeEnabled":true}}&rdquo;);
-    request.setEntity(body);
-    
-    return httpClient.execute(request);
-}
-&ldquo;`
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 
-&rdquo;`ruby
-require 'rest-client&rsquo;
+<span class="n">body</span> <span class="o">=</span> <span class="s2">"{</span><span class="se">\"</span><span class="s2">Name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Dufferin Mall</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Description</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">This Location is used to clear out discounted inventory</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Roles</span><span class="se">\"</span><span class="s2">:[{</span><span class="se">\"</span><span class="s2">Name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Location</span><span class="se">\"</span><span class="s2">}],</span><span class="se">\"</span><span class="s2">Area</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Value</span><span class="se">\"</span><span class="s2">:1100,</span><span class="se">\"</span><span class="s2">Unit</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">SqFt</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">Address</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">AddressLine1</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">4970 Hillside Avenue</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">AddressLine2</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Apt 115</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">City</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Edmonton</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">StateCode</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">ON</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">StateName</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Ontario</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">CountryCode</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">CA</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">CountryName</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Canada</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Zip</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">P9H 9I4</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">Attributes</span><span class="se">\"</span><span class="s2">:{},</span><span class="se">\"</span><span class="s2">ClientEntityId</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">123</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Contacts</span><span class="se">\"</span><span class="s2">:[{</span><span class="se">\"</span><span class="s2">Name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">John Smith</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Description</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Store Manager</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">PhoneNumbers</span><span class="se">\"</span><span class="s2">:[{</span><span class="se">\"</span><span class="s2">Description</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Main Line</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Number</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">5555555555</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Extension</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">1234</span><span class="se">\"</span><span class="s2">}]}],</span><span class="se">\"</span><span class="s2">Geography</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Longitude</span><span class="se">\"</span><span class="s2">:-104.612034,</span><span class="se">\"</span><span class="s2">Latitude</span><span class="se">\"</span><span class="s2">:50.443559},</span><span class="se">\"</span><span class="s2">StoreHours</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Monday</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Open</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0},</span><span class="se">\"</span><span class="s2">Close</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0}},</span><span class="se">\"</span><span class="s2">Tuesday</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Open</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0},</span><span class="se">\"</span><span class="s2">Close</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0}},</span><span class="se">\"</span><span class="s2">Wednesday</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Open</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0},</span><span class="se">\"</span><span class="s2">Close</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0}},</span><span class="se">\"</span><span class="s2">Thursday</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Open</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0},</span><span class="se">\"</span><span class="s2">Close</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0}},</span><span class="se">\"</span><span class="s2">Friday</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Open</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0},</span><span class="se">\"</span><span class="s2">Close</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0}},</span><span class="se">\"</span><span class="s2">Saturday</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Open</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0},</span><span class="se">\"</span><span class="s2">Close</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0}},</span><span class="se">\"</span><span class="s2">Sunday</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Open</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0},</span><span class="se">\"</span><span class="s2">Close</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Hour</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">Minute</span><span class="se">\"</span><span class="s2">:0}}},</span><span class="se">\"</span><span class="s2">StorePhoneNumbers</span><span class="se">\"</span><span class="s2">:[{</span><span class="se">\"</span><span class="s2">Description</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Main Line</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Number</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">5555555555</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Extension</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">1234</span><span class="se">\"</span><span class="s2">}],</span><span class="se">\"</span><span class="s2">TimeZone</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Id</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Alaskan Standard Time</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">DaylightSavingTimeEnabled</span><span class="se">\"</span><span class="s2">:true}}"</span><span class="p">;</span>
 
-body = &ldquo;{"Name":"Dufferin Mall","Description":"This Location is used to clear out discounted inventory","Roles":[{"Name":"Location"}],"Area":{"Value":1100,"Unit":"SqFt"},"Address":{"AddressLine1":"4970 Hillside Avenue","AddressLine2":"Apt 115","City":"Edmonton","StateCode":"ON","StateName":"Ontario","CountryCode":"CA","CountryName":"Canada","Zip":"P9H 9I4"},"Attributes":{},"ClientEntityId":"123","Contacts":[{"Name":"John Smith","Description":"Store Manager","PhoneNumbers":[{"Description":"Main Line","Number":"5555555555","Extension":"1234"}]}],"Geography":{"Longitude":-104.612034,"Latitude":50.443559},"StoreHours":{"Monday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Tuesday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Wednesday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Thursday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Friday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Saturday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}},"Sunday":{"Open":{"Hour":10,"Minute":0},"Close":{"Hour":10,"Minute":0}}},"StorePhoneNumbers":[{"Description":"Main Line","Number":"5555555555","Extension":"1234"}],"TimeZone":{"Id":"Alaskan Standard Time","DaylightSavingTimeEnabled":true}}&rdquo;;
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations'</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="ss">:'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
 
-response = RestClient.post 'https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Tree/Nodes(14159)/Locations&rsquo;, body, {
-     :'Authorization&rsquo; => 'Bearer (Access Token)&rsquo;,
-     :'Accept&rsquo; => 'application/json&rsquo;,
-     :'Content-Type&rsquo; => 'application/json&rsquo;,
-    } 
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
 
-puts response
-&ldquo;`
+<h4 id="uri-parameters">URI Parameters</h4>
 
-
-#### URI Parameters
 <ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
-    </li>
-    
-    <li>
-        <code>NodeId</code> (<strong>Required</strong>)  - Identifier of the parent for the <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a>
-    </li>
-    </ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+    <li><code>NodeId</code> (<strong>Required</strong>)  - Identifier of the parent for the <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a></li>
+</ul>
 
-
-
-#### Request Parameters
+<h4 id="request-parameters">Request Parameters</h4>
 
 <ul><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Roles</code> (<strong>Required</strong>) - Must be `Location`</li><ul><li><code>Name</code> (<strong>Required</strong>) </li></ul><li><code>Description</code> (Optional) </li><li><code>Area</code> (Optional) </li><ul><li><code>Value</code> (<strong>Required</strong>) - Only required if Area is not null. If provided, Unit must also be provided</li><li><code>Unit</code> (<strong>Required</strong>) - Only required if Area is not null. If provided, Value must also be provided</li></ul><li><code>Address</code> (Optional) </li><ul><li><code>AddressLine1</code> (Optional) </li><li><code>AddressLine2</code> (Optional) </li><li><code>City</code> (Optional) </li><li><code>StateCode</code> (Optional) </li><li><code>StateName</code> (Optional) </li><li><code>CountryCode</code> (Optional) - Required if�StateCode�is provided</li><li><code>CountryName</code> (Optional) </li><li><code>Zip</code> (Optional) </li></ul><li><code>Attributes</code> (Optional) </li><li><code>ClientEntityId</code> (Optional) </li><li><code>Contacts</code> (Optional) </li><ul><li><code>Name</code> (Optional) </li><li><code>Description</code> (Optional) </li><li><code>PhoneNumbers</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Number</code> (Optional) </li><li><code>Extension</code> (Optional) </li></ul></ul><li><code>Geography</code> (Optional) </li><ul><li><code>Longitude</code> (<strong>Required</strong>) - Only required if Geography is not null. If provided, Longitude must also be provided</li><li><code>Latitude</code> (<strong>Required</strong>) - Only required if Geography is not null. If provided, Latitude must also be provided</li></ul><li><code>StoreHours</code> (Optional) </li><ul><li><code>Monday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Tuesday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Wednesday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Thursday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Friday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Saturday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul><li><code>Sunday</code> (Optional) </li><ul><li><code>Open</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul><li><code>Close</code> (Optional) </li><ul><li><code>Hour</code> (Optional) </li><li><code>Minute</code> (Optional) </li></ul></ul></ul><li><code>StorePhoneNumbers</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Number</code> (Optional) </li><li><code>Extension</code> (Optional) </li></ul><li><code>TimeZone</code> (Optional) </li><ul><li><code>Id</code> (Optional) </li><li><code>DaylightSavingTimeEnabled</code> (Optional) </li></ul></ul>
 
+<h3 id="response-parameters">Response Parameters</h3>
 
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">201</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dufferin Mall"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This Location is used to clear out discounted inventory"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Location"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"CreatedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-26T00:03:01.372Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastModifiedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-27T00:03:06.392Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1100</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SqFt"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"AddressLine1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4970 Hillside Avenue"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AddressLine2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apt 115"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Edmonton"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"StateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ON"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ontario"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canada"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P9H 9I4"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nt">"ClientEntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Contacts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Store Manager"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PhoneNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Main Line"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5555555555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Geography"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-104.612034</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.443559</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"SortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dufferin mall"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StoreHours"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Monday"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Open"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"Close"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"Tuesday"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Open"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"Close"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"Wednesday"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Open"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"Close"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"Thursday"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Open"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"Close"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"Friday"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Open"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"Close"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"Saturday"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Open"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"Close"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"Sunday"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Open"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"Close"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"StorePhoneNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Main Line"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5555555555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"TimeZone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alaskan Standard Time"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"DaylightSavingTimeEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-### Response Parameters
+<p><a href="#Location">location</a></p>
 
+<h2 id="put-a-location"><span class='put'>PUT</span> a Location</h2>
 
-
-> Example Response
-
-<pre>
-HTTP 201 Content-Type: application/json
-</pre>
-&rdquo;`json
-{
-    &ldquo;Id&rdquo;: 14202,
-    &ldquo;Name&rdquo;: &ldquo;Dufferin Mall&rdquo;,
-    &ldquo;Description&rdquo;: &ldquo;This Location is used to clear out discounted inventory&rdquo;,
-    &ldquo;Roles&rdquo;: [
-        {
-            &ldquo;Name&rdquo;: &ldquo;Location&rdquo;
-        }
-    ],
-    &ldquo;CreatedUTC&rdquo;: &ldquo;2015-02-26T00:03:01.372Z&rdquo;,
-    &ldquo;LastModifiedUTC&rdquo;: &ldquo;2015-02-27T00:03:06.392Z&rdquo;,
-    &ldquo;Area&rdquo;: {
-        &ldquo;Value&rdquo;: 1100,
-        &ldquo;Unit&rdquo;: &ldquo;SqFt&rdquo;
-    },
-    &ldquo;Address&rdquo;: {
-        &ldquo;AddressLine1&rdquo;: &ldquo;4970 Hillside Avenue&rdquo;,
-        &ldquo;AddressLine2&rdquo;: &ldquo;Apt 115&rdquo;,
-        &ldquo;City&rdquo;: &ldquo;Edmonton&rdquo;,
-        &ldquo;StateCode&rdquo;: &ldquo;ON&rdquo;,
-        &ldquo;StateName&rdquo;: &ldquo;Ontario&rdquo;,
-        &ldquo;CountryCode&rdquo;: &ldquo;CA&rdquo;,
-        &ldquo;CountryName&rdquo;: &ldquo;Canada&rdquo;,
-        &ldquo;Zip&rdquo;: &ldquo;P9H 9I4&rdquo;
-    },
-    &ldquo;Attributes&rdquo;: {},
-    &ldquo;ClientEntityId&rdquo;: &ldquo;123&rdquo;,
-    &ldquo;Contacts&rdquo;: [
-        {
-            &ldquo;Name&rdquo;: &ldquo;John Smith&rdquo;,
-            &ldquo;Description&rdquo;: &ldquo;Store Manager&rdquo;,
-            &ldquo;PhoneNumbers&rdquo;: [
-                {
-                    &ldquo;Description&rdquo;: &ldquo;Main Line&rdquo;,
-                    &ldquo;Number&rdquo;: &ldquo;5555555555&rdquo;,
-                    &ldquo;Extension&rdquo;: &ldquo;1234&rdquo;
-                }
-            ]
-        }
-    ],
-    &ldquo;Geography&rdquo;: {
-        &ldquo;Longitude&rdquo;: -104.612034,
-        &ldquo;Latitude&rdquo;: 50.443559
-    },
-    &ldquo;Relationships&rdquo;: [],
-    &ldquo;SortName&rdquo;: &ldquo;dufferin mall&rdquo;,
-    &ldquo;StoreHours&rdquo;: {
-        &ldquo;Monday&rdquo;: {
-            &ldquo;Open&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
-            },
-            &ldquo;Close&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
-            }
-        },
-        &ldquo;Tuesday&rdquo;: {
-            &ldquo;Open&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
-            },
-            &ldquo;Close&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
-            }
-        },
-        &ldquo;Wednesday&rdquo;: {
-            &ldquo;Open&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
-            },
-            &ldquo;Close&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
-            }
-        },
-        &ldquo;Thursday&rdquo;: {
-            &ldquo;Open&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
-            },
-            &ldquo;Close&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
-            }
-        },
-        &ldquo;Friday&rdquo;: {
-            &ldquo;Open&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
-            },
-            &ldquo;Close&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
-            }
-        },
-        &ldquo;Saturday&rdquo;: {
-            &ldquo;Open&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
-            },
-            &ldquo;Close&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
-            }
-        },
-        &ldquo;Sunday&rdquo;: {
-            &ldquo;Open&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
-            },
-            &ldquo;Close&rdquo;: {
-                &ldquo;Hour&rdquo;: 10,
-                &ldquo;Minute&rdquo;: 0
-            }
-        }
-    },
-    &ldquo;StorePhoneNumbers&rdquo;: [
-        {
-            &ldquo;Description&rdquo;: &ldquo;Main Line&rdquo;,
-            &ldquo;Number&rdquo;: &ldquo;5555555555&rdquo;,
-            &ldquo;Extension&rdquo;: &ldquo;1234&rdquo;
-        }
-    ],
-    &ldquo;TimeZone&rdquo;: {
-        &ldquo;Id&rdquo;: &ldquo;Alaskan Standard Time&rdquo;,
-        &ldquo;DaylightSavingTimeEnabled&rdquo;: true
-    },
-    &ldquo;Version&rdquo;: 13
-}
-&ldquo;`
-
-
-
- [location](#Location)
-
-
-
-## <span class='put'>PUT</span> a Location
-
-There are <strong>two</strong> different ways to update a location. 
+<p>There are <strong>two</strong> different ways to update a location. </p>
 
 <ul>
   <li>Option 1 - <code>PUT /Companies({CompanyId})/Tree/Nodes({NodeId})/Locations({LocationId})</code></li>
@@ -1893,19 +1824,10 @@ There are <strong>two</strong> different ways to update a location.
 <h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
-    </li>
-    
-    <li>
-        <code>NodeId</code> (<strong>Required</strong>)  - Identifier of the parent for the <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a>
-    </li>
-    
-    <li>
-        <code>LocationId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a>
-    </li>
-    </ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+    <li><code>NodeId</code> (<strong>Required</strong>)  - Identifier of the parent for the <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a></li>
+    <li><code>LocationId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a></li>
+</ul>
 
 <h4 id="request-parameters">Request Parameters</h4>
 
@@ -1916,10 +1838,8 @@ There are <strong>two</strong> different ways to update a location.
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-
-<pre>
-HTTP 200 Content-Type: application/json
-</pre>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dufferin Mall"</span><span class="p">,</span><span class="w">
@@ -2114,28 +2034,20 @@ HTTP 200 Content-Type: application/json
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-uri-parameters&rdquo;>URI Parameters</h4>
+<h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
-    </li>
-    
-    <li>
-        <code>LocationId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a>
-    </li>
-    </ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+    <li><code>LocationId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a></li>
+</ul>
 
 <h3 id="response-parameters">Response Parameters</h3>
 
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-
-<pre>
-HTTP 200 Content-Type: application/json
-</pre>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dufferin Mall"</span><span class="p">,</span><span class="w">
@@ -2330,24 +2242,18 @@ HTTP 200 Content-Type: application/json
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-uri-parameters&quot;>URI Parameters</h4>
-
+<h4 id="uri-parameters">URI Parameters
 <ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
-    </li>
-    </ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+</ul>
 
 <h3 id="response-parameters">Response Parameters</h3>
 
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-
-<pre>
-HTTP 200 Content-Type: application/json
-</pre>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">
@@ -2485,7 +2391,7 @@ HTTP 200 Content-Type: application/json
 
 <p>Array[<a href="#Location">location</a>]</p>
 
-<h2 id="creating-a-division">Creating a Division</h2>
+<h2 id="post-a-division"><span class='post'>POST</span> a Division</h2>
 
 <p>Divisions may be added to the root Company node, or to a Division or Group node. </p>
 
@@ -2564,15 +2470,9 @@ HTTP 200 Content-Type: application/json
 <h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
-    </li>
-    
-    <li>
-        <code>NodeId</code> (<strong>Required</strong>)  - Identifier of a Node
-    </li>
-    </ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+    <li><code>NodeId</code> (<strong>Required</strong>)  - Identifier of a Node</li>
+</ul>
 
 <h4 id="request-parameters">Request Parameters</h4>
 
@@ -2583,10 +2483,8 @@ HTTP 200 Content-Type: application/json
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-
-<pre>
-HTTP 201 Content-Type: application/json
-</pre>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">201</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14159</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T-hut Wireless"</span><span class="p">,</span><span class="w">
@@ -2617,7 +2515,7 @@ HTTP 201 Content-Type: application/json
 
 <p><a href="#Division">division</a></p>
 
-<h2 id="creating-a-group">Creating a Group</h2>
+<h2 id="post-a-group"><span class='post'>POST</span> a Group</h2>
 
 <p>Groups may be added to the root Company node, or to a Division or Group node. </p>
 
@@ -2696,15 +2594,9 @@ HTTP 201 Content-Type: application/json
 <h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
-    </li>
-    
-    <li>
-        <code>NodeId</code> (<strong>Required</strong>)  - Identifier of a Node
-    </li>
-    </ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+    <li><code>NodeId</code> (<strong>Required</strong>)  - Identifier of a Node</li>
+</ul>
 
 <h4 id="request-parameters">Request Parameters</h4>
 
@@ -2715,10 +2607,8 @@ HTTP 201 Content-Type: application/json
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-
-<pre>
-HTTP 201 Content-Type: application/json
-</pre>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">201</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14166</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Toronto"</span><span class="p">,</span><span class="w">
@@ -2750,7 +2640,7 @@ HTTP 201 Content-Type: application/json
 
 <p><a href="#Group">group</a></p>
 
-<h2 id="deleting-a-group-or-division">Deleting a Group or Division</h2>
+<h2 id="delete-a-group-or-division"><span class='delete'>DELETE</span> a Group or Division</h2>
 
 <p>{{warning}}
 This operation <strong>cannot be undone</strong>.
@@ -2818,33 +2708,25 @@ This operation <strong>cannot be undone</strong>.
 <h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
-    </li>
-    
-    <li>
-        <code>NodeId</code> (<strong>Required</strong>)  - Identifier of a Node to be deleted
-    </li>
-    </ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+    <li><code>NodeId</code> (<strong>Required</strong>)  - Identifier of a Node to be deleted</li>
+</ul>
 
 <h3 id="response-parameters">Response Parameters</h3>
 
 <blockquote>
 <p>Example Response</p>
 </blockquote>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
 
-<pre>
-HTTP 200 Content-Type: application/json
-</pre>
-
-searching-by-cliententityid&quot;>Searching by ClientEntityId</h2>
+<h2 id="searching-by-cliententityid">Searching by ClientEntityId</h2>
 
 <p>This request allows you to search your Company Tree using the <code class="prettyprint">ClientEntityId</code> field. </p>
 
 <p>This request returns an array of objects that summarize Entities matching the search criteria. </p>
 
-<p>The following resource types are considered &#39;Entities&rsquo;: <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>, <a href='http://developers.iqmetrix.com/api/company-tree/#division'>Division</a>, <a href='http://developers.iqmetrix.com/api/company-tree/#group'>Group</a>, <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a>, device</p>
+<p>The following resource types are considered &lsquo;Entities&rsquo;: <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>, <a href='http://developers.iqmetrix.com/api/company-tree/#division'>Division</a>, <a href='http://developers.iqmetrix.com/api/company-tree/#group'>Group</a>, <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a>, device</p>
 
 <blockquote>
 <p>Definition</p>
@@ -2906,25 +2788,17 @@ searching-by-cliententityid&quot;>Searching by ClientEntityId</h2>
 <h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
-    
-    <li>
-        <code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a>
-    </li>
-    
-    <li>
-        <code>ClientEntityId</code> (<strong>Required</strong>)  - The value to search for
-    </li>
-    </ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+    <li><code>ClientEntityId</code> (<strong>Required</strong>)  - The value to search for</li>
+</ul>
 
 <h3 id="response-parameters">Response Parameters</h3>
 
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-
-<pre>
-HTTP 200 Content-Type: application/json
-</pre>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">

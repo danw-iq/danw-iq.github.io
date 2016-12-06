@@ -1,0 +1,991 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Product Feed</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all.js"></script>
+  </head>
+
+  <body class="api api_product-feed api_product-feed_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+
+    <div class="fixed-top">
+      <a class="navbar-logo" href="http://www.iqmetrix.com"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">HOMEPAGE</a></li>
+          <li><a href="/api/changelog">CHANGELOG</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">SUPPORT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../../images/logo.png" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="csharp">c#</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="overview">Overview</h1>
+
+<p>{{warning}}The Product Feed endpoint will be changing to <a href="https://curation.iqmetrix.net/v1">https://curation.iqmetrix.net/v1</a>. An <code>HTTP 301 Moved Permanently</code> is currently in place for the RC and Demo environments. Please ensure that your web client is able to handle this redirect. Otherwise, you must update your system to use the new Product Feed API endpoint. Contact <a href="mailto:{{site.support_email}}?subject=Product Feed Endpoint Change">API Support Team</a> for the date and time of this change to the Production environment.{{end}}
+A <strong>Product Feed</strong> contains the Products information for a specific vendor. Each feed will have its own unique <strong>Feed ID</strong>.
+{{important}} A Product must contain, at minimum, the following fields: <strong>Product Name</strong>, <strong>Long Description</strong>, <strong>MSRP</strong>. {{end}}</p>
+
+<h1 id="endpoints">Endpoints</h1>
+
+<ul>
+<li>Sandbox: <a href="https://curationdemo.iqmetrix.net/v1">https://curationdemo.iqmetrix.net/v1</a></li>
+<li>Production: <a href="https://curation.iqmetrix.net/v1">https://curation.iqmetrix.net/v1</a></li>
+</ul>
+
+<h1 id="resources">Resources</h1>
+
+<h2 id="product">Product</h2>
+
+<p>Product information for the feed. It is <strong>highly recommended</strong> to include <code class="prettyprint">ModelName</code> for every product created. See {{ProductStructure_Concept}} for more information.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Assets"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Classification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClassificationTreeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cellular &amp; Accessories"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Fields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastModifiedByVendorUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-09-16T10:40:31.101Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Motorola"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ManufacturerSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ModelName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent18 SlimShield Case for iPhone 6"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UPC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"723755004337"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VendorSkus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Unique identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Assets (<code class="prettyprint">Array[[product-feed](/api/asset/#Asset)]</code>)</td>
+<td style="text-align: left">Assets</td>
+</tr>
+<tr>
+<td style="text-align: left">Classification (<code class="prettyprint">[product-feed](/api/classification/#Classification)</code>)</td>
+<td style="text-align: left">Refer to <a href="/concepts/classification-tree">Classification</a> for more information</td>
+</tr>
+<tr>
+<td style="text-align: left">ClassificationTreeName (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name of the classification tree</td>
+</tr>
+<tr>
+<td style="text-align: left">Fields (<code class="prettyprint">Array[[product-feed](/api/field/#Field)]</code>)</td>
+<td style="text-align: left">A list of fields for the product. For the product being added, only include the definitions that apply</td>
+</tr>
+<tr>
+<td style="text-align: left">LastModifiedByVendorUtc (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Provides the last date that the product feed was modified by the vendor, in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">Manufacturer (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">The company that produces the product</td>
+</tr>
+<tr>
+<td style="text-align: left">ManufacturerSku (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">The Product SKU from the manufacturer</td>
+</tr>
+<tr>
+<td style="text-align: left">ModelName (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left"><a href="/concepts/product-structure/#Master-Products">Master Product</a> name</td>
+</tr>
+<tr>
+<td style="text-align: left">UPC (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Universal Product Code</td>
+</tr>
+<tr>
+<td style="text-align: left">VendorSkus (<code class="prettyprint">Array[[product-feed](/api/vendorsku/#VendorSku)]</code>)</td>
+<td style="text-align: left">Vendor SKU information for the product</td>
+</tr>
+<tr>
+<td style="text-align: left"><em>ProviderClassification (<code class="prettyprint">String</code>)</em></td>
+<td style="text-align: left"><em>Reserved for internal use</em></td>
+</tr>
+<tr>
+<td style="text-align: left"><em>UnsupportedAssets (<code class="prettyprint">Array[object]</code>)</em></td>
+<td style="text-align: left"><em>This is a legacy property that should not be used</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="vendorsku">VendorSku</h2>
+
+<p>Vendor information for the feed. It is <strong>highly recommended</strong> to include <code class="prettyprint">Sku</code> for every product created.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone case"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1115884"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VendorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amazon"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Description (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">SKU description</td>
+</tr>
+<tr>
+<td style="text-align: left">Sku (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Vendor product SKU</td>
+</tr>
+<tr>
+<td style="text-align: left">VendorName (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name of the Vendor</td>
+</tr>
+</tbody></table>
+
+<h2 id="classification">Classification</h2>
+
+<p>Classification information for the feed. The <code class="prettyprint">TreeId</code> is the identifer for the Industry (e.g. Cellular and Accessories), while the <code class="prettyprint">Id</code> is the identifier (template) for the Product (e.g. Battery Pack). See {{ClassificationTree_Concept}} for more information.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TreeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Product classification identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">The name of the Classification your product falls under</td>
+</tr>
+<tr>
+<td style="text-align: left">TreeId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Classification Tree identifier</td>
+</tr>
+</tbody></table>
+
+<h2 id="field">Field</h2>
+
+<p>At minimum, the Product Name field is required along with a corresponding value.</p>
+
+<p>To get a list of all field definitions, use the {{Getting_Field_Definitions}} method. </p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Definition"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Android"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Definition (<code class="prettyprint">object</code>)</td>
+<td style="text-align: left">The field definition</td>
+</tr>
+<tr>
+<td style="text-align: left">Definition.Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">The field definition identifier. The definition for this parameter varies based on the <a href="/#environments">Environments</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Value (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">The value for the field</td>
+</tr>
+</tbody></table>
+
+<h2 id="asset">Asset</h2>
+
+<p>During the request, only the asset URLs are required. The response will contain additional information provided by the server.</p>
+
+<p>Refer to {{Asset_Glossary}} for more information.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31294366-948a-420c-972f-ed1450e3cdd8"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AssetUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.sample.com/b.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FileName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Note4-white.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsConverted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OriginalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.sample.com/b.png"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left">Unique identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">AssetUrl (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Original URL of asset provided in request</td>
+</tr>
+<tr>
+<td style="text-align: left">FileName (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Filename of the asset</td>
+</tr>
+<tr>
+<td style="text-align: left">IsConverted (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">Indicates if the asset have been converted</td>
+</tr>
+<tr>
+<td style="text-align: left">MimeType (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Type of Mime</td>
+</tr>
+<tr>
+<td style="text-align: left">OriginalUrl (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Original URL of asset</td>
+</tr>
+</tbody></table>
+
+<h2 id="productfeed">ProductFeed</h2>
+
+<p><strong>Product Feeds</strong> are used to group all Products together for a particular vendor.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastReceivedUpdatesFromProviderUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-13T19:40:57.102Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Products"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProviderName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe's Product Feed"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Unique identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">LastReceivedUpdatesFromProviderUtc (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Date and time of last received update, in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">Products (<code class="prettyprint">Array[[product-feed](/api/product/#Product)]</code>)</td>
+<td style="text-align: left">List of <a href="#product">Products</a></td>
+</tr>
+<tr>
+<td style="text-align: left">ProviderName (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name of the Product Feed</td>
+</tr>
+<tr>
+<td style="text-align: left">Version (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Latest revision number</td>
+</tr>
+</tbody></table>
+
+<h1 id="requests">Requests</h1>
+
+<h2 id="post-a-product-to-a-feed"><span class='post'>POST</span> a Product to a Feed</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST /ProductFeeds({FeedId})/Products
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">POST</span> <span class="o">/</span><span class="nx">ProductFeeds</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span><span class="o">/</span><span class="nx">Products</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X POST <span class="s2">"https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+  "Classification": {
+    "TreeId": 1,
+    "Id": 4
+  },
+  "Fields": [
+    {
+      "Definition": {
+        "Id": 1,
+        "StringId": "Product Name"
+      },
+      "Value": "Agent18 SlimShield Case for iPhone 6 - Black"
+    },
+    {
+      "Definition": {
+        "Id": 129,
+        "StringId": "Color Tags"
+      },
+      "Value": "Black, Red"
+    },
+    {
+      "Definition": {
+        "Id": 76,
+        "StringId": "MSRP",
+        "InputType": "Currency"
+      },
+      "Value": "24.99 CAD"
+    }                          
+  ],
+  "Assets": [
+    {
+      "AssetUrl": "http://image.sample.com/a.jpg"
+    },
+    {
+      "AssetUrl": "http://image.sample.com/b.png"
+    },
+    {
+      "AssetUrl": "http://image.sample.com/c.mov"
+    }
+  ],
+  "ModelName": "Agent18 SlimShield Case for iPhone 6",
+  "LastModifiedByVendorUtc": "2015-09-16T10:40:31.101Z",
+  "Manufacturer": "Agent18",
+  "ManufacturerSku": "980113579",
+  "UPC": "723755004337",
+  "VendorSkus": [
+    {
+      "Description": "Online retailer",
+      "Sku": "1115884",
+      "VendorName": "Amazon"
+    }
+  ]
+}
+'</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">AddingAProductToAFeed</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">POST</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+     <span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"{\"Classification\":{\"TreeId\":1,\"Id\":4},\"Fields\":[{\"Definition\":{\"Id\":1,\"StringId\":\"Product Name\"},\"Value\":\"Agent18 SlimShield Case for iPhone 6 - Black\"},{\"Definition\":{\"Id\":129,\"StringId\":\"Color Tags\"},\"Value\":\"Black, Red\"},{\"Definition\":{\"Id\":76,\"StringId\":\"MSRP\",\"InputType\":\"Currency\"},\"Value\":\"24.99 CAD\"}],\"Assets\":[{\"AssetUrl\":\"http://image.sample.com/a.jpg\"},{\"AssetUrl\":\"http://image.sample.com/b.png\"},{\"AssetUrl\":\"http://image.sample.com/c.mov\"}],\"ModelName\":\"Agent18 SlimShield Case for iPhone 6\",\"LastModifiedByVendorUtc\":\"2015-09-16T10:40:31.101Z\",\"Manufacturer\":\"Agent18\",\"ManufacturerSku\":\"980113579\",\"UPC\":\"723755004337\",\"VendorSkus\":[{\"Description\":\"Online retailer\",\"Sku\":\"1115884\",\"VendorName\":\"Amazon\"}]}"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code><span class="kn">import</span> <span class="nn">org.apache.http.entity.StringEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpPost</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">AddingAProductToAFeed</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpPost</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPost</span><span class="o">(</span><span class="s">"https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">StringEntity</span> <span class="n">body</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringEntity</span><span class="o">(</span><span class="s">"{\"Classification\":{\"TreeId\":1,\"Id\":4},\"Fields\":[{\"Definition\":{\"Id\":1,\"StringId\":\"Product Name\"},\"Value\":\"Agent18 SlimShield Case for iPhone 6 - Black\"},{\"Definition\":{\"Id\":129,\"StringId\":\"Color Tags\"},\"Value\":\"Black, Red\"},{\"Definition\":{\"Id\":76,\"StringId\":\"MSRP\",\"InputType\":\"Currency\"},\"Value\":\"24.99 CAD\"}],\"Assets\":[{\"AssetUrl\":\"http://image.sample.com/a.jpg\"},{\"AssetUrl\":\"http://image.sample.com/b.png\"},{\"AssetUrl\":\"http://image.sample.com/c.mov\"}],\"ModelName\":\"Agent18 SlimShield Case for iPhone 6\",\"LastModifiedByVendorUtc\":\"2015-09-16T10:40:31.101Z\",\"Manufacturer\":\"Agent18\",\"ManufacturerSku\":\"980113579\",\"UPC\":\"723755004337\",\"VendorSkus\":[{\"Description\":\"Online retailer\",\"Sku\":\"1115884\",\"VendorName\":\"Amazon\"}]}"</span><span class="o">);</span>
+    <span class="n">request</span><span class="o">.</span><span class="na">setEntity</span><span class="o">(</span><span class="n">body</span><span class="o">);</span>
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">body</span> <span class="o">=</span> <span class="s2">"{</span><span class="se">\"</span><span class="s2">Classification</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">TreeId</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">Id</span><span class="se">\"</span><span class="s2">:4},</span><span class="se">\"</span><span class="s2">Fields</span><span class="se">\"</span><span class="s2">:[{</span><span class="se">\"</span><span class="s2">Definition</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Id</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">StringId</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Product Name</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">Value</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Agent18 SlimShield Case for iPhone 6 - Black</span><span class="se">\"</span><span class="s2">},{</span><span class="se">\"</span><span class="s2">Definition</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Id</span><span class="se">\"</span><span class="s2">:129,</span><span class="se">\"</span><span class="s2">StringId</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Color Tags</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">Value</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Black, Red</span><span class="se">\"</span><span class="s2">},{</span><span class="se">\"</span><span class="s2">Definition</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">Id</span><span class="se">\"</span><span class="s2">:76,</span><span class="se">\"</span><span class="s2">StringId</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">MSRP</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">InputType</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Currency</span><span class="se">\"</span><span class="s2">},</span><span class="se">\"</span><span class="s2">Value</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">24.99 CAD</span><span class="se">\"</span><span class="s2">}],</span><span class="se">\"</span><span class="s2">Assets</span><span class="se">\"</span><span class="s2">:[{</span><span class="se">\"</span><span class="s2">AssetUrl</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">http://image.sample.com/a.jpg</span><span class="se">\"</span><span class="s2">},{</span><span class="se">\"</span><span class="s2">AssetUrl</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">http://image.sample.com/b.png</span><span class="se">\"</span><span class="s2">},{</span><span class="se">\"</span><span class="s2">AssetUrl</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">http://image.sample.com/c.mov</span><span class="se">\"</span><span class="s2">}],</span><span class="se">\"</span><span class="s2">ModelName</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Agent18 SlimShield Case for iPhone 6</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">LastModifiedByVendorUtc</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2015-09-16T10:40:31.101Z</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Manufacturer</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Agent18</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ManufacturerSku</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">980113579</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">UPC</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">723755004337</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">VendorSkus</span><span class="se">\"</span><span class="s2">:[{</span><span class="se">\"</span><span class="s2">Description</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Online retailer</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Sku</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">1115884</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">VendorName</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Amazon</span><span class="se">\"</span><span class="s2">}]}
+
+response = RestClient.post 'https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products', body, {
+     :'Authorization' =&gt; 'Bearer (Access Token)',
+     :'Accept' =&gt; 'application/json',
+     :'Content-Type' =&gt; 'application/json',
+    } 
+
+puts response
+</span></code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>FeedId</code> (<strong>Required</strong>)  - Product Feed identifier</li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>Fields</code> (<strong>Required</strong>) </li><ul><li><code>Definition</code> (<strong>Required</strong>) </li><ul><li><code>Id</code> (Optional) </li></ul><li><code>Value</code> (<strong>Required</strong>) </li></ul><li><code>Assets</code> (Optional) </li><ul><li><code>AssetUrl</code> (<strong>Required</strong>) </li></ul><li><code>Classification</code> (Optional) </li><ul><li><code>Id</code> (<strong>Required</strong>) </li><li><code>TreeId</code> (<strong>Required</strong>) </li></ul><li><code>ClassificationTreeName</code> (Optional) </li><li><code>LastModifiedByVendorUtc</code> (Optional) </li><li><code>Manufacturer</code> (Optional) </li><li><code>ManufacturerSku</code> (Optional) </li><li><code>ModelName</code> (Optional) </li><li><code>UPC</code> (Optional) </li><li><code>VendorSkus</code> (Optional) </li><ul><li><code>Description</code> (Optional) </li><li><code>Sku</code> (Optional) </li><li><code>VendorName</code> (Optional) </li></ul></ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31294366-948a-420c-972f-ed1450e3cdd8"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"FileName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OriginalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.sample.com/a.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsConverted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e43aa38e-cdc5-4492-bf1f-6552a1805464"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"FileName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b.png"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OriginalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.sample.com/b.png"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsConverted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"49b12198-a22b-4f42-a4ab-9e78de776754"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"FileName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c.mov"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"video/mov"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"OriginalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.sample.com/c.mov"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsConverted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">        
+    </span><span class="nt">"Classification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"TreeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cases"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"ClassificationTreeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cellular &amp; Accessories"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Definition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"LanguageInvariantName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product Name"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"StringId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product Name"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"InputType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TextSingleLine"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"IsRequired"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"LanguageInvariantUnit"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"DisplayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product Name"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Options"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent18 SlimShield Case for iPhone 6 - Black"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Definition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">129</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"LanguageInvariantName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color Tags"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"StringId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color Tags"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"InputType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MultiSelect"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"IsRequired"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"LanguageInvariantUnit"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"DisplayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color Tags"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brown"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gray"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Green"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black, Red"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w"> 
+    </span><span class="nt">"LastModifiedByVendorUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-09-18T10:40:31Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent18"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ManufacturerSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"980113579"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ModelName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent18 SlimShield Case for iPhone 6"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UPC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"723755004337"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VendorSkus"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1115884"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VendorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amazon"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online retailer"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<p>Array[<a href="#Product">product</a>]</p>
+
+<h2 id="get-all-products-in-a-feed"><span class='get'>GET</span> All Products in a Feed</h2>
+
+<p>Returns all the <strong>Products</strong> in a particular <strong>Product Feed</strong> indicated by the feed&rsquo;s <strong>Feed ID</strong> parameter. </p>
+
+<p>Useful when testing to ensure that products have been successfully added or removed.</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /ProductFeeds({FeedId})/Products
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">ProductFeeds</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span><span class="o">/</span><span class="nx">Products</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingAllProductsInAFeed</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingAllProductsInAFeed</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>FeedId</code> (<strong>Required</strong>)  - Product Feed identifier</li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31294366-948a-420c-972f-ed1450e3cdd8"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"AssetUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.sample.com/b.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"FileName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Note4-white.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"IsConverted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/jpg"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"OriginalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.sample.com/b.png"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"Classification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TreeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"ClassificationTreeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cellular &amp; Accessories"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Definition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Android"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"LastModifiedByVendorUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-09-16T10:40:31.101Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Motorola"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ManufacturerSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ModelName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent18 SlimShield Case for iPhone 6"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"UPC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"723755004337"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"VendorSkus"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone case"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1115884"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"VendorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amazon"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Array[<a href="#Product">product</a>]</p>
+
+<h2 id="get-a-product-feed"><span class='get'>GET</span> a Product Feed</h2>
+
+<p>Returns an array of <a href="#product">Products</a>, as well as additional parameters.</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /ProductFeeds({FeedId})
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">ProductFeeds</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingAProductFeed</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingAProductFeed</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>FeedId</code> (<strong>Required</strong>) </li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastReceivedUpdatesFromProviderUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-11-13T19:40:57.102Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31294366-948a-420c-972f-ed1450e3cdd8"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"AssetUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.sample.com/b.png"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"FileName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Note4-white.png"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"IsConverted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"MimeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/jpg"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"OriginalUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.sample.com/b.png"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"Classification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"TreeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"ClassificationTreeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cellular &amp; Accessories"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Definition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Android"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"LastModifiedByVendorUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-09-16T10:40:31.101Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Motorola"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ManufacturerSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ModelName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Agent18 SlimShield Case for iPhone 6"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"UPC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"723755004337"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VendorSkus"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone case"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1115884"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"VendorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Amazon"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"ProviderName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe's Product Feed"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><a href="#ProductFeed">productfeed</a></p>
+
+<h2 id="delete-a-product-from-a-feed"><span class='delete'>DELETE</span> a Product from a Feed</h2>
+
+<p>Updates a Product Feed (FeedId) by removing a Product (ProductId). </p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>DELETE /ProductFeeds({FeedId})/Products({ProductId})
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">DELETE</span> <span class="o">/</span><span class="nx">ProductFeeds</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span><span class="o">/</span><span class="nx">Products</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X DELETE <span class="s2">"https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products(2)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">RemovingAProductFromAFeed</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products(2)"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">DELETE</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpDelete</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">RemovingAProductFromAFeed</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpDelete</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpDelete</span><span class="o">(</span><span class="s">"https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products(2)"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">delete</span> <span class="s1">'https://curationdemo.iqmetrix.net/v1/ProductFeeds(34)/Products(2)'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>FeedId</code> (<strong>Required</strong>) </li>
+    <li><code>ProductId</code> (<strong>Required</strong>) </li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">204</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
+
+<h1 id="errors">Errors</h1>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Error Code</th>
+<th style="text-align: left">Message</th>
+<th style="text-align: left">How to Resolve</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 404</code></td>
+<td style="text-align: left"><code class="prettyprint">NotFound</code></td>
+<td style="text-align: left">Ensure URI parameters are correct</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="csharp">c#</a>
+                <a href="#" data-language-name="java">java</a>
+                <a href="#" data-language-name="ruby">ruby</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

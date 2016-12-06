@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Cost Feed</title>
+    <title>Supplier Availability</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -86,15 +86,15 @@
   color: #90a959;
 }
     </style>
-    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="../javascripts/all.js"></script>
+    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all.js"></script>
   </head>
 
-  <body class="api api_cost-feed" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+  <body class="api api_supplier-availability api_supplier-availability_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
 
     <div class="fixed-top">
-      <a class="navbar-logo" href="http://www.iqmetrix.com"><img src="../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <a class="navbar-logo" href="http://www.iqmetrix.com"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
       <div class="navbar-right">
         <ul class="topnav" id="myTopnav">
           <li><a class="active" href="/">HOMEPAGE</a></li>
@@ -110,11 +110,11 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="../images/navbar.png" alt="Navbar" />
+        <img src="../../images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="../images/logo.png" alt="Logo" />
+      <img src="../../images/logo.png" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="javascript">javascript</a>
               <a href="#" data-language-name="shell">cURL</a>
@@ -134,16 +134,7 @@
       <div class="content">
         <h1 id="overview">Overview</h1>
 
-<p>The cost feed provides iQmetrix with the wholesale cost (inclusive cost for the company) for each product.<br>
-The cost feed allows suppliers to input a list of products, where each product includes one cost and list of associated companies.</p>
-
-<p>These costs will be provided for retailers (companies) to use for future transactions and will be reflected in RQ and BI reporting. </p>
-
-<p>Products can be repeated in this feed with different costs. For example, the iPhone 6 could be priced differently depending on where it is sold. </p>
-
-<p>{{note}} 
-Ensure each company ID has only <strong>one</strong> cost per product.
-{{end}}</p>
+<p>Suppliers have the ability to configure availability of products.</p>
 
 <h1 id="endpoints">Endpoints</h1>
 
@@ -154,14 +145,14 @@ Ensure each company ID has only <strong>one</strong> cost per product.
 
 <h1 id="resources">Resources</h1>
 
-<h2 id="cost">Cost</h2>
+<h2 id="availability">Availability</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2e18496c-8f73-4298-8c96-a07816926734"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c2a97823-196b-4b3e-891a-ba01665797e4"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1115884"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.99"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"CompanyIds"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="w">
+        </span><span class="nt">"IsAvailable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9101AGAP6"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -173,66 +164,64 @@ Ensure each company ID has only <strong>one</strong> cost per product.
 </thead><tbody>
 <tr>
 <td style="text-align: left">Id (<code class="prettyprint">GUID</code>)</td>
-<td style="text-align: left">Unique identifer</td>
+<td style="text-align: left">Unique identifier</td>
 </tr>
 <tr>
 <td style="text-align: left">Products (<code class="prettyprint">Array[object]</code>)</td>
-<td style="text-align: left">List of products for which the cost is being updated</td>
+<td style="text-align: left">Products for the Availability Feed</td>
+</tr>
+<tr>
+<td style="text-align: left">Products.IsAvailable (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate if the Product is Available</td>
 </tr>
 <tr>
 <td style="text-align: left">Products.Sku (<code class="prettyprint">String</code>)</td>
-<td style="text-align: left">Vendor product SKU</td>
+<td style="text-align: left">Vendor SKU</td>
 </tr>
 <tr>
-<td style="text-align: left">Products.Cost (<code class="prettyprint">Decimal</code>)</td>
-<td style="text-align: left">Vendor product cost applied to the associated companies</td>
-</tr>
-<tr>
-<td style="text-align: left">Products.CompanyIds (<code class="prettyprint">Array[integer]</code>)</td>
-<td style="text-align: left">List of <a href="/api/company-tree#company">Company</a> identifiers to receive Vendor product cost</td>
+<td style="text-align: left">Products.Quantity (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Product quantity</td>
 </tr>
 </tbody></table>
 
 <h1 id="requests">Requests</h1>
 
-<h2 id="post-a-product-to-cost-feed"><span class='post'>POST</span> a Product to Cost Feed</h2>
+<h2 id="configuring-product-availability">Configuring Product Availability</h2>
 
 <blockquote>
 <p>Definition</p>
 </blockquote>
-<pre class="highlight plaintext"><code>POST /Suppliers({SupplierId})/Cost
+<pre class="highlight plaintext"><code>POST /Suppliers({SupplierId})/Availability
 </code></pre>
 
 <blockquote>
 <p>Example Request</p>
 </blockquote>
-<pre class="highlight javascript"><code><span class="nx">POST</span> <span class="o">/</span><span class="nx">Suppliers</span><span class="p">(</span><span class="mi">14107</span><span class="p">)</span><span class="o">/</span><span class="nx">Cost</span>
+<pre class="highlight javascript"><code><span class="nx">POST</span> <span class="o">/</span><span class="nx">Suppliers</span><span class="p">(</span><span class="mi">14107</span><span class="p">)</span><span class="o">/</span><span class="nx">Availability</span>
 <span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
 <span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
 <span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
 </code></pre>
-<pre class="highlight shell"><code>curl -X POST <span class="s2">"https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Cost"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+<pre class="highlight shell"><code>curl -X POST <span class="s2">"https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Availability"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
     "Products": [
         {
-            "Sku": "1115884",
-            "Cost": 12.99,
-            "CompanyIds": [
-                14146
-            ]
+            "IsAvailable": true,
+            "Sku": "9101AGAP6",
+            "Quantity": 10
         }
     ]
 }'</span>
 </code></pre>
-<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">AddingAProductToCostFeed</span><span class="p">()</span>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">ConfiguringProductAvailability</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Cost"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Availability"</span><span class="p">);</span>
     <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">POST</span><span class="p">);</span>
 
     <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
     <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
     <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
 
-     <span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"{\"Products\":[{\"Sku\":\"1115884\",\"Cost\":12.99,\"CompanyIds\":[14146]}]}"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
+     <span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"{\"Products\":[{\"IsAvailable\":true,\"Sku\":\"9101AGAP6\",\"Quantity\":10}]}"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
 
     <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
 <span class="p">}</span>
@@ -244,14 +233,14 @@ Ensure each company ID has only <strong>one</strong> cost per product.
 <span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
 
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">AddingAProductToCostFeed</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">ConfiguringProductAvailability</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
     <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
-    <span class="n">HttpPost</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPost</span><span class="o">(</span><span class="s">"https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Cost"</span><span class="o">);</span>
+    <span class="n">HttpPost</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPost</span><span class="o">(</span><span class="s">"https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Availability"</span><span class="o">);</span>
 
     <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
     <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
     <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
-    <span class="n">StringEntity</span> <span class="n">body</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringEntity</span><span class="o">(</span><span class="s">"{\"Products\":[{\"Sku\":\"1115884\",\"Cost\":12.99,\"CompanyIds\":[14146]}]}"</span><span class="o">);</span>
+    <span class="n">StringEntity</span> <span class="n">body</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringEntity</span><span class="o">(</span><span class="s">"{\"Products\":[{\"IsAvailable\":true,\"Sku\":\"9101AGAP6\",\"Quantity\":10}]}"</span><span class="o">);</span>
     <span class="n">request</span><span class="o">.</span><span class="na">setEntity</span><span class="o">(</span><span class="n">body</span><span class="o">);</span>
 
     <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
@@ -259,9 +248,9 @@ Ensure each company ID has only <strong>one</strong> cost per product.
 </code></pre>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 
-<span class="n">body</span> <span class="o">=</span> <span class="s2">"{</span><span class="se">\"</span><span class="s2">Products</span><span class="se">\"</span><span class="s2">:[{</span><span class="se">\"</span><span class="s2">Sku</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">1115884</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Cost</span><span class="se">\"</span><span class="s2">:12.99,</span><span class="se">\"</span><span class="s2">CompanyIds</span><span class="se">\"</span><span class="s2">:[14146]}]}"</span><span class="p">;</span>
+<span class="n">body</span> <span class="o">=</span> <span class="s2">"{</span><span class="se">\"</span><span class="s2">Products</span><span class="se">\"</span><span class="s2">:[{</span><span class="se">\"</span><span class="s2">IsAvailable</span><span class="se">\"</span><span class="s2">:true,</span><span class="se">\"</span><span class="s2">Sku</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">9101AGAP6</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Quantity</span><span class="se">\"</span><span class="s2">:10}]}"</span><span class="p">;</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Cost'</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="p">{</span>
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://dropshipdemo.iqmetrix.net/v1/Suppliers(14107)/Availability'</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="p">{</span>
      <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
      <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
      <span class="ss">:'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
@@ -273,54 +262,46 @@ Ensure each company ID has only <strong>one</strong> cost per product.
 <h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
-    
-    <li>
-        <code>SupplierId</code> (<strong>Required</strong>)  - Identifier of the Supplier
-    </li>
-    </ul>
+    <li><code>SupplierId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/entity-store/#supplier'>Supplier</a></li>
+</ul>
 
 <h4 id="request-parameters">Request Parameters</h4>
 
-<ul><li><code>Products</code> (<strong>Required</strong>) </li><ul><li><code>Sku</code> (<strong>Required</strong>) </li><li><code>Cost</code> (<strong>Required</strong>) </li><li><code>CompanyIds</code> (<strong>Required</strong>) </li></ul></ul>
+<ul><li><code>Products</code> (<strong>Required</strong>) </li><ul><li><code>Sku</code> (<strong>Required</strong>) </li><li><code>IsAvailable</code> (Optional) </li><li><code>Quantity</code> (Optional) </li></ul></ul>
 
 <h3 id="response-parameters">Response Parameters</h3>
 
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-
-<pre>
-HTTP 202 Content-Type: application/json
-</pre>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">202</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2e18496c-8f73-4298-8c96-a07816926734"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c2a97823-196b-4b3e-891a-ba01665797e4"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1115884"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Cost"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.99</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"CompanyIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="mi">14146</span><span class="w">
-            </span><span class="p">]</span><span class="w">
+            </span><span class="nt">"IsAvailable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9101AGAP6"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><a href="#Cost">cost</a></p>
+<p><a href="#Availability">availability</a></p>
 
-<h1 id="errors">Errors</h1>
-
+<h1 id="errors">Errors
 <table><thead>
 <tr>
-<th style="text-align: left">HTTP Status Code</th>
-<th style="text-align: left">Description</th>
+<th style="text-align: left">Error Code</th>
+<th style="text-align: left">Message</th>
 <th style="text-align: left">How to Resolve</th>
 </tr>
 </thead><tbody>
 <tr>
 <td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
 <td style="text-align: left"><code class="prettyprint">Cannot find supplier identifier in the uri</code></td>
-<td style="text-align: left">Occurs when entering an incorrect <code class="prettyprint">SupplierId</code> in the uri</td>
+<td style="text-align: left">Occurs when entering an incorrect SupplierId in the uri</td>
 </tr>
 </tbody></table>
 

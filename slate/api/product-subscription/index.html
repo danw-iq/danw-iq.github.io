@@ -1,0 +1,886 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Product Subscription</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all.js"></script>
+  </head>
+
+  <body class="api api_product-subscription api_product-subscription_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+
+    <div class="fixed-top">
+      <a class="navbar-logo" href="http://www.iqmetrix.com"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">HOMEPAGE</a></li>
+          <li><a href="/api/changelog">CHANGELOG</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">SUPPORT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../../images/logo.png" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="csharp">c#</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="overview">Overview</h1>
+
+<p>Suppliers have the ability to add products to their subscribable lists and retrieve a list of companies from a subscription.</p>
+
+<p>Suppliers can also create their own subscribable lists and add/remove companies from their lists, or have iQmetrix handle these scenarios. When creating a subscribable list, you must specify the GUID (e.g. <a href="http://www.guidgenerator.com/online-guid-generator.aspx" target="_blank">Online GUID Generator</a>).</p>
+
+<h1 id="endpoints">Endpoints</h1>
+
+<ul>
+<li>Sandbox: <a href="https://productsubscriptionsdemo.iqmetrix.net/v1">https://productsubscriptionsdemo.iqmetrix.net/v1</a></li>
+<li>Production: <a href="https://productsubscriptions.iqmetrix.net/v1">https://productsubscriptions.iqmetrix.net/v1</a></li>
+</ul>
+
+<h1 id="resources">Resources</h1>
+
+<h2 id="subscription">Subscription</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Companies"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ListId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43d92a51-650e-4b85-b5d0-8d51bf4c59f4"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Companies (<code class="prettyprint">Array[[product-subscription](/api/company/#Company)]</code>)</td>
+<td style="text-align: left">Companies for the subscription</td>
+</tr>
+<tr>
+<td style="text-align: left">ListId (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left">Subscription identifier</td>
+</tr>
+</tbody></table>
+
+<h2 id="company">Company</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"DateSubscribedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-09-23T23:48:37.744Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"146454"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">DateSubscribedUtc (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Date company subscribed to product subscription, in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Company identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Company Name</td>
+</tr>
+</tbody></table>
+
+<h2 id="subscribablelist">SubscribableList</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14107"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43d92a51-650e-4b85-b5d0-8d51bf4c59f4"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nozama's Product List"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Dropshippable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Products"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CountOfProducts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">EntityId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left"><a href="/api/entity-store/#supplier">Supplier</a> identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left">Subscribable List identifer</td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Title of product subscription</td>
+</tr>
+<tr>
+<td style="text-align: left">Dropshippable (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">Indicates if products in list are dropshippable. Defaults to false</td>
+</tr>
+<tr>
+<td style="text-align: left">Products (<code class="prettyprint">Array[[product-subscription](/api/product/#Product)]</code>)</td>
+<td style="text-align: left">Products for the subscribable list</td>
+</tr>
+<tr>
+<td style="text-align: left">Version (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Subscription revision</td>
+</tr>
+<tr>
+<td style="text-align: left">CountOfProducts (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Number of Products in the List</td>
+</tr>
+<tr>
+<td style="text-align: left"><em>MasterEntityId (<code class="prettyprint">Integer</code>)</em></td>
+<td style="text-align: left"><em>Reserved for internal use</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="product">Product</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Dropshippable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Samsung Galaxy S4 Standard Battery"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductSlugs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M5218"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VendorSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B00LAOKN4S"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Dropshippable (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">Indicates if the product is dropshippable</td>
+</tr>
+<tr>
+<td style="text-align: left">Price (<code class="prettyprint">Decimal</code>)</td>
+<td style="text-align: left">Product MSRP. Currency code defaults internally to retailer location.</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductName (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name of product</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductSlugs (<code class="prettyprint">Array[string]</code>)</td>
+<td style="text-align: left">List of slugs that match the vendor sku</td>
+</tr>
+<tr>
+<td style="text-align: left">VendorSku (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Vendor product SKU</td>
+</tr>
+<tr>
+<td style="text-align: left">Version (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Product revision</td>
+</tr>
+</tbody></table>
+
+<h1 id="requests">Requests</h1>
+
+<h2 id="get-all-companies-in-a-product-subscription"><span class='get'>GET</span> All Companies in a Product Subscription</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /subscription({ListId})
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">subscription</span><span class="p">(</span><span class="mi">43</span><span class="nx">d92a51</span><span class="o">-</span><span class="mi">650</span><span class="nx">e</span><span class="o">-</span><span class="mi">4</span><span class="nx">b85</span><span class="o">-</span><span class="nx">b5d0</span><span class="o">-</span><span class="mi">8</span><span class="nx">d51bf4c59f4</span><span class="p">)</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingAllCompaniesInAProductSubscription</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingAllCompaniesInAProductSubscription</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>ListId</code> (<strong>Required</strong>) </li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"ListId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43d92a51-650e-4b85-b5d0-8d51bf4c59f4"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Companies"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KENTEL Corp"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"DateSubscribedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-23T19:12:09.92Z"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">  
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<p>Array[<a href="#Subscription">subscription</a>]</p>
+
+<h2 id="post-a-subscribable-list"><span class='post'>POST</span> a Subscribable List</h2>
+
+<p>Allows you to create your own subscribable list. You must provide a GUID for the  <code class="prettyprint">SubscribableListId</code>.{{note}}The naming convention for subscribable lists is in the format &ldquo;Vendor Name - Product List Name&rdquo;. For example, Supplier123 - Otterbox Products.{{end}}</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>PUT /subscribablelists({ListId})
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">PUT</span> <span class="o">/</span><span class="nx">subscribablelists</span><span class="p">(</span><span class="mi">43</span><span class="nx">d92a51</span><span class="o">-</span><span class="mi">650</span><span class="nx">e</span><span class="o">-</span><span class="mi">4</span><span class="nx">b85</span><span class="o">-</span><span class="nx">b5d0</span><span class="o">-</span><span class="mi">8</span><span class="nx">d51bf4c59f4</span><span class="p">)</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X PUT <span class="s2">"https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+    "EntityId": 14107,
+    "Name": "Test List Name",
+    "Dropshippable": true
+}
+'</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">CreatingASubscribableList</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">PUT</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+     <span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"{\"EntityId\":14107,\"Name\":\"Test List Name\",\"Dropshippable\":true}"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code><span class="kn">import</span> <span class="nn">org.apache.http.entity.StringEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpPut</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">CreatingASubscribableList</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpPut</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPut</span><span class="o">(</span><span class="s">"https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">StringEntity</span> <span class="n">body</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringEntity</span><span class="o">(</span><span class="s">"{\"EntityId\":14107,\"Name\":\"Test List Name\",\"Dropshippable\":true}"</span><span class="o">);</span>
+    <span class="n">request</span><span class="o">.</span><span class="na">setEntity</span><span class="o">(</span><span class="n">body</span><span class="o">);</span>
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">body</span> <span class="o">=</span> <span class="s2">"{</span><span class="se">\"</span><span class="s2">EntityId</span><span class="se">\"</span><span class="s2">:14107,</span><span class="se">\"</span><span class="s2">Name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Test List Name</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Dropshippable</span><span class="se">\"</span><span class="s2">:true}
+
+response = RestClient.put 'https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)', body, {
+     :'Authorization' =&gt; 'Bearer (Access Token)',
+     :'Accept' =&gt; 'application/json',
+     :'Content-Type' =&gt; 'application/json',
+    } 
+
+puts response
+</span></code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>ListId</code> (<strong>Required</strong>)  - GUID you have added for <a href='http://developers.iqmetrix.com/api/product-subscription/#subscribablelist'>SubscribableList</a></li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>EntityId</code> (<strong>Required</strong>) - <a href='http://developers.iqmetrix.com/api/entity-store/#supplier'>Supplier</a> identifier</li><li><code>Name</code> (<strong>Required</strong>) - Title of product subscription</li><li><code>Dropshippable</code> (Optional) - Defaults to false</li></ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43d92a51-650e-4b85-b5d0-8d51bf4c59f4"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14107</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nozama - Samsung Products"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Dropshippable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Products"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<p><a href="#SubscribableList">subscribablelist</a></p>
+
+<h2 id="get-a-subscribable-list"><span class='get'>GET</span> a Subscribable List</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /subscribablelists({SubscribableListId})
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">subscribablelists</span><span class="p">(</span><span class="mi">43</span><span class="nx">d92a51</span><span class="o">-</span><span class="mi">650</span><span class="nx">e</span><span class="o">-</span><span class="mi">4</span><span class="nx">b85</span><span class="o">-</span><span class="nx">b5d0</span><span class="o">-</span><span class="mi">8</span><span class="nx">d51bf4c59f4</span><span class="p">)</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingASubscribableList</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingASubscribableList</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>SubscribableListId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/product-subscription/#subscribablelist'>SubscribableList</a></li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14107</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43d92a51-650e-4b85-b5d0-8d51bf4c59f4"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nozama's Product List"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Dropshippable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Dropshippable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mf">24.99</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Samsung Galaxy S4 Standard Battery"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductSlugs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"M5218"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"VendorSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B00LAOKN4S"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CountOfProducts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><a href="#SubscribableList">subscribablelist</a></p>
+
+<h2 id="put-products-in-a-subscribable-list"><span class='put'>PUT</span> Products in a Subscribable List</h2>
+
+<p>{{note}}The new product list in the payload replaces the old product list. Any matching old products (determined by vendor sku) will have their slug and version data copied over into the new products.{{end}}</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>PUT /subscribablelists({SubscribableListId})
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">PUT</span> <span class="o">/</span><span class="nx">subscribablelists</span><span class="p">(</span><span class="mi">43</span><span class="nx">d92a51</span><span class="o">-</span><span class="mi">650</span><span class="nx">e</span><span class="o">-</span><span class="mi">4</span><span class="nx">b85</span><span class="o">-</span><span class="nx">b5d0</span><span class="o">-</span><span class="mi">8</span><span class="nx">d51bf4c59f4</span><span class="p">)</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X PUT <span class="s2">"https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+   "EntityId": 14107,
+   "Name": "Nozama'</span>s Product List<span class="s2">",
+   "</span>Products<span class="s2">": [
+       {
+           "</span>ProductName<span class="s2">": "</span>Samsung Galaxy S4 Standard Battery<span class="s2">",
+           "</span>VendorSku<span class="s2">": "</span>B00LAOKN4S<span class="s2">",
+           "</span>Price<span class="s2">": 24.99,
+           "</span>Dropshippable<span class="s2">": true
+       }
+   ]          
+}
+'
+</span></code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">UpdatingProductsInASubscribableList</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">PUT</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+     <span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"{\"EntityId\":14107,\"Name\":\"Nozama's Product List\",\"Products\":[{\"ProductName\":\"Samsung Galaxy S4 Standard Battery\",\"VendorSku\":\"B00LAOKN4S\",\"Price\":24.99,\"Dropshippable\":true}]}"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code><span class="kn">import</span> <span class="nn">org.apache.http.entity.StringEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpPut</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">UpdatingProductsInASubscribableList</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpPut</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPut</span><span class="o">(</span><span class="s">"https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">StringEntity</span> <span class="n">body</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringEntity</span><span class="o">(</span><span class="s">"{\"EntityId\":14107,\"Name\":\"Nozama's Product List\",\"Products\":[{\"ProductName\":\"Samsung Galaxy S4 Standard Battery\",\"VendorSku\":\"B00LAOKN4S\",\"Price\":24.99,\"Dropshippable\":true}]}"</span><span class="o">);</span>
+    <span class="n">request</span><span class="o">.</span><span class="na">setEntity</span><span class="o">(</span><span class="n">body</span><span class="o">);</span>
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">body</span> <span class="o">=</span> <span class="s2">"{</span><span class="se">\"</span><span class="s2">EntityId</span><span class="se">\"</span><span class="s2">:14107,</span><span class="se">\"</span><span class="s2">Name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Nozama's Product List</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Products</span><span class="se">\"</span><span class="s2">:[{</span><span class="se">\"</span><span class="s2">ProductName</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Samsung Galaxy S4 Standard Battery</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">VendorSku</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">B00LAOKN4S</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">Price</span><span class="se">\"</span><span class="s2">:24.99,</span><span class="se">\"</span><span class="s2">Dropshippable</span><span class="se">\"</span><span class="s2">:true}]}
+
+response = RestClient.put 'https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)', body, {
+     :'Authorization' =&gt; 'Bearer (Access Token)',
+     :'Accept' =&gt; 'application/json',
+     :'Content-Type' =&gt; 'application/json',
+    } 
+
+puts response
+</span></code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>SubscribableListId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/product-subscription/#subscribablelist'>SubscribableList</a></li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>EntityId</code> (<strong>Required</strong>) </li><li><code>Name</code> (<strong>Required</strong>) </li><li><code>Products</code> (<strong>Required</strong>) </li><ul><li><code>ProductName</code> (<strong>Required</strong>) </li><li><code>VendorSku</code> (<strong>Required</strong>) </li><li><code>Dropshippable</code> (Optional) </li><li><code>Price</code> (Optional) </li><li><code>ProductSlugs</code> (Optional) </li><li><code>Version</code> (<strong>Required</strong>) </li></ul><li><code>Id</code> (Optional) </li><li><code>Dropshippable</code> (Optional) </li><li><code>Version</code> (<strong>Required</strong>) </li></ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43d92a51-650e-4b85-b5d0-8d51bf4c59f4"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">41407</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nozama's Product List"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Samsung Galaxy S4 Standard Battery"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"VendorSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B00LAOKN4S"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mf">24.99</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Dropshippable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="s2">"ProductSlugs"</span><span class="err">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<p><a href="#SubscribableList">subscribablelist</a></p>
+
+<h2 id="post-a-company-to-a-subscribable-list"><span class='post'>POST</span> a Company to a Subscribable List
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>PUT /subscription({ListId})/company({CompanyId})
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">PUT</span> <span class="o">/</span><span class="nx">subscription</span><span class="p">(</span><span class="mi">43</span><span class="nx">d92a51</span><span class="o">-</span><span class="mi">650</span><span class="nx">e</span><span class="o">-</span><span class="mi">4</span><span class="nx">b85</span><span class="o">-</span><span class="nx">b5d0</span><span class="o">-</span><span class="mi">8</span><span class="nx">d51bf4c59f4</span><span class="p">)</span><span class="o">/</span><span class="nx">company</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X PUT <span class="s2">"https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)/company(14146)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">AddingACompanyToASubscribableList</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)/company(14146)"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">PUT</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code><span class="kn">import</span> <span class="nn">org.apache.http.entity.StringEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpPut</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">AddingACompanyToASubscribableList</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpPut</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPut</span><span class="o">(</span><span class="s">"https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)/company(14146)"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">put</span> <span class="s1">'https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)/company(14146)'</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="ss">:'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>ListId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/product-subscription/#subscribablelist'>SubscribableList</a></li>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">204</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
+
+<h2 id="delete-a-company-from-a-subscribable-list"><span class='delete'>DELETE</span> a Company from a Subscribable List</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>DELETE /subscription({ListId})/company({CompanyId})
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">DELETE</span> <span class="o">/</span><span class="nx">subscription</span><span class="p">(</span><span class="mi">43</span><span class="nx">d92a51</span><span class="o">-</span><span class="mi">650</span><span class="nx">e</span><span class="o">-</span><span class="mi">4</span><span class="nx">b85</span><span class="o">-</span><span class="nx">b5d0</span><span class="o">-</span><span class="mi">8</span><span class="nx">d51bf4c59f4</span><span class="p">)</span><span class="o">/</span><span class="nx">company</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X DELETE <span class="s2">"https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)/company(14146)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">DeletingACompanyFromASubscribableList</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)/company(14146)"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">DELETE</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpDelete</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">DeletingACompanyFromASubscribableList</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpDelete</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpDelete</span><span class="o">(</span><span class="s">"https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)/company(14146)"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">delete</span> <span class="s1">'https://productsubscriptionsdemo.iqmetrix.net/v1/subscription(43d92a51-650e-4b85-b5d0-8d51bf4c59f4)/company(14146)'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>ListId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/product-subscription/#subscribablelist'>SubscribableList</a></li>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">204</span><span class="w"> </span><span class="err">Content-Type:</span><span class="w"> </span><span class="err">application/json</span><span class="w">
+</span></code></pre>
+
+<h1 id="errors">Errors</h1>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Error Code</th>
+<th style="text-align: left">Message</th>
+<th style="text-align: left">How to Resolve</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">Validation failed. EntityId does not belong to vendor</code></td>
+<td style="text-align: left">Occurs when entering an incorrect EntityId</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">&lt;Field&gt; should not be empty</code></td>
+<td style="text-align: left">Occurs if Required Parameter is missing</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 404</code></td>
+<td style="text-align: left"><code class="prettyprint">Document not found</code></td>
+<td style="text-align: left">Occurs when entering an incorrect ID in the uri</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="csharp">c#</a>
+                <a href="#" data-language-name="java">java</a>
+                <a href="#" data-language-name="ruby">ruby</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
