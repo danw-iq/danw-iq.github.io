@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Product Structure " | " iQmetrix Developer Portal</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all.js"></script>
+  </head>
+
+  <body class="concepts concepts_product-structure concepts_product-structure_index" data-languages="[]">
+
+    <div class="fixed-top">
+      <a class="navbar-logo" href="http://www.iqmetrix.com"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">HOMEPAGE</a></li>
+          <li><a href="/api/changelog">CHANGELOG</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">SUPPORT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="../../images/logo.png" alt="Logo" />
+        <div class="lang-selector">
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h2 id="overview">Overview</h2>
+
+<p>This document outlines the following concepts:</p>
+
+<ul>
+<li>Product Structure</li>
+<li>Master Products</li>
+<li>Variations</li>
+<li>Revisions</li>
+</ul>
+
+<h2 id="product-structure">Product Structure</h2>
+
+<p>In <a href="http://developers.iqmetrix.com/concepts/product-library/#product-library">Product Library</a> and in your Catalog, products are structured in a way to make managing them easier.</p>
+
+<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/product_structure.jpg"/> </p>
+
+<p>This structure drives a standardized, consumer-friendly shopping experience by grouping like products together and aiding with detailed and comprehensive reporting for retailers. Master Products can be split into multiple Variations, which can then be further split into Revisions.</p>
+
+<h2 id="master-products">Master Products</h2>
+
+<p>The Master Product is the &lsquo;model&rsquo; of the product. This will often be what is displayed to the consumer in channels such as eCommerce and in-store interactive software. There are two types of Master Products:</p>
+
+<ul>
+<li>Saleable Master Products do not offer a customer a choice before they can buy a product, such as a designer necklace or charging cable</li>
+<li>Non-saleable Master Products require a customer to choose options before they can buy a product, such as different colors or sizes</li>
+</ul>
+
+<h2 id="variations">Variations</h2>
+
+<p>Variations are saleable child products of a non-saleable Master Product. </p>
+
+<p>Variations can inherit properties from a parent Master Product and have their own properties such as stock levels, prices and images.</p>
+
+<p>The image below represents how a Master Product “Comfy Sweater” has variations for color and size.</p>
+
+<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/nonwireless.png"/> </p>
+
+<h2 id="revisions">Revisions</h2>
+
+<p>In the wireless industry, there is often an additional level of complexity, as a Carrier or Company may offer a different version of the product. These are referred to as Revisions.</p>
+
+<p>Note: Revisions may be created from either Master Products or Variations. If Variations exist on a Master Product, Revision must be created from these Variations, not the Master Product.</p>
+
+<p>Revisions allow a Carrier or Company to manage specific versions of a product. For example, by including branded images or descriptions, or managing separate SKUs.</p>
+
+<p>As an example, if a customer walks into a retail store looking for a Gold iPhone 6, in the 32GB size, they might have a choice of:</p>
+
+<ul>
+<li>Sprint iPhone 6 Gold 32 GB</li>
+<li>AT&amp;T iPhone 6 Gold 32 GB</li>
+<li>T-Mobile iPhone 6 Gold 32 GB</li>
+<li>Verizon iPhone 6 Gold 32 GB</li>
+</ul>
+
+<p>The image below represents how a Master Product of an iPhone 6 has Variations for color and size but also has Carrier Revisions for every Carrier that sells the iPhone 6.</p>
+
+<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/wireless.png"/> </p>
+
+<h2 id="examples">Examples</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Product</th>
+<th style="text-align: left">Master Product, Variation or Carrier Revision?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">&ldquo;Lucy&rdquo; Graphic T-Shirt</td>
+<td style="text-align: left">Master Product</td>
+</tr>
+<tr>
+<td style="text-align: left">Comfy Sweater Blue S</td>
+<td style="text-align: left">Variation</td>
+</tr>
+<tr>
+<td style="text-align: left">iPhone 6</td>
+<td style="text-align: left">Master Product</td>
+</tr>
+<tr>
+<td style="text-align: left">Pebble Watch Black</td>
+<td style="text-align: left">Variation</td>
+</tr>
+<tr>
+<td style="text-align: left">AT&amp;T iPhone 6 Gold 32 GB</td>
+<td style="text-align: left">Carrier Revision</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
