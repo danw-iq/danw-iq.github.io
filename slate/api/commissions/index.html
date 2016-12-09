@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Commissions " | " iQmetrix Developer Portal</title>
+    <title>Commissions | iQmetrix Developer Portal</title>
 
     <style>
-      .highlight table td { padding: 5px; }
+      /*.highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight, .highlight .w {
   color: #f8f8f2;
@@ -84,7 +84,7 @@
 }
 .highlight .ss {
   color: #90a959;
-}
+}*/
     </style>
     <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
@@ -94,17 +94,32 @@
   <body class="api api_commissions api_commissions_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
 
     <div class="fixed-top">
-      <a class="navbar-logo" href="http://www.iqmetrix.com"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <a class="navbar-logo" href="/"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
       <div class="navbar-right">
         <ul class="topnav" id="myTopnav">
-          <li><a class="active" href="/">HOMEPAGE</a></li>
-          <li><a href="/api/changelog">CHANGELOG</a></li>
-          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">SUPPORT</a></li>
+          <li><a class="active" href="/">PRODUCTS</a></li>
+          <li><a href="/api/changelog">API REFERENCE</a></li>
+          <li><a href="/api/changelog">CORE CONCEPTS &amp; GUIDES</a></li>
+          <li><a href="/api/changelog">PARTNERS</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">CONTACT</a></li>
           <li class="icon">
             <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
           </li>
         </ul>
       </div>
+    </div>
+    <div class="breadcrumb">
+      <ol>
+        <li><a href="{{"/api/" | prepend: site.url}}">API REFERENCE</a></li>
+        <li>></li>
+        <li>API DOCUMENTATION</li>
+        <li>></li>
+        <li class="active">CUSTOMER RELATIONSHIP MANAGEMENT (CRM)</li>
+      </ol>
+    </div>
+    <div class="title">
+      <h1>API Documentation</h1>
+      <p>In depth reference documentation for iQmetrix API's.</p>
     </div>
 
     <a href="#" id="nav-button">
@@ -114,7 +129,7 @@
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="../../images/logo.png" alt="Logo" />
+      <!-- <img src="../../images/logo.png" alt="Logo" /> -->
         <div class="lang-selector">
               <a href="#" data-language-name="javascript">javascript</a>
               <a href="#" data-language-name="shell">cURL</a>
@@ -122,10 +137,12 @@
               <a href="#" data-language-name="java">java</a>
               <a href="#" data-language-name="ruby">ruby</a>
         </div>
+      <!-- 
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
+       -->
       <div id="toc">
       </div>
     </div>
