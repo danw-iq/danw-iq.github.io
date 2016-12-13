@@ -1,0 +1,814 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>General Ledger | iQmetrix Developer Portal</title>
+
+    <style>
+      /*.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}*/
+    </style>
+    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all.js"></script>
+  </head>
+
+  <body class="api api_general-ledger api_general-ledger_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+
+    <div class="fixed-top">
+      <a class="navbar-logo" href="/"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">PRODUCTS</a></li>
+          <li><a href="/api/changelog">API REFERENCE</a></li>
+          <li><a href="/api/changelog">CORE CONCEPTS &amp; GUIDES</a></li>
+          <li><a href="/api/changelog">PARTNERS</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">CONTACT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="breadcrumb">
+      <ol>
+        <li><a href="/api/">API REFERENCE</a></li>
+        <li>></li>
+        <li><a href="">API DOCUMENTATION</a></li>
+        <li>></li>
+        <li class="active">CUSTOMER RELATIONSHIP MANAGEMENT (CRM)</li>
+      </ol>
+    </div>
+    <div class="title">
+      <h1>API Documentation</h1>
+      <p>In depth reference documentation for iQmetrix API's.</p>
+    </div>
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <!-- <img src="../../images/logo.png" alt="Logo" /> -->
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="csharp">c#</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="overview">Overview</h1>
+
+<p>The General Ledger API allows you to track the movement of money between accounts for accounting purposes.</p>
+
+<p><a href='http://developers.iqmetrix.com/api/general-ledger/#account'>Account</a> type is determined by the <code class="prettyprint">AccountCategory</code> property and can be one of the following: <strong>Asset, Liability, Equity, Revenue, Expense</strong>.</p>
+
+<p>Account balances will be affected by Debits and Credits in the following ways:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Account</th>
+<th style="text-align: left">Debit</th>
+<th style="text-align: left">Credit</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Asset</td>
+<td style="text-align: left"><i class="fa fa-arrow-up"></i></td>
+<td style="text-align: left"><i class="fa fa-arrow-down"></i></td>
+</tr>
+<tr>
+<td style="text-align: left">Liability</td>
+<td style="text-align: left"><i class="fa fa-arrow-down"></i></td>
+<td style="text-align: left"><i class="fa fa-arrow-up"></i></td>
+</tr>
+<tr>
+<td style="text-align: left">Equity</td>
+<td style="text-align: left"><i class="fa fa-arrow-down"></i></td>
+<td style="text-align: left"><i class="fa fa-arrow-up"></i></td>
+</tr>
+<tr>
+<td style="text-align: left">Revenue</td>
+<td style="text-align: left"><i class="fa fa-arrow-down"></i></td>
+<td style="text-align: left"><i class="fa fa-arrow-up"></i></td>
+</tr>
+<tr>
+<td style="text-align: left">Expense</td>
+<td style="text-align: left"><i class="fa fa-arrow-up"></i></td>
+<td style="text-align: left"><i class="fa fa-arrow-down"></i></td>
+</tr>
+</tbody></table>
+
+<h1 id="endpoints">Endpoints</h1>
+
+<ul>
+<li>Sandbox: <a href="https://generalledgerdemo.iqmetrix.net/v1">https://generalledgerdemo.iqmetrix.net/v1</a></li>
+<li>Production: <a href="https://generalledger.iqmetrix.net/v1">https://generalledger.iqmetrix.net/v1</a></li>
+</ul>
+
+<h1 id="resources">Resources</h1>
+
+<h2 id="account">Account</h2>
+
+<p>A General Ledger <strong>Account</strong> is a record used to sort and store Transactions.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7c7d31f7-f6f9-4a96-9eec-b0e26e1d6787"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accounting"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1518"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AccountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SubCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Current Assets"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CreatedByUserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2576"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UpdatedByUserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2576"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CustomProperties"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateCreatedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-04T19:26:02.806415Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateUpdatedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-04-22T19:27:12.557"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a Canadian $ account"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsEnabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left">Unique identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">AccountName (<code class="prettyprint">String(128)</code>)</td>
+<td style="text-align: left">Account name. Must be unique across the entire list of Accounts and cannot be empty</td>
+</tr>
+<tr>
+<td style="text-align: left">AccountNumber (<code class="prettyprint">String(128)</code>)</td>
+<td style="text-align: left">Account number. Must be unique across the entire list of Accounts and cannot be empty</td>
+</tr>
+<tr>
+<td style="text-align: left">AccountCategory (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Account Category, acceptable values include: <strong>Asset, Liability, Equity, Revenue and Expense</strong></td>
+</tr>
+<tr>
+<td style="text-align: left">SubCategory (<code class="prettyprint">String(256)</code>)</td>
+<td style="text-align: left">A string that can be used to further group Accounts into sub-categories</td>
+</tr>
+<tr>
+<td style="text-align: left">CreatedByUserId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Auditing column, the identifier of the <a href="/api/user-manager/#user">User</a> that created this Account</td>
+</tr>
+<tr>
+<td style="text-align: left">UpdatedByUserId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Auditing column, the identifier of the <a href="/api/user-manager/#user">User</a> that last updated this Account</td>
+</tr>
+<tr>
+<td style="text-align: left">CurrencyCode (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">The 3 letter ISO currency code for the currency that this Account records its Transactions in. Can&rsquo;t be changed if an Account has had Transactions posted to it. Not case sensitive and will be stored and returned in upper case. See <a href='/api/reference/#getting-all-currencies'>Getting All Currencies</a> for a list of supported Currencies.</td>
+</tr>
+<tr>
+<td style="text-align: left">CustomProperties (<code class="prettyprint">Object(4000)</code>)</td>
+<td style="text-align: left">A set of key-value pairs that contain extra data related to this Account. The maximum length of CustomProperties, when serialized to JSON, is 4000 characters</td>
+</tr>
+<tr>
+<td style="text-align: left">DateCreatedUTC (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Auditing column showing when this Account was first created, in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">DateUpdatedUTC (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Auditing column showing when this Account was last updated, in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">Description (<code class="prettyprint">String(1024)</code>)</td>
+<td style="text-align: left">Description</td>
+</tr>
+<tr>
+<td style="text-align: left">IsEnabled (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate if this Account is Enabled</td>
+</tr>
+<tr>
+<td style="text-align: left">Version (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Latest revision number</td>
+</tr>
+</tbody></table>
+
+<h2 id="transaction">Transaction</h2>
+
+<p>{{note}}A single Transaction must have 2 or more Entries where the sum of the Debits and Credits of those Entries is the same value, this is called a Balanced Transaction{{end}}</p>
+
+<p>A <strong>Transaction</strong> is a financial record that affects two or more <strong>Accounts</strong>.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d68f8dd0-26c6-4eb3-8c49-062e05b07132"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TransactionDateUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-04T19:28:05.1970511Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CreatedByUserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2576"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Entries"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left">Unique identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">TransactionDateUTC (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">The date and time that this Transaction occurred, in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">CreatedByUserId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Auditing column, the identifier of the <a href="/api/user-manager/#user">User</a> that created this Account</td>
+</tr>
+<tr>
+<td style="text-align: left">Entries (<code class="prettyprint">Array[[general-ledger](/api/entry/#Entry)]</code>)</td>
+<td style="text-align: left">The collection of Entries for this Transaction</td>
+</tr>
+</tbody></table>
+
+<h2 id="entry">Entry</h2>
+
+<ul>
+<li>A Transaction is <b>immutable</b> and permanent after it has been created it cannot be updated or deleted</li>
+<li>Debit and Credit are decimal values without an associated currency</li>
+<li>All transactions within the context of this <a href='http://developers.iqmetrix.com/api/general-ledger/#account'>Account</a> will use the currency configured at the Account level</li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"AccountID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7c7d31f7-f6f9-4a96-9eec-b0e26e1d6787"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Credit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CustomProperties"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Debit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14202"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LineNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Memo"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ReferenceID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INV005"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ReferenceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invoice ID"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">AccountID (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left">Identifier for the <a href="#account">Account</a> this Entry affects</td>
+</tr>
+<tr>
+<td style="text-align: left">Credit (<code class="prettyprint">Decimal</code>)</td>
+<td style="text-align: left">The value of the Credit side of this Entry must be a positive value. If Credit is positive, Debit must be 0. Credit and Debit can also both be 0</td>
+</tr>
+<tr>
+<td style="text-align: left">CustomProperties (<code class="prettyprint">Object(4000)</code>)</td>
+<td style="text-align: left">Key-value pairs that contain extra data related to this Entry, maximum length when serialized to JSON is 4000 characters</td>
+</tr>
+<tr>
+<td style="text-align: left">Debit (<code class="prettyprint">Decimal</code>)</td>
+<td style="text-align: left">The value of the Debit side of this entry, this must be a positive value. If Debit is positive, Credit must be 0. Credit and Debit can also both be 0</td>
+</tr>
+<tr>
+<td style="text-align: left">EntityId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier for the <a href="/api/company-tree/#location">Location</a> this Entry applies to</td>
+</tr>
+<tr>
+<td style="text-align: left">LineNumber (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">A value indicating the sort order of this entry within the Transaction</td>
+</tr>
+<tr>
+<td style="text-align: left">Memo (<code class="prettyprint">String(1024)</code>)</td>
+<td style="text-align: left">Memo string for this Entry</td>
+</tr>
+<tr>
+<td style="text-align: left">ReferenceID (<code class="prettyprint">String(128)</code>)</td>
+<td style="text-align: left">Reference number string, such as the invoice that caused the Transaction</td>
+</tr>
+<tr>
+<td style="text-align: left">ReferenceType (<code class="prettyprint">String(128)</code>)</td>
+<td style="text-align: left">String value to indicate what ReferenceID is referring to. See <a href="#referencetype">ReferenceType</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="enumerations">Enumerations</h2>
+
+<h3 id="referencetype">ReferenceType</h3>
+
+<p>The following table lists the ReferencType values used in RQ.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">ReferenceType</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Account Payment</td>
+</tr>
+<tr>
+<td style="text-align: left">Bill Pay</td>
+</tr>
+<tr>
+<td style="text-align: left">Cashout</td>
+</tr>
+<tr>
+<td style="text-align: left">Chargeback</td>
+</tr>
+<tr>
+<td style="text-align: left">Consignment</td>
+</tr>
+<tr>
+<td style="text-align: left">Full Charge Back</td>
+</tr>
+<tr>
+<td style="text-align: left">Gift Card Maintenance</td>
+</tr>
+<tr>
+<td style="text-align: left">Inventory Adjustment</td>
+</tr>
+<tr>
+<td style="text-align: left">Invoice</td>
+</tr>
+<tr>
+<td style="text-align: left">Opening Balance</td>
+</tr>
+<tr>
+<td style="text-align: left">Petty Cash Transaction</td>
+</tr>
+<tr>
+<td style="text-align: left">Receive PO (&amp; Corrections)</td>
+</tr>
+<tr>
+<td style="text-align: left">Sales Order</td>
+</tr>
+<tr>
+<td style="text-align: left">Starting Inventory Count Import</td>
+</tr>
+<tr>
+<td style="text-align: left">Stock Balance</td>
+</tr>
+<tr>
+<td style="text-align: left">Transfer</td>
+</tr>
+<tr>
+<td style="text-align: left">Vendor Deposit</td>
+</tr>
+<tr>
+<td style="text-align: left">Vendor Rebate Adjustment</td>
+</tr>
+</tbody></table>
+
+<h1 id="requests">Requests</h1>
+
+<h2 id="get-accounts"><span class='get'>GET</span> Accounts</h2>
+
+<p>{{callout_info}}<b>Sorting Order</b><br/>Accounts are ordered alphabetically by <code>AccountName</code>{{end}}</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/Accounts?$skip={Skip}&amp;$top={Top}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Accounts</span><span class="p">?</span><span class="nx">$skip</span><span class="o">=</span><span class="mi">0</span><span class="o">&amp;</span><span class="nx">$top</span><span class="o">=</span><span class="mi">5</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">hal</span><span class="o">+</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://generalledgerdemo.iqmetrix.net/v1/Companies(14146)/Accounts?</span><span class="nv">$skip</span><span class="s2">=0&amp;</span><span class="nv">$top</span><span class="s2">=5"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/hal+json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingAccounts</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://generalledgerdemo.iqmetrix.net/v1/Companies(14146)/Accounts?$skip=0&amp;$top=5"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/hal+json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingAccounts</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://generalledgerdemo.iqmetrix.net/v1/Companies(14146)/Accounts?$skip=0&amp;$top=5"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/hal+json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://generalledgerdemo.iqmetrix.net/v1/Companies(14146)/Accounts?$skip=0&amp;$top=5'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/hal+json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+    <li><code>Skip</code> (Optional)  - Number of records to skip</li>
+    <li><code>Top</code> (Optional)  - Number of records to take</li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/hal+json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Companies(14146)/Accounts?$skip=0&amp;$top=5"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"templated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Companies(14146)/Accounts?$skip=5&amp;$top=5"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"templated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"_embedded"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                      </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Companies(14146)/Accounts(7c7d31f7-f6f9-4a96-9eec-b0e26e1d6787)"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"templated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"_embedded"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+              </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7c7d31f7-f6f9-4a96-9eec-b0e26e1d6787"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"AccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAD Bank Account: 518"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"AccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1518"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"AccountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"SubCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Current Assets"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"CreatedByUserId"</span><span class="p">:</span><span class="w"> </span><span class="mi">22212</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"UpdatedByUserId"</span><span class="p">:</span><span class="w"> </span><span class="mi">22212</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAD"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"CustomProperties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"DateCreatedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-04-23T13:14:12.997"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"DateUpdatedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-04-23T13:14:12.997"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a Canadian $ account"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"IsEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="err">...</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+
+</span></code></pre>
+
+<h2 id="get-transactions-by-date"><span class='get'>GET</span> Transactions By Date</h2>
+
+<p>{{callout_info}}<b>Sorting Order</b><br/>When getting Transactions, the order is ascending by <code>TransactionDateUTC</code> with the oldest Transactions listed first{{end}}</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/Transactions?$filter=TransactionDateUTC ge datetime'{StartDate}' and TransactionDateUTC le datetime'{EndDate}'&amp;$skip={Skip}&amp;$top={Top}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Transactions</span><span class="p">?</span><span class="nx">$filter</span><span class="o">=</span><span class="nx">TransactionDateUTC</span> <span class="nx">ge</span> <span class="nx">datetime</span><span class="s1">'2015-01-01T08:00:00.000Z'</span> <span class="nx">and</span> <span class="nx">TransactionDateUTC</span> <span class="nx">le</span> <span class="nx">datetime</span><span class="s1">'2016-01-01T07:59:59.000Z'</span><span class="o">&amp;</span><span class="nx">$skip</span><span class="o">=</span><span class="mi">0</span><span class="o">&amp;</span><span class="nx">$top</span><span class="o">=</span><span class="mi">5</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">hal</span><span class="o">+</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://generalledgerdemo.iqmetrix.net/v1/Companies(14146)/Transactions?</span><span class="nv">$filter</span><span class="s2">=TransactionDateUTC ge datetime'2015-01-01T08:00:00.000Z' and TransactionDateUTC le datetime'2016-01-01T07:59:59.000Z'&amp;</span><span class="nv">$skip</span><span class="s2">=0&amp;</span><span class="nv">$top</span><span class="s2">=5"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/hal+json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingTransactionsByDate</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://generalledgerdemo.iqmetrix.net/v1/Companies(14146)/Transactions?$filter=TransactionDateUTC ge datetime'2015-01-01T08:00:00.000Z' and TransactionDateUTC le datetime'2016-01-01T07:59:59.000Z'&amp;$skip=0&amp;$top=5"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/hal+json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingTransactionsByDate</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://generalledgerdemo.iqmetrix.net/v1/Companies(14146)/Transactions?$filter=TransactionDateUTC ge datetime'2015-01-01T08:00:00.000Z' and TransactionDateUTC le datetime'2016-01-01T07:59:59.000Z'&amp;$skip=0&amp;$top=5"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/hal+json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://generalledgerdemo.iqmetrix.net/v1/Companies(14146)/Transactions?$filter=TransactionDateUTC ge datetime'</span><span class="mi">2015</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mo">01</span><span class="no">T08</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span><span class="o">.</span><span class="mo">000</span><span class="no">Z</span><span class="s1">' and TransactionDateUTC le datetime'</span><span class="mi">2016</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mo">01</span><span class="no">T07</span><span class="p">:</span><span class="mi">59</span><span class="p">:</span><span class="mi">59</span><span class="o">.</span><span class="mo">000</span><span class="no">Z</span><span class="s1">'&amp;$skip=0&amp;$top=5'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/hal+json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+    <li><code>Skip</code> (Optional)  - Number of records to skip</li>
+    <li><code>Top</code> (Optional)  - Number of records to take</li>
+    <li><code>StartDate</code> (<strong>Required</strong>)  - Date at which to begin search request, in UTC</li>
+    <li><code>EndDate</code> (<strong>Required</strong>)  - Date at which to end search request, in UTC</li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/hal+json
+</code></pre>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Companies(14146)\/Transactions?$filter=TransactionDateUTC ge datetime'2015-01-01T00:00:00.000' and TransactionDateUTC le datetime'2015-12-31T23:59:59.000'&amp;$skip=0&amp;$top=5"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"templated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Companies(14146)\/Transactions?$filter=TransactionDateUTC ge datetime'2015-01-01T00:00:00.000' and TransactionDateUTC le datetime'2015-12-31T23:59:59.000'&amp;$skip=5&amp;$top=5"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"templated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"_embedded"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Companies(14146)\/Transactions(2862e667-9dd7-45b0-9f6b-7e6bdaad0f61)"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"templated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nt">"_embedded"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+                    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2862e667-9dd7-45b0-9f6b-7e6bdaad0f61"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"TransactionDateUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-04-23T13:14:34.2"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"CreatedByUserId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Entries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"AccountID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7c7d31f7-f6f9-4a96-9eec-b0e26e1d6787"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"Credit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"CustomProperties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+                            </span><span class="nt">"Debit"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"LineNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"Memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Memo for debit"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"ReferenceID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INV005"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"ReferenceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invoice ID"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"AccountID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"da81b1f2-2bdf-49bc-9b43-8ee787c049f0"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"Credit"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"CustomProperties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w">
+                            </span><span class="nt">"Debit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"LineNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"Memo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Memo for credit"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"ReferenceID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INV005"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"ReferenceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invoice ID"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+
+</span></code></pre>
+
+<h1 id="errors">Errors</h1>
+
+<table><thead>
+<tr>
+<th style="text-align: left">HTTP Status Code</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">How to Resolve</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">Error converting value {x} to type {y}</code></td>
+<td style="text-align: left">Ensure <code class="prettyprint">AccountCategory</code> is set to one of: Asset, Liability, Equity, Revenue, Expense</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">The supplied currency code {x}  is not supported</code></td>
+<td style="text-align: left">Ensure <code class="prettyprint">CurrencyCode</code> is one of the supported values such as <code class="prettyprint">USD</code> or <code class="prettyprint">CAD</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">The {x} field is required</code></td>
+<td style="text-align: left">Ensure all Required fields are provided</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">Uri parameter representing resource id {x} don&#39;t match</code></td>
+<td style="text-align: left">Ensure given request body parameters match URI parameters</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 404</code></td>
+<td style="text-align: left"><code class="prettyprint">Resource cannot be found</code></td>
+<td style="text-align: left">Ensure the <code class="prettyprint">Id</code> specified in the URI is valid and the resource exists</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 409</code></td>
+<td style="text-align: left"><code class="prettyprint">The account has a non-unique name  or account number</code></td>
+<td style="text-align: left">Account names and numbers must be unique for the Company</td>
+</tr>
+</tbody></table>
+
+<h1 id="pagination">Pagination</h1>
+
+<p>The General Ledger API supports pagination of collections of resources by default.</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<p>Pagination is done through the use of <code class="prettyprint">$skip</code> and <code class="prettyprint">$top</code> query string parameters.</p>
+
+<p><code class="prettyprint">$skip</code> denotes the number of items to skip from the entire set of results. This value defaults to 0 if no <code class="prettyprint">$skip</code> value is specified. If a value less than 0 is specified, the URI is considered malformed.</p>
+
+<p><code class="prettyprint">$top</code> denotes the maximum number of items to include in the response. This value defaults to 50 if no <code class="prettyprint">$top</code> value is specified. Acceptable values are in the range [0-500]. If a value more than 500 is specified, the URI is considered malformed.</p>
+
+<h3 id="navigation-links">Navigation Links</h3>
+
+<p>Pagination links for &lsquo;self&rsquo;, &#39;prev&rsquo; and &#39;next&rsquo; are returned by default when the media type is a hypermedia-enabled media type (i.e. HAL).</p>
+
+<p>These links are <em>relative</em>, they do not include the base endpoint. It is the responsibility of the client to prepend the appropriate endpoint.</p>
+
+<h5 id="example">Example</h5>
+<pre class="highlight csharp"><code><span class="p">{</span>
+    <span class="s">"_links"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">"self"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">"href"</span><span class="p">:</span> <span class="s">"Companies(14146)/Accounts?$skip=10&amp;$top=10"</span><span class="p">,</span>
+            <span class="s">"templated"</span><span class="p">:</span> <span class="k">false</span>
+        <span class="p">},</span>
+        <span class="s">"next"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">"href"</span><span class="p">:</span> <span class="s">"Companies(14146)/Accounts?$skip=20&amp;$top=10"</span><span class="p">,</span>
+            <span class="s">"templated"</span><span class="p">:</span> <span class="k">false</span>
+        <span class="p">},</span>
+        <span class="s">"prev"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">"href"</span><span class="p">:</span> <span class="s">"Companies(14146)/Accounts?$skip=0&amp;$top=10"</span><span class="p">,</span>
+            <span class="s">"templated"</span><span class="p">:</span> <span class="k">false</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s">"_embedded"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">"self"</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>In the example above, the <code class="prettyprint">_links</code> section is included in the data returned from an API call to get General Ledger Accounts, where <code class="prettyprint">$skip=10</code> and <code class="prettyprint">$top=10</code>.</p>
+
+<p>The <code class="prettyprint">self</code>.<code class="prettyprint">href</code> value is the encoded version of the API request that returned these results.</p>
+
+<p>The <code class="prettyprint">next</code>.<code class="prettyprint">href</code> refers to a resource containing a page with the <strong>next</strong> 10 items.</p>
+
+<p>The <code class="prettyprint">prev</code>.<code class="prettyprint">href</code> refers to a resource containing a page with the <strong>previous</strong> 10 items.</p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="csharp">c#</a>
+                <a href="#" data-language-name="java">java</a>
+                <a href="#" data-language-name="ruby">ruby</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

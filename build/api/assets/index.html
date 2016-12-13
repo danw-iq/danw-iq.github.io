@@ -1,0 +1,375 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Assets | iQmetrix Developer Portal</title>
+
+    <style>
+      /*.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}*/
+    </style>
+    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all_nosearch.js"></script>
+  </head>
+
+  <body class="api api_assets api_assets_index" data-languages="[]">
+
+    <div class="fixed-top">
+      <a class="navbar-logo" href="/"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">PRODUCTS</a></li>
+          <li><a href="/api/changelog">API REFERENCE</a></li>
+          <li><a href="/api/changelog">CORE CONCEPTS &amp; GUIDES</a></li>
+          <li><a href="/api/changelog">PARTNERS</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">CONTACT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="breadcrumb">
+      <ol>
+        <li><a href="/api/">API REFERENCE</a></li>
+        <li>></li>
+        <li><a href="">API DOCUMENTATION</a></li>
+        <li>></li>
+        <li class="active">CUSTOMER RELATIONSHIP MANAGEMENT (CRM)</li>
+      </ol>
+    </div>
+    <div class="title">
+      <h1>API Documentation</h1>
+      <p>In depth reference documentation for iQmetrix API's.</p>
+    </div>
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <!-- <img src="../../images/logo.png" alt="Logo" /> -->
+        <div class="lang-selector">
+        </div>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <p>{% include linkrefs.html %}</p>
+
+<h2 id="endpoints">Endpoints</h2>
+
+<ul>
+<li>Sandbox: <a href="https://amsdemo.iqmetrix.net">https://amsdemo.iqmetrix.net</a></li>
+<li>Production: <a href="https://ams.iqmetrix.net">https://ams.iqmetrix.net</a></li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<h2 id="asset">Asset</h2>
+
+<p>An <strong>Asset</strong> is an image or video associated with a Product.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09fe1ee4-42b1-43a6-bd80-cd2bda21e90a"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"49ebd282-4161-4a9d-9b40-a5a20d144b6f.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1024"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://amsdemo.iqmetrix.net/images/09fe1ee4-42b1-43a6-bd80-cd2bda21e90a.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"md5Checksum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1f88a2813737aa0019a63069586055ed"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"mimeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"width"</span><span class="p">:</span><span class="w"> </span><span class="s2">"502"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left">Unique identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">File name</td>
+</tr>
+<tr>
+<td style="text-align: left">height (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Height in pixels</td>
+</tr>
+<tr>
+<td style="text-align: left">href (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">URL that points to an actual file where the digital asset is stored</td>
+</tr>
+<tr>
+<td style="text-align: left">md5Checksum (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">String that can be used for upload integrity checks or comparing two assets</td>
+</tr>
+<tr>
+<td style="text-align: left">mimeType (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">The mime type</td>
+</tr>
+<tr>
+<td style="text-align: left">width (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Width in pixels</td>
+</tr>
+<tr>
+<td style="text-align: left">success (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate that the Asset was uploaded. This only appears when asset is first uploaded</td>
+</tr>
+</tbody></table>
+
+<h2 id='creating-an-asset' class='clickable-header top-level-header'>Creating an Asset</h2>
+
+<h4>Request</h4>
+
+<pre>
+POST /assets
+</pre>
+
+<h4>Headers</h4>
+
+<ul><li><code>Authorization: Bearer (Access Token)</code></li><li><code>Accept: application/json</code></li><li><code>Content-Type: multipart/form-data</code></li></ul>
+
+<h4>Request Parameters</h4>
+
+<p><li><code>Filename</code> (<strong>Required</strong>) - File to be uploaded</li></p>
+
+<h5>Example</h5>
+
+<pre>
+POST /assets
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: multipart/form-data
+
+</pre>
+
+<h4>Response</h4>
+
+<p><a href="#Asset">asset</a></p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 201 Content-Type: application/json
+</pre><pre>{
+    "id": "09fe1ee4-42b1-43a6-bd80-cd2bda21e90a",
+    "name": "49ebd282-4161-4a9d-9b40-a5a20d144b6f.png",
+    "height": 1024,
+    "href": "https://amsdemo.iqmetrix.net/images/09fe1ee4-42b1-43a6-bd80-cd2bda21e90a.png",
+    "md5Checksum": "1f88a2813737aa0019a63069586055ed",
+    "mimeType": "image/png",
+    "width": 502,
+    "success": true
+}</pre>
+
+<h2 id='getting-an-asset' class='clickable-header top-level-header'>Getting an Asset</h2>
+
+
+
+<h4>Request</h4>
+
+<pre>
+GET /assets/{AssetId}
+</pre>
+
+<h4>Headers</h4>
+
+<ul><li><code>Accept: application/json</code></li></ul>
+
+<h4>URI Parameters</h4>
+
+<ul>
+    
+    <li>
+        <code>AssetId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/assets/#asset'>Asset</a>
+    </li>
+    </ul>
+
+<h5>Example</h5>
+
+<pre>
+GET /assets/09fe1ee4-42b1-43a6-bd80-cd2bda21e90a
+Accept: application/json
+
+</pre>
+
+<h4>Response</h4>
+
+<p><a href="#Asset">asset</a></p>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 200 Content-Type: application/json
+</pre><pre>{
+    "id": "09fe1ee4-42b1-43a6-bd80-cd2bda21e90a",
+    "name": "49ebd282-4161-4a9d-9b40-a5a20d144b6f.png",
+    "height": 1024,
+    "href": "https://amsdemo.iqmetrix.net/images/09fe1ee4-42b1-43a6-bd80-cd2bda21e90a.png",
+    "md5Checksum": "1f88a2813737aa0019a63069586055ed",
+    "mimeType": "image/png",
+    "width": 502,
+    "success": true
+}</pre>
+
+<h2 id='redirecting-to-an-image-asset' class='clickable-header top-level-header'>Redirecting to an Image Asset</h2>
+
+A successful response to this request is a `HTTP 303` redirect with a `Location` header pointing to the actual file where the digital asset is stored
+
+<h4>Request</h4>
+
+<pre>
+GET /images/{AssetId}
+</pre>
+
+<h4>URI Parameters</h4>
+
+<ul>
+    
+    <li>
+        <code>AssetId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/assets/#asset'>Asset</a>
+    </li>
+    </ul>
+
+<h5>Example</h5>
+
+<pre>
+GET /images/09fe1ee4-42b1-43a6-bd80-cd2bda21e90a
+
+</pre>
+
+<h4>Response</h4>
+
+<h5>Example</h5>
+
+<pre>
+HTTP 303 Content-Type: application/text
+</pre><pre>Location: https://amsdemo.iqmetrix.net/images/09fe1ee4-42b1-43a6-bd80-cd2bda21e90a.png
+</pre>
+
+<h2 id="errors" class="clickable-header top-level-header">Errors</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">HTTP Status Code</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">How to Resolve</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">Bad Request</code></td>
+<td style="text-align: left">Ensure the Asset is of the correct type for the action (i.e. an image for /images endpoints)</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">Bad Request</code></td>
+<td style="text-align: left">Ensure you are only uploading one Asset at a time</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">Bad Request</code></td>
+<td style="text-align: left">Ensure file was attached to request</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 404</code></td>
+<td style="text-align: left"><code class="prettyprint">Asset Media Service Error: Resource not found</code></td>
+<td style="text-align: left">Ensure Asset GUID is valid and the Asset exists</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

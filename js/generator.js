@@ -483,21 +483,44 @@ function addFilters(env) {
       if(!isExcluded) {
 
         //Print name of table
-        table += "### " + name + "\n\n";
+        //table += "### " + name + "\n\n";
+        table += "## " + name + "\n\n";
 
         if(schema.description)
         {
           table += schema.description + "\n\n";
         }
 
-        table += "| Name | Data Type | Description | Example |\n|:-----|:----------|:------------|:--------|\n";
+        /**** INSERT CODE EXAMPLE HERE ****/
 
         var properties = getPropertyNames(schema, "printResourceTableProperties"); //[ "Id", "CustomerTypeId" ... ]
 
         if(properties) {
+          table += "```json\n{\n";
+          table += printResourceTableExample(schema, properties);
+
+          //Remove the last , in the string
+          table = table.substring(0, table.length - 2) + "\n";
+          
+          table += "}\n```\n\n";
+
+          table += "| Name | Description |\n|:-----|:------------|\n";
+
           table += printResourceTableProperties(schema, properties, "");
-        }
-        else {
+
+          table += "\n";
+        
+
+
+        //table += "| Name | Data Type | Description | Example |\n|:-----|:----------|:------------|:--------|\n";
+        //table += "| Name | Description |\n|:-----|:------------|\n";
+
+        //var properties = getPropertyNames(schema, "printResourceTableProperties"); //[ "Id", "CustomerTypeId" ... ]
+
+        /*if(properties) {
+          table += printResourceTableProperties(schema, properties, "");
+        }*/
+        }else {
           console.log("ERROR printResourceTable no properties to print!");
         }
 
@@ -1183,10 +1206,13 @@ function linkWrap(value, externalSource) {
 
     externalSource = externalSource.substring(0, externalSource.indexOf("."));
 
-    return util.format("<a href='/api/%s/#%s'>%s</a>", externalSource.replace(/ /g, "-"), value.toLowerCase(), value);
+    //[Swatch](/api/catalog/#swatch)
+    //return util.format("<a href='/api/%s/#%s'>%s</a>", externalSource.replace(/ /g, "-"), value.toLowerCase(), value);
+    return util.format("[%s](/api/%s/#%s)", externalSource.replace(/ /g, "-"), value.toLowerCase(), value);
   }
   else {
-    return util.format("<a href='#%s'>%s</a>", value.toLowerCase(), value);
+    //return util.format("<a href='#%s'>%s</a>", value.toLowerCase(), value);
+    return util.format("[%s](#%s)", value.toLowerCase(), value);
   }
 }
 
@@ -1261,6 +1287,116 @@ function printResponseBullets(schema, title, method) {
   return responseParameters;
 }
 
+//Print resource table json example
+function printResourceTableExample(schema, properties) {
+
+  var table = "";
+
+  for(var i = 0; i < properties.length; i++) {
+    var name = properties[i];
+    var dataType = "";
+    //var description = "";
+    var example = "";
+    var property = schema.properties[name];
+    var alreadyPrinted = false;
+
+    if(!property) {
+      console.log("Error in printResourceTableProperties " + properties)
+    }
+
+    //Override case, do not show if set or if the name has a "." (legacy case)
+    var hideFromTable = property.hideFromTable || name.indexOf(".") > -1;
+
+    if(!hideFromTable) {
+
+      //Database type overrides data type
+      if(property.database) {
+        dataType = property.database;
+      }
+      else if (property.type) {
+        dataType = property.type;
+      }
+
+      if(property.ref) {
+        
+        //If this is a simple replace (apiname.resourcename.propertyname) + not Obj/Array, just replace the example
+        if(property.ref && dataType != "object" && dataType != "array") {
+            property.example = getValueFromAPI(property.ref);
+        } 
+        else {
+
+          var tokens = property.ref.split(".");
+          var value = tokens[tokens.length - 1];
+
+          //Special case - Nesting allows us to nest the table.
+          //STOP NEST is used if we want to have a semi-nested object - one level of nesting, one level of split-resource, to designate where to stop
+          if(property.isNested && !property.stopNest) {
+
+            //First print the header
+            if(property.arrayType) {
+              //case 1: Nested array, print array of object/string/etc
+              dataType = util.format("Array[%s]", property.arrayType);
+            } 
+            else {
+              //case 2: Nested object, print object
+              dataType = property.type;
+            }
+
+            table += "\t" + '"' + name + '": [\n' + "\t\t{\n" ;
+
+            alreadyPrinted = true;
+
+            var apiName = tokens[0];
+            var schemaName = tokens[1];
+            var innerSchema = extractResource(apiName, schemaName);
+
+            //Recurse!
+            var innerProperties = getPropertyNames(innerSchema, "printResourceTableExample"); //[ "Id", "CustomerTypeId" ... ]
+
+            //Recurse!
+            table += "\t" + printResourceTableExample(innerSchema, innerProperties);
+          }
+          else {
+
+            var linkValue = value;
+
+            //Manually override the link - used only for SOAP APIs
+            if(property.fixlink) {
+              linkValue = property.fixlink;
+            } 
+
+            if(property.arrayType) {
+              //case 3: Regular table, print array of link to object
+              dataType = util.format("Array[%s]", linkWrap(linkValue, property.ref));
+            }
+            else {
+              dataType = linkWrap(linkValue, property.ref);
+            }
+          }
+        }
+      } //Print an array
+      else if (property.type == "array" && property.arrayType) {
+       // dataType = "Array[" + property.arrayType + "]";
+      }
+
+      var isLegacy = doNotPrint(property.description);
+
+      //Make sure we don't double-print
+      if(!alreadyPrinted) {
+        if(isLegacy) {
+          // do nothing
+        }
+        else {
+          table += "\t" + '"' + name + '": "' + property.example + '",' + "\n";
+        }    
+      }      
+    }
+  }  
+
+  
+  return table;
+}
+
 //Print resource table properties
 function printResourceTableProperties(schema, properties, prefix) {
 
@@ -1325,7 +1461,8 @@ function printResourceTableProperties(schema, properties, prefix) {
               dataType = property.type;
             }
 
-            table += "| " + prefix + name + " | " + dataType +" | " + description +" | " + example + " |\n";
+            //table += "| " + prefix + name + " | " + dataType +" | " + description +" | " + example + " |\n";
+            table += "| " + prefix + name + " (`" + dataType + "`)" + " | " + description +" | \n";
 
             alreadyPrinted = true;
 
@@ -1395,10 +1532,12 @@ function printResourceTableProperties(schema, properties, prefix) {
       //Make sure we don't double-print
       if(!alreadyPrinted) {
         if(isLegacy) {
-          table += "| *" + prefix + name + "* | *" + dataType +"* | *" + description +"* | |\n";
+          //table += "| *" + prefix + name + "* | *" + dataType +"* | *" + description +"* | |\n";
+          table += "| *" + prefix + name + " (`" + dataType + "`)" + "* | *" + description +"* | |\n";
         }
         else {
-          table += "| " + prefix + name + " | " + dataType +" | " + description +" | " + example + " |\n";
+          //table += "| " + prefix + name + " | " + dataType +" | " + description +" | " + example + " |\n";
+          table += "| " + prefix + name + " (`" + dataType + "`)" + " | " + description +" | \n";
         }    
       }      
     }

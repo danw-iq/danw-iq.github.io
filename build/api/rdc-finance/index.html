@@ -1,0 +1,3321 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>RQ Data Connect Finance Reports | iQmetrix Developer Portal</title>
+
+    <style>
+      /*.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}*/
+    </style>
+    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all_nosearch.js"></script>
+  </head>
+
+  <body class="api api_rdc-finance api_rdc-finance_index" data-languages="[]">
+
+    <div class="fixed-top">
+      <a class="navbar-logo" href="/"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">PRODUCTS</a></li>
+          <li><a href="/api/changelog">API REFERENCE</a></li>
+          <li><a href="/api/changelog">CORE CONCEPTS &amp; GUIDES</a></li>
+          <li><a href="/api/changelog">PARTNERS</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">CONTACT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="breadcrumb">
+      <ol>
+        <li><a href="/api/">API REFERENCE</a></li>
+        <li>></li>
+        <li><a href="">API DOCUMENTATION</a></li>
+        <li>></li>
+        <li class="active">CUSTOMER RELATIONSHIP MANAGEMENT (CRM)</li>
+      </ol>
+    </div>
+    <div class="title">
+      <h1>API Documentation</h1>
+      <p>In depth reference documentation for iQmetrix API's.</p>
+    </div>
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <!-- <img src="../../images/logo.png" alt="Logo" /> -->
+        <div class="lang-selector">
+        </div>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <p><link rel="stylesheet" type="text/css" href="../../css/prism.css"></p>
+
+<script src="../../js/prism.js"></script>
+
+<p>{% include linkrefs.html %}</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>RQ Data Connect allows you to retrieve report data from your RQ database (v4.23 and up).</p>
+
+<p>To get started, see <a href="/guides/rq-data-connect/">RQ Data Connect Guide</a>.</p>
+
+<h4 id="note">Note</h4>
+
+<p>For reports that provide optional URI parameters for filtering at different levels (ForWho/ForWhoIDs/LocationType/LocationTypeIDs), omitting these values will run the report at the default company level.</p>
+
+<h3 id="authentication">Authentication</h3>
+
+<p>RQ Data Connect and Bridge support many different methods of authentication, see {{AuthenticationOptions}}.</p>
+
+<p>Note that for all reports the {{AccessToken_Glossary}} should be mapped to an employee in RQ.</p>
+
+<h3 id="report-list">Report List</h3>
+
+<p>For a complete list of reports in RQ Data Connect, see <a href="/rq-data-connect/report-list">Report List</a>.</p>
+
+<h2 id="endpoints">Endpoints</h2>
+
+<ul>
+<li>Sandbox: <a href="https://rqdataconnectdemo.iqmetrix.net">https://rqdataconnectdemo.iqmetrix.net</a></li>
+<li>Production: <a href="https://rqdataconnect.iqmetrix.net">https://rqdataconnect.iqmetrix.net</a></li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<h2 id="cashoutsummaryreportdata">CashOutSummaryReportData</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"CashOutID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13775"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CashOutIDByStore"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84WEACA649"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StoreName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84 West"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Reconciled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-20T18:18:52.023"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StopDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-24T13:40:33.21"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EmployeeName1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iQmetrix Employee"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EmployeeUsername1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iQmetrix.Employee"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EmployeeName2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iQmetrix Employee"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EmployeeUsername2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iQmetrix.Employee"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PaymentName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CreditCardPaymentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PaymentReconciled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Cashout"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Reconciliation"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DepositNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ActualTotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1884.1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SystemTotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Skim"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Float"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DifferenceTotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1884.1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TransactionQuantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CashAndCheque"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1884.1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FloatRetained"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DepositAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1884.1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CashInAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BankDetails"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">CashOutID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal identifier in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">CashOutIDByStore (<code class="prettyprint">VARCHAR(14)</code>)</td>
+<td style="text-align: left">Cashout # - number that the system generated for the cashout at the time it was created. To view the cashout simply click its underlined link</td>
+</tr>
+<tr>
+<td style="text-align: left">StoreName (<code class="prettyprint">NVARCHAR(MAX)</code>)</td>
+<td style="text-align: left">Name of the store</td>
+</tr>
+<tr>
+<td style="text-align: left">Reconciled (<code class="prettyprint">VARCHAR(3)</code>)</td>
+<td style="text-align: left">A flag to indicate if the cashout was reconciled</td>
+</tr>
+<tr>
+<td style="text-align: left">StartDate (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Started On - start time of this cashout&rsquo;s interval. If this is the first cashout for this location then the Started On Date will be N/A</td>
+</tr>
+<tr>
+<td style="text-align: left">StopDate (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Stopped On - stop time of this cashout&rsquo;s interval</td>
+</tr>
+<tr>
+<td style="text-align: left">EmployeeName1 (<code class="prettyprint">VARCHAR(51)</code>)</td>
+<td style="text-align: left">Employee 1 - name of the employee who was logged in when the cashout was done</td>
+</tr>
+<tr>
+<td style="text-align: left">EmployeeUsername1 (<code class="prettyprint">VARCHAR(51)</code>)</td>
+<td style="text-align: left">Username1 - username of the employee who was logged in when the cashout was done</td>
+</tr>
+<tr>
+<td style="text-align: left">EmployeeName2 (<code class="prettyprint">VARCHAR(51)</code>)</td>
+<td style="text-align: left">Employee 2 - name of the employee who verified the cashout was correct, this may be the same person as Employee 1</td>
+</tr>
+<tr>
+<td style="text-align: left">EmployeeUsername2 (<code class="prettyprint">VARCHAR(51)</code>)</td>
+<td style="text-align: left">Username2 - the username of the employee who was logged in when the cashout was done</td>
+</tr>
+<tr>
+<td style="text-align: left">PaymentName (<code class="prettyprint">NVARCHAR(MAX)</code>)</td>
+<td style="text-align: left">Payment - payment type for the row&rsquo;s totals</td>
+</tr>
+<tr>
+<td style="text-align: left">CreditCardPaymentType (<code class="prettyprint">VARCHAR(20)</code>)</td>
+<td style="text-align: left">Credit card payment type</td>
+</tr>
+<tr>
+<td style="text-align: left">PaymentReconciled (<code class="prettyprint">VARCHAR(3)</code>)</td>
+<td style="text-align: left">Payment Reconciled - indicates whether the payment type has been reconciled or not</td>
+</tr>
+<tr>
+<td style="text-align: left">Cashout (<code class="prettyprint">VARCHAR(5000)</code>)</td>
+<td style="text-align: left">Cashout Comments - comments from the cashout</td>
+</tr>
+<tr>
+<td style="text-align: left">Reconciliation (<code class="prettyprint">VARCHAR(1000)</code>)</td>
+<td style="text-align: left">Reconciliation Comments - from the reconciliation if it has been done</td>
+</tr>
+<tr>
+<td style="text-align: left">DepositNumber (<code class="prettyprint">VARCHAR(50)</code>)</td>
+<td style="text-align: left">Deposit # - number for this particular deposit, e.g. bank deposit number</td>
+</tr>
+<tr>
+<td style="text-align: left">ActualTotal (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Your Total - total filled in by Employee 1 from the till totals for all transactions during the cashoutinterval for the row&rsquo;s payment type</td>
+</tr>
+<tr>
+<td style="text-align: left">SystemTotal (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">System Total - overall total the software has recorded for all transactions during the cashout interval for the row&rsquo;s payment type. This includes all payments accepted for sales, bill pay and for customer account payments</td>
+</tr>
+<tr>
+<td style="text-align: left">Skim (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Internal value in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">Float (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Internal value in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">DifferenceTotal (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Difference - Your Total - System Total</td>
+</tr>
+<tr>
+<td style="text-align: left">TransactionQuantity (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal value in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">CashAndCheque (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Cash/check (cheque) - total for the cash and check payment types</td>
+</tr>
+<tr>
+<td style="text-align: left">FloatRetained (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Float Retained - dollar amount retained as a float</td>
+</tr>
+<tr>
+<td style="text-align: left">DepositAmount (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Deposit - actual deposit value for that cashout</td>
+</tr>
+<tr>
+<td style="text-align: left">CashInAmount (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Cashin - cashed in float amount</td>
+</tr>
+<tr>
+<td style="text-align: left">BankDetails (<code class="prettyprint">NVARCHAR(MAX)</code>)</td>
+<td style="text-align: left">Bank Details - states the bank associated to the cashout</td>
+</tr>
+</tbody></table>
+
+<h2 id="chargebacksummaryreportlocationdata">ChargeBackSummaryReportLocationData</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StoreID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6679"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StoreName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100: My Network LLC - Anchorage"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TotalValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-100"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Quantity (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Qty</td>
+</tr>
+<tr>
+<td style="text-align: left">StoreID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal identifier for a store in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">StoreName (<code class="prettyprint">NVARCHAR (MAX)</code>)</td>
+<td style="text-align: left">Location</td>
+</tr>
+<tr>
+<td style="text-align: left">TotalValue (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Total Value - dollar value of the charge backs</td>
+</tr>
+</tbody></table>
+
+<h2 id="chargebacksummaryreportcategorydata">ChargeBackSummaryReportCategoryData</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Financing"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CategoryNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10101012"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CategoryPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activations"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TotalValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-100"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">CategoryName (<code class="prettyprint">NVARCHAR (MAX)</code>)</td>
+<td style="text-align: left">Category Name</td>
+</tr>
+<tr>
+<td style="text-align: left">CategoryNumber (<code class="prettyprint">NVARCHAR (100)</code>)</td>
+<td style="text-align: left">Internal identifier for a Category in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">CategoryPath (<code class="prettyprint">NVARCHAR (MAX)</code>)</td>
+<td style="text-align: left">Category</td>
+</tr>
+<tr>
+<td style="text-align: left">Quantity (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Qty</td>
+</tr>
+<tr>
+<td style="text-align: left">TotalValue (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Total Value - dollar value of the charge backs</td>
+</tr>
+</tbody></table>
+
+<h2 id="chargebacksummaryreportproductsummarydata">ChargeBackSummaryReportProductSummaryData</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"GlobalProductID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9809"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACFNRB000008"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vendor Rebate"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TotalValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-100"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">GlobalProductID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal identifier for a product in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductIdentifier (<code class="prettyprint">VARCHAR (12)</code>)</td>
+<td style="text-align: left">Product SKU</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductName (<code class="prettyprint">NVARCHAR (MAX)</code>)</td>
+<td style="text-align: left">Product Name</td>
+</tr>
+<tr>
+<td style="text-align: left">Quantity (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Qty</td>
+</tr>
+<tr>
+<td style="text-align: left">TotalValue (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Total Value - dollar value of the charge backs</td>
+</tr>
+</tbody></table>
+
+<h2 id="chargebacksummaryreportproductdetaildata">ChargeBackSummaryReportProductDetailData</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"AssociationNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CarrierPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CategoryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10101012"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CategoryNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Financing"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ChargeBackCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iQmetrix User"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ChargedBackByEmployee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ChargedBackByEmployeeID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CustomerID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CustomerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No Customer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateChargedBack"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-20T07:57:42.417"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateInvoiced"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-20T06:47:10.543"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FullChargeBackID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"322aa012-82dc-4373-a7d6-82faa2b4738b"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FullChargeBackIDByStore"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77224FC1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"GlobalProductID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9809"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"InvoicedByEmployee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iQmetrix User"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"InvoicedByEmployeeID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACFNRB000008"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vendor Rebate"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RelatedProduct"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RelatedProductID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SaleInvoiceID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"129036"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SaleInvoiceIDByStore"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77224IN5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1123123132"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TotalValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VendorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VendorSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">AssociationNumber (<code class="prettyprint">SMALLINT</code>)</td>
+<td style="text-align: left">When adding products with PAW all associated products from the sale have the same association number tied together, this value increments based on how many sales are made on that order</td>
+</tr>
+<tr>
+<td style="text-align: left">CarrierPrice (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Carrier Price - value or revenue assigned by the carrier</td>
+</tr>
+<tr>
+<td style="text-align: left">CategoryName (<code class="prettyprint">VARCHAR(100)</code>)</td>
+<td style="text-align: left">Category - inventory category to which the SKU belongs</td>
+</tr>
+<tr>
+<td style="text-align: left">CategoryNumber (<code class="prettyprint">VARCHAR(100)</code>)</td>
+<td style="text-align: left">Internal identifier for a Category in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">ChargeBackCode (<code class="prettyprint">VARCHAR(500)</code>)</td>
+<td style="text-align: left">Charge Back Code - specific code for this charge back</td>
+</tr>
+<tr>
+<td style="text-align: left">ChargedBackByEmployee (<code class="prettyprint">VARCHAR(160)</code>)</td>
+<td style="text-align: left">Tendered By - name of the employee logged into RQ when the invoice was tendered</td>
+</tr>
+<tr>
+<td style="text-align: left">ChargedBackByEmployeeID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Identifier for an employee in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">Comments (<code class="prettyprint">NVARCHAR(MAX)</code>)</td>
+<td style="text-align: left">Comments - any comments associated with this charge back</td>
+</tr>
+<tr>
+<td style="text-align: left">CustomerID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal identifier for a customer in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">CustomerName (<code class="prettyprint">VARCHAR(160)</code>)</td>
+<td style="text-align: left">Customer Name - name of the customer as entered on their profile</td>
+</tr>
+<tr>
+<td style="text-align: left">DateChargedBack (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Charged Back - date of the charge back</td>
+</tr>
+<tr>
+<td style="text-align: left">DateInvoiced (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Invoiced - date originally invoiced</td>
+</tr>
+<tr>
+<td style="text-align: left">FullChargeBackID (<code class="prettyprint">IDUNIQUEIDENTIFIER</code>)</td>
+<td style="text-align: left">Internal identifier in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">FullChargeBackIDByStore (<code class="prettyprint">VARCHAR(30)</code>)</td>
+<td style="text-align: left">Charge Back # - invoice number for the charge back</td>
+</tr>
+<tr>
+<td style="text-align: left">GlobalProductID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal identifier in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">InvoicedByEmployee (<code class="prettyprint">VARCHAR(160)</code>)</td>
+<td style="text-align: left">Sales Person - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box</td>
+</tr>
+<tr>
+<td style="text-align: left">InvoicedByEmployeeID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal identifier for an Employee in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductIdentifier (<code class="prettyprint">VARCHAR(12)</code>)</td>
+<td style="text-align: left">Product SKU - SKU of the product charged back</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductName (<code class="prettyprint">VARCHAR(100)</code>)</td>
+<td style="text-align: left">Product Name - description of the product charged back</td>
+</tr>
+<tr>
+<td style="text-align: left">Quantity (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Qty - total count of charge backs</td>
+</tr>
+<tr>
+<td style="text-align: left">RelatedProduct (<code class="prettyprint">VARCHAR(100)</code>)</td>
+<td style="text-align: left">Related Product - related product, if applicable</td>
+</tr>
+<tr>
+<td style="text-align: left">RelatedProductID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal identifier for a product in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">SaleInvoiceID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal identifier for an invoice in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">SaleInvoiceIDByStore (<code class="prettyprint">VARCHAR(30)</code>)</td>
+<td style="text-align: left">Invoice # - original invoice number</td>
+</tr>
+<tr>
+<td style="text-align: left">SerialNumber (<code class="prettyprint">VARCHAR(100)</code>)</td>
+<td style="text-align: left">Tracking Number - tracking number associated with the product charged back</td>
+</tr>
+<tr>
+<td style="text-align: left">TotalValue (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Total Value - dollar value of the charge backs</td>
+</tr>
+<tr>
+<td style="text-align: left">VendorName (<code class="prettyprint">NVARCHAR(MAX)</code>)</td>
+<td style="text-align: left">Name for a vendor in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">VendorSKU (<code class="prettyprint">VARCHAR(25)</code>)</td>
+<td style="text-align: left">Vendor SKU in RQ</td>
+</tr>
+</tbody></table>
+
+<h2 id="chargebacksummaryreportemployeedata">ChargeBackSummaryReportEmployeeData</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Commission"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"InvoicedByEmployee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iQmetrix User"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"InvoicedByEmployeeID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TotalValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Commission (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Commission</td>
+</tr>
+<tr>
+<td style="text-align: left">InvoicedByEmployee (<code class="prettyprint">VARCHAR (51)</code>)</td>
+<td style="text-align: left">Employee</td>
+</tr>
+<tr>
+<td style="text-align: left">InvoicedByEmployeeID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal identifier for an Employee in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">Quantity (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Qty</td>
+</tr>
+<tr>
+<td style="text-align: left">TotalValue (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Total Value - dollar value of the charge backs</td>
+</tr>
+</tbody></table>
+
+<h2 id="chargebacksummaryreporthardwarecollectiondata">ChargeBackSummaryReportHardwareCollectionData</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"AssociationNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CommissionRebate1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SaslTel New Activation"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CommissionRebate2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CustomerID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CustomerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No Customer"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateInvoiced"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-20T06:47:10.543"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EquipmentRebate"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"HardwareRebateGlobalProductID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"HardwareRebateSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPCCRB000104"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"InvoicedByEmployee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iQmetrix User"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"InvoicedByEmployeeID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsFullChargedBack1"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsFullChargedBack2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsFullChargedBack3"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RatePlanRebate2GlobalProductID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RatePlanRebate2SKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RatePlanRebateGlobalProductID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RatePlanRebateSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RelatedProduct"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RelatedProductID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SaleInvoiceID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"423"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SaleInvoiceIDByStore"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StoreID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6679"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StoreName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100: My Network LLC - Anchorage"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VendorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VendorSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">AssociationNumber (<code class="prettyprint">SMALLINT</code>)</td>
+<td style="text-align: left">When adding products with PAW all associated products from the sale have the same association number tied together, this value increments based on how many sales are made on that order</td>
+</tr>
+<tr>
+<td style="text-align: left">CommissionRebate1 (<code class="prettyprint">NVARCHAR(1000)</code>)</td>
+<td style="text-align: left">Commission Rebate 1 - name of the first commission rebate</td>
+</tr>
+<tr>
+<td style="text-align: left">CommissionRebate2 (<code class="prettyprint">NVARCHAR(1000)</code>)</td>
+<td style="text-align: left">Commission Rebate 2 - name of the second commission rebate</td>
+</tr>
+<tr>
+<td style="text-align: left">CustomerID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Identifier for a customer in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">CustomerName (<code class="prettyprint">VARCHAR(160)</code>)</td>
+<td style="text-align: left">Customer Name - name of the customer as entered on their profile</td>
+</tr>
+<tr>
+<td style="text-align: left">DateInvoiced (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Tendered On - date tendered</td>
+</tr>
+<tr>
+<td style="text-align: left">EquipmentRebate (<code class="prettyprint">NVARCHAR(1000)</code>)</td>
+<td style="text-align: left">Equipment Rebate - name of the equipment rebate</td>
+</tr>
+<tr>
+<td style="text-align: left">HardwareRebateGlobalProductID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal identifier for a product in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">HardwareRebateSKU (<code class="prettyprint">VARCHAR(12)</code>)</td>
+<td style="text-align: left">Equipment Rebate SKU - SKU of the equipment rebate</td>
+</tr>
+<tr>
+<td style="text-align: left">InvoicedByEmployee (<code class="prettyprint">VARCHAR(160)</code>)</td>
+<td style="text-align: left">Sales Person - name of the employee of record for the sale, i.e. the employee whose name is in the Commission box</td>
+</tr>
+<tr>
+<td style="text-align: left">InvoicedByEmployeeID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal identifier for an employee in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">IsFullChargedBack1 (<code class="prettyprint">VARCHAR(10)</code>)</td>
+<td style="text-align: left">Charged Back - yes if charged back</td>
+</tr>
+<tr>
+<td style="text-align: left">IsFullChargedBack2 (<code class="prettyprint">VARCHAR(10)</code>)</td>
+<td style="text-align: left">Charged Back - yes if charged back</td>
+</tr>
+<tr>
+<td style="text-align: left">IsFullChargedBack3 (<code class="prettyprint">VARCHAR(10)</code>)</td>
+<td style="text-align: left">Charged Back - yes if charged back</td>
+</tr>
+<tr>
+<td style="text-align: left">PhoneNumber (<code class="prettyprint">VARCHAR(30)</code>)</td>
+<td style="text-align: left">Phone - Mobile number of the device</td>
+</tr>
+<tr>
+<td style="text-align: left">Price (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Price - actual invoiced price</td>
+</tr>
+<tr>
+<td style="text-align: left">RatePlanRebate2GlobalProductID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal identifier in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">RatePlanRebate2SKU (<code class="prettyprint">VARCHAR(12)</code>)</td>
+<td style="text-align: left">Commission Rebate 2 SKU - SKU of the second commission rebate</td>
+</tr>
+<tr>
+<td style="text-align: left">RatePlanRebateGlobalProductID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal identifier in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">RatePlanRebateSKU (<code class="prettyprint">VARCHAR(12)</code>)</td>
+<td style="text-align: left">Commission Rebate SKU - SKU of the first commission rebate</td>
+</tr>
+<tr>
+<td style="text-align: left">RelatedProduct (<code class="prettyprint">VARCHAR(100)</code>)</td>
+<td style="text-align: left">Related Product - product associated with this rebate</td>
+</tr>
+<tr>
+<td style="text-align: left">RelatedProductID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal identifier in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">SaleInvoiceID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal identifier in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">SaleInvoiceIDByStore (<code class="prettyprint">VARCHAR(30)</code>)</td>
+<td style="text-align: left">Invoice # - original invoice number</td>
+</tr>
+<tr>
+<td style="text-align: left">SerialNumber (<code class="prettyprint">VARCHAR(100)</code>)</td>
+<td style="text-align: left">Serial number</td>
+</tr>
+<tr>
+<td style="text-align: left">StoreID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Collection Date - date collected</td>
+</tr>
+<tr>
+<td style="text-align: left">StoreName (<code class="prettyprint">VARCHAR(100)</code>)</td>
+<td style="text-align: left">Tendered At - location where tendered</td>
+</tr>
+<tr>
+<td style="text-align: left">VendorName (<code class="prettyprint">NVARCHAR(MAX)</code>)</td>
+<td style="text-align: left">Name for a vendor in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">VendorSKU (<code class="prettyprint">VARCHAR(25)</code>)</td>
+<td style="text-align: left">Vendor SKU</td>
+</tr>
+</tbody></table>
+
+<h2 id="outstandinggiftcardsreportdata">OutstandingGiftCardsReportData</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"SerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7777085179051274"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateSold"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-14T13:05:14.133"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CustomerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bill Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastRedeemedGMT"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-14T19:30:37.063"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastRedeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-14T13:30:37.063"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RedeemedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84 West"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RedeemedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bill Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77.52"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SaleInvoiceID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"634"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"InvoiceIDByStore"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIL44AH9"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iTunes 20"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASBTHT000018"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"InvoiceSerialMask"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">SerialNumber (<code class="prettyprint">VARCHAR(35)</code>)</td>
+<td style="text-align: left">Card Number - activation number for the gift card</td>
+</tr>
+<tr>
+<td style="text-align: left">DateSold (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Activated On - date the gift card was activated</td>
+</tr>
+<tr>
+<td style="text-align: left">CustomerName (<code class="prettyprint">VARCHAR(101)</code>)</td>
+<td style="text-align: left">Customer - name of the customer who purchased the gift card</td>
+</tr>
+<tr>
+<td style="text-align: left">LastRedeemedGMT (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Last Redeemed (GMT) - when the gift card was last redeemed, in GMT time</td>
+</tr>
+<tr>
+<td style="text-align: left">LastRedeemed (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Last Redeemed - when the gift card was last redeemed, local time</td>
+</tr>
+<tr>
+<td style="text-align: left">RedeemedAt (<code class="prettyprint">NVARCHAR(MAX)</code>)</td>
+<td style="text-align: left">Redeemed At - location where the card was redeemed</td>
+</tr>
+<tr>
+<td style="text-align: left">RedeemedBy (<code class="prettyprint">VARCHAR(151)</code>)</td>
+<td style="text-align: left">Redeemed By - name of the customer who redeemed the gift card</td>
+</tr>
+<tr>
+<td style="text-align: left">Balance (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Balance - remaining balance</td>
+</tr>
+<tr>
+<td style="text-align: left">SaleInvoiceID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal identifier for an invoice in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">InvoiceIDByStore (<code class="prettyprint">VARCHAR(14)</code>)</td>
+<td style="text-align: left">Invoice Number - invoice number with a link to the invoice</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductName (<code class="prettyprint">NVARCHAR(MAX)</code>)</td>
+<td style="text-align: left">Product Name - product description of the card</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductSKU (<code class="prettyprint">VARCHAR(20)</code>)</td>
+<td style="text-align: left">Product SKU - product SKU assigned to the gift card</td>
+</tr>
+<tr>
+<td style="text-align: left">InvoiceSerialMask (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Amount of the SerialNumber to mask</td>
+</tr>
+</tbody></table>
+
+<h2 id="paymentintegrationtransactionreportdata">PaymentIntegrationTransactionReportData</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"InvoiceID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"122337"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StoreInvoiceID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84WEAIN5981"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CustomerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice Kim"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EmployeeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sam Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"InvoiceTypeID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"InvoiceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invoice"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LocationEntityID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14192"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AuthType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sale"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TransType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CardTypeID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CardType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EntryTypeID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EntryType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Swiped"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MerchantNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1111"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TerminalNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90572837"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AuthDateUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-28T16:31:58.877"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AuthorizationNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABS251"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CardholderName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Test"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CardBin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"545454"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastFourDigits"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5454"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TransactionResult"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Approved"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ReversedVoided"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ReversedVoidedReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Auto Void from Incomplete Invoice"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VoidedByEmployeeEntityID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VoidedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-30T16:31:58.877"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">InvoiceID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Unique identifier for the invoice in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">StoreInvoiceID (<code class="prettyprint">VARCHAR(14)</code>)</td>
+<td style="text-align: left">Invoice identifier displayed to the user and on the printed invoice</td>
+</tr>
+<tr>
+<td style="text-align: left">CustomerName (<code class="prettyprint">VARCHAR(101)</code>)</td>
+<td style="text-align: left">Customer name</td>
+</tr>
+<tr>
+<td style="text-align: left">EmployeeName (<code class="prettyprint">VARCHAR(51)</code>)</td>
+<td style="text-align: left">Employee name</td>
+</tr>
+<tr>
+<td style="text-align: left">InvoiceTypeID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Identifier for the InvoiceType, see InvoiceType property</td>
+</tr>
+<tr>
+<td style="text-align: left">InvoiceType (<code class="prettyprint">VARCHAR(15)</code>)</td>
+<td style="text-align: left">Name of the <a href='#invoicetype'>InvoiceType</a></td>
+</tr>
+<tr>
+<td style="text-align: left">LocationEntityID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Identifier of the store as a <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a> in Entity Store</td>
+</tr>
+<tr>
+<td style="text-align: left">AuthType (<code class="prettyprint">VARCHAR(4)</code>)</td>
+<td style="text-align: left">Indicates sale or refund</td>
+</tr>
+<tr>
+<td style="text-align: left">TransType (<code class="prettyprint">VARCHAR(8)</code>)</td>
+<td style="text-align: left">What type of transaction this is (Credit/Debit)</td>
+</tr>
+<tr>
+<td style="text-align: left">CardTypeID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Identifier for the CardType. See CardType property</td>
+</tr>
+<tr>
+<td style="text-align: left">CardType (<code class="prettyprint">VARCHAR(50)</code>)</td>
+<td style="text-align: left">Name of the <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect-Finance-Reports/#cardtype'>CardType</a>. See <a href='#getting-card-types'>Getting Card Types</a> for a list of possible values</td>
+</tr>
+<tr>
+<td style="text-align: left">Amount (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Amount requested</td>
+</tr>
+<tr>
+<td style="text-align: left">EntryTypeID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Identifier for the EntryType, see EntryType property</td>
+</tr>
+<tr>
+<td style="text-align: left">EntryType (<code class="prettyprint">VARCHAR(50)</code>)</td>
+<td style="text-align: left">Name of the <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect-Finance-Reports/#entrytype'>EntryType</a>. See <a href='#getting-entry-types'>Getting Entry Types</a> for a list of possible values</td>
+</tr>
+<tr>
+<td style="text-align: left">MerchantNumber (<code class="prettyprint">VARCHAR(50)</code>)</td>
+<td style="text-align: left">The Merchant Number / ID used in payment credentials for this transaction</td>
+</tr>
+<tr>
+<td style="text-align: left">TerminalNumber (<code class="prettyprint">VARCHAR(50)</code>)</td>
+<td style="text-align: left">The Terminal Number / ID used in payment credentials for this transaction</td>
+</tr>
+<tr>
+<td style="text-align: left">AuthDateUTC (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Date of Transaction in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">AuthorizationNumber (<code class="prettyprint">VARCHAR(10)</code>)</td>
+<td style="text-align: left">Authorization Number from Payment Processor</td>
+</tr>
+<tr>
+<td style="text-align: left">CardholderName (<code class="prettyprint">VARCHAR(100)</code>)</td>
+<td style="text-align: left">Name of Cardholder</td>
+</tr>
+<tr>
+<td style="text-align: left">CardBin (<code class="prettyprint">VARCHAR(6)</code>)</td>
+<td style="text-align: left">The payment cards Bank Identifiation Number (BIN)</td>
+</tr>
+<tr>
+<td style="text-align: left">LastFourDigits (<code class="prettyprint">VARCHAR(4)</code>)</td>
+<td style="text-align: left">Last four digits of card</td>
+</tr>
+<tr>
+<td style="text-align: left">TransactionResult (<code class="prettyprint">VARCHAR(110)</code>)</td>
+<td style="text-align: left">Indicated Approved or Declined</td>
+</tr>
+<tr>
+<td style="text-align: left">ReversedVoided (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">A flag to indicate if the transaction was reversed/voided (1) or not (0)</td>
+</tr>
+<tr>
+<td style="text-align: left">ReversedVoidedReason (<code class="prettyprint">VARCHAR(150)</code>)</td>
+<td style="text-align: left">String explanation on why the original transaction was voided. Only appears on void transactions, not on the original sale transation</td>
+</tr>
+<tr>
+<td style="text-align: left">VoidedByEmployeeEntityID (<code class="prettyprint">NVARCHAR(50)</code>)</td>
+<td style="text-align: left">Identifier for a <a href='http://developers.iqmetrix.com/api/user-manager/#user'>User</a> who voided this transaction</td>
+</tr>
+<tr>
+<td style="text-align: left">VoidedDate (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Date Transaction was voided in UTC</td>
+</tr>
+</tbody></table>
+
+<h2 id="taxdetailsreportdata">TaxDetailsReportData</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"DateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-31T12:35:07.05"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SaleInvoiceID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"166519"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"InvoiceIDByStore"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MIL44AH9"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TenderedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Test"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TenderedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cornwall"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CustomerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice Smith"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Return"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Invoiced"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-910.94"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Sales"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-910.94"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-405.67"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Profit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-505.27"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Adjusted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Taxable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yes"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Refund"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yes"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VendorRebates"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VendorRebatesTax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Coupons"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CouponsTax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"YourPriceTaxableSales"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-910.94"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ListPriceTaxableSales"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"GreaterOfTaxableSales"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-69.94"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FlatTaxableSales"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"NonTaxableSales"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TaxCollected"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-59.79"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TaxExemptReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">DateCreated (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Invoice Date - date the invoice was tendered</td>
+</tr>
+<tr>
+<td style="text-align: left">SaleInvoiceID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal identifier for an Invoice in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">InvoiceIDByStore (<code class="prettyprint">VARCHAR(14)</code>)</td>
+<td style="text-align: left">Invoice #- invoice number assigned by RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">TenderedBy (<code class="prettyprint">VARCHAR(51)</code>)</td>
+<td style="text-align: left">Invoiced By- name of the location which credited with the sale, usually the same as Invoiced At but will be different if a second location process a refund</td>
+</tr>
+<tr>
+<td style="text-align: left">TenderedAt (<code class="prettyprint">NVARCHAR(MAX)</code>)</td>
+<td style="text-align: left">Invoiced At- name of the location which takes the inventory on a refund, usually the same as Invoiced By but will be different if a second location process a refund</td>
+</tr>
+<tr>
+<td style="text-align: left">CustomerName (<code class="prettyprint">VARCHAR(151)</code>)</td>
+<td style="text-align: left">Customer Name - name of the customer as entered on their profile</td>
+</tr>
+<tr>
+<td style="text-align: left">Comments (<code class="prettyprint">NVARCHAR(MAX)</code>)</td>
+<td style="text-align: left">Invoice Comments - any comments on the invoice</td>
+</tr>
+<tr>
+<td style="text-align: left">Invoiced (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Total Invoiced - total dollar value of the invoice</td>
+</tr>
+<tr>
+<td style="text-align: left">Sales (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Total Sales - total dollar value of the sales on the invoice, usually the same as Total Invoiced except in the case of gift card sales</td>
+</tr>
+<tr>
+<td style="text-align: left">Cost (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Total Cost - total purchase cost for all product on the invoice</td>
+</tr>
+<tr>
+<td style="text-align: left">Profit (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Total GP - gross profit for the invoice</td>
+</tr>
+<tr>
+<td style="text-align: left">Adjusted (<code class="prettyprint">VARCHAR(32)</code>)</td>
+<td style="text-align: left">Adjusted - indicates if the invoice was adjusted</td>
+</tr>
+<tr>
+<td style="text-align: left">Taxable (<code class="prettyprint">VARCHAR(32)</code>)</td>
+<td style="text-align: left">Taxable - indicates if this line is taxable</td>
+</tr>
+<tr>
+<td style="text-align: left">Refund (<code class="prettyprint">VARCHAR(32)</code>)</td>
+<td style="text-align: left">Refund - indicates if this is a refund</td>
+</tr>
+<tr>
+<td style="text-align: left">VendorRebates (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Total Vendor Rebates - total vendor rebate dollar amount</td>
+</tr>
+<tr>
+<td style="text-align: left">VendorRebatesTax (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Tax On Vendor Rebates - dollar amount of tax on any vendor rebates</td>
+</tr>
+<tr>
+<td style="text-align: left">Coupons (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Total Coupons - total dollar amount of coupons</td>
+</tr>
+<tr>
+<td style="text-align: left">CouponsTax (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Tax On Coupons - total dollar amount of tax collected on coupons</td>
+</tr>
+<tr>
+<td style="text-align: left">YourPriceTaxableSales (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Full Your Price Taxable Amount - total your price taxable amount (based on the price the product was sold for)</td>
+</tr>
+<tr>
+<td style="text-align: left">ListPriceTaxableSales (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Full List Price Taxable Amount - total list price taxable amount (based on the original retail price rung up at the POS based on the inventory settings, prior to giving a discount)</td>
+</tr>
+<tr>
+<td style="text-align: left">GreaterOfTaxableSales (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Full Greater of Your Price And Cost Taxable Amount - based on (greater of the price the product sold for, or the cost of the product)</td>
+</tr>
+<tr>
+<td style="text-align: left">FlatTaxableSales (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Full Flat Taxable Amount - based on the price the product was sold for</td>
+</tr>
+<tr>
+<td style="text-align: left">NonTaxableSales (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Tax Exempt Amount - total tax exempt amount</td>
+</tr>
+<tr>
+<td style="text-align: left">TaxCollected (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Total Tax Paid Amount - total dollar amount of tax paid</td>
+</tr>
+<tr>
+<td style="text-align: left">TaxExemptReasonCode (<code class="prettyprint">VARCHAR(1)</code>)</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<h2 id="entrytype">EntryType</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"EntryTypeID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EntryTypeDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Swiped"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Swiped"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">EntryTypeID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">EntryTypeDescription (<code class="prettyprint">VARCHAR(50)</code>)</td>
+<td style="text-align: left">Description</td>
+</tr>
+<tr>
+<td style="text-align: left">Message (<code class="prettyprint">NVARCHAR(MAX)</code>)</td>
+<td style="text-align: left">Message</td>
+</tr>
+</tbody></table>
+
+<h2 id="cardtype">CardType</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"CardTypeID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mastercard"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Mnemonic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MC"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AccountNumberLength"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CvvLength"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">CardTypeID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">FullName (<code class="prettyprint">VARCHAR(50)</code>)</td>
+<td style="text-align: left">Full card name</td>
+</tr>
+<tr>
+<td style="text-align: left">Mnemonic (<code class="prettyprint">VARCHAR(2)</code>)</td>
+<td style="text-align: left">Card abbreviation</td>
+</tr>
+<tr>
+<td style="text-align: left">AccountNumberLength (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Length of account number</td>
+</tr>
+<tr>
+<td style="text-align: left">CvvLength (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Length of CVV number on card</td>
+</tr>
+</tbody></table>
+
+<h2 id="enumerations">Enumerations</h2>
+
+<h3 id="invoicetype">InvoiceType</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Id</th>
+<th style="text-align: left">Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">1</td>
+<td style="text-align: left">Invoice</td>
+</tr>
+<tr>
+<td style="text-align: left">2</td>
+<td style="text-align: left">Pay Off Account</td>
+</tr>
+<tr>
+<td style="text-align: left">3</td>
+<td style="text-align: left">Vendor Deposit</td>
+</tr>
+<tr>
+<td style="text-align: left">4</td>
+<td style="text-align: left">Sale Order</td>
+</tr>
+<tr>
+<td style="text-align: left">5</td>
+<td style="text-align: left">Bill Payment</td>
+</tr>
+</tbody></table>
+
+<h2 id="requests">Requests</h2>
+
+<h3 id='getting-the-cashout-summary-report' class='clickable-header top-level-header'>Getting the Cashout Summary Report</h3>
+
+<p>For more information see {{support_CashoutSummaryReport}}.      </p>
+
+<h4>Request</h4>
+
+<pre>
+GET /reports/CashOutSummaryReport?StartDate={StartDate}&StopDate={StopDate}&ForWho={ForWho}&ForWhoIDs={ForWhoIDs}&LocationType={LocationType}&LocationTypeIDs={LocationTypeIDs}&LanguageCode={LanguageCode}&Auth={Auth}&Response={Response}
+</pre>
+
+<h4>Headers</h4>
+
+<ul><li><code>Authorization: Bearer (Access Token)</code> (Optional) - Bearer token used for authentication. For other methods of authentication, see {{AuthenticationOptions}}</li><li><code>Accept-Encoding: gzip</code> (Optional) - Compression algorithm. For other methods of compression, see {{CompressionOptions}}</li></ul>
+
+<h4>URI Parameters</h4>
+
+<ul>
+    
+    <li>
+        <code>StartDate</code> (<strong>Required</strong>)  - Date at which report will begin
+    </li>
+    
+    <li>
+        <code>StopDate</code> (<strong>Required</strong>)  - Date at which report will end
+    </li>
+    
+    <li>
+        <code>ForWho</code> (Optional)  - Identifier for a level at which to perform the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-report-levels-in-rq">Getting Report Levels in RQ</a>. If <strong>LocationType</strong> is provided, this value is ignored
+    </li>
+    
+    <li>
+        <code>ForWhoIDs</code> (Optional)  - A comma seperated list of identifiers to filter the report. For a list of identifiers, see <a href="/api/RQ-Data-Connect/#getting-nodes-by-location-type">Getting Nodes By Location Type</a>. If <strong>LocationTypeIDs</strong> is provided, this value is ignored. To ignore filtering use -1
+    </li>
+    
+    <li>
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+    </li>
+    
+    <li>
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+    </li>
+    
+    <li>
+        <code>LanguageCode</code> (Optional)  - Language code, defaults to en-us. For a complete list, see <a href='/api/RQ-Data-Connect/#getting-language-codes'>Getting Language Codes</a>
+    </li>
+    
+    <li>
+        <code>Auth</code> (Optional)  - Basic token used for authentication. For other methods of authentication, see {{AuthenticationOptions}}
+    </li>
+    
+    <li>
+        <code>Response</code> (Optional)  - Default is JSON. For other methods of response, see {{ResponseOptions}}
+    </li>
+    </ul>
+
+
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-the-cashout-summary-report" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-the-cashout-summary-report" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-the-cashout-summary-report" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-the-cashout-summary-report" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-the-cashout-summary-report" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-the-cashout-summary-report" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-the-cashout-summary-report"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-the-cashout-summary-report">
+<pre id="http-code-getting-the-cashout-summary-report"><code class="language-http">GET /reports/CashOutSummaryReport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&ForWho=4&ForWhoIDs=1&LocationType=Store&LocationTypeIDs=1,2&LanguageCode=en-us
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-the-cashout-summary-report">
+<pre id="curl-code-getting-the-cashout-summary-report"><code class="language-http">curl -X GET "https://rqdataconnectdemo.iqmetrix.net/reports/CashOutSummaryReport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&ForWho=4&ForWhoIDs=1&LocationType=Store&LocationTypeIDs=1,2&LanguageCode=en-us"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-the-cashout-summary-report">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-the-cashout-summary-report"><code class="language-csharp">static IRestResponse GettingTheCashoutSummaryReport()
+{
+    var client = new RestClient("https://rqdataconnectdemo.iqmetrix.net/reports/CashOutSummaryReport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&ForWho=4&ForWhoIDs=1&LocationType=Store&LocationTypeIDs=1,2&LanguageCode=en-us");
+    var request = new RestRequest(Method.GET);
+     
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-the-cashout-summary-report">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-the-cashout-summary-report"><code class="language-java">
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse GettingTheCashoutSummaryReport() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpGet request = new HttpGet("https://rqdataconnectdemo.iqmetrix.net/reports/CashOutSummaryReport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&ForWho=4&ForWhoIDs=1&LocationType=Store&LocationTypeIDs=1,2&LanguageCode=en-us");
+     
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-the-cashout-summary-report">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-the-cashout-summary-report"><code class="language-ruby">require 'rest-client'
+
+
+
+response = RestClient.get 'https://rqdataconnectdemo.iqmetrix.net/reports/CashOutSummaryReport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&ForWho=4&ForWhoIDs=1&LocationType=Store&LocationTypeIDs=1,2&LanguageCode=en-us', {
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<p>Array[[cashoutsummaryreportdata](#CashOutSummaryReportData)]</p>           
+    
+
+<ul class="nav nav-tabs">
+    
+        <li class="active">
+            <a href="#applicationjson-getting-the-cashout-summary-report" data-toggle="tab">application/json</a>
+        </li>
+    
+        <li>
+            <a href="#applicationJsonDataTable-getting-the-cashout-summary-report" data-toggle="tab">application/json (DataTable)</a>
+        </li>
+    
+        <li>
+            <a href="#textxml-getting-the-cashout-summary-report" data-toggle="tab">text/xml</a>
+        </li>
+    
+        <li>
+            <a href="#textXmlDataTable-getting-the-cashout-summary-report" data-toggle="tab">text/xml (Data Table)</a>
+        </li>
+    
+        <li>
+            <a href="#textcsv-getting-the-cashout-summary-report" data-toggle="tab">text/csv</a>
+        </li>
+    
+        <li>
+            <a href="#applicationvndopenxmlformats-officedocumentspreadsheetmlsheet-getting-the-cashout-summary-report" data-toggle="tab">application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</a>
+        </li>
+    
+</ul>
+
+<div class="tab-content"> 
+    
+        <div role="tabpanel" class="tab-pane active" id="applicationjson-getting-the-cashout-summary-report">
+             
+<pre>HTTP 200 Content-Type: application/json</pre>
+<p>This is the default result obtained by omitting the <code>Auth</code> URI parameter</p>
+<pre><code class="language-csharp">[
+    {
+        "CashOutID": 13775,
+        "CashOutIDByStore": "84WEACA649",
+        "StoreName": "84 West",
+        "Reconciled": "No",
+        "StartDate": "2012-08-20T18:18:52.023",
+        "StopDate": "2015-02-24T13:40:33.21",
+        "EmployeeName1": "iQmetrix Employee",
+        "EmployeeUsername1": "iQmetrix.Employee",
+        "EmployeeName2": "iQmetrix Employee",
+        "EmployeeUsername2": "iQmetrix.Employee",
+        "PaymentName": "Cash",
+        "CreditCardPaymentType": "",
+        "PaymentReconciled": "No",
+        "Cashout": "",
+        "Reconciliation": "",
+        "DepositNumber": "100.00",
+        "ActualTotal": 1884.1,
+        "SystemTotal": 0,
+        "Skim": 0,
+        "Float": 0,
+        "DifferenceTotal": 1884.1,
+        "TransactionQuantity": 0,
+        "CashAndCheque": 1884.1,
+        "FloatRetained": 0,
+        "DepositAmount": 1884.1,
+        "CashInAmount": 0,
+        "BankDetails": ""
+    }
+]</code></pre>      
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="applicationJsonDataTable-getting-the-cashout-summary-report">
+             
+<pre>HTTP 200 Content-Type: application/json</pre>
+<p>This is the default result obtained by omitting the URI parameter <code>Auth=JsonDataTable</code>. This response type wraps the data in a &ldquo;Records&rdquo; array and adds a &ldquo;Schema&rdquo; array, which contains information about each column in the report.
+</p>
+<pre><code class="language-csharp">{
+    "Records": [
+        {
+            "CashOutID": 13775,
+            "CashOutIDByStore": "84WEACA649",
+            "StoreName": "84 West",
+            "Reconciled": "No",
+            "StartDate": "2012-08-20T18:18:52.023",
+            "StopDate": "2015-02-24T13:40:33.21",
+            "EmployeeName1": "iQmetrix Employee",
+            "EmployeeUsername1": "iQmetrix.Employee",
+            "EmployeeName2": "iQmetrix Employee",
+            "EmployeeUsername2": "iQmetrix.Employee",
+            "PaymentName": "Cash",
+            "CreditCardPaymentType": "",
+            "PaymentReconciled": "No",
+            "Cashout": "",
+            "Reconciliation": "",
+            "DepositNumber": "100.00",
+            "ActualTotal": 1884.1,
+            "SystemTotal": 0,
+            "Skim": 0,
+            "Float": 0,
+            "DifferenceTotal": 1884.1,
+            "TransactionQuantity": 0,
+            "CashAndCheque": 1884.1,
+            "FloatRetained": 0,
+            "DepositAmount": 1884.1,
+            "CashInAmount": 0,
+            "BankDetails": ""
+        }
+    ],
+    "Schema": [
+        {
+            "Column_Name": "ColumnName",
+            "Type": "datatype",
+            "SafeType": "safetype",
+            "Length": 100
+        }
+    ]
+}</code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textxml-getting-the-cashout-summary-report">
+            
+<pre>HTTP 200 Content-Type: text/xml</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Xml</code></p>
+<pre><code class="language-xml"><script><Table>
+  <Record>
+    <CashOutID>13775</CashOutID>
+    <CashOutIDByStore>84WEACA649</CashOutIDByStore>
+    <StoreName>84 West</StoreName>
+    <Reconciled>No</Reconciled>
+    <StartDate>2012-08-20T18:18:52.023</StartDate>
+    <StopDate>2015-02-24T13:40:33.21</StopDate>
+    <EmployeeName1>iQmetrix Employee</EmployeeName1>
+    <EmployeeUsername1>iQmetrix.Employee</EmployeeUsername1>
+    <EmployeeName2>iQmetrix Employee</EmployeeName2>
+    <EmployeeUsername2>iQmetrix.Employee</EmployeeUsername2>
+    <PaymentName>Cash</PaymentName>
+    <CreditCardPaymentType></CreditCardPaymentType>
+    <PaymentReconciled>No</PaymentReconciled>
+    <Cashout></Cashout>
+    <Reconciliation></Reconciliation>
+    <DepositNumber>100.00</DepositNumber>
+    <ActualTotal>1884.1</ActualTotal>
+    <SystemTotal>0</SystemTotal>
+    <Skim>0</Skim>
+    <Float>0</Float>
+    <DifferenceTotal>1884.1</DifferenceTotal>
+    <TransactionQuantity>0</TransactionQuantity>
+    <CashAndCheque>1884.1</CashAndCheque>
+    <FloatRetained>0</FloatRetained>
+    <DepositAmount>1884.1</DepositAmount>
+    <CashInAmount>0</CashInAmount>
+    <BankDetails></BankDetails>
+  </Record>
+</Table></script></code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textXmlDataTable-getting-the-cashout-summary-report">
+            
+<pre>HTTP 200 Content-Type: text/xml</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=XmlDataTable</code>. This response type appends to the bottom of the request a summary of information about each column in the report.
+</p>
+<pre><code class="language-xml"><script><Table>
+  <Record>
+    <CashOutID>13775</CashOutID>
+    <CashOutIDByStore>84WEACA649</CashOutIDByStore>
+    <StoreName>84 West</StoreName>
+    <Reconciled>No</Reconciled>
+    <StartDate>2012-08-20T18:18:52.023</StartDate>
+    <StopDate>2015-02-24T13:40:33.21</StopDate>
+    <EmployeeName1>iQmetrix Employee</EmployeeName1>
+    <EmployeeUsername1>iQmetrix.Employee</EmployeeUsername1>
+    <EmployeeName2>iQmetrix Employee</EmployeeName2>
+    <EmployeeUsername2>iQmetrix.Employee</EmployeeUsername2>
+    <PaymentName>Cash</PaymentName>
+    <CreditCardPaymentType></CreditCardPaymentType>
+    <PaymentReconciled>No</PaymentReconciled>
+    <Cashout></Cashout>
+    <Reconciliation></Reconciliation>
+    <DepositNumber>100.00</DepositNumber>
+    <ActualTotal>1884.1</ActualTotal>
+    <SystemTotal>0</SystemTotal>
+    <Skim>0</Skim>
+    <Float>0</Float>
+    <DifferenceTotal>1884.1</DifferenceTotal>
+    <TransactionQuantity>0</TransactionQuantity>
+    <CashAndCheque>1884.1</CashAndCheque>
+    <FloatRetained>0</FloatRetained>
+    <DepositAmount>1884.1</DepositAmount>
+    <CashInAmount>0</CashInAmount>
+    <BankDetails></BankDetails>
+  </Record>
+  <Schema>
+    <Column_Name>ColumnName</Column_Name>
+    <Type>datatybe</Type>
+    <SafeType>safetype</SafeType>
+    <Length>100</Length>
+  </Schema>
+</Table></script></code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textcsv-getting-the-cashout-summary-report">
+            
+<pre>HTTP 200 Content-Type: text/csv</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Csv</code></p>
+<pre>CashOutID,CashOutIDByStore,StoreName,Reconciled,StartDate,StopDate,EmployeeName1,EmployeeUsername1,EmployeeName2,EmployeeUsername2,PaymentName,CreditCardPaymentType,PaymentReconciled,Cashout,Reconciliation,DepositNumber,ActualTotal,SystemTotal,Skim,Float,DifferenceTotal,TransactionQuantity,CashAndCheque,FloatRetained,DepositAmount,CashInAmount,BankDetails
+13775,84WEACA649,84 West,No,2012-08-20T18:18:52.023,2015-02-24T13:40:33.21,iQmetrix Employee,iQmetrix.Employee,iQmetrix Employee,iQmetrix.Employee,Cash,,No,,,100.00,1884.1,0,0,0,1884.1,0,1884.1,0,1884.1,0,</pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="applicationvndopenxmlformats-officedocumentspreadsheetmlsheet-getting-the-cashout-summary-report">
+            
+<pre>HTTP 200 Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Excel</code></p>
+<pre>content-disposition: attachment;filename=reportname-2016-07-11.xlsx
+Binary *.xlsx file</pre>
+            
+        </div>
+                
+</div>
+        
+
+<h3 id='getting-the-charge-back-summary-report' class='clickable-header top-level-header'>Getting the Charge Back Summary Report</h3>
+
+<p><a name="commission-reports"></a>For more information, see {{support_ChargeBackSummaryReport}}.</p>
+
+<p>Note that this report has multiple responses, depending on the ReportPart specified.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Report Part</th>
+<th style="text-align: left">Response</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">1</td>
+<td style="text-align: left"><a href='http://developers.iqmetrix.com/api/RQ-Data-Connect-Finance-Reports/#chargebacksummaryreportlocationdata'>ChargeBackSummaryReportLocationData</a></td>
+</tr>
+<tr>
+<td style="text-align: left">2</td>
+<td style="text-align: left"><a href='http://developers.iqmetrix.com/api/RQ-Data-Connect-Finance-Reports/#chargebacksummaryreportcategorydata'>ChargeBackSummaryReportCategoryData</a></td>
+</tr>
+<tr>
+<td style="text-align: left">3</td>
+<td style="text-align: left"><a href='http://developers.iqmetrix.com/api/RQ-Data-Connect-Finance-Reports/#chargebacksummaryreportproductsummarydata'>ChargeBackSummaryReportProductSummaryData</a></td>
+</tr>
+<tr>
+<td style="text-align: left">4</td>
+<td style="text-align: left"><a href='http://developers.iqmetrix.com/api/RQ-Data-Connect-Finance-Reports/#chargebacksummaryreportproductdetaildata'>ChargeBackSummaryReportProductDetailData</a></td>
+</tr>
+<tr>
+<td style="text-align: left">5</td>
+<td style="text-align: left"><a href='http://developers.iqmetrix.com/api/RQ-Data-Connect-Finance-Reports/#chargebacksummaryreportemployeedata'>ChargeBackSummaryReportEmployeeData</a></td>
+</tr>
+<tr>
+<td style="text-align: left">6</td>
+<td style="text-align: left"><a href='http://developers.iqmetrix.com/api/RQ-Data-Connect-Finance-Reports/#chargebacksummaryreporthardwarecollectiondata'>ChargeBackSummaryReportHardwareCollectionData</a></td>
+</tr>
+</tbody></table>
+
+<h4>Request</h4>
+
+<pre>
+GET /reports/chargebacksummaryreport?SearchMethod={SearchMethod}&CategoryNumber={CategoryNumber}&InvoiceStartDate={InvoiceStartDate}&InvoiceStopDate={InvoiceStopDate}&ChargeBackStartDate={ChargeBackStartDate}&ChargeBackStopDate={ChargeBackStopDate}&JournalIDs={JournalIDs}&QueryPart={QueryPart}&ForWho={ForWho}&ForWhoIDs={ForWhoIDs}&LocationType={LocationType}&LocationTypeIDs={LocationTypeIDs}&ProductIdentifier={ProductIdentifier}&LanguageCode={LanguageCode}&Auth={Auth}&Response={Response}
+</pre>
+
+<h4>Headers</h4>
+
+<ul><li><code>Authorization: Bearer (Access Token)</code> (Optional) - Bearer token used for authentication. For other methods of authentication, see {{AuthenticationOptions}}</li><li><code>Accept-Encoding: gzip</code> (Optional) - Compression algorithm. For other methods of compression, see {{CompressionOptions}}</li></ul>
+
+<h4>URI Parameters</h4>
+
+<ul>
+    
+    <li>
+        <code>SearchMethod</code> (<strong>Required</strong>)  - Acceptable values include 1 for Category, 2 for Product or 3 for Journal Number
+    </li>
+    
+    <li>
+        <code>CategoryNumber</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#categorynumber'>CategoryNumber</a>. For a complete list see <a href="/api/RQ-Data-Connect/#getting-category-numbers">Getting Category Numbers</a>
+    </li>
+    
+    <li>
+        <code>InvoiceStartDate</code> (<strong>Required</strong>)  - Filter report by invoices created after this date
+    </li>
+    
+    <li>
+        <code>InvoiceStopDate</code> (<strong>Required</strong>)  - Filter report by invoices created before this date
+    </li>
+    
+    <li>
+        <code>ChargeBackStartDate</code> (<strong>Required</strong>)  - Filter report by charge backs created after this date
+    </li>
+    
+    <li>
+        <code>ChargeBackStopDate</code> (<strong>Required</strong>)  - Filter report by charge backs created before this date
+    </li>
+    
+    <li>
+        <code>JournalIDs</code> (<strong>Required</strong>)  - Filter report by Journal. Use -1 for All Journals.
+    </li>
+    
+    <li>
+        <code>QueryPart</code> (<strong>Required</strong>)  - See report description for a list of acceptable values
+    </li>
+    
+    <li>
+        <code>ForWho</code> (Optional)  - Identifier for a level at which to perform the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-report-levels-in-rq">Getting Report Levels in RQ</a>. If <strong>LocationType</strong> is provided, this value is ignored
+    </li>
+    
+    <li>
+        <code>ForWhoIDs</code> (Optional)  - A comma seperated list of identifiers to filter the report. For a list of identifiers, see <a href="/api/RQ-Data-Connect/#getting-nodes-by-location-type">Getting Nodes By Location Type</a>. If <strong>LocationTypeIDs</strong> is provided, this value is ignored. To ignore filtering use -1
+    </li>
+    
+    <li>
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+    </li>
+    
+    <li>
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+    </li>
+    
+    <li>
+        <code>ProductIdentifier</code> (Optional)  - Product SKU
+    </li>
+    
+    <li>
+        <code>LanguageCode</code> (Optional)  - Language code, defaults to en-us. For a complete list, see <a href='/api/RQ-Data-Connect/#getting-language-codes'>Getting Language Codes</a>
+    </li>
+    
+    <li>
+        <code>Auth</code> (Optional)  - Basic token used for authentication. For other methods of authentication, see {{AuthenticationOptions}}
+    </li>
+    
+    <li>
+        <code>Response</code> (Optional)  - Default is JSON. For other methods of response, see {{ResponseOptions}}
+    </li>
+    </ul>
+
+
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-the-charge-back-summary-report" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-the-charge-back-summary-report" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-the-charge-back-summary-report" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-the-charge-back-summary-report" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-the-charge-back-summary-report" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-the-charge-back-summary-report" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-the-charge-back-summary-report"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-the-charge-back-summary-report">
+<pre id="http-code-getting-the-charge-back-summary-report"><code class="language-http">GET /reports/chargebacksummaryreport?SearchMethod=1&CategoryNumber=10&InvoiceStartDate=1970-01-01T08:00:00.000Z&InvoiceStopDate=2016-01-01T08:00:00.000Z&ChargeBackStartDate=1970-01-01T08:00:00.000Z&ChargeBackStopDate=2016-01-01T08:00:00.000Z&JournalIDs=-1&QueryPart=1&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2&ProductIdentifier=ASCLMO000001&LanguageCode=en-us
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-the-charge-back-summary-report">
+<pre id="curl-code-getting-the-charge-back-summary-report"><code class="language-http">curl -X GET "https://rqdataconnectdemo.iqmetrix.net/reports/chargebacksummaryreport?SearchMethod=1&CategoryNumber=10&InvoiceStartDate=1970-01-01T08:00:00.000Z&InvoiceStopDate=2016-01-01T08:00:00.000Z&ChargeBackStartDate=1970-01-01T08:00:00.000Z&ChargeBackStopDate=2016-01-01T08:00:00.000Z&JournalIDs=-1&QueryPart=1&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2&ProductIdentifier=ASCLMO000001&LanguageCode=en-us"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-the-charge-back-summary-report">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-the-charge-back-summary-report"><code class="language-csharp">static IRestResponse GettingTheChargeBackSummaryReport()
+{
+    var client = new RestClient("https://rqdataconnectdemo.iqmetrix.net/reports/chargebacksummaryreport?SearchMethod=1&CategoryNumber=10&InvoiceStartDate=1970-01-01T08:00:00.000Z&InvoiceStopDate=2016-01-01T08:00:00.000Z&ChargeBackStartDate=1970-01-01T08:00:00.000Z&ChargeBackStopDate=2016-01-01T08:00:00.000Z&JournalIDs=-1&QueryPart=1&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2&ProductIdentifier=ASCLMO000001&LanguageCode=en-us");
+    var request = new RestRequest(Method.GET);
+     
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-the-charge-back-summary-report">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-the-charge-back-summary-report"><code class="language-java">
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse GettingTheChargeBackSummaryReport() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpGet request = new HttpGet("https://rqdataconnectdemo.iqmetrix.net/reports/chargebacksummaryreport?SearchMethod=1&CategoryNumber=10&InvoiceStartDate=1970-01-01T08:00:00.000Z&InvoiceStopDate=2016-01-01T08:00:00.000Z&ChargeBackStartDate=1970-01-01T08:00:00.000Z&ChargeBackStopDate=2016-01-01T08:00:00.000Z&JournalIDs=-1&QueryPart=1&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2&ProductIdentifier=ASCLMO000001&LanguageCode=en-us");
+     
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-the-charge-back-summary-report">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-the-charge-back-summary-report"><code class="language-ruby">require 'rest-client'
+
+
+
+response = RestClient.get 'https://rqdataconnectdemo.iqmetrix.net/reports/chargebacksummaryreport?SearchMethod=1&CategoryNumber=10&InvoiceStartDate=1970-01-01T08:00:00.000Z&InvoiceStopDate=2016-01-01T08:00:00.000Z&ChargeBackStartDate=1970-01-01T08:00:00.000Z&ChargeBackStopDate=2016-01-01T08:00:00.000Z&JournalIDs=-1&QueryPart=1&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2&ProductIdentifier=ASCLMO000001&LanguageCode=en-us', {
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<p>Array[[chargebacksummaryreportlocationdata](#ChargeBackSummaryReportLocationData)]</p>           
+    
+
+<ul class="nav nav-tabs">
+    
+        <li class="active">
+            <a href="#applicationjson-getting-the-charge-back-summary-report" data-toggle="tab">application/json</a>
+        </li>
+    
+        <li>
+            <a href="#applicationJsonDataTable-getting-the-charge-back-summary-report" data-toggle="tab">application/json (DataTable)</a>
+        </li>
+    
+        <li>
+            <a href="#textxml-getting-the-charge-back-summary-report" data-toggle="tab">text/xml</a>
+        </li>
+    
+        <li>
+            <a href="#textXmlDataTable-getting-the-charge-back-summary-report" data-toggle="tab">text/xml (Data Table)</a>
+        </li>
+    
+        <li>
+            <a href="#textcsv-getting-the-charge-back-summary-report" data-toggle="tab">text/csv</a>
+        </li>
+    
+        <li>
+            <a href="#applicationvndopenxmlformats-officedocumentspreadsheetmlsheet-getting-the-charge-back-summary-report" data-toggle="tab">application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</a>
+        </li>
+    
+</ul>
+
+<div class="tab-content"> 
+    
+        <div role="tabpanel" class="tab-pane active" id="applicationjson-getting-the-charge-back-summary-report">
+             
+<pre>HTTP 200 Content-Type: application/json</pre>
+<p>This is the default result obtained by omitting the <code>Auth</code> URI parameter</p>
+<pre><code class="language-csharp">[
+    {
+        "Quantity": 1,
+        "StoreID": 6679,
+        "StoreName": "100: My Network LLC - Anchorage",
+        "TotalValue": -100
+    }
+]</code></pre>      
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="applicationJsonDataTable-getting-the-charge-back-summary-report">
+             
+<pre>HTTP 200 Content-Type: application/json</pre>
+<p>This is the default result obtained by omitting the URI parameter <code>Auth=JsonDataTable</code>. This response type wraps the data in a &ldquo;Records&rdquo; array and adds a &ldquo;Schema&rdquo; array, which contains information about each column in the report.
+</p>
+<pre><code class="language-csharp">{
+    "Records": [
+        {
+            "Quantity": 1,
+            "StoreID": 6679,
+            "StoreName": "100: My Network LLC - Anchorage",
+            "TotalValue": -100
+        }
+    ],
+    "Schema": [
+        {
+            "Column_Name": "ColumnName",
+            "Type": "datatype",
+            "SafeType": "safetype",
+            "Length": 100
+        }
+    ]
+}</code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textxml-getting-the-charge-back-summary-report">
+            
+<pre>HTTP 200 Content-Type: text/xml</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Xml</code></p>
+<pre><code class="language-xml"><script><Table>
+  <Record>
+    <Quantity>1</Quantity>
+    <StoreID>6679</StoreID>
+    <StoreName>100: My Network LLC - Anchorage</StoreName>
+    <TotalValue>-100</TotalValue>
+  </Record>
+</Table></script></code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textXmlDataTable-getting-the-charge-back-summary-report">
+            
+<pre>HTTP 200 Content-Type: text/xml</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=XmlDataTable</code>. This response type appends to the bottom of the request a summary of information about each column in the report.
+</p>
+<pre><code class="language-xml"><script><Table>
+  <Record>
+    <Quantity>1</Quantity>
+    <StoreID>6679</StoreID>
+    <StoreName>100: My Network LLC - Anchorage</StoreName>
+    <TotalValue>-100</TotalValue>
+  </Record>
+  <Schema>
+    <Column_Name>ColumnName</Column_Name>
+    <Type>datatybe</Type>
+    <SafeType>safetype</SafeType>
+    <Length>100</Length>
+  </Schema>
+</Table></script></code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textcsv-getting-the-charge-back-summary-report">
+            
+<pre>HTTP 200 Content-Type: text/csv</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Csv</code></p>
+<pre>Quantity,StoreID,StoreName,TotalValue
+1,6679,100: My Network LLC - Anchorage,-100</pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="applicationvndopenxmlformats-officedocumentspreadsheetmlsheet-getting-the-charge-back-summary-report">
+            
+<pre>HTTP 200 Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Excel</code></p>
+<pre>content-disposition: attachment;filename=reportname-2016-07-11.xlsx
+Binary *.xlsx file</pre>
+            
+        </div>
+                
+</div>
+        
+
+<h3 id='getting-the-outstanding-gift-cards-report' class='clickable-header top-level-header'>Getting the Outstanding Gift Cards Report</h3>
+
+<p>For more information see {{support_OutstandingGiftCardsReport}}.</p>
+
+<h4>Request</h4>
+
+<pre>
+GET /reports/outstandinggiftcardsreport?DateAsOf={DateAsOf}&CardType={CardType}&CustomerID={CustomerID}&ForWho={ForWho}&ForWhoIDs={ForWhoIDs}&LocationType={LocationType}&LocationTypeIDs={LocationTypeIDs}&LanguageCode={LanguageCode}&Auth={Auth}&Response={Response}
+</pre>
+
+<h4>Headers</h4>
+
+<ul><li><code>Authorization: Bearer (Access Token)</code> (Optional) - Bearer token used for authentication. For other methods of authentication, see {{AuthenticationOptions}}</li><li><code>Accept-Encoding: gzip</code> (Optional) - Compression algorithm. For other methods of compression, see {{CompressionOptions}}</li></ul>
+
+<h4>URI Parameters</h4>
+
+<ul>
+    
+    <li>
+        <code>DateAsOf</code> (<strong>Required</strong>)  - Date at which to begin report
+    </li>
+    
+    <li>
+        <code>CustomerID</code> (<strong>Required</strong>)  - Identifier for a customer in RQ. Use -1 for All Customers. For a complete list, see the CustomerID property using the request <a href='/api/RQ-Data-Connect-Customer-Reports/#getting-the-customer-list-report'>Getting the Customer List Report</a>
+    </li>
+    
+    <li>
+        <code>CardType</code> (<strong>Required</strong>)  - Acceptable values include -1 for All, 1 for Fixed Pricing or 2 for Ranged Pricing
+    </li>
+    
+    <li>
+        <code>ForWho</code> (Optional)  - Identifier for a level at which to perform the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-report-levels-in-rq">Getting Report Levels in RQ</a>. If <strong>LocationType</strong> is provided, this value is ignored
+    </li>
+    
+    <li>
+        <code>ForWhoIDs</code> (Optional)  - A comma seperated list of identifiers to filter the report. For a list of identifiers, see <a href="/api/RQ-Data-Connect/#getting-nodes-by-location-type">Getting Nodes By Location Type</a>. If <strong>LocationTypeIDs</strong> is provided, this value is ignored. To ignore filtering use -1
+    </li>
+    
+    <li>
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+    </li>
+    
+    <li>
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+    </li>
+    
+    <li>
+        <code>LanguageCode</code> (Optional)  - Language code, defaults to en-us. For a complete list, see <a href='/api/RQ-Data-Connect/#getting-language-codes'>Getting Language Codes</a>
+    </li>
+    
+    <li>
+        <code>Auth</code> (Optional)  - Basic token used for authentication. For other methods of authentication, see {{AuthenticationOptions}}
+    </li>
+    
+    <li>
+        <code>Response</code> (Optional)  - Default is JSON. For other methods of response, see {{ResponseOptions}}
+    </li>
+    </ul>
+
+
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-the-outstanding-gift-cards-report" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-the-outstanding-gift-cards-report" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-the-outstanding-gift-cards-report" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-the-outstanding-gift-cards-report" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-the-outstanding-gift-cards-report" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-the-outstanding-gift-cards-report" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-the-outstanding-gift-cards-report"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-the-outstanding-gift-cards-report">
+<pre id="http-code-getting-the-outstanding-gift-cards-report"><code class="language-http">GET /reports/outstandinggiftcardsreport?DateAsOf=2016-11-23T21:56:38.000Z&CardType=-1&CustomerID=-1&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2&LanguageCode=en-us
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-the-outstanding-gift-cards-report">
+<pre id="curl-code-getting-the-outstanding-gift-cards-report"><code class="language-http">curl -X GET "https://rqdataconnectdemo.iqmetrix.net/reports/outstandinggiftcardsreport?DateAsOf=2016-11-23T21:56:38.000Z&CardType=-1&CustomerID=-1&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2&LanguageCode=en-us"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-the-outstanding-gift-cards-report">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-the-outstanding-gift-cards-report"><code class="language-csharp">static IRestResponse GettingTheOutstandingGiftCardsReport()
+{
+    var client = new RestClient("https://rqdataconnectdemo.iqmetrix.net/reports/outstandinggiftcardsreport?DateAsOf=2016-11-23T21:56:38.000Z&CardType=-1&CustomerID=-1&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2&LanguageCode=en-us");
+    var request = new RestRequest(Method.GET);
+     
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-the-outstanding-gift-cards-report">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-the-outstanding-gift-cards-report"><code class="language-java">
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse GettingTheOutstandingGiftCardsReport() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpGet request = new HttpGet("https://rqdataconnectdemo.iqmetrix.net/reports/outstandinggiftcardsreport?DateAsOf=2016-11-23T21:56:38.000Z&CardType=-1&CustomerID=-1&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2&LanguageCode=en-us");
+     
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-the-outstanding-gift-cards-report">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-the-outstanding-gift-cards-report"><code class="language-ruby">require 'rest-client'
+
+
+
+response = RestClient.get 'https://rqdataconnectdemo.iqmetrix.net/reports/outstandinggiftcardsreport?DateAsOf=2016-11-23T21:56:38.000Z&CardType=-1&CustomerID=-1&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2&LanguageCode=en-us', {
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<p>Array[[outstandinggiftcardsreportdata](#OutstandingGiftCardsReportData)]</p>           
+    
+
+<ul class="nav nav-tabs">
+    
+        <li class="active">
+            <a href="#applicationjson-getting-the-outstanding-gift-cards-report" data-toggle="tab">application/json</a>
+        </li>
+    
+        <li>
+            <a href="#applicationJsonDataTable-getting-the-outstanding-gift-cards-report" data-toggle="tab">application/json (DataTable)</a>
+        </li>
+    
+        <li>
+            <a href="#textxml-getting-the-outstanding-gift-cards-report" data-toggle="tab">text/xml</a>
+        </li>
+    
+        <li>
+            <a href="#textXmlDataTable-getting-the-outstanding-gift-cards-report" data-toggle="tab">text/xml (Data Table)</a>
+        </li>
+    
+        <li>
+            <a href="#textcsv-getting-the-outstanding-gift-cards-report" data-toggle="tab">text/csv</a>
+        </li>
+    
+        <li>
+            <a href="#applicationvndopenxmlformats-officedocumentspreadsheetmlsheet-getting-the-outstanding-gift-cards-report" data-toggle="tab">application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</a>
+        </li>
+    
+</ul>
+
+<div class="tab-content"> 
+    
+        <div role="tabpanel" class="tab-pane active" id="applicationjson-getting-the-outstanding-gift-cards-report">
+             
+<pre>HTTP 200 Content-Type: application/json</pre>
+<p>This is the default result obtained by omitting the <code>Auth</code> URI parameter</p>
+<pre><code class="language-csharp">[
+    {
+        "SerialNumber": "7777085179051274",
+        "DateSold": "2016-10-14T13:05:14.133",
+        "CustomerName": "Bill Smith",
+        "LastRedeemedGMT": "2016-10-14T19:30:37.063",
+        "LastRedeemed": "2016-10-14T13:30:37.063",
+        "RedeemedAt": "84 West",
+        "RedeemedBy": "Bill Smith",
+        "Balance": 77.52,
+        "SaleInvoiceID": 634,
+        "InvoiceIDByStore": "MIL44AH9",
+        "ProductName": "iTunes 20",
+        "ProductSKU": "ASBTHT000018",
+        "InvoiceSerialMask": 6
+    }
+]</code></pre>      
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="applicationJsonDataTable-getting-the-outstanding-gift-cards-report">
+             
+<pre>HTTP 200 Content-Type: application/json</pre>
+<p>This is the default result obtained by omitting the URI parameter <code>Auth=JsonDataTable</code>. This response type wraps the data in a &ldquo;Records&rdquo; array and adds a &ldquo;Schema&rdquo; array, which contains information about each column in the report.
+</p>
+<pre><code class="language-csharp">{
+    "Records": [
+        {
+            "SerialNumber": "7777085179051274",
+            "DateSold": "2016-10-14T13:05:14.133",
+            "CustomerName": "Bill Smith",
+            "LastRedeemedGMT": "2016-10-14T19:30:37.063",
+            "LastRedeemed": "2016-10-14T13:30:37.063",
+            "RedeemedAt": "84 West",
+            "RedeemedBy": "Bill Smith",
+            "Balance": 77.52,
+            "SaleInvoiceID": 634,
+            "InvoiceIDByStore": "MIL44AH9",
+            "ProductName": "iTunes 20",
+            "ProductSKU": "ASBTHT000018",
+            "InvoiceSerialMask": 6
+        }
+    ],
+    "Schema": [
+        {
+            "Column_Name": "ColumnName",
+            "Type": "datatype",
+            "SafeType": "safetype",
+            "Length": 100
+        }
+    ]
+}</code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textxml-getting-the-outstanding-gift-cards-report">
+            
+<pre>HTTP 200 Content-Type: text/xml</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Xml</code></p>
+<pre><code class="language-xml"><script><Table>
+  <Record>
+    <SerialNumber>7777085179051274</SerialNumber>
+    <DateSold>2016-10-14T13:05:14.133</DateSold>
+    <CustomerName>Bill Smith</CustomerName>
+    <LastRedeemedGMT>2016-10-14T19:30:37.063</LastRedeemedGMT>
+    <LastRedeemed>2016-10-14T13:30:37.063</LastRedeemed>
+    <RedeemedAt>84 West</RedeemedAt>
+    <RedeemedBy>Bill Smith</RedeemedBy>
+    <Balance>77.52</Balance>
+    <SaleInvoiceID>634</SaleInvoiceID>
+    <InvoiceIDByStore>MIL44AH9</InvoiceIDByStore>
+    <ProductName>iTunes 20</ProductName>
+    <ProductSKU>ASBTHT000018</ProductSKU>
+    <InvoiceSerialMask>6</InvoiceSerialMask>
+  </Record>
+</Table></script></code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textXmlDataTable-getting-the-outstanding-gift-cards-report">
+            
+<pre>HTTP 200 Content-Type: text/xml</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=XmlDataTable</code>. This response type appends to the bottom of the request a summary of information about each column in the report.
+</p>
+<pre><code class="language-xml"><script><Table>
+  <Record>
+    <SerialNumber>7777085179051274</SerialNumber>
+    <DateSold>2016-10-14T13:05:14.133</DateSold>
+    <CustomerName>Bill Smith</CustomerName>
+    <LastRedeemedGMT>2016-10-14T19:30:37.063</LastRedeemedGMT>
+    <LastRedeemed>2016-10-14T13:30:37.063</LastRedeemed>
+    <RedeemedAt>84 West</RedeemedAt>
+    <RedeemedBy>Bill Smith</RedeemedBy>
+    <Balance>77.52</Balance>
+    <SaleInvoiceID>634</SaleInvoiceID>
+    <InvoiceIDByStore>MIL44AH9</InvoiceIDByStore>
+    <ProductName>iTunes 20</ProductName>
+    <ProductSKU>ASBTHT000018</ProductSKU>
+    <InvoiceSerialMask>6</InvoiceSerialMask>
+  </Record>
+  <Schema>
+    <Column_Name>ColumnName</Column_Name>
+    <Type>datatybe</Type>
+    <SafeType>safetype</SafeType>
+    <Length>100</Length>
+  </Schema>
+</Table></script></code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textcsv-getting-the-outstanding-gift-cards-report">
+            
+<pre>HTTP 200 Content-Type: text/csv</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Csv</code></p>
+<pre>SerialNumber,DateSold,CustomerName,LastRedeemedGMT,LastRedeemed,RedeemedAt,RedeemedBy,Balance,SaleInvoiceID,InvoiceIDByStore,ProductName,ProductSKU,InvoiceSerialMask
+7777085179051274,2016-10-14T13:05:14.133,Bill Smith,2016-10-14T19:30:37.063,2016-10-14T13:30:37.063,84 West,Bill Smith,77.52,634,MIL44AH9,iTunes 20,ASBTHT000018,6</pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="applicationvndopenxmlformats-officedocumentspreadsheetmlsheet-getting-the-outstanding-gift-cards-report">
+            
+<pre>HTTP 200 Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Excel</code></p>
+<pre>content-disposition: attachment;filename=reportname-2016-07-11.xlsx
+Binary *.xlsx file</pre>
+            
+        </div>
+                
+</div>
+        
+
+<h3 id='getting-the-payment-integration-transaction-report' class='clickable-header top-level-header'>Getting the Payment Integration Transaction Report</h3>
+
+<h4>Request</h4>
+
+<pre>
+GET /reports/paymentintegrationtransactionbydatereport?StartDate={StartDate}&StopDate={StopDate}&LocationEntityIDs={LocationEntityIDs}&Auth={Auth}&Response={Response}
+</pre>
+
+<h4>Headers</h4>
+
+<ul><li><code>Authorization: Bearer (Access Token)</code> (Optional) - Bearer token used for authentication. For other methods of authentication, see {{AuthenticationOptions}}</li><li><code>Accept-Encoding: gzip</code> (Optional) - Compression algorithm. For other methods of compression, see {{CompressionOptions}}</li></ul>
+
+<h4>URI Parameters</h4>
+
+<ul>
+    
+    <li>
+        <code>StartDate</code> (<strong>Required</strong>)  - Date at which report will begin
+    </li>
+    
+    <li>
+        <code>StopDate</code> (<strong>Required</strong>)  - Date at which report will end
+    </li>
+    
+    <li>
+        <code>LocationEntityIDs</code> (Optional)  - Comma seperated list of identifiers for <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Locations</a> in Entity Store. To determine the LocationEntityId for a store in RQ, see <a href='/api/RQ-Data-Connect/#getting-a-list-of-stores-in-rq'>Getting A List of Stores in RQ</a>
+    </li>
+    
+    <li>
+        <code>Auth</code> (Optional)  - Basic token used for authentication. For other methods of authentication, see {{AuthenticationOptions}}
+    </li>
+    
+    <li>
+        <code>Response</code> (Optional)  - Default is JSON. For other methods of response, see {{ResponseOptions}}
+    </li>
+    </ul>
+
+
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-the-payment-integration-transaction-report" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-the-payment-integration-transaction-report" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-the-payment-integration-transaction-report" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-the-payment-integration-transaction-report" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-the-payment-integration-transaction-report" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-the-payment-integration-transaction-report" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-the-payment-integration-transaction-report"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-the-payment-integration-transaction-report">
+<pre id="http-code-getting-the-payment-integration-transaction-report"><code class="language-http">GET /reports/paymentintegrationtransactionbydatereport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&LocationEntityIDs=33484,33496,33490,33492
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-the-payment-integration-transaction-report">
+<pre id="curl-code-getting-the-payment-integration-transaction-report"><code class="language-http">curl -X GET "https://rqdataconnectdemo.iqmetrix.net/reports/paymentintegrationtransactionbydatereport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&LocationEntityIDs=33484,33496,33490,33492"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-the-payment-integration-transaction-report">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-the-payment-integration-transaction-report"><code class="language-csharp">static IRestResponse GettingThePaymentIntegrationTransactionReport()
+{
+    var client = new RestClient("https://rqdataconnectdemo.iqmetrix.net/reports/paymentintegrationtransactionbydatereport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&LocationEntityIDs=33484,33496,33490,33492");
+    var request = new RestRequest(Method.GET);
+     
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-the-payment-integration-transaction-report">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-the-payment-integration-transaction-report"><code class="language-java">
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse GettingThePaymentIntegrationTransactionReport() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpGet request = new HttpGet("https://rqdataconnectdemo.iqmetrix.net/reports/paymentintegrationtransactionbydatereport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&LocationEntityIDs=33484,33496,33490,33492");
+     
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-the-payment-integration-transaction-report">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-the-payment-integration-transaction-report"><code class="language-ruby">require 'rest-client'
+
+
+
+response = RestClient.get 'https://rqdataconnectdemo.iqmetrix.net/reports/paymentintegrationtransactionbydatereport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&LocationEntityIDs=33484,33496,33490,33492', {
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<p>Array[[paymentintegrationtransactionreportdata](#PaymentIntegrationTransactionReportData)]</p>           
+    
+
+<ul class="nav nav-tabs">
+    
+        <li class="active">
+            <a href="#applicationjson-getting-the-payment-integration-transaction-report" data-toggle="tab">application/json</a>
+        </li>
+    
+        <li>
+            <a href="#applicationJsonDataTable-getting-the-payment-integration-transaction-report" data-toggle="tab">application/json (DataTable)</a>
+        </li>
+    
+        <li>
+            <a href="#textxml-getting-the-payment-integration-transaction-report" data-toggle="tab">text/xml</a>
+        </li>
+    
+        <li>
+            <a href="#textXmlDataTable-getting-the-payment-integration-transaction-report" data-toggle="tab">text/xml (Data Table)</a>
+        </li>
+    
+        <li>
+            <a href="#textcsv-getting-the-payment-integration-transaction-report" data-toggle="tab">text/csv</a>
+        </li>
+    
+        <li>
+            <a href="#applicationvndopenxmlformats-officedocumentspreadsheetmlsheet-getting-the-payment-integration-transaction-report" data-toggle="tab">application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</a>
+        </li>
+    
+</ul>
+
+<div class="tab-content"> 
+    
+        <div role="tabpanel" class="tab-pane active" id="applicationjson-getting-the-payment-integration-transaction-report">
+             
+<pre>HTTP 200 Content-Type: application/json</pre>
+<p>This is the default result obtained by omitting the <code>Auth</code> URI parameter</p>
+<pre><code class="language-csharp">[
+    {
+        "InvoiceID": 122337,
+        "StoreInvoiceID": "84WEAIN5981",
+        "CustomerName": "Alice Kim",
+        "EmployeeName": "Sam Smith",
+        "InvoiceTypeID": 1,
+        "InvoiceType": "Invoice",
+        "LocationEntityID": 14192,
+        "AuthType": "Sale",
+        "TransType": "Credit",
+        "CardTypeID": 2,
+        "CardType": "Visa",
+        "Amount": 4,
+        "EntryTypeID": 2,
+        "EntryType": "Swiped",
+        "MerchantNumber": "1111",
+        "TerminalNumber": "90572837",
+        "AuthDateUTC": "2015-01-28T16:31:58.877",
+        "AuthorizationNumber": "ABS251",
+        "CardholderName": "John Test",
+        "CardBin": "545454",
+        "LastFourDigits": "5454",
+        "TransactionResult": "Approved",
+        "ReversedVoided": 0,
+        "ReversedVoidedReason": "Auto Void from Incomplete Invoice",
+        "VoidedByEmployeeEntityID": "512",
+        "VoidedDate": "2015-01-30T16:31:58.877"
+    }
+]</code></pre>      
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="applicationJsonDataTable-getting-the-payment-integration-transaction-report">
+             
+<pre>HTTP 200 Content-Type: application/json</pre>
+<p>This is the default result obtained by omitting the URI parameter <code>Auth=JsonDataTable</code>. This response type wraps the data in a &ldquo;Records&rdquo; array and adds a &ldquo;Schema&rdquo; array, which contains information about each column in the report.
+</p>
+<pre><code class="language-csharp">{
+    "Records": [
+        {
+            "InvoiceID": 122337,
+            "StoreInvoiceID": "84WEAIN5981",
+            "CustomerName": "Alice Kim",
+            "EmployeeName": "Sam Smith",
+            "InvoiceTypeID": 1,
+            "InvoiceType": "Invoice",
+            "LocationEntityID": 14192,
+            "AuthType": "Sale",
+            "TransType": "Credit",
+            "CardTypeID": 2,
+            "CardType": "Visa",
+            "Amount": 4,
+            "EntryTypeID": 2,
+            "EntryType": "Swiped",
+            "MerchantNumber": "1111",
+            "TerminalNumber": "90572837",
+            "AuthDateUTC": "2015-01-28T16:31:58.877",
+            "AuthorizationNumber": "ABS251",
+            "CardholderName": "John Test",
+            "CardBin": "545454",
+            "LastFourDigits": "5454",
+            "TransactionResult": "Approved",
+            "ReversedVoided": 0,
+            "ReversedVoidedReason": "Auto Void from Incomplete Invoice",
+            "VoidedByEmployeeEntityID": "512",
+            "VoidedDate": "2015-01-30T16:31:58.877"
+        }
+    ],
+    "Schema": [
+        {
+            "Column_Name": "ColumnName",
+            "Type": "datatype",
+            "SafeType": "safetype",
+            "Length": 100
+        }
+    ]
+}</code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textxml-getting-the-payment-integration-transaction-report">
+            
+<pre>HTTP 200 Content-Type: text/xml</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Xml</code></p>
+<pre><code class="language-xml"><script><Table>
+  <Record>
+    <InvoiceID>122337</InvoiceID>
+    <StoreInvoiceID>84WEAIN5981</StoreInvoiceID>
+    <CustomerName>Alice Kim</CustomerName>
+    <EmployeeName>Sam Smith</EmployeeName>
+    <InvoiceTypeID>1</InvoiceTypeID>
+    <InvoiceType>Invoice</InvoiceType>
+    <LocationEntityID>14192</LocationEntityID>
+    <AuthType>Sale</AuthType>
+    <TransType>Credit</TransType>
+    <CardTypeID>2</CardTypeID>
+    <CardType>Visa</CardType>
+    <Amount>4</Amount>
+    <EntryTypeID>2</EntryTypeID>
+    <EntryType>Swiped</EntryType>
+    <MerchantNumber>1111</MerchantNumber>
+    <TerminalNumber>90572837</TerminalNumber>
+    <AuthDateUTC>2015-01-28T16:31:58.877</AuthDateUTC>
+    <AuthorizationNumber>ABS251</AuthorizationNumber>
+    <CardholderName>John Test</CardholderName>
+    <CardBin>545454</CardBin>
+    <LastFourDigits>5454</LastFourDigits>
+    <TransactionResult>Approved</TransactionResult>
+    <ReversedVoided>0</ReversedVoided>
+    <ReversedVoidedReason>Auto Void from Incomplete Invoice</ReversedVoidedReason>
+    <VoidedByEmployeeEntityID>512</VoidedByEmployeeEntityID>
+    <VoidedDate>2015-01-30T16:31:58.877</VoidedDate>
+  </Record>
+</Table></script></code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textXmlDataTable-getting-the-payment-integration-transaction-report">
+            
+<pre>HTTP 200 Content-Type: text/xml</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=XmlDataTable</code>. This response type appends to the bottom of the request a summary of information about each column in the report.
+</p>
+<pre><code class="language-xml"><script><Table>
+  <Record>
+    <InvoiceID>122337</InvoiceID>
+    <StoreInvoiceID>84WEAIN5981</StoreInvoiceID>
+    <CustomerName>Alice Kim</CustomerName>
+    <EmployeeName>Sam Smith</EmployeeName>
+    <InvoiceTypeID>1</InvoiceTypeID>
+    <InvoiceType>Invoice</InvoiceType>
+    <LocationEntityID>14192</LocationEntityID>
+    <AuthType>Sale</AuthType>
+    <TransType>Credit</TransType>
+    <CardTypeID>2</CardTypeID>
+    <CardType>Visa</CardType>
+    <Amount>4</Amount>
+    <EntryTypeID>2</EntryTypeID>
+    <EntryType>Swiped</EntryType>
+    <MerchantNumber>1111</MerchantNumber>
+    <TerminalNumber>90572837</TerminalNumber>
+    <AuthDateUTC>2015-01-28T16:31:58.877</AuthDateUTC>
+    <AuthorizationNumber>ABS251</AuthorizationNumber>
+    <CardholderName>John Test</CardholderName>
+    <CardBin>545454</CardBin>
+    <LastFourDigits>5454</LastFourDigits>
+    <TransactionResult>Approved</TransactionResult>
+    <ReversedVoided>0</ReversedVoided>
+    <ReversedVoidedReason>Auto Void from Incomplete Invoice</ReversedVoidedReason>
+    <VoidedByEmployeeEntityID>512</VoidedByEmployeeEntityID>
+    <VoidedDate>2015-01-30T16:31:58.877</VoidedDate>
+  </Record>
+  <Schema>
+    <Column_Name>ColumnName</Column_Name>
+    <Type>datatybe</Type>
+    <SafeType>safetype</SafeType>
+    <Length>100</Length>
+  </Schema>
+</Table></script></code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textcsv-getting-the-payment-integration-transaction-report">
+            
+<pre>HTTP 200 Content-Type: text/csv</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Csv</code></p>
+<pre>InvoiceID,StoreInvoiceID,CustomerName,EmployeeName,InvoiceTypeID,InvoiceType,LocationEntityID,AuthType,TransType,CardTypeID,CardType,Amount,EntryTypeID,EntryType,MerchantNumber,TerminalNumber,AuthDateUTC,AuthorizationNumber,CardholderName,CardBin,LastFourDigits,TransactionResult,ReversedVoided,ReversedVoidedReason,VoidedByEmployeeEntityID,VoidedDate
+122337,84WEAIN5981,Alice Kim,Sam Smith,1,Invoice,14192,Sale,Credit,2,Visa,4,2,Swiped,1111,90572837,2015-01-28T16:31:58.877,ABS251,John Test,545454,5454,Approved,0,Auto Void from Incomplete Invoice,512,2015-01-30T16:31:58.877</pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="applicationvndopenxmlformats-officedocumentspreadsheetmlsheet-getting-the-payment-integration-transaction-report">
+            
+<pre>HTTP 200 Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Excel</code></p>
+<pre>content-disposition: attachment;filename=reportname-2016-07-11.xlsx
+Binary *.xlsx file</pre>
+            
+        </div>
+                
+</div>
+        
+
+<h3 id='getting-the-tax-details-report' class='clickable-header top-level-header'>Getting the Tax Details Report</h3>
+
+<p>For more information, see {{support_TaxDetailsReport}}.</p>
+
+<h4>Request</h4>
+
+<pre>
+GET /reports/taxdetailsreport?StartDate={StartDate}&StopDate={StopDate}&ForWho={ForWho}&ForWhoIDs={ForWhoIDs}&LocationType={LocationType}&LocationTypeIDs={LocationTypeIDs}&LanguageCode={LanguageCode}
+</pre>
+
+<h4>Headers</h4>
+
+<ul><li><code>Authorization: Bearer (Access Token)</code> (Optional) - Bearer token used for authentication. For other methods of authentication, see {{AuthenticationOptions}}</li><li><code>Accept-Encoding: gzip</code> (Optional) - Compression algorithm. For other methods of compression, see {{CompressionOptions}}</li></ul>
+
+<h4>URI Parameters</h4>
+
+<ul>
+    
+    <li>
+        <code>StartDate</code> (<strong>Required</strong>)  - Date at which report will begin
+    </li>
+    
+    <li>
+        <code>StopDate</code> (<strong>Required</strong>)  - Date at which report will end
+    </li>
+    
+    <li>
+        <code>ForWho</code> (Optional)  - Identifier for a level at which to perform the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-report-levels-in-rq">Getting Report Levels in RQ</a>. If <strong>LocationType</strong> is provided, this value is ignored
+    </li>
+    
+    <li>
+        <code>ForWhoIDs</code> (Optional)  - A comma seperated list of identifiers to filter the report. For a list of identifiers, see <a href="/api/RQ-Data-Connect/#getting-nodes-by-location-type">Getting Nodes By Location Type</a>. If <strong>LocationTypeIDs</strong> is provided, this value is ignored. To ignore filtering use -1
+    </li>
+    
+    <li>
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+    </li>
+    
+    <li>
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+    </li>
+    
+    <li>
+        <code>LanguageCode</code> (Optional)  - Language code, defaults to en-us. For a complete list, see <a href='/api/RQ-Data-Connect/#getting-language-codes'>Getting Language Codes</a>
+    </li>
+    </ul>
+
+
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-the-tax-details-report" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-the-tax-details-report" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-the-tax-details-report" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-the-tax-details-report" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-the-tax-details-report" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-the-tax-details-report" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-the-tax-details-report"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-the-tax-details-report">
+<pre id="http-code-getting-the-tax-details-report"><code class="language-http">GET /reports/taxdetailsreport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2&LanguageCode=en-us
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-the-tax-details-report">
+<pre id="curl-code-getting-the-tax-details-report"><code class="language-http">curl -X GET "https://rqdataconnectdemo.iqmetrix.net/reports/taxdetailsreport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2&LanguageCode=en-us"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-the-tax-details-report">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-the-tax-details-report"><code class="language-csharp">static IRestResponse GettingTheTaxDetailsReport()
+{
+    var client = new RestClient("https://rqdataconnectdemo.iqmetrix.net/reports/taxdetailsreport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2&LanguageCode=en-us");
+    var request = new RestRequest(Method.GET);
+     
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-the-tax-details-report">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-the-tax-details-report"><code class="language-java">
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse GettingTheTaxDetailsReport() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpGet request = new HttpGet("https://rqdataconnectdemo.iqmetrix.net/reports/taxdetailsreport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2&LanguageCode=en-us");
+     
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-the-tax-details-report">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-the-tax-details-report"><code class="language-ruby">require 'rest-client'
+
+
+
+response = RestClient.get 'https://rqdataconnectdemo.iqmetrix.net/reports/taxdetailsreport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2&LanguageCode=en-us', {
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<p>Array[[taxdetailsreportdata](#TaxDetailsReportData)]</p>           
+    
+
+<ul class="nav nav-tabs">
+    
+        <li class="active">
+            <a href="#applicationjson-getting-the-tax-details-report" data-toggle="tab">application/json</a>
+        </li>
+    
+        <li>
+            <a href="#applicationJsonDataTable-getting-the-tax-details-report" data-toggle="tab">application/json (DataTable)</a>
+        </li>
+    
+        <li>
+            <a href="#textxml-getting-the-tax-details-report" data-toggle="tab">text/xml</a>
+        </li>
+    
+        <li>
+            <a href="#textXmlDataTable-getting-the-tax-details-report" data-toggle="tab">text/xml (Data Table)</a>
+        </li>
+    
+        <li>
+            <a href="#textcsv-getting-the-tax-details-report" data-toggle="tab">text/csv</a>
+        </li>
+    
+        <li>
+            <a href="#applicationvndopenxmlformats-officedocumentspreadsheetmlsheet-getting-the-tax-details-report" data-toggle="tab">application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</a>
+        </li>
+    
+</ul>
+
+<div class="tab-content"> 
+    
+        <div role="tabpanel" class="tab-pane active" id="applicationjson-getting-the-tax-details-report">
+             
+<pre>HTTP 200 Content-Type: application/json</pre>
+<p>This is the default result obtained by omitting the <code>Auth</code> URI parameter</p>
+<pre><code class="language-csharp">[
+    {
+        "DateCreated": "2015-12-31T12:35:07.05",
+        "SaleInvoiceID": 166519,
+        "InvoiceIDByStore": "MIL44AH9",
+        "TenderedBy": "John Test",
+        "TenderedAt": "Cornwall",
+        "CustomerName": "Alice Smith",
+        "Comments": "Return",
+        "Invoiced": -910.94,
+        "Sales": -910.94,
+        "Cost": -405.67,
+        "Profit": -505.27,
+        "Adjusted": "No",
+        "Taxable": "Yes",
+        "Refund": "Yes",
+        "VendorRebates": 0,
+        "VendorRebatesTax": 0,
+        "Coupons": 0,
+        "CouponsTax": 0,
+        "YourPriceTaxableSales": -910.94,
+        "ListPriceTaxableSales": 0,
+        "GreaterOfTaxableSales": -69.94,
+        "FlatTaxableSales": 0,
+        "NonTaxableSales": 0,
+        "TaxCollected": -59.79,
+        "TaxExemptReasonCode": ""
+    }
+]</code></pre>      
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="applicationJsonDataTable-getting-the-tax-details-report">
+             
+<pre>HTTP 200 Content-Type: application/json</pre>
+<p>This is the default result obtained by omitting the URI parameter <code>Auth=JsonDataTable</code>. This response type wraps the data in a &ldquo;Records&rdquo; array and adds a &ldquo;Schema&rdquo; array, which contains information about each column in the report.
+</p>
+<pre><code class="language-csharp">{
+    "Records": [
+        {
+            "DateCreated": "2015-12-31T12:35:07.05",
+            "SaleInvoiceID": 166519,
+            "InvoiceIDByStore": "MIL44AH9",
+            "TenderedBy": "John Test",
+            "TenderedAt": "Cornwall",
+            "CustomerName": "Alice Smith",
+            "Comments": "Return",
+            "Invoiced": -910.94,
+            "Sales": -910.94,
+            "Cost": -405.67,
+            "Profit": -505.27,
+            "Adjusted": "No",
+            "Taxable": "Yes",
+            "Refund": "Yes",
+            "VendorRebates": 0,
+            "VendorRebatesTax": 0,
+            "Coupons": 0,
+            "CouponsTax": 0,
+            "YourPriceTaxableSales": -910.94,
+            "ListPriceTaxableSales": 0,
+            "GreaterOfTaxableSales": -69.94,
+            "FlatTaxableSales": 0,
+            "NonTaxableSales": 0,
+            "TaxCollected": -59.79,
+            "TaxExemptReasonCode": ""
+        }
+    ],
+    "Schema": [
+        {
+            "Column_Name": "ColumnName",
+            "Type": "datatype",
+            "SafeType": "safetype",
+            "Length": 100
+        }
+    ]
+}</code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textxml-getting-the-tax-details-report">
+            
+<pre>HTTP 200 Content-Type: text/xml</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Xml</code></p>
+<pre><code class="language-xml"><script><Table>
+  <Record>
+    <DateCreated>2015-12-31T12:35:07.05</DateCreated>
+    <SaleInvoiceID>166519</SaleInvoiceID>
+    <InvoiceIDByStore>MIL44AH9</InvoiceIDByStore>
+    <TenderedBy>John Test</TenderedBy>
+    <TenderedAt>Cornwall</TenderedAt>
+    <CustomerName>Alice Smith</CustomerName>
+    <Comments>Return</Comments>
+    <Invoiced>-910.94</Invoiced>
+    <Sales>-910.94</Sales>
+    <Cost>-405.67</Cost>
+    <Profit>-505.27</Profit>
+    <Adjusted>No</Adjusted>
+    <Taxable>Yes</Taxable>
+    <Refund>Yes</Refund>
+    <VendorRebates>0</VendorRebates>
+    <VendorRebatesTax>0</VendorRebatesTax>
+    <Coupons>0</Coupons>
+    <CouponsTax>0</CouponsTax>
+    <YourPriceTaxableSales>-910.94</YourPriceTaxableSales>
+    <ListPriceTaxableSales>0</ListPriceTaxableSales>
+    <GreaterOfTaxableSales>-69.94</GreaterOfTaxableSales>
+    <FlatTaxableSales>0</FlatTaxableSales>
+    <NonTaxableSales>0</NonTaxableSales>
+    <TaxCollected>-59.79</TaxCollected>
+    <TaxExemptReasonCode></TaxExemptReasonCode>
+  </Record>
+</Table></script></code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textXmlDataTable-getting-the-tax-details-report">
+            
+<pre>HTTP 200 Content-Type: text/xml</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=XmlDataTable</code>. This response type appends to the bottom of the request a summary of information about each column in the report.
+</p>
+<pre><code class="language-xml"><script><Table>
+  <Record>
+    <DateCreated>2015-12-31T12:35:07.05</DateCreated>
+    <SaleInvoiceID>166519</SaleInvoiceID>
+    <InvoiceIDByStore>MIL44AH9</InvoiceIDByStore>
+    <TenderedBy>John Test</TenderedBy>
+    <TenderedAt>Cornwall</TenderedAt>
+    <CustomerName>Alice Smith</CustomerName>
+    <Comments>Return</Comments>
+    <Invoiced>-910.94</Invoiced>
+    <Sales>-910.94</Sales>
+    <Cost>-405.67</Cost>
+    <Profit>-505.27</Profit>
+    <Adjusted>No</Adjusted>
+    <Taxable>Yes</Taxable>
+    <Refund>Yes</Refund>
+    <VendorRebates>0</VendorRebates>
+    <VendorRebatesTax>0</VendorRebatesTax>
+    <Coupons>0</Coupons>
+    <CouponsTax>0</CouponsTax>
+    <YourPriceTaxableSales>-910.94</YourPriceTaxableSales>
+    <ListPriceTaxableSales>0</ListPriceTaxableSales>
+    <GreaterOfTaxableSales>-69.94</GreaterOfTaxableSales>
+    <FlatTaxableSales>0</FlatTaxableSales>
+    <NonTaxableSales>0</NonTaxableSales>
+    <TaxCollected>-59.79</TaxCollected>
+    <TaxExemptReasonCode></TaxExemptReasonCode>
+  </Record>
+  <Schema>
+    <Column_Name>ColumnName</Column_Name>
+    <Type>datatybe</Type>
+    <SafeType>safetype</SafeType>
+    <Length>100</Length>
+  </Schema>
+</Table></script></code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textcsv-getting-the-tax-details-report">
+            
+<pre>HTTP 200 Content-Type: text/csv</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Csv</code></p>
+<pre>DateCreated,SaleInvoiceID,InvoiceIDByStore,TenderedBy,TenderedAt,CustomerName,Comments,Invoiced,Sales,Cost,Profit,Adjusted,Taxable,Refund,VendorRebates,VendorRebatesTax,Coupons,CouponsTax,YourPriceTaxableSales,ListPriceTaxableSales,GreaterOfTaxableSales,FlatTaxableSales,NonTaxableSales,TaxCollected,TaxExemptReasonCode
+2015-12-31T12:35:07.05,166519,MIL44AH9,John Test,Cornwall,Alice Smith,Return,-910.94,-910.94,-405.67,-505.27,No,Yes,Yes,0,0,0,0,-910.94,0,-69.94,0,0,-59.79,</pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="applicationvndopenxmlformats-officedocumentspreadsheetmlsheet-getting-the-tax-details-report">
+            
+<pre>HTTP 200 Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Excel</code></p>
+<pre>content-disposition: attachment;filename=reportname-2016-07-11.xlsx
+Binary *.xlsx file</pre>
+            
+        </div>
+                
+</div>
+        
+
+<h3 id='getting-entry-types' class='clickable-header top-level-header'>Getting Entry Types</h3>
+
+<h4>Request</h4>
+
+<pre>
+GET /lists/entrytypes?LanguageCode={LanguageCode}
+</pre>
+
+<h4>Headers</h4>
+
+<ul><li><code>Authorization: Bearer (Access Token)</code> (Optional) - Bearer token used for authentication. For other methods of authentication, see {{AuthenticationOptions}}</li><li><code>Accept-Encoding: gzip</code> (Optional) - Compression algorithm. For other methods of compression, see {{CompressionOptions}}</li></ul>
+
+<h4>URI Parameters</h4>
+
+<ul>
+    
+    <li>
+        <code>LanguageCode</code> (Optional)  - Language code, defaults to en-us. For a complete list, see <a href='/api/RQ-Data-Connect/#getting-language-codes'>Getting Language Codes</a>
+    </li>
+    </ul>
+
+
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-entry-types" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-entry-types" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-entry-types" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-entry-types" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-entry-types" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-entry-types" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-entry-types"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-entry-types">
+<pre id="http-code-getting-entry-types"><code class="language-http">GET /lists/entrytypes?LanguageCode=en-us
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-entry-types">
+<pre id="curl-code-getting-entry-types"><code class="language-http">curl -X GET "https://rqdataconnectdemo.iqmetrix.net/lists/entrytypes?LanguageCode=en-us"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-entry-types">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-entry-types"><code class="language-csharp">static IRestResponse GettingEntryTypes()
+{
+    var client = new RestClient("https://rqdataconnectdemo.iqmetrix.net/lists/entrytypes?LanguageCode=en-us");
+    var request = new RestRequest(Method.GET);
+     
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-entry-types">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-entry-types"><code class="language-java">
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse GettingEntryTypes() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpGet request = new HttpGet("https://rqdataconnectdemo.iqmetrix.net/lists/entrytypes?LanguageCode=en-us");
+     
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-entry-types">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-entry-types"><code class="language-ruby">require 'rest-client'
+
+
+
+response = RestClient.get 'https://rqdataconnectdemo.iqmetrix.net/lists/entrytypes?LanguageCode=en-us', {
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<p>Array[[entrytype](#EntryType)]</p>           
+    
+
+<ul class="nav nav-tabs">
+    
+        <li class="active">
+            <a href="#applicationjson-getting-entry-types" data-toggle="tab">application/json</a>
+        </li>
+    
+        <li>
+            <a href="#applicationJsonDataTable-getting-entry-types" data-toggle="tab">application/json (DataTable)</a>
+        </li>
+    
+        <li>
+            <a href="#textxml-getting-entry-types" data-toggle="tab">text/xml</a>
+        </li>
+    
+        <li>
+            <a href="#textXmlDataTable-getting-entry-types" data-toggle="tab">text/xml (Data Table)</a>
+        </li>
+    
+        <li>
+            <a href="#textcsv-getting-entry-types" data-toggle="tab">text/csv</a>
+        </li>
+    
+        <li>
+            <a href="#applicationvndopenxmlformats-officedocumentspreadsheetmlsheet-getting-entry-types" data-toggle="tab">application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</a>
+        </li>
+    
+</ul>
+
+<div class="tab-content"> 
+    
+        <div role="tabpanel" class="tab-pane active" id="applicationjson-getting-entry-types">
+             
+<pre>HTTP 200 Content-Type: application/json</pre>
+<p>This is the default result obtained by omitting the <code>Auth</code> URI parameter</p>
+<pre><code class="language-csharp">[
+    {
+        "EntryTypeID": 1,
+        "EntryTypeDescription": "Swiped",
+        "Message": "Swiped"
+    }
+]</code></pre>      
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="applicationJsonDataTable-getting-entry-types">
+             
+<pre>HTTP 200 Content-Type: application/json</pre>
+<p>This is the default result obtained by omitting the URI parameter <code>Auth=JsonDataTable</code>. This response type wraps the data in a &ldquo;Records&rdquo; array and adds a &ldquo;Schema&rdquo; array, which contains information about each column in the report.
+</p>
+<pre><code class="language-csharp">{
+    "Records": [
+        {
+            "EntryTypeID": 1,
+            "EntryTypeDescription": "Swiped",
+            "Message": "Swiped"
+        }
+    ],
+    "Schema": [
+        {
+            "Column_Name": "ColumnName",
+            "Type": "datatype",
+            "SafeType": "safetype",
+            "Length": 100
+        }
+    ]
+}</code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textxml-getting-entry-types">
+            
+<pre>HTTP 200 Content-Type: text/xml</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Xml</code></p>
+<pre><code class="language-xml"><script><Table>
+  <Record>
+    <EntryTypeID>1</EntryTypeID>
+    <EntryTypeDescription>Swiped</EntryTypeDescription>
+    <Message>Swiped</Message>
+  </Record>
+</Table></script></code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textXmlDataTable-getting-entry-types">
+            
+<pre>HTTP 200 Content-Type: text/xml</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=XmlDataTable</code>. This response type appends to the bottom of the request a summary of information about each column in the report.
+</p>
+<pre><code class="language-xml"><script><Table>
+  <Record>
+    <EntryTypeID>1</EntryTypeID>
+    <EntryTypeDescription>Swiped</EntryTypeDescription>
+    <Message>Swiped</Message>
+  </Record>
+  <Schema>
+    <Column_Name>ColumnName</Column_Name>
+    <Type>datatybe</Type>
+    <SafeType>safetype</SafeType>
+    <Length>100</Length>
+  </Schema>
+</Table></script></code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textcsv-getting-entry-types">
+            
+<pre>HTTP 200 Content-Type: text/csv</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Csv</code></p>
+<pre>EntryTypeID,EntryTypeDescription,Message
+1,Swiped,Swiped</pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="applicationvndopenxmlformats-officedocumentspreadsheetmlsheet-getting-entry-types">
+            
+<pre>HTTP 200 Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Excel</code></p>
+<pre>content-disposition: attachment;filename=reportname-2016-07-11.xlsx
+Binary *.xlsx file</pre>
+            
+        </div>
+                
+</div>
+        
+
+<h3 id='getting-card-types' class='clickable-header top-level-header'>Getting Card Types</h3>
+
+<h4>Request</h4>
+
+<pre>
+GET /lists/cardtypes
+</pre>
+
+<h4>Headers</h4>
+
+<ul><li><code>Authorization: Bearer (Access Token)</code> (Optional) - Bearer token used for authentication. For other methods of authentication, see {{AuthenticationOptions}}</li><li><code>Accept-Encoding: gzip</code> (Optional) - Compression algorithm. For other methods of compression, see {{CompressionOptions}}</li></ul>
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-card-types" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-card-types" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-card-types" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-card-types" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-card-types" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-card-types" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-card-types"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-card-types">
+<pre id="http-code-getting-card-types"><code class="language-http">GET /lists/cardtypes
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-card-types">
+<pre id="curl-code-getting-card-types"><code class="language-http">curl -X GET "https://rqdataconnectdemo.iqmetrix.net/lists/cardtypes"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-card-types">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-card-types"><code class="language-csharp">static IRestResponse GettingCardTypes()
+{
+    var client = new RestClient("https://rqdataconnectdemo.iqmetrix.net/lists/cardtypes");
+    var request = new RestRequest(Method.GET);
+     
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-card-types">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-card-types"><code class="language-java">
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse GettingCardTypes() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpGet request = new HttpGet("https://rqdataconnectdemo.iqmetrix.net/lists/cardtypes");
+     
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-card-types">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-card-types"><code class="language-ruby">require 'rest-client'
+
+
+
+response = RestClient.get 'https://rqdataconnectdemo.iqmetrix.net/lists/cardtypes', {
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<p>Array[[cardtype](#CardType)]</p>           
+    
+
+<ul class="nav nav-tabs">
+    
+        <li class="active">
+            <a href="#applicationjson-getting-card-types" data-toggle="tab">application/json</a>
+        </li>
+    
+        <li>
+            <a href="#applicationJsonDataTable-getting-card-types" data-toggle="tab">application/json (DataTable)</a>
+        </li>
+    
+        <li>
+            <a href="#textxml-getting-card-types" data-toggle="tab">text/xml</a>
+        </li>
+    
+        <li>
+            <a href="#textXmlDataTable-getting-card-types" data-toggle="tab">text/xml (Data Table)</a>
+        </li>
+    
+        <li>
+            <a href="#textcsv-getting-card-types" data-toggle="tab">text/csv</a>
+        </li>
+    
+        <li>
+            <a href="#applicationvndopenxmlformats-officedocumentspreadsheetmlsheet-getting-card-types" data-toggle="tab">application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</a>
+        </li>
+    
+</ul>
+
+<div class="tab-content"> 
+    
+        <div role="tabpanel" class="tab-pane active" id="applicationjson-getting-card-types">
+             
+<pre>HTTP 200 Content-Type: application/json</pre>
+<p>This is the default result obtained by omitting the <code>Auth</code> URI parameter</p>
+<pre><code class="language-csharp">[
+    {
+        "CardTypeID": 2,
+        "FullName": "Mastercard",
+        "Mnemonic": "MC",
+        "AccountNumberLength": 16,
+        "CvvLength": 3
+    }
+]</code></pre>      
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="applicationJsonDataTable-getting-card-types">
+             
+<pre>HTTP 200 Content-Type: application/json</pre>
+<p>This is the default result obtained by omitting the URI parameter <code>Auth=JsonDataTable</code>. This response type wraps the data in a &ldquo;Records&rdquo; array and adds a &ldquo;Schema&rdquo; array, which contains information about each column in the report.
+</p>
+<pre><code class="language-csharp">{
+    "Records": [
+        {
+            "CardTypeID": 2,
+            "FullName": "Mastercard",
+            "Mnemonic": "MC",
+            "AccountNumberLength": 16,
+            "CvvLength": 3
+        }
+    ],
+    "Schema": [
+        {
+            "Column_Name": "ColumnName",
+            "Type": "datatype",
+            "SafeType": "safetype",
+            "Length": 100
+        }
+    ]
+}</code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textxml-getting-card-types">
+            
+<pre>HTTP 200 Content-Type: text/xml</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Xml</code></p>
+<pre><code class="language-xml"><script><Table>
+  <Record>
+    <CardTypeID>2</CardTypeID>
+    <FullName>Mastercard</FullName>
+    <Mnemonic>MC</Mnemonic>
+    <AccountNumberLength>16</AccountNumberLength>
+    <CvvLength>3</CvvLength>
+  </Record>
+</Table></script></code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textXmlDataTable-getting-card-types">
+            
+<pre>HTTP 200 Content-Type: text/xml</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=XmlDataTable</code>. This response type appends to the bottom of the request a summary of information about each column in the report.
+</p>
+<pre><code class="language-xml"><script><Table>
+  <Record>
+    <CardTypeID>2</CardTypeID>
+    <FullName>Mastercard</FullName>
+    <Mnemonic>MC</Mnemonic>
+    <AccountNumberLength>16</AccountNumberLength>
+    <CvvLength>3</CvvLength>
+  </Record>
+  <Schema>
+    <Column_Name>ColumnName</Column_Name>
+    <Type>datatybe</Type>
+    <SafeType>safetype</SafeType>
+    <Length>100</Length>
+  </Schema>
+</Table></script></code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textcsv-getting-card-types">
+            
+<pre>HTTP 200 Content-Type: text/csv</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Csv</code></p>
+<pre>CardTypeID,FullName,Mnemonic,AccountNumberLength,CvvLength
+2,Mastercard,MC,16,3</pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="applicationvndopenxmlformats-officedocumentspreadsheetmlsheet-getting-card-types">
+            
+<pre>HTTP 200 Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Excel</code></p>
+<pre>content-disposition: attachment;filename=reportname-2016-07-11.xlsx
+Binary *.xlsx file</pre>
+            
+        </div>
+                
+</div>
+        
+
+<h2 id="errors" class="clickable-header top-level-header">Errors</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">HTTP Status Code</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">How to Resolve</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">Bad Request</code></td>
+<td style="text-align: left">Ensure request body is formatted properly</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 401</code></td>
+<td style="text-align: left"><code class="prettyprint">Tokan is invalid</code></td>
+<td style="text-align: left">Ensure Access Token is valid and has not expired</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 403</code></td>
+<td style="text-align: left"><code class="prettyprint">Unauthorized</code></td>
+<td style="text-align: left">Ensure Access Token is valid and user has appropriate security</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 404</code></td>
+<td style="text-align: left"><code class="prettyprint">Not Found</code></td>
+<td style="text-align: left">Ensure URI is valid</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 429</code></td>
+<td style="text-align: left"><code class="prettyprint">Too Many Requests</code></td>
+<td style="text-align: left">See <a href="/api/#rate-limiting">Rate Limiting</a></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 500</code></td>
+<td style="text-align: left"><code class="prettyprint">Unexpected Error</code></td>
+<td style="text-align: left">See Message in response for more information</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

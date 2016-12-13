@@ -1,0 +1,558 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Reference | iQmetrix Developer Portal</title>
+
+    <style>
+      /*.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}*/
+    </style>
+    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all.js"></script>
+  </head>
+
+  <body class="api api_reference api_reference_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+
+    <div class="fixed-top">
+      <a class="navbar-logo" href="/"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">PRODUCTS</a></li>
+          <li><a href="/api/changelog">API REFERENCE</a></li>
+          <li><a href="/api/changelog">CORE CONCEPTS &amp; GUIDES</a></li>
+          <li><a href="/api/changelog">PARTNERS</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">CONTACT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="breadcrumb">
+      <ol>
+        <li><a href="/api/">API REFERENCE</a></li>
+        <li>></li>
+        <li><a href="">API DOCUMENTATION</a></li>
+        <li>></li>
+        <li class="active">CUSTOMER RELATIONSHIP MANAGEMENT (CRM)</li>
+      </ol>
+    </div>
+    <div class="title">
+      <h1>API Documentation</h1>
+      <p>In depth reference documentation for iQmetrix API's.</p>
+    </div>
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <!-- <img src="../../images/logo.png" alt="Logo" /> -->
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="csharp">c#</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="overview">Overview</h1>
+
+<p>The Reference API allows you to easily access a list of supported Countries, States, TimeZones and Currencies.</p>
+
+<h1 id="endpoints">Endpoints</h1>
+
+<ul>
+<li>Sandbox: <a href="https://referencedemo.iqmetrix.net/v1">https://referencedemo.iqmetrix.net/v1</a></li>
+<li>Production: <a href="https://reference.iqmetrix.net/v1">https://reference.iqmetrix.net/v1</a></li>
+</ul>
+
+<h1 id="resources">Resources</h1>
+
+<h2 id="country">Country</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canada"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"States"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Code (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Country Code. Uses the ISO 3166-1 alpha-2 standard</td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Country name</td>
+</tr>
+<tr>
+<td style="text-align: left">Version (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Latest version number</td>
+</tr>
+<tr>
+<td style="text-align: left">States (<code class="prettyprint">Array[[reference](/api/state/#State)]</code>)</td>
+<td style="text-align: left">States/Provinces</td>
+</tr>
+<tr>
+<td style="text-align: left"><em>Alpha3Code (<code class="prettyprint">String</code>)</em></td>
+<td style="text-align: left"><em>Reserved for future use</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="state">State</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alberta"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Country name</td>
+</tr>
+<tr>
+<td style="text-align: left">Code (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">State/Province Code. Based off the ISO 3166-2 standard</td>
+</tr>
+<tr>
+<td style="text-align: left"><em>Id (<code class="prettyprint">Integer</code>)</em></td>
+<td style="text-align: left"><em>Reserved for future use</em></td>
+</tr>
+<tr>
+<td style="text-align: left"><em>Alpha3Code (<code class="prettyprint">String</code>)</em></td>
+<td style="text-align: left"><em>Reserved for future use</em></td>
+</tr>
+<tr>
+<td style="text-align: left"><em>CountryCode (<code class="prettyprint">String</code>)</em></td>
+<td style="text-align: left"><em>Reserved for future use</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="timezone">TimeZone</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alaskan Standard Time"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(UTC-09:00) Alaska"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SupportsDaylightSavingTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name</td>
+</tr>
+<tr>
+<td style="text-align: left">SupportsDaylightSavingTime (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate if this TimeZone observes Daylight Savings Time</td>
+</tr>
+</tbody></table>
+
+<h2 id="currency">Currency</h2>
+
+<p>To represent a Currency symbol in unicode, use the format <code>&amp;#(Code);</code>, for USD this would be <code>&#36;</code> which is displayed as &#36; </p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"106"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States Dollar"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Currency Name</td>
+</tr>
+<tr>
+<td style="text-align: left">Code (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Identifier for the Currency</td>
+</tr>
+<tr>
+<td style="text-align: left">Symbol (<code class="prettyprint">Array[integer]</code>)</td>
+<td style="text-align: left">Unicode decimal value for symbols associated with this currency</td>
+</tr>
+<tr>
+<td style="text-align: left">Version (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Latest version number</td>
+</tr>
+<tr>
+<td style="text-align: left"><em>LanguageNameMap (<code class="prettyprint">String</code>)</em></td>
+<td style="text-align: left"><em>Reserved for future use</em></td>
+</tr>
+</tbody></table>
+
+<h1 id="requests">Requests</h1>
+
+<h2 id="get-all-countries"><span class='get'>GET</span> All Countries</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Countries
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Countries</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://referencedemo.iqmetrix.net/v1/Countries"</span> -H <span class="s2">"Accept: application/json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingAllCountries</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://referencedemo.iqmetrix.net/v1/Countries"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingAllCountries</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://referencedemo.iqmetrix.net/v1/Countries"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://referencedemo.iqmetrix.net/v1/Countries'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canada"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"States"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alberta"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Array[<a href="#Country">country</a>]</p>
+
+<h2 id="get-all-time-zones"><span class='get'>GET</span> All Time Zones</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /TimeZones
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">TimeZones</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://referencedemo.iqmetrix.net/v1/TimeZones"</span> -H <span class="s2">"Accept: application/json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingAllTimeZones</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://referencedemo.iqmetrix.net/v1/TimeZones"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingAllTimeZones</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://referencedemo.iqmetrix.net/v1/TimeZones"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://referencedemo.iqmetrix.net/v1/TimeZones'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alaskan Standard Time"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(UTC-09:00) Alaska"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"SupportsDaylightSavingTime"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Array[<a href="#TimeZone">timezone</a>]</p>
+
+<h2 id="get-all-currencies"><span class='get'>GET</span> All Currencies</h2>
+
+<p>Currency resources are returned in ascending alphabetical order by Code.</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Currencies
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Currencies</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://referencedemo.iqmetrix.net/v1/Currencies"</span> -H <span class="s2">"Accept: application/json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingAllCurrencies</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://referencedemo.iqmetrix.net/v1/Currencies"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingAllCurrencies</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://referencedemo.iqmetrix.net/v1/Currencies"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://referencedemo.iqmetrix.net/v1/Currencies'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">106</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States Dollar"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Symbol"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mi">36</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Array[<a href="#Currency">currency</a>]</p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="csharp">c#</a>
+                <a href="#" data-language-name="java">java</a>
+                <a href="#" data-language-name="ruby">ruby</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

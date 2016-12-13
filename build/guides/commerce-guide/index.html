@@ -1,0 +1,1595 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>eCommerce Integration Guide | iQmetrix Developer Portal</title>
+
+    <style>
+      /*.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}*/
+    </style>
+    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all.js"></script>
+  </head>
+
+  <body class="guides guides_commerce-guide guides_commerce-guide_index" data-languages="[]">
+
+    <div class="fixed-top">
+      <a class="navbar-logo" href="/"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">PRODUCTS</a></li>
+          <li><a href="/api/changelog">API REFERENCE</a></li>
+          <li><a href="/api/changelog">CORE CONCEPTS &amp; GUIDES</a></li>
+          <li><a href="/api/changelog">PARTNERS</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">CONTACT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="breadcrumb">
+      <ol>
+        <li><a href="/api/">API REFERENCE</a></li>
+        <li>></li>
+        <li><a href="">API DOCUMENTATION</a></li>
+        <li>></li>
+        <li class="active">CUSTOMER RELATIONSHIP MANAGEMENT (CRM)</li>
+      </ol>
+    </div>
+    <div class="title">
+      <h1>API Documentation</h1>
+      <p>In depth reference documentation for iQmetrix API's.</p>
+    </div>
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <!-- <img src="../../images/logo.png" alt="Logo" /> -->
+        <div class="lang-selector">
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="overview">Overview</h1>
+
+<p>This guide is intended to demonstrate an example of how iQmetrix APIs could be used to create an eCommerce site or integrate an existing eCommerce site with our other products.</p>
+
+<p><strong>Figure 1:</strong> Illustrates the interactions between an eCommerce solution and iQmetrix APIs.</p>
+
+<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/commerce-flow.png" alt="commerce flow diagram" /></p>
+
+<p>This image (above) shows how the APIs (below) work together in a typical eCommerce integration.</p>
+
+<ul>
+<li>Authentication</li>
+<li>Assets</li>
+<li>Catalog</li>
+<li>Company Tree</li>
+<li>Customers</li>
+<li>Inventory Availability</li>
+<li>Orders</li>
+<li>Pricing</li>
+</ul>
+
+<h2 id="postman-example">Postman Example</h2>
+
+<p>iQmetrix uses <a href="http://www.getpostman.com" target="_blank">Postman</a> when <a href="/api/#testing-and-debugging">testing and debugging</a> our APIs.</p>
+
+<p>For Chrome or Mac users, click the button below to import the collection directly into Postman.</p>
+
+<p>The Postman environment shared by all API references and guides can be found <a href="http://developers.iqmetrix.com/files/postmanEnv.postman_environment">here</a>.</p>
+
+<p>Alternatively, you can download the collection by clicking <a href="https://www.getpostman.com/collections/56da645f71e8ce4121f0">here</a>.</p>
+
+<h2 id="who-is-this-guide-for">Who Is This Guide For?</h2>
+
+<p>You may be interested in this guide if you are:</p>
+
+<ul>
+<li>Creating an eCommerce solution or</li>
+<li>Integrating an existing eCommerce solution with RQ </li>
+</ul>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>To use this guide, the following steps must be completed:</p>
+
+<ul>
+<li>You must have your <strong>onboarding package</strong> from iQmetrix, which includes your access credentials</li>
+<li>Your <a href="http://developers.iqmetrix.com/concepts/product-library/#retailer-catalog">Catalog</a>, or physical inventory for your store(s), must be set up</li>
+<li>Your <a href="http://developers.iqmetrix.com/concepts/company-tree/">Company Tree</a>, representing company structure (stores, groups, divisions, etc), must be created</li>
+</ul>
+
+<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip: </b>
+If the above steps are not complete or you are not sure, contact <a href="mailto:apisupport@iqmetrix.com?subject=Support">Support</a>.
+</div>
+
+<h2 id="before-you-begin">Before You Begin</h2>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>Authorization: Bearer (Access Token)
+</code></pre>
+
+<p>In order to make authorized requests to iQmetrix APIs, you need an <a href="http://developers.iqmetrix.com/glossary/#access-token">Access Token</a>.</p>
+
+<p>See the table below for different ways of getting an Access Token.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">If&hellip;</th>
+<th style="text-align: left">Then&hellip;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">You do not have an Access Token</td>
+<td style="text-align: left">See <a href="/api/authentication/#obtaining-an-access-token">Obtaining an Access Token</a></td>
+</tr>
+<tr>
+<td style="text-align: left">You have an Access Token, but it is close to expiring</td>
+<td style="text-align: left">See <a href="/api/authentication/#refreshing-an-access-token">Refreshing an Access Token</a></td>
+</tr>
+</tbody></table>
+
+<p>The token is placed in the <code class="prettyprint">Authorization</code> header of requests to iQmetrix APIs, prefixed by the word <code class="prettyprint">Bearer</code>.</p>
+
+<h2 id="sections">Sections</h2>
+
+<p>This guide is organized by pages in a typical eCommerce site, and is not intended to be followed sequentially.</p>
+
+<p>Feel free to to skip to any page you are interested in:</p>
+
+<div id="page-selector">
+  <div class="row">
+    <span class="col-md-4 text-center">
+      <a href="#search">
+        <span class="col-md-12">
+          <i class="fa fa-search fa-4x"></i>
+        </span>
+        <span class="col-md-12"> 
+          <h4>Search</h4>
+        </span> 
+      </a>   
+    </span>
+    <span class="col-md-4 text-center">
+      <a href="#view-products">
+        <span class="col-md-12">
+          <i class="fa fa-shopping-cart fa-4x"></i>
+        </span>
+        <span class="col-md-12">
+          <h4>View Products</h4>
+        </span>   
+      </a>   
+    </span>
+    <span class="col-md-4 text-center">
+      <a href="#product-detail">
+        <span class="col-md-12">  
+          <i class="fa fa-mobile fa-4x"></i>
+        </span>
+        <span class="col-md-12">
+          <h4>Product Details</h4>
+        </span>
+      </a>
+    </span>
+  </div>
+  <div class="row">
+    <span class="col-md-4 text-center">
+      <a href="#my-profile">
+        <span class="col-md-12">  
+          <i class="fa fa-user fa-4x"></i>
+        </span>
+        <span class="col-md-12">
+          <h4>My Profile</h4>
+        </span>      
+      </a>
+      </span>
+    <span class="col-md-4 text-center">
+      <a href="#find-a-store">
+        <span class="col-md-12">  
+          <i class="fa fa-map-marker fa-4x"></i>    
+        </span>
+        <span class="col-md-12">
+          <h4>Find a Store</h4>
+        </span>      
+      </a>
+    </span>
+    <span class="col-md-4 text-center">
+      <a href="#order-history">
+        <span class="col-md-12">  
+          <i class="fa fa-file-text fa-4x"></i>
+        </span>
+        <span class="col-md-12"> 
+          <h4>Order History</h4>
+        </span>
+      </a>
+    </span>
+  </div>
+  <div class="row">
+    <span class="col-md-12 text-center">
+      <a href="#compatible-products">
+        <span class="col-md-12">  
+          <i class="fa fa-plug fa-4x"></i>
+        </span>
+        <span class="col-md-12">
+          <h4>Compatible Products</h4>
+        </span>
+      </a> 
+    </span>  
+  </div>
+</div>
+
+<h1 id="search">Search</h1>
+
+<p>Instead of browsing for Products, a Customer may have a specific Product in mind and search for the Product.</p>
+
+<h2 id="searching-products">Searching Products</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://catalogsdemo.iqmetrix.net/v1/companies(14146)/catalog/search?searchTerms=Xperia
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xperia Play"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CanonicalClassification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ParentCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Devices"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phones"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21Z8F4AQ"</span><span class="p">,</span><span class="w">          
+      </span><span class="nt">"ClassificationTreeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DateAddedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-10-14T12:00:00.000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"HeroShotId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EM-JE040-RA"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"SkuType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ManufacturerSku"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer SKU"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"IsMasterProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Msrp"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sony Ericsson"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12113</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsLinkedToCuratedProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsDropShippable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Good phone"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MasterProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VariationId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d60a8776-2f1f-430a-88f6-6180de43887d"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"Facets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"ClassificationAndCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Manufacturers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sony Ericsson"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12113</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"MetaData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"Page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TotalResults"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The search request uses a <code class="prettyprint">SearchTerms</code> URI parameter, and returns Products that match the criteria in any of the following fields:</p>
+
+<ul>
+<li><code class="prettyprint">Name</code></li>
+<li><code class="prettyprint">Manufacturer.Name</code></li>
+<li><code class="prettyprint">ManufacturerSkus</code></li>
+<li><code class="prettyprint">UpcCodes</code></li>
+<li><code class="prettyprint">VendorSkus</code></li>
+</ul>
+
+<h3 id="relevant-api-reference-pages">Relevant API Reference Pages</h3>
+
+<ul>
+<li><a href="/api/catalog/#searching-for-products">Searching For Products</a></li>
+</ul>
+
+<h1 id="view-products">View Products</h1>
+
+<p>A Customer who is browsing an eCommerce site might select a general &ldquo;View Products&rdquo; page to:</p>
+
+<ul>
+<li>See all Products offered by the Company in one big list</li>
+<li>Browse for Products they might want to buy</li>
+<li>Search for Products by category (Batteries, Accessories, etc)</li>
+</ul>
+
+<h2 id="getting-a-list-of-products">Getting a List of Products</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://catalogsdemo.iqmetrix.net/v1/companies(14146)/catalog/items
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"RmsId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M6"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"41519509-b798-4630-abba-89c9a30df83a"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21Z8F4AQ"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DateAddedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-09T20:12:05.987"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DateUpdatedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-09T20:12:05.99"</span><span class="p">,</span><span class="w">          
+      </span><span class="nt">"IsArchived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This request returns a list of all Products in your <a href="http://developers.iqmetrix.com/concepts/product-library/#retailer-catalog">Catalog</a>. </p>
+
+<h3 id="relevant-api-reference-pages">Relevant API Reference Pages</h3>
+
+<ul>
+<li><a href="/api/catalog/#getting-all-catalog-items">Getting All Catalog Items</a></li>
+</ul>
+
+<h2 id="filtering-products">Filtering Products</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://catalogsdemo.iqmetrix.net/v1/companies(14146)/catalog/search?CategoryOrClassificationId=4&amp;ManufacturerIds=11875&amp;VendorIds=3938&amp;Page=1&amp;PageSize=10&amp;OrderBy=name&amp;OrderDir=asc
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Samsung Galaxy S4 64GB - Black Mist"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CanonicalClassification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ParentCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Devices"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phones"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"ClassificationTreeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"HeroShotId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eecb713e-1e74-422d-84d2-b2bb4063f5d0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Msrp"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">639.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Samsung"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11875</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iQmetrix"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3938</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"Identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EM-JE040-RA"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"SkuType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ManufacturerSku"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kentel Corp"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturer SKU"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">          
+      </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M326-V5-E38"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsLinkedToCuratedProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsMasterProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">108</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"IsDropShippable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Live in a world of infinite possibilities"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MasterProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">326</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"VariationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DateAddedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-16T21:46:24.133"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cfe632c4-1128-45b1-be2b-3bbfb77df609"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21Z8F4AQ"</span><span class="p">,</span><span class="w">          
+      </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"Facets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"ClassificationAndCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"Manufacturers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Samsung"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11875</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Vendors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iQmetrix"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3938</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"MetaData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"Page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TotalResults"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Now that we have a list of Products, we can use the following filters:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">API Reference</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Category</td>
+<td style="text-align: left"><a href="/api/catalog/#getting-products-by-category-or-classification">Getting Products by Category or Classification</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Classification</td>
+<td style="text-align: left"><a href="/api/catalog/#getting-products-by-category-or-classification">Getting Products by Category or Classification</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Manufacturer</td>
+<td style="text-align: left"><a href="/api/catalog/#getting-products-by-manufacturer">Getting Products by Manufacturer</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Supplier</td>
+<td style="text-align: left"><a href="/api/catalog/#getting-products-by-supplier">Getting Products by Supplier</a></td>
+</tr>
+<tr>
+<td style="text-align: left">IsDropshippable</td>
+<td style="text-align: left"><a href="/api/catalog/#getting-products-available-for-shipping">Getting Products Available for Shipping</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Combine Filters</td>
+<td style="text-align: left"><a href="/api/catalog/#combining-search-filters">Combining Search Filters</a></td>
+</tr>
+</tbody></table>
+
+<p>In this example, we will filter our list using the following filters: </p>
+
+<ul>
+<li>Category <strong>Smartphones</strong></li>
+<li>Manufacturer <strong>Motorola</strong></li>
+<li>Suppplier <strong>iQmetrix</strong></li>
+<li>Page size of <strong>10</strong>, meaning 10 results will be returned for each page</li>
+<li>Viewing Page <strong>1</strong></li>
+<li>Ordered by <strong>name</strong> in <strong>ascending</strong> order</li>
+</ul>
+
+<h1 id="product-details">Product Details</h1>
+
+<p>A Product Details page is used to provide more information about a Product a Customer is interested in.</p>
+
+<h2 id="getting-product-details">Getting Product Details</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://catalogsdemo.iqmetrix.net/v1/Companies(14146)/Catalog/Items(41519509-b798-4630-abba-89c9a30df83a)/ProductDetails
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M6"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XT711"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"MasterProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"VariationId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Owner"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"CanonicalClassification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"TreeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smartphones"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ParentCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Devices"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phones"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"DateAddedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-09T20:12:05.987"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"DateUpdatedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-09T20:12:05.99"</span><span class="p">,</span><span class="w">      
+  </span><span class="nt">"ShortDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Motorola XT711 is an Android 2.1 smartphone"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"LongDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Motorola XT711 is an Android 2.1 smartphone, ready to take great images with its 8MP camera with Xenon flash. This really looks to be the most camera-centric Android handset to date, especially when you throw 720p HD video recording into the deal. Other than that, the Motorola MILESTONE XT720 seems to be a very good looking handset with characteristic design, large 3.7-inch, 480x854 resolution capacitive screen, HDMI interface, 3.5mm jack, and all other kinds of stuff."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11051</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Motorola"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"RmsId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"135626"</span><span class="p">,</span><span class="w">      
+  </span><span class="nt">"ColorDefinition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c6e2779-79d1-4fbd-b6a8-36b81e851b15"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black Sapphire"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ColorTagIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="mi">1</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"ColorTags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"ColorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#303232"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"Swatch"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ColorCode"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"AssetId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"ColorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#C0C8D0"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">      
+  </span><span class="nt">"MSRP"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">366</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"ExtendedAttributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Country of Manufacture"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"China"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">      
+  </span><span class="nt">"ReleaseDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"VariationInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"Specifications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dimensions"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">54</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"StringId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Height"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"DisplayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Height"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Height"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.43"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Float"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inches"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"Assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"HeroShotUri"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"HeroShotId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ManufacturerSkus"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test-123455345343"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"VendorSkus"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test20439485744393"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"UpcCodes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test93832744985"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"Region"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"IsLinkedToCuratedProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"IsSaleable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"IsArchived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">      
+  </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Most of the Product information we want can be obtained through this request.</p>
+
+<p>In the example below, we get Product details for a XT711 smartphone. </p>
+
+<h3 id="relevant-api-reference-pages">Relevant API Reference Pages</h3>
+
+<ul>
+<li><a href="/api/catalog/#getting-product-details">Getting Product Details</a></li>
+</ul>
+
+<h2 id="getting-assets">Getting Assets</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://amsdemo.iqmetrix.net/assets/7443d13e-dc14-4b30-833b-2919d765964e
+Accept: application/json
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">679</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">1900</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7443d13e-dc14-4b30-833b-2919d765964e"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://amsdemostorage.blob.core.windows.net/assets/7443d13e-dc14-4b30-833b-2919d765964e.png"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"md5Checksum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d9394badc0926762d24e647a2e4e0b67"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53221171-d62b-4f34-838c-583273b476a8.png"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"mimeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>If a Product has a <code class="prettyprint">HeroShotId</code> or other Assets, we can get the appropriate image using this request.</p>
+
+<h3 id="relevant-api-reference-pages">Relevant API Reference Pages</h3>
+
+<ul>
+<li><a href="/api/assets/#getting-an-asset">Getting an Asset</a></li>
+</ul>
+
+<h2 id="getting-stock-levels">Getting Stock Levels</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://availabilitydemo.iqmetrix.net/v1/companies(14146)/CatalogItems(41519509-b798-4630-abba-89c9a30df83a)/Availability
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"41519509-b798-4630-abba-89c9a30df83a"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"IsSerialized"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"IsDropShippable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This request can be used to display stock levels for the Product in every Location in the Company.</p>
+
+<h3 id="notes">Notes</h3>
+
+<ul>
+<li>For <strong>RQ</strong> clients, availability is accurate within 5 minutes of being changed in RQ.</li>
+</ul>
+
+<h3 id="relevant-api-reference-pages">Relevant API Reference Pages</h3>
+
+<ul>
+<li><a href="api/availability/#getting-availability-for-a-catalog-item-for-all-locations">Getting Availability For a Catalog Item For All Locations</a></li>
+</ul>
+
+<h2 id="getting-regular-and-sale-pricing-for-a-location">Getting Regular and Sale Pricing for a Location</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Entities(14202)/CatalogItems(41519509-b798-4630-abba-89c9a30df83a)/Pricing
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15323</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"41519509-b798-4630-abba-89c9a30df83a"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FloorPrice"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsDiscountable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PricingTermId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RegularPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OriginalPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OverridePrice"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OverridePriceId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">        
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This request can be used to get Pricing for a single Location for a Product.</p>
+
+<h3 id="notes">Notes</h3>
+
+<ul>
+<li>For <strong>RQ</strong> clients, pricing is accurate within 5 minutes of being changed in RQ.</li>
+<li>Two types of prices are supported: regular price (<code class="prettyprint">RegularPrice</code>) and sale price (<code class="prettyprint">OverridePrice</code>)</li>
+<li>Multiple currencies are not supported, default retailer currency is implied</li>
+<li>Pricing information for products can be set up at any level in the <a href="http://developers.iqmetrix.com/concepts/company-tree/">Company Tree</a></li>
+<li>Term-based pricing is available to accommodate for scenarios where price varies based on contractual commitment</li>
+</ul>
+
+<h3 id="relevant-api-reference-pages">Relevant API Reference Pages</h3>
+
+<ul>
+<li><a href="/api/pricing/#getting-product-pricing-for-a-retail-location">Getting Product Pricing for a Retail Location</a></li>
+</ul>
+
+<h2 id="getting-a-pricing-term">Getting a Pricing Term</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://pricingdemo.iqmetrix.net/v1/companies(14146)/PricingTerm(78)
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">78</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CanFinance"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CarrierEntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DisplayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 Year Plan"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 Year Plan"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"NumberOfPayments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TermLengthInYears"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>If the Pricing for this Product has a <code class="prettyprint">PricingTermId</code>, we can use this request to get the Pricing Term information.</p>
+
+<h3 id="relevant-api-reference-pages">Relevant API Reference Pages</h3>
+
+<ul>
+<li><a href="/api/pricing/#getting-a-pricing-term">Getting a Pricing Term</a></li>
+</ul>
+
+<h1 id="my-profile">My Profile</h1>
+
+<p>A Customer may visit a &ldquo;My Profile&rdquo; page to:</p>
+
+<ul>
+<li>Create an account</li>
+<li>Update their address</li>
+<li>Change their contact number</li>
+</ul>
+
+<h2 id="creating-a-customer">Creating a Customer</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST https://crmdemo.iqmetrix.net/v1/Companies(14146)/CustomerFull
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"CustomerTypeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PrimaryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Samantha"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"FamilyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brown"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Miss"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"AddressTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"94043"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Locality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Edmonton"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StreetAddress1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1600 Amphitheatre Pkwy"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4dad1b60-5bed-407f-b3ed-8517fcd0dc4a"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PrimaryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Samantha"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AlternateName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"MiddleName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"FamilyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brown"</span><span class="p">,</span><span class="w">      
+  </span><span class="nt">"Addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7754df58-6539-44b7-aae5-73e1c7176ff5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CustomerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4dad1b60-5bed-407f-b3ed-8517fcd0dc4a"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AddressTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Home"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Default"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DoNotContact"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canada"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Locality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Edmonton"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alberta"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"94043"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PostOfficeBoxNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StreetAddress1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1600 Amphitheatre Pkwy"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StreetAddress2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AttentionTo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ContactMethods"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"CustomerExtensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"RelatedCustomers"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"MemberOf"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"CustomerTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"CustomerType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Miss"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"DateOfBirth"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"DoNotContact"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This request could be used in a checkout flow, or when logging into to an eCommerce site.</p>
+
+<h3 id="relevant-api-reference-pages">Relevant API Reference Pages</h3>
+
+<ul>
+<li><a href="/api/crm/#creating-a-full-customer">Creating a Full Customer</a></li>
+</ul>
+
+<h2 id="getting-a-customer">Getting a Customer</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://crmdemo.iqmetrix.net/v1/Companies(14146)/CustomerFull(659c2a38-d083-4421-9330-46d779702f85)
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"659c2a38-d083-4421-9330-46d779702f85"</span><span class="p">,</span><span class="w">      
+  </span><span class="nt">"PrimaryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Princess"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"AlternateName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"MiddleName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"FamilyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jasmine"</span><span class="p">,</span><span class="w">    
+  </span><span class="nt">"Addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a08b0640-606a-41f0-901a-facaf50e75dd"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CustomerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"659c2a38-d083-4421-9330-46d779702f85"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AddressTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Home"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Default"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DoNotContact"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canada"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Locality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yellowknife"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NT"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Northwest Territories"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X1A 3X7"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"PostOfficeBoxNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StreetAddress1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4702 Anderson-Thomson Blvd"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StreetAddress2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Notes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"AttentionTo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"ContactMethods"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b25dd8b2-a24d-4107-8fbe-9c7b21e18137"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CustomerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"659c2a38-d083-4421-9330-46d779702f85"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ContactMethodCategoryId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ContactMethodCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ContactMethodTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ContactMethodType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pager"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(306) 222-3333"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DoNotContact"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"After 6pm"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"CustomerExtensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"74b87ece-5f70-454d-9991-7952127146b0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer115"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CustomerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"659c2a38-d083-4421-9330-46d779702f85"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ExtensionTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ExtensionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CorrelationId"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"RelatedCustomers"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"MemberOf"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"CustomerTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"CustomerType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Person"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ms"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"DateOfBirth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-05-08T16:53:12.15"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Interested in iPhone 6"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"DoNotContact"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This request can be used to get all the information about a Customer in one request.</p>
+
+<h3 id="relevant-api-reference-pages">Relevant API Reference Pages</h3>
+
+<ul>
+<li><a href="/api/crm/#getting-a-full-customer">Getting a Full Customer</a></li>
+</ul>
+
+<h2 id="updating-a-customer">Updating a Customer</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>PUT https://crmdemo.iqmetrix.net/v1/Companies(14146)/CustomerFull(659c2a38-d083-4421-9330-46d779702f85)/ContactMethods(b25dd8b2-a24d-4107-8fbe-9c7b21e18137)
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b25dd8b2-a24d-4107-8fbe-9c7b21e18137"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"CustomerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"659c2a38-d083-4421-9330-46d779702f85"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ContactMethodCategoryId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ContactMethodCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ContactMethodTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ContactMethodType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pager"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(306) 111-8877"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"DoNotContact"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b25dd8b2-a24d-4107-8fbe-9c7b21e18137"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"CustomerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"659c2a38-d083-4421-9330-46d779702f85"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ContactMethodCategoryId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ContactMethodCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ContactMethodTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ContactMethodType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pager"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(306) 111-8877"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"DoNotContact"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The request to update a Customer depends on what needs to be changed.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Change</th>
+<th style="text-align: left">API Reference</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Change to: customer name, birthday, notes, title</td>
+<td style="text-align: left"><a href="/api/crm/#updating-a-customer">Updating a Customer</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Adding a new address</td>
+<td style="text-align: left"><a href="/api/crm/#adding-a-customer-address">Adding a Customer Address</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Updating an address</td>
+<td style="text-align: left"><a href="/api/crm/#updating-a-customer-address">Updating a Customer Address</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Removing an address</td>
+<td style="text-align: left"><a href="/api/crm/#removing-an-address-from-a-customer">Removing an Address from a Customer</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Change to: phone number, email, fax, website, pager</td>
+<td style="text-align: left"><a href="/api/crm/#adding-a-customer-contact-method">Adding a Customer Contact Method</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Add a new contact method</td>
+<td style="text-align: left"><a href="/api/crm/#updating-a-customer-contact-method">Updating a Customer Contact Method</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Removing a contact method</td>
+<td style="text-align: left"><a href="/api/crm/#removing-a-customer-contact-method">Removing a Customer Contact Method</a></td>
+</tr>
+</tbody></table>
+
+<p>The example below demonstrates updating an existing Contact Method, specifically a Customer updating their phone number.</p>
+
+<h1 id="find-a-store">Find a Store</h1>
+
+<p>A Customer might visit a &ldquo;Find a Store&rdquo; page to find:</p>
+
+<ul>
+<li>Store hours</li>
+<li>Phone number for a store</li>
+<li>Address of the nearest store </li>
+</ul>
+
+<h2>Getting a List of Stores</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dufferin Mall"</span><span class="p">,</span><span class="w">     
+      </span><span class="nt">"LocationType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LocationSubType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"AddressLine1"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AddressLine2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Toronto"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"StateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ON"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ontario"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canada"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Zip"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"Contacts"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nt">"StorePhoneNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nt">"Area"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"StoreHours"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Monday"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Tuesday"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Wednesday"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Thursday"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Friday"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Saturday"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Sunday"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"Geography"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TimeZone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Location"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"Role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Location"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dufferin mall"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="nt">"Relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6320</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Definition"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Source"</span><span class="p">:</span><span class="w"> </span><span class="mi">14166</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Destination"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"CreatedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-20T19:01:56.447Z"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CreatedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-20T19:01:56.447Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"LastModifiedUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-20T19:01:56.447Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CorrelationId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ClientEntityId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TypeId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Logo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This request returns information for every Location in a Company.</p>
+
+<h3 id="relevant-api-reference-pages">Relevant API Reference Pages</h3>
+
+<ul>
+<li><a href="/api/company-tree/#getting-a-location-for-a-company">Getting All Locations for a Company</a></li>
+</ul>
+
+<h1 id="order-history">Order History</h1>
+
+<p>A customer might go to this page to:</p>
+
+<ul>
+<li>View previous orders</li>
+<li>Make a change to an order</li>
+<li>Check the status of an order</li>
+</ul>
+
+<h2>Getting All Orders</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://orderdemo.iqmetrix.net/v1/Companies(14146)/OrderFull?$filter=State eq 'Pending' and EntityId eq 14202
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"ItemExtensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e21a8c58-7f66-41c3-9703-5c4d769959b2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f026299b-270e-4a99-a16b-b3df3784e0f1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ItemTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ItemType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DropShip"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ItemStatusId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ItemStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"SupplierEntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Cost"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ListPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"SellingPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LG G3 phone case"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"SKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00001"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"SerialNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"abc321"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"SupplierReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"TrackingInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"ShippingOptionId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f026299b-270e-4a99-a16b-b3df3784e0f1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OrderTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OrderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PrintableId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"79114V2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Galaxy S4 and Accessories Order"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TenderId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TenderOrigin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShippingEntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CustomerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BillingCustomerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"659c2a38-d083-4421-9330-46d779702f85"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShippingCustomerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShippingAddressId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a08b0640-606a-41f0-901a-facaf50e75dd"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BillingAddressId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a08b0640-606a-41f0-901a-facaf50e75dd"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EmployeeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DiscountCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DiscountDescription"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DiscountAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CreatedDateUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-16T22:14:59.603"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OrderExpiryHours"</span><span class="p">:</span><span class="w"> </span><span class="mi">72</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OrderExpiryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-19T22:14:59.603"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This request could be used to make an &ldquo;Order history&rdquo; page, with a list of Orders the customer has previously made.</p>
+
+<p>The following filters are available:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Filter</th>
+<th style="text-align: left">Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="/api/orders/#orderstate">OrderState</a></td>
+<td style="text-align: left"><code class="prettyprint">/Companies(14146)/OrderFull?$filter=State eq &#39;Pending&#39;</code></td>
+</tr>
+<tr>
+<td style="text-align: left">EntityId (Pick up Location)</td>
+<td style="text-align: left"><code class="prettyprint">/Companies(14146)/OrderFull?$filter=EntityId eq 14202</code></td>
+</tr>
+<tr>
+<td style="text-align: left">Name</td>
+<td style="text-align: left"><code class="prettyprint">/Companies(14146)/OrderFull?$filter=substringof(Name, &#39;iPhone&#39;)</code></td>
+</tr>
+<tr>
+<td style="text-align: left">PrintableId</td>
+<td style="text-align: left"><code class="prettyprint">/Companies(14146)/OrderFull?$filter=PrintableId eq &#39;2042068&#39;</code></td>
+</tr>
+<tr>
+<td style="text-align: left">CreatedDateUtc</td>
+<td style="text-align: left"><code class="prettyprint">/Companies(14146)/OrderFull?$filter=CreatedDateUtc gt &#39;2015-12-01T23:11:07.057&#39;</code></td>
+</tr>
+</tbody></table>
+
+<p>The example below demonstrates using the following filters:</p>
+
+<ul>
+<li>State of <code class="prettyprint">Pending</code></li>
+<li>Dufferin Mall pick-up location (EntityId <code class="prettyprint">14202</code>)</li>
+</ul>
+
+<h3 id="relevant-api-reference-pages">Relevant API Reference Pages</h3>
+
+<ul>
+<li><a href="/api/orders/#getting-all-orders-for-a-company">Getting All Orders for a Company</a></li>
+<li><a href="/api/orders/#getting-pending-orders-by-location">Getting Pending Orders by Location</a></li>
+<li><a href="/api/orders/#getting-orders-by-printableid">Getting Orders by PrintableId</a></li>
+</ul>
+
+<h2 id="updating-an-order">Updating an Order</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>PUT https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(f026299b-270e-4a99-a16b-b3df3784e0f1)
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"ItemExtensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e21a8c58-7f66-41c3-9703-5c4d769959b2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f026299b-270e-4a99-a16b-b3df3784e0f1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ItemTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ItemType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DropShip"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ItemStatusId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ItemStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SupplierEntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Cost"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.99</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ListPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.99</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SellingPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.99</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LG G3 phone case"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00001"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SerialNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"abc321"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"abc123"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"SupplierReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TrackingInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nt">"ShippingOptionId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f026299b-270e-4a99-a16b-b3df3784e0f1"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"OrderTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"OrderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PrintableId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"79114V2"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Galaxy S4 and Accessories Order"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"TenderId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"TenderOrigin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ShippingEntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"CustomerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BillingCustomerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"659c2a38-d083-4421-9330-46d779702f85"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ShippingCustomerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ShippingAddressId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a08b0640-606a-41f0-901a-facaf50e75dd"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BillingAddressId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a08b0640-606a-41f0-901a-facaf50e75dd"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"EmployeeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"DiscountCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"DiscountDescription"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"DiscountAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"CreatedDateUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-16T22:14:59.603"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"OrderExpiryHours"</span><span class="p">:</span><span class="w"> </span><span class="mi">72</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"OrderExpiryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-19T22:14:59.603"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"ItemExtensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e21a8c58-7f66-41c3-9703-5c4d769959b2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f026299b-270e-4a99-a16b-b3df3784e0f1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ItemTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ItemType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DropShip"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ItemStatusId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ItemStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SupplierEntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Cost"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.99</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ListPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.99</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SellingPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.99</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LG G3 phone case"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00001"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"SerialNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"abc321"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"SupplierReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TrackingInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nt">"ShippingOptionId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f026299b-270e-4a99-a16b-b3df3784e0f1"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"OrderTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"OrderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"PrintableId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"79114V2"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Galaxy S4 and Accessories Order"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"TenderId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"TenderOrigin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ShippingEntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"CustomerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BillingCustomerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"659c2a38-d083-4421-9330-46d779702f85"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ShippingCustomerId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000-0000-0000-0000-000000000000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ShippingAddressId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a08b0640-606a-41f0-901a-facaf50e75dd"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"BillingAddressId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a08b0640-606a-41f0-901a-facaf50e75dd"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"EmployeeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"DiscountCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"DiscountDescription"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"DiscountAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"CreatedDateUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-16T22:14:59.603"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"OrderExpiryHours"</span><span class="p">:</span><span class="w"> </span><span class="mi">72</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"OrderExpiryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-19T22:14:59.603"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This request can be used to make changes on an Order before it enters the <code class="prettyprint">Processed</code> state.</p>
+
+<p>In the example below, we are adding a Shipping Address (<code class="prettyprint">ShippingAddressId</code>) to the Order to match the Billing Address. </p>
+
+<h1>Compatible Products</h1>
+
+<p>This page is generally within the checkout flow or when browsing products, and displays a list of Products that work well with other Products.</p>
+
+<p>For example, if a customer has a Galaxy S4 Order, the Compatible Products page might include appropriate cases or screen protectors.</p>
+
+<h2>Getting Compatible Products</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://catalogsdemo.iqmetrix.net/v1/companies(14146)/catalog/items(cfe632c4-1128-45b1-be2b-3bbfb77df609)/compatible
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Samsung Galaxy S4 Nafrotiti"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M276"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"334561cb-4304-472e-9457-40f03d03454c"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F4VPEFHH"</span><span class="p">,</span><span class="w">          
+      </span><span class="nt">"HeroShotId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c23eaf8-0eec-4ce1-8abb-e0b936def643"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Samsung Galaxy S4 Standard Battery"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M1119-E14146"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b85cb879-bb5f-4847-a856-8287de0a92d5"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"CatalogSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H4G27G8HH"</span><span class="p">,</span><span class="w">          
+      </span><span class="nt">"HeroShotId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This request is used to get a list of Compatible Products for a Product.</p>
+
+<h3>Relevant API Reference Pages</h3> 
+
+<ul>
+<li><a href="/api/catalog/#getting-compatible-products-for-a-catalog-item">Getting Compatible Products for a Catalog Item</a></li>
+</ul>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

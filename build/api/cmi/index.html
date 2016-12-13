@@ -1,0 +1,2309 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Customer Managed Inventory | iQmetrix Developer Portal</title>
+
+    <style>
+      /*.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}*/
+    </style>
+    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all_nosearch.js"></script>
+  </head>
+
+  <body class="api api_cmi api_cmi_index" data-languages="[]">
+
+    <div class="fixed-top">
+      <a class="navbar-logo" href="/"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">PRODUCTS</a></li>
+          <li><a href="/api/changelog">API REFERENCE</a></li>
+          <li><a href="/api/changelog">CORE CONCEPTS &amp; GUIDES</a></li>
+          <li><a href="/api/changelog">PARTNERS</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">CONTACT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="breadcrumb">
+      <ol>
+        <li><a href="/api/">API REFERENCE</a></li>
+        <li>></li>
+        <li><a href="">API DOCUMENTATION</a></li>
+        <li>></li>
+        <li class="active">CUSTOMER RELATIONSHIP MANAGEMENT (CRM)</li>
+      </ol>
+    </div>
+    <div class="title">
+      <h1>API Documentation</h1>
+      <p>In depth reference documentation for iQmetrix API's.</p>
+    </div>
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <!-- <img src="../../images/logo.png" alt="Logo" /> -->
+        <div class="lang-selector">
+        </div>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <p>{% include linkrefs.html %}</p>
+
+<p><link rel="stylesheet" type="text/css" href="../../css/prism.css"></p>
+
+<script src="../../js/prism.js"></script>
+
+<h2 id="overview">Overview</h2>
+
+<p>{{important}}
+The CMI API is a legacy SOAP API and uses different Authentication then other iQmetrix APIs
+{{end}}</p>
+
+<p>The Customer Managed Inventory (CMI) API can be used to:</p>
+
+<ul>
+<li>Create Purchase Orders</li>
+<li>Retrieve Purchase Orders (POs) created in RQ</li>
+<li>Create shipping notices for POs</li>
+<li>See a list of all CMI enabled stores in RQ</li>
+</ul>
+
+<p>To learn more about CMI, see <a href="/guides/cmi">CMI Guide</a>.</p>
+
+<h2 id="endpoints">Endpoints</h2>
+
+<ul>
+<li>Sandbox: <a href="https://vmidemo.iqmetrix.net/VMIClientService.asmx">https://vmidemo.iqmetrix.net/VMIClientService.asmx</li>
+<li>Production (Denver): <a href="https://vmi1.iqmetrix.net/VMIClientService.asmx">https://vmi1.iqmetrix.net/VMIClientService.asmx</a></li>
+<li>Production (Toronto): <a href="https://vmi3.iqmetrix.net/VMIClientService.asmx">https://vmi3.iqmetrix.net/VMIClientService.asmx</a></li>
+<li>Production (Philadelphia): <a href="https://vmi10.iqmetrix.net/VMIClientService.asmx">https://vmi10.iqmetrix.net/VMIClientService.asmx</a></li>
+</ul>
+
+<p>{{important}}
+You should choose a production endpoint that is geographically closest to your data center 
+{{end}}</p>
+
+<h2 id="resources">Resources</h2>
+
+<h2 id="clientidentity">ClientIdentity</h2>
+
+<p>Authentication for the CMI API is done by including a ClientIdentity resource in a <code class="prettyprint">&lt;client&gt;</code> section at the beginning of each request.</p>
+
+<p>ClientIdentitiy information is supplied by iQmetrix and used to authenticate requests made to the CMI API.
+{{note}}ClientIdentity authentication information is <a href="{{'#environments' | prepend: site.api_baseurl}}">Environment</a> specific{{end}}</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"ClientID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9DC6AA95-856B-42C9-8AAF-392A2A02AC77"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sampleusername"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"samplepassword"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StoreId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ClientID (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left">Client specific identifier supplied by iQmetrix</td>
+</tr>
+<tr>
+<td style="text-align: left">Username (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Client specific username supplied by iQmetrix</td>
+</tr>
+<tr>
+<td style="text-align: left">Password (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Client specific password supplied by iQmetrix</td>
+</tr>
+<tr>
+<td style="text-align: left">StoreId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">If provided, this value should be <code class="prettyprint">-1</code>, which denotes all stores</td>
+</tr>
+</tbody></table>
+
+<h2 id="purchaseordershipmentnotice">PurchaseOrderShipmentNotice</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"PurchaseOrderID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84DACFD3-4095-4D50-A02E-781B86B7408E"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductItemID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11142"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RQPurchaseOrderID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22073"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SerialNumbers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97000012"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShipmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SHIP001"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VendorInvoiceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1002"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VendorSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC123"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">PurchaseOrderID (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left">Unique identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductItemID (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">GlobalProductId from RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">Quantity (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Number of items shipped</td>
+</tr>
+<tr>
+<td style="text-align: left">RQPurchaseOrderID (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier for the Purchase Order in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">SerialNumbers (<code class="prettyprint">Array[string]</code>)</td>
+<td style="text-align: left">Serial numbers. Must match Quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">ShipmentNumber (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Vendor defined identifier for the shipment</td>
+</tr>
+<tr>
+<td style="text-align: left">VendorInvoiceNumber (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Value supplied by the vendor when creating the purchase order</td>
+</tr>
+<tr>
+<td style="text-align: left">VendorSKU (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">The vendor part number/sku</td>
+</tr>
+</tbody></table>
+
+<h2 id="purchaseorder">PurchaseOrder</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"PurchaseOrderID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28890F70-8FC9-4A9B-9458-410A8D08502D"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PurchaseOrderData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductsOrdered"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductsReceived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SerialsReceived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">PurchaseOrderID (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left">Unique identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">PurchaseOrderData (<code class="prettyprint">[cmi](/api/purchaseorderdata/#PurchaseOrderData)</code>)</td>
+<td style="text-align: left">Purchase order</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductsOrdered (<code class="prettyprint">Array[[cmi](/api/productinformation/#ProductInformation)]</code>)</td>
+<td style="text-align: left">Products ordered</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductsReceived (<code class="prettyprint">Array[[cmi](/api/productinformation/#ProductInformation)]</code>)</td>
+<td style="text-align: left">Products received</td>
+</tr>
+<tr>
+<td style="text-align: left">SerialsReceived (<code class="prettyprint">Array[[cmi](/api/productserialnumber/#ProductSerialNumber)]</code>)</td>
+<td style="text-align: left">Serials received</td>
+</tr>
+</tbody></table>
+
+<h2 id="purchaseorderdata">PurchaseOrderData</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"PurchaseOrderID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28890F70-8FC9-4A9B-9458-410A8D08502D"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BillToStoreID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BillToStoreName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cornwall west"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BillToVendorAccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsDeleted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CreatedByVMI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CreatedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3/16/2014 12:00:00 AM"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comments"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EstimatedArrivalDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3/2/2014 12:00:00 AM"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OrderTotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RetailiQPurchaseOrderID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22075"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RetailiQPurchaseOrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DALEKPO5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShippingTotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShipToStoreID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShipToStoreName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cornwall west"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShipToVendorAccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VendorInvoiceNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"563783"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VendorName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SampleVendor"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">PurchaseOrderID (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left">Unique identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">BillToStoreID (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">RQ StoreId</td>
+</tr>
+<tr>
+<td style="text-align: left">BillToStoreName (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">RQ store name</td>
+</tr>
+<tr>
+<td style="text-align: left">BillToVendorAccountNumber (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Vendor account number to use for billing. Can be used in place of <code class="prettyprint">BillToStoreId</code></td>
+</tr>
+<tr>
+<td style="text-align: left">IsDeleted (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate if this purchase order has been deleted in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">CreatedByVMI (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate if this was created by the VMI API (true) or RQ (false)</td>
+</tr>
+<tr>
+<td style="text-align: left">CreatedDate (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">The date and time the purchase order was created, if it was created in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">Comments (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Any comments for the purchase order</td>
+</tr>
+<tr>
+<td style="text-align: left">EstimatedArrivalDate (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Estimated date of arrival</td>
+</tr>
+<tr>
+<td style="text-align: left">OrderTotal (<code class="prettyprint">Decimal</code>)</td>
+<td style="text-align: left">Cost of the order, provided by a vendor for informational purposes only</td>
+</tr>
+<tr>
+<td style="text-align: left">RetailiQPurchaseOrderID (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier of purchase order in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">RetailiQPurchaseOrderNumber (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Purchase order number in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">ShippingTotal (<code class="prettyprint">Decimal</code>)</td>
+<td style="text-align: left">Cost of shipping</td>
+</tr>
+<tr>
+<td style="text-align: left">ShipToStoreID (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier of store to use for shipping. Either this value or ShipToVendorAccountNumber must be supplied</td>
+</tr>
+<tr>
+<td style="text-align: left">ShipToStoreName (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name of store to use for shipping</td>
+</tr>
+<tr>
+<td style="text-align: left">ShipToVendorAccountNumber (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Vendor account number to use for shipping. Can be used in place of <code class="prettyprint">ShipToStoreId</code></td>
+</tr>
+<tr>
+<td style="text-align: left">VendorInvoiceNumber (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Invoice number for the vendor, must be unique</td>
+</tr>
+<tr>
+<td style="text-align: left">VendorName (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name of the vendor</td>
+</tr>
+</tbody></table>
+
+<h2 id="productinformation">ProductInformation</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"ProductID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"86EE477F-C6B7-48FA-AA0A-105662D9A3ED"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Samsung Galaxy S6"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CategoryPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activation &gt;&gt; Dropship"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateEOL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/01/2016 12:00:00 AM"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateReceived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/21/2016 16:58:23"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DoNotOrder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"GrossQuantitySold"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"GrossQuantityReturned"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MaximumLevel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MinimumLevel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MinMaxLocked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductItemID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11142"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductReceived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CECPSM000017"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuantityCommittedOnOrderEntry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuantityInStock"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuantityInTransfer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuantityOnBackOrder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuantityOnLoan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuantityOnOrder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuantityOnRMA"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuantityOnUncommittedOrder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuantityOrdered"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuantityReceived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuantitySold"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuantitySuggestedByVendor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RetailPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SaleBegin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2014 12:00:00 AM"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SaleEnd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/10/2014 12:00:00 AM"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SalePrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"79.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VendorSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SSGS5CB"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ProductID (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left">Unique identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductName (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name</td>
+</tr>
+<tr>
+<td style="text-align: left">CategoryPath (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Category location of product. path of category delimited by &rsquo;&gt;&gt;&rsquo;</td>
+</tr>
+<tr>
+<td style="text-align: left">DateEOL (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">End of life date</td>
+</tr>
+<tr>
+<td style="text-align: left">DateReceived (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Product receiving stauts in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">DoNotOrder (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate if the product should not be ordered</td>
+</tr>
+<tr>
+<td style="text-align: left">Enabled (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate if product is enabled</td>
+</tr>
+<tr>
+<td style="text-align: left">GrossQuantitySold (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Gross amount sold</td>
+</tr>
+<tr>
+<td style="text-align: left">GrossQuantityReturned (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Gross amount returned</td>
+</tr>
+<tr>
+<td style="text-align: left">MaximumLevel (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Maximum number of Products that can be added to the PurchaseOrder</td>
+</tr>
+<tr>
+<td style="text-align: left">MinimumLevel (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Minimum number of Products that can be added to the PurchaseOrder</td>
+</tr>
+<tr>
+<td style="text-align: left">MinMaxLocked (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate if the Min and Max values are locked (unchangeable)</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductCost (<code class="prettyprint">Decimal</code>)</td>
+<td style="text-align: left">Required for PO creation or default from RQ will be used</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductItemID (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">GlobalProductId from RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductReceived (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate if product was received</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductSKU (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">ProductIdentifier in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">QuantityCommittedOnOrderEntry (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Amount committed on an order entry</td>
+</tr>
+<tr>
+<td style="text-align: left">QuantityInStock (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Amount in stock</td>
+</tr>
+<tr>
+<td style="text-align: left">QuantityInTransfer (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Amount in transfer</td>
+</tr>
+<tr>
+<td style="text-align: left">QuantityOnBackOrder (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Amount on back order</td>
+</tr>
+<tr>
+<td style="text-align: left">QuantityOnLoan (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Amount on loan</td>
+</tr>
+<tr>
+<td style="text-align: left">QuantityOnOrder (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Amount on order</td>
+</tr>
+<tr>
+<td style="text-align: left">QuantityOnRMA (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Amount on RMA</td>
+</tr>
+<tr>
+<td style="text-align: left">QuantityOnUncommittedOrder (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Amount on uncommitted order</td>
+</tr>
+<tr>
+<td style="text-align: left">QuantityOrdered (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Amount ordered</td>
+</tr>
+<tr>
+<td style="text-align: left">QuantityReceived (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Amount received</td>
+</tr>
+<tr>
+<td style="text-align: left">QuantitySold (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Amount sold</td>
+</tr>
+<tr>
+<td style="text-align: left">QuantitySuggestedByVendor (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Amount suggested by vendor</td>
+</tr>
+<tr>
+<td style="text-align: left">RetailPrice (<code class="prettyprint">Decimal</code>)</td>
+<td style="text-align: left">Retail price</td>
+</tr>
+<tr>
+<td style="text-align: left">SaleBegin (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Sale begin date</td>
+</tr>
+<tr>
+<td style="text-align: left">SaleEnd (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Sale end date</td>
+</tr>
+<tr>
+<td style="text-align: left">SalePrice (<code class="prettyprint">Decimal</code>)</td>
+<td style="text-align: left">Sale price</td>
+</tr>
+<tr>
+<td style="text-align: left">VendorSKU (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Vendor SKU</td>
+</tr>
+</tbody></table>
+
+<h2 id="productserialnumber">ProductSerialNumber</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"ProductItemID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11142"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateReceived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3/11/2014 2:29:25 PM"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"NonSellable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"132456456456111"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ProductItemID (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">GlobalProductId from RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">DateReceived (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Date received</td>
+</tr>
+<tr>
+<td style="text-align: left">NonSellable (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate if the product is sellable (<code class="prettyprint">false</code>) or nonsellable (<code class="prettyprint">true</code>) in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">SerialNumber (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Serial number</td>
+</tr>
+</tbody></table>
+
+<h2 id="receivinginfo">ReceivingInfo</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"ProductItemID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11142"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Samsung Galaxy S6"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShipToStoreID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShipToStoreName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cornwall west"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RQPurchaseOrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CORNWPO3550"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VendorSKU"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC123"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductCost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateReceived"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3/11/2014 2:29:25 PM"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RQReceivingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CORNWRE6055"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"132456456456111"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ProductItemID (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">GlobalProductId from RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductName (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name</td>
+</tr>
+<tr>
+<td style="text-align: left">ShipToStoreID (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Shipping store ID</td>
+</tr>
+<tr>
+<td style="text-align: left">ShipToStoreName (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name of store to use for shipping</td>
+</tr>
+<tr>
+<td style="text-align: left">RQPurchaseOrderNumber (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Purchase Order number from RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">VendorSKU (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Vendor SKU</td>
+</tr>
+<tr>
+<td style="text-align: left">Quantity (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Number of items received</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductCost (<code class="prettyprint">Decimal</code>)</td>
+<td style="text-align: left">Product cost</td>
+</tr>
+<tr>
+<td style="text-align: left">DateReceived (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Date received</td>
+</tr>
+<tr>
+<td style="text-align: left">RQReceivingNumber (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">The receiving number from RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">SerialNumber (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Serial number</td>
+</tr>
+</tbody></table>
+
+<h2 id="storeinformation">StoreInformation</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"StoreID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cornwall West"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CWW"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2102 11th Ave"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Regina"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canada"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Regina"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5555555555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PostalZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S2S 2S2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProvinceState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Saskatchewan"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Regina"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShipToStoreID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BillToStoreID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">StoreID (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name</td>
+</tr>
+<tr>
+<td style="text-align: left">Abbreviation (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Abbrevation</td>
+</tr>
+<tr>
+<td style="text-align: left">Address (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Address</td>
+</tr>
+<tr>
+<td style="text-align: left">City (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">City</td>
+</tr>
+<tr>
+<td style="text-align: left">Country (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Country</td>
+</tr>
+<tr>
+<td style="text-align: left">District (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">District</td>
+</tr>
+<tr>
+<td style="text-align: left">PhoneNumber (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Phone Number</td>
+</tr>
+<tr>
+<td style="text-align: left">PostalZipCode (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Postal or Zip Code</td>
+</tr>
+<tr>
+<td style="text-align: left">ProvinceState (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Province or State</td>
+</tr>
+<tr>
+<td style="text-align: left">Region (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Region</td>
+</tr>
+<tr>
+<td style="text-align: left">ShipToStoreID (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Shipping store ID</td>
+</tr>
+<tr>
+<td style="text-align: left">BillToStoreID (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">RQ StoreID</td>
+</tr>
+</tbody></table>
+
+<h2 id="requests">Requests</h2>
+
+<h3 id='creating-a-purchase-order-shipment-notice' class='clickable-header top-level-header'>Creating a Purchase Order Shipment Notice</h3>
+
+<p>This method allows the vendor to create a shipment notice for an existing purchase order. </p>
+
+<h4 id="notes">Notes</h4>
+
+<ul>
+<li>The shipment notice will be used when receiving purchase order products with serial numbers</li>
+<li>Multiple shipment notices can be created for a single purchase order</li>
+<li>Each shipment notice is for a single product</li>
+<li>If more than one product appears in a shipment, create one shipment notice for each product, but use the same shipment number for all products in the same shipment</li>
+</ul>
+
+<p>{{tip}}
+This request accepts an array of PurchaseOrderShipmentNotices, so you do not need to call the CMI service multiple times for products in an order
+{{end}}</p>
+
+<h4 id="request">Request</h4>
+
+<pre>
+POST /?op=CreatePurchaseOrderShipmentNotice
+</pre>
+
+<h4 id="headers">Headers</h4>
+
+<ul>
+<li><code class="prettyprint">Content-Type: text/xml</code></li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>CreatePurchaseOrderShipmentNotice</code> (<strong>Required</strong>) </li><ul><li><code>client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) - Client specific identifier supplied by iQmetrix</li><li><code>Username</code> (<strong>Required</strong>) - Client specific username supplied by iQmetrix</li><li><code>Password</code> (<strong>Required</strong>) - Client specific password supplied by iQmetrix</li><li><code>StoreId</code> (<strong>Required</strong>) - If provided, this value should be -1, which denotes all stores</li></ul><li><code>notice</code> (<strong>Required</strong>) </li><ul><li><code>PurchaseOrderShipmentNotice</code> (<strong>Required</strong>) </li><ul><li><code>Quantity</code> (<strong>Required</strong>) - Number of items shipped</li><li><code>RQPurchaseOrderID</code> (<strong>Required</strong>) - Identifier for the Purchase Order in RQ</li><li><code>SerialNumbers</code> (<strong>Required</strong>) - Serial numbers. Must match Quantity</li><li><code>VendorInvoiceNumber</code> (<strong>Required</strong>) - Either this value OR PurchaseOrderID must be provided</li><li><code>PurchaseOrderID</code> (Optional) - Either this value or VendorInvoiceNumber must be provided</li><li><code>ProductItemID</code> (Optional) - Either this value or VendorSKU must be provided</li><li><code>ShipmentNumber</code> (Optional) - If this value is not provided, the service will automatically assign one</li><li><code>VendorSKU</code> (Optional) - Either this value or ProductItemId must be provided</li></ul></ul></ul></ul>
+
+<h6 id="example">Example</h6>
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <CreatePurchaseOrderShipmentNotice 
+      xmlns="http://www.iqmetrix.com">
+      <client>
+        <ClientID>9DC6AA95-856B-42C9-8AAF-392A2A02AC77</ClientID>
+        <Username>sampleusername</Username>
+        <Password>samplepassword</Password>
+        <StoreId>-1</StoreId>
+      </client>
+      <notice>
+        <PurchaseOrderShipmentNotice>
+          <PurchaseOrderID>84DACFD3-4095-4D50-A02E-781B86B7408E</PurchaseOrderID>
+          <ProductItemID>11142</ProductItemID>
+          <Quantity>1</Quantity>
+          <RQPurchaseOrderID>22073</RQPurchaseOrderID>
+          <SerialNumbers>
+            <string>97000012</string>
+          </SerialNumbers>
+          <ShipmentNumber>SHIP001</ShipmentNumber>
+          <VendorInvoiceNumber>1002</VendorInvoiceNumber>
+          <VendorSKU>ABC123</VendorSKU>
+        </PurchaseOrderShipmentNotice>
+      </notice>
+    </CreatePurchaseOrderShipmentNotice>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+
+###### Code Example
+
+<pre><code class="language-java"><script>ClientIdentity client = new ClientIdentity();
+client.ClientID = new GUID("9DC6AA95-856B-42C9-8AAF-392A2A02AC77");
+client.Username = "sampleusername";
+client.Password = "samplepassword";
+client.StoreID = -1;
+
+PurchaseOrderShipmentNotice shipmentNotice = new PurchaseOrderShipmentNotice();
+shipmentNotice.PurchaseOrderID = new GUID(84DACFD3-4095-4D50-A02E-781B86B7408E);
+shipmentNotice.ShipmentNumber = "SHIP001";
+shipmentNotice.ProductItemID = 11142;
+shipmentNotice.Quantity = 1;
+shipmentNotice.SerialNumber = {"97000012"};
+shipmentNotice.VendorSKU = "ABC123";
+shipmentNotice.VendorInvoiceNumber = "1002";
+shipmentNotice.RQPurchaseOrderID = "22073";
+
+PurchaseOrderShipmentNotice snReturn = cmiService.CreatePurchaseOrderShipmentNotice(client, new[] { shipmentNotice });
+</script></code></pre>
+
+#### Response
+
+
+
+###### Example
+
+<pre><code class="language-json">HTTP 200 Content-Type: text/xml</code></pre>
+
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <CreatePurchaseOrderShipmentNoticeResponse 
+      xmlns="http://www.iqmetrix.com">
+      <CreatePurchaseOrderShipmentNoticeResult>
+        <PurchaseOrderShipmentNotice>
+          <PurchaseOrderID>84DACFD3-4095-4D50-A02E-781B86B7408E</PurchaseOrderID>
+          <ProductItemID>11142</ProductItemID>
+          <Quantity>1</Quantity>
+          <RQPurchaseOrderID>22073</RQPurchaseOrderID>
+          <SerialNumbers>
+            <string>97000012</string>
+          </SerialNumbers>
+          <ShipmentNumber>SHIP001</ShipmentNumber>
+          <VendorInvoiceNumber>1002</VendorInvoiceNumber>
+          <VendorSKU>ABC123</VendorSKU>
+        </PurchaseOrderShipmentNotice>
+      </CreatePurchaseOrderShipmentNoticeResult>
+    </CreatePurchaseOrderShipmentNoticeResponse>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+
+
+<h3 id='creating-a-purchase-order' class='clickable-header top-level-header'>Creating a Purchase Order</h3>
+
+#### Notes
+
+* Creating a Purchase Order allows RQ to properly account for products arriving at a store so that stock levels are updated correctly
+* Each item must be unique
+* To place multiple copies of an item on an order, adjust the quantity    
+
+
+#### Request
+
+<pre>
+POST /?op=CreatePurchaseOrder
+</pre>
+
+<h4 id="headers">Headers</h4>
+
+<ul>
+<li><code class="prettyprint">Content-Type: text/xml</code></li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>CreatePurchaseOrder</code> (<strong>Required</strong>) </li><ul><li><code>client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) - Client specific identifier supplied by iQmetrix</li><li><code>Username</code> (<strong>Required</strong>) - Client specific username supplied by iQmetrix</li><li><code>Password</code> (<strong>Required</strong>) - Client specific password supplied by iQmetrix</li><li><code>StoreId</code> (<strong>Required</strong>) - If provided, this value should be -1, which denotes all stores</li></ul><li><code>vendorId</code> (<strong>Required</strong>) - Vendor identifier</li><li><code>PurchaseOrder</code> (<strong>Required</strong>) </li><ul><li><code>PurchaseOrderID</code> (<strong>Required</strong>) </li><li><code>PurchaseOrderData</code> (<strong>Required</strong>) </li><ul><li><code>BillToStoreID</code> (<strong>Required</strong>) - Defaults to -1. Either this value or BillToVendorAccountNumber must be supplied</li><li><code>EstimatedArrivalDate</code> (<strong>Required</strong>) </li><li><code>ShipToStoreID</code> (<strong>Required</strong>) - Defaults to -1</li><li><code>VendorInvoiceNumber</code> (<strong>Required</strong>) </li><li><code>CreatedByVMI</code> (Optional) - defaults to false</li><li><code>CreatedDate</code> (Optional) </li><li><code>Comments</code> (Optional) </li><li><code>OrderTotal</code> (Optional) - Defaults to -1</li><li><code>ShippingTotal</code> (Optional) - Defaults to -1</li></ul><li><code>ProductsOrdered</code> (<strong>Required</strong>) </li><ul><li><code>ProductInformation</code> (<strong>Required</strong>) </li><ul><li><code>QuantityOrdered</code> (<strong>Required</strong>) </li><li><code>VendorSKU</code> (<strong>Required</strong>) </li><li><code>ProductID</code> (Optional) </li><li><code>ProductName</code> (Optional) </li><li><code>DateEOL</code> (Optional) </li><li><code>DateReceived</code> (Optional) </li><li><code>Enabled</code> (Optional) </li><li><code>MaximumLevel</code> (Optional) - defaults to -1</li><li><code>MinimumLevel</code> (Optional) - defaults to -1</li><li><code>ProductCost</code> (Optional) - defaults to -1</li><li><code>ProductItemID</code> (Optional) </li><li><code>ProductReceived</code> (Optional) </li><li><code>ProductSKU</code> (Optional) </li><li><code>QuantityCommittedOnOrderEntry</code> (Optional) - defaults to -1</li><li><code>QuantityInStock</code> (Optional) - defaults to -1</li><li><code>QuantityInTransfer</code> (Optional) - defaults to -1</li><li><code>QuantityOnBackOrder</code> (Optional) - defaults to -1</li><li><code>QuantityOnLoan</code> (Optional) - defaults to -1</li><li><code>QuantityOnOrder</code> (Optional) - defaults to -1</li><li><code>QuantityOnRMA</code> (Optional) - defaults to -1</li><li><code>QuantityReceived</code> (Optional) - defaults to -1</li><li><code>QuantitySold</code> (Optional) - defaults to -1</li></ul></ul></ul></ul></ul>
+
+<h6 id="example">Example</h6>
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <CreatePurchaseOrder 
+      xmlns="http://www.iqmetrix.com">
+      <client>
+        <ClientID>9DC6AA95-856B-42C9-8AAF-392A2A02AC77</ClientID>
+        <Username>sampleusername</Username>
+        <Password>samplepassword</Password>
+        <StoreId>-1</StoreId>
+      </client>
+      <vendorId>f8c68dc5-7417-4e4d-b17c-42838660772a</vendorId>
+      <PurchaseOrder>
+        <PurchaseOrderID>28890F70-8FC9-4A9B-9458-410A8D08502D</PurchaseOrderID>
+        <PurchaseOrderData>
+          <BillToStoreID>55</BillToStoreID>
+          <CreatedByVMI>false</CreatedByVMI>
+          <CreatedDate>3/16/2014 12:00:00 AM</CreatedDate>
+          <Comments>comments</Comments>
+          <EstimatedArrivalDate>3/2/2014 12:00:00 AM</EstimatedArrivalDate>
+          <OrderTotal>99.99</OrderTotal>
+          <ShippingTotal>99.99</ShippingTotal>
+          <ShipToStoreID>55</ShipToStoreID>
+          <VendorInvoiceNumber>563783</VendorInvoiceNumber>
+        </PurchaseOrderData>
+        <ProductsOrdered>
+          <ProductInformation>
+            <ProductID>86EE477F-C6B7-48FA-AA0A-105662D9A3ED</ProductID>
+            <ProductName>Samsung Galaxy S6</ProductName>
+            <DateEOL>1/01/2016 12:00:00 AM</DateEOL>
+            <DateReceived>01/21/2016 16:58:23</DateReceived>
+            <Enabled>true</Enabled>
+            <MaximumLevel>100</MaximumLevel>
+            <MinimumLevel>10</MinimumLevel>
+            <ProductCost>99.99</ProductCost>
+            <ProductItemID>11142</ProductItemID>
+            <ProductReceived>false</ProductReceived>
+            <ProductSKU>CECPSM000017</ProductSKU>
+            <QuantityCommittedOnOrderEntry>0</QuantityCommittedOnOrderEntry>
+            <QuantityInStock>8</QuantityInStock>
+            <QuantityInTransfer>3</QuantityInTransfer>
+            <QuantityOnBackOrder>0</QuantityOnBackOrder>
+            <QuantityOnLoan>5</QuantityOnLoan>
+            <QuantityOnOrder>6</QuantityOnOrder>
+            <QuantityOnRMA>9</QuantityOnRMA>
+            <QuantityOrdered>4</QuantityOrdered>
+            <QuantityReceived>4</QuantityReceived>
+            <QuantitySold>30</QuantitySold>
+            <VendorSKU>SSGS5CB</VendorSKU>
+          </ProductInformation>
+        </ProductsOrdered>
+      </PurchaseOrder>
+    </CreatePurchaseOrder>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+
+###### Code Example
+
+<pre><code class="language-java"><script>ClientIdentity client = new ClientIdentity();
+client.ClientID = new GUID("9DC6AA95-856B-42C9-8AAF-392A2A02AC77");
+client.Username = "sampleusername";
+client.Password = "samplepassword";
+client.StoreID = -1;
+
+DateTime ead1 = DateTime.Today.AddDays(14);
+string eta = String.Format("{0:D2}/{1:D2}/{2:D4}", ead1.Month, ead1.Day, ead1.Year);
+PurchaseOrder po = new PurchaseOrder();
+po.PurchaseOrderID = new Guid();
+po.PurchaseOrderData = new PurchaseOrderData();
+po.PurchaseOrderData.BillToStoreID = stores[0].StoreID;
+po.PurchaseOrderData.Comments = "Vendor Invoice Number #: BDP123";
+po.PurchaseOrderData.ShipToStoreID = stores[0].StoreID;
+po.PurchaseOrderData.VendorInvoiceNumber = "BDP123";
+po.PurchaseOrderData.EstimatedArrivalDate = eta;
+
+po.ProductsOrdered = new ProductInformation[1];
+po.ProductsOrdered[0] = new ProductInformation();
+po.ProductsOrdered[0].ProductItemID = productID;
+po.ProductsOrdered[0].ProductName = "Samsung Galaxy S5 - Charcoal Black";
+po.ProductsOrdered[0].ProductSKU = "SSSATM000002";
+po.ProductsOrdered[0].VendorSKU = "SSGS5CB";
+po.ProductsOrdered[0].QuantityOrdered = 1;
+po.ProductsOrdered[0].ProductCost = 130.00;
+
+PurchaseOrder poCreated = cmiService.CreatePurchaseOrder(vendor, po);
+</script></code></pre>
+
+#### Response
+
+
+
+###### Example
+
+<pre><code class="language-json">HTTP 200 Content-Type: text/xml</code></pre>
+
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <CreatePurchaseOrderResponse 
+      xmlns="http://www.iqmetrix.com">
+      <CreatePurchaseOrderResult>
+        <PurchaseOrderID>28890F70-8FC9-4A9B-9458-410A8D08502D</PurchaseOrderID>
+        <PurchaseOrderData>
+          <PurchaseOrderID>28890F70-8FC9-4A9B-9458-410A8D08502D</PurchaseOrderID>
+          <BillToStoreID>55</BillToStoreID>
+          <BillToStoreName>Cornwall west</BillToStoreName>
+          <BillToVendorAccountNumber>1</BillToVendorAccountNumber>
+          <IsDeleted>false</IsDeleted>
+          <CreatedByVMI>false</CreatedByVMI>
+          <CreatedDate>3/16/2014 12:00:00 AM</CreatedDate>
+          <Comments>comments</Comments>
+          <EstimatedArrivalDate>3/2/2014 12:00:00 AM</EstimatedArrivalDate>
+          <OrderTotal>99.99</OrderTotal>
+          <RetailiQPurchaseOrderID>22075</RetailiQPurchaseOrderID>
+          <RetailiQPurchaseOrderNumber>DALEKPO5</RetailiQPurchaseOrderNumber>
+          <ShippingTotal>99.99</ShippingTotal>
+          <ShipToStoreID>55</ShipToStoreID>
+          <ShipToStoreName>Cornwall west</ShipToStoreName>
+          <ShipToVendorAccountNumber>1</ShipToVendorAccountNumber>
+          <VendorInvoiceNumber>563783</VendorInvoiceNumber>
+          <VendorName>SampleVendor</VendorName>
+        </PurchaseOrderData>
+        <ProductsOrdered>
+          <ProductInformation>
+            <ProductID>86EE477F-C6B7-48FA-AA0A-105662D9A3ED</ProductID>
+            <ProductName>Samsung Galaxy S6</ProductName>
+            <CategoryPath>Activation >> Dropship</CategoryPath>
+            <DateEOL>1/01/2016 12:00:00 AM</DateEOL>
+            <DateReceived>01/21/2016 16:58:23</DateReceived>
+            <DoNotOrder>false</DoNotOrder>
+            <Enabled>true</Enabled>
+            <GrossQuantitySold>-1</GrossQuantitySold>
+            <GrossQuantityReturned>-1</GrossQuantityReturned>
+            <MaximumLevel>100</MaximumLevel>
+            <MinimumLevel>10</MinimumLevel>
+            <MinMaxLocked>false</MinMaxLocked>
+            <ProductCost>99.99</ProductCost>
+            <ProductItemID>11142</ProductItemID>
+            <ProductReceived>false</ProductReceived>
+            <ProductSKU>CECPSM000017</ProductSKU>
+            <QuantityCommittedOnOrderEntry>0</QuantityCommittedOnOrderEntry>
+            <QuantityInStock>8</QuantityInStock>
+            <QuantityInTransfer>3</QuantityInTransfer>
+            <QuantityOnBackOrder>0</QuantityOnBackOrder>
+            <QuantityOnLoan>5</QuantityOnLoan>
+            <QuantityOnOrder>6</QuantityOnOrder>
+            <QuantityOnRMA>9</QuantityOnRMA>
+            <QuantityOnUncommittedOrder>2</QuantityOnUncommittedOrder>
+            <QuantityOrdered>4</QuantityOrdered>
+            <QuantityReceived>4</QuantityReceived>
+            <QuantitySold>30</QuantitySold>
+            <QuantitySuggestedByVendor>50</QuantitySuggestedByVendor>
+            <RetailPrice>99.99</RetailPrice>
+            <SaleBegin>01/01/2014 12:00:00 AM</SaleBegin>
+            <SaleEnd>01/10/2014 12:00:00 AM</SaleEnd>
+            <SalePrice>79.99</SalePrice>
+            <VendorSKU>SSGS5CB</VendorSKU>
+          </ProductInformation>
+        </ProductsOrdered>
+      </CreatePurchaseOrderResult>
+    </CreatePurchaseOrderResponse>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+
+
+<h3 id='creating-an-uncommitted-purchase-order' class='clickable-header top-level-header'>Creating an Uncommitted Purchase Order</h3>
+
+
+
+#### Request
+
+<pre>
+POST /?op=CreateUncommittedPurchaseOrder
+</pre>
+
+<h4 id="headers">Headers</h4>
+
+<ul>
+<li><code class="prettyprint">Content-Type: text/xml</code></li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>CreateUncommittedPurchaseOrder</code> (<strong>Required</strong>) </li><ul><li><code>client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) - Client specific identifier supplied by iQmetrix</li><li><code>Username</code> (<strong>Required</strong>) - Client specific username supplied by iQmetrix</li><li><code>Password</code> (<strong>Required</strong>) - Client specific password supplied by iQmetrix</li><li><code>StoreId</code> (<strong>Required</strong>) - If provided, this value should be -1, which denotes all stores</li></ul><li><code>vendorId</code> (<strong>Required</strong>) - Vendor identifier</li><li><code>purchaseOrder</code> (Optional) </li><ul><li><code>PurchaseOrderID</code> (<strong>Required</strong>) </li><li><code>PurchaseOrderData</code> (<strong>Required</strong>) </li><ul><li><code>BillToStoreID</code> (<strong>Required</strong>) - Defaults to -1. Either this value or BillToVendorAccountNumber must be supplied</li><li><code>EstimatedArrivalDate</code> (<strong>Required</strong>) </li><li><code>ShipToStoreID</code> (<strong>Required</strong>) - Defaults to -1</li><li><code>VendorInvoiceNumber</code> (<strong>Required</strong>) </li><li><code>CreatedByVMI</code> (Optional) - defaults to false</li><li><code>CreatedDate</code> (Optional) </li><li><code>Comments</code> (Optional) </li><li><code>OrderTotal</code> (Optional) - Defaults to -1</li><li><code>ShippingTotal</code> (Optional) - Defaults to -1</li></ul><li><code>ProductsOrdered</code> (<strong>Required</strong>) </li><ul><li><code>ProductInformation</code> (<strong>Required</strong>) </li><ul><li><code>QuantityOrdered</code> (<strong>Required</strong>) </li><li><code>VendorSKU</code> (<strong>Required</strong>) </li><li><code>ProductID</code> (Optional) </li><li><code>ProductName</code> (Optional) </li><li><code>DateEOL</code> (Optional) </li><li><code>DateReceived</code> (Optional) </li><li><code>Enabled</code> (Optional) </li><li><code>MaximumLevel</code> (Optional) - defaults to -1</li><li><code>MinimumLevel</code> (Optional) - defaults to -1</li><li><code>ProductCost</code> (Optional) - defaults to -1</li><li><code>ProductItemID</code> (Optional) </li><li><code>ProductReceived</code> (Optional) </li><li><code>ProductSKU</code> (Optional) </li><li><code>QuantityCommittedOnOrderEntry</code> (Optional) - defaults to -1</li><li><code>QuantityInStock</code> (Optional) - defaults to -1</li><li><code>QuantityInTransfer</code> (Optional) - defaults to -1</li><li><code>QuantityOnBackOrder</code> (Optional) - defaults to -1</li><li><code>QuantityOnLoan</code> (Optional) - defaults to -1</li><li><code>QuantityOnOrder</code> (Optional) - defaults to -1</li><li><code>QuantityOnRMA</code> (Optional) - defaults to -1</li><li><code>QuantityReceived</code> (Optional) - defaults to -1</li><li><code>QuantitySold</code> (Optional) - defaults to -1</li></ul></ul></ul></ul></ul>
+
+<h6 id="example">Example</h6>
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <CreateUncommittedPurchaseOrder 
+      xmlns="http://www.iqmetrix.com">
+      <client>
+        <ClientID>9DC6AA95-856B-42C9-8AAF-392A2A02AC77</ClientID>
+        <Username>sampleusername</Username>
+        <Password>samplepassword</Password>
+        <StoreId>-1</StoreId>
+      </client>
+      <vendorId>f8c68dc5-7417-4e4d-b17c-42838660772a</vendorId>
+      <purchaseOrder>
+        <PurchaseOrderID>28890F70-8FC9-4A9B-9458-410A8D08502D</PurchaseOrderID>
+        <PurchaseOrderData>
+          <BillToStoreID>55</BillToStoreID>
+          <CreatedByVMI>false</CreatedByVMI>
+          <CreatedDate>3/16/2014 12:00:00 AM</CreatedDate>
+          <Comments>comments</Comments>
+          <EstimatedArrivalDate>3/2/2014 12:00:00 AM</EstimatedArrivalDate>
+          <OrderTotal>99.99</OrderTotal>
+          <ShippingTotal>99.99</ShippingTotal>
+          <ShipToStoreID>55</ShipToStoreID>
+          <VendorInvoiceNumber>563783</VendorInvoiceNumber>
+        </PurchaseOrderData>
+        <ProductsOrdered>
+          <ProductInformation>
+            <ProductID>86EE477F-C6B7-48FA-AA0A-105662D9A3ED</ProductID>
+            <ProductName>Samsung Galaxy S6</ProductName>
+            <DateEOL>1/01/2016 12:00:00 AM</DateEOL>
+            <DateReceived>01/21/2016 16:58:23</DateReceived>
+            <Enabled>true</Enabled>
+            <MaximumLevel>100</MaximumLevel>
+            <MinimumLevel>10</MinimumLevel>
+            <ProductCost>99.99</ProductCost>
+            <ProductItemID>11142</ProductItemID>
+            <ProductReceived>false</ProductReceived>
+            <ProductSKU>CECPSM000017</ProductSKU>
+            <QuantityCommittedOnOrderEntry>0</QuantityCommittedOnOrderEntry>
+            <QuantityInStock>8</QuantityInStock>
+            <QuantityInTransfer>3</QuantityInTransfer>
+            <QuantityOnBackOrder>0</QuantityOnBackOrder>
+            <QuantityOnLoan>5</QuantityOnLoan>
+            <QuantityOnOrder>6</QuantityOnOrder>
+            <QuantityOnRMA>9</QuantityOnRMA>
+            <QuantityOrdered>4</QuantityOrdered>
+            <QuantityReceived>4</QuantityReceived>
+            <QuantitySold>30</QuantitySold>
+            <VendorSKU>SSGS5CB</VendorSKU>
+          </ProductInformation>
+        </ProductsOrdered>
+      </purchaseOrder>
+    </CreateUncommittedPurchaseOrder>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+
+###### Code Example
+
+<pre><code class="language-java"><script>ClientIdentity client = new ClientIdentity();
+client.ClientID = new GUID("9DC6AA95-856B-42C9-8AAF-392A2A02AC77");
+client.Username = "sampleusername";
+client.Password = "samplepassword";
+client.StoreID = -1;
+
+DateTime ead1 = DateTime.Today.AddDays(14);
+string eta = String.Format("{0:D2}/{1:D2}/{2:D4}", ead1.Month, ead1.Day, ead1.Year);
+PurchaseOrder po = new PurchaseOrder();
+po.PurchaseOrderID = new Guid();
+po.PurchaseOrderData = new PurchaseOrderData();
+po.PurchaseOrderData.BillToStoreID = stores[0].StoreID;
+po.PurchaseOrderData.Comments = "Vendor Invoice Number #: BDP123";
+po.PurchaseOrderData.ShipToStoreID = stores[0].StoreID;
+po.PurchaseOrderData.VendorInvoiceNumber = "BDP123";
+po.PurchaseOrderData.EstimatedArrivalDate = eta;
+
+po.ProductsOrdered = new ProductInformation[1];
+po.ProductsOrdered[0] = new ProductInformation();
+po.ProductsOrdered[0].ProductItemID = productID;
+po.ProductsOrdered[0].ProductName = "Samsung Galaxy S5 - Charcoal Black";
+po.ProductsOrdered[0].ProductSKU = "SSSATM000002";
+po.ProductsOrdered[0].VendorSKU = "SSGS5CB";
+po.ProductsOrdered[0].QuantityOrdered = 1;
+po.ProductsOrdered[0].ProductCost = 130.00;
+
+PurchaseOrder poCreated = cmiService.CreateUncommittedPurchaseOrder(vendor, po);
+</script></code></pre>
+
+#### Response
+
+
+
+###### Example
+
+<pre><code class="language-json">HTTP 200 Content-Type: text/xml</code></pre>
+
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <CreateUncommittedPurchaseOrderResponse 
+      xmlns="http://www.iqmetrix.com">
+      <CreateUncommittedPurchaseOrderResult>
+        <PurchaseOrderID>28890F70-8FC9-4A9B-9458-410A8D08502D</PurchaseOrderID>
+        <PurchaseOrderData>
+          <PurchaseOrderID>28890F70-8FC9-4A9B-9458-410A8D08502D</PurchaseOrderID>
+          <BillToStoreID>55</BillToStoreID>
+          <BillToStoreName>Cornwall west</BillToStoreName>
+          <BillToVendorAccountNumber>1</BillToVendorAccountNumber>
+          <IsDeleted>false</IsDeleted>
+          <CreatedByVMI>false</CreatedByVMI>
+          <CreatedDate>3/16/2014 12:00:00 AM</CreatedDate>
+          <Comments>comments</Comments>
+          <EstimatedArrivalDate>3/2/2014 12:00:00 AM</EstimatedArrivalDate>
+          <OrderTotal>99.99</OrderTotal>
+          <RetailiQPurchaseOrderID>22075</RetailiQPurchaseOrderID>
+          <RetailiQPurchaseOrderNumber>DALEKPO5</RetailiQPurchaseOrderNumber>
+          <ShippingTotal>99.99</ShippingTotal>
+          <ShipToStoreID>55</ShipToStoreID>
+          <ShipToStoreName>Cornwall west</ShipToStoreName>
+          <ShipToVendorAccountNumber>1</ShipToVendorAccountNumber>
+          <VendorInvoiceNumber>563783</VendorInvoiceNumber>
+          <VendorName>SampleVendor</VendorName>
+        </PurchaseOrderData>
+        <ProductsOrdered>
+          <ProductInformation>
+            <ProductID>86EE477F-C6B7-48FA-AA0A-105662D9A3ED</ProductID>
+            <ProductName>Samsung Galaxy S6</ProductName>
+            <CategoryPath>Activation >> Dropship</CategoryPath>
+            <DateEOL>1/01/2016 12:00:00 AM</DateEOL>
+            <DateReceived>01/21/2016 16:58:23</DateReceived>
+            <DoNotOrder>false</DoNotOrder>
+            <Enabled>true</Enabled>
+            <GrossQuantitySold>-1</GrossQuantitySold>
+            <GrossQuantityReturned>-1</GrossQuantityReturned>
+            <MaximumLevel>100</MaximumLevel>
+            <MinimumLevel>10</MinimumLevel>
+            <MinMaxLocked>false</MinMaxLocked>
+            <ProductCost>99.99</ProductCost>
+            <ProductItemID>11142</ProductItemID>
+            <ProductReceived>false</ProductReceived>
+            <ProductSKU>CECPSM000017</ProductSKU>
+            <QuantityCommittedOnOrderEntry>0</QuantityCommittedOnOrderEntry>
+            <QuantityInStock>8</QuantityInStock>
+            <QuantityInTransfer>3</QuantityInTransfer>
+            <QuantityOnBackOrder>0</QuantityOnBackOrder>
+            <QuantityOnLoan>5</QuantityOnLoan>
+            <QuantityOnOrder>6</QuantityOnOrder>
+            <QuantityOnRMA>9</QuantityOnRMA>
+            <QuantityOnUncommittedOrder>2</QuantityOnUncommittedOrder>
+            <QuantityOrdered>4</QuantityOrdered>
+            <QuantityReceived>4</QuantityReceived>
+            <QuantitySold>30</QuantitySold>
+            <QuantitySuggestedByVendor>50</QuantitySuggestedByVendor>
+            <RetailPrice>99.99</RetailPrice>
+            <SaleBegin>01/01/2014 12:00:00 AM</SaleBegin>
+            <SaleEnd>01/10/2014 12:00:00 AM</SaleEnd>
+            <SalePrice>79.99</SalePrice>
+            <VendorSKU>SSGS5CB</VendorSKU>
+          </ProductInformation>
+        </ProductsOrdered>
+      </CreateUncommittedPurchaseOrderResult>
+    </CreateUncommittedPurchaseOrderResponse>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+
+
+<h3 id='updating-comments-for-a-purchase-order' class='clickable-header top-level-header'>Updating Comments for a Purchase Order</h3>
+
+
+
+#### Request
+
+<pre>
+POST /?op=UpdatePurchaseOrderComments
+</pre>
+
+<h4 id="headers">Headers</h4>
+
+<ul>
+<li><code class="prettyprint">Content-Type: text/xml</code></li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>UpdatePurchaseOrderComments</code> (<strong>Required</strong>) </li><ul><li><code>client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) - Client specific identifier supplied by iQmetrix</li><li><code>Username</code> (<strong>Required</strong>) - Client specific username supplied by iQmetrix</li><li><code>Password</code> (<strong>Required</strong>) - Client specific password supplied by iQmetrix</li><li><code>StoreId</code> (<strong>Required</strong>) - If provided, this value should be -1, which denotes all stores</li></ul><li><code>purchaseOrderID</code> (Optional) - Identifier of a PO, either this value, referenceNumber or retailiQPurchaseOrderID must be provided</li><li><code>retailiQPurchaseOrderID</code> (Optional) - Identifier of purchase order in RQ, either this value, referenceNumber or purchaseOrderID must be provided. If the PO was created from RQ, this value is required</li><li><code>referenceNumber</code> (Optional) - Identifier of vendor purchase order in RQ, either this value, retailiQPurchaseOrderID or purchaseOrderID must be provided</li><li><code>comments</code> (Optional) </li></ul></ul>
+
+<h6 id="example">Example</h6>
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <UpdatePurchaseOrderComments 
+      xmlns="http://www.iqmetrix.com">
+      <client>
+        <ClientID>9DC6AA95-856B-42C9-8AAF-392A2A02AC77</ClientID>
+        <Username>sampleusername</Username>
+        <Password>samplepassword</Password>
+        <StoreId>-1</StoreId>
+      </client>
+      <retailiQPurchaseOrderID>22075</retailiQPurchaseOrderID>
+      <comments>Complete</comments>
+    </UpdatePurchaseOrderComments>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+
+###### Code Example
+
+<pre><code class="language-java"><script>ClientIdentity client = new ClientIdentity();
+client.ClientID = new GUID("9DC6AA95-856B-42C9-8AAF-392A2A02AC77");
+client.Username = "sampleusername";
+client.Password = "samplepassword";
+
+//(ClientIdentity client, Guid? purchaseOrderID, int? retailiQPurchaseOrderID, string referenceNumber, string comments)
+     
+//UpdatePurchaseOrderComments is a void call
+cmiService.UpdatePurchaseOrderComments(client, null, poId, null, comments);
+</script></code></pre>
+
+#### Response
+
+
+
+###### Example
+
+<pre><code class="language-json">HTTP 200 Content-Type: text/xml</code></pre>
+
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <UpdatePurchaseOrderCommentsResponse xmlns="http://www.iqmetrix.com" />
+  </soap:Body>
+</soap:Envelope>    
+</script></code></pre>
+
+
+
+<h3 id='updating-the-location-for-a-purchase-order' class='clickable-header top-level-header'>Updating the Location for a Purchase Order</h3>
+
+
+
+#### Request
+
+<pre>
+POST /?op=UpdateSalesAndPurchaseOrderLocation
+</pre>
+
+<h4 id="headers">Headers</h4>
+
+<ul>
+<li><code class="prettyprint">Content-Type: text/xml</code></li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>UpdateSalesAndPurchaseOrderLocation</code> (<strong>Required</strong>) </li><ul><li><code>client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) - Client specific identifier supplied by iQmetrix</li><li><code>Username</code> (<strong>Required</strong>) - Client specific username supplied by iQmetrix</li><li><code>Password</code> (<strong>Required</strong>) - Client specific password supplied by iQmetrix</li><li><code>StoreId</code> (<strong>Required</strong>) - If provided, this value should be -1, which denotes all stores</li></ul><li><code>shipToStoreId</code> (<strong>Required</strong>) - Identifier for a store in RQ</li><li><code>purchaseOrderID</code> (Optional) - Identifier of a PO, either this value, referenceNumber or retailiQPurchaseOrderID must be provided</li><li><code>retailiQPurchaseOrderID</code> (Optional) - Identifier of purchase order in RQ, either this value, referenceNumber or purchaseOrderID must be provided. If the PO was created from RQ, this value is required</li><li><code>referenceNumber</code> (Optional) - Identifier of vendor purchase order in RQ, either this value, retailiQPurchaseOrderID or purchaseOrderID must be provided</li></ul></ul>
+
+<h6 id="example">Example</h6>
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <UpdateSalesAndPurchaseOrderLocation 
+      xmlns="http://www.iqmetrix.com">
+      <client>
+        <ClientID>9DC6AA95-856B-42C9-8AAF-392A2A02AC77</ClientID>
+        <Username>sampleusername</Username>
+        <Password>samplepassword</Password>
+        <StoreId>-1</StoreId>
+      </client>
+      <retailiQPurchaseOrderID>22075</retailiQPurchaseOrderID>
+      <shipToStoreId>4</shipToStoreId>
+    </UpdateSalesAndPurchaseOrderLocation>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+
+###### Code Example
+
+<pre><code class="language-java"><script>ClientIdentity client = new ClientIdentity();
+client.ClientID = new GUID("9DC6AA95-856B-42C9-8AAF-392A2A02AC77");
+client.Username = "sampleusername";
+client.Password = "samplepassword";
+
+//(ClientIdentity client, Guid? purchaseOrderID, int? retailiQPurchaseOrderID, string referenceNumber, int shipToStoreId)
+      
+//UpdateSalesAndPurchaseOrderLocation is a void call
+cmiService.UpdateSalesAndPurchaseOrderLocation(client, null, poId, null, storeId);
+</script></code></pre>
+
+#### Response
+
+
+
+###### Example
+
+<pre><code class="language-json">HTTP 200 Content-Type: text/xml</code></pre>
+
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <UpdateSalesAndPurchaseOrderLocationResponse xmlns="http://www.iqmetrix.com">
+      <UpdateSalesAndPurchaseOrderLocationResult>true</UpdateSalesAndPurchaseOrderLocationResult>
+    </UpdateSalesAndPurchaseOrderLocationResponse>
+  </soap:Body>
+</soap:Envelope>
+</script></code></pre>
+
+
+
+<h3 id='getting-purchase-orders-by-status' class='clickable-header top-level-header'>Getting Purchase Orders By Status</h3>
+
+This method will return all purchase orders in the client database that match the provided status criteria, including those that were not created through the CMI API.  
+
+Therefore, if a dealer creates a Purchase Order within RQ, it will be available in this list.
+
+
+#### Request
+
+<pre>
+POST /?op=GetPurchaseOrdersByStatus
+</pre>
+
+<h4 id="headers">Headers</h4>
+
+<ul>
+<li><code class="prettyprint">Content-Type: text/xml</code></li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>GetPurchaseOrdersByStatus</code> (<strong>Required</strong>) </li><ul><li><code>client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) - Client specific identifier supplied by iQmetrix</li><li><code>Username</code> (<strong>Required</strong>) - Client specific username supplied by iQmetrix</li><li><code>Password</code> (<strong>Required</strong>) - Client specific password supplied by iQmetrix</li><li><code>StoreId</code> (<strong>Required</strong>) - If provided, this value should be -1, which denotes all stores</li></ul><li><code>isCommitted</code> (<strong>Required</strong>) - Flag to indicate if committed or uncommitted purchase orders should be searched for</li><li><code>isCompleted</code> (<strong>Required</strong>) - Flag to indicate if complete or incomplete purchase orders should be searched for</li><li><code>startDate</code> (<strong>Required</strong>) - timestamp defaults to 12:00:00 AM, if not specified</li><li><code>endDate</code> (<strong>Required</strong>) - timestamp defaults to 12:00:00 AM, if not specified</li></ul></ul>
+
+<h6 id="example">Example</h6>
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <GetPurchaseOrdersByStatus 
+      xmlns="http://www.iqmetrix.com">
+      <client>
+        <ClientID>9DC6AA95-856B-42C9-8AAF-392A2A02AC77</ClientID>
+        <Username>sampleusername</Username>
+        <Password>samplepassword</Password>
+        <StoreId>-1</StoreId>
+      </client>
+      <isCommitted>true</isCommitted>
+      <isCompleted>true</isCompleted>
+      <startDate>2015-01-01T12:00:00.000</startDate>
+      <endDate>2015-01-30T12:00:00.000</endDate>
+    </GetPurchaseOrdersByStatus>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+
+###### Code Example
+
+<pre><code class="language-java"><script>ClientIdentity client = new ClientIdentity();
+client.ClientID = new GUID("9DC6AA95-856B-42C9-8AAF-392A2A02AC77");
+client.Username = "sampleusername";
+client.Password = "samplepassword";
+
+boolean isCommitted = true;
+boolean isCompleted = true;
+
+DateTime startDate = new DateTime("2015-01-01T12:00:00.000");
+DateTime endDate = new DateTime("2015-01-30T12:00:00.000");
+
+PurchaseOrderInformation[] pos = cmiService.GetPurchaseOrderByStatus(client, isCommitted, isCompleted, startDate, endDate)    
+</script></code></pre>
+
+#### Response
+
+
+
+###### Example
+
+<pre><code class="language-json">HTTP 200 Content-Type: text/xml</code></pre>
+
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <GetPurchaseOrdersByStatusResponse 
+      xmlns="http://www.iqmetrix.com">
+      <GetPurchaseOrdersByStatusResult>
+        <PurchaseOrderInformation>
+          <PurchaseOrderID>28890F70-8FC9-4A9B-9458-410A8D08502D</PurchaseOrderID>
+          <PurchaseOrderData>
+            <PurchaseOrderID>28890F70-8FC9-4A9B-9458-410A8D08502D</PurchaseOrderID>
+            <BillToStoreID>55</BillToStoreID>
+            <BillToStoreName>Cornwall west</BillToStoreName>
+            <BillToVendorAccountNumber>1</BillToVendorAccountNumber>
+            <IsDeleted>false</IsDeleted>
+            <CreatedByVMI>false</CreatedByVMI>
+            <CreatedDate>3/16/2014 12:00:00 AM</CreatedDate>
+            <Comments>comments</Comments>
+            <EstimatedArrivalDate>3/2/2014 12:00:00 AM</EstimatedArrivalDate>
+            <OrderTotal>99.99</OrderTotal>
+            <RetailiQPurchaseOrderID>22075</RetailiQPurchaseOrderID>
+            <RetailiQPurchaseOrderNumber>DALEKPO5</RetailiQPurchaseOrderNumber>
+            <ShippingTotal>99.99</ShippingTotal>
+            <ShipToStoreID>55</ShipToStoreID>
+            <ShipToStoreName>Cornwall west</ShipToStoreName>
+            <ShipToVendorAccountNumber>1</ShipToVendorAccountNumber>
+            <VendorInvoiceNumber>563783</VendorInvoiceNumber>
+            <VendorName>SampleVendor</VendorName>
+          </PurchaseOrderData>
+          <ProductsOrdered>
+            <ProductInformation>
+              <ProductID>86EE477F-C6B7-48FA-AA0A-105662D9A3ED</ProductID>
+              <ProductName>Samsung Galaxy S6</ProductName>
+              <CategoryPath>Activation >> Dropship</CategoryPath>
+              <DateEOL>1/01/2016 12:00:00 AM</DateEOL>
+              <DateReceived>01/21/2016 16:58:23</DateReceived>
+              <DoNotOrder>false</DoNotOrder>
+              <Enabled>true</Enabled>
+              <GrossQuantitySold>-1</GrossQuantitySold>
+              <GrossQuantityReturned>-1</GrossQuantityReturned>
+              <MaximumLevel>100</MaximumLevel>
+              <MinimumLevel>10</MinimumLevel>
+              <MinMaxLocked>false</MinMaxLocked>
+              <ProductCost>99.99</ProductCost>
+              <ProductItemID>11142</ProductItemID>
+              <ProductReceived>false</ProductReceived>
+              <ProductSKU>CECPSM000017</ProductSKU>
+              <QuantityCommittedOnOrderEntry>0</QuantityCommittedOnOrderEntry>
+              <QuantityInStock>8</QuantityInStock>
+              <QuantityInTransfer>3</QuantityInTransfer>
+              <QuantityOnBackOrder>0</QuantityOnBackOrder>
+              <QuantityOnLoan>5</QuantityOnLoan>
+              <QuantityOnOrder>6</QuantityOnOrder>
+              <QuantityOnRMA>9</QuantityOnRMA>
+              <QuantityOnUncommittedOrder>2</QuantityOnUncommittedOrder>
+              <QuantityOrdered>4</QuantityOrdered>
+              <QuantityReceived>4</QuantityReceived>
+              <QuantitySold>30</QuantitySold>
+              <QuantitySuggestedByVendor>50</QuantitySuggestedByVendor>
+              <RetailPrice>99.99</RetailPrice>
+              <SaleBegin>01/01/2014 12:00:00 AM</SaleBegin>
+              <SaleEnd>01/10/2014 12:00:00 AM</SaleEnd>
+              <SalePrice>79.99</SalePrice>
+              <VendorSKU>SSGS5CB</VendorSKU>
+            </ProductInformation>
+          </ProductsOrdered>
+          <ProductsReceived>
+            <ProductInformation>
+              <ProductID>86EE477F-C6B7-48FA-AA0A-105662D9A3ED</ProductID>
+              <ProductName>Samsung Galaxy S6</ProductName>
+              <CategoryPath>Activation >> Dropship</CategoryPath>
+              <DateEOL>1/01/2016 12:00:00 AM</DateEOL>
+              <DateReceived>01/21/2016 16:58:23</DateReceived>
+              <DoNotOrder>false</DoNotOrder>
+              <Enabled>true</Enabled>
+              <GrossQuantitySold>-1</GrossQuantitySold>
+              <GrossQuantityReturned>-1</GrossQuantityReturned>
+              <MaximumLevel>100</MaximumLevel>
+              <MinimumLevel>10</MinimumLevel>
+              <MinMaxLocked>false</MinMaxLocked>
+              <ProductCost>99.99</ProductCost>
+              <ProductItemID>11142</ProductItemID>
+              <ProductReceived>false</ProductReceived>
+              <ProductSKU>CECPSM000017</ProductSKU>
+              <QuantityCommittedOnOrderEntry>0</QuantityCommittedOnOrderEntry>
+              <QuantityInStock>8</QuantityInStock>
+              <QuantityInTransfer>3</QuantityInTransfer>
+              <QuantityOnBackOrder>0</QuantityOnBackOrder>
+              <QuantityOnLoan>5</QuantityOnLoan>
+              <QuantityOnOrder>6</QuantityOnOrder>
+              <QuantityOnRMA>9</QuantityOnRMA>
+              <QuantityOnUncommittedOrder>2</QuantityOnUncommittedOrder>
+              <QuantityOrdered>4</QuantityOrdered>
+              <QuantityReceived>4</QuantityReceived>
+              <QuantitySold>30</QuantitySold>
+              <QuantitySuggestedByVendor>50</QuantitySuggestedByVendor>
+              <RetailPrice>99.99</RetailPrice>
+              <SaleBegin>01/01/2014 12:00:00 AM</SaleBegin>
+              <SaleEnd>01/10/2014 12:00:00 AM</SaleEnd>
+              <SalePrice>79.99</SalePrice>
+              <VendorSKU>SSGS5CB</VendorSKU>
+            </ProductInformation>
+          </ProductsReceived>
+          <SerialsReceived>
+            <ProductSerialNumber>
+              <ProductItemID>11142</ProductItemID>
+              <DateReceived>3/11/2014 2:29:25 PM</DateReceived>
+              <NonSellable>true</NonSellable>
+              <SerialNumber>132456456456111</SerialNumber>
+            </ProductSerialNumber>
+          </SerialsReceived>
+        </PurchaseOrderInformation>
+      </GetPurchaseOrdersByStatusResult>
+    </GetPurchaseOrdersByStatusResponse>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+
+
+<h3 id='getting-purchase-orders-by-reference-number' class='clickable-header top-level-header'>Getting Purchase Orders by Reference Number</h3>
+
+
+
+#### Request
+
+<pre>
+POST /?op=GetPurchaseOrderByReferenceNumber
+</pre>
+
+<h4 id="headers">Headers</h4>
+
+<ul>
+<li><code class="prettyprint">Content-Type: text/xml</code></li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>GetPurchaseOrderByReferenceNumber</code> (<strong>Required</strong>) </li><ul><li><code>client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) - Client specific identifier supplied by iQmetrix</li><li><code>Username</code> (<strong>Required</strong>) - Client specific username supplied by iQmetrix</li><li><code>Password</code> (<strong>Required</strong>) - Client specific password supplied by iQmetrix</li><li><code>StoreId</code> (<strong>Required</strong>) - If provided, this value should be -1, which denotes all stores</li></ul><li><code>purchaseOrderReferenceNumber</code> (Optional) - Reference Number on the Purchase Order in RQ</li></ul></ul>
+
+<h6 id="example">Example</h6>
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <GetPurchaseOrderByReferenceNumber 
+      xmlns="http://www.iqmetrix.com">
+      <client>
+        <ClientID>9DC6AA95-856B-42C9-8AAF-392A2A02AC77</ClientID>
+        <Username>sampleusername</Username>
+        <Password>samplepassword</Password>
+        <StoreId>-1</StoreId>
+      </client>
+      <purchaseOrderReferenceNumber>77123</purchaseOrderReferenceNumber>
+    </GetPurchaseOrderByReferenceNumber>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+
+###### Code Example
+
+<pre><code class="language-java"><script></script></code></pre>
+
+#### Response
+
+
+
+###### Example
+
+<pre><code class="language-json">HTTP 200 Content-Type: text/xml</code></pre>
+
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <GetPurchaseOrderByReferenceNumberResponse 
+      xmlns="http://www.iqmetrix.com">
+      <GetPurchaseOrderByReferenceNumberResult>
+        <PurchaseOrderID>28890F70-8FC9-4A9B-9458-410A8D08502D</PurchaseOrderID>
+        <PurchaseOrderData>
+          <PurchaseOrderID>28890F70-8FC9-4A9B-9458-410A8D08502D</PurchaseOrderID>
+          <BillToStoreID>55</BillToStoreID>
+          <BillToStoreName>Cornwall west</BillToStoreName>
+          <BillToVendorAccountNumber>1</BillToVendorAccountNumber>
+          <IsDeleted>false</IsDeleted>
+          <CreatedByVMI>false</CreatedByVMI>
+          <CreatedDate>3/16/2014 12:00:00 AM</CreatedDate>
+          <Comments>comments</Comments>
+          <EstimatedArrivalDate>3/2/2014 12:00:00 AM</EstimatedArrivalDate>
+          <OrderTotal>99.99</OrderTotal>
+          <RetailiQPurchaseOrderID>22075</RetailiQPurchaseOrderID>
+          <RetailiQPurchaseOrderNumber>DALEKPO5</RetailiQPurchaseOrderNumber>
+          <ShippingTotal>99.99</ShippingTotal>
+          <ShipToStoreID>55</ShipToStoreID>
+          <ShipToStoreName>Cornwall west</ShipToStoreName>
+          <ShipToVendorAccountNumber>1</ShipToVendorAccountNumber>
+          <VendorInvoiceNumber>563783</VendorInvoiceNumber>
+          <VendorName>SampleVendor</VendorName>
+        </PurchaseOrderData>
+        <ProductsOrdered>
+          <ProductInformation>
+            <ProductID>86EE477F-C6B7-48FA-AA0A-105662D9A3ED</ProductID>
+            <ProductName>Samsung Galaxy S6</ProductName>
+            <CategoryPath>Activation >> Dropship</CategoryPath>
+            <DateEOL>1/01/2016 12:00:00 AM</DateEOL>
+            <DateReceived>01/21/2016 16:58:23</DateReceived>
+            <DoNotOrder>false</DoNotOrder>
+            <Enabled>true</Enabled>
+            <GrossQuantitySold>-1</GrossQuantitySold>
+            <GrossQuantityReturned>-1</GrossQuantityReturned>
+            <MaximumLevel>100</MaximumLevel>
+            <MinimumLevel>10</MinimumLevel>
+            <MinMaxLocked>false</MinMaxLocked>
+            <ProductCost>99.99</ProductCost>
+            <ProductItemID>11142</ProductItemID>
+            <ProductReceived>false</ProductReceived>
+            <ProductSKU>CECPSM000017</ProductSKU>
+            <QuantityCommittedOnOrderEntry>0</QuantityCommittedOnOrderEntry>
+            <QuantityInStock>8</QuantityInStock>
+            <QuantityInTransfer>3</QuantityInTransfer>
+            <QuantityOnBackOrder>0</QuantityOnBackOrder>
+            <QuantityOnLoan>5</QuantityOnLoan>
+            <QuantityOnOrder>6</QuantityOnOrder>
+            <QuantityOnRMA>9</QuantityOnRMA>
+            <QuantityOnUncommittedOrder>2</QuantityOnUncommittedOrder>
+            <QuantityOrdered>4</QuantityOrdered>
+            <QuantityReceived>4</QuantityReceived>
+            <QuantitySold>30</QuantitySold>
+            <QuantitySuggestedByVendor>50</QuantitySuggestedByVendor>
+            <RetailPrice>99.99</RetailPrice>
+            <SaleBegin>01/01/2014 12:00:00 AM</SaleBegin>
+            <SaleEnd>01/10/2014 12:00:00 AM</SaleEnd>
+            <SalePrice>79.99</SalePrice>
+            <VendorSKU>SSGS5CB</VendorSKU>
+          </ProductInformation>
+        </ProductsOrdered>
+        <ProductsReceived>
+          <ProductInformation>
+            <ProductID>86EE477F-C6B7-48FA-AA0A-105662D9A3ED</ProductID>
+            <ProductName>Samsung Galaxy S6</ProductName>
+            <CategoryPath>Activation >> Dropship</CategoryPath>
+            <DateEOL>1/01/2016 12:00:00 AM</DateEOL>
+            <DateReceived>01/21/2016 16:58:23</DateReceived>
+            <DoNotOrder>false</DoNotOrder>
+            <Enabled>true</Enabled>
+            <GrossQuantitySold>-1</GrossQuantitySold>
+            <GrossQuantityReturned>-1</GrossQuantityReturned>
+            <MaximumLevel>100</MaximumLevel>
+            <MinimumLevel>10</MinimumLevel>
+            <MinMaxLocked>false</MinMaxLocked>
+            <ProductCost>99.99</ProductCost>
+            <ProductItemID>11142</ProductItemID>
+            <ProductReceived>false</ProductReceived>
+            <ProductSKU>CECPSM000017</ProductSKU>
+            <QuantityCommittedOnOrderEntry>0</QuantityCommittedOnOrderEntry>
+            <QuantityInStock>8</QuantityInStock>
+            <QuantityInTransfer>3</QuantityInTransfer>
+            <QuantityOnBackOrder>0</QuantityOnBackOrder>
+            <QuantityOnLoan>5</QuantityOnLoan>
+            <QuantityOnOrder>6</QuantityOnOrder>
+            <QuantityOnRMA>9</QuantityOnRMA>
+            <QuantityOnUncommittedOrder>2</QuantityOnUncommittedOrder>
+            <QuantityOrdered>4</QuantityOrdered>
+            <QuantityReceived>4</QuantityReceived>
+            <QuantitySold>30</QuantitySold>
+            <QuantitySuggestedByVendor>50</QuantitySuggestedByVendor>
+            <RetailPrice>99.99</RetailPrice>
+            <SaleBegin>01/01/2014 12:00:00 AM</SaleBegin>
+            <SaleEnd>01/10/2014 12:00:00 AM</SaleEnd>
+            <SalePrice>79.99</SalePrice>
+            <VendorSKU>SSGS5CB</VendorSKU>
+          </ProductInformation>
+        </ProductsReceived>
+        <SerialsReceived>
+          <ProductSerialNumber>
+            <ProductItemID>11142</ProductItemID>
+            <DateReceived>3/11/2014 2:29:25 PM</DateReceived>
+            <NonSellable>true</NonSellable>
+            <SerialNumber>132456456456111</SerialNumber>
+          </ProductSerialNumber>
+        </SerialsReceived>
+      </GetPurchaseOrderByReferenceNumberResult>
+    </GetPurchaseOrderByReferenceNumberResponse>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+
+
+<h3 id='getting-client-purchase-orders-by-business-key' class='clickable-header top-level-header'>Getting Client Purchase Orders by Business Key</h3>
+
+This method allows you find a purchase order based on the RQ business key, the visual ID by store seen on RQ printouts.
+
+
+#### Request
+
+<pre>
+POST /?op=GetPurchaseOrderByBusinessID
+</pre>
+
+<h4 id="headers">Headers</h4>
+
+<ul>
+<li><code class="prettyprint">Content-Type: text/xml</code></li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>GetPurchaseOrderByBusinessID</code> (<strong>Required</strong>) </li><ul><li><code>client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) - Client specific identifier supplied by iQmetrix</li><li><code>Username</code> (<strong>Required</strong>) - Client specific username supplied by iQmetrix</li><li><code>Password</code> (<strong>Required</strong>) - Client specific password supplied by iQmetrix</li><li><code>StoreId</code> (<strong>Required</strong>) - If provided, this value should be -1, which denotes all stores</li></ul><li><code>purchaseOrderIdByStore</code> (<strong>Required</strong>) - The business key of the purchase order in RQ</li></ul></ul>
+
+<h6 id="example">Example</h6>
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <GetPurchaseOrderByBusinessID 
+      xmlns="http://www.iqmetrix.com">
+      <client>
+        <ClientID>9DC6AA95-856B-42C9-8AAF-392A2A02AC77</ClientID>
+        <Username>sampleusername</Username>
+        <Password>samplepassword</Password>
+        <StoreId>-1</StoreId>
+      </client>
+      <purchaseOrderIdByStore>123</purchaseOrderIdByStore>
+    </GetPurchaseOrderByBusinessID>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+
+###### Code Example
+
+<pre><code class="language-java"><script></script></code></pre>
+
+#### Response
+
+
+
+###### Example
+
+<pre><code class="language-json">HTTP 200 Content-Type: text/xml</code></pre>
+
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <GetPurchaseOrderByBusinessIDResponse 
+      xmlns="http://www.iqmetrix.com">
+      <GetPurchaseOrderByBusinessIDResult>
+        <PurchaseOrderID>28890F70-8FC9-4A9B-9458-410A8D08502D</PurchaseOrderID>
+        <PurchaseOrderData>
+          <PurchaseOrderID>28890F70-8FC9-4A9B-9458-410A8D08502D</PurchaseOrderID>
+          <BillToStoreID>55</BillToStoreID>
+          <BillToStoreName>Cornwall west</BillToStoreName>
+          <BillToVendorAccountNumber>1</BillToVendorAccountNumber>
+          <IsDeleted>false</IsDeleted>
+          <CreatedByVMI>false</CreatedByVMI>
+          <CreatedDate>3/16/2014 12:00:00 AM</CreatedDate>
+          <Comments>comments</Comments>
+          <EstimatedArrivalDate>3/2/2014 12:00:00 AM</EstimatedArrivalDate>
+          <OrderTotal>99.99</OrderTotal>
+          <RetailiQPurchaseOrderID>22075</RetailiQPurchaseOrderID>
+          <RetailiQPurchaseOrderNumber>DALEKPO5</RetailiQPurchaseOrderNumber>
+          <ShippingTotal>99.99</ShippingTotal>
+          <ShipToStoreID>55</ShipToStoreID>
+          <ShipToStoreName>Cornwall west</ShipToStoreName>
+          <ShipToVendorAccountNumber>1</ShipToVendorAccountNumber>
+          <VendorInvoiceNumber>563783</VendorInvoiceNumber>
+          <VendorName>SampleVendor</VendorName>
+        </PurchaseOrderData>
+        <ProductsOrdered>
+          <ProductInformation>
+            <ProductID>86EE477F-C6B7-48FA-AA0A-105662D9A3ED</ProductID>
+            <ProductName>Samsung Galaxy S6</ProductName>
+            <CategoryPath>Activation >> Dropship</CategoryPath>
+            <DateEOL>1/01/2016 12:00:00 AM</DateEOL>
+            <DateReceived>01/21/2016 16:58:23</DateReceived>
+            <DoNotOrder>false</DoNotOrder>
+            <Enabled>true</Enabled>
+            <GrossQuantitySold>-1</GrossQuantitySold>
+            <GrossQuantityReturned>-1</GrossQuantityReturned>
+            <MaximumLevel>100</MaximumLevel>
+            <MinimumLevel>10</MinimumLevel>
+            <MinMaxLocked>false</MinMaxLocked>
+            <ProductCost>99.99</ProductCost>
+            <ProductItemID>11142</ProductItemID>
+            <ProductReceived>false</ProductReceived>
+            <ProductSKU>CECPSM000017</ProductSKU>
+            <QuantityCommittedOnOrderEntry>0</QuantityCommittedOnOrderEntry>
+            <QuantityInStock>8</QuantityInStock>
+            <QuantityInTransfer>3</QuantityInTransfer>
+            <QuantityOnBackOrder>0</QuantityOnBackOrder>
+            <QuantityOnLoan>5</QuantityOnLoan>
+            <QuantityOnOrder>6</QuantityOnOrder>
+            <QuantityOnRMA>9</QuantityOnRMA>
+            <QuantityOnUncommittedOrder>2</QuantityOnUncommittedOrder>
+            <QuantityOrdered>4</QuantityOrdered>
+            <QuantityReceived>4</QuantityReceived>
+            <QuantitySold>30</QuantitySold>
+            <QuantitySuggestedByVendor>50</QuantitySuggestedByVendor>
+            <RetailPrice>99.99</RetailPrice>
+            <SaleBegin>01/01/2014 12:00:00 AM</SaleBegin>
+            <SaleEnd>01/10/2014 12:00:00 AM</SaleEnd>
+            <SalePrice>79.99</SalePrice>
+            <VendorSKU>SSGS5CB</VendorSKU>
+          </ProductInformation>
+        </ProductsOrdered>
+        <ProductsReceived>
+          <ProductInformation>
+            <ProductID>86EE477F-C6B7-48FA-AA0A-105662D9A3ED</ProductID>
+            <ProductName>Samsung Galaxy S6</ProductName>
+            <CategoryPath>Activation >> Dropship</CategoryPath>
+            <DateEOL>1/01/2016 12:00:00 AM</DateEOL>
+            <DateReceived>01/21/2016 16:58:23</DateReceived>
+            <DoNotOrder>false</DoNotOrder>
+            <Enabled>true</Enabled>
+            <GrossQuantitySold>-1</GrossQuantitySold>
+            <GrossQuantityReturned>-1</GrossQuantityReturned>
+            <MaximumLevel>100</MaximumLevel>
+            <MinimumLevel>10</MinimumLevel>
+            <MinMaxLocked>false</MinMaxLocked>
+            <ProductCost>99.99</ProductCost>
+            <ProductItemID>11142</ProductItemID>
+            <ProductReceived>false</ProductReceived>
+            <ProductSKU>CECPSM000017</ProductSKU>
+            <QuantityCommittedOnOrderEntry>0</QuantityCommittedOnOrderEntry>
+            <QuantityInStock>8</QuantityInStock>
+            <QuantityInTransfer>3</QuantityInTransfer>
+            <QuantityOnBackOrder>0</QuantityOnBackOrder>
+            <QuantityOnLoan>5</QuantityOnLoan>
+            <QuantityOnOrder>6</QuantityOnOrder>
+            <QuantityOnRMA>9</QuantityOnRMA>
+            <QuantityOnUncommittedOrder>2</QuantityOnUncommittedOrder>
+            <QuantityOrdered>4</QuantityOrdered>
+            <QuantityReceived>4</QuantityReceived>
+            <QuantitySold>30</QuantitySold>
+            <QuantitySuggestedByVendor>50</QuantitySuggestedByVendor>
+            <RetailPrice>99.99</RetailPrice>
+            <SaleBegin>01/01/2014 12:00:00 AM</SaleBegin>
+            <SaleEnd>01/10/2014 12:00:00 AM</SaleEnd>
+            <SalePrice>79.99</SalePrice>
+            <VendorSKU>SSGS5CB</VendorSKU>
+          </ProductInformation>
+        </ProductsReceived>
+        <SerialsReceived>
+          <ProductSerialNumber>
+            <ProductItemID>11142</ProductItemID>
+            <DateReceived>3/11/2014 2:29:25 PM</DateReceived>
+            <NonSellable>true</NonSellable>
+            <SerialNumber>132456456456111</SerialNumber>
+          </ProductSerialNumber>
+        </SerialsReceived>
+      </GetPurchaseOrderByBusinessIDResult>
+    </GetPurchaseOrderByBusinessIDResponse>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+
+
+<h3 id='getting-receiving-info' class='clickable-header top-level-header'>Getting Receiving Info</h3>
+
+Allows you to retrieve a list of products within a date range.
+
+
+#### Request
+
+<pre>
+POST /?op=GetReceivingInfo
+</pre>
+
+<h4 id="headers">Headers</h4>
+
+<ul>
+<li><code class="prettyprint">Content-Type: text/xml</code></li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>GetReceivingInfo</code> (<strong>Required</strong>) </li><ul><li><code>client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) - Client specific identifier supplied by iQmetrix</li><li><code>Username</code> (<strong>Required</strong>) - Client specific username supplied by iQmetrix</li><li><code>Password</code> (<strong>Required</strong>) - Client specific password supplied by iQmetrix</li><li><code>StoreId</code> (<strong>Required</strong>) - If provided, this value should be -1, which denotes all stores</li></ul><li><code>startDate</code> (<strong>Required</strong>) - Products received on or after this day at midnight will be searched for</li><li><code>endDate</code> (<strong>Required</strong>) - Products received up to the end of this day will be searched for</li></ul></ul>
+
+<h6 id="example">Example</h6>
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <GetReceivingInfo 
+      xmlns="http://www.iqmetrix.com">
+      <client>
+        <ClientID>9DC6AA95-856B-42C9-8AAF-392A2A02AC77</ClientID>
+        <Username>sampleusername</Username>
+        <Password>samplepassword</Password>
+        <StoreId>-1</StoreId>
+      </client>
+      <startDate>01/01/2016</startDate>
+      <endDate>05/25/2016</endDate>
+    </GetReceivingInfo>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+
+###### Code Example
+
+<pre><code class="language-java"><script>ClientIdentity client = new ClientIdentity();
+client.ClientID = new GUID("9DC6AA95-856B-42C9-8AAF-392A2A02AC77");
+client.Username = "sampleusername";
+client.Password = "samplepassword";
+
+ReceivingInfo[] received = cmiService.GetReceivingInfo(client, startDate, endDate);
+</script></code></pre>
+
+#### Response
+
+
+
+###### Example
+
+<pre><code class="language-json">HTTP 200 Content-Type: text/xml</code></pre>
+
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <GetReceivingInfoResponse 
+      xmlns="http://www.iqmetrix.com">
+      <GetReceivingInfoResult>
+        <ReceivingInfo>
+          <ProductItemID>11142</ProductItemID>
+          <ProductName>Samsung Galaxy S6</ProductName>
+          <ShipToStoreID>55</ShipToStoreID>
+          <ShipToStoreName>Cornwall west</ShipToStoreName>
+          <RQPurchaseOrderNumber>CORNWPO3550</RQPurchaseOrderNumber>
+          <VendorSKU>ABC123</VendorSKU>
+          <Quantity>1</Quantity>
+          <ProductCost>99.99</ProductCost>
+          <DateReceived>3/11/2014 2:29:25 PM</DateReceived>
+          <RQReceivingNumber>CORNWRE6055</RQReceivingNumber>
+          <SerialNumber>132456456456111</SerialNumber>
+        </ReceivingInfo>
+      </GetReceivingInfoResult>
+    </GetReceivingInfoResponse>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+
+
+<h3 id='getting-all-cmi-enabled-stores' class='clickable-header top-level-header'>Getting All CMI Enabled Stores</h3>
+
+
+
+#### Request
+
+<pre>
+POST /?op=GetStoreList
+</pre>
+
+<h4 id="headers">Headers</h4>
+
+<ul>
+<li><code class="prettyprint">Content-Type: text/xml</code></li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>GetStoreList</code> (<strong>Required</strong>) </li><ul><li><code>client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) - Client specific identifier supplied by iQmetrix</li><li><code>Username</code> (<strong>Required</strong>) - Client specific username supplied by iQmetrix</li><li><code>Password</code> (<strong>Required</strong>) - Client specific password supplied by iQmetrix</li><li><code>StoreId</code> (<strong>Required</strong>) - If provided, this value should be -1, which denotes all stores</li></ul></ul></ul>
+
+<h6 id="example">Example</h6>
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <GetStoreList 
+      xmlns="http://www.iqmetrix.com">
+      <client>
+        <ClientID>9DC6AA95-856B-42C9-8AAF-392A2A02AC77</ClientID>
+        <Username>sampleusername</Username>
+        <Password>samplepassword</Password>
+        <StoreId>-1</StoreId>
+      </client>
+    </GetStoreList>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+
+###### Code Example
+
+<pre><code class="language-java"><script>ClientIdentity client = new ClientIdentity();
+client.ClientID = new GUID("9DC6AA95-856B-42C9-8AAF-392A2A02AC77");
+client.Username = "sampleusername";
+client.Password = "samplepassword";
+
+StoreInformation[] stores = cmiService.GetStoreList(client);
+</script></code></pre>
+
+#### Response
+
+
+
+###### Example
+
+<pre><code class="language-json">HTTP 200 Content-Type: text/xml</code></pre>
+
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <GetStoreListResponse 
+      xmlns="http://www.iqmetrix.com">
+      <GetStoreListResult>
+        <StoreInformation>
+          <StoreID>36</StoreID>
+          <Name>Cornwall West</Name>
+          <Abbreviation>CWW</Abbreviation>
+          <Address>2102 11th Ave</Address>
+          <City>Regina</City>
+          <Country>Canada</Country>
+          <District>Regina</District>
+          <PhoneNumber>5555555555</PhoneNumber>
+          <PostalZipCode>S2S 2S2</PostalZipCode>
+          <ProvinceState>Saskatchewan</ProvinceState>
+          <Region>Regina</Region>
+          <ShipToStoreID>55</ShipToStoreID>
+          <BillToStoreID>55</BillToStoreID>
+        </StoreInformation>
+      </GetStoreListResult>
+    </GetStoreListResponse>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+
+
+<h3 id='getting-the-product-sales-report' class='clickable-header top-level-header'>Getting the Product Sales Report</h3>
+
+Retrieves detailed sell through data for products.
+
+#### Notes
+
+* For no channel, use Guid.Empty or `00000000-0000-0000-0000-000000000000`
+* For no region, district or store use -1
+
+#### Request
+
+<pre>
+POST /?op=GetProductSalesReport
+</pre>
+
+<h4 id="headers">Headers</h4>
+
+<ul>
+<li><code class="prettyprint">Content-Type: text/xml</code></li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>GetProductSalesReport</code> (<strong>Required</strong>) </li><ul><li><code>client</code> (<strong>Required</strong>) </li><ul><li><code>ClientID</code> (<strong>Required</strong>) - Client specific identifier supplied by iQmetrix</li><li><code>Username</code> (<strong>Required</strong>) - Client specific username supplied by iQmetrix</li><li><code>Password</code> (<strong>Required</strong>) - Client specific password supplied by iQmetrix</li><li><code>StoreId</code> (<strong>Required</strong>) - If provided, this value should be -1, which denotes all stores</li></ul><li><code>storeId</code> (<strong>Required</strong>) - This value can be a Channel, Region, District or Store Id. The request body will change depending on the parameter used (i.e. <channelId></channelId>)</li><li><code>startDate</code> (<strong>Required</strong>) </li><li><code>endDate</code> (<strong>Required</strong>) </li></ul></ul>
+
+<h6 id="example">Example</h6>
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <GetProductSalesReport 
+      xmlns="http://www.iqmetrix.com">
+      <client>
+        <ClientID>9DC6AA95-856B-42C9-8AAF-392A2A02AC77</ClientID>
+        <Username>sampleusername</Username>
+        <Password>samplepassword</Password>
+        <StoreId>-1</StoreId>
+      </client>
+      <storeId>4</storeId>
+      <startDate>01/01/2016</startDate>
+      <endDate>10/31/2016</endDate>
+    </GetProductSalesReport>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+<h6 id="code-example">Code Example</h6>
+
+<pre><code class="language-java"><script>ClientIdentity client = new ClientIdentity();
+client.ClientID = new GUID("9DC6AA95-856B-42C9-8AAF-392A2A02AC77");
+client.Username = "sampleusername";
+client.Password = "samplepassword";
+client.StoreID = 4;
+
+ProductSalesReportData[] productReport = cmiService.GetProductSalesReport(client, startDate, endDate, storeId);
+</script></code></pre>
+
+<h4 id="response">Response</h4>
+
+<h6 id="example">Example</h6>
+
+<pre><code class="language-json">HTTP 200 Content-Type: text/xml</code></pre>
+
+<pre><code class="language-xml"><script><?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <GetProductSalesReportResponse 
+      xmlns="http://www.iqmetrix.com">
+      <GetProductSalesReportResult>
+        <ProductSalesReportData>
+          <CategoryPath>Activation >> Dropship</CategoryPath>
+          <ChannelID>4bbb842d-0340-4ffc-9216-bf170c861424</ChannelID>
+          <ChannelName>First Channel</ChannelName>
+          <Description></Description>
+          <DistrictID>1</DistrictID>
+          <DistrictName>First District</DistrictName>
+          <InvoicedBy>iQmetrix User</InvoicedBy>
+          <ListPrice>99.99</ListPrice>
+          <ProductItemID>11142</ProductItemID>
+          <ProductSKU>CECPSM000017</ProductSKU>
+          <Quantity>1</Quantity>
+          <Refund>false</Refund>
+          <RegionID>1</RegionID>
+          <RegionName>First Region</RegionName>
+          <RqInvoiceIdByStore>BDP123</RqInvoiceIdByStore>
+          <SoldOn>1/21/2016 4:58:24 PM</SoldOn>
+          <StoreID>4</StoreID>
+          <TrackingNumber>12345</TrackingNumber>
+          <VendorSKU>SSGS5CB</VendorSKU>
+        </ProductSalesReportData>
+      </GetProductSalesReportResult>
+    </GetProductSalesReportResponse>
+  </soap:Body>
+</soap:Envelope></script></code></pre>
+
+<h2 id="errors" class="clickable-header top-level-header">Errors</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">HTTP Status Code</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">How to Resolve</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 500</code></td>
+<td style="text-align: left"><code class="prettyprint">Found Purchase orders for StoreID [x] by VendorInvoiceNumber [y]</code></td>
+<td style="text-align: left">Ensure VendorInvoiceNumber is unique</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 500</code></td>
+<td style="text-align: left"><code class="prettyprint">ShipToStoreID must be &gt; 0 or ShipToVendorAccountNumber must be supplied</code></td>
+<td style="text-align: left">Ensure one of ShipToStoreID or ShipToVendorAccountNumber is provided</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 500</code></td>
+<td style="text-align: left"><code class="prettyprint">BillToStoreID must be &gt; 0 or BillToVendorAccountNumber must be supplied</code></td>
+<td style="text-align: left">Ensure one of BillToStoreID or BillToVendorAccountNumber is provided</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 500</code></td>
+<td style="text-align: left"><code class="prettyprint">Existing Purchase order has been found with Purchase Order ID [x]</code></td>
+<td style="text-align: left">Omit PurchaseOrderID from request body or ensure it is unique</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

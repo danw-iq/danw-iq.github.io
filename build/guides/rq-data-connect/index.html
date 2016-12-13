@@ -1,0 +1,639 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>RQ Data Connect Guide | iQmetrix Developer Portal</title>
+
+    <style>
+      /*.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}*/
+    </style>
+    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all.js"></script>
+  </head>
+
+  <body class="guides guides_rq-data-connect guides_rq-data-connect_index" data-languages="[]">
+
+    <div class="fixed-top">
+      <a class="navbar-logo" href="/"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">PRODUCTS</a></li>
+          <li><a href="/api/changelog">API REFERENCE</a></li>
+          <li><a href="/api/changelog">CORE CONCEPTS &amp; GUIDES</a></li>
+          <li><a href="/api/changelog">PARTNERS</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">CONTACT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="breadcrumb">
+      <ol>
+        <li><a href="/api/">API REFERENCE</a></li>
+        <li>></li>
+        <li><a href="">API DOCUMENTATION</a></li>
+        <li>></li>
+        <li class="active">CUSTOMER RELATIONSHIP MANAGEMENT (CRM)</li>
+      </ol>
+    </div>
+    <div class="title">
+      <h1>API Documentation</h1>
+      <p>In depth reference documentation for iQmetrix API's.</p>
+    </div>
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <!-- <img src="../../images/logo.png" alt="Logo" /> -->
+        <div class="lang-selector">
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="overview">Overview</h1>
+
+<p>The following document outlines common use cases for <a href="/concepts/rq-data-connect">RQ Data Connect</a> and <a href="/concepts/rq-data-connect">RQ Data Connect Bridge</a>, which are collectively referred to as <strong>RQ Data Connect/Bridge</strong> in this guide.</p>
+
+<h2 id="who-is-this-guide-for">Who Is This Guide For?</h2>
+
+<p>The intended audience for this guide is data analysts and business administrators interested in RQ Data Connect.</p>
+
+<h2 id="onboarding-package">Onboarding Package</h2>
+
+<p>Contact your account manager to get started using RQ Data Connect/Bridge. They will help guide you through the steps of obtaining access credentials (onboarding package) and will provide you with a support liaison.</p>
+
+<h2 id="authentication-options">Authentication Options</h2>
+
+<p>See the table below to determine which method of authentication is best for you.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">If&hellip;</th>
+<th style="text-align: left">Then&hellip;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">You want to authenticate using a web browser</td>
+<td style="text-align: left">See <a href="#browser-authentication">Browser Authentication</a></td>
+</tr>
+<tr>
+<td style="text-align: left">You want to authenticate using only a username and password</td>
+<td style="text-align: left">See <a href="#basic-authentication">Basic Authentication</a></td>
+</tr>
+<tr>
+<td style="text-align: left">You are using a program such as Excel that does not support headers</td>
+<td style="text-align: left">See <a href="#url-parameter-authentication">URL Parameter Authentication</a></td>
+</tr>
+<tr>
+<td style="text-align: left">The above options do not apply to you</td>
+<td style="text-align: left">See <a href="/api/authentication/#obtaining-an-access-token">Obtaining an Access Token</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="authentication-priority">Authentication Priority</h2>
+
+<p>If multiple methods of authentication are provided, priority is resolved as follows:</p>
+
+<ol>
+<li>Bearer Token</li>
+<li>Basic Token</li>
+<li>Auth URI Parameter</li>
+</ol>
+
+<h5 id="example">Example</h5>
+
+<table><thead>
+<tr>
+<th style="text-align: left">URI Parameters</th>
+<th style="text-align: left">Headers</th>
+<th style="text-align: left">Token Used</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Auth=AAAA</td>
+<td style="text-align: left">Authorization: Bearer BBBB<br/> Authorization: Basic CCCC</td>
+<td style="text-align: left">BBBB</td>
+</tr>
+<tr>
+<td style="text-align: left">Auth=AAAA</td>
+<td style="text-align: left">Authorization: Basic CCCC</td>
+<td style="text-align: left">CCCC</td>
+</tr>
+<tr>
+<td style="text-align: left">Auth=AAAA</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">AAAA</td>
+</tr>
+</tbody></table>
+
+<h3 id="browser-authentication">Browser Authentication</h3>
+
+<p>RQ Data Connect supports Basic Authentication without a token using a web browser. </p>
+
+<p>To use this method,</p>
+
+<ol>
+<li>Determine the full URL of the request</li>
+<li>Enter the URL into a web browser and press Enter </li>
+<li>Enter your username and password into the prompt that appears</li>
+</ol>
+
+<p>It is important to note that this method will only work if there is NO TOKEN (header) on the request, otherwise the provided token will be used.</p>
+
+<h3 id="basic-authentication">Basic Authentication</h3>
+
+<p>Basic Authentication allows you to authenticate using a username and password to create a <strong>Basic Token</strong> which will remain valid as long as your username and password do not change.</p>
+
+<p>To generate a Basic Token, you can use the request <a href="/api/RQ-Data-Connect/#basic-authentication-with-platform-credentials">Basic Authentication with Platform Credentials</a>.</p>
+
+<p>It is important to note that value of the <code class="prettyprint">Authorization</code> header in this request is a <strong>base 64 encoded</strong> version of your username and password. This value is not URL safe and should not be used as a Basic Token for authentication.</p>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://rqdataconnectdemo.iqmetrix.net/session
+Authorization: Basic vRMt17P8rIBWWbVbLzLWjTNyLfvESgA2yfXhze0WZN7HSIl4slGV866p9dSw
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b0k0dY70N3Vv9jR1b9oEdW9IeT5WIn85WCYFJRo6AiIKLEMBFwNbEQsfeCUeM3gdPA1gAAVxWTJacX8mJyBaGRcFVwQOEV49NgBz"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isValid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ParentEntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">21090</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RQEmployeeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3494</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"basic_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vRMt17P8rIBWWbVbLzLWjTNyLfvESgA2yfXhze0WZN7HSIl4slGV866p9dSw"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PreferredEndpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://rqdataconnect18.iqmetrix.net"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The <code class="prettyprint">basic_token</code> is placed in the <code class="prettyprint">Authorization</code> header of a request prefixed by the word <code class="prettyprint">Basic</code>.</p>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://rqdataconnectdemo.iqmetrix.net/bridge/current/schema
+Authorization: Basic vRMt17P8rIBWWbVbLzLWjTNyLfvESgA2yfXhze0WZN7HSIl4slGV866p9dSw
+</code></pre>
+
+<h3 id="url-parameter-authentication">URL Parameter Authentication</h3>
+
+<p>URL Parameter Authentication allows you to authenticate without headers, such as when&hellip;</p>
+
+<ul>
+<li>Integrating with a system that does not support headers <strong>or</strong></li>
+<li>Accessing a report through a basic URL is required</li>
+</ul>
+
+<p>To authenticate using this method, you must first generate a <strong>Basic Token</strong>. This token will remain valid as long as your username and password do not change. See <a href="#basic-authentication">Basic Authentication</a> for examples.</p>
+
+<p>Once you have a Basic Token, it can be placed as a URL parameter in a request using the key <code class="prettyprint">Auth</code>.</p>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://rqdataconnectdemo.iqmetrix.net/bridge/current/schema?Auth=vRMt17P8rIBWWbVbLzLWjTNyLfvESgA2yfXhze0WZN7HSIl4slGV866p9dSw
+</code></pre>
+
+<h2 id="compression-options">Compression Options</h2>
+
+<p>RQ Data Connect/Bridge supports the compression algorithms gzip and deflate in the <code class="prettyprint">Accept-Encoding</code> header.</p>
+
+<p>To learn more about Data Compression, see <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer?hl=en">Data Compression 101</a>.</p>
+
+<p>The examples below demonstrate how to use gzip or deflate compression when making a request.</p>
+
+<blockquote>
+<p>gzip example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://rqdataconnectdemo.iqmetrix.net/session
+Authorization: Basic vRMt17P8rIBWWbVbLzLWjTNyLfvESgA2yfXhze0WZN7HSIl4slGV866p9dSw
+Accept-Encoding: gzip
+</code></pre>
+
+<blockquote>
+<p>deflate example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://rqdataconnectdemo.iqmetrix.net/session
+Authorization: Basic vRMt17P8rIBWWbVbLzLWjTNyLfvESgA2yfXhze0WZN7HSIl4slGV866p9dSw
+Accept-Encoding: deflate
+</code></pre>
+
+<h2 id="response-options">Response Options</h2>
+
+<p>RQ Data Connect/Bridge supports multiple response types using the <code class="prettyprint">Response</code> URI parameter.</p>
+
+<p>If no parameter is provided the default response type is JSON.</p>
+
+<p>See the table below for a complete list of response types.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Format</th>
+<th style="text-align: left">Response Type</th>
+<th style="text-align: left">Notes</th>
+<th style="text-align: left">Example URL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">JSON</td>
+<td style="text-align: left">application/json</td>
+<td style="text-align: left">Default response type</td>
+<td style="text-align: left">https://rqdataconnectdemo.iqmetrix.net/bridge/current/schema</td>
+</tr>
+<tr>
+<td style="text-align: left">JSON (DataTable)</td>
+<td style="text-align: left">application/json</td>
+<td style="text-align: left">Contains extra data about report columns</td>
+<td style="text-align: left">https://rqdataconnectdemo.iqmetrix.net/bridge/current/schema?Response=JsonDataTable</td>
+</tr>
+<tr>
+<td style="text-align: left">CSV</td>
+<td style="text-align: left">text/csv</td>
+<td style="text-align: left">Any commas in the response are surrounded by quotes (&ldquo;)</td>
+<td style="text-align: left">https://rqdataconnectdemo.iqmetrix.net/bridge/current/schema?Response=Csv</td>
+</tr>
+<tr>
+<td style="text-align: left">XML</td>
+<td style="text-align: left">text/xml</td>
+<td style="text-align: left"></td>
+<td style="text-align: left">https://rqdataconnectdemo.iqmetrix.net/bridge/current/schema?Response=Xml</td>
+</tr>
+<tr>
+<td style="text-align: left">XML (DataTable)</td>
+<td style="text-align: left">text/xml</td>
+<td style="text-align: left">Contains extra data about report columns</td>
+<td style="text-align: left">https://rqdataconnectdemo.iqmetrix.net/bridge/current/schema?Response=XmlDataTable</td>
+</tr>
+<tr>
+<td style="text-align: left">Excel File</td>
+<td style="text-align: left">application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</td>
+<td style="text-align: left">Binary .xlsx File that does <strong>not</strong> support live refresh</td>
+<td style="text-align: left">https://rqdataconnectdemo.iqmetrix.net/bridge/current/schema?Response=Excel</td>
+</tr>
+</tbody></table>
+
+<h1 id="running-a-report">Running a Report</h1>
+
+<p>This example will demonstrate how RQ Data Connect can be used to get the data that drives a report in RQ.</p>
+
+<h2 id="step-1-selecting-a-report">Step 1 - Selecting a Report</h2>
+
+<p>See <a href="/rq-data-connect/report-list">Master List</a> for a list of available requests in RQ Data Connect.</p>
+
+<p>For this example we will retrieve the data for the Graphed Performance Metrix Report in RQ using the request <a href="/api/RQ-Data-Connect/#getting-the-graphed-performance-metrix-report">Getting the Graphed Performance Metrix Report</a>.</p>
+
+<p>This example will use <a href="#browser-authentication">Browser Authentication</a> for authentication, no compression and the default response type (json).</p>
+
+<h2 id="optional-step-2-setting-a-report-level">(Optional) Step 2 - Setting a Report Level</h2>
+
+<p>Many reports allow you to optionally specify a company tree level at which to perform the report.</p>
+
+<p>To set the report to a specific level, determine the available levels using <a href="/api/rq-data-connect/#getting-location-types">Getting Location Types</a>.</p>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /lists/LocationType
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight plaintext"><code>[
+    {
+        "Type": "Company"
+    },
+    {
+        "Type": "Region"
+    },
+    {
+        "Type": "District"
+    },
+    {
+        "Type": "Store"
+    },
+    {
+        "Type": "Channel"
+    }      
+]
+</code></pre>
+
+<p>This example will run the report at the <code class="prettyprint">Store</code> level.</p>
+
+<h2 id="optional-step-3-specifying-report-level">(Optional) Step 3 - Specifying Report Level</h2>
+
+<p>To run the report for all nodes at a level, such as All Locations or All Channels, <code class="prettyprint">LocationTypeIDs</code> is set to <code class="prettyprint">-1</code> or <code class="prettyprint">*</code>.</p>
+
+<p>To run the report for a subset of nodes at a level, such as one Location or one Region, <code class="prettyprint">LocationTypeIDs</code> should be set to a comma separated list of identifiers.</p>
+
+<p>A list of identifiers in a level can be retrieved using <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. The <code class="prettyprint">LocationType</code> URI parameter is the value determined in Step 1.</p>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /lists/LocationIDs?LocationType=Store
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight plaintext"><code>[
+    {
+        "ID": 6923,
+        "Description": "Tampa",
+        "EntityID": 453,
+    },
+    {
+        "ID": 6924,
+        "Description": "Fairweather",
+        "EntityID": 454,
+    },     
+    {
+        "ID": 6926,
+        "Description": "Cornwall",
+        "EntityID": 466,
+    },             
+    ...
+]
+</code></pre>
+
+<p>This example will use IDs <code class="prettyprint">6923</code> and <code class="prettyprint">6924</code> to specify the report will be run for two stores.</p>
+
+<h2 id="step-4-determining-uri-parameters">Step 4 - Determining URI Parameters</h2>
+
+<p>Each report has different URI parameters used to determine the contents of the report. </p>
+
+<p>For this example, the following URI parameters will be used.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">URI Parameter</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Example Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">PeriodId</td>
+<td style="text-align: left">Identifier for a Period in RQ, or -1 if StartDate and StopDate are used</td>
+<td style="text-align: left">-1</td>
+</tr>
+<tr>
+<td style="text-align: left">StartDate</td>
+<td style="text-align: left">Date to start report</td>
+<td style="text-align: left">1970-01-01T12:00:00.000Z</td>
+</tr>
+<tr>
+<td style="text-align: left">StopDate</td>
+<td style="text-align: left">Date to end report</td>
+<td style="text-align: left">2016-01-01T12:00:00.000Z</td>
+</tr>
+<tr>
+<td style="text-align: left">HideRebates</td>
+<td style="text-align: left">A flag to indicate if rebates should be included in the report</td>
+<td style="text-align: left">-1</td>
+</tr>
+</tbody></table>
+
+<h2 id="step-5-getting-the-report">Step 5 - Getting the Report</h2>
+
+<p>The values from Steps 1-4 can be combined to get the Performance Metrix Report using <a href="/api/RQ-Data-Connect/#getting-the-graphed-performance-metrix-report">Getting the Graphed Performance Metrix Report</a>.</p>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /reports/graphedperformancemetricsreport_performancemetrix?LocationType=Store&amp;LocationIDs=6923,6924&amp;PeriodID=-1&amp;StartDate=1970-01-01T12:00:00.000Z&amp;StopDate=2016-01-01T12:00:00.000Z&amp;HideRebates=-1&amp;LanguageCode=en-us
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight plaintext"><code>[
+    {
+        "ID": 6,
+        "Name": "Accessories",
+        "AttachmentRate": "1249 : 2",
+        "AttachmentRateTarget": "0 : 0",
+        "DisplayFormat": 2,
+        "IsAttachmentRate": true,
+        "Margin": null,
+        "MarginTarget": null,
+        "Priority": -1,
+        "Profit": null,
+        "ProfitTarget": null,
+        "Quantity": null,
+        "QuantityTarget": null,
+        "Sales": null,
+        "SalesTarget": null
+    },
+    ...
+]
+</code></pre>
+
+<h1 id="importing-into-excel">Importing into Excel</h1>
+
+<p>This section explains how you can import data from RQ Data Connect/Bridge directly into Excel (2016).</p>
+
+<p>For this example, we will get the <a href="/api/RQ-Data-Connect/#getting-the-inventory-listing-report">Inventory Listing Report</a> with the following parameters:</p>
+
+<h2 id="step-1-load-from-web">Step 1 - Load From Web</h2>
+
+<p>First, open Excel and create a new workbook.</p>
+
+<p>In the top bar, click on Data -&gt; New Query -&gt; From Other Sources -&gt; From Web.</p>
+
+<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/rq-data-connect/load-from-web.png" alt="Load query" /></p>
+
+<h2 id="step-2-enter-url">Step 2 - Enter URL</h2>
+
+<p>Enter the Request URL into the URL box and click OK.</p>
+
+<p>Ensure the Request URL includes <code class="prettyprint">Response=Xml</code> so Excel can load the data. </p>
+
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note: </b>Response=Excel is not used as it outputs a binary file</div>
+
+<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/rq-data-connect/from-web.png" alt="Enter URL" /></p>
+
+<h2 id="step-3-access-web-content">Step 3 - Access Web Content</h2>
+
+<p>If this is the first time you are accessing the endpoint in Excel, a window will appear with authentication options.</p>
+
+<p>Select Basic in the sidebar and enter your username and password, then click Connect.</p>
+
+<p>To learn more about authentication methods, see <a href="http://developers.iqmetrix.com/guides/rq-data-connect/#authentication-options">Authentication Options</a>.</p>
+
+<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/rq-data-connect/access-content.png" alt="Access Web Content" /></p>
+
+<h2 id="step-4-select-record">Step 4 - Select Record</h2>
+
+<p>A navigator will appear and load tables into a list.</p>
+
+<p>Select a record and click the Load button.</p>
+
+<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/rq-data-connect/navigator.png" alt="Select Record" /></p>
+
+<h2 id="step-5-view-table">Step 5 - View Table</h2>
+
+<p>The record will be placed into a table in Excel, as shown below.</p>
+
+<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/rq-data-connect/results.png" alt="Results" /></p>
+
+<h1 id="using-postman">Using Postman</h1>
+
+<p>This example will demonstrate how to generate a Basic Token using the request <a href="/api/RQ-Data-Connect/#basic-authentication-with-platform-credentials">Basic Authentication with Platform Credentials</a> and <a href="https://www.getpostman.com/">Postman</a>.</p>
+
+<h2 id="step-1-import-collection">Step 1 - Import Collection</h2>
+
+<p>For Chrome or Mac users, click the button below to import the collection directly into Postman. Alternatively, you can <a href="https://www.getpostman.com/collections/3d08e8f94077a2a6b37d">download the collection</a>.</p>
+
+<h2 id="step-2-open-collection">Step 2 - Open Collection</h2>
+
+<p>Click on RQ Data Connect Guide, a collection in the sidebar.</p>
+
+<p>If you do not see the collection, ensure the &quot;Collection&rdquo; tab is selected and not &ldquo;History&rdquo;.</p>
+
+<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/rq-data-connect/postman-collection.png" alt="Postman Collection" /></p>
+
+<h2 id="step-3-open-request">Step 3 - Open Request</h2>
+
+<p>The collection will open showing a list of requests. Click on Basic Authentication to load the request</p>
+
+<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/rq-data-connect/postman-collection-request.png" alt="Request in Postman" />      </p>
+
+<h2 id="step-4-change-environment-values">Step 4 - Change Environment Values</h2>
+
+<p>Click on the environment selector (drop down box in top right corner) and select &ldquo;Manage Environments&rdquo;</p>
+
+<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/rq-data-connect/env-picker.png" alt="Environment Picker" />    </p>
+
+<p>Click on &ldquo;postmanEnv&rdquo; in the list to bring up an edit screen</p>
+
+<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/rq-data-connect/env-editor.png" alt="Environment Editor" />        </p>
+
+<p>Modify the following values:</p>
+
+<ul>
+<li>en - <a href="http://developers.iqmetrix.com/api/#environments">Environment</a> to access. For production/live, leave empty. For sandbox, use &ldquo;demo&rdquo;</li>
+<li>username - Username from your onboarding package</li>
+<li>password - Password from your onboarding package</li>
+</ul>
+
+<p>Click Update to update the postman environment and then click X to close the editor</p>
+
+<h2 id="step-5-perform-the-request">Step 5 - Perform the Request</h2>
+
+<p>Click on the Send button to perform the request.</p>
+
+<p>The Basic Token is listed in the response as <code>basic_token</code></p>
+
+<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/rq-data-connect/response.png" alt="Postman Response" /></p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

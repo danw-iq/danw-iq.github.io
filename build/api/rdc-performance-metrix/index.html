@@ -1,0 +1,1933 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>RQ Data Connect Performance Metrix Reports | iQmetrix Developer Portal</title>
+
+    <style>
+      /*.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}*/
+    </style>
+    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all.js"></script>
+  </head>
+
+  <body class="api api_rdc-performance-metrix api_rdc-performance-metrix_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;json-doc&quot;,&quot;xml&quot;,&quot;html&quot;,&quot;coffeescript&quot;,&quot;c&quot;]">
+
+    <div class="fixed-top">
+      <a class="navbar-logo" href="/"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">PRODUCTS</a></li>
+          <li><a href="/api/changelog">API REFERENCE</a></li>
+          <li><a href="/api/changelog">CORE CONCEPTS &amp; GUIDES</a></li>
+          <li><a href="/api/changelog">PARTNERS</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">CONTACT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="breadcrumb">
+      <ol>
+        <li><a href="/api/">API REFERENCE</a></li>
+        <li>></li>
+        <li><a href="">API DOCUMENTATION</a></li>
+        <li>></li>
+        <li class="active">CUSTOMER RELATIONSHIP MANAGEMENT (CRM)</li>
+      </ol>
+    </div>
+    <div class="title">
+      <h1>API Documentation</h1>
+      <p>In depth reference documentation for iQmetrix API's.</p>
+    </div>
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <!-- <img src="../../images/logo.png" alt="Logo" /> -->
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="csharp">c#</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+              <a href="#" data-language-name="python">JSON</a>
+              <a href="#" data-language-name="json-doc">JsonDataTable</a>
+              <a href="#" data-language-name="xml">XML</a>
+              <a href="#" data-language-name="html">XmlDataTable</a>
+              <a href="#" data-language-name="coffeescript">CSV</a>
+              <a href="#" data-language-name="c">Excel</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="overview">Overview</h1>
+
+<p>RQ Data Connect allows you to retrieve report data from your RQ database (v4.23 and up).</p>
+
+<p>To get started, see <a href="/guides/rq-data-connect/">RQ Data Connect Guide</a>.</p>
+
+<h4 id="note">Note</h4>
+
+<p>For reports that provide optional URI parameters for filtering at different levels (ForWho/ForWhoIDs/LocationType/LocationTypeIDs), omitting these values will run the report at the default company level.</p>
+
+<h3 id="authentication">Authentication</h3>
+
+<p>RQ Data Connect and Bridge support many different methods of authentication, see {{AuthenticationOptions}}.</p>
+
+<p>Note that for all reports the {{AccessToken_Glossary}} should be mapped to an employee in RQ.</p>
+
+<h3 id="report-list">Report List</h3>
+
+<p>For a complete list of reports in RQ Data Connect, see <a href="/rq-data-connect/report-list">Report List</a>.</p>
+
+<h1 id="endpoints">Endpoints</h1>
+
+<ul>
+<li>Sandbox: <a href="https://rqdataconnectdemo.iqmetrix.net">https://rqdataconnectdemo.iqmetrix.net</a></li>
+<li>Production: <a href="https://rqdataconnect.iqmetrix.net">https://rqdataconnect.iqmetrix.net</a></li>
+</ul>
+
+<h1 id="resources">Resources</h1>
+
+<h2 id="graphedperformancemetrixreportdata">GraphedPerformanceMetrixReportData</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51247 Test_update"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AttachmentRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1249 : 2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AttachmentRateTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0 : 0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DisplayFormat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsAttachmentRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Margin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MarginTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Profit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProfitTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuantityTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Sales"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SalesTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Identifier for a performance metrix group in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">NVARCHAR(MAX)</code>)</td>
+<td style="text-align: left">Name of a performance metrix group in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">AttachmentRate (<code class="prettyprint">VARCHAR(23)</code>)</td>
+<td style="text-align: left">Comparison of Performance Groups for the Attachment Rate displayed as a ratio</td>
+</tr>
+<tr>
+<td style="text-align: left">AttachmentRateTarget (<code class="prettyprint">VARCHAR(23)</code>)</td>
+<td style="text-align: left">Attachment rate target</td>
+</tr>
+<tr>
+<td style="text-align: left">DisplayFormat (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">1: Ratio Format, 2: Percentage Format</td>
+</tr>
+<tr>
+<td style="text-align: left">IsAttachmentRate (<code class="prettyprint">BIT</code>)</td>
+<td style="text-align: left">A flag to indicate if performance group is an attachment rate</td>
+</tr>
+<tr>
+<td style="text-align: left">Margin (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Margin on sales in this performance group</td>
+</tr>
+<tr>
+<td style="text-align: left">MarginTarget (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Margin target</td>
+</tr>
+<tr>
+<td style="text-align: left">Priority (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Priority</td>
+</tr>
+<tr>
+<td style="text-align: left">Profit (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Net profit amount of sales in this performance group</td>
+</tr>
+<tr>
+<td style="text-align: left">ProfitTarget (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Profit target</td>
+</tr>
+<tr>
+<td style="text-align: left">Quantity (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Net count of SKUs sold in this performance group</td>
+</tr>
+<tr>
+<td style="text-align: left">QuantityTarget (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Quantity target</td>
+</tr>
+<tr>
+<td style="text-align: left">Sales (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Net dollar amount of sales in this performance group</td>
+</tr>
+<tr>
+<td style="text-align: left">SalesTarget (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Sales target</td>
+</tr>
+</tbody></table>
+
+<h2 id="graphedperformancemetrixbreakdownreportdata">GraphedPerformanceMetrixBreakdownReportData</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84 West"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"GroupInvoiceCount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"839"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsAttachmentRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Margin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1691.5747"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MarginTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Profit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-45860859.08"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProfitTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"530"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuantityTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Sales"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27111.34"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SalesTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TotalInvoiceCount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2772"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal idenfier in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">NVARCHAR(MAX)</code>)</td>
+<td style="text-align: left">Name of company, region, division, location or employee depending on ByWho URL parameter</td>
+</tr>
+<tr>
+<td style="text-align: left">GroupInvoiceCount (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">This number represents the size of the section of pie graph</td>
+</tr>
+<tr>
+<td style="text-align: left">IsAttachmentRate (<code class="prettyprint">BIT</code>)</td>
+<td style="text-align: left">A flag to indicate if performance group is an attachment rate</td>
+</tr>
+<tr>
+<td style="text-align: left">Margin (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Margin</td>
+</tr>
+<tr>
+<td style="text-align: left">MarginTarget (<code class="prettyprint">DECIMAL</code>)</td>
+<td style="text-align: left">Margin target</td>
+</tr>
+<tr>
+<td style="text-align: left">Profit (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Profit</td>
+</tr>
+<tr>
+<td style="text-align: left">ProfitTarget (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Profit target</td>
+</tr>
+<tr>
+<td style="text-align: left">Quantity (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">QuantityTarget (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Quantity target</td>
+</tr>
+<tr>
+<td style="text-align: left">Sales (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Total sales</td>
+</tr>
+<tr>
+<td style="text-align: left">SalesTarget (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Sales target</td>
+</tr>
+<tr>
+<td style="text-align: left">TotalInvoiceCount (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">This number represents the total size of the graph</td>
+</tr>
+</tbody></table>
+
+<h2 id="performancemetrixreportdata">PerformanceMetrixReportData</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attachment Ratio"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Priority1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SearchDateQuantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SearchDateSales"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SearchDateProfit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SearchDateMargin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SearchDateAttachmentRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9 : 0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Sales"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Profit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Margin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuantityPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SalesPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProfitPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MarginPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuantityTrending"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SalesTrending"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProfitTrending"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MarginTrending"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuantityTrendingPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SalesTrendingPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProfitTrendingPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MarginTrendingPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"QuantityTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SalesTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProfitTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MarginTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AttachmentRateTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0 : 0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsAttachmentRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DisplayFormat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AttachmentRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"114 : 0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal identifier in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">NVARCHAR(MAX)</code>)</td>
+<td style="text-align: left">Group - name of the group</td>
+</tr>
+<tr>
+<td style="text-align: left">Priority1 (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal value in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">SearchDateQuantity (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Quantity to Date - numeric and displays to nearest integer</td>
+</tr>
+<tr>
+<td style="text-align: left">SearchDateSales (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Sales to Date ($) - amount in dollars for sales to date</td>
+</tr>
+<tr>
+<td style="text-align: left">SearchDateProfit (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Profit to Date - numeric and displays to nearest integer</td>
+</tr>
+<tr>
+<td style="text-align: left">SearchDateMargin (<code class="prettyprint">DECIMAL</code>)</td>
+<td style="text-align: left">Margin to Date - numeric and displays to nearest integer</td>
+</tr>
+<tr>
+<td style="text-align: left">SearchDateAttachmentRate (<code class="prettyprint">VARCHAR(23)</code>)</td>
+<td style="text-align: left">Margin % of Target - percentage and displays Margin to date / target</td>
+</tr>
+<tr>
+<td style="text-align: left">Quantity (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Quantity Today - numeric and displays to nearest integer for today</td>
+</tr>
+<tr>
+<td style="text-align: left">Sales (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Today - numeric and displays to nearest integer for today</td>
+</tr>
+<tr>
+<td style="text-align: left">Profit (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Profit Today - numeric and displays to nearest integer for today</td>
+</tr>
+<tr>
+<td style="text-align: left">Margin (<code class="prettyprint">DECIMAL</code>)</td>
+<td style="text-align: left">Margin Today - numeric and displays to nearest integer for today</td>
+</tr>
+<tr>
+<td style="text-align: left">QuantityPercentOfTarget (<code class="prettyprint">DECIMAL</code>)</td>
+<td style="text-align: left">Quantity % of Target - percentage and displays Quantity to date / target</td>
+</tr>
+<tr>
+<td style="text-align: left">SalesPercentOfTarget (<code class="prettyprint">DECIMAL</code>)</td>
+<td style="text-align: left">Sales % of Target - percentage and displays sales to date / target</td>
+</tr>
+<tr>
+<td style="text-align: left">ProfitPercentOfTarget (<code class="prettyprint">DECIMAL</code>)</td>
+<td style="text-align: left">Profit % of Target - percentage and displays Profit to date / target</td>
+</tr>
+<tr>
+<td style="text-align: left">MarginPercentOfTarget (<code class="prettyprint">DECIMAL</code>)</td>
+<td style="text-align: left">Margin % of Target - percentage and displays Margin to date / target</td>
+</tr>
+<tr>
+<td style="text-align: left">QuantityTrending (<code class="prettyprint">DECIMAL</code>)</td>
+<td style="text-align: left">Trending - numeric and displays to nearest integer. Formula is as follows: (Quantity To Date / (Date - beginning of period + 1)) * # of days in the period.</td>
+</tr>
+<tr>
+<td style="text-align: left">SalesTrending (<code class="prettyprint">DECIMAL</code>)</td>
+<td style="text-align: left">Trending - numeric and displays to nearest integer. Formula is as follows: (Sales To Date / (Date - beginning of period + 1)) * # of days in the period.</td>
+</tr>
+<tr>
+<td style="text-align: left">ProfitTrending (<code class="prettyprint">DECIMAL</code>)</td>
+<td style="text-align: left">Trending - numeric and displays to nearest integer. Formula is as follows: (Profit To Date / (Date - beginning of period + 1)) * # of days in the period.</td>
+</tr>
+<tr>
+<td style="text-align: left">MarginTrending (<code class="prettyprint">DECIMAL</code>)</td>
+<td style="text-align: left">Trending - numeric and displays to nearest integer. Formula is as follows: (Margin To Date / (Date - beginning of period + 1)) * # of days in the period.</td>
+</tr>
+<tr>
+<td style="text-align: left">QuantityTrendingPercentOfTarget (<code class="prettyprint">DECIMAL</code>)</td>
+<td style="text-align: left">Quantity % of Target - percentage and displays Quantity to date / target</td>
+</tr>
+<tr>
+<td style="text-align: left">SalesTrendingPercentOfTarget (<code class="prettyprint">DECIMAL</code>)</td>
+<td style="text-align: left">Trending % of Target - percentage and displays trending / target</td>
+</tr>
+<tr>
+<td style="text-align: left">ProfitTrendingPercentOfTarget (<code class="prettyprint">DECIMAL</code>)</td>
+<td style="text-align: left">Trending % of Target - percentage and displays trending / target</td>
+</tr>
+<tr>
+<td style="text-align: left">MarginTrendingPercentOfTarget (<code class="prettyprint">DECIMAL</code>)</td>
+<td style="text-align: left">Trending % of Target - percentage and displays trending / target</td>
+</tr>
+<tr>
+<td style="text-align: left">QuantityTarget (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Target - numeric and displays the target set in the Performance Targets Setup</td>
+</tr>
+<tr>
+<td style="text-align: left">SalesTarget (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Target - numeric and displays the target set in the Performance Targets Setup</td>
+</tr>
+<tr>
+<td style="text-align: left">ProfitTarget (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Target - numeric and displays the target set in the Performance Targets Setup</td>
+</tr>
+<tr>
+<td style="text-align: left">MarginTarget (<code class="prettyprint">DECIMAL</code>)</td>
+<td style="text-align: left">Target - numeric and displays the target set in the Performance Targets Setup</td>
+</tr>
+<tr>
+<td style="text-align: left">AttachmentRateTarget (<code class="prettyprint">VARCHAR(23)</code>)</td>
+<td style="text-align: left">Target - numeric and displays the target set in the Performance Targets Setup</td>
+</tr>
+<tr>
+<td style="text-align: left">IsAttachmentRate (<code class="prettyprint">BIT</code>)</td>
+<td style="text-align: left">Internal value in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">DisplayFormat (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal value in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">AttachmentRate (<code class="prettyprint">VARCHAR(23)</code>)</td>
+<td style="text-align: left">Rate - as calculated by the AR (PG1 divided by PG2)</td>
+</tr>
+</tbody></table>
+
+<h2 id="performancemetrixsummaryreportdata">PerformanceMetrixSummaryReportData</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"GroupID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"GroupName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accessories &amp; Devices"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Sales"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Profit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Margin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsAttachmentRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DisplayFormat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"AttachmentRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"114 : 0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">GroupID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal identifier in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">GroupName (<code class="prettyprint">NVARCHAR(MAX)</code>)</td>
+<td style="text-align: left">Group Name - name of the performance group</td>
+</tr>
+<tr>
+<td style="text-align: left">Priority (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal value in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">Quantity (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Quantity - net count of SKUs sold in this group for the search criteria</td>
+</tr>
+<tr>
+<td style="text-align: left">Sales (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Sales - net dollar amount of sales in this group for the search criteria</td>
+</tr>
+<tr>
+<td style="text-align: left">Profit (<code class="prettyprint">MONEY</code>)</td>
+<td style="text-align: left">Profit - net profit amount of sales in this group for the search criteria</td>
+</tr>
+<tr>
+<td style="text-align: left">Margin (<code class="prettyprint">DECIMAL</code>)</td>
+<td style="text-align: left">Margin - margin on the sales in this group for the search criteria</td>
+</tr>
+<tr>
+<td style="text-align: left">Enabled (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal value in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">IsAttachmentRate (<code class="prettyprint">BIT</code>)</td>
+<td style="text-align: left">Internal value in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">DisplayFormat (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Internal value in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">AttachmentRate (<code class="prettyprint">VARCHAR(23)</code>)</td>
+<td style="text-align: left">Rate - as calculated by the AR (PG1 divided by PG2)</td>
+</tr>
+</tbody></table>
+
+<h1 id="requests">Requests</h1>
+
+<h2 id="get-the-graphed-performance-metrix-report"><span class='get'>GET</span> the Graphed Performance Metrix Report</h2>
+
+<p>For more information, see {{support_GraphedPerformanceMetrixReport}}.</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /reports/graphedperformancemetricsreport_performancemetrix?PeriodID={PeriodID}&amp;StartDate={StartDate}&amp;StopDate={StopDate}&amp;HideRebates={HideRebates}&amp;ForWho={ForWho}&amp;ForWhoID={ForWhoID}&amp;LocationType={LocationType}&amp;LocationTypeIDs={LocationTypeIDs}&amp;LanguageCode={LanguageCode}&amp;Auth={Auth}&amp;Response={Response}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">graphedperformancemetricsreport_performancemetrix</span><span class="p">?</span><span class="nx">PeriodID</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">HideRebates</span><span class="o">=-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWhoID</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/graphedperformancemetricsreport_performancemetrix?PeriodID=1&amp;StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;HideRebates=-1&amp;ForWho=1&amp;ForWhoID=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingTheGraphedPerformanceMetrixReport</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://rqdataconnectdemo.iqmetrix.net/reports/graphedperformancemetricsreport_performancemetrix?PeriodID=1&amp;StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;HideRebates=-1&amp;ForWho=1&amp;ForWhoID=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept-Encoding"</span><span class="p">,</span> <span class="s">"gzip"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingTheGraphedPerformanceMetrixReport</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://rqdataconnectdemo.iqmetrix.net/reports/graphedperformancemetricsreport_performancemetrix?PeriodID=1&amp;StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;HideRebates=-1&amp;ForWho=1&amp;ForWhoID=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept-Encoding"</span><span class="o">,</span> <span class="s">"gzip"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://rqdataconnectdemo.iqmetrix.net/reports/graphedperformancemetricsreport_performancemetrix?PeriodID=1&amp;StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;HideRebates=-1&amp;ForWho=1&amp;ForWhoID=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept-Encoding'</span> <span class="o">=&gt;</span> <span class="s1">'gzip'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">This</span> <span class="n">format</span> <span class="ow">not</span> <span class="n">available</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="err">This</span><span class="w"> </span><span class="err">format</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w">
+</span></code></pre>
+<pre class="highlight xml"><code>This format not available
+</code></pre>
+<pre class="highlight html"><code>This format not available
+</code></pre>
+<pre class="highlight coffeescript"><code><span class="nx">This</span> <span class="nx">format</span> <span class="o">not</span> <span class="nx">available</span>
+</code></pre>
+<pre class="highlight c"><code><span class="n">This</span> <span class="n">format</span> <span class="n">not</span> <span class="n">available</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>PeriodID</code> (<strong>Required</strong>)  - Identifier for a Period in RQ, or -1 if a StartDate and StopDate will be used</li>
+    <li><code>StartDate</code> (<strong>Required</strong>)  - Date at which report will begin. If PeriodID is -1, this value will be ignored</li>
+    <li><code>StopDate</code> (<strong>Required</strong>)  - Date at which report will end. If PeriodID is -1, this value will be ignored</li>
+    <li><code>HideRebates</code> (<strong>Required</strong>)  - A flag to indicate if Rebates should be included in the report (1) or not (-1)</li>
+    <li><code>ForWho</code> (Optional)  - Identifier for a level at which to perform the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-report-levels-in-rq">Getting Report Levels in RQ</a>. If <strong>LocationType</strong> is provided, this value is ignored</li>
+    <li><code>ForWhoID</code> (Optional)  - A comma seperated list of identifiers to filter the report. For a list of identifiers, see <a href="/api/RQ-Data-Connect/#getting-nodes-by-location-type">Getting Nodes By Location Type</a>. If <strong>LocationTypeIDs</strong> is provided, this value is ignored. To ignore filtering use -1</li>
+    <li><code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored</li>
+    <li><code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored</li>
+    <li><code>LanguageCode</code> (Optional)  - Language code, defaults to en-us. For a complete list, see <a href='/api/RQ-Data-Connect/#getting-language-codes'>Getting Language Codes</a></li>
+    <li><code>Auth</code> (Optional)  - Basic token used for authentication. For other methods of authentication, see {{AuthenticationOptions}}</li>
+    <li><code>Response</code> (Optional)  - Default is JSON. For other methods of response, see {{ResponseOptions}}</li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Array[<a href="#GraphedPerformanceMetrixReportData">graphedperformancemetrixreportdata</a>]</p>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight python"><code><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s">"ID"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+        <span class="s">"Name"</span><span class="p">:</span> <span class="s">"51247 Test_update"</span><span class="p">,</span>
+        <span class="s">"AttachmentRate"</span><span class="p">:</span> <span class="s">"1249 : 2"</span><span class="p">,</span>
+        <span class="s">"AttachmentRateTarget"</span><span class="p">:</span> <span class="s">"0 : 0"</span><span class="p">,</span>
+        <span class="s">"DisplayFormat"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s">"IsAttachmentRate"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s">"Margin"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">"MarginTarget"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">"Priority"</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s">"Profit"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">"ProfitTarget"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">"Quantity"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">"QuantityTarget"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">"Sales"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">"SalesTarget"</span><span class="p">:</span> <span class="n">null</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Records"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51247 Test_update"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"AttachmentRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1249 : 2"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"AttachmentRateTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0 : 0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DisplayFormat"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsAttachmentRate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Margin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MarginTarget"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Profit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProfitTarget"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"QuantityTarget"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Sales"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SalesTarget"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Schema"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Column_Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ColumnName"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datatype"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SafeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"safetype"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Length"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight xml"><code><span class="nt">&lt;Table&gt;</span>
+  <span class="nt">&lt;Record&gt;</span>
+    <span class="nt">&lt;ID&gt;</span>6<span class="nt">&lt;/ID&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>51247 Test_update<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;AttachmentRate&gt;</span>1249 : 2<span class="nt">&lt;/AttachmentRate&gt;</span>
+    <span class="nt">&lt;AttachmentRateTarget&gt;</span>0 : 0<span class="nt">&lt;/AttachmentRateTarget&gt;</span>
+    <span class="nt">&lt;DisplayFormat&gt;</span>2<span class="nt">&lt;/DisplayFormat&gt;</span>
+    <span class="nt">&lt;IsAttachmentRate&gt;</span>true<span class="nt">&lt;/IsAttachmentRate&gt;</span>
+    <span class="nt">&lt;Margin&gt;</span>null<span class="nt">&lt;/Margin&gt;</span>
+    <span class="nt">&lt;MarginTarget&gt;</span>null<span class="nt">&lt;/MarginTarget&gt;</span>
+    <span class="nt">&lt;Priority&gt;</span>-1<span class="nt">&lt;/Priority&gt;</span>
+    <span class="nt">&lt;Profit&gt;</span>null<span class="nt">&lt;/Profit&gt;</span>
+    <span class="nt">&lt;ProfitTarget&gt;</span>null<span class="nt">&lt;/ProfitTarget&gt;</span>
+    <span class="nt">&lt;Quantity&gt;</span>null<span class="nt">&lt;/Quantity&gt;</span>
+    <span class="nt">&lt;QuantityTarget&gt;</span>null<span class="nt">&lt;/QuantityTarget&gt;</span>
+    <span class="nt">&lt;Sales&gt;</span>null<span class="nt">&lt;/Sales&gt;</span>
+    <span class="nt">&lt;SalesTarget&gt;</span>null<span class="nt">&lt;/SalesTarget&gt;</span>
+  <span class="nt">&lt;/Record&gt;</span>
+<span class="nt">&lt;/Table&gt;</span>
+</code></pre>
+<pre class="highlight html"><code><span class="nt">&lt;Table&gt;</span>
+  <span class="nt">&lt;Record&gt;</span>
+    <span class="nt">&lt;ID&gt;</span>6<span class="nt">&lt;/ID&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>51247 Test_update<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;AttachmentRate&gt;</span>1249 : 2<span class="nt">&lt;/AttachmentRate&gt;</span>
+    <span class="nt">&lt;AttachmentRateTarget&gt;</span>0 : 0<span class="nt">&lt;/AttachmentRateTarget&gt;</span>
+    <span class="nt">&lt;DisplayFormat&gt;</span>2<span class="nt">&lt;/DisplayFormat&gt;</span>
+    <span class="nt">&lt;IsAttachmentRate&gt;</span>true<span class="nt">&lt;/IsAttachmentRate&gt;</span>
+    <span class="nt">&lt;Margin&gt;</span>null<span class="nt">&lt;/Margin&gt;</span>
+    <span class="nt">&lt;MarginTarget&gt;</span>null<span class="nt">&lt;/MarginTarget&gt;</span>
+    <span class="nt">&lt;Priority&gt;</span>-1<span class="nt">&lt;/Priority&gt;</span>
+    <span class="nt">&lt;Profit&gt;</span>null<span class="nt">&lt;/Profit&gt;</span>
+    <span class="nt">&lt;ProfitTarget&gt;</span>null<span class="nt">&lt;/ProfitTarget&gt;</span>
+    <span class="nt">&lt;Quantity&gt;</span>null<span class="nt">&lt;/Quantity&gt;</span>
+    <span class="nt">&lt;QuantityTarget&gt;</span>null<span class="nt">&lt;/QuantityTarget&gt;</span>
+    <span class="nt">&lt;Sales&gt;</span>null<span class="nt">&lt;/Sales&gt;</span>
+    <span class="nt">&lt;SalesTarget&gt;</span>null<span class="nt">&lt;/SalesTarget&gt;</span>
+  <span class="nt">&lt;/Record&gt;</span>
+  <span class="nt">&lt;Schema&gt;</span>
+    <span class="nt">&lt;Column</span><span class="na">_Name</span><span class="nt">&gt;</span>ColumnName<span class="err">&lt;</span>/Column_Name&gt;
+    <span class="nt">&lt;Type&gt;</span>datatybe<span class="nt">&lt;/Type&gt;</span>
+    <span class="nt">&lt;SafeType&gt;</span>safetype<span class="nt">&lt;/SafeType&gt;</span>
+    <span class="nt">&lt;Length&gt;</span>100<span class="nt">&lt;/Length&gt;</span>
+  <span class="nt">&lt;/Schema&gt;</span>
+<span class="nt">&lt;/Table&gt;</span>
+</code></pre>
+<pre class="highlight coffeescript"><code><span class="nx">ID</span><span class="p">,</span><span class="nx">Name</span><span class="p">,</span><span class="nx">AttachmentRate</span><span class="p">,</span><span class="nx">AttachmentRateTarget</span><span class="p">,</span><span class="nx">DisplayFormat</span><span class="p">,</span><span class="nx">IsAttachmentRate</span><span class="p">,</span><span class="nx">Margin</span><span class="p">,</span><span class="nx">MarginTarget</span><span class="p">,</span><span class="nx">Priority</span><span class="p">,</span><span class="nx">Profit</span><span class="p">,</span><span class="nx">ProfitTarget</span><span class="p">,</span><span class="nx">Quantity</span><span class="p">,</span><span class="nx">QuantityTarget</span><span class="p">,</span><span class="nx">Sales</span><span class="p">,</span><span class="nx">SalesTarget</span>
+<span class="mi">6</span><span class="p">,</span><span class="mi">51247</span> <span class="nx">Test_update</span><span class="p">,</span><span class="mi">1249</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span><span class="mi">0</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="no">true</span><span class="p">,</span><span class="no">null</span><span class="p">,</span><span class="no">null</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="no">null</span><span class="p">,</span><span class="no">null</span><span class="p">,</span><span class="no">null</span><span class="p">,</span><span class="no">null</span><span class="p">,</span><span class="no">null</span><span class="p">,</span><span class="no">null</span>
+</code></pre>
+<pre class="highlight c"><code><span class="n">content</span><span class="o">-</span><span class="n">disposition</span><span class="o">:</span> <span class="n">attachment</span><span class="p">;</span><span class="n">filename</span><span class="o">=</span><span class="n">reportname</span><span class="o">-</span><span class="mi">2016</span><span class="o">-</span><span class="mo">07</span><span class="o">-</span><span class="mi">11</span><span class="p">.</span><span class="n">xlsx</span>
+<span class="n">Binary</span> <span class="o">*</span><span class="p">.</span><span class="n">xlsx</span> <span class="n">file</span>
+</code></pre>
+
+<h4 id="headers">Headers</h4>
+
+<p>This specifies the format of the data sent to the API.</p>
+
+<h5 id="for-json">For JSON</h5>
+
+<p><code class="prettyprint">Content-Type: application/json</code></p>
+
+<p>This is the default result obtained by omitting the <code class="prettyprint">Auth</code> URI parameter.</p>
+
+<p><code class="prettyprint">Content-Type: application/JsonDataTable</code></p>
+
+<p>This is the default result obtained by omitting the URI parameter <code class="prettyprint">Auth=JsonDataTable</code>. This response type wraps the data in a &ldquo;Records&rdquo; array and adds a &ldquo;Schema&rdquo; array, which contains information about each column in the report.</p>
+
+<h5 id="for-xml">For XML</h5>
+
+<p><code class="prettyprint">Content-Type: text/xml</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=XmlDataTable</code>. </p>
+
+<p><code class="prettyprint">Content-Type: text/XmlDataTable</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=XmlDataTable</code>. This response type appends to the bottom of the request a summary of information about each column in the report.</p>
+
+<h5 id="for-csv">For CSV</h5>
+
+<p><code class="prettyprint">Content-Type: text/csv</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=Csv</code>.
+<br/></p>
+
+<p><code class="prettyprint">Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=Excel</code>.</p>
+
+<h2 id="get-the-graphed-performance-metrix-breakdown-report"><span class='get'>GET</span> the Graphed Performance Metrix Breakdown Report</h2>
+
+<p>For more information, see {{support_GraphedPerformanceMetrixReport}}.</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /reports/graphedperformancemetricsreport_breakdown?PeriodID={PeriodID}&amp;StartDate={StartDate}&amp;StopDate={StopDate}&amp;HideRebates={HideRebates}&amp;PerformanceGroupID={PerformanceGroupID}&amp;TopN={TopN}&amp;TopCriteria={TopCriteria}&amp;ByWho={ByWho}&amp;ForWho={ForWho}&amp;ForWhoID={ForWhoID}&amp;LocationType={LocationType}&amp;LocationTypeIDs={LocationTypeIDs}&amp;LanguageCode={LanguageCode}&amp;Auth={Auth}&amp;Response={Response}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">graphedperformancemetricsreport_breakdown</span><span class="p">?</span><span class="nx">PeriodID</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">HideRebates</span><span class="o">=-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">PerformanceGroupID</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">TopN</span><span class="o">=</span><span class="mi">10</span><span class="o">&amp;</span><span class="nx">TopCriteria</span><span class="o">=</span><span class="nx">Quantity</span><span class="o">&amp;</span><span class="nx">ByWho</span><span class="o">=</span><span class="mi">5</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWhoID</span><span class="o">=</span><span class="mi">6679</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/graphedperformancemetricsreport_breakdown?PeriodID=1&amp;StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;HideRebates=-1&amp;PerformanceGroupID=1&amp;TopN=10&amp;TopCriteria=Quantity&amp;ByWho=5&amp;ForWho=1&amp;ForWhoID=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingTheGraphedPerformanceMetrixBreakdownReport</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://rqdataconnectdemo.iqmetrix.net/reports/graphedperformancemetricsreport_breakdown?PeriodID=1&amp;StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;HideRebates=-1&amp;PerformanceGroupID=1&amp;TopN=10&amp;TopCriteria=Quantity&amp;ByWho=5&amp;ForWho=1&amp;ForWhoID=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept-Encoding"</span><span class="p">,</span> <span class="s">"gzip"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingTheGraphedPerformanceMetrixBreakdownReport</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://rqdataconnectdemo.iqmetrix.net/reports/graphedperformancemetricsreport_breakdown?PeriodID=1&amp;StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;HideRebates=-1&amp;PerformanceGroupID=1&amp;TopN=10&amp;TopCriteria=Quantity&amp;ByWho=5&amp;ForWho=1&amp;ForWhoID=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept-Encoding"</span><span class="o">,</span> <span class="s">"gzip"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://rqdataconnectdemo.iqmetrix.net/reports/graphedperformancemetricsreport_breakdown?PeriodID=1&amp;StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;HideRebates=-1&amp;PerformanceGroupID=1&amp;TopN=10&amp;TopCriteria=Quantity&amp;ByWho=5&amp;ForWho=1&amp;ForWhoID=6679&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept-Encoding'</span> <span class="o">=&gt;</span> <span class="s1">'gzip'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">This</span> <span class="n">format</span> <span class="ow">not</span> <span class="n">available</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="err">This</span><span class="w"> </span><span class="err">format</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w">
+</span></code></pre>
+<pre class="highlight xml"><code>This format not available
+</code></pre>
+<pre class="highlight html"><code>This format not available
+</code></pre>
+<pre class="highlight coffeescript"><code><span class="nx">This</span> <span class="nx">format</span> <span class="o">not</span> <span class="nx">available</span>
+</code></pre>
+<pre class="highlight c"><code><span class="n">This</span> <span class="n">format</span> <span class="n">not</span> <span class="n">available</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>PeriodID</code> (<strong>Required</strong>)  - Identifier for a Period in RQ, or -1 if a StartDate and StopDate will be used</li>
+    <li><code>StartDate</code> (<strong>Required</strong>)  - Date at which report will begin. If PeriodID is -1, this value will be ignored</li>
+    <li><code>StopDate</code> (<strong>Required</strong>)  - Date at which report will end. If PeriodID is -1, this value will be ignored</li>
+    <li><code>HideRebates</code> (<strong>Required</strong>)  - A flag to indicate if Rebates should be included in the report (1) or not (-1)</li>
+    <li><code>PerformanceGroupID</code> (<strong>Required</strong>)  - Identifier for a Performance Group in RQ</li>
+    <li><code>TopN</code> (<strong>Required</strong>)  - Gets the top X entries for the report, ordered by the value in TopCriteria. Use -1 to return all results</li>
+    <li><code>TopCriteria</code> (<strong>Required</strong>)  - Acceptable values include Quantity, Sales, Profit, Margin and Rate</li>
+    <li><code>ByWho</code> (<strong>Required</strong>)  - This value will aggregate the report data at the Company (1), Region (2), Division (3), Location (4) or Employee (5) level</li>
+    <li><code>ForWho</code> (Optional)  - Identifier for a level at which to perform the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-report-levels-in-rq">Getting Report Levels in RQ</a>. If <strong>LocationType</strong> is provided, this value is ignored</li>
+    <li><code>ForWhoID</code> (Optional)  - A comma seperated list of identifiers to filter the report. For a list of identifiers, see <a href="/api/RQ-Data-Connect/#getting-nodes-by-location-type">Getting Nodes By Location Type</a>. If <strong>LocationTypeIDs</strong> is provided, this value is ignored. To ignore filtering use -1</li>
+    <li><code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored</li>
+    <li><code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored</li>
+    <li><code>LanguageCode</code> (Optional)  - Language code, defaults to en-us. For a complete list, see <a href='/api/RQ-Data-Connect/#getting-language-codes'>Getting Language Codes</a></li>
+    <li><code>Auth</code> (Optional)  - Basic token used for authentication. For other methods of authentication, see {{AuthenticationOptions}}</li>
+    <li><code>Response</code> (Optional)  - Default is JSON. For other methods of response, see {{ResponseOptions}}</li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Array[<a href="#GraphedPerformanceMetrixBreakdownReportData">graphedperformancemetrixbreakdownreportdata</a>]</p>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight python"><code><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s">"ID"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">"Name"</span><span class="p">:</span> <span class="s">"84 West"</span><span class="p">,</span>
+        <span class="s">"GroupInvoiceCount"</span><span class="p">:</span> <span class="mi">839</span><span class="p">,</span>
+        <span class="s">"IsAttachmentRate"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s">"Margin"</span><span class="p">:</span> <span class="o">-</span><span class="mf">1691.5747</span><span class="p">,</span>
+        <span class="s">"MarginTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"Profit"</span><span class="p">:</span> <span class="o">-</span><span class="mf">45860859.08</span><span class="p">,</span>
+        <span class="s">"ProfitTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"Quantity"</span><span class="p">:</span> <span class="mi">530</span><span class="p">,</span>
+        <span class="s">"QuantityTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"Sales"</span><span class="p">:</span> <span class="mf">27111.34</span><span class="p">,</span>
+        <span class="s">"SalesTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"TotalInvoiceCount"</span><span class="p">:</span> <span class="mi">2772</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Records"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84 West"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"GroupInvoiceCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">839</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsAttachmentRate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Margin"</span><span class="p">:</span><span class="w"> </span><span class="mf">-1691.5747</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MarginTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Profit"</span><span class="p">:</span><span class="w"> </span><span class="mf">-45860859.08</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProfitTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">530</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"QuantityTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Sales"</span><span class="p">:</span><span class="w"> </span><span class="mf">27111.34</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SalesTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TotalInvoiceCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2772</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Schema"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Column_Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ColumnName"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datatype"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SafeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"safetype"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Length"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight xml"><code><span class="nt">&lt;Table&gt;</span>
+  <span class="nt">&lt;Record&gt;</span>
+    <span class="nt">&lt;ID&gt;</span>1<span class="nt">&lt;/ID&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>84 West<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;GroupInvoiceCount&gt;</span>839<span class="nt">&lt;/GroupInvoiceCount&gt;</span>
+    <span class="nt">&lt;IsAttachmentRate&gt;</span>false<span class="nt">&lt;/IsAttachmentRate&gt;</span>
+    <span class="nt">&lt;Margin&gt;</span>-1691.5747<span class="nt">&lt;/Margin&gt;</span>
+    <span class="nt">&lt;MarginTarget&gt;</span>0<span class="nt">&lt;/MarginTarget&gt;</span>
+    <span class="nt">&lt;Profit&gt;</span>-45860859.08<span class="nt">&lt;/Profit&gt;</span>
+    <span class="nt">&lt;ProfitTarget&gt;</span>0<span class="nt">&lt;/ProfitTarget&gt;</span>
+    <span class="nt">&lt;Quantity&gt;</span>530<span class="nt">&lt;/Quantity&gt;</span>
+    <span class="nt">&lt;QuantityTarget&gt;</span>0<span class="nt">&lt;/QuantityTarget&gt;</span>
+    <span class="nt">&lt;Sales&gt;</span>27111.34<span class="nt">&lt;/Sales&gt;</span>
+    <span class="nt">&lt;SalesTarget&gt;</span>0<span class="nt">&lt;/SalesTarget&gt;</span>
+    <span class="nt">&lt;TotalInvoiceCount&gt;</span>2772<span class="nt">&lt;/TotalInvoiceCount&gt;</span>
+  <span class="nt">&lt;/Record&gt;</span>
+<span class="nt">&lt;/Table&gt;</span>
+</code></pre>
+<pre class="highlight html"><code><span class="nt">&lt;Table&gt;</span>
+  <span class="nt">&lt;Record&gt;</span>
+    <span class="nt">&lt;ID&gt;</span>1<span class="nt">&lt;/ID&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>84 West<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;GroupInvoiceCount&gt;</span>839<span class="nt">&lt;/GroupInvoiceCount&gt;</span>
+    <span class="nt">&lt;IsAttachmentRate&gt;</span>false<span class="nt">&lt;/IsAttachmentRate&gt;</span>
+    <span class="nt">&lt;Margin&gt;</span>-1691.5747<span class="nt">&lt;/Margin&gt;</span>
+    <span class="nt">&lt;MarginTarget&gt;</span>0<span class="nt">&lt;/MarginTarget&gt;</span>
+    <span class="nt">&lt;Profit&gt;</span>-45860859.08<span class="nt">&lt;/Profit&gt;</span>
+    <span class="nt">&lt;ProfitTarget&gt;</span>0<span class="nt">&lt;/ProfitTarget&gt;</span>
+    <span class="nt">&lt;Quantity&gt;</span>530<span class="nt">&lt;/Quantity&gt;</span>
+    <span class="nt">&lt;QuantityTarget&gt;</span>0<span class="nt">&lt;/QuantityTarget&gt;</span>
+    <span class="nt">&lt;Sales&gt;</span>27111.34<span class="nt">&lt;/Sales&gt;</span>
+    <span class="nt">&lt;SalesTarget&gt;</span>0<span class="nt">&lt;/SalesTarget&gt;</span>
+    <span class="nt">&lt;TotalInvoiceCount&gt;</span>2772<span class="nt">&lt;/TotalInvoiceCount&gt;</span>
+  <span class="nt">&lt;/Record&gt;</span>
+  <span class="nt">&lt;Schema&gt;</span>
+    <span class="nt">&lt;Column</span><span class="na">_Name</span><span class="nt">&gt;</span>ColumnName<span class="err">&lt;</span>/Column_Name&gt;
+    <span class="nt">&lt;Type&gt;</span>datatybe<span class="nt">&lt;/Type&gt;</span>
+    <span class="nt">&lt;SafeType&gt;</span>safetype<span class="nt">&lt;/SafeType&gt;</span>
+    <span class="nt">&lt;Length&gt;</span>100<span class="nt">&lt;/Length&gt;</span>
+  <span class="nt">&lt;/Schema&gt;</span>
+<span class="nt">&lt;/Table&gt;</span>
+</code></pre>
+<pre class="highlight coffeescript"><code><span class="nx">ID</span><span class="p">,</span><span class="nx">Name</span><span class="p">,</span><span class="nx">GroupInvoiceCount</span><span class="p">,</span><span class="nx">IsAttachmentRate</span><span class="p">,</span><span class="nx">Margin</span><span class="p">,</span><span class="nx">MarginTarget</span><span class="p">,</span><span class="nx">Profit</span><span class="p">,</span><span class="nx">ProfitTarget</span><span class="p">,</span><span class="nx">Quantity</span><span class="p">,</span><span class="nx">QuantityTarget</span><span class="p">,</span><span class="nx">Sales</span><span class="p">,</span><span class="nx">SalesTarget</span><span class="p">,</span><span class="nx">TotalInvoiceCount</span>
+<span class="mi">1</span><span class="p">,</span><span class="mi">84</span> <span class="nx">West</span><span class="p">,</span><span class="mi">839</span><span class="p">,</span><span class="no">false</span><span class="p">,</span><span class="o">-</span><span class="mf">1691.5747</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">45860859.08</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">530</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">27111.34</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2772</span>
+</code></pre>
+<pre class="highlight c"><code><span class="n">content</span><span class="o">-</span><span class="n">disposition</span><span class="o">:</span> <span class="n">attachment</span><span class="p">;</span><span class="n">filename</span><span class="o">=</span><span class="n">reportname</span><span class="o">-</span><span class="mi">2016</span><span class="o">-</span><span class="mo">07</span><span class="o">-</span><span class="mi">11</span><span class="p">.</span><span class="n">xlsx</span>
+<span class="n">Binary</span> <span class="o">*</span><span class="p">.</span><span class="n">xlsx</span> <span class="n">file</span>
+</code></pre>
+
+<h4 id="headers">Headers</h4>
+
+<p>This specifies the format of the data sent to the API.</p>
+
+<h5 id="for-json">For JSON</h5>
+
+<p><code class="prettyprint">Content-Type: application/json</code></p>
+
+<p>This is the default result obtained by omitting the <code class="prettyprint">Auth</code> URI parameter.</p>
+
+<p><code class="prettyprint">Content-Type: application/JsonDataTable</code></p>
+
+<p>This is the default result obtained by omitting the URI parameter <code class="prettyprint">Auth=JsonDataTable</code>. This response type wraps the data in a &ldquo;Records&rdquo; array and adds a &ldquo;Schema&rdquo; array, which contains information about each column in the report.</p>
+
+<h5 id="for-xml">For XML</h5>
+
+<p><code class="prettyprint">Content-Type: text/xml</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=XmlDataTable</code>. </p>
+
+<p><code class="prettyprint">Content-Type: text/XmlDataTable</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=XmlDataTable</code>. This response type appends to the bottom of the request a summary of information about each column in the report.</p>
+
+<h5 id="for-csv">For CSV</h5>
+
+<p><code class="prettyprint">Content-Type: text/csv</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=Csv</code>.
+<br/></p>
+
+<p><code class="prettyprint">Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=Excel</code>.</p>
+
+<h2 id="get-the-performance-metrix-report"><span class='get'>GET</span> the Performance Metrix Report</h2>
+
+<p>For more information see {{support_PerformanceMetrixReport}}.</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /reports/PerformanceMetrixReport?DateAsOf={DateAsOf}&amp;HideRebates={HideRebates}&amp;ForWho={ForWho}&amp;ForWhoIDs={ForWhoIDs}&amp;LocationType={LocationType}&amp;LocationTypeIDs={LocationTypeIDs}&amp;LanguageCode={LanguageCode}&amp;Auth={Auth}&amp;Response={Response}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">PerformanceMetrixReport</span><span class="p">?</span><span class="nx">DateAsOf</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">HideRebates</span><span class="o">=-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">4</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/PerformanceMetrixReport?DateAsOf=2016-01-01T08:00:00.000Z&amp;HideRebates=-1&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingThePerformanceMetrixReport</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://rqdataconnectdemo.iqmetrix.net/reports/PerformanceMetrixReport?DateAsOf=2016-01-01T08:00:00.000Z&amp;HideRebates=-1&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept-Encoding"</span><span class="p">,</span> <span class="s">"gzip"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingThePerformanceMetrixReport</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://rqdataconnectdemo.iqmetrix.net/reports/PerformanceMetrixReport?DateAsOf=2016-01-01T08:00:00.000Z&amp;HideRebates=-1&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept-Encoding"</span><span class="o">,</span> <span class="s">"gzip"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://rqdataconnectdemo.iqmetrix.net/reports/PerformanceMetrixReport?DateAsOf=2016-01-01T08:00:00.000Z&amp;HideRebates=-1&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept-Encoding'</span> <span class="o">=&gt;</span> <span class="s1">'gzip'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">This</span> <span class="n">format</span> <span class="ow">not</span> <span class="n">available</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="err">This</span><span class="w"> </span><span class="err">format</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w">
+</span></code></pre>
+<pre class="highlight xml"><code>This format not available
+</code></pre>
+<pre class="highlight html"><code>This format not available
+</code></pre>
+<pre class="highlight coffeescript"><code><span class="nx">This</span> <span class="nx">format</span> <span class="o">not</span> <span class="nx">available</span>
+</code></pre>
+<pre class="highlight c"><code><span class="n">This</span> <span class="n">format</span> <span class="n">not</span> <span class="n">available</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>DateAsOf</code> (<strong>Required</strong>)  - Date at which to run report</li>
+    <li><code>HideRebates</code> (<strong>Required</strong>)  - A flag to indicate if Rebates should be included in the report (1) or not (-1)</li>
+    <li><code>ForWho</code> (Optional)  - Identifier for a level at which to perform the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-report-levels-in-rq">Getting Report Levels in RQ</a>. If <strong>LocationType</strong> is provided, this value is ignored</li>
+    <li><code>ForWhoIDs</code> (Optional)  - A comma seperated list of identifiers to filter the report. For a list of identifiers, see <a href="/api/RQ-Data-Connect/#getting-nodes-by-location-type">Getting Nodes By Location Type</a>. If <strong>LocationTypeIDs</strong> is provided, this value is ignored. To ignore filtering use -1</li>
+    <li><code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored</li>
+    <li><code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored</li>
+    <li><code>LanguageCode</code> (Optional)  - Language code, defaults to en-us. For a complete list, see <a href='/api/RQ-Data-Connect/#getting-language-codes'>Getting Language Codes</a></li>
+    <li><code>Auth</code> (Optional)  - Basic token used for authentication. For other methods of authentication, see {{AuthenticationOptions}}</li>
+    <li><code>Response</code> (Optional)  - Default is JSON. For other methods of response, see {{ResponseOptions}}</li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Array[<a href="#PerformanceMetrixReportData">performancemetrixreportdata</a>]</p>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight python"><code><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s">"ID"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s">"Name"</span><span class="p">:</span> <span class="s">"Attachment Ratio"</span><span class="p">,</span>
+        <span class="s">"Priority1"</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s">"SearchDateQuantity"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"SearchDateSales"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"SearchDateProfit"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"SearchDateMargin"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"SearchDateAttachmentRate"</span><span class="p">:</span> <span class="s">"9 : 0"</span><span class="p">,</span>
+        <span class="s">"Quantity"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"Sales"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"Profit"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"Margin"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"QuantityPercentOfTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"SalesPercentOfTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"ProfitPercentOfTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"MarginPercentOfTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"QuantityTrending"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"SalesTrending"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"ProfitTrending"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"MarginTrending"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"QuantityTrendingPercentOfTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"SalesTrendingPercentOfTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"ProfitTrendingPercentOfTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"MarginTrendingPercentOfTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"QuantityTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"SalesTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"ProfitTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"MarginTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"AttachmentRateTarget"</span><span class="p">:</span> <span class="s">"0 : 0"</span><span class="p">,</span>
+        <span class="s">"IsAttachmentRate"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s">"DisplayFormat"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s">"AttachmentRate"</span><span class="p">:</span> <span class="s">"114 : 0"</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Records"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attachment Ratio"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Priority1"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SearchDateQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SearchDateSales"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SearchDateProfit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SearchDateMargin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SearchDateAttachmentRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9 : 0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Sales"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Profit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Margin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"QuantityPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SalesPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProfitPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MarginPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"QuantityTrending"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SalesTrending"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProfitTrending"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MarginTrending"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"QuantityTrendingPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SalesTrendingPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProfitTrendingPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MarginTrendingPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"QuantityTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SalesTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProfitTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MarginTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"AttachmentRateTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0 : 0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsAttachmentRate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DisplayFormat"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"AttachmentRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"114 : 0"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Schema"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Column_Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ColumnName"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datatype"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SafeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"safetype"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Length"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight xml"><code><span class="nt">&lt;Table&gt;</span>
+  <span class="nt">&lt;Record&gt;</span>
+    <span class="nt">&lt;ID&gt;</span>4<span class="nt">&lt;/ID&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Attachment Ratio<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Priority1&gt;</span>-1<span class="nt">&lt;/Priority1&gt;</span>
+    <span class="nt">&lt;SearchDateQuantity&gt;</span>0<span class="nt">&lt;/SearchDateQuantity&gt;</span>
+    <span class="nt">&lt;SearchDateSales&gt;</span>0<span class="nt">&lt;/SearchDateSales&gt;</span>
+    <span class="nt">&lt;SearchDateProfit&gt;</span>0<span class="nt">&lt;/SearchDateProfit&gt;</span>
+    <span class="nt">&lt;SearchDateMargin&gt;</span>0<span class="nt">&lt;/SearchDateMargin&gt;</span>
+    <span class="nt">&lt;SearchDateAttachmentRate&gt;</span>9 : 0<span class="nt">&lt;/SearchDateAttachmentRate&gt;</span>
+    <span class="nt">&lt;Quantity&gt;</span>0<span class="nt">&lt;/Quantity&gt;</span>
+    <span class="nt">&lt;Sales&gt;</span>0<span class="nt">&lt;/Sales&gt;</span>
+    <span class="nt">&lt;Profit&gt;</span>0<span class="nt">&lt;/Profit&gt;</span>
+    <span class="nt">&lt;Margin&gt;</span>0<span class="nt">&lt;/Margin&gt;</span>
+    <span class="nt">&lt;QuantityPercentOfTarget&gt;</span>0<span class="nt">&lt;/QuantityPercentOfTarget&gt;</span>
+    <span class="nt">&lt;SalesPercentOfTarget&gt;</span>0<span class="nt">&lt;/SalesPercentOfTarget&gt;</span>
+    <span class="nt">&lt;ProfitPercentOfTarget&gt;</span>0<span class="nt">&lt;/ProfitPercentOfTarget&gt;</span>
+    <span class="nt">&lt;MarginPercentOfTarget&gt;</span>0<span class="nt">&lt;/MarginPercentOfTarget&gt;</span>
+    <span class="nt">&lt;QuantityTrending&gt;</span>0<span class="nt">&lt;/QuantityTrending&gt;</span>
+    <span class="nt">&lt;SalesTrending&gt;</span>0<span class="nt">&lt;/SalesTrending&gt;</span>
+    <span class="nt">&lt;ProfitTrending&gt;</span>0<span class="nt">&lt;/ProfitTrending&gt;</span>
+    <span class="nt">&lt;MarginTrending&gt;</span>0<span class="nt">&lt;/MarginTrending&gt;</span>
+    <span class="nt">&lt;QuantityTrendingPercentOfTarget&gt;</span>0<span class="nt">&lt;/QuantityTrendingPercentOfTarget&gt;</span>
+    <span class="nt">&lt;SalesTrendingPercentOfTarget&gt;</span>0<span class="nt">&lt;/SalesTrendingPercentOfTarget&gt;</span>
+    <span class="nt">&lt;ProfitTrendingPercentOfTarget&gt;</span>0<span class="nt">&lt;/ProfitTrendingPercentOfTarget&gt;</span>
+    <span class="nt">&lt;MarginTrendingPercentOfTarget&gt;</span>0<span class="nt">&lt;/MarginTrendingPercentOfTarget&gt;</span>
+    <span class="nt">&lt;QuantityTarget&gt;</span>0<span class="nt">&lt;/QuantityTarget&gt;</span>
+    <span class="nt">&lt;SalesTarget&gt;</span>0<span class="nt">&lt;/SalesTarget&gt;</span>
+    <span class="nt">&lt;ProfitTarget&gt;</span>0<span class="nt">&lt;/ProfitTarget&gt;</span>
+    <span class="nt">&lt;MarginTarget&gt;</span>0<span class="nt">&lt;/MarginTarget&gt;</span>
+    <span class="nt">&lt;AttachmentRateTarget&gt;</span>0 : 0<span class="nt">&lt;/AttachmentRateTarget&gt;</span>
+    <span class="nt">&lt;IsAttachmentRate&gt;</span>true<span class="nt">&lt;/IsAttachmentRate&gt;</span>
+    <span class="nt">&lt;DisplayFormat&gt;</span>2<span class="nt">&lt;/DisplayFormat&gt;</span>
+    <span class="nt">&lt;AttachmentRate&gt;</span>114 : 0<span class="nt">&lt;/AttachmentRate&gt;</span>
+  <span class="nt">&lt;/Record&gt;</span>
+<span class="nt">&lt;/Table&gt;</span>
+</code></pre>
+<pre class="highlight html"><code><span class="nt">&lt;Table&gt;</span>
+  <span class="nt">&lt;Record&gt;</span>
+    <span class="nt">&lt;ID&gt;</span>4<span class="nt">&lt;/ID&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Attachment Ratio<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Priority1&gt;</span>-1<span class="nt">&lt;/Priority1&gt;</span>
+    <span class="nt">&lt;SearchDateQuantity&gt;</span>0<span class="nt">&lt;/SearchDateQuantity&gt;</span>
+    <span class="nt">&lt;SearchDateSales&gt;</span>0<span class="nt">&lt;/SearchDateSales&gt;</span>
+    <span class="nt">&lt;SearchDateProfit&gt;</span>0<span class="nt">&lt;/SearchDateProfit&gt;</span>
+    <span class="nt">&lt;SearchDateMargin&gt;</span>0<span class="nt">&lt;/SearchDateMargin&gt;</span>
+    <span class="nt">&lt;SearchDateAttachmentRate&gt;</span>9 : 0<span class="nt">&lt;/SearchDateAttachmentRate&gt;</span>
+    <span class="nt">&lt;Quantity&gt;</span>0<span class="nt">&lt;/Quantity&gt;</span>
+    <span class="nt">&lt;Sales&gt;</span>0<span class="nt">&lt;/Sales&gt;</span>
+    <span class="nt">&lt;Profit&gt;</span>0<span class="nt">&lt;/Profit&gt;</span>
+    <span class="nt">&lt;Margin&gt;</span>0<span class="nt">&lt;/Margin&gt;</span>
+    <span class="nt">&lt;QuantityPercentOfTarget&gt;</span>0<span class="nt">&lt;/QuantityPercentOfTarget&gt;</span>
+    <span class="nt">&lt;SalesPercentOfTarget&gt;</span>0<span class="nt">&lt;/SalesPercentOfTarget&gt;</span>
+    <span class="nt">&lt;ProfitPercentOfTarget&gt;</span>0<span class="nt">&lt;/ProfitPercentOfTarget&gt;</span>
+    <span class="nt">&lt;MarginPercentOfTarget&gt;</span>0<span class="nt">&lt;/MarginPercentOfTarget&gt;</span>
+    <span class="nt">&lt;QuantityTrending&gt;</span>0<span class="nt">&lt;/QuantityTrending&gt;</span>
+    <span class="nt">&lt;SalesTrending&gt;</span>0<span class="nt">&lt;/SalesTrending&gt;</span>
+    <span class="nt">&lt;ProfitTrending&gt;</span>0<span class="nt">&lt;/ProfitTrending&gt;</span>
+    <span class="nt">&lt;MarginTrending&gt;</span>0<span class="nt">&lt;/MarginTrending&gt;</span>
+    <span class="nt">&lt;QuantityTrendingPercentOfTarget&gt;</span>0<span class="nt">&lt;/QuantityTrendingPercentOfTarget&gt;</span>
+    <span class="nt">&lt;SalesTrendingPercentOfTarget&gt;</span>0<span class="nt">&lt;/SalesTrendingPercentOfTarget&gt;</span>
+    <span class="nt">&lt;ProfitTrendingPercentOfTarget&gt;</span>0<span class="nt">&lt;/ProfitTrendingPercentOfTarget&gt;</span>
+    <span class="nt">&lt;MarginTrendingPercentOfTarget&gt;</span>0<span class="nt">&lt;/MarginTrendingPercentOfTarget&gt;</span>
+    <span class="nt">&lt;QuantityTarget&gt;</span>0<span class="nt">&lt;/QuantityTarget&gt;</span>
+    <span class="nt">&lt;SalesTarget&gt;</span>0<span class="nt">&lt;/SalesTarget&gt;</span>
+    <span class="nt">&lt;ProfitTarget&gt;</span>0<span class="nt">&lt;/ProfitTarget&gt;</span>
+    <span class="nt">&lt;MarginTarget&gt;</span>0<span class="nt">&lt;/MarginTarget&gt;</span>
+    <span class="nt">&lt;AttachmentRateTarget&gt;</span>0 : 0<span class="nt">&lt;/AttachmentRateTarget&gt;</span>
+    <span class="nt">&lt;IsAttachmentRate&gt;</span>true<span class="nt">&lt;/IsAttachmentRate&gt;</span>
+    <span class="nt">&lt;DisplayFormat&gt;</span>2<span class="nt">&lt;/DisplayFormat&gt;</span>
+    <span class="nt">&lt;AttachmentRate&gt;</span>114 : 0<span class="nt">&lt;/AttachmentRate&gt;</span>
+  <span class="nt">&lt;/Record&gt;</span>
+  <span class="nt">&lt;Schema&gt;</span>
+    <span class="nt">&lt;Column</span><span class="na">_Name</span><span class="nt">&gt;</span>ColumnName<span class="err">&lt;</span>/Column_Name&gt;
+    <span class="nt">&lt;Type&gt;</span>datatybe<span class="nt">&lt;/Type&gt;</span>
+    <span class="nt">&lt;SafeType&gt;</span>safetype<span class="nt">&lt;/SafeType&gt;</span>
+    <span class="nt">&lt;Length&gt;</span>100<span class="nt">&lt;/Length&gt;</span>
+  <span class="nt">&lt;/Schema&gt;</span>
+<span class="nt">&lt;/Table&gt;</span>
+</code></pre>
+<pre class="highlight coffeescript"><code><span class="nx">ID</span><span class="p">,</span><span class="nx">Name</span><span class="p">,</span><span class="nx">Priority1</span><span class="p">,</span><span class="nx">SearchDateQuantity</span><span class="p">,</span><span class="nx">SearchDateSales</span><span class="p">,</span><span class="nx">SearchDateProfit</span><span class="p">,</span><span class="nx">SearchDateMargin</span><span class="p">,</span><span class="nx">SearchDateAttachmentRate</span><span class="p">,</span><span class="nx">Quantity</span><span class="p">,</span><span class="nx">Sales</span><span class="p">,</span><span class="nx">Profit</span><span class="p">,</span><span class="nx">Margin</span><span class="p">,</span><span class="nx">QuantityPercentOfTarget</span><span class="p">,</span><span class="nx">SalesPercentOfTarget</span><span class="p">,</span><span class="nx">ProfitPercentOfTarget</span><span class="p">,</span><span class="nx">MarginPercentOfTarget</span><span class="p">,</span><span class="nx">QuantityTrending</span><span class="p">,</span><span class="nx">SalesTrending</span><span class="p">,</span><span class="nx">ProfitTrending</span><span class="p">,</span><span class="nx">MarginTrending</span><span class="p">,</span><span class="nx">QuantityTrendingPercentOfTarget</span><span class="p">,</span><span class="nx">SalesTrendingPercentOfTarget</span><span class="p">,</span><span class="nx">ProfitTrendingPercentOfTarget</span><span class="p">,</span><span class="nx">MarginTrendingPercentOfTarget</span><span class="p">,</span><span class="nx">QuantityTarget</span><span class="p">,</span><span class="nx">SalesTarget</span><span class="p">,</span><span class="nx">ProfitTarget</span><span class="p">,</span><span class="nx">MarginTarget</span><span class="p">,</span><span class="nx">AttachmentRateTarget</span><span class="p">,</span><span class="nx">IsAttachmentRate</span><span class="p">,</span><span class="nx">DisplayFormat</span><span class="p">,</span><span class="nx">AttachmentRate</span>
+<span class="mi">4</span><span class="p">,</span><span class="nx">Attachment</span> <span class="nx">Ratio</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span><span class="no">true</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">114</span> <span class="o">:</span> <span class="mi">0</span>
+</code></pre>
+<pre class="highlight c"><code><span class="n">content</span><span class="o">-</span><span class="n">disposition</span><span class="o">:</span> <span class="n">attachment</span><span class="p">;</span><span class="n">filename</span><span class="o">=</span><span class="n">reportname</span><span class="o">-</span><span class="mi">2016</span><span class="o">-</span><span class="mo">07</span><span class="o">-</span><span class="mi">11</span><span class="p">.</span><span class="n">xlsx</span>
+<span class="n">Binary</span> <span class="o">*</span><span class="p">.</span><span class="n">xlsx</span> <span class="n">file</span>
+</code></pre>
+
+<h4 id="headers">Headers</h4>
+
+<p>This specifies the format of the data sent to the API.</p>
+
+<h5 id="for-json">For JSON</h5>
+
+<p><code class="prettyprint">Content-Type: application/json</code></p>
+
+<p>This is the default result obtained by omitting the <code class="prettyprint">Auth</code> URI parameter.</p>
+
+<p><code class="prettyprint">Content-Type: application/JsonDataTable</code></p>
+
+<p>This is the default result obtained by omitting the URI parameter <code class="prettyprint">Auth=JsonDataTable</code>. This response type wraps the data in a &ldquo;Records&rdquo; array and adds a &ldquo;Schema&rdquo; array, which contains information about each column in the report.</p>
+
+<h5 id="for-xml">For XML</h5>
+
+<p><code class="prettyprint">Content-Type: text/xml</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=XmlDataTable</code>. </p>
+
+<p><code class="prettyprint">Content-Type: text/XmlDataTable</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=XmlDataTable</code>. This response type appends to the bottom of the request a summary of information about each column in the report.</p>
+
+<h5 id="for-csv">For CSV</h5>
+
+<p><code class="prettyprint">Content-Type: text/csv</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=Csv</code>.
+<br/></p>
+
+<p><code class="prettyprint">Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=Excel</code>.</p>
+
+<h2 id="get-the-performance-group-report"><span class='get'>GET</span> the Performance Group Report</h2>
+
+<p>For more information see {{support_PerformanceGroupReport}}.</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /reports/PerformanceMetrixReport?DateAsOf={DateAsOf}&amp;PerformanceGroupID={PerformanceGroupID}&amp;TopN={TopN}&amp;TopCriteria={TopCriteria}&amp;ByWho={ByWho}&amp;ForWho={ForWho}&amp;ForWhoIDs={ForWhoIDs}&amp;LocationType={LocationType}&amp;LocationTypeIDs={LocationTypeIDs}&amp;LanguageCode={LanguageCode}&amp;Auth={Auth}&amp;Response={Response}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">PerformanceMetrixReport</span><span class="p">?</span><span class="nx">DateAsOf</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">PerformanceGroupID</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">TopN</span><span class="o">=</span><span class="mi">10</span><span class="o">&amp;</span><span class="nx">TopCriteria</span><span class="o">=</span><span class="nx">Quantity</span><span class="o">&amp;</span><span class="nx">ByWho</span><span class="o">=</span><span class="mi">5</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">4</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/PerformanceMetrixReport?DateAsOf=2016-01-01T08:00:00.000Z&amp;PerformanceGroupID=1&amp;TopN=10&amp;TopCriteria=Quantity&amp;ByWho=5&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingThePerformanceGroupReport</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://rqdataconnectdemo.iqmetrix.net/reports/PerformanceMetrixReport?DateAsOf=2016-01-01T08:00:00.000Z&amp;PerformanceGroupID=1&amp;TopN=10&amp;TopCriteria=Quantity&amp;ByWho=5&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept-Encoding"</span><span class="p">,</span> <span class="s">"gzip"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingThePerformanceGroupReport</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://rqdataconnectdemo.iqmetrix.net/reports/PerformanceMetrixReport?DateAsOf=2016-01-01T08:00:00.000Z&amp;PerformanceGroupID=1&amp;TopN=10&amp;TopCriteria=Quantity&amp;ByWho=5&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept-Encoding"</span><span class="o">,</span> <span class="s">"gzip"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://rqdataconnectdemo.iqmetrix.net/reports/PerformanceMetrixReport?DateAsOf=2016-01-01T08:00:00.000Z&amp;PerformanceGroupID=1&amp;TopN=10&amp;TopCriteria=Quantity&amp;ByWho=5&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept-Encoding'</span> <span class="o">=&gt;</span> <span class="s1">'gzip'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">This</span> <span class="n">format</span> <span class="ow">not</span> <span class="n">available</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="err">This</span><span class="w"> </span><span class="err">format</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w">
+</span></code></pre>
+<pre class="highlight xml"><code>This format not available
+</code></pre>
+<pre class="highlight html"><code>This format not available
+</code></pre>
+<pre class="highlight coffeescript"><code><span class="nx">This</span> <span class="nx">format</span> <span class="o">not</span> <span class="nx">available</span>
+</code></pre>
+<pre class="highlight c"><code><span class="n">This</span> <span class="n">format</span> <span class="n">not</span> <span class="n">available</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>DateAsOf</code> (<strong>Required</strong>)  - Date at which to run report</li>
+    <li><code>PerformanceGroupID</code> (<strong>Required</strong>)  - Identifier for a Performance Group in RQ</li>
+    <li><code>TopN</code> (<strong>Required</strong>)  - Gets the top X entries for the report, ordered by the value in TopCriteria. Use -1 to return all results</li>
+    <li><code>TopCriteria</code> (<strong>Required</strong>)  - Acceptable values include Quantity, Sales, Profit, Margin and Rate</li>
+    <li><code>ByWho</code> (<strong>Required</strong>)  - This value will aggregate the report data at the Company (1), Region (2), Division (3), Location (4) or Employee (5) level</li>
+    <li><code>ForWho</code> (Optional)  - Identifier for a level at which to perform the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-report-levels-in-rq">Getting Report Levels in RQ</a>. If <strong>LocationType</strong> is provided, this value is ignored</li>
+    <li><code>ForWhoIDs</code> (Optional)  - A comma seperated list of identifiers to filter the report. For a list of identifiers, see <a href="/api/RQ-Data-Connect/#getting-nodes-by-location-type">Getting Nodes By Location Type</a>. If <strong>LocationTypeIDs</strong> is provided, this value is ignored. To ignore filtering use -1</li>
+    <li><code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored</li>
+    <li><code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored</li>
+    <li><code>LanguageCode</code> (Optional)  - Language code, defaults to en-us. For a complete list, see <a href='/api/RQ-Data-Connect/#getting-language-codes'>Getting Language Codes</a></li>
+    <li><code>Auth</code> (Optional)  - Basic token used for authentication. For other methods of authentication, see {{AuthenticationOptions}}</li>
+    <li><code>Response</code> (Optional)  - Default is JSON. For other methods of response, see {{ResponseOptions}}</li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Array[<a href="#PerformanceMetrixReportData">performancemetrixreportdata</a>]</p>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight python"><code><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s">"ID"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s">"Name"</span><span class="p">:</span> <span class="s">"Attachment Ratio"</span><span class="p">,</span>
+        <span class="s">"Priority1"</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s">"SearchDateQuantity"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"SearchDateSales"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"SearchDateProfit"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"SearchDateMargin"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"SearchDateAttachmentRate"</span><span class="p">:</span> <span class="s">"9 : 0"</span><span class="p">,</span>
+        <span class="s">"Quantity"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"Sales"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"Profit"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"Margin"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"QuantityPercentOfTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"SalesPercentOfTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"ProfitPercentOfTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"MarginPercentOfTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"QuantityTrending"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"SalesTrending"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"ProfitTrending"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"MarginTrending"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"QuantityTrendingPercentOfTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"SalesTrendingPercentOfTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"ProfitTrendingPercentOfTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"MarginTrendingPercentOfTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"QuantityTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"SalesTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"ProfitTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"MarginTarget"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"AttachmentRateTarget"</span><span class="p">:</span> <span class="s">"0 : 0"</span><span class="p">,</span>
+        <span class="s">"IsAttachmentRate"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s">"DisplayFormat"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s">"AttachmentRate"</span><span class="p">:</span> <span class="s">"114 : 0"</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Records"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attachment Ratio"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Priority1"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SearchDateQuantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SearchDateSales"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SearchDateProfit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SearchDateMargin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SearchDateAttachmentRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9 : 0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Sales"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Profit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Margin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"QuantityPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SalesPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProfitPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MarginPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"QuantityTrending"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SalesTrending"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProfitTrending"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MarginTrending"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"QuantityTrendingPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SalesTrendingPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProfitTrendingPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MarginTrendingPercentOfTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"QuantityTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SalesTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProfitTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"MarginTarget"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"AttachmentRateTarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0 : 0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsAttachmentRate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DisplayFormat"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"AttachmentRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"114 : 0"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Schema"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Column_Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ColumnName"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datatype"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SafeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"safetype"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Length"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight xml"><code><span class="nt">&lt;Table&gt;</span>
+  <span class="nt">&lt;Record&gt;</span>
+    <span class="nt">&lt;ID&gt;</span>4<span class="nt">&lt;/ID&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Attachment Ratio<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Priority1&gt;</span>-1<span class="nt">&lt;/Priority1&gt;</span>
+    <span class="nt">&lt;SearchDateQuantity&gt;</span>0<span class="nt">&lt;/SearchDateQuantity&gt;</span>
+    <span class="nt">&lt;SearchDateSales&gt;</span>0<span class="nt">&lt;/SearchDateSales&gt;</span>
+    <span class="nt">&lt;SearchDateProfit&gt;</span>0<span class="nt">&lt;/SearchDateProfit&gt;</span>
+    <span class="nt">&lt;SearchDateMargin&gt;</span>0<span class="nt">&lt;/SearchDateMargin&gt;</span>
+    <span class="nt">&lt;SearchDateAttachmentRate&gt;</span>9 : 0<span class="nt">&lt;/SearchDateAttachmentRate&gt;</span>
+    <span class="nt">&lt;Quantity&gt;</span>0<span class="nt">&lt;/Quantity&gt;</span>
+    <span class="nt">&lt;Sales&gt;</span>0<span class="nt">&lt;/Sales&gt;</span>
+    <span class="nt">&lt;Profit&gt;</span>0<span class="nt">&lt;/Profit&gt;</span>
+    <span class="nt">&lt;Margin&gt;</span>0<span class="nt">&lt;/Margin&gt;</span>
+    <span class="nt">&lt;QuantityPercentOfTarget&gt;</span>0<span class="nt">&lt;/QuantityPercentOfTarget&gt;</span>
+    <span class="nt">&lt;SalesPercentOfTarget&gt;</span>0<span class="nt">&lt;/SalesPercentOfTarget&gt;</span>
+    <span class="nt">&lt;ProfitPercentOfTarget&gt;</span>0<span class="nt">&lt;/ProfitPercentOfTarget&gt;</span>
+    <span class="nt">&lt;MarginPercentOfTarget&gt;</span>0<span class="nt">&lt;/MarginPercentOfTarget&gt;</span>
+    <span class="nt">&lt;QuantityTrending&gt;</span>0<span class="nt">&lt;/QuantityTrending&gt;</span>
+    <span class="nt">&lt;SalesTrending&gt;</span>0<span class="nt">&lt;/SalesTrending&gt;</span>
+    <span class="nt">&lt;ProfitTrending&gt;</span>0<span class="nt">&lt;/ProfitTrending&gt;</span>
+    <span class="nt">&lt;MarginTrending&gt;</span>0<span class="nt">&lt;/MarginTrending&gt;</span>
+    <span class="nt">&lt;QuantityTrendingPercentOfTarget&gt;</span>0<span class="nt">&lt;/QuantityTrendingPercentOfTarget&gt;</span>
+    <span class="nt">&lt;SalesTrendingPercentOfTarget&gt;</span>0<span class="nt">&lt;/SalesTrendingPercentOfTarget&gt;</span>
+    <span class="nt">&lt;ProfitTrendingPercentOfTarget&gt;</span>0<span class="nt">&lt;/ProfitTrendingPercentOfTarget&gt;</span>
+    <span class="nt">&lt;MarginTrendingPercentOfTarget&gt;</span>0<span class="nt">&lt;/MarginTrendingPercentOfTarget&gt;</span>
+    <span class="nt">&lt;QuantityTarget&gt;</span>0<span class="nt">&lt;/QuantityTarget&gt;</span>
+    <span class="nt">&lt;SalesTarget&gt;</span>0<span class="nt">&lt;/SalesTarget&gt;</span>
+    <span class="nt">&lt;ProfitTarget&gt;</span>0<span class="nt">&lt;/ProfitTarget&gt;</span>
+    <span class="nt">&lt;MarginTarget&gt;</span>0<span class="nt">&lt;/MarginTarget&gt;</span>
+    <span class="nt">&lt;AttachmentRateTarget&gt;</span>0 : 0<span class="nt">&lt;/AttachmentRateTarget&gt;</span>
+    <span class="nt">&lt;IsAttachmentRate&gt;</span>true<span class="nt">&lt;/IsAttachmentRate&gt;</span>
+    <span class="nt">&lt;DisplayFormat&gt;</span>2<span class="nt">&lt;/DisplayFormat&gt;</span>
+    <span class="nt">&lt;AttachmentRate&gt;</span>114 : 0<span class="nt">&lt;/AttachmentRate&gt;</span>
+  <span class="nt">&lt;/Record&gt;</span>
+<span class="nt">&lt;/Table&gt;</span>
+</code></pre>
+<pre class="highlight html"><code><span class="nt">&lt;Table&gt;</span>
+  <span class="nt">&lt;Record&gt;</span>
+    <span class="nt">&lt;ID&gt;</span>4<span class="nt">&lt;/ID&gt;</span>
+    <span class="nt">&lt;Name&gt;</span>Attachment Ratio<span class="nt">&lt;/Name&gt;</span>
+    <span class="nt">&lt;Priority1&gt;</span>-1<span class="nt">&lt;/Priority1&gt;</span>
+    <span class="nt">&lt;SearchDateQuantity&gt;</span>0<span class="nt">&lt;/SearchDateQuantity&gt;</span>
+    <span class="nt">&lt;SearchDateSales&gt;</span>0<span class="nt">&lt;/SearchDateSales&gt;</span>
+    <span class="nt">&lt;SearchDateProfit&gt;</span>0<span class="nt">&lt;/SearchDateProfit&gt;</span>
+    <span class="nt">&lt;SearchDateMargin&gt;</span>0<span class="nt">&lt;/SearchDateMargin&gt;</span>
+    <span class="nt">&lt;SearchDateAttachmentRate&gt;</span>9 : 0<span class="nt">&lt;/SearchDateAttachmentRate&gt;</span>
+    <span class="nt">&lt;Quantity&gt;</span>0<span class="nt">&lt;/Quantity&gt;</span>
+    <span class="nt">&lt;Sales&gt;</span>0<span class="nt">&lt;/Sales&gt;</span>
+    <span class="nt">&lt;Profit&gt;</span>0<span class="nt">&lt;/Profit&gt;</span>
+    <span class="nt">&lt;Margin&gt;</span>0<span class="nt">&lt;/Margin&gt;</span>
+    <span class="nt">&lt;QuantityPercentOfTarget&gt;</span>0<span class="nt">&lt;/QuantityPercentOfTarget&gt;</span>
+    <span class="nt">&lt;SalesPercentOfTarget&gt;</span>0<span class="nt">&lt;/SalesPercentOfTarget&gt;</span>
+    <span class="nt">&lt;ProfitPercentOfTarget&gt;</span>0<span class="nt">&lt;/ProfitPercentOfTarget&gt;</span>
+    <span class="nt">&lt;MarginPercentOfTarget&gt;</span>0<span class="nt">&lt;/MarginPercentOfTarget&gt;</span>
+    <span class="nt">&lt;QuantityTrending&gt;</span>0<span class="nt">&lt;/QuantityTrending&gt;</span>
+    <span class="nt">&lt;SalesTrending&gt;</span>0<span class="nt">&lt;/SalesTrending&gt;</span>
+    <span class="nt">&lt;ProfitTrending&gt;</span>0<span class="nt">&lt;/ProfitTrending&gt;</span>
+    <span class="nt">&lt;MarginTrending&gt;</span>0<span class="nt">&lt;/MarginTrending&gt;</span>
+    <span class="nt">&lt;QuantityTrendingPercentOfTarget&gt;</span>0<span class="nt">&lt;/QuantityTrendingPercentOfTarget&gt;</span>
+    <span class="nt">&lt;SalesTrendingPercentOfTarget&gt;</span>0<span class="nt">&lt;/SalesTrendingPercentOfTarget&gt;</span>
+    <span class="nt">&lt;ProfitTrendingPercentOfTarget&gt;</span>0<span class="nt">&lt;/ProfitTrendingPercentOfTarget&gt;</span>
+    <span class="nt">&lt;MarginTrendingPercentOfTarget&gt;</span>0<span class="nt">&lt;/MarginTrendingPercentOfTarget&gt;</span>
+    <span class="nt">&lt;QuantityTarget&gt;</span>0<span class="nt">&lt;/QuantityTarget&gt;</span>
+    <span class="nt">&lt;SalesTarget&gt;</span>0<span class="nt">&lt;/SalesTarget&gt;</span>
+    <span class="nt">&lt;ProfitTarget&gt;</span>0<span class="nt">&lt;/ProfitTarget&gt;</span>
+    <span class="nt">&lt;MarginTarget&gt;</span>0<span class="nt">&lt;/MarginTarget&gt;</span>
+    <span class="nt">&lt;AttachmentRateTarget&gt;</span>0 : 0<span class="nt">&lt;/AttachmentRateTarget&gt;</span>
+    <span class="nt">&lt;IsAttachmentRate&gt;</span>true<span class="nt">&lt;/IsAttachmentRate&gt;</span>
+    <span class="nt">&lt;DisplayFormat&gt;</span>2<span class="nt">&lt;/DisplayFormat&gt;</span>
+    <span class="nt">&lt;AttachmentRate&gt;</span>114 : 0<span class="nt">&lt;/AttachmentRate&gt;</span>
+  <span class="nt">&lt;/Record&gt;</span>
+  <span class="nt">&lt;Schema&gt;</span>
+    <span class="nt">&lt;Column</span><span class="na">_Name</span><span class="nt">&gt;</span>ColumnName<span class="err">&lt;</span>/Column_Name&gt;
+    <span class="nt">&lt;Type&gt;</span>datatybe<span class="nt">&lt;/Type&gt;</span>
+    <span class="nt">&lt;SafeType&gt;</span>safetype<span class="nt">&lt;/SafeType&gt;</span>
+    <span class="nt">&lt;Length&gt;</span>100<span class="nt">&lt;/Length&gt;</span>
+  <span class="nt">&lt;/Schema&gt;</span>
+<span class="nt">&lt;/Table&gt;</span>
+</code></pre>
+<pre class="highlight coffeescript"><code><span class="nx">ID</span><span class="p">,</span><span class="nx">Name</span><span class="p">,</span><span class="nx">Priority1</span><span class="p">,</span><span class="nx">SearchDateQuantity</span><span class="p">,</span><span class="nx">SearchDateSales</span><span class="p">,</span><span class="nx">SearchDateProfit</span><span class="p">,</span><span class="nx">SearchDateMargin</span><span class="p">,</span><span class="nx">SearchDateAttachmentRate</span><span class="p">,</span><span class="nx">Quantity</span><span class="p">,</span><span class="nx">Sales</span><span class="p">,</span><span class="nx">Profit</span><span class="p">,</span><span class="nx">Margin</span><span class="p">,</span><span class="nx">QuantityPercentOfTarget</span><span class="p">,</span><span class="nx">SalesPercentOfTarget</span><span class="p">,</span><span class="nx">ProfitPercentOfTarget</span><span class="p">,</span><span class="nx">MarginPercentOfTarget</span><span class="p">,</span><span class="nx">QuantityTrending</span><span class="p">,</span><span class="nx">SalesTrending</span><span class="p">,</span><span class="nx">ProfitTrending</span><span class="p">,</span><span class="nx">MarginTrending</span><span class="p">,</span><span class="nx">QuantityTrendingPercentOfTarget</span><span class="p">,</span><span class="nx">SalesTrendingPercentOfTarget</span><span class="p">,</span><span class="nx">ProfitTrendingPercentOfTarget</span><span class="p">,</span><span class="nx">MarginTrendingPercentOfTarget</span><span class="p">,</span><span class="nx">QuantityTarget</span><span class="p">,</span><span class="nx">SalesTarget</span><span class="p">,</span><span class="nx">ProfitTarget</span><span class="p">,</span><span class="nx">MarginTarget</span><span class="p">,</span><span class="nx">AttachmentRateTarget</span><span class="p">,</span><span class="nx">IsAttachmentRate</span><span class="p">,</span><span class="nx">DisplayFormat</span><span class="p">,</span><span class="nx">AttachmentRate</span>
+<span class="mi">4</span><span class="p">,</span><span class="nx">Attachment</span> <span class="nx">Ratio</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span><span class="no">true</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">114</span> <span class="o">:</span> <span class="mi">0</span>
+</code></pre>
+<pre class="highlight c"><code><span class="n">content</span><span class="o">-</span><span class="n">disposition</span><span class="o">:</span> <span class="n">attachment</span><span class="p">;</span><span class="n">filename</span><span class="o">=</span><span class="n">reportname</span><span class="o">-</span><span class="mi">2016</span><span class="o">-</span><span class="mo">07</span><span class="o">-</span><span class="mi">11</span><span class="p">.</span><span class="n">xlsx</span>
+<span class="n">Binary</span> <span class="o">*</span><span class="p">.</span><span class="n">xlsx</span> <span class="n">file</span>
+</code></pre>
+
+<h4 id="headers">Headers</h4>
+
+<p>This specifies the format of the data sent to the API.</p>
+
+<h5 id="for-json">For JSON</h5>
+
+<p><code class="prettyprint">Content-Type: application/json</code></p>
+
+<p>This is the default result obtained by omitting the <code class="prettyprint">Auth</code> URI parameter.</p>
+
+<p><code class="prettyprint">Content-Type: application/JsonDataTable</code></p>
+
+<p>This is the default result obtained by omitting the URI parameter <code class="prettyprint">Auth=JsonDataTable</code>. This response type wraps the data in a &ldquo;Records&rdquo; array and adds a &ldquo;Schema&rdquo; array, which contains information about each column in the report.</p>
+
+<h5 id="for-xml">For XML</h5>
+
+<p><code class="prettyprint">Content-Type: text/xml</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=XmlDataTable</code>. </p>
+
+<p><code class="prettyprint">Content-Type: text/XmlDataTable</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=XmlDataTable</code>. This response type appends to the bottom of the request a summary of information about each column in the report.</p>
+
+<h5 id="for-csv">For CSV</h5>
+
+<p><code class="prettyprint">Content-Type: text/csv</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=Csv</code>.
+<br/></p>
+
+<p><code class="prettyprint">Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=Excel</code>.</p>
+
+<h2 id="get-the-performance-metrix-summary-report"><span class='get'>GET</span> the Performance Metrix Summary Report</h2>
+
+<p>For more information see {{support_PerformanceMetrixSummaryReport}}.</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /reports/PerformanceMetrixSummaryReport?StartDate={StartDate}&amp;StopDate={StopDate}&amp;HideRebates={HideRebates}&amp;ReportType={ReportType}&amp;ForWho={ForWho}&amp;ForWhoIDs={ForWhoIDs}&amp;LocationType={LocationType}&amp;LocationTypeIDs={LocationTypeIDs}&amp;LanguageCode={LanguageCode}&amp;Auth={Auth}&amp;Response={Response}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">reports</span><span class="o">/</span><span class="nx">PerformanceMetrixSummaryReport</span><span class="p">?</span><span class="nx">StartDate</span><span class="o">=</span><span class="mi">1970</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="p">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">StopDate</span><span class="o">=</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="nx">T08</span><span class="err">:</span><span class="mi">00</span><span class="err">:</span><span class="mf">00.000</span><span class="nx">Z</span><span class="o">&amp;</span><span class="nx">HideRebates</span><span class="o">=-</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">ReportType</span><span class="o">=</span><span class="nx">Group</span><span class="o">&amp;</span><span class="nx">ForWho</span><span class="o">=</span><span class="mi">4</span><span class="o">&amp;</span><span class="nx">ForWhoIDs</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">LocationType</span><span class="o">=</span><span class="nx">Store</span><span class="o">&amp;</span><span class="nx">LocationTypeIDs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">&amp;</span><span class="nx">LanguageCode</span><span class="o">=</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Encoding</span><span class="err">:</span> <span class="nx">gzip</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://rqdataconnectdemo.iqmetrix.net/reports/PerformanceMetrixSummaryReport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;HideRebates=-1&amp;ReportType=Group&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept-Encoding: gzip"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingThePerformanceMetrixSummaryReport</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://rqdataconnectdemo.iqmetrix.net/reports/PerformanceMetrixSummaryReport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;HideRebates=-1&amp;ReportType=Group&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept-Encoding"</span><span class="p">,</span> <span class="s">"gzip"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingThePerformanceMetrixSummaryReport</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://rqdataconnectdemo.iqmetrix.net/reports/PerformanceMetrixSummaryReport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;HideRebates=-1&amp;ReportType=Group&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept-Encoding"</span><span class="o">,</span> <span class="s">"gzip"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://rqdataconnectdemo.iqmetrix.net/reports/PerformanceMetrixSummaryReport?StartDate=1970-01-01T08:00:00.000Z&amp;StopDate=2016-01-01T08:00:00.000Z&amp;HideRebates=-1&amp;ReportType=Group&amp;ForWho=4&amp;ForWhoIDs=1&amp;LocationType=Store&amp;LocationTypeIDs=1,2&amp;LanguageCode=en-us'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept-Encoding'</span> <span class="o">=&gt;</span> <span class="s1">'gzip'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+<pre class="highlight python"><code><span class="n">This</span> <span class="n">format</span> <span class="ow">not</span> <span class="n">available</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="err">This</span><span class="w"> </span><span class="err">format</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">available</span><span class="w">
+</span></code></pre>
+<pre class="highlight xml"><code>This format not available
+</code></pre>
+<pre class="highlight html"><code>This format not available
+</code></pre>
+<pre class="highlight coffeescript"><code><span class="nx">This</span> <span class="nx">format</span> <span class="o">not</span> <span class="nx">available</span>
+</code></pre>
+<pre class="highlight c"><code><span class="n">This</span> <span class="n">format</span> <span class="n">not</span> <span class="n">available</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>StartDate</code> (<strong>Required</strong>)  - Date at which report will begin</li>
+    <li><code>StopDate</code> (<strong>Required</strong>)  - Date at which report will end</li>
+    <li><code>HideRebates</code> (<strong>Required</strong>)  - A flag to indicate if Rebates should be included in the report (1) or not (-1)</li>
+    <li><code>ReportType</code> (<strong>Required</strong>)  - Acceptable values include Group, Location and Employee</li>
+    <li><code>ForWho</code> (Optional)  - Identifier for a level at which to perform the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-report-levels-in-rq">Getting Report Levels in RQ</a>. If <strong>LocationType</strong> is provided, this value is ignored</li>
+    <li><code>ForWhoIDs</code> (Optional)  - A comma seperated list of identifiers to filter the report. For a list of identifiers, see <a href="/api/RQ-Data-Connect/#getting-nodes-by-location-type">Getting Nodes By Location Type</a>. If <strong>LocationTypeIDs</strong> is provided, this value is ignored. To ignore filtering use -1</li>
+    <li><code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored</li>
+    <li><code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored</li>
+    <li><code>LanguageCode</code> (Optional)  - Language code, defaults to en-us. For a complete list, see <a href='/api/RQ-Data-Connect/#getting-language-codes'>Getting Language Codes</a></li>
+    <li><code>Auth</code> (Optional)  - Basic token used for authentication. For other methods of authentication, see {{AuthenticationOptions}}</li>
+    <li><code>Response</code> (Optional)  - Default is JSON. For other methods of response, see {{ResponseOptions}}</li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<p>Array[<a href="#PerformanceMetrixSummaryReportData">performancemetrixsummaryreportdata</a>]</p>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight python"><code><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s">"GroupID"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="s">"GroupName"</span><span class="p">:</span> <span class="s">"Accessories &amp; Devices"</span><span class="p">,</span>
+        <span class="s">"Priority"</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s">"Quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">"Sales"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"Profit"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"Margin"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">"Enabled"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">"IsAttachmentRate"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s">"DisplayFormat"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s">"AttachmentRate"</span><span class="p">:</span> <span class="s">"114 : 0"</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre>
+<pre class="highlight json-doc"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Records"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"GroupID"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"GroupName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accessories &amp; Devices"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Sales"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Profit"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Margin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Enabled"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"IsAttachmentRate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"DisplayFormat"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"AttachmentRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"114 : 0"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Schema"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Column_Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ColumnName"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datatype"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SafeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"safetype"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Length"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight xml"><code><span class="nt">&lt;Table&gt;</span>
+  <span class="nt">&lt;Record&gt;</span>
+    <span class="nt">&lt;GroupID&gt;</span>5<span class="nt">&lt;/GroupID&gt;</span>
+    <span class="nt">&lt;GroupName&gt;</span>Accessories <span class="err">&amp;</span> Devices<span class="nt">&lt;/GroupName&gt;</span>
+    <span class="nt">&lt;Priority&gt;</span>-1<span class="nt">&lt;/Priority&gt;</span>
+    <span class="nt">&lt;Quantity&gt;</span>1<span class="nt">&lt;/Quantity&gt;</span>
+    <span class="nt">&lt;Sales&gt;</span>0<span class="nt">&lt;/Sales&gt;</span>
+    <span class="nt">&lt;Profit&gt;</span>0<span class="nt">&lt;/Profit&gt;</span>
+    <span class="nt">&lt;Margin&gt;</span>0<span class="nt">&lt;/Margin&gt;</span>
+    <span class="nt">&lt;Enabled&gt;</span>1<span class="nt">&lt;/Enabled&gt;</span>
+    <span class="nt">&lt;IsAttachmentRate&gt;</span>true<span class="nt">&lt;/IsAttachmentRate&gt;</span>
+    <span class="nt">&lt;DisplayFormat&gt;</span>2<span class="nt">&lt;/DisplayFormat&gt;</span>
+    <span class="nt">&lt;AttachmentRate&gt;</span>114 : 0<span class="nt">&lt;/AttachmentRate&gt;</span>
+  <span class="nt">&lt;/Record&gt;</span>
+<span class="nt">&lt;/Table&gt;</span>
+</code></pre>
+<pre class="highlight html"><code><span class="nt">&lt;Table&gt;</span>
+  <span class="nt">&lt;Record&gt;</span>
+    <span class="nt">&lt;GroupID&gt;</span>5<span class="nt">&lt;/GroupID&gt;</span>
+    <span class="nt">&lt;GroupName&gt;</span>Accessories <span class="err">&amp;</span> Devices<span class="nt">&lt;/GroupName&gt;</span>
+    <span class="nt">&lt;Priority&gt;</span>-1<span class="nt">&lt;/Priority&gt;</span>
+    <span class="nt">&lt;Quantity&gt;</span>1<span class="nt">&lt;/Quantity&gt;</span>
+    <span class="nt">&lt;Sales&gt;</span>0<span class="nt">&lt;/Sales&gt;</span>
+    <span class="nt">&lt;Profit&gt;</span>0<span class="nt">&lt;/Profit&gt;</span>
+    <span class="nt">&lt;Margin&gt;</span>0<span class="nt">&lt;/Margin&gt;</span>
+    <span class="nt">&lt;Enabled&gt;</span>1<span class="nt">&lt;/Enabled&gt;</span>
+    <span class="nt">&lt;IsAttachmentRate&gt;</span>true<span class="nt">&lt;/IsAttachmentRate&gt;</span>
+    <span class="nt">&lt;DisplayFormat&gt;</span>2<span class="nt">&lt;/DisplayFormat&gt;</span>
+    <span class="nt">&lt;AttachmentRate&gt;</span>114 : 0<span class="nt">&lt;/AttachmentRate&gt;</span>
+  <span class="nt">&lt;/Record&gt;</span>
+  <span class="nt">&lt;Schema&gt;</span>
+    <span class="nt">&lt;Column</span><span class="na">_Name</span><span class="nt">&gt;</span>ColumnName<span class="err">&lt;</span>/Column_Name&gt;
+    <span class="nt">&lt;Type&gt;</span>datatybe<span class="nt">&lt;/Type&gt;</span>
+    <span class="nt">&lt;SafeType&gt;</span>safetype<span class="nt">&lt;/SafeType&gt;</span>
+    <span class="nt">&lt;Length&gt;</span>100<span class="nt">&lt;/Length&gt;</span>
+  <span class="nt">&lt;/Schema&gt;</span>
+<span class="nt">&lt;/Table&gt;</span>
+</code></pre>
+<pre class="highlight coffeescript"><code><span class="nx">GroupID</span><span class="p">,</span><span class="nx">GroupName</span><span class="p">,</span><span class="nx">Priority</span><span class="p">,</span><span class="nx">Quantity</span><span class="p">,</span><span class="nx">Sales</span><span class="p">,</span><span class="nx">Profit</span><span class="p">,</span><span class="nx">Margin</span><span class="p">,</span><span class="nx">Enabled</span><span class="p">,</span><span class="nx">IsAttachmentRate</span><span class="p">,</span><span class="nx">DisplayFormat</span><span class="p">,</span><span class="nx">AttachmentRate</span>
+<span class="mi">5</span><span class="p">,</span><span class="nx">Accessories</span> <span class="o">&amp;</span> <span class="nx">Devices</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="no">true</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">114</span> <span class="o">:</span> <span class="mi">0</span>
+</code></pre>
+<pre class="highlight c"><code><span class="n">content</span><span class="o">-</span><span class="n">disposition</span><span class="o">:</span> <span class="n">attachment</span><span class="p">;</span><span class="n">filename</span><span class="o">=</span><span class="n">reportname</span><span class="o">-</span><span class="mi">2016</span><span class="o">-</span><span class="mo">07</span><span class="o">-</span><span class="mi">11</span><span class="p">.</span><span class="n">xlsx</span>
+<span class="n">Binary</span> <span class="o">*</span><span class="p">.</span><span class="n">xlsx</span> <span class="n">file</span>
+</code></pre>
+
+<h4 id="headers">Headers</h4>
+
+<p>This specifies the format of the data sent to the API.</p>
+
+<h5 id="for-json">For JSON</h5>
+
+<p><code class="prettyprint">Content-Type: application/json</code></p>
+
+<p>This is the default result obtained by omitting the <code class="prettyprint">Auth</code> URI parameter.</p>
+
+<p><code class="prettyprint">Content-Type: application/JsonDataTable</code></p>
+
+<p>This is the default result obtained by omitting the URI parameter <code class="prettyprint">Auth=JsonDataTable</code>. This response type wraps the data in a &ldquo;Records&rdquo; array and adds a &ldquo;Schema&rdquo; array, which contains information about each column in the report.</p>
+
+<h5 id="for-xml">For XML</h5>
+
+<p><code class="prettyprint">Content-Type: text/xml</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=XmlDataTable</code>. </p>
+
+<p><code class="prettyprint">Content-Type: text/XmlDataTable</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=XmlDataTable</code>. This response type appends to the bottom of the request a summary of information about each column in the report.</p>
+
+<h5 id="for-csv">For CSV</h5>
+
+<p><code class="prettyprint">Content-Type: text/csv</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=Csv</code>.
+<br/></p>
+
+<p><code class="prettyprint">Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</code></p>
+
+<p>This result is obtained by using the URL parameter <code class="prettyprint">Auth=Excel</code>.</p>
+
+<h1 id="errors">Errors</h1>
+
+<table><thead>
+<tr>
+<th style="text-align: left">HTTP Status Code</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">How to Resolve</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">Bad Request</code></td>
+<td style="text-align: left">Ensure request body is formatted properly</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 401</code></td>
+<td style="text-align: left"><code class="prettyprint">Tokan is invalid</code></td>
+<td style="text-align: left">Ensure Access Token is valid and has not expired</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 403</code></td>
+<td style="text-align: left"><code class="prettyprint">Unauthorized</code></td>
+<td style="text-align: left">Ensure Access Token is valid and user has appropriate security</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 404</code></td>
+<td style="text-align: left"><code class="prettyprint">Not Found</code></td>
+<td style="text-align: left">Ensure URI is valid</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 429</code></td>
+<td style="text-align: left"><code class="prettyprint">Too Many Requests</code></td>
+<td style="text-align: left">See <a href="/api/#rate-limiting">Rate Limiting</a></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 500</code></td>
+<td style="text-align: left"><code class="prettyprint">Unexpected Error</code></td>
+<td style="text-align: left">See Message in response for more information</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="csharp">c#</a>
+                <a href="#" data-language-name="java">java</a>
+                <a href="#" data-language-name="ruby">ruby</a>
+                <a href="#" data-language-name="python">JSON</a>
+                <a href="#" data-language-name="json-doc">JsonDataTable</a>
+                <a href="#" data-language-name="xml">XML</a>
+                <a href="#" data-language-name="html">XmlDataTable</a>
+                <a href="#" data-language-name="coffeescript">CSV</a>
+                <a href="#" data-language-name="c">Excel</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
