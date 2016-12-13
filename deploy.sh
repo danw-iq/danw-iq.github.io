@@ -72,15 +72,15 @@ parse_args() {
   # vars should be declared here, with sane defaults if applicable.
 
   # Source directory & target branch.
-  deploy_directory=slate
+  deploy_directory=build
   deploy_branch=master
 
   #if no user identity is already set in the current git environment, use this:
-  default_username=${danw-iq:-deploy.sh}
-  default_email=${danw@iqmetrix.com:-}
+  default_username=danw-iq
+  default_email=danw@iqmetrix.com
 
   #repository to deploy to. must be readable and writable.
-  repo=danw-iq.github.io
+  repo=origin
 
   #append commit hash to the end of message by default
   append_hash=${GIT_DEPLOY_APPEND_HASH:-true}
