@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Endless Aisle Integration Guide | iQmetrix Developer Portal</title>
 
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
+
     <style>
       /*.highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -110,9 +112,9 @@
     </div>
     <div class="breadcrumb">
       <ol>
-        <li><a href="{{"/api/" | prepend: site.url}}">API REFERENCE</a></li>
+        <li><a href="/api/">API REFERENCE</a></li>
         <li>></li>
-        <li>API DOCUMENTATION</li>
+        <li><a href="">API DOCUMENTATION</a></li>
         <li>></li>
         <li class="active">CUSTOMER RELATIONSHIP MANAGEMENT (CRM)</li>
       </ol>
@@ -132,62 +134,52 @@
       <!-- <img src="../../../images/logo.png" alt="Logo" /> -->
         <div class="lang-selector">
         </div>
-      <!-- 
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
-       -->
       <div id="toc">
       </div>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <style>
-  #page-selector .row {
-    text-align: center;
-  }
-  #page-selector p {
-    font-size: 14px;
-    min-height: 38px;
-  }
-  #page-selector .selectedIcon a {
-    cursor: default;
-  }
+        <h1 id="guide-pages">Guide Pages</h1>
 
-  #page-selector .selectedIcon p {
-    color: darkgrey;
-    cursor: default;
-  }
+<p class='bootstrap-grid three-grid'>
+  <a href="http://developers.iqmetrix.com/guides/ea-guide-overview/">
+    <i class="fa fa-home fa-3x"></i><br/>
+    Overview
+  </a>
+</p>
 
-  #page-selector .selectedIcon .fa-3x {
-    color: darkgrey;
-    cursor: default;
-  }
+<p class='bootstrap-grid three-grid active-page'>
+  <a href="http://developers.iqmetrix.com/guides/ea-guide-corporate-hierarchy/">
+    <i class="fa fa-map-marker fa-3x" style="font-size:2.7em;"></i><br/>
+    Corporate Hierarchy
+  </a>
+</p>
 
-</style>
+<p class='bootstrap-grid three-grid'>
+  <a href="http://developers.iqmetrix.com/guides/ea-guide-content/">
+    <i class="fa fa-list-alt fa-3x"></i><br/>
+    Content
+  </a> 
+</p>
 
-<p><a href="http://developers.iqmetrix.com/guides/ea-guide-overview/">
-  <p>Overview</p>
-  <i class="fa fa-home fa-3x"></i>
-</a>
-<a href="http://developers.iqmetrix.com/guides/ea-guide-corporate-hierarchy/">
-  <p>Corporate Hierarchy</p>
-  <i class="fa fa-map-marker fa-3x" style="font-size:2.7em;"></i>
-</a>
-<a href="http://developers.iqmetrix.com/guides/ea-guide-content/">
-  <p>Content</p>
-  <i class="fa fa-list-alt fa-3x"></i>
-</a><br>
-<a href="http://developers.iqmetrix.com/guides/ea-guide-inventory/">
-  <p>Inventory</p>
-  <i class="fa fa-barcode fa-3x"></i>
-</a><br>
-<a href="http://developers.iqmetrix.com/guides/ea-guide-orders/">
-  <p>Orders</p>
-  <i class="fa fa-file-text-o fa-3x" style="font-size:2.5em;"></i>
-</a>   </p>
+<p><br/><br/><br/><br/><br/><br/>
+<p class='bootstrap-grid two-grid'>
+  <a href="http://developers.iqmetrix.com/guides/ea-guide-inventory/">
+    <i class="fa fa-barcode fa-3x"></i><br/>
+    Inventory
+  </a><br>
+</p>
+<p class='bootstrap-grid two-grid'>
+  <a href="http://developers.iqmetrix.com/guides/ea-guide-orders/">
+    <i class="fa fa-file-text-o fa-3x" style="font-size:2.5em;"></i><br/>
+    Orders
+  </a>
+</p>  </p>
 
 <h1 id="overview">Overview</h1>
 
@@ -228,9 +220,9 @@
 
 <h2 id="step-1-getting-the-location-identifier">Step 1 - Getting the Location Identifier</h2>
 
-<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip: </b>
+<p><div class='bs-callout alert-success'>
 If you already know the Identifier of the Location you want to update, you can skip this step
-</div>
+</div></p>
 
 <p>Before you can update a Location, you must get its Identifier. </p>
 

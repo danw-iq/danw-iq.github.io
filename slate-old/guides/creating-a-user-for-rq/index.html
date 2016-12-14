@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Creating a User for RQ | iQmetrix Developer Portal</title>
 
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
+
     <style>
       /*.highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -171,7 +173,7 @@
 <li>Your Company Tree in RQ, representing company structure (stores, groups, divisions, etc.) must be created</li>
 </ul>
 
-<p>If the above steps are not complete or you are not sure, please contact <a href ="mailto:apisupport@iqmetrix.com?subject=RQ User Support">API Support</a></p>
+<p><div class='bs-callout alert-success'>If the above steps are not complete or you are not sure, please contact <a href ="mailto:apisupport@iqmetrix.com?subject=RQ User Support">API Support</a>.</div></p>
 
 <h2 id="before-you-begin">Before You Begin</h2>
 
@@ -531,6 +533,10 @@ Content-Type: application/json
 
 <h2>(Optional) Updating a User</h2>
 
+<div class='bs-callout alert-success'>You cannot change a user&rsquo;s password using this method. To update their password, you must set a temporary password. </div>
+
+<p>A user, its properties, and attributes can be updated anytime by <a href="/api/user-manager/#updating-a-user">Updating a User</a></p>
+
 <blockquote>
 <p>Example Request</p>
 </blockquote>
@@ -610,13 +616,13 @@ Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This call is <strong>destructive</strong>, and will replace all existing values for the user. When updating a user you must ensure that all previous values are included in the body of the request as well. </p>
-
-<p>You cannot change a user&rsquo;s password using this method. To update their password, you must set a temporary password.</p>
-
-<p>A user, its properties, and attributes can be updated anytime by <a href="/api/user-manager/#updating-a-user">Updating a User</a></p>
-
 <h2 id="optional-terminating-an-employee">(Optional) Terminating an Employee</h2>
+
+<p>An employee can be terminated at anytime by <a href="/api/user-manager/#disabling-a-user">Disabling their user account</a>.</p>
+
+<div class='bs-callout alert-success'>This method does not delete the employee.</div>
+
+<div class='bs-callout alert-info'>Disabling a User does NOT free up their email address or username to be used to create another User. To free up an email address or username, you must instead update the email or username of the original User to something else. </div>
 
 <blockquote>
 <p>Example Request</p>
@@ -630,12 +636,6 @@ Authorization: Bearer (Access Token)
 </blockquote>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
 </code></pre>
-
-<p>An employee can be terminated at anytime by <a href="/api/user-manager/#disabling-a-user">Disabling their user account</a>.</p>
-
-<p>This method does not delete the employee.</p>
-
-<p>Disabling a User does NOT free up their email address or username to be used to create another User. To free up an email address or username, you must instead update the email or username of the original User to something else.</p>
 
       </div>
       <div class="dark-box">

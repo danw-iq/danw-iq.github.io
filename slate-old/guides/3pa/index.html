@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Third Party Authentication | iQmetrix Developer Portal</title>
 
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
+
     <style>
       /*.highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -146,7 +148,9 @@
 
 <p>This guide describes how you can integrate your existing domain logins with iQmetrix products using <strong>Third Party Authentication (3PA)</strong>.</p>
 
-<p><strong>Third Party Authentication (3PA)</strong> is an iQmetrix term referring to the ability of a user to access an iQmetrix product using an external mechanism.</p>
+<div class='bs-callout alert-info'>
+<strong>Third Party Authentication (3PA)</strong> is an iQmetrix term referring to the ability of a user to access an iQmetrix product using an external mechanism.
+</div>
 
 <p>While this guide is intended to be identity provider agnostic, the examples included are specific to <strong>Microsoft Active Directory Federation Services</strong> for consistency.</p>
 
@@ -171,14 +175,18 @@
 <li>Manage your users in a single place </li>
 </ul>
 
-<p>An <strong>Identity Provider (IdP)</strong> is responsible for providing identifiers for users interacting with a system.</p>
+<div class='bs-callout alert-info'>
+An <strong>Identity Provider (IdP)</strong> is responsible for providing identifiers for users interacting with a system.
+</div>
 
 <h2 id="how-does-third-party-authentication-work">How Does Third Party Authentication Work?</h2>
 
 <p>3PA involves creating a <strong>trusted relationship</strong> between two systems which can enable your users to log into iQmetrix products with their Identity Provider credentials. This is commonly known as <strong>Single Sign On</strong>.</p>
 
-<p><strong>Single Sign On (SSO)</strong> permits a user to enter one name and password to access multiple applications. <br/>
-One popular example of SSO is the &ldquo;Log In With Facebook&rdquo; button used by many websites to allow users access to a website without creating an account.</p>
+<div class='bs-callout alert-info'>
+<strong>Single Sign On (SSO)</strong> permits a user to enter one name and password to access multiple applications. <br/>
+One popular example of SSO is the &ldquo;Log In With Facebook&rdquo; button used by many websites to allow users access to a website without creating an account.
+</div>
 
 <h5 id="example">Example</h5>
 
@@ -236,7 +244,9 @@ One popular example of SSO is the &ldquo;Log In With Facebook&rdquo; button used
 
 <p>There are many different versions of SAML, but iQmetrix only supports SAML using <strong>WS-Trust</strong>.</p>
 
-<p><strong>WS-Trust</strong> or Web Services Trust Language is a specification that uses secure messaging to create a trusted relationships between applications.</p>
+<div class='bs-callout alert-info'>
+<strong>WS-Trust</strong> or Web Services Trust Language is a specification that uses secure messaging to create a trusted relationships between applications.
+</div>
 
 <h3 id="why-not-saml-2-0">Why Not SAML 2.0?</h3>
 
@@ -574,7 +584,9 @@ Connection: Keep-Alive
 
 <p>It may be possible to support custom claims if further user information is required, see <a href="#adding-additional-rq-fields-to-an-employee">Adding Additional RQ Fields to an Employee</a>.</p>
 
-<p>To learn more about Employee Custom Fields, see <a href='https://support.iqmetrix.com/hc/en-us/articles/228837927-Settings-Employees#Employee_Custom_Fields_Setup'>Employee Custom Fields Setup</a></p>
+<div class='bs-callout alert-info'>
+To learn more about Employee Custom Fields, see <a href='https://support.iqmetrix.com/hc/en-us/articles/228837927-Settings-Employees#Employee_Custom_Fields_Setup'>Employee Custom Fields Setup</a>
+</div>
 
 <table><thead>
 <tr>
@@ -672,7 +684,9 @@ Connection: Keep-Alive
 
 <p>You can auto-provision fields not listed above using attributes. For company-specific Custom fields, the <code class="prettyprint">rqCustomField</code> prefix is required.</p>
 
-<p>Before adding additional fields, discuss your requirements with your Account Manager to ensure they will appear in RQ.</p>
+<div class='bs-callout alert-info'>
+Before adding additional fields, discuss your requirements with your Account Manager to ensure they will appear in RQ
+</div>
 
 <table><thead>
 <tr>
