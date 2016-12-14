@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Dropship Point of Sale Guide | iQmetrix Developer Portal</title>
 
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
+
     <style>
       /*.highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -148,7 +150,7 @@
 
 <p>Each segment in this guide will provide high-level concepts before describing examples of the API call required. The images shown in this guide are from the RQ Dropship Wizard and are meant for illustrative purposes only.</p>
 
-<p>Hybrid orders, where virtual and physical products are contained in the same order, are not covered in this guide.</p>
+<div class='bs-callout alert-warning'>Hybrid orders, where virtual and physical products are contained in the same order, are not covered in this guide.</div>
 
 <p><strong>Figure 1:</strong> Illustrates the suggested flow for retailers to process a dropship order in their POS.</p>
 
@@ -550,7 +552,7 @@ Content-Type: application/json
 
 <p>The next step is to <a href="/api/saccs/#retrieving-shipping-options">retrieve shipping options</a> from the vendor. </p>
 
-<p>The Shipping Aggregator also verifies the availability of the requested catalog items. If an item is <strong>Out of Stock</strong>, then you must prevent this order from continuing.</p>
+<div class='bs-callout alert-warning'>The Shipping Aggregator also verifies the availability of the requested catalog items. If an item is <strong>Out of Stock</strong>, then you must prevent this order from continuing.</div>
 
 <h3 id="step-4-1-retrieve-the-shipping-options">Step 4.1 - Retrieve the Shipping Options</h3>
 

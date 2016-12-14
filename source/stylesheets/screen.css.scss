@@ -774,6 +774,68 @@ tr>td:first-child {
   color: #aa0011;
 }
 
+/* Styling to callouts and alerts */
+.bs-callout {
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 4px;
+  width: 47%;
+}
+
+.alert-info { border-left-color: #5bc0de; }
+.alert-success { border-left-color: #dff0d8; }
+.alert-warning { border-left-color: #fcf8e3; }
+
+@media (max-width: 761px) {
+  .bs-callout { width: 95% }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// GUIDE STYLING
+// Used for styling within guide sections
+////////////////////////////////////////////////////////////////////////////////
+
+/* Bootstrap alternative */
+
+.bootstrap-grid {
+  margin: 10px !important;
+  padding: 10px !important;
+  float: left;  
+  text-align: center;
+  
+  a { color: #333; }
+  :hover, a:hover { color: #c4c9cc; }
+}
+
+.active-page a {
+  color: #c4c9cc;
+  cursor: default; 
+}
+
+.four-grid { width: 10%; }
+.three-grid { width: 15%; }
+.two-grid { width: 20%; }
+
+@media (max-width: 761px) {
+
+  .bootstrap-grid { 
+    margin: inherit; 
+    padding: inherit; 
+  }
+
+  .four-grid { width: 25%; }
+  .three-grid { width: 33%; }
+  .two-grid { width: 50%; }
+}
+
+.postman-run-button {
+  margin-left: 25px;
+  margin-bottom: 10px;
+}
+
 /////////////////////////////////////////////////////////////////////////////// 
 // CUSTOM NAVBAR 
 ///////////////////////////////////////////////////////////////////////////////

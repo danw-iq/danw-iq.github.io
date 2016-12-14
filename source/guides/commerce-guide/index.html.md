@@ -47,7 +47,7 @@ To use this guide, the following steps must be completed:
 * Your [Catalog](http://developers.iqmetrix.com/concepts/product-library/#retailer-catalog), or physical inventory for your store(s), must be set up
 * Your [Company Tree](http://developers.iqmetrix.com/concepts/company-tree/), representing company structure (stores, groups, divisions, etc), must be created
 
-<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip: </b>
+ <div class='bs-callout alert-success'>
 If the above steps are not complete or you are not sure, contact <a href="mailto:apisupport@iqmetrix.com?subject=Support">Support</a>.
 </div>
 
@@ -78,85 +78,53 @@ This guide is organized by pages in a typical eCommerce site, and is not intende
 
 Feel free to to skip to any page you are interested in:
 
-<div id="page-selector">
-  <div class="row">
-    <span class="col-md-4 text-center">
-      <a href="#search">
-        <span class="col-md-12">
-          <i class="fa fa-search fa-4x"></i>
-        </span>
-        <span class="col-md-12"> 
-          <h4>Search</h4>
-        </span> 
-      </a>   
-    </span>
-    <span class="col-md-4 text-center">
-      <a href="#view-products">
-        <span class="col-md-12">
-          <i class="fa fa-shopping-cart fa-4x"></i>
-        </span>
-        <span class="col-md-12">
-          <h4>View Products</h4>
-        </span>   
-      </a>   
-    </span>
-    <span class="col-md-4 text-center">
-      <a href="#product-detail">
-        <span class="col-md-12">  
-          <i class="fa fa-mobile fa-4x"></i>
-        </span>
-        <span class="col-md-12">
-          <h4>Product Details</h4>
-        </span>
-      </a>
-    </span>
-  </div>
-  <div class="row">
-    <span class="col-md-4 text-center">
-      <a href="#my-profile">
-        <span class="col-md-12">  
-          <i class="fa fa-user fa-4x"></i>
-        </span>
-        <span class="col-md-12">
-          <h4>My Profile</h4>
-        </span>      
-      </a>
-      </span>
-    <span class="col-md-4 text-center">
-      <a href="#find-a-store">
-        <span class="col-md-12">  
-          <i class="fa fa-map-marker fa-4x"></i>    
-        </span>
-        <span class="col-md-12">
-          <h4>Find a Store</h4>
-        </span>      
-      </a>
-    </span>
-    <span class="col-md-4 text-center">
-      <a href="#order-history">
-        <span class="col-md-12">  
-          <i class="fa fa-file-text fa-4x"></i>
-        </span>
-        <span class="col-md-12"> 
-          <h4>Order History</h4>
-        </span>
-      </a>
-    </span>
-  </div>
-  <div class="row">
-    <span class="col-md-12 text-center">
-      <a href="#compatible-products">
-        <span class="col-md-12">  
-          <i class="fa fa-plug fa-4x"></i>
-        </span>
-        <span class="col-md-12">
-          <h4>Compatible Products</h4>
-        </span>
-      </a> 
-    </span>  
-  </div>
-</div>
+<p class='bootstrap-grid four-grid'>
+  <a href="#search">
+    <i class="fa fa-search fa-3x"></i><br/>
+    Search
+  </a>
+</p> 
+<p class='bootstrap-grid four-grid'>
+  <a href="#view-products">
+    <i class="fa fa-shopping-cart fa-3x"></i><br/>
+    View Products 
+  </a>
+</p>
+<p class='bootstrap-grid four-grid'>
+  <a href="#product-detail">
+    <i class="fa fa-mobile fa-3x"></i><br/>
+    Product Details
+  </a>
+</p>
+<p class='bootstrap-grid four-grid'>
+  <a href="#my-profile">
+    <i class="fa fa-user fa-3x"></i><br/>
+    My Profile
+  </a>
+</p>
 
+
+<br/><br/><br/><br/>
+<br/><br/>
+
+<p class='bootstrap-grid three-grid'>
+  <a href="#find-a-store">
+    <i class="fa fa-map-marker fa-3x"></i><br/>  
+    Find a Store
+  </a>
+</p>
+<p class='bootstrap-grid three-grid'>
+  <a href="#order-history">
+    <i class="fa fa-file-text fa-3x"></i><br/>
+    Order History
+  </a>
+</p>
+<p class='bootstrap-grid three-grid'>
+  <a href="#compatible-products">
+    <i class="fa fa-plug fa-3x"></i><br/>
+    Compatible Products
+  </a> 
+</p>
 
 # Search
 

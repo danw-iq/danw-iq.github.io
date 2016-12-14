@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Customers | iQmetrix Developer Portal</title>
 
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
+
     <style>
       /*.highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -2310,7 +2312,8 @@
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-<h4 id="uri-parameters">URI Parameters
+<h4 id="uri-parameters">URI Parameters</h4>
+
 <ul>
     <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
     <li><code>CustomerId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/crm/#customer'>Customer</a></li>
@@ -2321,7 +2324,8 @@
 
 <ul><li><code>Id</code> (<strong>Required</strong>) </li><li><code>CustomerId</code> (<strong>Required</strong>) </li><li><code>ExtensionTypeId</code> (<strong>Required</strong>) - Identifier for a <a href='#customerextensiontype'>CustomerExtensionType</a>. See <a href='#getting-all-customer-extension-types'>Getting All Customer Extension Types</a></li><li><code>Value</code> (Optional) </li></ul>
 
-<h3 id="response-parameters">Response Parameters
+<h3 id="response-parameters">Response Parameters</h3>
+
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -2402,7 +2406,7 @@
     <li><code>CustomerExtensionId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/crm/#customerextension'>CustomerExtension</a></li>
 </ul>
 
-response-parameters&quot;>Response Parameters</h3>
+<h3 id="response-parameters">Response Parameters</h3>
 
 <blockquote>
 <p>Example Response</p>
@@ -2612,7 +2616,8 @@ response-parameters&quot;>Response Parameters</h3>
 
 <p><a href="#CustomerFull">customerfull</a></p>
 
-<h2 id="get-a-full-customer"><span class='get'>GET</span> a Full Customer
+<h2 id="get-a-full-customer"><span class='get'>GET</span> a Full Customer</h2>
+
 <blockquote>
 <p>Definition</p>
 </blockquote>
@@ -3389,7 +3394,7 @@ This request returns Customer resources and is case <strong>sensitive</strong>. 
 <span class="nb">puts</span> <span class="n">response</span>
 </code></pre>
 
-uri-parameters&quot;>URI Parameters</h4>
+<h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
     <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
@@ -3426,7 +3431,8 @@ uri-parameters&quot;>URI Parameters</h4>
 
 <p>Array[<a href="#Customer">customer</a>]</p>
 
-<h2 id="customer-search">Customer Search
+<h2 id="customer-search">Customer Search</h2>
+
 <p>{{note}}
 This request returns CustomerFull resources and is case <strong>insensitive</strong>. For a similar case <strong>sensitive</strong> search that returns Customer resources, see <a href='#searching-for-customers'>Searching for Customers</a> 
 {{end}}</p>
@@ -3540,7 +3546,7 @@ This request returns CustomerFull resources and is case <strong>insensitive</str
     <li><code>FilterQuery</code> (Optional)  - The filter to apply, &ldquo;Criteria&rdquo; is required</li>
 </ul>
 
-response-parameters&quot;>Response Parameters</h3>
+<h3 id="response-parameters">Response Parameters</h3>
 
 <blockquote>
 <p>Example Response</p>

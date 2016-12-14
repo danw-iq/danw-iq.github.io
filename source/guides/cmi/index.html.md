@@ -27,7 +27,21 @@ iQmetrix uses <a href="http://www.getpostman.com" target="_blank">Postman</a> wh
 
 For Chrome or Mac users, click the button below to import the collection directly into Postman.
 
-Alternatively, you can download the collection by clicking <a href="https://www.getpostman.com/collections/5a5b7229798b8e6c28af">here</a>.
+<div class="postman-run-button" data-postman-action="collection/import" data-postman-var-1="5a5b7229798b8e6c28af"></div>
+
+<script type="text/javascript">
+  (function (p,o,s,t,m,a,n) {
+    !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
+    !o.getElementById(s+t) && o.getElementsByTagName("head")[0].appendChild((
+      (n = o.createElement("script")),
+      (n.id = s+t), (n.async = 1), (n.src = m), n
+    ));
+  }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
+</script>
+
+<div></div>
+
+<p>Alternatively, you can download the collection by clicking <a href="https://www.getpostman.com/collections/5a5b7229798b8e6c28af">here</a></p>
 
 ## Onboarding Package
 
@@ -143,7 +157,7 @@ To create a purchase order for a store, you must know its `StoreID`.
 The request <a href='/api/cmi/#getting-all-cmi-enabled-stores'>Getting a Store List</a> is used to get a list of all CMI enabled stores for a company.
 
 
-<div class='bs-callout bs-callout-info'>
+<div class='bs-callout alert-info'>
 From the response the StoreID value <code>36</code> will be used in the following steps.
 </div>
 
@@ -241,7 +255,7 @@ For this example the Product Sales Report will be run for the Cornwall West stor
 * StartDate value `01/01/2016` for January 1st, 2016
 * EndDate value `01/30/2016` for January 30th, 2016
 
-<div class='bs-callout bs-callout-info'>
+<div class='bs-callout alert-info'>
 From the response the VendorSKU value <code>WMGCMSSL12</code> will be used in the following steps.
 </div>
 
@@ -482,11 +496,11 @@ When created, the Purchase Order will appear in the Inventory section of RQ.
 
 <img class="popUpImage" title="Purchase Order in RQ" src="http://developers.iqmetrix.com/images/vmi/cmi-receipt.png"/> 
 
-<div class='bs-callout bs-callout-info'>
+<div class='bs-callout alert-info'>
 From the response the PurchaseOrderID value <code>28890f70-6fc9-4a9b-9458-410a8d08502d</code> will be used in the following steps.
 </div>
 
-## (Optional) Step 6 - Create a Purchase Order Shipment Notice
+<h2>(Optional) Step 6 - Create a Purchase Order Shipment Notice</h2>
 
 >
 > Example Request

@@ -9,7 +9,7 @@ This guide is intended to walk you through the process of creating a Purchase Or
 
 The VMI API allows vendors to run product inventory reports and create purchase orders for companies running RQ.
 
-RetailiQ is the legacy retail management system produced by iQmetrix. It has been replaced by RQ. In this document, RetailiQ and RQ are used synonymously.
+<div class='bs-callout alert-info'>RetailiQ is the legacy retail management system produced by iQmetrix. It has been replaced by RQ. In this document, RetailiQ and RQ are used synonymously.</div>
 
 **Figure 1:** VMI flow
 
@@ -24,6 +24,20 @@ You may be interested in this guide if you are a **Vendor** or **Supplier** inte
 iQmetrix uses <a href="http://www.getpostman.com" target="_blank">Postman</a> when <a href="/api/#testing-and-debugging">testing and debugging</a> our APIs.
 
 For Chrome or Mac users, click the button below to import the collection directly into Postman.
+
+<div class="postman-run-button" data-postman-action="collection/import" data-postman-var-1="efefcdc5a004dc4e6064"></div>
+
+<script type="text/javascript">
+  (function (p,o,s,t,m,a,n) {
+    !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
+    !o.getElementById(s+t) && o.getElementsByTagName("head")[0].appendChild((
+      (n = o.createElement("script")),
+      (n.id = s+t), (n.async = 1), (n.src = m), n
+    ));
+  }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
+</script>
+
+<div></div>
 
 Alternatively, you can download the collection by clicking <a href="https://www.getpostman.com/collections/efefcdc5a004dc4e6064">here</a>.
 
@@ -144,7 +158,9 @@ HTTP 200 Content-Type: text/xml
 </soap:Envelope>
 ```
 
+<div class='bs-callout alert-info'>
 From the response the CompanyID value <code>c46ccb4d-2d44-4289-950a-b9cb51d58ac4</code> will be used in the following steps.
+</div>
 
 ## Step 3 - Get Pending Companies
 
@@ -212,7 +228,9 @@ HTTP 200 Content-Type: text/xml
 </soap:Envelope>
 ```
 
+<div class='bs-callout alert-info'>
 From the response the CompanyID value <code>c46ccb4d-2d44-4289-950a-b9cb51d58ac4</code> will be used in the following steps.
+</div>
 
 ## Step 4 - Enable a Company
 
@@ -368,7 +386,9 @@ HTTP 200 Content-Type: text/xml
 </soap:Envelope>
 ```
 
+<div class='bs-callout alert-info'>
 From the response the StoreID value <code>25</code> will be used in the following steps.
+</div>
 
 ## (Optional) Step 6 - Get Company Tree 
 
@@ -478,7 +498,10 @@ HTTP 200 Content-Type: text/xml
 </soap:Envelope>
 ```
 
+<div class='bs-callout alert-info'>
 From the response the RegionID value <code>1</code> will be used in the following steps.
+</div>
+
 
 ## Step 7 - Run a Report
 
@@ -597,7 +620,9 @@ HTTP 200 Content-Type: text/xml
 </soap:Envelope>
 ```
 
+<div class='bs-callout alert-info'>
 From the response the VendorSKU value <code>SSGS5CB</code> will be used in the following steps.
+</div>
 
 ## (Optional) Step 8 - Get Inventory Information
 
@@ -717,7 +742,9 @@ HTTP 200 Content-Type: text/xml
 
 The request <a href='/api/vmi/#creating-a-purchase-order'>Creating a Purchase Order</a> allows you to create a purchase order for a particular store and a set of products. 
 
+<div class='bs-callout alert-info'>
 To create a purchase order, you must be listed as the primary vendor for a product in RQ <strong>and</strong> the company must be enabled in the VMI API
+</div>
 
 For this example the Purchase Order will have the following properties:
 

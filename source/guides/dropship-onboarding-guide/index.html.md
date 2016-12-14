@@ -514,6 +514,8 @@ The following morning, subscribed retailers now have 9 products.
 
 ### 3.1 Add Products
 
+<div class='bs-callout alert-info'>The new product list in the payload replaces the old product list. Any matching old products (determined by Vendor SKU) will have their slug and version data copied over into the new products.</div>
+
 >
 > Example Request
 >
@@ -565,8 +567,6 @@ HTTP 200 OK Content-Type: application/json
 }
 ```
 
-The new product list in the payload replaces the old product list. Any matching old products (determined by Vendor SKU) will have their slug and version data copied over into the new products.
-
 **Table 4:** Product Feed Variables
 
 | Parameter | Value |
@@ -579,6 +579,7 @@ The new product list in the payload replaces the old product list. Any matching 
 | Dropshippable | true |
 
 To add products, see [Updating Products in a Subscribable List](/api/product-subscription/#updating-products-in-a-subscribable-list). 
+
 
 ### 3.2 Get Your Company IDs
 
@@ -742,6 +743,12 @@ You must add product costs to the cost feed via [Adding Products to Cost Feed](/
 
 ## Step 6 - Provide Shipping Options
 
+You must provide a [Shipping Options](/api/shipping-options) API to iQmetrix. Your options will then be displayed to the customer. 
+
+Once an order has been created, shipping options will be requested via the SACCS service. 
+
+<div class='bs-callout alert-info'>The <strong>SACCS service</strong> is a shipping options arbitrator between end customer products (e.g. RQ) and iQmetrix services. The SACCS service will first call out the Supplier Availability service to determine whether or not the products are available, and pass this information to the Shipping service. Then the Shipping service will request shipping options via your API and includes the shipping address' postal code.</div>
+
 >
 > Example Request
 >
@@ -785,12 +792,6 @@ HTTP 200 OK Content-Type: application/json
     ]
 }
 ```
-
-You must provide a [Shipping Options](/api/shipping-options) API to iQmetrix. Your options will then be displayed to the customer. 
-
-Once an order has been created, shipping options will be requested via the SACCS service. 
-
-The **SACCS service** is a shipping options arbitrator between end customer products (e.g. RQ) and iQmetrix services. The SACCS service will first call out the Supplier Availability service to determine whether or not the products are available, and pass this information to the Shipping service. Then the Shipping service will request shipping options via your API and includes the shipping address' postal code.
 
 **Figure 6:** Illustrates high-level interaction diagram of an iQmetrix product attempting to obtain a supplier's shipping options. 
 

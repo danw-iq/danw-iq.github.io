@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Customer Managed Inventory Guide | iQmetrix Developer Portal</title>
 
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
+
     <style>
       /*.highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -162,7 +164,21 @@
 
 <p>For Chrome or Mac users, click the button below to import the collection directly into Postman.</p>
 
-<p>Alternatively, you can download the collection by clicking <a href="https://www.getpostman.com/collections/5a5b7229798b8e6c28af">here</a>.</p>
+<div class="postman-run-button" data-postman-action="collection/import" data-postman-var-1="5a5b7229798b8e6c28af"></div>
+
+<script type="text/javascript">
+  (function (p,o,s,t,m,a,n) {
+    !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
+    !o.getElementById(s+t) && o.getElementsByTagName("head")[0].appendChild((
+      (n = o.createElement("script")),
+      (n.id = s+t), (n.async = 1), (n.src = m), n
+    ));
+  }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
+</script>
+
+<div></div>
+
+<p>Alternatively, you can download the collection by clicking <a href="https://www.getpostman.com/collections/5a5b7229798b8e6c28af">here</a></p>
 
 <h2 id="onboarding-package">Onboarding Package</h2>
 
@@ -282,7 +298,7 @@ Content-Type: text/xml
 
 <p>The request <a href='/api/cmi/#getting-all-cmi-enabled-stores'>Getting a Store List</a> is used to get a list of all CMI enabled stores for a company.</p>
 
-<div class='bs-callout bs-callout-info'>
+<div class='bs-callout alert-info'>
 From the response the StoreID value <code>36</code> will be used in the following steps.
 </div>
 
@@ -373,7 +389,7 @@ Content-Type: text/xml
 <li>EndDate value <code class="prettyprint">01/30/2016</code> for January 30th, 2016</li>
 </ul>
 
-<div class='bs-callout bs-callout-info'>
+<div class='bs-callout alert-info'>
 From the response the VendorSKU value <code>WMGCMSSL12</code> will be used in the following steps.
 </div>
 
@@ -599,11 +615,11 @@ Content-Type: text/xml
 
 <p><img class="popUpImage" title="Purchase Order in RQ" src="http://developers.iqmetrix.com/images/vmi/cmi-receipt.png"/> </p>
 
-<div class='bs-callout bs-callout-info'>
+<div class='bs-callout alert-info'>
 From the response the PurchaseOrderID value <code>28890f70-6fc9-4a9b-9458-410a8d08502d</code> will be used in the following steps.
 </div>
 
-<h2 id="optional-step-6-create-a-purchase-order-shipment-notice">(Optional) Step 6 - Create a Purchase Order Shipment Notice</h2>
+<h2>(Optional) Step 6 - Create a Purchase Order Shipment Notice</h2>
 
 <blockquote>
 <p>Example Request</p>

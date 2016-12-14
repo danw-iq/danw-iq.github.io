@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Dropship Onboarding Guide | iQmetrix Developer Portal</title>
 
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
+
     <style>
       /*.highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -686,6 +688,8 @@ Accept: application/json
 
 <h3 id="3-1-add-products">3.1 Add Products</h3>
 
+<div class='bs-callout alert-info'>The new product list in the payload replaces the old product list. Any matching old products (determined by Vendor SKU) will have their slug and version data copied over into the new products.</div>
+
 <blockquote>
 <p>Example Request</p>
 </blockquote>
@@ -730,8 +734,6 @@ Content-Type: application/json
     </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-
-<p>The new product list in the payload replaces the old product list. Any matching old products (determined by Vendor SKU) will have their slug and version data copied over into the new products.</p>
 
 <p><strong>Table 4:</strong> Product Feed Variables</p>
 
@@ -808,7 +810,8 @@ Accept: application/json
 
 <p><img src="http://developers.iqmetrix.com/images/supplier-availability.jpg" alt="supplier availability" /></p>
 
-<h3 id="4-1-configure-availability">4.1 Configure Availability
+<h3 id="4-1-configure-availability">4.1 Configure Availability</h3>
+
 <blockquote>
 <p>Example Request</p>
 </blockquote>
@@ -905,7 +908,13 @@ Content-Type: application/json
 
 <p>You must add product costs to the cost feed via <a href="/api/cost-feed/#adding-a-product-to-cost-feed">Adding Products to Cost Feed</a>. </p>
 
-step-6-provide-shipping-options&quot;>Step 6 - Provide Shipping Options</h2>
+<h2 id="step-6-provide-shipping-options">Step 6 - Provide Shipping Options</h2>
+
+<p>You must provide a <a href="/api/shipping-options">Shipping Options</a> API to iQmetrix. Your options will then be displayed to the customer. </p>
+
+<p>Once an order has been created, shipping options will be requested via the SACCS service. </p>
+
+<div class='bs-callout alert-info'>The <strong>SACCS service</strong> is a shipping options arbitrator between end customer products (e.g. RQ) and iQmetrix services. The SACCS service will first call out the Supplier Availability service to determine whether or not the products are available, and pass this information to the Shipping service. Then the Shipping service will request shipping options via your API and includes the shipping address&rsquo; postal code.</div>
 
 <blockquote>
 <p>Example Request</p>
@@ -944,12 +953,6 @@ Content-Type: application/json
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-
-<p>You must provide a <a href="/api/shipping-options">Shipping Options</a> API to iQmetrix. Your options will then be displayed to the customer. </p>
-
-<p>Once an order has been created, shipping options will be requested via the SACCS service. </p>
-
-<p>The <strong>SACCS service</strong> is a shipping options arbitrator between end customer products (e.g. RQ) and iQmetrix services. The SACCS service will first call out the Supplier Availability service to determine whether or not the products are available, and pass this information to the Shipping service. Then the Shipping service will request shipping options via your API and includes the shipping address&rsquo; postal code.</p>
 
 <p><strong>Figure 6:</strong> Illustrates high-level interaction diagram of an iQmetrix product attempting to obtain a supplier&rsquo;s shipping options. </p>
 

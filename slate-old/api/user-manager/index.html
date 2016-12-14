@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>User Manager | iQmetrix Developer Portal</title>
 
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
+
     <style>
       /*.highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -1525,7 +1527,7 @@ response = RestClient.post 'https://usermanagerdemo.iqmetrix.net/v1/Users(2576)/
 puts response
 </span></code></pre>
 
-uri-parameters&quot;>URI Parameters</h4>
+<h4 id="uri-parameters">URI Parameters</h4>
 
 <ul>
     <li><code>UserId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/user-manager/#user'>User</a></li>
@@ -1817,7 +1819,7 @@ uri-parameters&quot;>URI Parameters</h4>
 
 <p><a href="#User">user</a></p>
 
-setting-a-temporary-password&quot;>Setting a Temporary Password</h2>
+<h2 id="setting-a-temporary-password">Setting a Temporary Password</h2>
 
 <p>This request will set a User&rsquo;s password to the provided value and mark it as temporary, forcing the User to change it on first login. 
 {{important}}The temporary password must be a <strong>non-empty</strong> string and <strong>at least 6 characters long</strong>{{end}}</p>
@@ -1905,7 +1907,7 @@ setting-a-temporary-password&quot;>Setting a Temporary Password</h2>
 <pre class="highlight plaintext"><code>HTTP 204 Content-Type: application/json
 </code></pre>
 
-get-all-lock-reasons&quot;><span class='get'>GET</span> all Lock Reasons</h2>
+<h2 id="get-all-lock-reasons"><span class='get'>GET</span> all Lock Reasons</h2>
 
 <blockquote>
 <p>Definition</p>
