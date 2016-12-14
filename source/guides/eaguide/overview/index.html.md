@@ -1,6 +1,8 @@
 ---
 title: Endless Aisle Integration Guide
 search: true
+includes:
+  - eaguide_toc
 ---
 
 # Overview
@@ -67,52 +69,3 @@ Authorization: Bearer (Access Token)
 This guide is organized by functional areas of an external system that you may wish to integrate with Endless Aisle.
 
 Feel free to skip to any section you are interested in:
-
-<style>
-  table {
-    min-width: 100%;
-  }
-
-  #page-selector .row {
-    text-align: center;
-  }
-  #page-selector p {
-    font-size: 14px;
-    min-height: 38px;
-  }
-  #page-selector .selectedIcon a {
-    cursor: default;
-  }
-
-  #page-selector .selectedIcon p {
-    color: darkgrey;
-    cursor: default;
-  }
-
-  #page-selector .selectedIcon .fa-3x {
-    color: darkgrey;
-    cursor: default;
-  }
-
-</style>
-
-<a href="http://developers.iqmetrix.com/guides/ea-guide-overview/">
-  <p>Overview</p>
-  <i class="fa fa-home fa-3x"></i>
-</a>
-<a href="http://developers.iqmetrix.com/guides/ea-guide-corporate-hierarchy/">
-  <p>Corporate Hierarchy</p>
-  <i class="fa fa-map-marker fa-3x" style="font-size:2.7em;"></i>
-</a>
-<a href="http://developers.iqmetrix.com/guides/ea-guide-content/">
-  <p>Content</p>
-  <i class="fa fa-list-alt fa-3x"></i>
-</a>    
-<a href="http://developers.iqmetrix.com/guides/ea-guide-inventory/">
-  <p>Inventory</p>
-  <i class="fa fa-barcode fa-3x"></i>
-</a>       
-<a href="http://developers.iqmetrix.com/guides/ea-guide-orders/">
-  <p>Orders</p>
-  <i class="fa fa-file-text-o fa-3x" style="font-size:2.5em;"></i>
-</a>   

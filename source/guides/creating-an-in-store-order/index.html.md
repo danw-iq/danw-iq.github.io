@@ -15,11 +15,23 @@ iQmetrix uses <a href="http://www.getpostman.com" target="_blank">Postman</a> wh
 
 For Chrome or Mac users, click the button below to import the collection directly into Postman.
 
+<div class="postman-run-button" data-postman-action="collection/import" data-postman-var-1="6ba6ff2041a2371aab72"></div>
+
+<script type="text/javascript">
+  (function (p,o,s,t,m,a,n) {
+    !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
+    !o.getElementById(s+t) && o.getElementsByTagName("head")[0].appendChild((
+      (n = o.createElement("script")),
+      (n.id = s+t), (n.async = 1), (n.src = m), n
+    ));
+  }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
+</script>
+
 The Postman environment shared by all API references and guides can be found <a href="http://developers.iqmetrix.com/files/postmanEnv.postman_environment">here</a>.
 
 Alternatively, you can download the collection by clicking <a href="https://www.getpostman.com/collections/6ba6ff2041a2371aab72">here</a>.
 
-## Who Is This Guide For?
+<h2>Who Is This Guide For?</h2>
 
 You may be interested in this guide if you are creating...
 
@@ -35,7 +47,10 @@ To use this guide, the following steps must be completed:
 * Your [Product Library](http://developers.iqmetrix.com/concepts/product-library/), or physical inventory for your store(s), must be set up
 * Your [Company Tree](http://developers.iqmetrix.com/concepts/company-tree/), representing company structure (stores, groups, divisions, etc), must be created
 
+ <div class='bs-callout alert-success'>
 If the above steps are not complete or you are not sure, contact <a href="mailto:apisupport@iqmetrix.com?subject=Support">Support</a>.
+</div>
+
 
 # Before You Begin
 

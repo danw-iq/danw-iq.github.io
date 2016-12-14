@@ -3,50 +3,39 @@ title: Endless Aisle Integration Guide
 search: true
 ---
 
-<style>
-  #page-selector .row {
-    text-align: center;
-  }
-  #page-selector p {
-    font-size: 14px;
-    min-height: 38px;
-  }
-  #page-selector .selectedIcon a {
-    cursor: default;
-  }
+# Guide Pages
 
-  #page-selector .selectedIcon p {
-    color: darkgrey;
-    cursor: default;
-  }
-
-  #page-selector .selectedIcon .fa-3x {
-    color: darkgrey;
-    cursor: default;
-  }
-
-</style>
-
-<a href="http://developers.iqmetrix.com/guides/ea-guide-overview/">
-  <p>Overview</p>
-  <i class="fa fa-home fa-3x"></i>
-</a>
-<a href="http://developers.iqmetrix.com/guides/ea-guide-corporate-hierarchy/">
-  <p>Corporate Hierarchy</p>
-  <i class="fa fa-map-marker fa-3x" style="font-size:2.7em;"></i>
-</a>
-<a href="http://developers.iqmetrix.com/guides/ea-guide-content/">
-  <p>Content</p>
-  <i class="fa fa-list-alt fa-3x"></i>
-</a>    
-<a href="http://developers.iqmetrix.com/guides/ea-guide-inventory/">
-  <p>Inventory</p>
-  <i class="fa fa-barcode fa-3x"></i>
-</a>       
-<a href="http://developers.iqmetrix.com/guides/ea-guide-orders/">
-  <p>Orders</p>
-  <i class="fa fa-file-text-o fa-3x" style="font-size:2.5em;"></i>
-</a>   
+<p class='bootstrap-grid three-grid'>
+  <a href="http://developers.iqmetrix.com/guides/ea-guide-overview/">
+    <i class="fa fa-home fa-3x"></i><br/>
+    Overview
+  </a>
+</p>
+<p class='bootstrap-grid three-grid'>
+  <a href="http://developers.iqmetrix.com/guides/ea-guide-corporate-hierarchy/">
+    <i class="fa fa-map-marker fa-3x" style="font-size:2.7em;"></i><br/>
+    Corporate Hierarchy
+  </a>
+</p>
+<p class='bootstrap-grid three-grid active-page'>
+  <a href="http://developers.iqmetrix.com/guides/ea-guide-content/">
+    <i class="fa fa-list-alt fa-3x"></i><br/>
+    Content
+  </a> 
+</p>
+<br/><br/><br/><br/><br/><br/>
+<p class='bootstrap-grid two-grid'>
+  <a href="http://developers.iqmetrix.com/guides/ea-guide-inventory/">
+    <i class="fa fa-barcode fa-3x"></i><br/>
+    Inventory
+  </a>       
+</p>
+<p class='bootstrap-grid two-grid'>
+  <a href="http://developers.iqmetrix.com/guides/ea-guide-orders/">
+    <i class="fa fa-file-text-o fa-3x" style="font-size:2.5em;"></i><br/>
+    Orders
+  </a>
+</p>  
 
 # Overview
 
@@ -187,7 +176,7 @@ Products in Product Library may have an associated Manufacturer.
 
 To find the appropriate Manufacturer for the Product, you can use [Getting All Manufacturers](/api/entity-store/#getting-all-manufacturers).
 
-<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip: </b>
+ <div class='bs-callout alert-success'>
 If you can't find a matching Manufacturer, contact <a href="mailto:apisupport@iqmetrix.com?subject=Support">API Support</a>
 </div>
 

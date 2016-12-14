@@ -31,7 +31,7 @@ To use this guide, the following steps must be completed:
 * Your Company Tree in RQ, representing company structure (stores, groups, divisions, etc.) must be created
 
 
-If the above steps are not complete or you are not sure, please contact <a href ="mailto:apisupport@iqmetrix.com?subject=RQ User Support">API Support</a>
+ <div class='bs-callout alert-success'>If the above steps are not complete or you are not sure, please contact <a href ="mailto:apisupport@iqmetrix.com?subject=RQ User Support">API Support</a>.</div>
 
 
 ## Before You Begin
@@ -424,6 +424,9 @@ To assign a security role, see [Assigning a Security Role to a User](/api/securi
 
 <h2>(Optional) Updating a User</h2>
 
+<div class='bs-callout alert-success'>You cannot change a user's password using this method. To update their password, you must set a temporary password. </div>
+
+A user, its properties, and attributes can be updated anytime by [Updating a User](/api/user-manager/#updating-a-user)
 
 >
 > Example Request
@@ -510,15 +513,13 @@ HTTP 200 Content-Type: application/json
 }
 ```
 
-This call is **destructive**, and will replace all existing values for the user. When updating a user you must ensure that all previous values are included in the body of the request as well. 
-
-You cannot change a user's password using this method. To update their password, you must set a temporary password.
-
-A user, its properties, and attributes can be updated anytime by [Updating a User](/api/user-manager/#updating-a-user)
-
-
-
 ## (Optional) Terminating an Employee 
+
+An employee can be terminated at anytime by [Disabling their user account](/api/user-manager/#disabling-a-user).
+
+<div class='bs-callout alert-success'>This method does not delete the employee.</div>
+
+<div class='bs-callout alert-info'>Disabling a User does NOT free up their email address or username to be used to create another User. To free up an email address or username, you must instead update the email or username of the original User to something else. </div>
 
 >
 > Example Request
@@ -536,10 +537,3 @@ Authorization: Bearer (Access Token)
 ```
 HTTP 200 Content-Type: application/json
 ```
-
-An employee can be terminated at anytime by [Disabling their user account](/api/user-manager/#disabling-a-user).
-
-This method does not delete the employee.
-
-Disabling a User does NOT free up their email address or username to be used to create another User. To free up an email address or username, you must instead update the email or username of the original User to something else.
-
