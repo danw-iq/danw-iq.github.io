@@ -8,3 +8,5 @@ config.json
 generated.raml
 postman.json
 .jekyll-metadata
+slate-old/
+source/

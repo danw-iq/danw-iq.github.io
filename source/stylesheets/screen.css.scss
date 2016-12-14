@@ -297,7 +297,7 @@ html, body {
   top: 200px;
   /*margin-top: 200px;*/
   margin-left: $nav-width;
-  position: absolute; /*relative;*/
+  position: /*absolute;*/ relative;
   z-index: 10;
   background-color: $main-bg;
   min-height: 100%;
@@ -328,6 +328,7 @@ html, body {
 }
 
 .lang-selector {
+  top: 212px;
   background-color: $lang-select-bg;
   width: 100%;
   font-weight: bold;
@@ -662,6 +663,7 @@ html, body {
 @media (max-width: $tablet-width) {
   .tocify-wrapper {
     left: -$nav-width;
+    margin-top: 90px;
 
     &.open {
       left: 0;
@@ -673,13 +675,17 @@ html, body {
   }
 
   #nav-button {
-    margin-top: 50px;
+    margin-top: /*50px;*/ 90px;
     display: block;
   }
 
   .tocify-wrapper .tocify-item > a {
     padding-top: 0.3em;
     padding-bottom: 0.3em;
+  }
+
+  .breadcrumb, .title {
+    display: none;
   }
 }
 
