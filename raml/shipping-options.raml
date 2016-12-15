@@ -1,0 +1,99 @@
+#%RAML 0.8
+title: shipping options
+version: v1
+baseUri: https://api.supplier.com/ShippingOptions 
+documentation:
+  - title: overview
+    content: |
+      <div class="bs-callout alert-info">
+      This is an API specification that suppliers need to implement. 
+      </div>
+      
+      Providing a Shipping Options API gives iQmetrix the ability to request your shipping options for a specific zip/postal code and set of products. The shipping options provided from your API will be displayed to the customer. Once the customer has selected their shipping option, the shipping option ID will be returned in the order during processing.
+
+      For this call, you will need to create an endpoint based on the specification provided by iQmetrix (see below). You will also need to provide an endpoint URL for iQmetrix and credentials for authentication.      
+  - title: authentication
+    content: |      
+      iQmetrix supports two methods for authentication:
+      
+      #### HTTP Basic Authentication
+      
+      Basic authentication. <strong>HTTPS is required.</strong>
+      
+      > Example
+      
+      ```
+      Username: test_user
+      Password: password123
+      ```
+
+      #### API Key
+      
+      API key - based authentication. <strong>HTTPS is required.</strong>
+      
+      API key must be provided in header and is configurable.
+      
+      > Example
+      
+      ```
+      Api-Key: 9c269e40-92f3-4c21-9ff3-c4a00c985021
+      ```   
+schemas:
+  - ShippingQuery: |
+      {
+        "name": "ShippingQuery",
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-03/schema",
+        "properties": {
+          "CompanyId": { "type": "Integer", "description": "Company identifier", "example": "123" },
+          "Items": { "type": "array", "arrayType": "object", "description": "List of Products to be added to shipping query", "ref": "shipping options.Item" },
+          "PostalCode": { "type": "string", "description": "Postal or zip code of shipping address", "example": "A1A1A1"}
+        },
+        "required": [ "CompanyId", "PostalCode" ]
+      }
+  - Item: |
+      {        
+        "name": "Item",
+        "type": "object",
+        "$schema": "http://json-schema.org/draft-03/schema",
+        "properties": {
+          "ProductName": { "type": "string", "description": "Product name ", "example": "Galaxy S6 Defender Case - Glacier" },
+          "Quantity": { "type": "integer", "description": "Amount of products", "example": "11"},
+          "Sku": { "type": "string", "description": "Product sku", "example": "87932OTS45S6"}
+        },
+        "required": [ "ProductName", "Quantity", "Sku" ]        
+      }
+  - ShippingOptions: |
+      {
+        "name": "ShippingOptions",
+        "type": "array",
+        "$schema": "http://json-schema.org/draft-03/schema",
+        "properties": {
+          "Id": { "type": "string", "description": "Identifier for the shipping option", "putDescription": "Corresponds to the identifier of your shipping option method. For example, Id: 350 always corresponds to PurolatorExpress with charge 7.94 CAD.", "example": "350" },
+          "Cost": { "type": "decimal", "description": "Cost for shipping option", "example": "7.94" },
+          "Currency": { "type": "string", "size": "3", "description": "Cost currency (USD or CAD)", "example": "CAD"},
+          "EstimatedTransitTime": { "type": "string", "description": "Total time to be in transit, where units are provided by supplier", "example": "1 week"},
+          "Name": { "type": "string", "description": "Shipping option name", "example": "PurolatorExpress" }
+        },
+        "required": [ "Id", "Cost", "Currency" ]
+      }      
+/ShippingOptions:
+  post: 
+    displayName: Get Shipping Options
+    headers: 
+          Authorization:
+            example: Basic
+          Accept:
+            example: application/json
+          Content-Type:
+            example: application/json
+          Host:
+            example: supplier.azure-api.net    
+    body:      
+      application/json:
+        schema: ShippingQuery
+    responses:
+      200:
+        body:
+          application/json:
+            schema: ShippingOptions
