@@ -13,7 +13,7 @@
     "nunjucks": "*",
     "pluralize": "*",
     "pretty-data": "^0.40.0",
-    "raml2obj": "*",
+    "raml2obj": "^3.*",
     "walk": "*"
   },
   "homepage": "https://github.com/iQmetrix/api-documentation",
