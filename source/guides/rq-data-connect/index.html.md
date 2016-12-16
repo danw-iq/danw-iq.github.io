@@ -62,18 +62,14 @@ To generate a Basic Token, you can use the request <a href="/api/RQ-Data-Connect
 
 It is important to note that value of the `Authorization` header in this request is a **base 64 encoded** version of your username and password. This value is not URL safe and should not be used as a Basic Token for authentication.
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET https://rqdataconnectdemo.iqmetrix.net/session
 Authorization: Basic vRMt17P8rIBWWbVbLzLWjTNyLfvESgA2yfXhze0WZN7HSIl4slGV866p9dSw
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: application/json
@@ -91,9 +87,7 @@ HTTP 200 Content-Type: application/json
 
 The `basic_token` is placed in the `Authorization` header of a request prefixed by the word `Basic`.
 
->
-> Example
->
+##### Example
 
 ```
 GET https://rqdataconnectdemo.iqmetrix.net/bridge/current/schema
@@ -111,9 +105,7 @@ To authenticate using this method, you must first generate a **Basic Token**. Th
 
 Once you have a Basic Token, it can be placed as a URL parameter in a request using the key `Auth`.
 
->
-> Example
->
+##### Example
 
 ```
 https://rqdataconnectdemo.iqmetrix.net/bridge/current/schema?Auth=vRMt17P8rIBWWbVbLzLWjTNyLfvESgA2yfXhze0WZN7HSIl4slGV866p9dSw
@@ -182,17 +174,13 @@ Many reports allow you to optionally specify a company tree level at which to pe
 
 To set the report to a specific level, determine the available levels using [Getting Location Types](/api/rq-data-connect/#getting-location-types).
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET /lists/LocationType
 ```
 
->
-> Example Response
-> 
+### Example Response 
 
 ```
 HTTP 200 Content-Type: application/json
@@ -227,17 +215,13 @@ To run the report for a subset of nodes at a level, such as one Location or one 
 
 A list of identifiers in a level can be retrieved using [Getting Location Ids](/api/RQ-Data-Connect/#getting-location-ids). The `LocationType` URI parameter is the value determined in Step 1.
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET /lists/LocationIDs?LocationType=Store
 ```
 
->
-> Example Response
-> 
+### Example Response 
 
 ```
 HTTP 200 Content-Type: application/json
@@ -282,17 +266,13 @@ For this example, the following URI parameters will be used.
 
 The values from Steps 1-4 can be combined to get the Performance Metrix Report using [Getting the Graphed Performance Metrix Report](/api/RQ-Data-Connect/#getting-the-graphed-performance-metrix-report).
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET /reports/graphedperformancemetricsreport_performancemetrix?LocationType=Store&LocationIDs=6923,6924&PeriodID=-1&StartDate=1970-01-01T12:00:00.000Z&StopDate=2016-01-01T12:00:00.000Z&HideRebates=-1&LanguageCode=en-us
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: application/json

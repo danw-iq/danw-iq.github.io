@@ -63,9 +63,7 @@ Syncing Orders might be used to:
 * Modify an Order in an eCommerce solution
 * Keep a record of an Order in an Inventory Management System
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders?$filter=State eq 'Pending' and EntityId eq 14202
@@ -73,9 +71,7 @@ Authorization: Bearer (Access Token)
 Accept: application/json
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: application/json
@@ -114,9 +110,7 @@ HTTP 200 Content-Type: application/json
 
 To get the Items for each Order, [Getting All Items on an Order](/api/orders/#getting-all-items-on-an-order) can be used.
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(65bb1c32-3e6b-4d3f-80b5-2e7c861ce5af)/Items
@@ -124,9 +118,7 @@ Authorization: Bearer (Access Token)
 Accept: application/json
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: application/json

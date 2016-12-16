@@ -51,8 +51,7 @@ To use this guide, the following steps must be completed:
 If the above steps are not complete or you are not sure, contact <a href="mailto:apisupport@iqmetrix.com?subject=Support">Support</a>.
 </div>
 
-
-# Before You Begin
+## Before You Begin
 
 Before you can create an Order, you will need to know:
 
@@ -64,9 +63,7 @@ Before you can create an Order, you will need to know:
 
 ## Step 1 - Authenticating
 
->
-> Example
->
+##### Example
 
 ```
 Authorization: Bearer (Access Token)
@@ -86,9 +83,7 @@ The token is placed in the `Authorization` header of requests to iQmetrix APIs, 
 
 ## Step 2 - Finding or Creating a Location
 
->
-> Example
->
+##### Example
 
 ```
 "EntityId": 14192
@@ -108,9 +103,7 @@ For the Order to appear in the pending list of orders in RQ, the `EntityId` must
 
 ## Step 3 - Finding or Creating a Customer
 
->
-> Example
->
+##### Example
 
 ```
 "BillingCustomerId": "659c2a38-d083-4421-9330-46d779702f85"
@@ -129,9 +122,7 @@ We will reference this Customer in our request by using its `CustomerId`.
 
 ## (Recommended) Step 4 - Finding or Creating a Billing Address
 
->
-> Example
->
+##### Example
 
 ```
 "BillingAddressId": "a08b0640-606a-41f0-901a-facaf50e75dd"
@@ -151,9 +142,7 @@ We will reference this Address in our request by using its `AddressId`.
 
 ## Step 5 - Setting the Order Type
 
->
-> Example
->
+##### Example
 
 ```
 "OrderTypeId": 1
@@ -165,9 +154,7 @@ There are many different OrderTypes. We will use the `Sales` type for an in-stor
 
 ## (Optional) Step 6 - Adding Optional Order Properties
 
->
-> Example
->
+##### Example
 
 ```
 "Name": "Interactive Display Order 331", 
@@ -187,9 +174,7 @@ The following Order properties can be added to the request:
 
 ## Step 7 - Getting a Catalog Item
 
->
-> Example
->
+##### Example
 
 ```
 "ProductId": "a183f1a9-c58f-426a-930a-9a6357db52ed"
@@ -201,9 +186,7 @@ Each Order Item on the Order must have an associated Item Type in the form of an
 
 For an in-store order, we will use the `InStock` ItemType which has a value of `2`.
 
->
-> Example
->
+##### Example
 
 ```
 "ItemTypeId": 2
@@ -222,9 +205,7 @@ We will reference the Product(s) in our request by using a `CatalogItemId` as th
 
 ## Step 9 - Setting the Item Status
 
->
-> Example
->
+##### Example
 
 ```
 "ItemStatusId": 9
@@ -240,9 +221,7 @@ Each Order Item added to the Order may also have the following optional properti
 * `Quantity` - Amount of this Item in stock, defaults to 0
 * `SerialNumbers` - Product serial numbers
 
->
-> Example
->
+##### Example
 
 ```
 "Description": "LG G3 phone case",
@@ -262,9 +241,7 @@ For RQ to accept the Item, the ItemStatus must be `New`, or a value of `9`.
 
 ## Step 11 - Creating the Order
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST /Companies(14146)/OrderFull
@@ -297,9 +274,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
-> 
+### Example Response 
 
 Note that some fields are omitted from the response as they are not relevant to this guide.
 

@@ -46,9 +46,7 @@ Before you can create and assign a User, you will need to know:
 
 ## Step 1 - Authenticating
 
->
-> Example Request
->
+##### Example Request
 
 ```
 Authorization: Bearer (Access Token)
@@ -80,9 +78,7 @@ Ensure that you mark down the `Id` from the response, to be used in the later st
 ## 2.1 Adding a User 
 
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://usermanagerdemo.iqmetrix.net/v1/Users/importExisting
@@ -118,9 +114,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 201 Content-Type: application/json
@@ -172,9 +166,7 @@ In RQ, the JSON request would appear similar to the figure below.
 
 ## 2.2 Setting Up a Temporary Password 
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://usermanagerdemo.iqmetrix.net/v1/Users({UserId})/TemporaryPassword
@@ -188,9 +180,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 204 Content-Type: application/json
@@ -208,9 +198,7 @@ Once you have created a user in the system, the next step is to assign it to a l
 
 ## 3.1 Getting Company Locations 
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET https://entitymanagerdemo.iqmetrix.net/v1/Companies({CompanyId})/Locations
@@ -218,9 +206,7 @@ Authorization: Bearer (Access Token)
 Accept: application/json
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: application/json
@@ -314,9 +300,7 @@ To assign a user to a location, see [Assigning a User to a Location](/api/user-m
 
 **Figure 2:** Displays the RQ result from assigning the Location field. 
 
->
-> Example Request
->
+##### Example Request
 
 ```
 PUT https://usermanagerdemo.iqmetrix.net/v1/Users({UserId})/Locations({LocationId})
@@ -325,9 +309,7 @@ Accept: application/json
 Content-Type: application/json
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 204 Content-Type: application/json
@@ -342,9 +324,7 @@ The goal of this step is to ensure that your employee has a security role in RQ 
  
 ## 4.1 Getting Company Security Roles 
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET https://usermanagerdemo.iqmetrix.net/v1/Entities({EntityId})/SecurityRoles
@@ -352,9 +332,7 @@ Authorization: Bearer (Access Token)
 Accept: application/json
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: application/json
@@ -377,9 +355,7 @@ For more information, see [Getting All Security Roles for an Entity](/api/securi
 
 ## 4.2 Assigning a Security Role
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://usermanagerdemo.iqmetrix.net/v1/Users({UserId})/AssignedRoles
@@ -394,9 +370,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 201 Content-Type: application/json
@@ -428,9 +402,7 @@ To assign a security role, see [Assigning a Security Role to a User](/api/securi
 
 A user, its properties, and attributes can be updated anytime by [Updating a User](/api/user-manager/#updating-a-user)
 
->
-> Example Request
->
+##### Example Request
 
 ```
 PUT https://usermanagerdemo.iqmetrix.net/v1/Users({UserId})
@@ -472,9 +444,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: application/json
@@ -521,18 +491,14 @@ An employee can be terminated at anytime by [Disabling their user account](/api/
 
 <div class='bs-callout alert-info'>Disabling a User does NOT free up their email address or username to be used to create another User. To free up an email address or username, you must instead update the email or username of the original User to something else. </div>
 
->
-> Example Request
->
+##### Example Request
 
 ```
 DELETE https://usermanagerdemo.iqmetrix.net/v1/Users({UserId})
 Authorization: Bearer (Access Token)
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: application/json

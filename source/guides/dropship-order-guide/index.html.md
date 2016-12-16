@@ -64,9 +64,7 @@ The Postman environment shared by all API references and guides can be found <a 
 
 ## Step 1 - Authentication
 
->
-> Example Request
->
+##### Example Request
 
 ```
 Authorization: Bearer (Access Token)
@@ -109,9 +107,7 @@ For best practices, it is recommended to store the timestamp for the last order 
 
 ### 2.1 Getting the Order Feed
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET https://dropshipdemo.iqmetrix.net/v1/Suppliers(60455)/Notifications
@@ -119,9 +115,7 @@ Authorization: Bearer (Access Token)
 Accept: application/atom+xml
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -250,9 +244,7 @@ Should the end customer not provide a phone number, it is recommended to contact
 
 #### Updating the Order Status
 
->
-> Example Request
->
+##### Example Request
 
 ```
 PUT https://dropshipdemo.iqmetrix.net/v1/Suppliers(60455)/Orders(0b05f9fb-1210-4494-b654-d051948716b4)/OrderStatusUpdate
@@ -270,9 +262,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 202 Accepted Content-Type: application/json
@@ -327,9 +317,7 @@ Only one email is sent out from iQmetrix once any of the items in the order has 
 
 #### Updating the Item Status
 
->
-> Example Request
->
+##### Example Request
 
 ```
 PUT https://dropshipdemo.iqmetrix.net/v1/Suppliers(60455)/Orders(0b05f9fb-1210-4494-b654-d051948716b4)/OrderStatusUpdate
@@ -354,9 +342,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 202 Accepted Content-Type: application/json

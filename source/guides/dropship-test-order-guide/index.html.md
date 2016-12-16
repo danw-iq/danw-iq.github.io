@@ -81,9 +81,7 @@ The Postman environment shared by all API references and guides can be found <a 
 
 ## Step 1 - Authentication
 
->
-> Example Request
->
+##### Example Request
 
 ```
 Authorization: Bearer (Access Token)
@@ -109,9 +107,7 @@ The goal of this step is to get catalog IDs corresponding to your vendor SKUs, a
 
 The first step involves [getting the catalog IDs](/api/catalog/#getting-products-by-vendor-sku) for your corresponding supplier SKUs. There is a simple API call that allows you to get the `CatalogItemId` based on the vendor SKU.
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET https://catalogsdemo.iqmetrix.net/v1/Companies({CompanyId})/Catalog/Items/ByVendorSku?vendorsku={VendorSku}&vendorid={VendorId}
@@ -119,9 +115,7 @@ Authorization: Bearer (Access Token)
 Accept: application/json
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: application/json
@@ -148,9 +142,7 @@ HTTP 200 Content-Type: application/json
 
 Getting the company tree is the quickest way to retrieve a list of company locations. Each Node Id corresponds to a `LocationId` to be used in Step 4.1.
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET https://entitymanagerdemo.iqmetrix.net/v1/Companies({CompanyId})/Tree
@@ -158,9 +150,7 @@ Authorization: Bearer (Access Token)
 Accept: application/json
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: application/json
@@ -197,9 +187,7 @@ Prior to creating a customer account, it is much quicker to use an existing cust
 
 By getting a list of customers, you can simply grab any customer ID for your testing.  
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET https://crmdemo.iqmetrix.net/v1/Companies({CompanyId})/Customers
@@ -207,9 +195,7 @@ Authorization: Bearer (Access Token)
 Accept: application/json
 ```
 
->
-> Example Response
->
+### Example Response
 
 Any of the Ids from the response list can be used for your testing.
 
@@ -255,9 +241,7 @@ HTTP 200 OK Content-Type: application/json
 
 Once you have the customer ID, the next step is to retrieve the customer's address.
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET https://crmdemo.iqmetrix.net/v1/Companies({CompanyId})/Customers({CustomerId})/Addresses
@@ -265,9 +249,7 @@ Authorization: Bearer (Access Token)
 Accept: application/json
 ```
 
->
-> Example Response
->
+### Example Response
 
 Any of the Ids from the response list can be used for your testing.
 
@@ -307,9 +289,7 @@ Should there not be any existing customers in the company, then the next step wo
 
 #### Step 3.2a - Create a Customer
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://crmdemo.iqmetrix.net/v1/Companies({CompanyId})/Customers
@@ -334,9 +314,7 @@ Content-Type: application/json
 
 The billing address is required in order to bill the customer. Ensure `AddressTypeId` is set to `2` for `Home`.
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://crmdemo.iqmetrix.net/v1/Companies({CompanyId})/Customers({CustomerId})/Addresses
@@ -369,9 +347,7 @@ Ensure that the `TenderId` has a non-null value. Typically this value is the ini
 Ensure that you add `OrderId` from the response into the Postman environment variables. 
 
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://orderdemo.iqmetrix.net/v1/Companies({CompanyId})/Orders
@@ -401,9 +377,7 @@ Ensure that `ItemStatusId` and `ItemTypeId` are set to `1` for new dropship orde
 
 Ensure that the `ShippingOptionId` refers to one of your Shipping Options IDs. This ID comes from the response of your [Shipping Options](/api/shipping-options/#get-shipping-options) endpoint.
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://orderdemo.iqmetrix.net/v1/Companies({CompanyId})/Orders({OrderId})/Items
@@ -435,9 +409,7 @@ Ensure that `ItemStatusId` is set to `15` for shipping and `ItemTypeId` is set t
 
 Ensure that the `ShippingOptionId` refers to one of your Shipping Options IDs.
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://orderdemo.iqmetrix.net/v1/Companies({CompanyId})/Orders({OrderId})/Items
@@ -465,9 +437,7 @@ Content-Type: application/json
 
 The final step is to process the order.
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://orderdemo.iqmetrix.net/v1/Companies({CompanyId})/Orders({OrderId})/Process
