@@ -88,7 +88,7 @@
   color: #90a959;
 }*/
     </style>
-    <link href="../../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../../stylesheets/two_column.css" rel="stylesheet" media="screen" />
     <link href="../../../stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="../../../javascripts/all.js"></script>
   </head>
@@ -142,7 +142,6 @@
       </div>
     </div>
     <div class="page-wrapper">
-      <div class="dark-box"></div>
       <div class="content">
         <h1 id="guide-pages">Guide Pages</h1>
 
@@ -291,17 +290,13 @@
 
 <p>We can use <a href="/api/company-tree/#getting-all-locations-for-a-company">Getting All Locations for a Company</a> to look for a Location in Chicago called Atrium Mall.</p>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>GET https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations
 Authorization: Bearer (Access Token)
 Accept: application/json
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 
 <p>From the response you can see the Location Id is <code class="prettyprint">14239</code>.</p>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
@@ -384,17 +379,13 @@ Accept: application/json
 
 <p>To create a sale price, the Product must have an existing Pricing, which you can find using <a href="/api/pricing/#getting-product-pricing-for-a-retail-location">Getting Product Pricing for a Retail Level</a>, and the Identifiers from the previous two steps.</p>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>GET https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Entities(14239)/CatalogItems(bb54cb25-e1df-4710-9e05-c2473192cc99)/Pricing
 Authorization: Bearer (Access Token)
 Accept: application/json
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 
 <p>From this response you can determine the Pricing Pricing Identifier is <code class="prettyprint">16446</code>. </p>
 
@@ -426,9 +417,7 @@ Accept: application/json
 
 <p>Now that you have a Pricing Pricing Identifier, you can put the Product on sale. For this example a one week period in January and a sale price of 29.99 will be used.</p>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16445)/SaleOverridePrices
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -441,9 +430,7 @@ Content-Type: application/json
 }
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
 {
     "Id": 1177,
@@ -492,9 +479,7 @@ Content-Type: application/json
 
 <p>Note that the <code class="prettyprint">CompanyId</code> and <code class="prettyprint">EntityId</code> are <strong>different values</strong>.</p>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Entities(14239)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -511,9 +496,7 @@ Content-Type: application/json
 }
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
 {
     "Id": 16446,
@@ -555,9 +538,7 @@ Content-Type: application/json
 
 <p>Note that the <code class="prettyprint">CompanyId</code> and <code class="prettyprint">EntityId</code> are the <strong>same value</strong>.</p>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -574,9 +555,7 @@ Content-Type: application/json
 }
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
 {
     "Id": 16445,
@@ -627,9 +606,7 @@ Content-Type: application/json
 
 <p>Finally, you can update availability using <a href="/api/availability/#configuring-availability">Configuring Availability</a> and the Identifiers from the previous steps.</p>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://availabilitydemo.iqmetrix.net/v1/Companies(14146)/CatalogItems
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -643,9 +620,7 @@ Content-Type: application/json
 }
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
 {
     "Id": "bb54cb25-e1df-4710-9e05-c2473192cc99",
@@ -657,10 +632,5 @@ Content-Type: application/json
 </code></pre>
 
       </div>
-      <div class="dark-box">
-          <div class="lang-selector">
-          </div>
-      </div>
-    </div>
   </body>
 </html>

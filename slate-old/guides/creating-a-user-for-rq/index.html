@@ -88,7 +88,7 @@
   color: #90a959;
 }*/
     </style>
-    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/two_column.css" rel="stylesheet" media="screen" />
     <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="../../javascripts/all.js"></script>
   </head>
@@ -142,7 +142,6 @@
       </div>
     </div>
     <div class="page-wrapper">
-      <div class="dark-box"></div>
       <div class="content">
         <h1 id="overview">Overview</h1>
 
@@ -189,9 +188,7 @@
 
 <h2 id="step-1-authenticating">Step 1 - Authenticating</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>Authorization: Bearer (Access Token)
 </code></pre>
 
@@ -229,9 +226,7 @@
 
 <h2 id="2-1-adding-a-user">2.1 Adding a User</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://usermanagerdemo.iqmetrix.net/v1/Users/importExisting
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -264,9 +259,7 @@ Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -314,9 +307,7 @@ Content-Type: application/json
 
 <h2 id="2-2-setting-up-a-temporary-password">2.2 Setting Up a Temporary Password</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://usermanagerdemo.iqmetrix.net/v1/Users({UserId})/TemporaryPassword
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -327,9 +318,7 @@ Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 204 Content-Type: application/json
 </code></pre>
 
@@ -343,17 +332,13 @@ Content-Type: application/json
 
 <h2 id="3-1-getting-company-locations">3.1 Getting Company Locations</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>GET https://entitymanagerdemo.iqmetrix.net/v1/Companies({CompanyId})/Locations
 Authorization: Bearer (Access Token)
 Accept: application/json
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -442,18 +427,14 @@ Accept: application/json
 
 <p><strong>Figure 2:</strong> Displays the RQ result from assigning the Location field. </p>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>PUT https://usermanagerdemo.iqmetrix.net/v1/Users({UserId})/Locations({LocationId})
 Authorization: Bearer (Access Token)
 Accept: application/json
 Content-Type: application/json
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 204 Content-Type: application/json
 </code></pre>
 
@@ -465,17 +446,13 @@ Content-Type: application/json
 
 <h2 id="4-1-getting-company-security-roles">4.1 Getting Company Security Roles</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>GET https://usermanagerdemo.iqmetrix.net/v1/Entities({EntityId})/SecurityRoles
 Authorization: Bearer (Access Token)
 Accept: application/json
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
@@ -494,9 +471,7 @@ Accept: application/json
 
 <h2 id="4-2-assigning-a-security-role">4.2 Assigning a Security Role</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://usermanagerdemo.iqmetrix.net/v1/Users({UserId})/AssignedRoles
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -508,9 +483,7 @@ Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -537,9 +510,7 @@ Content-Type: application/json
 
 <p>A user, its properties, and attributes can be updated anytime by <a href="/api/user-manager/#updating-a-user">Updating a User</a></p>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>PUT https://usermanagerdemo.iqmetrix.net/v1/Users({UserId})
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -578,9 +549,7 @@ Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -624,24 +593,15 @@ Content-Type: application/json
 
 <div class='bs-callout alert-info'>Disabling a User does NOT free up their email address or username to be used to create another User. To free up an email address or username, you must instead update the email or username of the original User to something else. </div>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>DELETE https://usermanagerdemo.iqmetrix.net/v1/Users({UserId})
 Authorization: Bearer (Access Token)
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
 </code></pre>
 
       </div>
-      <div class="dark-box">
-          <div class="lang-selector">
-          </div>
-      </div>
-    </div>
   </body>
 </html>

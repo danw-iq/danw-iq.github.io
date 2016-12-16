@@ -88,7 +88,7 @@
   color: #90a959;
 }*/
     </style>
-    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/two_column.css" rel="stylesheet" media="screen" />
     <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="../../javascripts/all_nosearch.js"></script>
   </head>
@@ -138,7 +138,6 @@
       </div>
     </div>
     <div class="page-wrapper">
-      <div class="dark-box"></div>
       <div class="content">
         <p><link rel="stylesheet" type="text/css" href="../../css/prism.css"></p>
 
@@ -152,7 +151,7 @@
 
 <p><strong>Figure 1:</strong> CMI flow</p>
 
-<p><img class="popUpImage" title="Purchase Order in RQ" src="http://developers.iqmetrix.com/images/vmi/cmi-flow.png"/> </p>
+<p><img class="popUpImage" title="Purchase Order in RQ" src="http://developers.iqmetrix.com/images/vmi/cmi-flow.png" style="width:50%"/> </p>
 
 <h2 id="who-is-this-guide-for">Who Is This Guide For?</h2>
 
@@ -231,9 +230,7 @@
 
 <h2 id="step-2-get-store-list">Step 2 - Get Store List</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://vmidemo.iqmetrix.net/VMIClientService.asmx/?op=GetStoreList
 Content-Type: text/xml
 </code></pre>
@@ -251,9 +248,7 @@ Content-Type: text/xml
 <span class="nt">&lt;/soap:Envelope&gt;</span>
 </code></pre>
 
-<blockquote>
-<p>Code Example Request</p>
-</blockquote>
+<h5 id="code-example-request">Code Example Request</h5>
 <pre class="highlight java"><code><span class="n">CmiServiceSoapClient</span> <span class="n">cmiService</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CMIServiceSoapClient</span><span class="o">();</span>
 <span class="n">ClientIdentity</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClientIdentity</span><span class="o">();</span>
 <span class="n">client</span><span class="o">.</span><span class="na">ClientID</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GUID</span><span class="o">(</span><span class="s">"9DC6AA95-856B-42C9-8AAF-392A2A02AC77"</span><span class="o">);</span>
@@ -263,9 +258,7 @@ Content-Type: text/xml
 <span class="n">StoreInformation</span><span class="o">[]</span> <span class="n">stores</span> <span class="o">=</span> <span class="n">cmiService</span><span class="o">.</span><span class="na">GetStoreList</span><span class="o">(</span><span class="n">client</span><span class="o">);</span>
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h4 id="example-response">Example Response</h4>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: text/xml
 </code></pre>
 <pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
@@ -304,9 +297,7 @@ From the response the StoreID value <code>36</code> will be used in the followin
 
 <h2 id="step-3-run-a-report">Step 3 - Run a Report</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h4 id="example-request">Example Request</h4>
 <pre class="highlight plaintext"><code>POST https://vmirc.iqmetrix.net/VMIClientService.asmx/?op=GetProductSalesReport
 Content-Type: text/xml
 </code></pre>
@@ -328,9 +319,7 @@ Content-Type: text/xml
 <span class="nt">&lt;/soap:Envelope&gt;</span>
 </code></pre>
 
-<blockquote>
-<p>Code Example Request</p>
-</blockquote>
+<h5 id="code-example-request">Code Example Request</h5>
 <pre class="highlight java"><code><span class="n">CmiServiceSoapClient</span> <span class="n">cmiService</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CMIServiceSoapClient</span><span class="o">();</span>
 <span class="n">ClientIdentity</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClientIdentity</span><span class="o">();</span>
 <span class="n">client</span><span class="o">.</span><span class="na">ClientID</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GUID</span><span class="o">(</span><span class="s">"9DC6AA95-856B-42C9-8AAF-392A2A02AC77"</span><span class="o">);</span>
@@ -341,9 +330,7 @@ Content-Type: text/xml
 <span class="n">ProductSalesReportData</span><span class="o">[]</span> <span class="n">productReport</span> <span class="o">=</span> <span class="n">cmiService</span><span class="o">.</span><span class="na">GetProductSalesReport</span><span class="o">(</span><span class="n">client</span><span class="o">,</span> <span class="s">"01/01/2016"</span><span class="o">,</span> <span class="s">"01/30/2016"</span><span class="o">,</span> <span class="mi">36</span><span class="o">);</span>
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h5 id="example-response">Example Response</h5>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: text/xml
 </code></pre>
 <pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
@@ -395,9 +382,7 @@ From the response the VendorSKU value <code>WMGCMSSL12</code> will be used in th
 
 <h2 id="optional-step-4-get-inventory-information">(Optional) Step 4 - Get Inventory Information</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://vmirc.iqmetrix.net/VMIClientService.asmx/?op=GetReceivingInfo
 Content-Type: text/xml
 </code></pre>
@@ -418,9 +403,7 @@ Content-Type: text/xml
 <span class="nt">&lt;/soap:Envelope&gt;</span>
 </code></pre>
 
-<blockquote>
-<p>Code Example Request</p>
-</blockquote>
+<h5 id="code-example-request">Code Example Request</h5>
 <pre class="highlight java"><code><span class="n">CmiServiceSoapClient</span> <span class="n">cmiService</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CMIServiceSoapClient</span><span class="o">();</span>
 <span class="n">ClientIdentity</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClientIdentity</span><span class="o">();</span>
 <span class="n">client</span><span class="o">.</span><span class="na">ClientID</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GUID</span><span class="o">(</span><span class="s">"9DC6AA95-856B-42C9-8AAF-392A2A02AC77"</span><span class="o">);</span>
@@ -430,9 +413,7 @@ Content-Type: text/xml
 <span class="n">ReceivingInfo</span><span class="o">[]</span> <span class="n">received</span> <span class="o">=</span> <span class="n">cmiService</span><span class="o">.</span><span class="na">GetReceivingInfo</span><span class="o">(</span><span class="n">client</span><span class="o">,</span> <span class="s">"01/01/2016"</span><span class="o">,</span> <span class="s">"01/30/2016"</span><span class="o">);</span>
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h5 id="example-response">Example Response</h5>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: text/xml
 </code></pre>
 <pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
@@ -464,9 +445,7 @@ Content-Type: text/xml
 
 <h2 id="step-5-create-a-purchase-order">Step 5 - Create a Purchase Order</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://vmidemo.iqmetrix.net/VMIClientService.asmx/?op=CreatePurchaseOrderShipmentNotice
 Content-Type: text/xml
 </code></pre>
@@ -500,9 +479,7 @@ Content-Type: text/xml
 <span class="nt">&lt;/soap:Envelope&gt;</span>
 </code></pre>
 
-<blockquote>
-<p>Code Example Request</p>
-</blockquote>
+<h5 id="code-example-request">Code Example Request</h5>
 <pre class="highlight java"><code><span class="n">CmiServiceSoapClient</span> <span class="n">cmiService</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CMIServiceSoapClient</span><span class="o">();</span>
 <span class="n">ClientIdentity</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClientIdentity</span><span class="o">();</span>
 <span class="n">client</span><span class="o">.</span><span class="na">ClientID</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GUID</span><span class="o">(</span><span class="s">"9DC6AA95-856B-42C9-8AAF-392A2A02AC77"</span><span class="o">);</span>
@@ -528,9 +505,7 @@ Content-Type: text/xml
 <span class="n">PurchaseOrder</span> <span class="n">poCreated</span> <span class="o">=</span> <span class="n">cmiService</span><span class="o">.</span><span class="na">CreatePurchaseOrder</span><span class="o">(</span><span class="n">vendor</span><span class="o">,</span> <span class="n">po</span><span class="o">);</span>
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h5 id="example-response">Example Response</h5>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: text/xml
 </code></pre>
 <pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
@@ -621,9 +596,7 @@ From the response the PurchaseOrderID value <code>28890f70-6fc9-4a9b-9458-410a8d
 
 <h2>(Optional) Step 6 - Create a Purchase Order Shipment Notice</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://vmidemo.iqmetrix.net/VMIClientService.asmx/?op=CreatePurchaseOrderShipmentNotice
 Content-Type: text/xml
 </code></pre>
@@ -652,9 +625,7 @@ Content-Type: text/xml
 <span class="nt">&lt;/soap:Envelope&gt;</span>
 </code></pre>
 
-<blockquote>
-<p>Code Example Request</p>
-</blockquote>
+<h5 id="code-example-request">Code Example Request</h5>
 <pre class="highlight java"><code><span class="n">CmiServiceSoapClient</span> <span class="n">cmiService</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CMIServiceSoapClient</span><span class="o">();</span>
 <span class="n">ClientIdentity</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClientIdentity</span><span class="o">();</span>
 <span class="n">client</span><span class="o">.</span><span class="na">ClientID</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GUID</span><span class="o">(</span><span class="s">"9DC6AA95-856B-42C9-8AAF-392A2A02AC77"</span><span class="o">);</span>
@@ -671,9 +642,7 @@ Content-Type: text/xml
 <span class="n">PurchaseOrderShipmentNotice</span> <span class="n">snReturn</span> <span class="o">=</span> <span class="n">cmiService</span><span class="o">.</span><span class="na">CreatePurchaseOrderShipmentNotice</span><span class="o">(</span><span class="n">client</span><span class="o">,</span> <span class="k">new</span><span class="o">[]</span> <span class="o">{</span> <span class="n">shipmentNotice</span> <span class="o">});</span>
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h5 id="example-response">Example Response</h5>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: text/xml
 </code></pre>
 <pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
@@ -730,10 +699,5 @@ Content-Type: text/xml
 </blockquote>
 
       </div>
-      <div class="dark-box">
-          <div class="lang-selector">
-          </div>
-      </div>
-    </div>
   </body>
 </html>

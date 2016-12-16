@@ -1,0 +1,377 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Shipping Options | iQmetrix Developer Portal</title>
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
+
+    <style>
+      /*.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}*/
+    </style>
+    <link href="../../stylesheets/three_column.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all.js"></script>
+  </head>
+
+  <body class="api api_shipping-options api_shipping-options_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+
+    <div class="fixed-top">
+      <a class="navbar-logo" href="/"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">PRODUCTS</a></li>
+          <li><a href="/api/changelog">API REFERENCE</a></li>
+          <li><a href="/api/changelog">CORE CONCEPTS &amp; GUIDES</a></li>
+          <li><a href="/api/changelog">PARTNERS</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">CONTACT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="breadcrumb">
+      <ol>
+        <li><a href="/api/">API REFERENCE</a></li>
+        <li>></li>
+        <li><a href="">API DOCUMENTATION</a></li>
+        <li>></li>
+        <li class="active">CUSTOMER RELATIONSHIP MANAGEMENT (CRM)</li>
+      </ol>
+    </div>
+    <div class="title">
+      <h1>API Documentation</h1>
+      <p>In depth reference documentation for iQmetrix API's.</p>
+    </div>
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <!-- <img src="../../images/logo.png" alt="Logo" /> -->
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="csharp">c#</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="overview">Overview</h1>
+
+<div class="bs-callout alert-info">
+This is an API specification that suppliers need to implement. 
+</div>
+
+<p>Providing a Shipping Options API gives iQmetrix the ability to request your shipping options for a specific zip/postal code and set of products. The shipping options provided from your API will be displayed to the customer. Once the customer has selected their shipping option, the shipping option ID will be returned in the order during processing.</p>
+
+<p>For this call, you will need to create an endpoint based on the specification provided by iQmetrix (see below). You will also need to provide an endpoint URL for iQmetrix and credentials for authentication.      </p>
+
+<h1 id="endpoints">Endpoints</h1>
+
+<p>You will provide the endpoint for iQmetrix. We recommend keeping the endpoint simple.</p>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>https://api.supplier.com/ShippingOptions
+</code></pre>
+
+<h2 id="authentication">Authentication</h2>
+
+<p>iQmetrix supports two methods for authentication:</p>
+
+<h4 id="http-basic-authentication">HTTP Basic Authentication</h4>
+
+<p>Basic authentication. <strong>HTTPS is required.</strong></p>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>Username: test_user
+Password: password123
+</code></pre>
+
+<h4 id="api-key">API Key</h4>
+
+<p>API key - based authentication. <strong>HTTPS is required.</strong></p>
+
+<p>API key must be provided in header and is configurable.</p>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>Api-Key: 9c269e40-92f3-4c21-9ff3-c4a00c985021
+</code></pre>
+
+<h2 id="resources">Resources</h2>
+
+<h2 id="shippingquery">ShippingQuery</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1A1A1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">CompanyId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Company identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Items (<code class="prettyprint">Array[[shipping-options](/api/item/#Item)]</code>)</td>
+<td style="text-align: left">List of Products to be added to shipping query</td>
+</tr>
+<tr>
+<td style="text-align: left">PostalCode (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Postal or zip code of shipping address</td>
+</tr>
+</tbody></table>
+
+<h2 id="item">Item</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Galaxy S6 Defender Case - Glacier"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"87932OTS45S6"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ProductName (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Product name</td>
+</tr>
+<tr>
+<td style="text-align: left">Quantity (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Amount of products</td>
+</tr>
+<tr>
+<td style="text-align: left">Sku (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Product sku</td>
+</tr>
+</tbody></table>
+
+<h2 id="shippingoptions">ShippingOptions</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"350"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7.94"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EstimatedTransitTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 week"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PurolatorExpress"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Identifier for the shipping option</td>
+</tr>
+<tr>
+<td style="text-align: left">Cost (<code class="prettyprint">Decimal</code>)</td>
+<td style="text-align: left">Cost for shipping option</td>
+</tr>
+<tr>
+<td style="text-align: left">Currency (<code class="prettyprint">String(3)</code>)</td>
+<td style="text-align: left">Cost currency (USD or CAD)</td>
+</tr>
+<tr>
+<td style="text-align: left">EstimatedTransitTime (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Total time to be in transit, where units are provided by supplier</td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Shipping option name</td>
+</tr>
+</tbody></table>
+
+<h2 id="requests">Requests</h2>
+
+<h2 id="get-shipping-options">Get Shipping Options</h2>
+
+<h4 id="request">Request</h4>
+
+<p>The specification for the request must be in the format:</p>
+<pre class="highlight plaintext"><code>POST /ShippingOptions
+</code></pre>
+
+<h4 id="headers">Headers</h4>
+
+<ul>
+<li><code class="prettyprint">Authorization: Basic</code></li>
+<li><code class="prettyprint">Accept: application/json</code></li>
+<li><code class="prettyprint">Content-Type: application/json</code></li>
+<li><code class="prettyprint">Host: supplier.azure-api.net</code></li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>CompanyId</code> (<strong>Required</strong>) </li><li><code>PostalCode</code> (<strong>Required</strong>) </li><li><code>Items</code> (Optional) </li><ul><li><code>ProductName</code> (<strong>Required</strong>) </li><li><code>Quantity</code> (<strong>Required</strong>) </li><li><code>Sku</code> (<strong>Required</strong>) </li></ul></ul>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST /ShippingOptions
+Authorization: Basic
+Accept: application/json
+Content-Type: application/json
+Host: supplier.azure-api.net
+
+{
+    "CompanyId": 123,
+    "Items": [
+        {
+            "ProductName": "Galaxy S6 Defender Case - Glacier",
+            "Quantity": 11,
+            "Sku": "87932OTS45S6"
+        }
+    ],
+    "PostalCode": "A1A1A1"
+}
+</code></pre>
+
+<h4 id="response">Response</h4>
+
+<p>The specification of the response must be in the format below:</p>
+
+<p><li><code>Id</code> (<strong>Required</strong>) - Corresponds to the identifier of your shipping option method. For example, Id: 350 always corresponds to PurolatorExpress with charge 7.94 CAD.</li>
+  <li><code>Cost</code> (<strong>Required</strong>) </li>
+  <li><code>Currency</code> (<strong>Required</strong>) </li>
+  <li><code>EstimatedTransitTime</code> (Optional) </li>
+  <li><code>Name</code> (Optional) </li></p>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+[
+    {
+        "Id": "350",
+        "Cost": 7.94,
+        "Currency": "CAD",
+        "EstimatedTransitTime": "1 week",
+        "Name": "PurolatorExpress"
+    }
+]
+</code></pre>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="csharp">c#</a>
+                <a href="#" data-language-name="java">java</a>
+                <a href="#" data-language-name="ruby">ruby</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

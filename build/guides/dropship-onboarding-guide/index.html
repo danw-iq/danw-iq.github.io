@@ -88,7 +88,7 @@
   color: #90a959;
 }*/
     </style>
-    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/two_column.css" rel="stylesheet" media="screen" />
     <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="../../javascripts/all.js"></script>
   </head>
@@ -142,7 +142,6 @@
       </div>
     </div>
     <div class="page-wrapper">
-      <div class="dark-box"></div>
       <div class="content">
         <h1 id="overview">Overview</h1>
 
@@ -212,9 +211,7 @@ data-postman-var-1="361a16e02eb237721346"></div>
 
 <h2 id="step-1-authentication">Step 1 - Authentication</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>Authorization: Bearer (Access Token)
 </code></pre>
 
@@ -254,15 +251,11 @@ data-postman-var-1="361a16e02eb237721346"></div>
 
 <h2 id="2-1-get-classification-tree-by-id">2.1 Get Classification Tree by ID</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>GET https://productlibrarydemo.iqmetrix.net/v1/ClassificationTrees(1)
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -308,15 +301,11 @@ data-postman-var-1="361a16e02eb237721346"></div>
 
 <h2 id="2-2-get-all-field-definitions">2.2 Get All Field Definitions</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>GET https://productlibrarydemo.iqmetrix.net/v1/FieldDefinitions
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
 </code></pre>
 <pre class="highlight plaintext"><code>[
@@ -472,9 +461,7 @@ data-postman-var-1="361a16e02eb237721346"></div>
 
 <h3 id="2-3-add-a-product">2.3 Add a Product</h3>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://productlibrarydemo.iqmetrix.net/v1/ProductFeeds(34)/Products 
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -537,9 +524,7 @@ Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 200 OK Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -629,17 +614,13 @@ Content-Type: application/json
 
 <h3 id="optional-remove-update-a-product">Optional: Remove/Update a Product</h3>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>DELETE https://productlibrarydemo.iqmetrix.net/v1/ProductFeeds(34)/Products(17)
 Authorization: Bearer (Access Token)
 Accept: application/json
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 204 No Content
 </code></pre>
 
@@ -690,9 +671,7 @@ Accept: application/json
 
 <div class='bs-callout alert-info'>The new product list in the payload replaces the old product list. Any matching old products (determined by Vendor SKU) will have their slug and version data copied over into the new products.</div>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>PUT https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(2c7dccd9-49ba-42ac-bffb-edcc08f40773)
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -712,9 +691,7 @@ Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 200 OK Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -773,17 +750,13 @@ Content-Type: application/json
 
 <h3 id="3-2-get-your-company-ids">3.2 Get Your Company IDs</h3>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>GET https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(2c7dccd9-49ba-42ac-bffb-edcc08f40773)
 Authorization: Bearer (Access Token)
 Accept: application/json
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 200 OK Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -812,9 +785,7 @@ Accept: application/json
 
 <h3 id="4-1-configure-availability">4.1 Configure Availability</h3>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://dropshipsdemo.iqmetrix.net/v1/Suppliers(60455)/Availability
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -831,9 +802,7 @@ Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 200 OK Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -860,9 +829,7 @@ Content-Type: application/json
 
 <h3 id="5-1-add-product-cost">5.1 Add Product Cost</h3>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://dropshipdemo.iqmetrix.net/v1/Suppliers(1324)/Cost
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -883,9 +850,7 @@ Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 202 Accepted Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -916,9 +881,7 @@ Content-Type: application/json
 
 <div class='bs-callout alert-info'>The <strong>SACCS service</strong> is a shipping options arbitrator between end customer products (e.g. RQ) and iQmetrix services. The SACCS service will first call out the Supplier Availability service to determine whether or not the products are available, and pass this information to the Shipping service. Then the Shipping service will request shipping options via your API and includes the shipping address&rsquo; postal code.</div>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST /ShippingOptions HTTP/1.1
 Host: https://api.supplier.com
 Content-Type: application/json
@@ -936,9 +899,7 @@ Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 200 OK Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -963,10 +924,5 @@ Content-Type: application/json
 <p>Now that you have completed the basic steps for working with feeds in the iQmetrix API, you can start the integration process from the <a href="/guides/dropship-order-guide">Dropship Order Management Guide</a>. </p>
 
       </div>
-      <div class="dark-box">
-          <div class="lang-selector">
-          </div>
-      </div>
-    </div>
   </body>
 </html>
