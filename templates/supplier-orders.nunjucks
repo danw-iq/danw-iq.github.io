@@ -1,0 +1,212 @@
+---
+title:  {{title | fixTitle }}
+permalink: /api/{{title | replace(" ", "-") }}/
+
+language_tabs:
+  - shell: cURL
+
+search: true
+---
+
+{# {% extends linkrefs.html %} #}
+
+{% for item in documentation %}{% if item.title == "overview" %}
+# Overview
+
+{{item.content}}{% endif %}{% endfor %}
+
+
+# Endpoints
+
+{% if baseUriParameters %}
+* Sandbox: <a href="{{ baseUri | replace("{UrlSuffix}", "demo") }}">{{ baseUri | replace("{UrlSuffix}", "demo") }}</a>
+* Production: <a href="{{ baseUri | replace("{UrlSuffix}", "") }}">{{ baseUri | replace("{UrlSuffix}", "") }}</a>
+{% else %}
+* Production: <a href="{{ baseUri }}">{{ baseUri }}</a>
+{% endif %}
+
+
+# Resources
+
+{# the schemas section in raml #}
+{% if schemas %}{% for schema in schemas %}{% for name, obj in schema %}{{ obj | printResourceTable(name, title) }}{% endfor %}{% endfor %}
+
+### Feed
+
+| Name | Description |
+|:-----|:------------|
+| id (GUID) | Identifier for the Feed |
+| title (string) | Title of order feed |
+| updated (DateTime) | Timestamp based on newest entry timestamp |
+| author (Object) | Container for author name |
+| author.name | (string) Name of author |
+| link current (string) | Link to the order feed endpoint |
+| link self (string) | Link to the current order feed instance |
+| link prev-archive (string) | Link to the previously archived order feed |
+| Entry ([OrderEntry](#orderentry)) | Entry in Order Feed |
+| Entry.id (GUID) | Entry identifier | 
+| Entry.title (string) | Title for order entry |
+| Entry.published (DateTime) | Published date for order entry |    
+| Entry.updated (DateTime) | Last update for order entry |
+| Entry.content (object) | Container for order type |
+| Entry.content.order-created ([OrderCreated](#ordercreated)) | **Either** this property **or** order-status-updated will exist on the resource |
+| Entry.content.order-status-updated ([OrderStatusUpdated](#orderstatusupdated)) | **Either** this property **or** order-created will exist on the resource |  
+
+### OrderCreated
+
+| Name | Description | 
+|:-----|:------------|
+| order-id (GUID) | Identifier for the Dropship order |
+| items (Array[Object]) | Array of order items |
+| items.order-item ([OrderItem](#orderitem)) | Information for item in order |
+| seller (Object) | Information for selling store | 
+| seller.company-id (Integer) | [Company](/api/company-tree/#company) identifier |
+| seller.location-id (Integer) | Store location identifier |
+| seller.po-reference (String) | Purchase order that gets printed on customer invoice | 
+| seller.printable-id (String) | ID that gets printed on customer invoice |
+| ship-to-store (Boolean) | Indicates if order is shipped to store |
+| shipping-address (Object) | Information for shipping address |
+| shipping-address.address-id (GUID) | [Address](/api/crm/#address) identifier |
+| shipping-address.attention-to (String) | Recipient’s name |
+| shipping-address.country (String) | Country |
+| shipping-address.country-code String) | Country code |  
+| shipping-address.locality (String) | City |
+| shipping-address.notes (String) | Notes for recipient |
+| shipping-address.phone (String) | Recipient phone number |
+| shipping-address.post-office-box-number (String) |  P.O. box number |
+| shipping-address.postal-code  (String) |  Postal/zip code |
+| shipping-address.region (String) | Province/Territory/State |
+| shipping-address.region-code (String) | Province/Territory/State code |
+| shipping-address.street-address-1 (String) | Address line 1 |
+| shipping-address.street-address-2 (String) | Address line 2 |
+| shipping-address.type (String) | [Address](/api/crm/#address) type |
+| shipping-customer (Object) | Information for shipping customer |  
+| shipping-customer.customer-id (GUID) | [Customer](/api/crm/#customer) identifier |
+| shipping-customer.alternate-name  (String) | Customer’s alternate name |
+| shipping-customer.family-name (String) | Last name |
+| shipping-customer.middle-name (String) | Midle name |
+| shipping-customer.notes   (String) | Notes for recipient |
+| shipping-customer.primary-name (String) | First name |
+| shipping-customer.title (String) | Recipient’s title |
+| shipping-customer.type (String) | [CustomerType](/api/crm/#customer) |
+| shipping-method (String) | Method ID that comes from shipping provider |
+| supplier-id (Integer) | Supplier identifier |
+
+### OrderItem
+
+| Name | Description | 
+|:-----|:------------|
+| catalog-id (String) | [Catalog](/api/catalog/) identifier |
+| description (String) | Description of item |
+| quantity (Integer) |  Number of items |
+| selling-price (Decimal) | MSRP consumer price of item |
+| sku (String) | Vendor SKU |
+
+### OrderStatusUpdated
+
+| Name | Description | 
+|:-----|:------------|
+| order-id (GUID) | Identifier for the Dropship order |
+| company-id (Integer) | [Company](/api/company-tree/#company) identifier |
+| items (Array[object)) | Array of order items |  
+| items.item-information ([ItemInformation](#iteminformation)) | Information for item in order | 
+| supplier-id (Integer) | Supplier identifier |
+
+{% endif %}
+
+{% for item in documentation %}{% if item.title == "enumerations" %}{{item.content}}{% endif %}{% endfor %}
+
+# Requests
+
+{% for resource in resources %}{% for method in resource.methods %}
+
+## {{method.displayName | 
+    replace("Getting", "<span class='get'>GET</span>") | 
+    replace("Retrieving", "<span class='get'>GET</span>") | 
+    replace("Adding", "<span class='post'>POST</span>") | 
+    replace("Creating", "<span class='post'>POST</span>") | 
+    replace("Removing", "<span class='delete'>DELETE</span>") | 
+    replace("Deleting", "<span class='delete'>DELETE</span>") | 
+    replace("Updating", "<span class='put'>PUT</span>")}}
+
+{{method.description}}
+
+> Definition
+
+```
+{{method.method | upper }} {{resource.relativeUri}}
+```
+
+> Example Request
+
+```shell
+curl -X {{ method.method | upper }} "{{ baseUri | replace("{UrlSuffix}", "demo") }}{{ resource.relativeUri | replaceWithExamples(resource.uriParameters) }}"{% if method.headers %}{% for header, headerObj in method.headers %} -H "{{header}}: {{headerObj.example}}"{% endfor %}{% endif %}{% if method.body["application/json"].example %} -d '{{ method.body["application/json"].example }}'{% elif method.body["application/json"].schema %}{% if method.method == "put" %} -d '{{ method.body["application/json"].schema | printExample(title, false) }}'{% else %} -d '{{ method.body["application/json"].schema | printExample(title, true) }}'{% endif %}{% endif %}
+```
+
+{% if resource.uriParameters %}
+#### URI Parameters
+<ul>{% for parameter, objParameter in resource.uriParameters %}
+    <li><code>{{parameter}}</code> ({% if objParameter.required %}<strong>Required</strong>{% else %}Optional{% endif %}) {% if objParameter.description %} - {{objParameter.description}}{% endif %}</li>{% endfor %}
+</ul>{% endif %}
+
+{% if method.body["application/json"].schema %}
+
+#### Request Parameters
+
+{{ method.body["application/json"].schema | printRequestParameters(title, method.method) }}{% elif method.body["multipart/form-data"] %}
+
+#### Request Parameters
+
+{{ method.body["multipart/form-data"].formParameters | printFormParameters() }}{% elif method.body["application/x-www-form-urlencoded"] %}
+
+#### Request Parameters
+
+{{ method.body["application/x-www-form-urlencoded"].formParameters | printFormParameters() }}{% endif %}
+
+### Response Parameters
+
+{% for code, body in method.responses %}{% if body %}{% for body, schema in body %}{% for scheme, schemeProperties in schema %}
+
+> Example Response
+
+```
+HTTP {{code}} Content-Type: {{scheme}}
+```
+{% if schemeProperties.example %}
+```xml
+{{ schemeProperties.example }}
+```
+{% elif schemeProperties.schema %}
+```json
+{{ schemeProperties.schema | printExample(title, null) }}
+```
+{% endif %}
+
+{% if schemeProperties.schema %}
+{% if scheme == "application/json" %} {{ schemeProperties.schema | printResponseSchema(title) }}{% endif %}{% endif %}
+
+{% endfor %}{% endfor %}{% else %}
+
+> Example Response
+
+```
+HTTP {{code}}
+```
+
+{% endif %}{% endfor %}{% endfor %}{% endfor %}{% for item in documentation %}{% if item.title == "extended-examples" %}
+
+# Extended Examples
+
+{{item.content}}{% endif %}{% if item.title == "searching" %}
+
+# Searching
+
+{{item.content}}{% endif %}{% if item.title == "pagination" %}
+
+# Pagination
+
+{{item.content}}{% endif %}{% if item.title == "errors" %}
+
+# Errors
+
+{{item.content}}{% endif %}{% endfor %}

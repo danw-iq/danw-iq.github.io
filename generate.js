@@ -32,6 +32,7 @@ var GENERATED_LINK_RESOURCES = [];                                  //Used for r
 
 //This contains a list of templates, every API that uses a custom template must have an entry here in the format: "FILENAME": { "template": "template/FILENAME.nunjucks"}
 var CUSTOM_TEMPLATES = {
+    "supplier-orders": { "template": "supplier-orders" },
     "shipping-options": { "template": "shipping-options" }, 
     "cmi": { "template": "soap" }, 
     "vmi": { "template": "soap" }, 
