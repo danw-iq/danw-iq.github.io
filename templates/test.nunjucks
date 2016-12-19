@@ -12,8 +12,6 @@ language_tabs:
 search: true
 ---
 
-{# {% extends linkrefs.html %} #}
-
 {% for item in documentation %}{% if item.title == "overview" %}
 # Overview
 
