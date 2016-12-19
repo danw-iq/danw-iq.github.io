@@ -1,0 +1,149 @@
+@charset "utf-8";
+@import 'normalize';
+@import 'variables';
+@import 'icon-font';
+@import 'default';
+
+///////////////////////////////////////////////////////////////////////////////
+// CONTENT
+// Used for styling main panel
+////////////////////////////////////////////////////////////////////////////////
+
+.content {
+ 
+  h1 {
+    padding-top: 100px;
+    padding-bottom: 0.5em;
+    margin-bottom: $h1-margin-bottom;
+    margin-top: -80px;
+  }
+
+  h2 {
+    margin-top: -80px;
+    margin-bottom: 0;
+    padding-top: 100px;
+    padding-bottom: 1.2em;
+  }
+
+  h3, h4, h5, h6 {
+    margin-top: 2.5em;
+    margin-bottom: 0.8em;
+  }   
+
+  &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
+    margin-right: $examples-width;
+  }  
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// API Reference
+////////////////////////////////////////////////////////////////////////////////
+// These are the styles for iQmetrix custom use
+
+tr>td:first-child {
+    width: 50%;
+    word-break: break-word;
+}
+
+.get{
+  font-size: 22px;
+  color: #2db200;
+}
+
+.post{
+  font-size: 22px;
+  color: #ec7209;
+}
+
+.put{
+  font-size: 22px;
+  color: #1e70dd;
+}
+
+.delete{
+  font-size: 22px;
+  color: #aa0011;
+}
+
+.get-toc{
+  color: #2db200;
+}
+
+.post-toc{
+  color: #ec7209;
+}
+
+.put-toc{
+  color: #1e70dd;
+}
+
+.delete-toc{
+  color: #aa0011;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// CODE SAMPLE STYLES
+////////////////////////////////////////////////////////////////////////////////
+// This is all the stuff that appears in the right half of the page
+
+.content {
+
+  pre, blockquote {
+    background-color: $code-bg;
+    color: #fff;
+
+    padding: 2em $main-padding;
+    margin: 0;
+    width: 44%; /*$examples-width;*/
+
+    float:right;
+    clear:right;
+
+    box-sizing: border-box;
+    /*text-shadow: 0px 1px 2px rgba(0,0,0,0.4);*/
+
+    @extend %right-col;
+
+    &>p { margin: 0; }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      border-bottom: dashed 1px #ccc;
+    }
+  }
+
+  pre {
+    @extend %code-font;
+    background-color: $pre-bg; /*#292929;*/ /*#212D42;*/
+    color: $pre-text; /*#fff;*/
+
+    margin: 0px 40px 0 40px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 10px;
+  }
+
+  blockquote {
+    &>p {
+      /*background-color: $code-annotation-bg;*/
+      /*border-radius: 5px;
+      padding: $code-annotation-padding;
+      color: #ccc;
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #404040;*/
+      padding-top: 1.8rem;
+    }
+  }
+
+  blockquote {
+    margin: 0 40px;
+    padding: 0px;
+    padding-left: 10px;
+    background-color: transparent;
+    font-size: 16px;
+  }
+}
+
