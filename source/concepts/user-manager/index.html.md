@@ -3,7 +3,7 @@ title: User Manager
 search: true
 ---
 
-## Overview
+# Overview
 
 This document outlines the following concepts:
 
@@ -11,7 +11,7 @@ This document outlines the following concepts:
 * Security Roles
 * Permissions
 
-## User Manager
+# User Manager
 
 User Manager allows you to:
 
@@ -25,15 +25,15 @@ User Manager allows you to:
 Changes to User Manager are coming soon
 </div>
 
-## Users
+# Users
 
 A User represents an account that can be used to perform actions on your data within iQmetrix APIs. 
 
-## Permissions
+# Permissions
 
 Permissions are the building blocks of Security Roles and represent the ability to perform an action within iQmetrix APIs. 
 
-### Users and Permissions
+## Users and Permissions
 
 Users never get Permissions directly. 
 
@@ -41,31 +41,31 @@ Instead, a User is assigned one or more Security Roles which contain Permissions
 
 The only way to revoke a User's access is to change a Security Role or remove a Permission from a Security Role.
 
-### Permissions are Atomic
+## Permissions are Atomic
 
 A Permission will never overrule another Permission.
 
 For example, the `readcustomerresources` (View Customers) Permission enables a User to retrieve a Customer and the `managecustomerresources` (Edit Customers) Permissions enables the user to update a customer. Both Permissions are required to perform both requests.
 
-### Permissions are Positive
+## Permissions are Positive
 
 Assigning a Permission to a Security Role always **grants** an action, never denies. 
 
 For example, you would never assign a "Cannot View Customers" Permission. Instead, you would unassign the `readcustomerresources` (View Customers) Permission.
 
-### Restricted Permissions
+## Restricted Permissions
 
 Some Permissions are intended for specific scenarios and are Restricted by iQmetix.
 
 If you require access to a Restricted Permission, contact <a href="mailto:apisupport@iqmetrix.com?subject=Support">Support</a>.
 
-## Security Roles
+# Security Roles
 
 A Security Role represents the relationship between a [User](#users) and a set of [Permissions](#permissions).
 
 Security Roles allow you to create custom Permission sets that define what [Users](#users) can do.
 
-### Stock Security Roles
+## Stock Security Roles
 
 All entities with [Users](#users) come with a set of stock Security Roles, generated for the convenience of administrators. These stock Security Roles have Permissions that represent the needs of the typical User.
 
@@ -77,7 +77,7 @@ All entities with [Users](#users) come with a set of stock Security Roles, gener
 
 You are free to modify stock Security Roles however you wish.
 
-### Users and Security Roles
+## Users and Security Roles
 
 [Users](#users) can be assigned a Security Role at any level in the [Catalog](http://developers.iqmetrix.com/concepts/company-tree/).
 
@@ -93,7 +93,7 @@ To accomplish the scenario above, we use the [Company Tree](/api/company-tree), 
 
 As Sam Smith does not have a specified Security Role with Edmonton, the Security Role is passed down or **inherited** from parent to child and Sam acquires a Regional Manager Security Role for Alberta and Edmonton.
 
-## Platform vs RQ
+# Platform vs RQ
 
 The equivalent of Users, Security Roles and Permissions in User Manager are listed in the below table,
 
@@ -105,7 +105,7 @@ The equivalent of Users, Security Roles and Permissions in User Manager are list
 
 To avoid confusion, Security Roles in RQ will be listed as "Security Roles (RQ)" and Security Roles in User Manager will be listed as "Security Roles (UM)".
 
-### Users vs Employees
+## Users vs Employees
 
 Users...
 
@@ -119,7 +119,7 @@ Employees...
 
 To learn more about Employees, see [Employees Console](https://support.iqmetrix.com/hc/en-us/articles/228695067-Employees-Console).
 
-### Security Roles (UM) vs Security Roles (RQ)
+## Security Roles (UM) vs Security Roles (RQ)
 
 Security Roles (UM)...
 
@@ -139,7 +139,7 @@ Security Roles (RQ)...
 
 To learn more about Security Roles (RQ), see [Security Role Setup](https://support.iqmetrix.com/hc/en-us/articles/228837967-Settings-Security-Roles-and-Descriptions).
 
-### Permissions vs Security Screens and Security Levels
+## Permissions vs Security Screens and Security Levels
 
 Permissions...
 

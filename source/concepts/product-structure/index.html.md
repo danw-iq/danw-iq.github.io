@@ -3,7 +3,7 @@ title:  Product Structure
 search: true
 ---
 
-## Overview
+# Overview
 
 This document outlines the following concepts:
 
@@ -12,7 +12,7 @@ This document outlines the following concepts:
 * Variations
 * Revisions
 
-## Product Structure
+# Product Structure
 
 In [Product Library](http://developers.iqmetrix.com/concepts/product-library/#product-library) and in your Catalog, products are structured in a way to make managing them easier.
 
@@ -20,14 +20,14 @@ In [Product Library](http://developers.iqmetrix.com/concepts/product-library/#pr
 
 This structure drives a standardized, consumer-friendly shopping experience by grouping like products together and aiding with detailed and comprehensive reporting for retailers. Master Products can be split into multiple Variations, which can then be further split into Revisions.
 
-## Master Products
+# Master Products
 
 The Master Product is the 'model' of the product. This will often be what is displayed to the consumer in channels such as eCommerce and in-store interactive software. There are two types of Master Products:
 
 * Saleable Master Products do not offer a customer a choice before they can buy a product, such as a designer necklace or charging cable
 * Non-saleable Master Products require a customer to choose options before they can buy a product, such as different colors or sizes
 
-## Variations
+# Variations
 
 Variations are saleable child products of a non-saleable Master Product. 
 
@@ -37,7 +37,7 @@ The image below represents how a Master Product “Comfy Sweater” has variatio
 
 <img class="popUpImage" src="http://developers.iqmetrix.com/images/nonwireless.png"/> 
 
-## Revisions
+# Revisions
 
 In the wireless industry, there is often an additional level of complexity, as a Carrier or Company may offer a different version of the product. These are referred to as Revisions.
 
@@ -56,7 +56,7 @@ The image below represents how a Master Product of an iPhone 6 has Variations fo
 
 <img class="popUpImage" src="http://developers.iqmetrix.com/images/wireless.png"/> 
 
-## Examples
+# Examples
 
 | Product | Master Product, Variation or Carrier Revision? | 
 |:-------------|:------------------------------------------|

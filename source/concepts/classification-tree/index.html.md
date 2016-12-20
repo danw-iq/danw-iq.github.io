@@ -3,7 +3,7 @@ title: Classification Tree
 search: true
 ---
 
-## Overview
+# Overview
 
 This document outlines the following concepts:
 
@@ -11,7 +11,7 @@ This document outlines the following concepts:
 * Classifications
 * Categories
 
-## Classification Trees
+# Classification Trees
 
 iQmetrix organizes retail (both saleable and not saleable) products in a hierarchal structure. The top level of this structure is the Classification Tree. Classification Trees are, in layman’s terms, Industries. Examples of Classification Trees could include Cellular and Accessories, Apparel and Accessories, or Automotive. 
 
@@ -23,7 +23,7 @@ See the figure below for a general concept of how products are organized.
 
 Currently, Classification Trees are managed by the iQmetrix Curation team. In the future, an API will be available to allow suppliers to manage their own Classification Tree structure.
 
-## Categories and Classifications
+# Categories and Classifications
 
 Classification Trees contain Classifications and Categories.
 
@@ -33,7 +33,7 @@ Classifications are used to group Products together by similar features and are 
 
 As a general rule, Products should always belong to a single Classification (e.g. Smartphone or Sweater). 
 
-## Examples
+# Examples
 
 Below are some examples of Classification Tree hierarchies. 
 
@@ -43,7 +43,7 @@ This example demonstrates a Cellular and Accessories tree, where the high-level 
 
 <img class="popUpImage" src="http://developers.iqmetrix.com/images/classification-tree-wireless.gif"/> 
 
-### Apparel and Accessories Tree
+## Apparel and Accessories Tree
 
 This example demonstrates an Apparel and Accessories tree, where the high-level Categories are for Clothing and Shoes, both of which are then broken down into Categories for Men and Women.
 
@@ -51,7 +51,7 @@ As you move down the tree, the Tops Category has Classifications for Tees, Shirt
 
 <img class="popUpImage" src="http://developers.iqmetrix.com/images/classification-tree-general.gif"/> 
 
-### Mapping Classification Tree to JSON
+## Mapping Classification Tree to JSON
 
 This example demonstrates mapping a Cellular and Accessories tree to its API implementation.
 

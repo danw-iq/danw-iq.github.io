@@ -3,7 +3,7 @@ title: Company Tree
 search: true
 ---
 
-## Overview
+# Overview
 
 This document outlines the following concepts:
 
@@ -17,7 +17,7 @@ This document outlines the following concepts:
     * Relationships
 * Inheritance
 
-## Company Tree 
+# Company Tree 
 
 A Company Tree is a representation of how a Company is structured and is used to: 
 
@@ -34,23 +34,23 @@ See the figure below for a general concept of how a Company Tree is structured.
 
 <img class="popUpImage" src="http://developers.iqmetrix.com/images/company-tree-node.png"/> 
 
-## Nodes
+# Nodes
 
 Nodes are the building blocks of a Company Tree and are used to represent the Company, Group, Division, Location or Devices in a Company Tree. 
 
 While Nodes may have multiple children, they can only have a single parent.
 
-### Company
+## Company
 
 The Root (top-most) Company Tree Node always represents the Company that owns the tree.
 
-### Divisions and Groups
+## Divisions and Groups
 
 Divisions and Groups serve as generic buckets you can use to organize a Company Tree.
 
 iQmetrix recommends using Divisions to represent **sub-brands** or **sub-companies** and Groups to represent **managerial** or **geographical** groupings.
 
-### Locations
+## Locations
 
 Locations represent physical and virtual presences that may hold inventory or process transactions, such as:
 
@@ -60,11 +60,11 @@ Locations represent physical and virtual presences that may hold inventory or pr
 * Distribution centers
 * Warehouses
 
-### Devices
+## Devices
 
 Devices include payment terminals and hardware appliances that run iQmetrix products such as XQ Shelf.
 
-### Relationships
+## Relationships
 
 Company Tree Nodes are connected by Relationships, which create the hierarchical nature of the Company Tree.
 
@@ -78,7 +78,7 @@ The following table summarizes the possible relationships that may exist between
 | Location | Device |
 | Device | None |
 
-## Company Tree and RQ
+# Company Tree and RQ
 
 A company structure in RQ is made up of company, channels, regions, districts, and locations. At minimum, the company, region, district and location level must be included to create a tree with a depth of 4. 
 
@@ -92,7 +92,7 @@ If an RQ company structure is imported into the Company Tree API, the following 
 | District | Group |
 | Location | Location |
 
-## Inheritance
+# Inheritance
 
 iQmetrix APIs use the hierarchical structure of a Company Tree to pass information "down" the Tree. This is called **inheritance**.
 
@@ -103,7 +103,7 @@ In the example above, we have priced an iPhone Case at the KENTEL Node for 8.99.
 
 However, Edmonton Mall does have a price set for 11.99 and does not inherit the price from its parent, Alberta.
 
-## Example
+# Example
 
 This example demonstrates the flexibility of a Company Tree as a company changes over time.
 
