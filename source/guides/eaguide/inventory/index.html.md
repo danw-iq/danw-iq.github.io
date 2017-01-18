@@ -108,9 +108,7 @@ Before you can create a sale price, you have get the Identifier for the Location
 
 We can use [Getting All Locations for a Company](/api/company-tree/#getting-all-locations-for-a-company) to look for a Location in Chicago called Atrium Mall.
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET https://entitymanagerdemo.iqmetrix.net/v1/Companies(14146)/Locations
@@ -118,9 +116,7 @@ Authorization: Bearer (Access Token)
 Accept: application/json
 ```
 
->
-> Example Response
->
+### Example Response
 
 From the response you can see the Location Id is `14239`.
 
@@ -205,9 +201,7 @@ HTTP 200 Content-Type: application/json
 
 To create a sale price, the Product must have an existing Pricing, which you can find using [Getting Product Pricing for a Retail Level](/api/pricing/#getting-product-pricing-for-a-retail-location), and the Identifiers from the previous two steps.
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Entities(14239)/CatalogItems(bb54cb25-e1df-4710-9e05-c2473192cc99)/Pricing
@@ -215,9 +209,7 @@ Authorization: Bearer (Access Token)
 Accept: application/json
 ```
 
->
-> Example Response
->
+### Example Response
 
 From this response you can determine the Pricing Pricing Identifier is `16446`. 
 
@@ -249,9 +241,7 @@ HTTP 200 Content-Type: application/json
 
 Now that you have a Pricing Pricing Identifier, you can put the Product on sale. For this example a one week period in January and a sale price of 29.99 will be used.
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16445)/SaleOverridePrices
@@ -266,9 +256,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 201 Content-Type: application/json
@@ -317,9 +305,7 @@ We can now update the Pricing using [Creating or Updating Product Pricing at Loc
 
 Note that the `CompanyId` and `EntityId` are **different values**.
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Entities(14239)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing
@@ -338,9 +324,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 201 Content-Type: application/json
@@ -382,9 +366,7 @@ We can now update the Pricing using [Creating or Updating Product Pricing at Com
 
 Note that the `CompanyId` and `EntityId` are the **same value**.
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing
@@ -403,9 +385,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 201 Content-Type: application/json
@@ -456,9 +436,7 @@ From the response, you can see the `Id` of Atrium Mall is `14239`.
 
 Finally, you can update availability using [Configuring Availability](/api/availability/#configuring-availability) and the Identifiers from the previous steps.
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://availabilitydemo.iqmetrix.net/v1/Companies(14146)/CatalogItems
@@ -474,9 +452,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 201 Content-Type: application/json

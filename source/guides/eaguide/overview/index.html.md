@@ -56,9 +56,7 @@ See the table below for different ways of getting an Access Token.
 
 The token is placed in the `Authorization` header of requests to iQmetrix APIs, prefixed by the word `Bearer`.
 
->
-> Example
->
+##### Example
 
 ```
 Authorization: Bearer (Access Token)

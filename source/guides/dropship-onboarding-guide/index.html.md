@@ -72,9 +72,7 @@ The Postman environment shared by all API references and guides can be found <a 
 
 ## Step 1 - Authentication
 
->
-> Example Request
->
+##### Example Request
 
 ```
 Authorization: Bearer (Access Token)
@@ -105,16 +103,12 @@ Each product that has been curated will be <strong>removed from the feed</strong
 
 ## 2.1 Get Classification Tree by ID
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET https://productlibrarydemo.iqmetrix.net/v1/ClassificationTrees(1)
 ```
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: application/json
@@ -165,17 +159,13 @@ To get a list of Classifications based on your provided Classification Tree ID, 
 ## 2.2 Get All Field Definitions
 
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET https://productlibrarydemo.iqmetrix.net/v1/FieldDefinitions
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: application/json
@@ -310,9 +300,7 @@ To add a Product to your Product Feed, the API request requires the field defini
 
 ### 2.3 Add a Product
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://productlibrarydemo.iqmetrix.net/v1/ProductFeeds(34)/Products 
@@ -378,9 +366,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 OK Content-Type: application/json
@@ -451,9 +437,7 @@ The table below shows results from actual entries versus the expected entry.
 ### Optional: Remove/Update a Product
 
 
->
-> Example Request
->
+##### Example Request
 
 ```
 DELETE https://productlibrarydemo.iqmetrix.net/v1/ProductFeeds(34)/Products(17)
@@ -461,9 +445,7 @@ Authorization: Bearer (Access Token)
 Accept: application/json
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 204 No Content
@@ -516,9 +498,7 @@ The following morning, subscribed retailers now have 9 products.
 
 <div class='bs-callout alert-info'>The new product list in the payload replaces the old product list. Any matching old products (determined by Vendor SKU) will have their slug and version data copied over into the new products.</div>
 
->
-> Example Request
->
+##### Example Request
 
 ```
 PUT https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(2c7dccd9-49ba-42ac-bffb-edcc08f40773)
@@ -541,9 +521,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 OK Content-Type: application/json
@@ -583,9 +561,7 @@ To add products, see [Updating Products in a Subscribable List](/api/product-sub
 
 ### 3.2 Get Your Company IDs
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET https://productsubscriptionsdemo.iqmetrix.net/v1/subscribablelists(2c7dccd9-49ba-42ac-bffb-edcc08f40773)
@@ -593,9 +569,7 @@ Authorization: Bearer (Access Token)
 Accept: application/json
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 OK Content-Type: application/json
@@ -629,9 +603,7 @@ The [Supplier Availability](/api/supplier-availability) provides iQmetrix with a
 
 ### 4.1 Configure Availability
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://dropshipsdemo.iqmetrix.net/v1/Suppliers(60455)/Availability
@@ -651,9 +623,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 OK Content-Type: application/json
@@ -686,9 +656,7 @@ The [Cost Feed](/api/cost-feed) allows you to continually provide wholesale cost
 
 ### 5.1 Add Product Cost
 
->
-> Example Request
->
+##### Example Request
 
 
 ```
@@ -713,9 +681,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 202 Accepted Content-Type: application/json
@@ -749,9 +715,7 @@ Once an order has been created, shipping options will be requested via the SACCS
 
 <div class='bs-callout alert-info'>The <strong>SACCS service</strong> is a shipping options arbitrator between end customer products (e.g. RQ) and iQmetrix services. The SACCS service will first call out the Supplier Availability service to determine whether or not the products are available, and pass this information to the Shipping service. Then the Shipping service will request shipping options via your API and includes the shipping address' postal code.</div>
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST /ShippingOptions HTTP/1.1
@@ -772,9 +736,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 OK Content-Type: application/json

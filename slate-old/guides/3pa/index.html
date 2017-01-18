@@ -1,5 +1,3 @@
-<!doctype html>
-<html>
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
@@ -88,7 +86,7 @@
   color: #90a959;
 }*/
     </style>
-    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/two_column.css" rel="stylesheet" media="screen" />
     <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="../../javascripts/all.js"></script>
   </head>
@@ -123,7 +121,6 @@
       <h1>API Documentation</h1>
       <p>In depth reference documentation for iQmetrix API's.</p>
     </div>
-
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -142,7 +139,6 @@
       </div>
     </div>
     <div class="page-wrapper">
-      <div class="dark-box"></div>
       <div class="content">
         <h1 id="overview">Overview</h1>
 
@@ -188,7 +184,7 @@ An <strong>Identity Provider (IdP)</strong> is responsible for providing identif
 One popular example of SSO is the &ldquo;Log In With Facebook&rdquo; button used by many websites to allow users access to a website without creating an account.
 </div>
 
-<h5 id="example">Example</h5>
+<h3 id="example">Example</h3>
 
 <p>Sarah&rsquo;s Company uses RQ with Third Party Authentication enabled using Microsoft Active Directory Federation Services (ADFS) for authentication.</p>
 
@@ -204,7 +200,7 @@ One popular example of SSO is the &ldquo;Log In With Facebook&rdquo; button used
 
 <p><strong>Figure 1</strong>: Third Party Authentication Flow</p>
 
-<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/3PAflow.png" alt="Authentication Flow" /></p>
+<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/3PAflow.png" alt="Authentication Flow" style="width:60%" /></p>
 
 <ol>
 <li>A user from your organization enters their credentials into an iQmetrix product, such as RQ</li>
@@ -234,7 +230,7 @@ One popular example of SSO is the &ldquo;Log In With Facebook&rdquo; button used
 <li>An account within the Identity Provider created for RQ support personnel</li>
 </ul>
 
-<h5 id="example">Example</h5>
+<h3 id="example">Example</h3>
 
 <p>ADFS would require an ADFS Web Application Proxy with iQmetrix added as a Relaying Party Trust.</p>
 
@@ -287,7 +283,7 @@ One popular example of SSO is the &ldquo;Log In With Facebook&rdquo; button used
 
 <p><strong>Email addresses</strong> are an excellent alternative to domain user names.</p>
 
-<h5 id="example">Example</h5>
+<h3 id="example">Example</h3>
 
 <p>A user &ldquo;john.smith@yvr.kentel.local&rdquo; could be mapped to &ldquo;john.smith@kentel.com&rdquo;. </p>
 
@@ -301,7 +297,7 @@ One popular example of SSO is the &ldquo;Log In With Facebook&rdquo; button used
 
 <p>It is your responsibility to setup and configure your Identity Provider. </p>
 
-<h5 id="example">Example</h5>
+<h3 id="example">Example</h3>
 
 <p>Using ADFS, you may find the following setup guides useful.</p>
 
@@ -334,9 +330,7 @@ One popular example of SSO is the &ldquo;Log In With Facebook&rdquo; button used
 
 <h2 id="testing">Testing</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://adfs.retaillabs.io/adfs/services/trust/13/UsernameMixed
 Content-Type: application/soap+xml
 Content-Length: 2255
@@ -344,8 +338,7 @@ Expect: 100-continue
 Accept-Encoding: gzip, deflate
 Connection: Keep-Alive
 </code></pre>
-<pre class="highlight xml"><code>
-<span class="nt">&lt;s:Envelope</span> <span class="na">xmlns:s=</span><span class="s">"http://www.w3.org/2003/05/soap-envelope"</span> <span class="na">xmlns:a=</span><span class="s">"http://www.w3.org/2005/08/addressing"</span> <span class="na">xmlns:u=</span><span class="s">"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"</span><span class="nt">&gt;</span>
+<pre class="highlight xml"><code><span class="nt">&lt;s:Envelope</span> <span class="na">xmlns:s=</span><span class="s">"http://www.w3.org/2003/05/soap-envelope"</span> <span class="na">xmlns:a=</span><span class="s">"http://www.w3.org/2005/08/addressing"</span> <span class="na">xmlns:u=</span><span class="s">"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;s:Header&gt;</span>
         <span class="nt">&lt;a:Action</span> <span class="na">s:mustUnderstand=</span><span class="s">"1"</span><span class="nt">&gt;</span>http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/Issue<span class="nt">&lt;/a:Action&gt;</span>
         <span class="nt">&lt;a:MessageID&gt;</span>urn:uuid:2be726b3-e368-4a10-88f3-fd0312c9edc5<span class="nt">&lt;/a:MessageID&gt;</span>
@@ -385,13 +378,10 @@ Connection: Keep-Alive
 <span class="nt">&lt;/s:Envelope&gt;</span>
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h5 id="example-response">Example Response</h5>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/soap+xml
 </code></pre>
-<pre class="highlight xml"><code>
-<span class="nt">&lt;s:Envelope</span> <span class="na">xmlns:s=</span><span class="s">"http://www.w3.org/2003/05/soap-envelope"</span> <span class="na">xmlns:a=</span><span class="s">"http://www.w3.org/2005/08/addressing"</span> <span class="na">xmlns:u=</span><span class="s">"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"</span><span class="nt">&gt;</span>
+<pre class="highlight xml"><code><span class="nt">&lt;s:Envelope</span> <span class="na">xmlns:s=</span><span class="s">"http://www.w3.org/2003/05/soap-envelope"</span> <span class="na">xmlns:a=</span><span class="s">"http://www.w3.org/2005/08/addressing"</span> <span class="na">xmlns:u=</span><span class="s">"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;s:Header&gt;</span>
         <span class="nt">&lt;a:Action</span> <span class="na">s:mustUnderstand=</span><span class="s">"1"</span><span class="nt">&gt;</span>http://docs.oasis-open.org/ws-sx/ws-trust/200512/RSTRC/IssueFinal<span class="nt">&lt;/a:Action&gt;</span>
         <span class="nt">&lt;a:RelatesTo&gt;</span>urn:uuid:2be726b3-e368-4a10-88f3-fd0312c9edc5<span class="nt">&lt;/a:RelatesTo&gt;</span>
@@ -529,7 +519,7 @@ Connection: Keep-Alive
 
 <p>For troubleshooting errors and problems, see <a href="/faq/3pa/">Automated Provisioning FAQ</a>.</p>
 
-<h5 id="example">Example</h5>
+<h3 id="example">Example</h3>
 
 <p>Sarah&rsquo;s Company uses RQ with Third Party Authentication and Auto Provisioning enabled using ADFS for authentication.</p>
 
@@ -707,10 +697,5 @@ Before adding additional fields, discuss your requirements with your Account Man
 <p><img class="popUpImage" src="http://developers.iqmetrix.com/images/3pa/rq-view.png" alt="Custom Employee Attributes in RQ" style="border: 1px solid grey" /></p>
 
       </div>
-      <div class="dark-box">
-          <div class="lang-selector">
-          </div>
-      </div>
     </div>
   </body>
-</html>

@@ -43,8 +43,7 @@ An <strong>Identity Provider (IdP)</strong> is responsible for providing identif
 One popular example of SSO is the "Log In With Facebook" button used by many websites to allow users access to a website without creating an account.
 </div>
 
-##### Example
-
+### Example
 
 Sarah's Company uses RQ with Third Party Authentication enabled using Microsoft Active Directory Federation Services (ADFS) for authentication.
 
@@ -60,7 +59,7 @@ If ADFS does not confirm, it tells RQ not to allow Sarah access and an error is 
 
 **Figure 1**: Third Party Authentication Flow
 
-<img class="popUpImage" src="http://developers.iqmetrix.com/images/3PAflow.png" alt="Authentication Flow" />
+<img class="popUpImage" src="http://developers.iqmetrix.com/images/3PAflow.png" alt="Authentication Flow" style="width:60%" />
 
 1. A user from your organization enters their credentials into an iQmetrix product, such as RQ
 2. The application sends a request to iQmetrix's Single Sign On (SSO) service
@@ -84,7 +83,7 @@ Your Account Manager will need the following information to configure Third Part
 * URL of your Identity Provider
 * An account within the Identity Provider created for RQ support personnel
 
-##### Example
+### Example
 
 ADFS would require an ADFS Web Application Proxy with iQmetrix added as a Relaying Party Trust.
 
@@ -135,9 +134,7 @@ We strongly recommend you create publicly-accessible domains and map your users 
 
 **Email addresses** are an excellent alternative to domain user names.
 
-
-##### Example
-
+### Example
 
 A user "john.smith@yvr.kentel.local" could be mapped to "john.smith@kentel.com". 
 
@@ -151,9 +148,7 @@ It is your organization's responsibility to ensure your Identity Provider is hig
 
 It is your responsibility to setup and configure your Identity Provider. 
 
-
-##### Example
-
+### Example
 
 Using ADFS, you may find the following setup guides useful.
 
@@ -170,9 +165,9 @@ In adding a non-claims aware relaying party trust the retailer should use the fo
 
 ## Testing
 
->
-> Example Request
->
+
+##### Example Request
+
 
 ```
 POST https://adfs.retaillabs.io/adfs/services/trust/13/UsernameMixed
@@ -182,8 +177,8 @@ Expect: 100-continue
 Accept-Encoding: gzip, deflate
 Connection: Keep-Alive
 ```
-```xml
 
+```xml
 <s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
     <s:Header>
         <a:Action s:mustUnderstand="1">http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/Issue</a:Action>
@@ -223,16 +218,13 @@ Connection: Keep-Alive
     </s:Body>
 </s:Envelope>
 ```
-
-> 
-> Example Response
-> 
+ 
+##### Example Response
 
 ```
 HTTP 200 Content-Type: application/soap+xml
 ```
 ```xml
-
 <s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
     <s:Header>
         <a:Action s:mustUnderstand="1">http://docs.oasis-open.org/ws-sx/ws-trust/200512/RSTRC/IssueFinal</a:Action>
@@ -352,10 +344,8 @@ When combined with 3PA, Automated Provisioning allows you to manage users in iQm
 
 For troubleshooting errors and problems, see [Automated Provisioning FAQ](/faq/3pa/).
 
-
-##### Example
+### Example
  
-
 Sarah's Company uses RQ with Third Party Authentication and Auto Provisioning enabled using ADFS for authentication.
 
 Sarah gets a promotion and is given a manager security role within ADFS.

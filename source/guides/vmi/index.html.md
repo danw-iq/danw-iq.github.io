@@ -98,9 +98,7 @@ If the company is included in the response, record the `CompanyID` and skip ahea
 
 Otherwise, the company may need to be enabled. Continue to [Step 3 - Get Pending Companies](#step-3---get-pending-companies).
 
->
-> Example Request
->
+##### Example Request
     
 ```
 POST https://vmirc.iqmetrix.net/VMIService.asmx/?op=GetCompanyList
@@ -121,9 +119,7 @@ Content-Type: text/xml
 </soap:Envelope>
 ```
 
->
-> Code Example Request
->
+### Code Example Request
 
 ```java
 VMIServiceSoapClient vmiService = new VMIServiceSoapClient();
@@ -135,9 +131,7 @@ vendor.Password = "samplepassword";
 CompanyInformation[] companies = vmiService.GetCompanyList(vendor);
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: text/xml
@@ -168,9 +162,7 @@ From the response the CompanyID value <code>c46ccb4d-2d44-4289-950a-b9cb51d58ac4
 
 For a list of pending companies use the request <a href='/api/vmi/#getting-pending-companies'>Getting Pending Companies</a>.
 
->
-> Example Request
->
+##### Example Request
     
 ```
 POST https://vmirc.iqmetrix.net/VMIService.asmx/?op=GetCompanyList
@@ -191,9 +183,7 @@ Content-Type: text/xml
 </soap:Envelope>
 ```
 
->
-> Code Example Request
->
+### Code Example Request
 
 ```java
 VMIServiceSoapClient vmiService = new VMIServiceSoapClient();
@@ -205,9 +195,7 @@ vendor.Password = "samplepassword";
 CompanyInformation[] companies = vmiService.GetPendingCompanies(vendor);
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: text/xml
@@ -240,9 +228,7 @@ For this example the Cornwall West store will be enabled using the following par
 
 * ClientID value `c46ccb4d-2d44-4289-950a-b9cb51d58ac4` from [Step 3](#step-3---get-pending-companies)
 
->
-> Example Request
->
+##### Example Request
     
 ```
 POST https://vmirc.iqmetrix.net/VMIService.asmx/?op=EnableCompany
@@ -267,9 +253,7 @@ Content-Type: text/xml
 </soap:Envelope>
 ```
 
->
-> Code Example Request
->
+### Code Example Request
 
 ```java
 VMIServiceSoapClient vmiService = new VMIServiceSoapClient();
@@ -283,9 +267,7 @@ vendor.Client.ClientID = new Guid(c46ccb4d-2d44-4289-950a-b9cb51d58ac4);
 vmiService.EnableCompany(vendor, true); //True to enable, false to disable
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: text/xml
@@ -309,9 +291,7 @@ For this example following parameters will be used:
 
 * ClientID value `c46ccb4d-2d44-4289-950a-b9cb51d58ac4` from [Step 2](#step-2---get-list-of-companies)
 
->
-> Example Request
->
+##### Example Request
     
 ```
 POST https://vmirc.iqmetrix.net/VMIService.asmx/?op=GetStoreList
@@ -335,9 +315,7 @@ Content-Type: text/xml
 </soap:Envelope>
 ```
 
->
-> Code Example Request
->
+### Code Example Request
 
 ```java
 VMIServiceSoapClient vmiService = new VMIServiceSoapClient();
@@ -351,9 +329,7 @@ vendor.Client.ClientID = new Guid(c46ccb4d-2d44-4289-950a-b9cb51d58ac4);
 StoreInformation[] stores = vmiService.GetStoreList(vendor);
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: text/xml
@@ -400,9 +376,7 @@ For this example the ID of the region with the name "First Region" will be deter
 
 * ClientID value `c46ccb4d-2d44-4289-950a-b9cb51d58ac4` from [Step 2](#step-2---get-list-of-companies)
 
->
-> Example Request
->
+##### Example Request
     
 ```
 POST https://vmirc.iqmetrix.net/VMIService.asmx/?op=GetHierarchyInfo
@@ -426,9 +400,7 @@ Content-Type: text/xml
 </soap:Envelope>
 ```
 
->
-> Code Example Request
->
+### Code Example Request
 
 ```java
 VMIServiceSoapClient vmiService = new VMIServiceSoapClient();
@@ -442,9 +414,7 @@ vendor.Client.ClientID = new Guid(c46ccb4d-2d44-4289-950a-b9cb51d58ac4);
 ProductInformation[] products = vmiService.GetHierarchyInfo(vendor);
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: text/xml
@@ -523,9 +493,7 @@ For this example the **Inventory Listing Report** will be run for the "Chicago -
 * ClientID value `c46ccb4d-2d44-4289-950a-b9cb51d58ac4` from [Step 2](#step-2---get-list-of-companiest)
 * StoreID value `2` from [Step 5](#step-5---get-a-store-list)
 
->
-> Example Request
->
+##### Example Request
     
 ```
 POST https://vmirc.iqmetrix.net/VMIService.asmx/?op=GetInventoryReport
@@ -551,9 +519,7 @@ Content-Type: text/xml
 </soap:Envelope>
 ```
 
->
-> Code Example Request
->
+### Code Example Request
 
 ```java
 VMIServiceSoapClient vmiService = new VMIServiceSoapClient();
@@ -567,9 +533,7 @@ vendor.Client.ClientID = new Guid(c46ccb4d-2d44-4289-950a-b9cb51d58ac4);
 ProductInformation[] products = vmiService.GetInventoryListingReport(vendor, 2);
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: text/xml
@@ -643,9 +607,7 @@ For this example the Inventory List will be run for the Chicago - Halsted store 
 
 * ClientID value `c46ccb4d-2d44-4289-950a-b9cb51d58ac4` from [Step 2](#step-2---get-list-of-companiest)
 
->
-> Example Request
->
+##### Example Request
     
 ```
 POST https://vmirc.iqmetrix.net/VMIService.asmx/?op=GetInventoryList
@@ -669,9 +631,7 @@ Content-Type: text/xml
 </soap:Envelope>
 ```
 
->
-> Code Example Request
->
+### Code Example Request
 
 ```java
 VMIServiceSoapClient vmiService = new VMIServiceSoapClient();
@@ -685,9 +645,7 @@ vendor.Client.ClientID = new Guid(c46ccb4d-2d44-4289-950a-b9cb51d58ac4);
 ProductInformation[] products = vmiService.GetInventoryList(vendor);
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: text/xml
@@ -759,9 +717,7 @@ When created, the Purchase Order will appear in the Inventory section of RQ.
 
 <img class="popUpImage" title="Purchase Order in RQ" src="http://developers.iqmetrix.com/images/vmi/receipt.png"/> 
 
->
-> Example Request
->
+##### Example Request
     
 ```
 POST https://vmirc.iqmetrix.net/VMIService.asmx/?op=CreatePurchaseOrder
@@ -800,9 +756,7 @@ Content-Type: text/xml
 </soap:Envelope>
 ```
 
->
-> Code Example Request
->
+### Code Example Request
 
 ```java
 VMIServiceSoapClient vmiService = new VMIServiceSoapClient();
@@ -832,9 +786,7 @@ po.ProductsOrdered[0].QuantityOrdered = 2;
 PurchaseOrder poCreated = vmiService.CreatePurchaseOrder(vendor, po);
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: text/xml
@@ -923,9 +875,7 @@ For this example the Purchase Order Shipment Notice will have the following prop
 * VendorSKU value `SSGS5CB` from [Step 7](#step-7---run-a-report)
 * Unique vendor invoice number `123456789`
 
->
-> Example Request
->
+##### Example Request
     
 ```
 POST https://vmirc.iqmetrix.net/VMIService.asmx/?op=CreatePurchaseOrderShipmentNotice
@@ -958,9 +908,7 @@ Content-Type: text/xml
 </soap:Envelope>
 ```
 
->
-> Code Example Request
->
+### Code Example Request
 
 ```
 VMIServiceSoapClient vmiService = new VMIServiceSoapClient();
@@ -981,9 +929,7 @@ sn.Quantity = 2;
 PurchaseOrderShipmentNotice snReturn = vmiService.CreatePurchaseOrderShipmentNotice(vendor, new[] { sn });
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: text/xml

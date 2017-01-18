@@ -1,5 +1,3 @@
-<!doctype html>
-<html>
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
@@ -88,7 +86,7 @@
   color: #90a959;
 }*/
     </style>
-    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/two_column.css" rel="stylesheet" media="screen" />
     <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="../../javascripts/all.js"></script>
   </head>
@@ -123,7 +121,6 @@
       <h1>API Documentation</h1>
       <p>In depth reference documentation for iQmetrix API's.</p>
     </div>
-
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -142,7 +139,6 @@
       </div>
     </div>
     <div class="page-wrapper">
-      <div class="dark-box"></div>
       <div class="content">
         <h1 id="overview">Overview</h1>
 
@@ -196,7 +192,7 @@
 If the above steps are not complete or you are not sure, contact <a href="mailto:apisupport@iqmetrix.com?subject=Support">Support</a>.
 </div></p>
 
-<h1 id="before-you-begin">Before You Begin</h1>
+<h2 id="before-you-begin">Before You Begin</h2>
 
 <p>Before you can create an Order, you will need to know:</p>
 
@@ -210,9 +206,7 @@ If the above steps are not complete or you are not sure, contact <a href="mailto
 
 <h2 id="step-1-authenticating">Step 1 - Authenticating</h2>
 
-<blockquote>
-<p>Example</p>
-</blockquote>
+<h5 id="example">Example</h5>
 <pre class="highlight plaintext"><code>Authorization: Bearer (Access Token)
 </code></pre>
 
@@ -240,9 +234,7 @@ If the above steps are not complete or you are not sure, contact <a href="mailto
 
 <h2 id="step-2-finding-or-creating-a-location">Step 2 - Finding or Creating a Location</h2>
 
-<blockquote>
-<p>Example</p>
-</blockquote>
+<h5 id="example">Example</h5>
 <pre class="highlight plaintext"><code>"EntityId": 14192
 </code></pre>
 
@@ -270,9 +262,7 @@ If the above steps are not complete or you are not sure, contact <a href="mailto
 
 <h2 id="step-3-finding-or-creating-a-customer">Step 3 - Finding or Creating a Customer</h2>
 
-<blockquote>
-<p>Example</p>
-</blockquote>
+<h5 id="example">Example</h5>
 <pre class="highlight plaintext"><code>"BillingCustomerId": "659c2a38-d083-4421-9330-46d779702f85"
 </code></pre>
 
@@ -302,9 +292,7 @@ If the above steps are not complete or you are not sure, contact <a href="mailto
 
 <h2 id="recommended-step-4-finding-or-creating-a-billing-address">(Recommended) Step 4 - Finding or Creating a Billing Address</h2>
 
-<blockquote>
-<p>Example</p>
-</blockquote>
+<h5 id="example">Example</h5>
 <pre class="highlight plaintext"><code>"BillingAddressId": "a08b0640-606a-41f0-901a-facaf50e75dd"
 </code></pre>
 
@@ -334,9 +322,7 @@ If the above steps are not complete or you are not sure, contact <a href="mailto
 
 <h2 id="step-5-setting-the-order-type">Step 5 - Setting the Order Type</h2>
 
-<blockquote>
-<p>Example</p>
-</blockquote>
+<h5 id="example">Example</h5>
 <pre class="highlight plaintext"><code>"OrderTypeId": 1
 </code></pre>
 
@@ -346,9 +332,7 @@ If the above steps are not complete or you are not sure, contact <a href="mailto
 
 <h2 id="optional-step-6-adding-optional-order-properties">(Optional) Step 6 - Adding Optional Order Properties</h2>
 
-<blockquote>
-<p>Example</p>
-</blockquote>
+<h5 id="example">Example</h5>
 <pre class="highlight plaintext"><code>"Name": "Interactive Display Order 331", 
 "DiscountAmount": 15.0,
 "DiscountCode": "MTRY-15",
@@ -368,9 +352,7 @@ If the above steps are not complete or you are not sure, contact <a href="mailto
 
 <h2 id="step-7-getting-a-catalog-item">Step 7 - Getting a Catalog Item</h2>
 
-<blockquote>
-<p>Example</p>
-</blockquote>
+<h5 id="example">Example</h5>
 <pre class="highlight plaintext"><code>"ProductId": "a183f1a9-c58f-426a-930a-9a6357db52ed"
 </code></pre>
 
@@ -380,9 +362,7 @@ If the above steps are not complete or you are not sure, contact <a href="mailto
 
 <p>For an in-store order, we will use the <code class="prettyprint">InStock</code> ItemType which has a value of <code class="prettyprint">2</code>.</p>
 
-<blockquote>
-<p>Example</p>
-</blockquote>
+<h5 id="example">Example</h5>
 <pre class="highlight plaintext"><code>"ItemTypeId": 2
 </code></pre>
 
@@ -412,9 +392,7 @@ If the above steps are not complete or you are not sure, contact <a href="mailto
 
 <h2 id="step-9-setting-the-item-status">Step 9 - Setting the Item Status</h2>
 
-<blockquote>
-<p>Example</p>
-</blockquote>
+<h5 id="example">Example</h5>
 <pre class="highlight plaintext"><code>"ItemStatusId": 9
 </code></pre>
 
@@ -430,9 +408,7 @@ If the above steps are not complete or you are not sure, contact <a href="mailto
 <li><code class="prettyprint">SerialNumbers</code> - Product serial numbers</li>
 </ul>
 
-<blockquote>
-<p>Example</p>
-</blockquote>
+<h5 id="example">Example</h5>
 <pre class="highlight plaintext"><code>"Description": "LG G3 phone case",
 "Index": 1,
 "Notes": "",
@@ -448,9 +424,7 @@ If the above steps are not complete or you are not sure, contact <a href="mailto
 
 <h2 id="step-11-creating-the-order">Step 11 - Creating the Order</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST /Companies(14146)/OrderFull
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -480,9 +454,7 @@ Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 
 <p>Note that some fields are omitted from the response as they are not relevant to this guide.</p>
 <pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
@@ -537,10 +509,5 @@ Content-Type: application/json
 <p>If you encouter any errors while following this guide, see <a href="http://developers.iqmetrix.com/api/orders/#errors">Order Errors</a></p>
 
       </div>
-      <div class="dark-box">
-          <div class="lang-selector">
-          </div>
-      </div>
     </div>
   </body>
-</html>

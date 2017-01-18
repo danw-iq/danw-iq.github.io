@@ -12,8 +12,6 @@ language_tabs:
 search: true
 ---
 
-{# {% extends linkrefs.html %} #}
-
 {% for item in documentation %}{% if item.title == "overview" %}
 # Overview
 
@@ -58,6 +56,15 @@ search: true
 {{method.method | upper }} {{resource.relativeUri}}
 ```
 
+{% if method.body["application/x-www-form-urlencoded"] %}
+
+> Example Request
+
+```shell
+curl -X {{ method.method | upper }} "{{ baseUri | replace("{UrlSuffix}", "demo") }}{{ resource.relativeUri | replaceWithExamples(resource.uriParameters) }}"{% if method.headers %}{% for header, headerObj in method.headers %} -H "{{header}}: {{headerObj.example}}"{% endfor %}{% endif %}{% if method.body["application/x-www-form-urlencoded"].formParameters %} -d {% for formParamName, formParamObj in method.body["application/x-www-form-urlencoded"].formParameters %}{{formParamName}}={{formParamObj.example}}&{% endfor %}{% endif %}
+```
+
+{% else %}
 > Example Request
 
 ```javascript
@@ -122,6 +129,8 @@ puts response
 <ul>{% for parameter, objParameter in resource.uriParameters %}
     <li><code>{{parameter}}</code> ({% if objParameter.required %}<strong>Required</strong>{% else %}Optional{% endif %}) {% if objParameter.description %} - {{objParameter.description}}{% endif %}</li>{% endfor %}
 </ul>{% endif %}
+
+{% endif %}
 
 {% if method.body["application/json"].schema %}
 

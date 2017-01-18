@@ -15,7 +15,7 @@ The CMI API allows companies to create purchase orders for their own RQ database
 
 **Figure 1:** CMI flow
 
-<img class="popUpImage" title="Purchase Order in RQ" src="http://developers.iqmetrix.com/images/vmi/cmi-flow.png"/> 
+<img class="popUpImage" title="Purchase Order in RQ" src="http://developers.iqmetrix.com/images/vmi/cmi-flow.png" style="width:50%"/> 
 
 ## Who Is This Guide For?
 
@@ -81,9 +81,7 @@ Please contact <a href ="mailto:apisupport@iqmetrix.com?subject=CMI Credentials"
 ## Step 2 - Get Store List
 
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://vmidemo.iqmetrix.net/VMIClientService.asmx/?op=GetStoreList
@@ -104,9 +102,7 @@ Content-Type: text/xml
 </soap:Envelope>
 ```
 
->
-> Code Example Request
->
+##### Code Example Request
 
 ```java
 CmiServiceSoapClient cmiService = new CMIServiceSoapClient();
@@ -118,9 +114,7 @@ client.Password = "samplepassword";
 StoreInformation[] stores = cmiService.GetStoreList(client);
 ```
 
->
-> Example Response
->
+#### Example Response
 
 ```
 HTTP 200 Content-Type: text/xml
@@ -164,9 +158,7 @@ From the response the StoreID value <code>36</code> will be used in the followin
 ## Step 3 - Run a Report
 
 
->
-> Example Request
->
+#### Example Request
     
 ```
 POST https://vmirc.iqmetrix.net/VMIClientService.asmx/?op=GetProductSalesReport
@@ -191,9 +183,7 @@ Content-Type: text/xml
 </soap:Envelope>
 ```
 
->
-> Code Example Request
->
+##### Code Example Request
 
 ```java
 CmiServiceSoapClient cmiService = new CMIServiceSoapClient();
@@ -206,9 +196,7 @@ client.StoreID = 36;
 ProductSalesReportData[] productReport = cmiService.GetProductSalesReport(client, "01/01/2016", "01/30/2016", 36);
 ```
 
->
-> Example Response
->
+##### Example Response
 
 ```
 HTTP 200 Content-Type: text/xml
@@ -261,9 +249,7 @@ From the response the VendorSKU value <code>WMGCMSSL12</code> will be used in th
 
 ## (Optional) Step 4 - Get Inventory Information
 
->
-> Example Request
->
+##### Example Request
     
 ```
 POST https://vmirc.iqmetrix.net/VMIClientService.asmx/?op=GetReceivingInfo
@@ -287,9 +273,7 @@ Content-Type: text/xml
 </soap:Envelope>
 ```
 
->
-> Code Example Request
->
+##### Code Example Request
 
 ```java
 CmiServiceSoapClient cmiService = new CMIServiceSoapClient();
@@ -301,9 +285,7 @@ client.Password = "samplepassword";
 ReceivingInfo[] received = cmiService.GetReceivingInfo(client, "01/01/2016", "01/30/2016");
 ```
 
->
-> Example Response
->
+##### Example Response
 
 ```
 HTTP 200 Content-Type: text/xml
@@ -339,9 +321,7 @@ If the report did not provide enough information to decide which products to rep
 
 ## Step 5 - Create a Purchase Order
 
->
-> Example Request
->
+##### Example Request
     
 ```
 POST https://vmidemo.iqmetrix.net/VMIClientService.asmx/?op=CreatePurchaseOrderShipmentNotice
@@ -378,9 +358,7 @@ Content-Type: text/xml
 </soap:Envelope>
 ```
 
->
-> Code Example Request
->
+##### Code Example Request
 
 ```java
 CmiServiceSoapClient cmiService = new CMIServiceSoapClient();
@@ -408,9 +386,7 @@ po.ProductsOrdered[0].QuantityOrdered = 1;
 PurchaseOrder poCreated = cmiService.CreatePurchaseOrder(vendor, po);
 ```
 
->
-> Example Response
->
+##### Example Response
 
 ```
 HTTP 200 Content-Type: text/xml
@@ -502,9 +478,7 @@ From the response the PurchaseOrderID value <code>28890f70-6fc9-4a9b-9458-410a8d
 
 <h2>(Optional) Step 6 - Create a Purchase Order Shipment Notice</h2>
 
->
-> Example Request
->
+##### Example Request
     
 ```
 POST https://vmidemo.iqmetrix.net/VMIClientService.asmx/?op=CreatePurchaseOrderShipmentNotice
@@ -536,9 +510,7 @@ Content-Type: text/xml
 </soap:Envelope>
 ```
 
->
-> Code Example Request
->
+##### Code Example Request
 
 ```java
 CmiServiceSoapClient cmiService = new CMIServiceSoapClient();
@@ -557,9 +529,7 @@ shipmentNotice.SerialNumber = {"97000012"};
 PurchaseOrderShipmentNotice snReturn = cmiService.CreatePurchaseOrderShipmentNotice(client, new[] { shipmentNotice });
 ```
 
->
-> Example Response
->
+##### Example Response
 
 ```
 HTTP 200 Content-Type: text/xml

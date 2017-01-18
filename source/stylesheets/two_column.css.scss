@@ -1,0 +1,80 @@
+@charset "utf-8";
+@import 'normalize';
+@import 'variables';
+@import 'icon-font';
+@import 'default';
+
+///////////////////////////////////////////////////////////////////////////////
+// CONTENT
+// Used for styling main panel
+////////////////////////////////////////////////////////////////////////////////
+
+.bs-callout { width: 95% }
+
+.content {
+
+  #overview {
+    padding-top: $main-padding;
+  }
+
+  pre {
+    padding: 0 $main-padding;
+  }
+
+  .highlight {
+    display: block;
+    padding: 9.5px;
+    margin: 0 $main-padding 15px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px    
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// GUIDE STYLING
+// Used for styling within guide sections
+////////////////////////////////////////////////////////////////////////////////
+
+/* Bootstrap alternative */
+
+.bootstrap-grid {
+  margin: 10px !important;
+  padding: 10px !important;
+  float: left;  
+  text-align: center;
+  
+  a { color: #333; }
+  :hover, a:hover { color: #c4c9cc; }
+}
+
+.active-page a {
+  color: #c4c9cc;
+  cursor: default; 
+}
+
+.four-grid { width: 10%; }
+.three-grid { width: 15%; }
+.two-grid { width: 20%; }
+
+@media (max-width: 761px) {
+
+  .bootstrap-grid { 
+    margin: inherit; 
+    padding: inherit; 
+  }
+
+  .four-grid { width: 25%; }
+  .three-grid { width: 33%; }
+  .two-grid { width: 50%; }
+}
+
+.postman-run-button {
+  margin-left: 25px;
+  margin-bottom: 10px;
+}

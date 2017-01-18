@@ -48,9 +48,7 @@ The `CompanyId` and `SupplierEntityId` are environment specific. All other varia
 
 ## Step 1 - Authentication
 
->
-> Example Request
->
+##### Example Request
 
 ```
 Authorization: Bearer (Access Token)
@@ -70,9 +68,7 @@ The token is placed in the `Authorization` header of requests to iQmetrix APIs, 
 
 ## Step 2 - Get Pending Orders
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders?$filter=State eq 'Pending' and EntityId eq 14192
@@ -80,9 +76,7 @@ Authorization: Bearer (Access Token)
 Accept: application/json
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 OK Content-Type: application/json
@@ -150,9 +144,7 @@ The JSON results would appear similar to the figure below.
 ### Step 2.1 Verifying Order Details
 
 
->
-> Example Request
->
+##### Example Request
 
 ```
 GET https://orderdemo.iqmetrix.net/v1/Companies(14146)/OrderFull(fec93378-b4c2-400e-a480-364470920798)
@@ -160,9 +152,7 @@ Authorization: Bearer (Access Token)
 Accept: application/json
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: application/json
@@ -250,9 +240,7 @@ This scenario assumes that you will update the Endless Aisle customer record wit
 
 
 
->
-> Example Request
->
+##### Example Request
 
 ```
 PUT https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(e6f05db4-4555-4db6-9b7c-1babfcdbf65a)
@@ -273,9 +261,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 201 Content-Type: application/json
@@ -303,9 +289,7 @@ The first step is to [Update the Customer](/api/crm/#updating-a-customer).  Use 
 
 ### Step 3.2 - Add their Contact Method
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(e6f05db4-4555-4db6-9b7c-1babfcdbf65a)/ContactMethods
@@ -324,9 +308,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 201 Content-Type: application/json
@@ -362,9 +344,7 @@ In this example, we are only adding a home email address.
 
 ### Step 3.3 - Update their Shipping Address
 
->
-> Example Request
->
+##### Example Request
 
 ```
 PUT https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(e6f05db4-4555-4db6-9b7c-1babfcdbf65a)/Addresses(55ec98fe-249f-412c-8831-2c8be983a5b6)
@@ -387,9 +367,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 201 Content-Type: application/json
@@ -441,9 +419,7 @@ The next step is to [retrieve shipping options](/api/saccs/#retrieving-shipping-
 ### Step 4.1 - Retrieve the Shipping Options
 
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://shippingaggregatordemo.iqmetrix.net/Companies(14146)/ShippingInformation
@@ -464,9 +440,7 @@ Content-Type: application/json
 }
 ```
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 200 Content-Type: application/json
@@ -533,9 +507,7 @@ It is your responsibility to ensure that this order does not continue and to not
 
 ### Step 4.2 - Add a Shipping Item
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(fec93378-b4c2-400e-a480-364470920798)/Items
@@ -584,9 +556,7 @@ The JSON request would appear similar to the figure below.
 
 ## Step 6 - Process the Order
 
->
-> Example Request
->
+##### Example Request
 
 ```
 POST https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(fec93378-b4c2-400e-a480-364470920798)/Process
@@ -601,9 +571,7 @@ Content-Type: application/json
 ```
 
 
->
-> Example Response
->
+### Example Response
 
 ```
 HTTP 201 Content-Type: application/json

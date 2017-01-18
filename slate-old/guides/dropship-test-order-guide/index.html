@@ -1,5 +1,3 @@
-<!doctype html>
-<html>
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
@@ -88,7 +86,7 @@
   color: #90a959;
 }*/
     </style>
-    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/two_column.css" rel="stylesheet" media="screen" />
     <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="../../javascripts/all.js"></script>
   </head>
@@ -123,7 +121,6 @@
       <h1>API Documentation</h1>
       <p>In depth reference documentation for iQmetrix API's.</p>
     </div>
-
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -142,7 +139,6 @@
       </div>
     </div>
     <div class="page-wrapper">
-      <div class="dark-box"></div>
       <div class="content">
         <h1 id="overview">Overview</h1>
 
@@ -298,9 +294,7 @@ data-postman-var-1="56ce50e76203867bf3a5"></div>
 
 <h2 id="step-1-authentication">Step 1 - Authentication</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>Authorization: Bearer (Access Token)
 </code></pre>
 
@@ -334,17 +328,13 @@ data-postman-var-1="56ce50e76203867bf3a5"></div>
 
 <p>The first step involves <a href="/api/catalog/#getting-products-by-vendor-sku">getting the catalog IDs</a> for your corresponding supplier SKUs. There is a simple API call that allows you to get the <code class="prettyprint">CatalogItemId</code> based on the vendor SKU.</p>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>GET https://catalogsdemo.iqmetrix.net/v1/Companies({CompanyId})/Catalog/Items/ByVendorSku?vendorsku={VendorSku}&amp;vendorid={VendorId}
 Authorization: Bearer (Access Token)
 Accept: application/json
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -368,17 +358,13 @@ Accept: application/json
 
 <p>Getting the company tree is the quickest way to retrieve a list of company locations. Each Node Id corresponds to a <code class="prettyprint">LocationId</code> to be used in Step 4.1.</p>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>GET https://entitymanagerdemo.iqmetrix.net/v1/Companies({CompanyId})/Tree
 Authorization: Bearer (Access Token)
 Accept: application/json
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -410,17 +396,13 @@ Accept: application/json
 
 <p>By getting a list of customers, you can simply grab any customer ID for your testing.  </p>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>GET https://crmdemo.iqmetrix.net/v1/Companies({CompanyId})/Customers
 Authorization: Bearer (Access Token)
 Accept: application/json
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 
 <p>Any of the Ids from the response list can be used for your testing.</p>
 <pre class="highlight plaintext"><code>HTTP 200 OK Content-Type: application/json
@@ -463,17 +445,13 @@ Accept: application/json
 
 <p>Once you have the customer ID, the next step is to retrieve the customer&rsquo;s address.</p>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>GET https://crmdemo.iqmetrix.net/v1/Companies({CompanyId})/Customers({CustomerId})/Addresses
 Authorization: Bearer (Access Token)
 Accept: application/json
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 
 <p>Any of the Ids from the response list can be used for your testing.</p>
 <pre class="highlight plaintext"><code>HTTP 200 OK Content-Type: application/json
@@ -510,9 +488,7 @@ Accept: application/json
 
 <h4 id="step-3-2a-create-a-customer">Step 3.2a - Create a Customer</h4>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://crmdemo.iqmetrix.net/v1/Companies({CompanyId})/Customers
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -534,9 +510,7 @@ Content-Type: application/json
 
 <p>The billing address is required in order to bill the customer. Ensure <code class="prettyprint">AddressTypeId</code> is set to <code class="prettyprint">2</code> for <code class="prettyprint">Home</code>.</p>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://crmdemo.iqmetrix.net/v1/Companies({CompanyId})/Customers({CustomerId})/Addresses
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -564,9 +538,7 @@ Content-Type: application/json
 
 <p>Ensure that you add <code class="prettyprint">OrderId</code> from the response into the Postman environment variables. </p>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://orderdemo.iqmetrix.net/v1/Companies({CompanyId})/Orders
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -592,9 +564,7 @@ Content-Type: application/json
 
 <p>Ensure that the <code class="prettyprint">ShippingOptionId</code> refers to one of your Shipping Options IDs. This ID comes from the response of your <a href="/api/shipping-options/#get-shipping-options">Shipping Options</a> endpoint.</p>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://orderdemo.iqmetrix.net/v1/Companies({CompanyId})/Orders({OrderId})/Items
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -622,9 +592,7 @@ Content-Type: application/json
 
 <p>Ensure that the <code class="prettyprint">ShippingOptionId</code> refers to one of your Shipping Options IDs.</p>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://orderdemo.iqmetrix.net/v1/Companies({CompanyId})/Orders({OrderId})/Items
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -648,9 +616,7 @@ Content-Type: application/json
 
 <p>The final step is to process the order.</p>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://orderdemo.iqmetrix.net/v1/Companies({CompanyId})/Orders({OrderId})/Process
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -668,10 +634,5 @@ Content-Type: application/json
 <p>To get the order notification feed, refer to the <a href="/guides/dropship-order-guide">Dropship Order Management Guide</a>.</p>
 
       </div>
-      <div class="dark-box">
-          <div class="lang-selector">
-          </div>
-      </div>
     </div>
   </body>
-</html>

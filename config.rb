@@ -72,6 +72,10 @@ configure :build do
   # activate :gzip
 end
 
+# all guides use 2 column layout
+page "/guides/*", :layout => "two_column"
+page "/concepts/*", :layout => "two_column"
+
 # Deploy Configuration
 # If you want Middleman to listen on a different port, you can set that below
 set :port, 4567

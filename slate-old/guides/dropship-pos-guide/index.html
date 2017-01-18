@@ -1,5 +1,3 @@
-<!doctype html>
-<html>
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
@@ -88,7 +86,7 @@
   color: #90a959;
 }*/
     </style>
-    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/two_column.css" rel="stylesheet" media="screen" />
     <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="../../javascripts/all.js"></script>
   </head>
@@ -123,7 +121,6 @@
       <h1>API Documentation</h1>
       <p>In depth reference documentation for iQmetrix API's.</p>
     </div>
-
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -142,7 +139,6 @@
       </div>
     </div>
     <div class="page-wrapper">
-      <div class="dark-box"></div>
       <div class="content">
         <h1 id="overview">Overview</h1>
 
@@ -190,9 +186,7 @@ Use the Sandbox environment to test your API and to perform end-to-end testing. 
 
 <h2 id="step-1-authentication">Step 1 - Authentication</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>Authorization: Bearer (Access Token)
 </code></pre>
 
@@ -220,17 +214,13 @@ Use the Sandbox environment to test your API and to perform end-to-end testing. 
 
 <h2 id="step-2-get-pending-orders">Step 2 - Get Pending Orders</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>GET https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders?$filter=State eq 'Pending' and EntityId eq 14192
 Authorization: Bearer (Access Token)
 Accept: application/json
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 200 OK Content-Type: application/json
 </code></pre>
 <pre class="highlight plaintext"><code>[
@@ -291,17 +281,13 @@ Accept: application/json
 
 <h3 id="step-2-1-verifying-order-details">Step 2.1 Verifying Order Details</h3>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>GET https://orderdemo.iqmetrix.net/v1/Companies(14146)/OrderFull(fec93378-b4c2-400e-a480-364470920798)
 Authorization: Bearer (Access Token)
 Accept: application/json
 </code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -381,9 +367,7 @@ Accept: application/json
 
 <h3 id="step-3-1-update-the-customer-details">Step 3.1 - Update the Customer Details</h3>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>PUT https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(e6f05db4-4555-4db6-9b7c-1babfcdbf65a)
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -401,9 +385,7 @@ Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -427,9 +409,7 @@ Content-Type: application/json
 
 <h3 id="step-3-2-add-their-contact-method">Step 3.2 - Add their Contact Method</h3>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(e6f05db4-4555-4db6-9b7c-1babfcdbf65a)/ContactMethods
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -445,9 +425,7 @@ Content-Type: application/json
 </span><span class="err">}</span><span class="w">
 </span></code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -489,9 +467,7 @@ Content-Type: application/json
 
 <h3 id="step-3-3-update-their-shipping-address">Step 3.3 - Update their Shipping Address</h3>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>PUT https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers(e6f05db4-4555-4db6-9b7c-1babfcdbf65a)/Addresses(55ec98fe-249f-412c-8831-2c8be983a5b6)
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -511,9 +487,7 @@ Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -556,9 +530,7 @@ Content-Type: application/json
 
 <h3 id="step-4-1-retrieve-the-shipping-options">Step 4.1 - Retrieve the Shipping Options</h3>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://shippingaggregatordemo.iqmetrix.net/Companies(14146)/ShippingInformation
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -576,9 +548,7 @@ Content-Type: application/json
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -635,9 +605,7 @@ Content-Type: application/json
 
 <h3 id="step-4-2-add-a-shipping-item">Step 4.2 - Add a Shipping Item</h3>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(fec93378-b4c2-400e-a480-364470920798)/Items
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -694,9 +662,7 @@ Content-Type: application/json
 
 <h2 id="step-6-process-the-order">Step 6 - Process the Order</h2>
 
-<blockquote>
-<p>Example Request</p>
-</blockquote>
+<h5 id="example-request">Example Request</h5>
 <pre class="highlight plaintext"><code>POST https://orderdemo.iqmetrix.net/v1/Companies(14146)/Orders(fec93378-b4c2-400e-a480-364470920798)/Process
 Authorization: Bearer (Access Token)
 Accept: application/json
@@ -707,9 +673,7 @@ Content-Type: application/json
 </span><span class="p">}</span><span class="w">   
 </span></code></pre>
 
-<blockquote>
-<p>Example Response</p>
-</blockquote>
+<h3 id="example-response">Example Response</h3>
 <pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
 </code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -747,10 +711,5 @@ Content-Type: application/json
 <p>The iQmetrix Dropship program handles all actions post-invoice, such as updating the order status and sending an email to the customer with the order tracking details.</p>
 
       </div>
-      <div class="dark-box">
-          <div class="lang-selector">
-          </div>
-      </div>
     </div>
   </body>
-</html>
