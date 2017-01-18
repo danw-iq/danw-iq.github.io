@@ -1,0 +1,197 @@
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>RQ Data Connect | iQmetrix Developer Portal</title>
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
+
+    <style>
+      /*.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}*/
+    </style>
+    <link href="../../stylesheets/two_column.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all.js"></script>
+  </head>
+
+  <body class="concepts concepts_rq-data-connect concepts_rq-data-connect_index" data-languages="[]">
+
+    <div class="fixed-top">
+      <a class="navbar-logo" href="/"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">PRODUCTS</a></li>
+          <li><a href="/api/changelog">API REFERENCE</a></li>
+          <li><a href="/api/changelog">CORE CONCEPTS &amp; GUIDES</a></li>
+          <li><a href="/api/changelog">PARTNERS</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">CONTACT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="breadcrumb">
+      <ol>
+        <li><a href="/api/">API REFERENCE</a></li>
+        <li>></li>
+        <li><a href="">API DOCUMENTATION</a></li>
+        <li>></li>
+        <li class="active">CUSTOMER RELATIONSHIP MANAGEMENT (CRM)</li>
+      </ol>
+    </div>
+    <div class="title">
+      <h1>API Documentation</h1>
+      <p>In depth reference documentation for iQmetrix API's.</p>
+    </div>
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <!-- <img src="../../images/logo.png" alt="Logo" /> -->
+        <div class="lang-selector">
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="content">
+        <h1 id="overview">Overview</h1>
+
+<p><strong>RQ Data Connect (RDC)</strong> allows data analysts and business administrators to analyze transactional and inventory data from the RQ Retail Management System. </p>
+
+<p><strong>RQ Data Connect Bridge (RDC Bridge)</strong> is an alternative to database replication that allows you to dive deep within your RQ database. </p>
+
+<p><strong>Figure 1:</strong> Illustrates the interaction between RQ and RQ Data Connect reports.</p>
+
+<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/rq-data-connect/overview.png" alt="rq data connect flow diagram" /></p>
+
+<h1 id="how-does-rq-data-connect-benefit-me">How Does RQ Data Connect Benefit Me?</h1>
+
+<p>RQ Data Connect includes a wide variety of reports you can use to measure performance and growth for your company. </p>
+
+<p>If you require a more detailed deep-down look into your performance measures, iQmetrix also offers custom reports tailored to your business needs.</p>
+
+<p>RQ Data Connect Bridge allows you to create your own BI reports on the fly using a multitude of response options. RDC Bridge removes the manual process of retrieving your transactional data, and provides an automated solution using a robust and secure connection. </p>
+
+<h1 id="why-use-rq-data-connect">Why Use RQ Data Connect?</h1>
+
+<p>No more lost in translation moments - instead of manually downloading reports from RQ and inputting the data into another system manually, automate the process with the RDC API.</p>
+
+<p>RQ Data Connect users benefit from&hellip;</p>
+
+<ul>
+<li>Improved scalability </li>
+<li>Reduced overhead when obtaining RQ transactional data</li>
+<li>Minimal infrastructure utilization</li>
+</ul>
+
+<h1 id="when-can-i-use-rq-data-connect">When Can I use RQ Data Connect?</h1>
+
+<p>RQ Data Connect is available today in its first stage of development. The time line for RDC is outlined in the following sections.</p>
+
+<h2 id="stage-1-bambino">Stage 1 – Bambino</h2>
+
+<p>The first release of RQ Data Connect contains a sampling of reports from RQ for retailers and partners.</p>
+
+<h2 id="stage-2-teething">Stage 2 – Teething</h2>
+
+<p>The remaining RQ reports will be published to RQ Data Connect.</p>
+
+<h2 id="stage-3-all-grown-up">Stage 3 – All Grown Up</h2>
+
+<p>Finally, PowerBI and Reporting services will be added to RQ Data Connect, as well as Platform reporting endpoints.</p>
+
+<h1 id="how-do-i-get-started">How Do I Get Started?</h1>
+
+<p>Contact your account manager to get started using RQ Data Connect/Bridge. They will help guide you through the steps of obtaining access credentials and will provide you with a support liaison.</p>
+
+<p>Once you have access credentials (onboarding package), read through the <a href="/guides/rq-data-connect/">guide</a> for important authentication and implementation details.</p>
+
+      </div>
+    </div>
+  </body>

@@ -1,0 +1,527 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference | iQmetrix Developer Portal</title>
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
+
+    <style>
+      /*.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}*/
+    </style>
+    <link href="../stylesheets/three_column.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../javascripts/all_nosearch.js"></script>
+  </head>
+  <body class="api api_index" data-languages="[]">
+    <div class="fixed-top">
+      <a class="navbar-logo" href="/"><img src="../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">PRODUCTS</a></li>
+          <li><a href="/api/changelog">API REFERENCE</a></li>
+          <li><a href="/api/changelog">CORE CONCEPTS &amp; GUIDES</a></li>
+          <li><a href="/api/changelog">PARTNERS</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">CONTACT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="breadcrumb">
+      <ol>
+        <li><a href="/api/">API REFERENCE</a></li>
+        <li>></li>
+        <li><a href="">API DOCUMENTATION</a></li>
+        <li>></li>
+        <li class="active">CUSTOMER RELATIONSHIP MANAGEMENT (CRM)</li>
+      </ol>
+    </div>
+    <div class="title">
+      <h1>API Documentation</h1>
+      <p>In depth reference documentation for iQmetrix API's.</p>
+    </div>
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <!-- <img src="../images/logo.png" alt="Logo" /> -->
+        <div class="lang-selector">
+        </div>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <!-- {% include linkrefs.html %} -->
+
+<h1 id="overview">Overview</h1>
+
+<p>iQmetrix APIs are simple but powerful HTTP interfaces that are inspired by the REST architectural style. These are the same APIs that our internal development teams use to build products.</p>
+
+<p>We are passionate about creating a great <a href="http://www.iqmetrix.com/our-company">developer experience</a> for you so please don&rsquo;t hesitate to contact our <a href="mailto:{{site.support_email}}?subject=API Feedback">API Support Team</a> with any feedback related to API design, usability, or features that you are interested to see.</p>
+
+<h1 id="onboarding-package">Onboarding Package</h1>
+
+<p>As part of the onboarding process, you will receive an onboarding package from the iQmetrix API team. </p>
+
+<p>This package provides you with credentials required to access iQmetrix APIs. </p>
+
+<p>If you need an onboarding package, contact {{contact_support}}. </p>
+
+<h1 id="authentication">Authentication</h1>
+
+<p>iQmetrix APIs use <a href="http://oauth.net/2/">OAuth2</a> for authentication, and all requests must be made over <a href="http://en.wikipedia.org/wiki/HTTPS">HTTPS</a>.</p>
+
+<p>When using our APIs, your account must be <a href="/api/authentication/">authenticated</a> by including an {{AccessToken_Glossary}} in the header of all API requests. Requests made over plain HTTP or without authentication will fail.</p>
+
+<p>To learn more about authentication, see <a href="/api/authentication/#obtaining-an-access-token">Obtaining an Access Token</a>.</p>
+
+<h1 id="environments">Environments</h1>
+
+<p>iQmetrix APIs are provisioned into environments that let you start developing and testing integrated solutions quickly and easily.</p>
+
+<h2 id="production">Production</h2>
+
+<p>The <strong>production</strong> environment allows you to use your integrated solutions once deployed.</p>
+
+<h2 id="sandbox">Sandbox</h2>
+
+<p>The <strong>sandbox</strong> environment allows you to develop and test integrated solutions or try out new features of iQmetrix APIs without compromising data in your production environment. </p>
+
+<p>API calls in the Sandbox environment are free of charge and will not affect your billing.</p>
+
+<p>Sandbox environments will be provisioned with tenant-specific test data.</p>
+
+<h1 id="rate-limiting">Rate Limiting</h1>
+
+<p>Requests to the iQmetrix APIs are limited to help to manage server load, ensuring that high API request volumes do not impact overall performance. </p>
+
+<p>They also help to protect from deliberate or accidental denial of service as a result of APIs being flooded with requests.</p>
+
+<p>If you run into the <code class="prettyprint">429 Too Many Requests</code> error, please contact {{contact_support}}</p>
+
+<h2 id="rate-limit-policies">Rate Limit Policies</h2>
+
+<p>All rate limits are applied <strong>per service</strong>, not aggregated across all services. </p>
+
+<p>There are three rate limit policies that are applied to the APIs.</p>
+
+<p><strong>Authenticated Limit</strong></p>
+
+<p>The Authenticated Limit policy determines how many <strong>Authenticated Requests</strong> can be made during the Rate Limit Window.</p>
+
+<p>Authenticated Requests are made to iQmetrix APIs that require authentication, and include an {{AccessToken_Glossary}} in the HTTP Header.</p>
+
+<p>To determine the limit, make an Authenticated Request to an iQmetrix API, then check the <code class="prettyprint">X-RateLimit-Limit</code> HTTP Header of the response. </p>
+
+<p><strong>Anonymous Limit</strong></p>
+
+<p>The Anonymous Limit policy determines how many <strong>Anonymous Requests</strong> can be made during the Rate Limit Window.</p>
+
+<p>Anonymous Requests are made to iQmetrix APIs that do not require authentication.</p>
+
+<p>To determine the limit, make an Anonymous Request to an iQmetrix API, then check the <code class="prettyprint">X-RateLimit-Limit</code> HTTP Header of the response. </p>
+
+<h2 id="rate-limit-window">Rate Limit Window</h2>
+
+<p>The Rate Limit Window policy determines when the current rate limit will be reset.</p>
+
+<p>To determine the limit, make a request to an iQmetrix API, then check the <code class="prettyprint">X-RateLimit-Reset</code> HTTP Header of the response. </p>
+
+<h2 id="http-headers">HTTP Headers</h2>
+
+<p>All responses from the iQmetrix API&rsquo;s have the following headers, which provide information about how many requests are remaining.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Header Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">X-RateLimit-Limit</td>
+<td style="text-align: left">The maximum number of requests allowed in the current rate limit window</td>
+</tr>
+<tr>
+<td style="text-align: left">X-RateLimit-Remaining</td>
+<td style="text-align: left">The number of requests remaining in the current rate limit window</td>
+</tr>
+<tr>
+<td style="text-align: left">X-RateLimit-Reset</td>
+<td style="text-align: left">The time when the rate limit window will reset in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">X-RateLimit-ResetSeconds</td>
+<td style="text-align: left">The number of seconds until the rate limit resets</td>
+</tr>
+</tbody></table>
+
+<h2 id="checking-a-rate-limit">Checking a Rate Limit</h2>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET https://crmdemo.iqmetrix.net/v1/Companies(14146)/Customers
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code></pre>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 999
+X-RateLimit-Reset: 2016-02-25T13:00:00.0000000Z
+X-RateLimit-ResetSeconds: 59
+{
+    ...
+}
+</code></pre>
+
+<p>To determine the <strong>Authenticated</strong> Rate Limit for an API, make an authenticated request to the API and check the HTTP headers in the response.</p>
+
+<p>In the example below, a request is made to the <a href="/api/crm/">Customers</a> API with a valid {{AccessToken_Glossary}} in the <code class="prettyprint">Authorization</code> header.</p>
+
+<p>Looking at the HTTP headers in the response, we can determine:</p>
+
+<ul>
+<li>Our rate limit window ends in <strong>59 seconds</strong> or at precisely <strong>2016-02-25T13:00:00.0000000Z</strong> UTC</li>
+<li>In the next <strong>59 seconds</strong> we can make <strong>999</strong> more requests</li>
+<li>In <strong>59 seconds</strong>, or at <strong>2016-02-25T13:00:00.0000000Z</strong> UTC, the counter will reset and we will be able to make another <strong>1000 requests</strong></li>
+</ul>
+
+<h2 id="exceeding-rate-limit">Exceeding Rate Limit</h2>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP/1.1 429 Too Many Requests
+Content-Type: text/plain
+X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 0
+X-RateLimit-Reset: 2015-04-16T17:46:00.0000000Z
+X-RateLimit-ResetSeconds: 59
+
+rate limit exceeded
+</code></pre>
+
+<p>If the rate limit is exceeded, the response will be <code class="prettyprint">429 Too Many Requests</code> and the service will not be able to make further requests until the quota resets.</p>
+
+<h1 id="supported-response-formats">Supported Response Formats</h1>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>Accept: application/json
+</code></pre>
+
+<p>Most iQmetrix APIs support the <code class="prettyprint">json</code> and <code class="prettyprint">hal+json</code> response formats depending on the type of request. Documentation for each individual API will explicitly state which response formats are supported.</p>
+
+<p>When sending an API request, you can select the format to return by defining the value in the HTTP Accept header, using the syntax <code class="prettyprint">Accept: {ResponseFormat}</code>.</p>
+
+<h1 id="testing-and-debugging">Testing and Debugging</h1>
+
+<p>iQmetrix uses <a href="https://www.getpostman.com/" target="_blank">Postman</a> when developing, testing, and debugging our APIs. Postman also gives you the ability to import and export collections to manage API requests and environment variables when debugging APIs.</p>
+
+<p>To learn more about installing Postman and its various features, see <a href="https://www.getpostman.com/docs/" target="_blank">Postman Documentation</a>.</p>
+
+<p>From an iQmetrix perspective, each <strong>collection</strong> represents a set of methods for an endpoint or guide. All collections use the Sandbox {{Environment}}.</p>
+
+<p>The Postman collections that are available on our developer portal are organized by API or guide. The environment variable values (e.g. {CompanyId} ) would be provided from other sources, such as from your onboarding package.</p>
+
+<p>The iQmetrix API collections below are in RAML format, instead of JSON. Postman supports RAML as a format for collections. For more information on importing RAML folders into Postman, see <a href="https://www.getpostman.com/docs/importing_folders" target="_blank">Postman - Importing Folders</a>.</p>
+
+<p><br />
+<strong>Table 1</strong>: API Collections</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Topic</th>
+<th style="text-align: left">Endpoint</th>
+<th style="text-align: left">Collection</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">General</td>
+<td style="text-align: left">Catalog</td>
+<td style="text-align: left"><a href="/postman/catalog.raml">Catalog</a></td>
+</tr>
+<tr>
+<td style="text-align: left">General</td>
+<td style="text-align: left">Company Tree</td>
+<td style="text-align: left"><a href="/postman/company-tree.raml">Company Tree</a></td>
+</tr>
+<tr>
+<td style="text-align: left">General</td>
+<td style="text-align: left">Customers</td>
+<td style="text-align: left"><a href="/postman/crm.raml">Customers</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Dropship</td>
+<td style="text-align: left">Cost Feed</td>
+<td style="text-align: left"><a href="/postman/cost-feed.raml">Cost Feed</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Dropship</td>
+<td style="text-align: left">Product Feed</td>
+<td style="text-align: left"><a href="/postman/product-feed.raml">Product Feed</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Dropship</td>
+<td style="text-align: left">Product Subscription</td>
+<td style="text-align: left"><a href="/postman/product-subscription.raml">Product Subscription</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Dropship</td>
+<td style="text-align: left">Shipping Aggregator</td>
+<td style="text-align: left"><a href="/postman/saccs.raml">Shipping Aggregator</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Dropship</td>
+<td style="text-align: left">Shipping Options</td>
+<td style="text-align: left"><a href="/postman/shipping-options.raml">Shipping Options</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Dropship</td>
+<td style="text-align: left">Supplier Availability</td>
+<td style="text-align: left"><a href="/postman/supplier-availability.raml">Supplier Availability</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Dropship</td>
+<td style="text-align: left">Supplier Orders</td>
+<td style="text-align: left">TBD</td>
+</tr>
+<tr>
+<td style="text-align: left">General</td>
+<td style="text-align: left">Entities</td>
+<td style="text-align: left"><a href="/postman/entity-store.raml">Entities</a></td>
+</tr>
+<tr>
+<td style="text-align: left">General</td>
+<td style="text-align: left">General Ledger</td>
+<td style="text-align: left"><a href="/postman/general-ledger.raml">General Ledger</a></td>
+</tr>
+<tr>
+<td style="text-align: left">General</td>
+<td style="text-align: left">Inventory Availability</td>
+<td style="text-align: left"><a href="/postman/availability.raml">Inventory Availability</a></td>
+</tr>
+<tr>
+<td style="text-align: left">General</td>
+<td style="text-align: left">Orders</td>
+<td style="text-align: left"><a href="/postman/orders.raml">Orders</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Partners</td>
+<td style="text-align: left">Partner Reporting</td>
+<td style="text-align: left"><a href="/postman/partner-reporting.raml">Partner Reporting</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Partners</td>
+<td style="text-align: left">Partner Relationships</td>
+<td style="text-align: left"><a href="/postman/partner-relationships.raml">Partner Relationships</a></td>
+</tr>
+<tr>
+<td style="text-align: left">General</td>
+<td style="text-align: left">Pricing</td>
+<td style="text-align: left"><a href="/postman/pricing.raml">Pricing</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Product Library</td>
+<td style="text-align: left">Classification Tree</td>
+<td style="text-align: left"><a href="/postman/classification-tree.raml">Classification Tree</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Product Library</td>
+<td style="text-align: left">Field Definitions</td>
+<td style="text-align: left"><a href="/postman/field-definitions.raml">Field Definitions</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Product Library</td>
+<td style="text-align: left">Products</td>
+<td style="text-align: left"><a href="/postman/product-library.raml">Products</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Product Library</td>
+<td style="text-align: left">Product Structure</td>
+<td style="text-align: left"><a href="/postman/product-structure.raml">Product Structure</a></td>
+</tr>
+<tr>
+<td style="text-align: left">General</td>
+<td style="text-align: left">Reference</td>
+<td style="text-align: left"><a href="/postman/reference.raml">Reference</a></td>
+</tr>
+<tr>
+<td style="text-align: left">RQ</td>
+<td style="text-align: left">Carrier Integration</td>
+<td style="text-align: left"><a href="/postman/carrier-integration.raml">Carrier Integration</a></td>
+</tr>
+<tr>
+<td style="text-align: left">RQ</td>
+<td style="text-align: left">CMI</td>
+<td style="text-align: left"><a href="/postman/cmi.raml">CMI</a></td>
+</tr>
+<tr>
+<td style="text-align: left">RQ</td>
+<td style="text-align: left">Commissions</td>
+<td style="text-align: left"><a href="/postman/commissions.raml">Commissions</a></td>
+</tr>
+<tr>
+<td style="text-align: left">RQ</td>
+<td style="text-align: left">Electronic Product Catalog (EPC)</td>
+<td style="text-align: left"><a href="/postman/epc.raml">EPC</a></td>
+</tr>
+<tr>
+<td style="text-align: left">RQ</td>
+<td style="text-align: left">Punch Clock</td>
+<td style="text-align: left"><a href="/postman/punch-clock.raml">Punch Clock</a></td>
+</tr>
+<tr>
+<td style="text-align: left">RQ</td>
+<td style="text-align: left">RQ Data Connect</td>
+<td style="text-align: left"><a href="/postman/rq-data-connect.raml">RQ Data Connect</a></td>
+</tr>
+<tr>
+<td style="text-align: left">RQ</td>
+<td style="text-align: left">RQ Data Connect Bridge</td>
+<td style="text-align: left"><a href="/postman/rq-data-connect-bridge.raml">RQ Data Connect Bridge</a></td>
+</tr>
+<tr>
+<td style="text-align: left">General</td>
+<td style="text-align: left">Security Roles</td>
+<td style="text-align: left"><a href="/postman/security-roles.raml">Security Roles</a></td>
+</tr>
+<tr>
+<td style="text-align: left">General</td>
+<td style="text-align: left">User Manager</td>
+<td style="text-align: left"><a href="/postman/user-manager.raml">User Manager</a></td>
+</tr>
+</tbody></table>
+
+<p><strong>Table 2</strong>: Guide Collections</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Endpoint</th>
+<th style="text-align: left">Collection</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Creating an In Store Order</td>
+<td style="text-align: left"><a href="https://www.getpostman.com/collections/6ba6ff2041a2371aab72">Collection</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Dropship Test Order Guide</td>
+<td style="text-align: left"><a href="/files/create-test-order.zip">Order Collection</a></td>
+</tr>
+<tr>
+<td style="text-align: left">eCommerce Integration Guide</td>
+<td style="text-align: left"><a href="https://www.getpostman.com/collections/56da645f71e8ce4121f0">Collection</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Endless Aisle Integration Guide</td>
+<td style="text-align: left"><a href="https://www.getpostman.com/collections/1285b8fd9bfc44cc73ef">Collection</a></td>
+</tr>
+</tbody></table>
+
+<h1 id="versioning">Versioning</h1>
+
+<p>The API version is shown in the endpoint&rsquo;s URL (e.g. /v1). Newer API versions will be highlighted in their respective API reference documentation. </p>
+
+<p>Should there be a breaking change to an existing API, iQmetrix will trigger a release of a newer version and notify stakeholders. Please take note that not all API versions will be backward compatible.</p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

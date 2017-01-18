@@ -1,0 +1,428 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Punch Clock | iQmetrix Developer Portal</title>
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
+
+    <style>
+      /*.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}*/
+    </style>
+    <link href="../../stylesheets/three_column.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all.js"></script>
+  </head>
+  <body class="api api_punch-clock api_punch-clock_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+    <div class="fixed-top">
+      <a class="navbar-logo" href="/"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">PRODUCTS</a></li>
+          <li><a href="/api/changelog">API REFERENCE</a></li>
+          <li><a href="/api/changelog">CORE CONCEPTS &amp; GUIDES</a></li>
+          <li><a href="/api/changelog">PARTNERS</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">CONTACT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="breadcrumb">
+      <ol>
+        <li><a href="/api/">API REFERENCE</a></li>
+        <li>></li>
+        <li><a href="">API DOCUMENTATION</a></li>
+        <li>></li>
+        <li class="active">CUSTOMER RELATIONSHIP MANAGEMENT (CRM)</li>
+      </ol>
+    </div>
+    <div class="title">
+      <h1>API Documentation</h1>
+      <p>In depth reference documentation for iQmetrix API's.</p>
+    </div>
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <!-- <img src="../../images/logo.png" alt="Logo" /> -->
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="csharp">c#</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="overview">Overview</h1>
+
+<p>The Punch Clock API allows you to retrieve Punch Clock entries from your RQ database. </p>
+
+<h1 id="endpoints">Endpoints</h1>
+
+<ul>
+<li>Sandbox: <a href="https://punchclockdemo.iqmetrix.net/v1">https://punchclockdemo.iqmetrix.net/v1</a></li>
+<li>Production: <a href="https://punchclock.iqmetrix.net/v1">https://punchclock.iqmetrix.net/v1</a></li>
+</ul>
+
+<h1 id="resources">Resources</h1>
+
+<h2 id="punchentry">PunchEntry</h2>
+
+<p>An instance of a clock punch for an employee at a location, with a punch-in time and (optionally) a punch-out time.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1953"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CreatedDateUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-09-23T15:41:59.403"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EmployeeVerified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EmployeeSpecialId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1002"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastUpdateDateUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-09-23T15:55:09.927"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CWW"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14202"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ManagerVerified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PunchInComments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN - FingerPrint/HomeConsole"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PunchOutComments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OUT - HomeConsole"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TimeInAtStore"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-09-23T09:41:52.653"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TimeOutAtStore"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-09-23T09:55:03.973"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2576"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Unique Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">CreatedDateUtc (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Created date and time, in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">EmployeeVerified (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate if the employee has verified the PunchEntry</td>
+</tr>
+<tr>
+<td style="text-align: left">EmployeeSpecialId (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Special identifier for Employee in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">LastUpdateDateUtc (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Time of the last update, in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">LocationCode (<code class="prettyprint">String(100)</code>)</td>
+<td style="text-align: left">An identifier for the Location in an external system</td>
+</tr>
+<tr>
+<td style="text-align: left">LocationId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier for the <a href="/api/company-tree/#location">Location</a></td>
+</tr>
+<tr>
+<td style="text-align: left">ManagerVerified (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate if the manager has verified the PunchEntry</td>
+</tr>
+<tr>
+<td style="text-align: left">PunchInComments (<code class="prettyprint">String(100)</code>)</td>
+<td style="text-align: left">Punch in comments</td>
+</tr>
+<tr>
+<td style="text-align: left">PunchOutComments (<code class="prettyprint">String(100)</code>)</td>
+<td style="text-align: left">Punch out comments</td>
+</tr>
+<tr>
+<td style="text-align: left">TimeInAtStore (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Punch in time (local time at store), in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">TimeOutAtStore (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Punch out time (local time at store), in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">UserId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier for a <a href="/api/user-manager/#user">User</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Version (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Latest revision number</td>
+</tr>
+<tr>
+<td style="text-align: left"><em>RQPunchId (<code class="prettyprint">Integer</code>)</em></td>
+<td style="text-align: left"><em>Reserved for internal use</em></td>
+</tr>
+</tbody></table>
+
+<h1 id="requests">Requests</h1>
+
+<h2 id="get-all-punch-entries"><span class='get'>GET</span> All Punch Entries</h2>
+
+<p>By default, the sorting order of the response to this request will be <strong>descending</strong> order by <code class="prettyprint">LastUpdateDateUtc</code>.</p>
+
+<p>{{note}}
+Don&rsquo;t forget <code>$filter=</code> in the request!
+{{end}}  </p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/PunchEntries?$filter=LastUpdateDateUtc ge datetime'{StartDate}' and LastUpdateDateUtc le datetime'{EndDate}'&amp;$skip={Skip}&amp;$top={Top}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">PunchEntries</span><span class="p">?</span><span class="nx">$filter</span><span class="o">=</span><span class="nx">LastUpdateDateUtc</span> <span class="nx">ge</span> <span class="nx">datetime</span><span class="s1">'2015-01-01T08:00:00.000Z'</span> <span class="nx">and</span> <span class="nx">LastUpdateDateUtc</span> <span class="nx">le</span> <span class="nx">datetime</span><span class="s1">'2016-01-01T07:59:59.000Z'</span><span class="o">&amp;</span><span class="nx">$skip</span><span class="o">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="nx">$top</span><span class="o">=</span><span class="mi">10</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">hal</span><span class="o">+</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://punchclockdemo.iqmetrix.net/v1/Companies(14146)/PunchEntries?</span><span class="nv">$filter</span><span class="s2">=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&amp;</span><span class="nv">$skip</span><span class="s2">=1&amp;</span><span class="nv">$top</span><span class="s2">=10"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/hal+json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingAllPunchEntries</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://punchclockdemo.iqmetrix.net/v1/Companies(14146)/PunchEntries?$filter=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&amp;$skip=1&amp;$top=10"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/hal+json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingAllPunchEntries</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://punchclockdemo.iqmetrix.net/v1/Companies(14146)/PunchEntries?$filter=LastUpdateDateUtc ge datetime'2015-01-01T08:00:00.000Z' and LastUpdateDateUtc le datetime'2016-01-01T07:59:59.000Z'&amp;$skip=1&amp;$top=10"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/hal+json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://punchclockdemo.iqmetrix.net/v1/Companies(14146)/PunchEntries?$filter=LastUpdateDateUtc ge datetime'</span><span class="mi">2015</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mo">01</span><span class="no">T08</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span><span class="o">.</span><span class="mo">000</span><span class="no">Z</span><span class="s1">' and LastUpdateDateUtc le datetime'</span><span class="mi">2016</span><span class="o">-</span><span class="mo">01</span><span class="o">-</span><span class="mo">01</span><span class="no">T07</span><span class="p">:</span><span class="mi">59</span><span class="p">:</span><span class="mi">59</span><span class="o">.</span><span class="mo">000</span><span class="no">Z</span><span class="s1">'&amp;$skip=1&amp;$top=10'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/hal+json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+    <li><code>StartDate</code> (Optional)  - Date at which to begin search request, in UTC</li>
+    <li><code>EndDate</code> (Optional)  - Date at which to end search request, in UTC</li>
+    <li><code>Skip</code> (Optional)  - Number of records to skip</li>
+    <li><code>Top</code> (Optional)  - Number of records to take</li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/hal+json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"prev"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v1/Companies(14146)/PunchEntries?$filter=ransactionDateUTC ge datetime'2015-01-01T00:00:00.000' and TransactionDateUTC le datetime'2015-12-31T23:59:59.000'&amp;$skip=0&amp;$top=10"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"templated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"_embedded"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v1/Companies(14146)/PunchEntries(15)"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"templated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"_embedded"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+                </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1953</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"CreatedDateUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-09-23T15:41:59.403"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"EmployeeVerified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"EmployeeSpecialId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1002</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"LastUpdateDateUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-09-23T15:55:09.927"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"LocationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CWW"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"LocationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"ManagerVerified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"PunchInComments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN - FingerPrint/HomeConsole"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"PunchOutComments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OUT - HomeConsole"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"TimeInAtStore"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-09-23T09:41:52.653"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"TimeOutAtStore"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-09-23T09:55:03.973"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2576</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h1 id="pagination">Pagination</h1>
+
+<p>The Punch Clock API supports pagination of collections of resources for some requests.</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<p>Pagination is done through the use of <code class="prettyprint">$skip</code> and <code class="prettyprint">$top</code> query string parameters.</p>
+
+<p><code class="prettyprint">$skip</code> denotes the number of items to skip from the entire set of results. If a value less than 0 is specified, the URI is considered malformed.</p>
+
+<p><code class="prettyprint">$top</code> denotes the maximum number of items to include in the response. This value defaults to 50 if a <code class="prettyprint">$skip</code> value but no <code class="prettyprint">$top</code> value is specified. Acceptable values are in the range [0-100]. </p>
+
+<h3 id="navigation-links">Navigation Links</h3>
+
+<p>Pagination-enabled requests include links for &lsquo;self&rsquo;, &#39;prev&rsquo; and &#39;next&rsquo; in the response data. </p>
+
+<p>These links are <em>relative</em>, they do not include the base endpoint. It is the responsibility of the client to prepend the appropriate endpoint.</p>
+
+<h5 id="example">Example</h5>
+<pre class="highlight csharp"><code><span class="p">{</span>
+    <span class="s">"_links"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">"prev"</span><span class="p">:</span> <span class="k">null</span><span class="p">,</span>
+        <span class="s">"self"</span><span class="p">:</span> <span class="s">"v1/Companies(14146)/PunchEntries?$skip=0&amp;$top=5"</span><span class="p">,</span>
+        <span class="s">"next"</span><span class="p">:</span> <span class="s">"v1/Companies(14146)/PunchEntries?$skip=5&amp;$top=5"</span>
+    <span class="p">},</span>
+    <span class="s">"_metadata"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">"count"</span><span class="p">:</span> <span class="m">15</span><span class="p">,</span>
+        <span class="s">"skip"</span><span class="p">:</span> <span class="m">0</span><span class="p">,</span>
+        <span class="s">"top"</span><span class="p">:</span> <span class="m">5</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>In the example above, the <code class="prettyprint">_links</code> section is included in the data returned from an API call to <a href="#getting-all-punch-entries">Getting All Punch Entries</a>, where <code class="prettyprint">$skip=0</code> and <code class="prettyprint">$top=5</code>.</p>
+
+<p>The <code class="prettyprint">self</code>.<code class="prettyprint">href</code> value is the relative version of the API call that returned these results.</p>
+
+<p>The <code class="prettyprint">next</code>.<code class="prettyprint">href</code> refers to a resource containing a page with the <strong>next</strong> 5 items.</p>
+
+<p>The <code class="prettyprint">prev</code>.<code class="prettyprint">href</code> refers to a resource containing a page with the <strong>previous</strong> 5 items.</p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="csharp">c#</a>
+                <a href="#" data-language-name="java">java</a>
+                <a href="#" data-language-name="ruby">ruby</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

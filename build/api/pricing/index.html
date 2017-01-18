@@ -1,0 +1,1519 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Pricing | iQmetrix Developer Portal</title>
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
+
+    <style>
+      /*.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}*/
+    </style>
+    <link href="../../stylesheets/three_column.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all.js"></script>
+  </head>
+  <body class="api api_pricing api_pricing_index" data-languages="[&quot;javascript&quot;,&quot;shell&quot;,&quot;csharp&quot;,&quot;java&quot;,&quot;ruby&quot;]">
+    <div class="fixed-top">
+      <a class="navbar-logo" href="/"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">PRODUCTS</a></li>
+          <li><a href="/api/changelog">API REFERENCE</a></li>
+          <li><a href="/api/changelog">CORE CONCEPTS &amp; GUIDES</a></li>
+          <li><a href="/api/changelog">PARTNERS</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">CONTACT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="breadcrumb">
+      <ol>
+        <li><a href="/api/">API REFERENCE</a></li>
+        <li>></li>
+        <li><a href="">API DOCUMENTATION</a></li>
+        <li>></li>
+        <li class="active">CUSTOMER RELATIONSHIP MANAGEMENT (CRM)</li>
+      </ol>
+    </div>
+    <div class="title">
+      <h1>API Documentation</h1>
+      <p>In depth reference documentation for iQmetrix API's.</p>
+    </div>
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <!-- <img src="../../images/logo.png" alt="Logo" /> -->
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="csharp">c#</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="overview">Overview</h1>
+
+<p>Pricing information for products can be retrieved and managed using the Pricing API.</p>
+
+<h3 id="notes">Notes</h3>
+
+<ol>
+<li>Two types of prices are supported: regular price and sale price</li>
+<li>Multiple currencies are not supported, default retailer currency is implied</li>
+<li>Pricing information for products can be set up at any level in the Company Tree</li>
+<li>Term-based pricing is available to accommodate for scenarios where price varies based on contractual commitment</li>
+</ol>
+
+<h3 id="pricing-resolution">Pricing Resolution</h3>
+
+<p>When getting pricing for a product the result will be an array with an entry for each combination of Pricing Term and and Default Pricing.</p>
+
+<p>Each entry will contain the following attributes used to dictate the price, in the following order:</p>
+
+<ul>
+<li>OverridePrice - The <code class="prettyprint">SalePrice</code> attribute from the current or default <a href='http://developers.iqmetrix.com/api/pricing/#saleoverrideprice'>SaleOverridePrice</a></li>
+<li>RegularPrice - Regular price set on the <a href='http://developers.iqmetrix.com/api/pricing/#pricing'>Pricing</a>, must be greater than or equal to 0</li>
+</ul>
+
+<p>Each <a href='http://developers.iqmetrix.com/api/pricing/#pricing'>Pricing</a> also contains a set of values used to store information. These values do not dictate pricing.</p>
+
+<ul>
+<li>FloorPrice - Minimum amount the <a href='http://developers.iqmetrix.com/api/catalog/#catalogitem'>CatalogItem</a> should be sold for. The user should not be able to discount past this price without permission (Manager Override)</li>
+<li>OriginalPrice - This value is used to show the original price of an item, should it need to be displayed with the Regular and Sale prices</li>
+</ul>
+
+<h1 id="endpoints">Endpoints</h1>
+
+<ul>
+<li>Sandbox: <a href="https://pricingdemo.iqmetrix.net/v1">https://pricingdemo.iqmetrix.net/v1</a></li>
+<li>Production: <a href="https://pricing.iqmetrix.net/v1">https://pricing.iqmetrix.net/v1</a></li>
+</ul>
+
+<h1 id="resources">Resources</h1>
+
+<h2 id="pricing">Pricing</h2>
+
+<p>{{callout_info}}<b>RQ Connection</b> The following fields are not currently synced to RQ: IsDiscountable and FloorPrice{{end}}</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16446"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14202"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FloorPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsDiscountable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OriginalPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OverridePrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OverridePriceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1177"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PricingTermId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"78"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RegularPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">CatalogItemId (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left"><a href="/api/catalog/#catalogitem">CatalogItem</a> identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">CompanyId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier for the Company associated with this Pricing</td>
+</tr>
+<tr>
+<td style="text-align: left">EntityId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left"><a href="/api/company-tree/#companytreenode">CompanyTreeNode</a> identifier at which the price is set</td>
+</tr>
+<tr>
+<td style="text-align: left">FloorPrice (<code class="prettyprint">Decimal</code>)</td>
+<td style="text-align: left">The minimum amount the CatalogItem should be sold for</td>
+</tr>
+<tr>
+<td style="text-align: left">IsDiscountable (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate if this Pricing allows discounting. This is not enforced by the API</td>
+</tr>
+<tr>
+<td style="text-align: left">OriginalPrice (<code class="prettyprint">Decimal</code>)</td>
+<td style="text-align: left">Value used to explicitly show the original price of an item, should it need to be displayed with the regular and sale/override prices</td>
+</tr>
+<tr>
+<td style="text-align: left">OverridePrice (<code class="prettyprint">Decimal</code>)</td>
+<td style="text-align: left">This value is retrieved from the <code class="prettyprint">SalePrice</code> of the current or default <a href="#SaleOverridePrice">SaleOverridePrice</a></td>
+</tr>
+<tr>
+<td style="text-align: left">OverridePriceId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier for a <a href='http://developers.iqmetrix.com/api/pricing/#saleoverrideprice'>SaleOverridePrice</a></td>
+</tr>
+<tr>
+<td style="text-align: left">PricingTermId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left"><a href="#pricingterm">PricingTerm</a> identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">RegularPrice (<code class="prettyprint">Decimal</code>)</td>
+<td style="text-align: left">The regular price, must be greater than or equal to 0</td>
+</tr>
+<tr>
+<td style="text-align: left"><em>PricingTierId (<code class="prettyprint">String</code>)</em></td>
+<td style="text-align: left"><em>Reserved for internal use</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="saleoverrideprice">SaleOverridePrice</h2>
+
+<p><p>SaleOverridePrice is used to set a sale pricing for a specific date. OverridePrice is set using the <strong>active</strong> SaleOverridePrice SalePrice property, determined using the following rules:</p><ul><li>If there is a SaleOverridePrice defined for the current date, it is used</li><li>Otherwise, if there is a Default (IsDefault set to true) SaleOverridePrice, it is used </li><li>Otherwise, null is returned</li></ul>{{callout_info}}<b>RQ Connection</b> Future SaveOverridePrice values are not currently synced to RQ, this feature is coming soon.{{end}}</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1177"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsDefault"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PricingInformationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16446"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SalePrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.99"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StartDateUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-02T00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StopDateUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-31T00:00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">CompanyId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier for the Company associated with this Pricing</td>
+</tr>
+<tr>
+<td style="text-align: left">IsDefault (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate that this is the default SaleOverridePrice</td>
+</tr>
+<tr>
+<td style="text-align: left">PricingInformationId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier for a <a href="#pricing">Pricing</a></td>
+</tr>
+<tr>
+<td style="text-align: left">SalePrice (<code class="prettyprint">Decimal</code>)</td>
+<td style="text-align: left">Sale price</td>
+</tr>
+<tr>
+<td style="text-align: left">StartDateUTC (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Date and time the sale pricing begins, in UTC</td>
+</tr>
+<tr>
+<td style="text-align: left">StopDateUTC (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Date and time the sale pricing ends, in UTC</td>
+</tr>
+</tbody></table>
+
+<h2 id="pricingterm">PricingTerm</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"78"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Active"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CanFinance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CarrierEntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DisplayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 Year Plan"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14146"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 Year Plan"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"NumberOfPayments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TermLengthInYears"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Active (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate of this PricingTerm is active. When set to false, this PricingTerm can still be used, but does not appear in the responses to the Getting All Active Pricing Terms request</td>
+</tr>
+<tr>
+<td style="text-align: left">CanFinance (<code class="prettyprint">Boolean</code>)</td>
+<td style="text-align: left">A flag to indicate if this PricingTerm can be financed</td>
+</tr>
+<tr>
+<td style="text-align: left">CarrierEntityId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier of a <a href="/api/entities/#Carrier">Carrier</a></td>
+</tr>
+<tr>
+<td style="text-align: left">DisplayName (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Localized string</td>
+</tr>
+<tr>
+<td style="text-align: left">EntityId (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Identifier for the <a href="/api/company-tree/#company">Company</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Name (<code class="prettyprint">String(255)</code>)</td>
+<td style="text-align: left">Name</td>
+</tr>
+<tr>
+<td style="text-align: left">NumberOfPayments (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">If <code class="prettyprint">CanFinance</code> is true, the number of payments for financing, otherwise this value is <code class="prettyprint">null</code></td>
+</tr>
+<tr>
+<td style="text-align: left">TermLengthInYears (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Length of the PricingTerm in years</td>
+</tr>
+</tbody></table>
+
+<h1 id="requests">Requests</h1>
+
+<h2 id="post-or-put-product-pricing-at-company-level"><span class='post'>POST</span> or <span class='put'>PUT</span> Product Pricing at Company Level</h2>
+
+<p>{{note}}
+  When Product Pricing is set at the Company level, all Locations within the Company will use this Product Pricing by default unless <b>overridden</b> by a Location level Pricing.
+  For more information, see <a href="http://developers.iqmetrix.com/concepts/company-tree/#inheritance">Company Tree Inheritance</a>.
+{{end}}</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST /Companies({CompanyId})/Pricing
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">POST</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Pricing</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X POST <span class="s2">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+    "CatalogItemId": "a183f1a9-c58f-426a-930a-9a6357db52ed",
+    "CompanyId": 14146,
+    "EntityId": 14202,
+    "FloorPrice": 3.99,
+    "IsDiscountable": false,
+    "OriginalPrice": 4.99,
+    "PricingTermId": 78,
+    "RegularPrice": 10
+}'</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">CreatingOrUpdatingProductPricingAtCompanyLevel</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">POST</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+     <span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"{\"CatalogItemId\":\"a183f1a9-c58f-426a-930a-9a6357db52ed\",\"CompanyId\":14146,\"EntityId\":14202,\"FloorPrice\":3.99,\"IsDiscountable\":false,\"OriginalPrice\":4.99,\"PricingTermId\":78,\"RegularPrice\":10}"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code><span class="kn">import</span> <span class="nn">org.apache.http.entity.StringEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpPost</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">CreatingOrUpdatingProductPricingAtCompanyLevel</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpPost</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPost</span><span class="o">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">StringEntity</span> <span class="n">body</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringEntity</span><span class="o">(</span><span class="s">"{\"CatalogItemId\":\"a183f1a9-c58f-426a-930a-9a6357db52ed\",\"CompanyId\":14146,\"EntityId\":14202,\"FloorPrice\":3.99,\"IsDiscountable\":false,\"OriginalPrice\":4.99,\"PricingTermId\":78,\"RegularPrice\":10}"</span><span class="o">);</span>
+    <span class="n">request</span><span class="o">.</span><span class="na">setEntity</span><span class="o">(</span><span class="n">body</span><span class="o">);</span>
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">body</span> <span class="o">=</span> <span class="s2">"{</span><span class="se">\"</span><span class="s2">CatalogItemId</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">a183f1a9-c58f-426a-930a-9a6357db52ed</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">CompanyId</span><span class="se">\"</span><span class="s2">:14146,</span><span class="se">\"</span><span class="s2">EntityId</span><span class="se">\"</span><span class="s2">:14202,</span><span class="se">\"</span><span class="s2">FloorPrice</span><span class="se">\"</span><span class="s2">:3.99,</span><span class="se">\"</span><span class="s2">IsDiscountable</span><span class="se">\"</span><span class="s2">:false,</span><span class="se">\"</span><span class="s2">OriginalPrice</span><span class="se">\"</span><span class="s2">:4.99,</span><span class="se">\"</span><span class="s2">PricingTermId</span><span class="se">\"</span><span class="s2">:78,</span><span class="se">\"</span><span class="s2">RegularPrice</span><span class="se">\"</span><span class="s2">:10}"</span><span class="p">;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing'</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="ss">:'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>CatalogItemId</code> (<strong>Required</strong>) </li><li><code>EntityId</code> (<strong>Required</strong>) </li><li><code>RegularPrice</code> (<strong>Required</strong>) </li><li><code>CompanyId</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>IsDiscountable</code> (Optional) - Defaults to false</li><li><code>OriginalPrice</code> (Optional) </li><li><code>PricingTermId</code> (Optional) </li></ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16446</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FloorPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.99</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsDiscountable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OriginalPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.99</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OverridePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.99</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OverridePriceId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1177</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PricingTermId"</span><span class="p">:</span><span class="w"> </span><span class="mi">78</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RegularPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><a href="#Pricing">pricing</a></p>
+
+<h2 id="post-or-put-product-pricing-at-location-level"><span class='post'>POST</span> or <span class='put'>PUT</span> Product Pricing at Location Level</h2>
+
+<p>{{note}}This request can be used to set Product Pricing for a specific Location. Location level Pricing <b>overrides</b> any Product Pricing set at the Company level. For more information, see <a href="http://developers.iqmetrix.com/concepts/company-tree/#inheritance">Company Tree Inheritance</a>.{{end}}</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST /Companies({CompanyId})/Entities({LocationId})/CatalogItems({CatalogItemId})/Pricing
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">POST</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Entities</span><span class="p">(</span><span class="mi">14202</span><span class="p">)</span><span class="o">/</span><span class="nx">CatalogItems</span><span class="p">(</span><span class="nx">a183f1a9</span><span class="o">-</span><span class="nx">c58f</span><span class="o">-</span><span class="mi">426</span><span class="nx">a</span><span class="o">-</span><span class="mi">930</span><span class="nx">a</span><span class="o">-</span><span class="mi">9</span><span class="nx">a6357db52ed</span><span class="p">)</span><span class="o">/</span><span class="nx">Pricing</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X POST <span class="s2">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Entities(14202)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+    "CatalogItemId": "a183f1a9-c58f-426a-930a-9a6357db52ed",
+    "CompanyId": 14146,
+    "EntityId": 14202,
+    "FloorPrice": 3.99,
+    "IsDiscountable": false,
+    "OriginalPrice": 4.99,
+    "PricingTermId": 78,
+    "RegularPrice": 10
+}'</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">CreatingOrUpdatingProductPricingAtLocationLevel</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Entities(14202)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">POST</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+     <span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"{\"CatalogItemId\":\"a183f1a9-c58f-426a-930a-9a6357db52ed\",\"CompanyId\":14146,\"EntityId\":14202,\"FloorPrice\":3.99,\"IsDiscountable\":false,\"OriginalPrice\":4.99,\"PricingTermId\":78,\"RegularPrice\":10}"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code><span class="kn">import</span> <span class="nn">org.apache.http.entity.StringEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpPost</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">CreatingOrUpdatingProductPricingAtLocationLevel</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpPost</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPost</span><span class="o">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Entities(14202)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">StringEntity</span> <span class="n">body</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringEntity</span><span class="o">(</span><span class="s">"{\"CatalogItemId\":\"a183f1a9-c58f-426a-930a-9a6357db52ed\",\"CompanyId\":14146,\"EntityId\":14202,\"FloorPrice\":3.99,\"IsDiscountable\":false,\"OriginalPrice\":4.99,\"PricingTermId\":78,\"RegularPrice\":10}"</span><span class="o">);</span>
+    <span class="n">request</span><span class="o">.</span><span class="na">setEntity</span><span class="o">(</span><span class="n">body</span><span class="o">);</span>
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">body</span> <span class="o">=</span> <span class="s2">"{</span><span class="se">\"</span><span class="s2">CatalogItemId</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">a183f1a9-c58f-426a-930a-9a6357db52ed</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">CompanyId</span><span class="se">\"</span><span class="s2">:14146,</span><span class="se">\"</span><span class="s2">EntityId</span><span class="se">\"</span><span class="s2">:14202,</span><span class="se">\"</span><span class="s2">FloorPrice</span><span class="se">\"</span><span class="s2">:3.99,</span><span class="se">\"</span><span class="s2">IsDiscountable</span><span class="se">\"</span><span class="s2">:false,</span><span class="se">\"</span><span class="s2">OriginalPrice</span><span class="se">\"</span><span class="s2">:4.99,</span><span class="se">\"</span><span class="s2">PricingTermId</span><span class="se">\"</span><span class="s2">:78,</span><span class="se">\"</span><span class="s2">RegularPrice</span><span class="se">\"</span><span class="s2">:10}"</span><span class="p">;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Entities(14202)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing'</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="ss">:'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+    <li><code>LocationId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a></li>
+    <li><code>CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the <a href='http://developers.iqmetrix.com/api/catalog/#catalogitem'>CatalogItem</a></li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>CatalogItemId</code> (<strong>Required</strong>) </li><li><code>EntityId</code> (<strong>Required</strong>) </li><li><code>RegularPrice</code> (<strong>Required</strong>) </li><li><code>CompanyId</code> (Optional) </li><li><code>FloorPrice</code> (Optional) </li><li><code>IsDiscountable</code> (Optional) - Defaults to false</li><li><code>OriginalPrice</code> (Optional) </li><li><code>PricingTermId</code> (Optional) </li></ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16446</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FloorPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.99</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsDiscountable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OriginalPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.99</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OverridePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.99</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"OverridePriceId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1177</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PricingTermId"</span><span class="p">:</span><span class="w"> </span><span class="mi">78</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"RegularPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><a href="#Pricing">pricing</a></p>
+
+<h2 id="get-product-pricing-for-a-retail-location"><span class='get'>GET</span> Product Pricing for a Retail Location</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/Entities({LocationId})/CatalogItems({CatalogItemId})/Pricing
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Entities</span><span class="p">(</span><span class="mi">14202</span><span class="p">)</span><span class="o">/</span><span class="nx">CatalogItems</span><span class="p">(</span><span class="nx">a183f1a9</span><span class="o">-</span><span class="nx">c58f</span><span class="o">-</span><span class="mi">426</span><span class="nx">a</span><span class="o">-</span><span class="mi">930</span><span class="nx">a</span><span class="o">-</span><span class="mi">9</span><span class="nx">a6357db52ed</span><span class="p">)</span><span class="o">/</span><span class="nx">Pricing</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Entities(14202)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingProductPricingForARetailLocation</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Entities(14202)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingProductPricingForARetailLocation</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Entities(14202)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Entities(14202)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+    <li><code>LocationId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#location'>Location</a></li>
+    <li><code>CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the <a href='http://developers.iqmetrix.com/api/catalog/#catalogitem'>CatalogItem</a></li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16446</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"FloorPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"IsDiscountable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OriginalPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OverridePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OverridePriceId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1177</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PricingTermId"</span><span class="p">:</span><span class="w"> </span><span class="mi">78</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"RegularPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Array[<a href="#Pricing">pricing</a>]</p>
+
+<h2 id="get-product-pricing-at-company-level"><span class='get'>GET</span> Product Pricing at Company Level</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/CatalogItems({CatalogItemId})/Pricing
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">CatalogItems</span><span class="p">(</span><span class="nx">a183f1a9</span><span class="o">-</span><span class="nx">c58f</span><span class="o">-</span><span class="mi">426</span><span class="nx">a</span><span class="o">-</span><span class="mi">930</span><span class="nx">a</span><span class="o">-</span><span class="mi">9</span><span class="nx">a6357db52ed</span><span class="p">)</span><span class="o">/</span><span class="nx">Pricing</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingProductPricingAtCompanyLevel</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingProductPricingAtCompanyLevel</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://pricingdemo.iqmetrix.net/v1/Companies(14146)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+    <li><code>CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the <a href='http://developers.iqmetrix.com/api/catalog/#catalogitem'>CatalogItem</a></li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16446</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"FloorPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"IsDiscountable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OriginalPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OverridePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OverridePriceId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1177</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PricingTermId"</span><span class="p">:</span><span class="w"> </span><span class="mi">78</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"RegularPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Array[<a href="#Pricing">pricing</a>]</p>
+
+<h2 id="get-all-active-pricing-terms"><span class='get'>GET</span> all Active Pricing Terms</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/PricingTerms
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">PricingTerms</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Language</span><span class="err">:</span> <span class="nx">en</span><span class="o">-</span><span class="nx">US</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/PricingTerms"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Accept-Language: en-US"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingAllActivePricingTerms</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/PricingTerms"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept-Language"</span><span class="p">,</span> <span class="s">"en-US"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingAllActivePricingTerms</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/PricingTerms"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept-Language"</span><span class="o">,</span> <span class="s">"en-US"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://pricingdemo.iqmetrix.net/v1/Companies(14146)/PricingTerms'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="ss">:'Accept-Language'</span> <span class="o">=&gt;</span> <span class="s1">'en-US'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">78</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CanFinance"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CarrierEntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"DisplayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 Year Plan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 Year Plan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"NumberOfPayments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"TermLengthInYears"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Array[<a href="#PricingTerm">pricingterm</a>]</p>
+
+<h2 id="get-a-pricing-term"><span class='get'>GET</span> a Pricing Term</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/PricingTerms({PricingTermId})
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">PricingTerms</span><span class="p">(</span><span class="mi">78</span><span class="p">)</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="nx">Accept</span><span class="o">-</span><span class="nx">Language</span><span class="err">:</span> <span class="nx">en</span><span class="o">-</span><span class="nx">US</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/PricingTerms(78)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Accept-Language: en-US"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingAPricingTerm</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/PricingTerms(78)"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept-Language"</span><span class="p">,</span> <span class="s">"en-US"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingAPricingTerm</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/PricingTerms(78)"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept-Language"</span><span class="o">,</span> <span class="s">"en-US"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://pricingdemo.iqmetrix.net/v1/Companies(14146)/PricingTerms(78)'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="ss">:'Accept-Language'</span> <span class="o">=&gt;</span> <span class="s1">'en-US'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+    <li><code>PricingTermId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/pricing/#pricingterm'>PricingTerm</a></li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">78</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CanFinance"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CarrierEntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DisplayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 Year Plan"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 Year Plan"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"NumberOfPayments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TermLengthInYears"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><a href="#PricingTerm">pricingterm</a></p>
+
+<h2 id="post-a-sale-price"><span class='post'>POST</span> a Sale Price</h2>
+
+<p>When creating a SaleOverridePrice, the following rules are enforced:
+<ul>
+  <li>If StartDate or StopDate are supplied, they must both be provided, StartDate must be before StopDate and IsDefault must be false</li>
+  <li>If StartDate and StopDate are null, IsDefault must be true</li>
+  <li>For each Pricing resource, there can only be one SaleOverridePrice where IsDefault is true (this is the &ldquo;Default&rdquo; Sale price)</li>
+  <li>SalePrice must be greater than or equal to 0</li>
+  <li>Multiple date ranges can be defined (multiple sales), but date ranges cannot overlap</li>
+</ul></p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST /Companies({CompanyId})/Pricing({PricingId})/SaleOverridePrices
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">POST</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Pricing</span><span class="p">(</span><span class="mi">16446</span><span class="p">)</span><span class="o">/</span><span class="nx">SaleOverridePrices</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X POST <span class="s2">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+    "IsDefault": true,
+    "SalePrice": 3.99,
+    "StartDateUTC": "2015-12-02T00:00:00",
+    "StopDateUTC": "2015-12-31T00:00:00"
+}'</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">CreatingASalePrice</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">POST</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+     <span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"{\"IsDefault\":true,\"SalePrice\":3.99,\"StartDateUTC\":\"2015-12-02T00:00:00\",\"StopDateUTC\":\"2015-12-31T00:00:00\"}"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code><span class="kn">import</span> <span class="nn">org.apache.http.entity.StringEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpPost</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">CreatingASalePrice</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpPost</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPost</span><span class="o">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">StringEntity</span> <span class="n">body</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringEntity</span><span class="o">(</span><span class="s">"{\"IsDefault\":true,\"SalePrice\":3.99,\"StartDateUTC\":\"2015-12-02T00:00:00\",\"StopDateUTC\":\"2015-12-31T00:00:00\"}"</span><span class="o">);</span>
+    <span class="n">request</span><span class="o">.</span><span class="na">setEntity</span><span class="o">(</span><span class="n">body</span><span class="o">);</span>
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">body</span> <span class="o">=</span> <span class="s2">"{</span><span class="se">\"</span><span class="s2">IsDefault</span><span class="se">\"</span><span class="s2">:true,</span><span class="se">\"</span><span class="s2">SalePrice</span><span class="se">\"</span><span class="s2">:3.99,</span><span class="se">\"</span><span class="s2">StartDateUTC</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2015-12-02T00:00:00</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">StopDateUTC</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2015-12-31T00:00:00</span><span class="se">\"</span><span class="s2">}"</span><span class="p">;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices'</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="ss">:'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+    <li><code>PricingId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/pricing/#pricing'>Pricing</a></li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>IsDefault</code> (<strong>Required</strong>) - There can only be one default SaleOverridePrice for a Pricing. If StartDate and StopDate are provided, this must be false</li><li><code>SalePrice</code> (Optional) - Must be greater than or equal to 0, defaults to 0</li><li><code>StartDateUTC</code> (Optional) - If provided, StopDate must be provided, StartDate must be before StopDate and IsDefault must be false</li><li><code>StopDateUTC</code> (Optional) - If provided, StartDate must be provided, StartDate must be before StopDate and IsDefault must be false</li></ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1177</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsDefault"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PricingInformationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">16446</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SalePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.99</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StartDateUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-02T00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StopDateUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-31T00:00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><a href="#SaleOverridePrice">saleoverrideprice</a></p>
+
+<h2 id="get-all-sale-pricing"><span class='get'>GET</span> All Sale Pricing</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/Pricing({PricingId})/SaleOverridePrices
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Pricing</span><span class="p">(</span><span class="mi">16446</span><span class="p">)</span><span class="o">/</span><span class="nx">SaleOverridePrices</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingAllSalePricing</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingAllSalePricing</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+    <li><code>PricingId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/pricing/#pricing'>Pricing</a></li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1177</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"IsDefault"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PricingInformationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">16446</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"SalePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"StartDateUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-02T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"StopDateUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-31T00:00:00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Array[<a href="#SaleOverridePrice">saleoverrideprice</a>]</p>
+
+<h2 id="put-a-sale-pricing"><span class='put'>PUT</span> a Sale Pricing</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>PUT /Companies({CompanyId})/Pricing({PricingId})/SaleOverridePrices({SaleOverridePriceId})
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">PUT</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Pricing</span><span class="p">(</span><span class="mi">16446</span><span class="p">)</span><span class="o">/</span><span class="nx">SaleOverridePrices</span><span class="p">(</span><span class="mi">2802</span><span class="p">)</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="err">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X PUT <span class="s2">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices(2802)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+    "Id": 1177,
+    "CompanyId": 14146,
+    "IsDefault": true,
+    "PricingInformationId": 16446,
+    "SalePrice": 3.99,
+    "StartDateUTC": "2015-12-02T00:00:00",
+    "StopDateUTC": "2015-12-31T00:00:00"
+}'</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">UpdatingASalePricing</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices(2802)"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">PUT</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+     <span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"{\"Id\":1177,\"CompanyId\":14146,\"IsDefault\":true,\"PricingInformationId\":16446,\"SalePrice\":3.99,\"StartDateUTC\":\"2015-12-02T00:00:00\",\"StopDateUTC\":\"2015-12-31T00:00:00\"}"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code><span class="kn">import</span> <span class="nn">org.apache.http.entity.StringEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpPut</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">UpdatingASalePricing</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpPut</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpPut</span><span class="o">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices(2802)"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+    <span class="n">StringEntity</span> <span class="n">body</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringEntity</span><span class="o">(</span><span class="s">"{\"Id\":1177,\"CompanyId\":14146,\"IsDefault\":true,\"PricingInformationId\":16446,\"SalePrice\":3.99,\"StartDateUTC\":\"2015-12-02T00:00:00\",\"StopDateUTC\":\"2015-12-31T00:00:00\"}"</span><span class="o">);</span>
+    <span class="n">request</span><span class="o">.</span><span class="na">setEntity</span><span class="o">(</span><span class="n">body</span><span class="o">);</span>
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">body</span> <span class="o">=</span> <span class="s2">"{</span><span class="se">\"</span><span class="s2">Id</span><span class="se">\"</span><span class="s2">:1177,</span><span class="se">\"</span><span class="s2">CompanyId</span><span class="se">\"</span><span class="s2">:14146,</span><span class="se">\"</span><span class="s2">IsDefault</span><span class="se">\"</span><span class="s2">:true,</span><span class="se">\"</span><span class="s2">PricingInformationId</span><span class="se">\"</span><span class="s2">:16446,</span><span class="se">\"</span><span class="s2">SalePrice</span><span class="se">\"</span><span class="s2">:3.99,</span><span class="se">\"</span><span class="s2">StartDateUTC</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2015-12-02T00:00:00</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">StopDateUTC</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2015-12-31T00:00:00</span><span class="se">\"</span><span class="s2">}"</span><span class="p">;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">put</span> <span class="s1">'https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices(2802)'</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+     <span class="ss">:'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+    <li><code>PricingId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/pricing/#pricing'>Pricing</a></li>
+    <li><code>SaleOverridePriceId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/pricing/#saleoverrideprice'>SaleOverridePrice</a></li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>IsDefault</code> (<strong>Required</strong>) - There can only be one default SaleOverridePrice for a Pricing. If StartDate and StopDate are provided, this must be false</li><li><code>Id</code> (<strong>Required</strong>) </li><li><code>SalePrice</code> (Optional) - Must be greater than or equal to 0, defaults to 0</li><li><code>StartDateUTC</code> (Optional) - If provided, StopDate must be provided, StartDate must be before StopDate and IsDefault must be false</li><li><code>StopDateUTC</code> (Optional) - If provided, StartDate must be provided, StartDate must be before StopDate and IsDefault must be false</li></ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1177</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsDefault"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PricingInformationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">16446</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SalePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.99</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StartDateUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-02T00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StopDateUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-31T00:00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><a href="#SaleOverridePrice">saleoverrideprice</a></p>
+
+<h2 id="delete-a-sale-pricing"><span class='delete'>DELETE</span> a Sale Pricing</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>DELETE /Companies({CompanyId})/Pricing({PricingId})/SaleOverridePrices({SaleOverridePriceId})
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">DELETE</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">Pricing</span><span class="p">(</span><span class="mi">16446</span><span class="p">)</span><span class="o">/</span><span class="nx">SaleOverridePrices</span><span class="p">(</span><span class="mi">2802</span><span class="p">)</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X DELETE <span class="s2">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices(2802)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">DeletingASalePricing</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices(2802)"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">DELETE</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpDelete</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">DeletingASalePricing</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpDelete</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpDelete</span><span class="o">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices(2802)"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">delete</span> <span class="s1">'https://pricingdemo.iqmetrix.net/v1/Companies(14146)/Pricing(16446)/SaleOverridePrices(2802)'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+    <li><code>PricingId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/pricing/#pricing'>Pricing</a></li>
+    <li><code>SaleOverridePriceId</code> (<strong>Required</strong>)  - Identifier for a <a href='http://developers.iqmetrix.com/api/pricing/#saleoverrideprice'>SaleOverridePrice</a></li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+
+<h2 id="get-product-pricing-by-pricing-term"><span class='get'>GET</span> Product Pricing by Pricing Term</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Companies({CompanyId})/CatalogItems({CatalogItemId})/Pricing?$filter={PricingTermId}
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="nx">GET</span> <span class="o">/</span><span class="nx">Companies</span><span class="p">(</span><span class="mi">14146</span><span class="p">)</span><span class="o">/</span><span class="nx">CatalogItems</span><span class="p">(</span><span class="nx">a183f1a9</span><span class="o">-</span><span class="nx">c58f</span><span class="o">-</span><span class="mi">426</span><span class="nx">a</span><span class="o">-</span><span class="mi">930</span><span class="nx">a</span><span class="o">-</span><span class="mi">9</span><span class="nx">a6357db52ed</span><span class="p">)</span><span class="o">/</span><span class="nx">Pricing</span><span class="p">?</span><span class="nx">$filter</span><span class="o">=</span><span class="mi">78</span>
+<span class="nl">Authorization</span><span class="p">:</span> <span class="nx">Bearer</span> <span class="p">(</span><span class="nx">Access</span> <span class="nx">Token</span><span class="p">)</span>
+<span class="nl">Accept</span><span class="p">:</span> <span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+</code></pre>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing?</span><span class="nv">$filter</span><span class="s2">=78"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="k">static</span> <span class="n">IRestResponse</span> <span class="nf">GettingProductPricingByPricingTerm</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing?$filter=78"</span><span class="p">);</span>
+    <span class="n">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="n">GET</span><span class="p">);</span>
+
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"Bearer (Access Token)"</span><span class="p">);</span> 
+    <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span> 
+
+
+
+    <span class="k">return</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight java"><code>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.CloseableHttpResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.client.methods.HttpGet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.CloseableHttpClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.http.impl.client.HttpClients</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">CloseableHttpResponse</span> <span class="nf">GettingProductPricingByPricingTerm</span><span class="p">(</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">CloseableHttpClient</span> <span class="n">httpClient</span> <span class="o">=</span> <span class="n">HttpClients</span><span class="o">.</span><span class="na">createDefault</span><span class="o">();</span>
+    <span class="n">HttpGet</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpGet</span><span class="o">(</span><span class="s">"https://pricingdemo.iqmetrix.net/v1/Companies(14146)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing?$filter=78"</span><span class="o">);</span>
+
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer (Access Token)"</span><span class="o">);</span> 
+    <span class="n">request</span><span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Accept"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">);</span> 
+
+    <span class="k">return</span> <span class="n">httpClient</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s1">'https://pricingdemo.iqmetrix.net/v1/Companies(14146)/CatalogItems(a183f1a9-c58f-426a-930a-9a6357db52ed)/Pricing?$filter=78'</span><span class="p">,</span> <span class="p">{</span>
+     <span class="ss">:'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer (Access Token)'</span><span class="p">,</span>
+     <span class="ss">:'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="p">}</span> 
+
+<span class="nb">puts</span> <span class="n">response</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>CompanyId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/company-tree/#company'>Company</a></li>
+    <li><code>CatalogItemId</code> (<strong>Required</strong>)  - Unique identifier for the <a href='http://developers.iqmetrix.com/api/catalog/#catalogitem'>CatalogItem</a></li>
+    <li><code>PricingTermId</code> (<strong>Required</strong>)  - Identifier for the <a href='http://developers.iqmetrix.com/api/pricing/#pricingterm'>PricingTerm</a></li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16446</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CatalogItemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a183f1a9-c58f-426a-930a-9a6357db52ed"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CompanyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"FloorPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"IsDiscountable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OriginalPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OverridePrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.99</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"OverridePriceId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1177</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PricingTermId"</span><span class="p">:</span><span class="w"> </span><span class="mi">78</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"RegularPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Array[<a href="#Pricing">pricing</a>]</p>
+
+<h1 id="errors">Errors</h1>
+
+<table><thead>
+<tr>
+<th style="text-align: left">HTTP Status Code</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">How to Resolve</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">A non-default sale override price must have</code><br/><code class="prettyprint">start and stop dates associated with it.</code></td>
+<td style="text-align: left">StartDate and StopDate must either both be set or both be null</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">The start date is after, or equal to the end date.</code><br/><code class="prettyprint">The start date must come before the end date.</code></td>
+<td style="text-align: left">StartDate must be before StopDate</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">Uri parameter representing resource id and resource</code><br/><code class="prettyprint">id found in the request content don&#39;t match.</code></td>
+<td style="text-align: left">When performing a PUT, ensure any URI parameters also in the request body match</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">The date range overlaps with another sale period for</code><br/><code class="prettyprint">this pricing record.</code></td>
+<td style="text-align: left">Update or delelete the existing SaleOverridePrice that overlaps with the date range</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">A default sale override price cannot have start</code><br/><code class="prettyprint">or stop dates associated with it.</code></td>
+<td style="text-align: left">Ensure StartDate and StopDate are not set if IsDefault is true</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">The sale price must be greater or equal to zero.</code></td>
+<td style="text-align: left">Ensure SalePrice is non-negative</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">There is already a default sales overide for this pricing record.</code><br/><code class="prettyprint">Either delete it first, or modify that record.</code></td>
+<td style="text-align: left">Delete or modify the existing default SaleOverridePrice</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">Entity is not related to company</code></td>
+<td style="text-align: left">Ensure the <a href="/api/company-tree/#location">Location</a> belongs to the <a href="/api/company-tree/#company">Company</a> specified in the URI</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">Error while extracting the request query...</code></td>
+<td style="text-align: left">Ensure $filter query parameter is formatted correctly</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 404</code></td>
+<td style="text-align: left"><code class="prettyprint">Cannot find matching records</code></td>
+<td style="text-align: left">Ensure <a href="/api/catalog/#catalogitem">CatalogItem</a> ID is valid, CatalogItem exists and belongs to the Company specified in the URI</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 404</code></td>
+<td style="text-align: left"><code class="prettyprint">That term does not exist</code></td>
+<td style="text-align: left">Ensure <a href="#pricingterm">PricingTerm</a> ID is valid</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 500</code></td>
+<td style="text-align: left"><code class="prettyprint">An error occurred while updating the entries</code></td>
+<td style="text-align: left">Ensure request body is correct, ensure Name property does not contain more then 255 characters</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="csharp">c#</a>
+                <a href="#" data-language-name="java">java</a>
+                <a href="#" data-language-name="ruby">ruby</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

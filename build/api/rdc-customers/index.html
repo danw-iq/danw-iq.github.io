@@ -1,0 +1,709 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>RQ Data Connect Customer Reports | iQmetrix Developer Portal</title>
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
+
+    <style>
+      /*.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}*/
+    </style>
+    <link href="../../stylesheets/three_column.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all_nosearch.js"></script>
+  </head>
+  <body class="api api_rdc-customers api_rdc-customers_index" data-languages="[]">
+    <div class="fixed-top">
+      <a class="navbar-logo" href="/"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">PRODUCTS</a></li>
+          <li><a href="/api/changelog">API REFERENCE</a></li>
+          <li><a href="/api/changelog">CORE CONCEPTS &amp; GUIDES</a></li>
+          <li><a href="/api/changelog">PARTNERS</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">CONTACT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="breadcrumb">
+      <ol>
+        <li><a href="/api/">API REFERENCE</a></li>
+        <li>></li>
+        <li><a href="">API DOCUMENTATION</a></li>
+        <li>></li>
+        <li class="active">CUSTOMER RELATIONSHIP MANAGEMENT (CRM)</li>
+      </ol>
+    </div>
+    <div class="title">
+      <h1>API Documentation</h1>
+      <p>In depth reference documentation for iQmetrix API's.</p>
+    </div>
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <!-- <img src="../../images/logo.png" alt="Logo" /> -->
+        <div class="lang-selector">
+        </div>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <p><link rel="stylesheet" type="text/css" href="../../css/prism.css"></p>
+
+<script src="../../js/prism.js"></script>
+
+<p>{% include linkrefs.html %}</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>RQ Data Connect allows you to retrieve report data from your RQ database (v4.23 and up).</p>
+
+<p>To get started, see <a href="/guides/rq-data-connect/">RQ Data Connect Guide</a>.</p>
+
+<h4 id="note">Note</h4>
+
+<p>For reports that provide optional URI parameters for filtering at different levels (ForWho/ForWhoIDs/LocationType/LocationTypeIDs), omitting these values will run the report at the default company level.</p>
+
+<h3 id="authentication">Authentication</h3>
+
+<p>RQ Data Connect and Bridge support many different methods of authentication, see {{AuthenticationOptions}}.</p>
+
+<p>Note that for all reports the {{AccessToken_Glossary}} should be mapped to an employee in RQ.</p>
+
+<h3 id="report-list">Report List</h3>
+
+<p>For a complete list of reports in RQ Data Connect, see <a href="/rq-data-connect/report-list">Report List</a>.</p>
+
+<h2 id="endpoints">Endpoints</h2>
+
+<ul>
+<li>Sandbox: <a href="https://rqdataconnectdemo.iqmetrix.net">https://rqdataconnectdemo.iqmetrix.net</a></li>
+<li>Production: <a href="https://rqdataconnect.iqmetrix.net">https://rqdataconnect.iqmetrix.net</a></li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<h2 id="customerlistreportdata">CustomerListReportData</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12 Hello St."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Address2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"BillingAccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fargo"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ContactNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5555555555"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ContactTypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CustomerCompanyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KENTEL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CustomerFirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carrie"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CustomerID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2108754"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CustomerLastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Madison"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DateCreated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-26T20:55:53.227"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"DeclineToProvideEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"carry@test.iq"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EmployeeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iQmetrix Employee"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EmployeeNameAssignedTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iQmetrix Employee"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IndustryTypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MultiLevelPriceID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"NumberOfActivations"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PositionTypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90123"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Province"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ND"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TracPointMemberNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C2981754hduw"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TypeOfCustomer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"VIPCustomer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Address (<code class="prettyprint">VARCHAR(50)</code>)</td>
+<td style="text-align: left">Address - first line of the address</td>
+</tr>
+<tr>
+<td style="text-align: left">Address2 (<code class="prettyprint">VARCHAR(50)</code>)</td>
+<td style="text-align: left">Address 2 - second line of the address, if necessary</td>
+</tr>
+<tr>
+<td style="text-align: left">BillingAccountNumber (<code class="prettyprint">NVARCHAR(MAX)</code>)</td>
+<td style="text-align: left">BAN -  if your company uses BAN you will enter it in the Customer profile and it will show here</td>
+</tr>
+<tr>
+<td style="text-align: left">City (<code class="prettyprint">VARCHAR(50)</code>)</td>
+<td style="text-align: left">City - customer&rsquo;s city</td>
+</tr>
+<tr>
+<td style="text-align: left">ContactNumber (<code class="prettyprint">VARCHAR(200)</code>)</td>
+<td style="text-align: left">Contact # - the number that is selected on the customer&rsquo;s profile, it can be any of the number options there</td>
+</tr>
+<tr>
+<td style="text-align: left">ContactTypeName (<code class="prettyprint">NVARCHAR(MAX)</code>)</td>
+<td style="text-align: left">Contact Type - as defined in General Customer Setup and assigned in the Custom Fields section on the customer&rsquo;s profile</td>
+</tr>
+<tr>
+<td style="text-align: left">Country (<code class="prettyprint">VARCHAR(50)</code>)</td>
+<td style="text-align: left">Country - customer&rsquo;s country</td>
+</tr>
+<tr>
+<td style="text-align: left">CustomerCompanyName (<code class="prettyprint">VARCHAR(50)</code>)</td>
+<td style="text-align: left">Company Name - may be blank depending on the kind of customer</td>
+</tr>
+<tr>
+<td style="text-align: left">CustomerFirstName (<code class="prettyprint">VARCHAR(50)</code>)</td>
+<td style="text-align: left">First Name - may be blank depending on the kind of customer</td>
+</tr>
+<tr>
+<td style="text-align: left">CustomerID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Identifier for a Customer in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">CustomerLastName (<code class="prettyprint">VARCHAR(50)</code>)</td>
+<td style="text-align: left">Last Name - may be blank depending on the kind of customer</td>
+</tr>
+<tr>
+<td style="text-align: left">DateCreated (<code class="prettyprint">DateTime</code>)</td>
+<td style="text-align: left">Created On - day and time the customer&rsquo;s profile was created</td>
+</tr>
+<tr>
+<td style="text-align: left">DeclineToProvideEmail (<code class="prettyprint">BIT</code>)</td>
+<td style="text-align: left">Decline Email - the option for customers to decline email</td>
+</tr>
+<tr>
+<td style="text-align: left">Email (<code class="prettyprint">VARCHAR(200)</code>)</td>
+<td style="text-align: left">Email - may be blank, if so, the context menu will not have the Email Customer option</td>
+</tr>
+<tr>
+<td style="text-align: left">EmployeeName (<code class="prettyprint">VARCHAR(51)</code>)</td>
+<td style="text-align: left">Created By - employee who created the profile</td>
+</tr>
+<tr>
+<td style="text-align: left">EmployeeNameAssignedTo (<code class="prettyprint">VARCHAR(51)</code>)</td>
+<td style="text-align: left">Assigned To - may be blank if the customer has not been assigned to an employee</td>
+</tr>
+<tr>
+<td style="text-align: left">IndustryTypeName (<code class="prettyprint">NVARCHAR(MAX)</code>)</td>
+<td style="text-align: left">Industry Type - as defined in General Customer Setup and assigned in the Custom Fields section on the customer&rsquo;s profile</td>
+</tr>
+<tr>
+<td style="text-align: left">MultiLevelPriceID (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Pricing Group - as defined in Multi-Level Pricing - Setup and assigned in the Discount Level field in the More Information section on the customer&rsquo;s profile</td>
+</tr>
+<tr>
+<td style="text-align: left">NumberOfActivations (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left"># of Activations - number of Activations the customer has completed as recorded in RQ</td>
+</tr>
+<tr>
+<td style="text-align: left">PositionTypeName (<code class="prettyprint">NVARCHAR(MAX)</code>)</td>
+<td style="text-align: left">Position Type - as defined in General Customer Setup and assigned in the Custom Fields section on the customer&rsquo;s profile</td>
+</tr>
+<tr>
+<td style="text-align: left">PostalCode (<code class="prettyprint">VARCHAR(15)</code>)</td>
+<td style="text-align: left">Zip/Postal Code - zip code (USA) or postal code (Canada)</td>
+</tr>
+<tr>
+<td style="text-align: left">Province (<code class="prettyprint">VARCHAR(50)</code>)</td>
+<td style="text-align: left">State/Province - customer&rsquo;s state or province</td>
+</tr>
+<tr>
+<td style="text-align: left">TracPointMemberNumber (<code class="prettyprint">VARCHAR(30)</code>)</td>
+<td style="text-align: left">Member # - this number is automatically generated when a new customer is created</td>
+</tr>
+<tr>
+<td style="text-align: left">TypeOfCustomer (<code class="prettyprint">INT</code>)</td>
+<td style="text-align: left">Type Of Customer - 0 for Company, or 3 for Individual</td>
+</tr>
+<tr>
+<td style="text-align: left">VIPCustomer (<code class="prettyprint">TINYINT</code>)</td>
+<td style="text-align: left">VIP Customer - will be checked if this is a VIP Customer</td>
+</tr>
+</tbody></table>
+
+<h2 id="requests">Requests</h2>
+
+<h3 id='getting-the-customer-list-report' class='clickable-header top-level-header'>Getting the Customer List Report</h3>
+
+<p>For more information, see {{support_CustomerListReport}}.</p>
+
+<h4>Request</h4>
+
+<pre>
+GET /reports/customerlistreport?StartDate={StartDate}&StopDate={StopDate}&TypeOfCustomer={TypeOfCustomer}&FilterBy={FilterBy}&StoreIDLoggedIn={StoreIDLoggedIn}&ForWho={ForWho}&ForWhoIDs={ForWhoIDs}&LocationType={LocationType}&LocationTypeIDs={LocationTypeIDs}&Auth={Auth}&Response={Response}
+</pre>
+
+<h4>Headers</h4>
+
+<ul><li><code>Authorization: Bearer (Access Token)</code> (Optional) - Bearer token used for authentication. For other methods of authentication, see {{AuthenticationOptions}}</li><li><code>Accept-Encoding: gzip</code> (Optional) - Compression algorithm. For other methods of compression, see {{CompressionOptions}}</li></ul>
+
+<h4>URI Parameters</h4>
+
+<ul>
+    
+    <li>
+        <code>StartDate</code> (<strong>Required</strong>)  - Date at which report will begin
+    </li>
+    
+    <li>
+        <code>StopDate</code> (<strong>Required</strong>)  - Date at which report will end
+    </li>
+    
+    <li>
+        <code>TypeOfCustomer</code> (<strong>Required</strong>)  - Acceptable values include -1 for all types, 0 for Company, 1 for Division, 2 for Group and 3 for Individual
+    </li>
+    
+    <li>
+        <code>FilterBy</code> (<strong>Required</strong>)  - Acceptable values include 0 for All Customers, 1 for First Activation and 2 for Sales
+    </li>
+    
+    <li>
+        <code>StoreIDLoggedIn</code> (<strong>Required</strong>)  - Identifier for a store in RQ. For a complete list, see <a href='/api/RQ-Data-Connect/#getting-a-list-of-stores-in-rq'>Getting A List of Stores in RQ</a>
+    </li>
+    
+    <li>
+        <code>ForWho</code> (Optional)  - Identifier for a level at which to perform the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-report-levels-in-rq">Getting Report Levels in RQ</a>. If <strong>LocationType</strong> is provided, this value is ignored
+    </li>
+    
+    <li>
+        <code>ForWhoIDs</code> (Optional)  - A comma seperated list of identifiers to filter the report. For a list of identifiers, see <a href="/api/RQ-Data-Connect/#getting-nodes-by-location-type">Getting Nodes By Location Type</a>. If <strong>LocationTypeIDs</strong> is provided, this value is ignored. To ignore filtering use -1
+    </li>
+    
+    <li>
+        <code>LocationType</code> (Optional)  - A <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#locationtype'>LocationType</a> to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-types">Getting Location Types</a>. If this value is provided, <strong>ForWho</strong> is ignored
+    </li>
+    
+    <li>
+        <code>LocationTypeIDs</code> (Optional)  - A comma seperated list of <a href='http://developers.iqmetrix.com/api/RQ-Data-Connect/#rqcompanytreenode'>RQCompanyTreeNode</a> identifiers to filter the report. For a complete list, see <a href="/api/RQ-Data-Connect/#getting-location-ids">Getting Location Ids</a>. To ignore filtering, use -1 or *. If this value is provided, <strong>ForWhoIDs</strong> is ignored
+    </li>
+    
+    <li>
+        <code>Auth</code> (Optional)  - Basic token used for authentication. For other methods of authentication, see {{AuthenticationOptions}}
+    </li>
+    
+    <li>
+        <code>Response</code> (Optional)  - Default is JSON. For other methods of response, see {{ResponseOptions}}
+    </li>
+    </ul>
+
+
+
+<h5>Example</h5>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#http-getting-the-customer-list-report" data-toggle="tab">HTTP</a></li>
+    <li><a href="#curl-getting-the-customer-list-report" data-toggle="tab">cURL</a></li>
+    <li><a href="#csharp-getting-the-customer-list-report" data-toggle="tab">C# (RestSharp)</a></li>
+    <li><a href="#java-getting-the-customer-list-report" data-toggle="tab">Java (HttpComponents)</a></li>
+    <li><a href="#ruby-getting-the-customer-list-report" data-toggle="tab">Ruby (rest-client)</a></li>
+    <button id="copy-getting-the-customer-list-report" class="copy-button btn btn-default btn-sm" data-clipboard-action="copy" data-clipboard-target="#http-code-getting-the-customer-list-report"><i class="fa fa-clipboard" title="Copy to Clipboard"></i></button>
+</ul>
+
+<div class="tab-content"> 
+    <div role="tabpanel" class="tab-pane active" id="http-getting-the-customer-list-report">
+<pre id="http-code-getting-the-customer-list-report"><code class="language-http">GET /reports/customerlistreport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&TypeOfCustomer=-1&FilterBy=1&StoreIDLoggedIn=1&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2
+</code><code class="language-csharp"></code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="curl-getting-the-customer-list-report">
+<pre id="curl-code-getting-the-customer-list-report"><code class="language-http">curl -X GET "https://rqdataconnectdemo.iqmetrix.net/reports/customerlistreport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&TypeOfCustomer=-1&FilterBy=1&StoreIDLoggedIn=1&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2"</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="csharp-getting-the-customer-list-report">
+        This code sample uses <a href="http://restsharp.org/">RestSharp</a>, ensure you install the nuget package and include <code>Using RestSharp;</code> at the top of your file.
+<pre id="csharp-code-getting-the-customer-list-report"><code class="language-csharp">static IRestResponse GettingTheCustomerListReport()
+{
+    var client = new RestClient("https://rqdataconnectdemo.iqmetrix.net/reports/customerlistreport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&TypeOfCustomer=-1&FilterBy=1&StoreIDLoggedIn=1&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2");
+    var request = new RestRequest(Method.GET);
+     
+
+    
+
+    return client.Execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="java-getting-the-customer-list-report">
+        This code sample uses <a href="https://hc.apache.org/">Apache HttpComponents</a>, ensure you download and include the required Jars.
+<pre id="java-code-getting-the-customer-list-report"><code class="language-java">
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import java.io.IOException;
+
+public static CloseableHttpResponse GettingTheCustomerListReport() throws IOException {
+    CloseableHttpClient httpClient = HttpClients.createDefault();
+    HttpGet request = new HttpGet("https://rqdataconnectdemo.iqmetrix.net/reports/customerlistreport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&TypeOfCustomer=-1&FilterBy=1&StoreIDLoggedIn=1&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2");
+     
+    
+    return httpClient.execute(request);
+}</code></pre>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ruby-getting-the-customer-list-report">
+        This code sample uses <a href="https://github.com/rest-client/rest-client">rest-client</a>, ensure you <code>gem install rest-client</code>.
+<pre id="ruby-code-getting-the-customer-list-report"><code class="language-ruby">require 'rest-client'
+
+
+
+response = RestClient.get 'https://rqdataconnectdemo.iqmetrix.net/reports/customerlistreport?StartDate=1970-01-01T08:00:00.000Z&StopDate=2016-01-01T08:00:00.000Z&TypeOfCustomer=-1&FilterBy=1&StoreIDLoggedIn=1&ForWho=1&ForWhoIDs=6679&LocationType=Store&LocationTypeIDs=1,2', {
+    } 
+
+puts response</code></pre>
+    </div>
+</div>
+
+<h4>Response</h4>
+
+<p>Array[[customerlistreportdata](#CustomerListReportData)]</p>           
+    
+
+<ul class="nav nav-tabs">
+    
+        <li class="active">
+            <a href="#applicationjson-getting-the-customer-list-report" data-toggle="tab">application/json</a>
+        </li>
+    
+        <li>
+            <a href="#applicationJsonDataTable-getting-the-customer-list-report" data-toggle="tab">application/json (DataTable)</a>
+        </li>
+    
+        <li>
+            <a href="#textxml-getting-the-customer-list-report" data-toggle="tab">text/xml</a>
+        </li>
+    
+        <li>
+            <a href="#textXmlDataTable-getting-the-customer-list-report" data-toggle="tab">text/xml (Data Table)</a>
+        </li>
+    
+        <li>
+            <a href="#textcsv-getting-the-customer-list-report" data-toggle="tab">text/csv</a>
+        </li>
+    
+        <li>
+            <a href="#applicationvndopenxmlformats-officedocumentspreadsheetmlsheet-getting-the-customer-list-report" data-toggle="tab">application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</a>
+        </li>
+    
+</ul>
+
+<div class="tab-content"> 
+    
+        <div role="tabpanel" class="tab-pane active" id="applicationjson-getting-the-customer-list-report">
+             
+<pre>HTTP 200 Content-Type: application/json</pre>
+<p>This is the default result obtained by omitting the <code>Auth</code> URI parameter</p>
+<pre><code class="language-csharp">[
+    {
+        "Address": "12 Hello St.",
+        "Address2": "n/a",
+        "BillingAccountNumber": "",
+        "City": "Fargo",
+        "ContactNumber": "5555555555",
+        "ContactTypeName": "",
+        "Country": "United States",
+        "CustomerCompanyName": "KENTEL",
+        "CustomerFirstName": "Carrie",
+        "CustomerID": 2108754,
+        "CustomerLastName": "Madison",
+        "DateCreated": "2016-01-26T20:55:53.227",
+        "DeclineToProvideEmail": false,
+        "Email": "carry@test.iq",
+        "EmployeeName": "iQmetrix Employee",
+        "EmployeeNameAssignedTo": "iQmetrix Employee",
+        "IndustryTypeName": "",
+        "MultiLevelPriceID": 1,
+        "NumberOfActivations": 0,
+        "PositionTypeName": "",
+        "PostalCode": "90123",
+        "Province": "ND",
+        "TracPointMemberNumber": "C2981754hduw",
+        "TypeOfCustomer": 3,
+        "VIPCustomer": 0
+    }
+]</code></pre>      
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="applicationJsonDataTable-getting-the-customer-list-report">
+             
+<pre>HTTP 200 Content-Type: application/json</pre>
+<p>This is the default result obtained by omitting the URI parameter <code>Auth=JsonDataTable</code>. This response type wraps the data in a &ldquo;Records&rdquo; array and adds a &ldquo;Schema&rdquo; array, which contains information about each column in the report.
+</p>
+<pre><code class="language-csharp">{
+    "Records": [
+        {
+            "Address": "12 Hello St.",
+            "Address2": "n/a",
+            "BillingAccountNumber": "",
+            "City": "Fargo",
+            "ContactNumber": "5555555555",
+            "ContactTypeName": "",
+            "Country": "United States",
+            "CustomerCompanyName": "KENTEL",
+            "CustomerFirstName": "Carrie",
+            "CustomerID": 2108754,
+            "CustomerLastName": "Madison",
+            "DateCreated": "2016-01-26T20:55:53.227",
+            "DeclineToProvideEmail": false,
+            "Email": "carry@test.iq",
+            "EmployeeName": "iQmetrix Employee",
+            "EmployeeNameAssignedTo": "iQmetrix Employee",
+            "IndustryTypeName": "",
+            "MultiLevelPriceID": 1,
+            "NumberOfActivations": 0,
+            "PositionTypeName": "",
+            "PostalCode": "90123",
+            "Province": "ND",
+            "TracPointMemberNumber": "C2981754hduw",
+            "TypeOfCustomer": 3,
+            "VIPCustomer": 0
+        }
+    ],
+    "Schema": [
+        {
+            "Column_Name": "ColumnName",
+            "Type": "datatype",
+            "SafeType": "safetype",
+            "Length": 100
+        }
+    ]
+}</code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textxml-getting-the-customer-list-report">
+            
+<pre>HTTP 200 Content-Type: text/xml</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Xml</code></p>
+<pre><code class="language-xml"><script><Table>
+  <Record>
+    <Address>12 Hello St.</Address>
+    <Address2>n/a</Address2>
+    <BillingAccountNumber></BillingAccountNumber>
+    <City>Fargo</City>
+    <ContactNumber>5555555555</ContactNumber>
+    <ContactTypeName></ContactTypeName>
+    <Country>United States</Country>
+    <CustomerCompanyName>KENTEL</CustomerCompanyName>
+    <CustomerFirstName>Carrie</CustomerFirstName>
+    <CustomerID>2108754</CustomerID>
+    <CustomerLastName>Madison</CustomerLastName>
+    <DateCreated>2016-01-26T20:55:53.227</DateCreated>
+    <DeclineToProvideEmail>false</DeclineToProvideEmail>
+    <Email>carry@test.iq</Email>
+    <EmployeeName>iQmetrix Employee</EmployeeName>
+    <EmployeeNameAssignedTo>iQmetrix Employee</EmployeeNameAssignedTo>
+    <IndustryTypeName></IndustryTypeName>
+    <MultiLevelPriceID>1</MultiLevelPriceID>
+    <NumberOfActivations>0</NumberOfActivations>
+    <PositionTypeName></PositionTypeName>
+    <PostalCode>90123</PostalCode>
+    <Province>ND</Province>
+    <TracPointMemberNumber>C2981754hduw</TracPointMemberNumber>
+    <TypeOfCustomer>3</TypeOfCustomer>
+    <VIPCustomer>0</VIPCustomer>
+  </Record>
+</Table></script></code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textXmlDataTable-getting-the-customer-list-report">
+            
+<pre>HTTP 200 Content-Type: text/xml</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=XmlDataTable</code>. This response type appends to the bottom of the request a summary of information about each column in the report.
+</p>
+<pre><code class="language-xml"><script><Table>
+  <Record>
+    <Address>12 Hello St.</Address>
+    <Address2>n/a</Address2>
+    <BillingAccountNumber></BillingAccountNumber>
+    <City>Fargo</City>
+    <ContactNumber>5555555555</ContactNumber>
+    <ContactTypeName></ContactTypeName>
+    <Country>United States</Country>
+    <CustomerCompanyName>KENTEL</CustomerCompanyName>
+    <CustomerFirstName>Carrie</CustomerFirstName>
+    <CustomerID>2108754</CustomerID>
+    <CustomerLastName>Madison</CustomerLastName>
+    <DateCreated>2016-01-26T20:55:53.227</DateCreated>
+    <DeclineToProvideEmail>false</DeclineToProvideEmail>
+    <Email>carry@test.iq</Email>
+    <EmployeeName>iQmetrix Employee</EmployeeName>
+    <EmployeeNameAssignedTo>iQmetrix Employee</EmployeeNameAssignedTo>
+    <IndustryTypeName></IndustryTypeName>
+    <MultiLevelPriceID>1</MultiLevelPriceID>
+    <NumberOfActivations>0</NumberOfActivations>
+    <PositionTypeName></PositionTypeName>
+    <PostalCode>90123</PostalCode>
+    <Province>ND</Province>
+    <TracPointMemberNumber>C2981754hduw</TracPointMemberNumber>
+    <TypeOfCustomer>3</TypeOfCustomer>
+    <VIPCustomer>0</VIPCustomer>
+  </Record>
+  <Schema>
+    <Column_Name>ColumnName</Column_Name>
+    <Type>datatybe</Type>
+    <SafeType>safetype</SafeType>
+    <Length>100</Length>
+  </Schema>
+</Table></script></code></pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="textcsv-getting-the-customer-list-report">
+            
+<pre>HTTP 200 Content-Type: text/csv</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Csv</code></p>
+<pre>Address,Address2,BillingAccountNumber,City,ContactNumber,ContactTypeName,Country,CustomerCompanyName,CustomerFirstName,CustomerID,CustomerLastName,DateCreated,DeclineToProvideEmail,Email,EmployeeName,EmployeeNameAssignedTo,IndustryTypeName,MultiLevelPriceID,NumberOfActivations,PositionTypeName,PostalCode,Province,TracPointMemberNumber,TypeOfCustomer,VIPCustomer
+12 Hello St.,n/a,,Fargo,5555555555,,United States,KENTEL,Carrie,2108754,Madison,2016-01-26T20:55:53.227,false,carry@test.iq,iQmetrix Employee,iQmetrix Employee,,1,0,,90123,ND,C2981754hduw,3,0</pre>
+            
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="applicationvndopenxmlformats-officedocumentspreadsheetmlsheet-getting-the-customer-list-report">
+            
+<pre>HTTP 200 Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</pre>
+<p>This result is obtained by using the URL parameter <code>Auth=Excel</code></p>
+<pre>content-disposition: attachment;filename=reportname-2016-07-11.xlsx
+Binary *.xlsx file</pre>
+            
+        </div>
+                
+</div>
+        
+
+<h2 id="errors" class="clickable-header top-level-header">Errors</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">HTTP Status Code</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">How to Resolve</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">Bad Request</code></td>
+<td style="text-align: left">Ensure request body is formatted properly</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 401</code></td>
+<td style="text-align: left"><code class="prettyprint">Tokan is invalid</code></td>
+<td style="text-align: left">Ensure Access Token is valid and has not expired</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 403</code></td>
+<td style="text-align: left"><code class="prettyprint">Unauthorized</code></td>
+<td style="text-align: left">Ensure Access Token is valid and user has appropriate security</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 404</code></td>
+<td style="text-align: left"><code class="prettyprint">Not Found</code></td>
+<td style="text-align: left">Ensure URI is valid</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 429</code></td>
+<td style="text-align: left"><code class="prettyprint">Too Many Requests</code></td>
+<td style="text-align: left">See <a href="/api/#rate-limiting">Rate Limiting</a></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 500</code></td>
+<td style="text-align: left"><code class="prettyprint">Unexpected Error</code></td>
+<td style="text-align: left">See Message in response for more information</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

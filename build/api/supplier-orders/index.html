@@ -1,0 +1,1089 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Supplier Orders | iQmetrix Developer Portal</title>
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
+
+    <style>
+      /*.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}*/
+    </style>
+    <link href="../../stylesheets/three_column.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all.js"></script>
+  </head>
+  <body class="api api_supplier-orders api_supplier-orders_index" data-languages="[&quot;shell&quot;]">
+    <div class="fixed-top">
+      <a class="navbar-logo" href="/"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">PRODUCTS</a></li>
+          <li><a href="/api/changelog">API REFERENCE</a></li>
+          <li><a href="/api/changelog">CORE CONCEPTS &amp; GUIDES</a></li>
+          <li><a href="/api/changelog">PARTNERS</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">CONTACT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="breadcrumb">
+      <ol>
+        <li><a href="/api/">API REFERENCE</a></li>
+        <li>></li>
+        <li><a href="">API DOCUMENTATION</a></li>
+        <li>></li>
+        <li class="active">CUSTOMER RELATIONSHIP MANAGEMENT (CRM)</li>
+      </ol>
+    </div>
+    <div class="title">
+      <h1>API Documentation</h1>
+      <p>In depth reference documentation for iQmetrix API's.</p>
+    </div>
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <!-- <img src="../../images/logo.png" alt="Logo" /> -->
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">cURL</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="overview">Overview</h1>
+
+<p>This API allows suppliers to manage order submitted by retailers participating in the Dropship program facilitated via iQmetrix Platform: </p>
+
+<ul>
+<li>Get a list of order notifications</li>
+<li>Get an archived list of order notifications</li>
+<li>Update the status of orders</li>
+<li>Update the status of items </li>
+</ul>
+
+<h3 id="order-status-updates">Order Status Updates</h3>
+
+<p>Suppliers have an ability to update the status of the order or individual items in that order. Some order status transitions trigger notifications to retailers and end customers who placed the order. Depending on item stock, one of the following calls should be used:</p>
+
+<ul>
+<li><code class="prettyprint">OrderStatusUpdate</code> should be used if all items in the order are stocked for shipment</li>
+<li><code class="prettyprint">ItemStatusUpdate</code> should be used if one or more items in the order are <strong>not</strong> stocked for shipment</li>
+</ul>
+
+<p>More information regarding states can be found in the <a href="/guides/dropship-order-guide">Dropship Order Guide</a>. </p>
+
+<p>Once an order has been shipped from the supplier&rsquo;s warehouse, the order status must be updated to <code class="prettyprint">Shipped</code>, and include a tracking number and shipping carrier to notify the end client.</p>
+
+<p>If the supplier wants to provide reasoning behind an order or item&rsquo;s specific status, then a message can be provided in the <code class="prettyprint">Message</code> field.</p>
+
+<h3 id="order-notifications-feed">Order Notifications Feed</h3>
+
+<p>The order notifications feed contains a list of dropship order events for a supplier in &ldquo;<a href="http://tools.ietf.org/html/rfc4287">Atom Syndication Format</a>&rdquo; using &ldquo;<a href="https://tools.ietf.org/html/rfc5005#page-6">Archived Feeds</a>&rdquo; and is encoded as <code class="prettyprint">atom+xml</code>. Newly created orders are prepended to the beginning of the notification feed.</p>
+
+<p>Each page of the feed will contain up to 50 events. </p>
+
+<h1 id="endpoints">Endpoints</h1>
+
+<ul>
+<li>Sandbox: <a href="https://dropshipdemo.iqmetrix.net">https://dropshipdemo.iqmetrix.net</a></li>
+<li>Production: <a href="https://dropship.iqmetrix.net">https://dropship.iqmetrix.net</a></li>
+</ul>
+
+<h1 id="resources">Resources</h1>
+
+<h2 id="orderstatusupdate">OrderStatusUpdate</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91a57ddb-2d42-402b-85b4-fe327a347313"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.ups.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Error: Product '98ESP456' is unavailable"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShippingProvider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UPS"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shipped"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TrackingInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23923408863"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left">Identifier for the Dropship order</td>
+</tr>
+<tr>
+<td style="text-align: left">Info (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">General information about the item(s), such as tracking site, additional reference info, etc</td>
+</tr>
+<tr>
+<td style="text-align: left">Message (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">A reason for the status of an order</td>
+</tr>
+<tr>
+<td style="text-align: left">ShippingProvider (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Shipping carrier for the order</td>
+</tr>
+<tr>
+<td style="text-align: left">Status (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Current <a href="#orderstatus">OrderStatus</a></td>
+</tr>
+<tr>
+<td style="text-align: left">TrackingInfo (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Tracking number for a shipped order</td>
+</tr>
+<tr>
+<td style="text-align: left"><em>ReferenceName (<code class="prettyprint">String</code>)</em></td>
+<td style="text-align: left"><em>Reserved for internal use</em></td>
+</tr>
+<tr>
+<td style="text-align: left"><em>ReferenceValue (<code class="prettyprint">String</code>)</em></td>
+<td style="text-align: left"><em>Reserved for internal use</em></td>
+</tr>
+</tbody></table>
+
+<h2 id="itemstatusupdate">ItemStatusUpdate</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91a57ddb-2d42-402b-85b4-fe327a347313"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ItemInformation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"undefined"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Id (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left">Identifier for the Dropship order</td>
+</tr>
+<tr>
+<td style="text-align: left">ItemInformation (<code class="prettyprint">Array[[supplier-orders](/api/iteminformation/#ItemInformation)]</code>)</td>
+<td style="text-align: left">A list of <a href="#iteminformation">ItemInformation</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="iteminformation">ItemInformation</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"CatalogId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dbc2577a-021f-4bbf-8289"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.ups.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Error: Product '98ESP456' is unavailable"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"239234SMS L720 BLU SPT RTD8863"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Exception"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9356SAMGL6S"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShippingProvider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UPS"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TrackingInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23923408863"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">CatalogId (<code class="prettyprint">GUID</code>)</td>
+<td style="text-align: left">Identifier for the <a href="/api/catalog/#catalogitem">Catalog</a> item</td>
+</tr>
+<tr>
+<td style="text-align: left">Info (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">General information about the item(s), such as tracking site, additional reference info, etc</td>
+</tr>
+<tr>
+<td style="text-align: left">Message (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">A reason for the status of an order</td>
+</tr>
+<tr>
+<td style="text-align: left">ProductName (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Name of the product</td>
+</tr>
+<tr>
+<td style="text-align: left">Quantity (<code class="prettyprint">Integer</code>)</td>
+<td style="text-align: left">Used in the case of partial shipments</td>
+</tr>
+<tr>
+<td style="text-align: left">Status (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Current <a href="#itemstatus">ItemStatus</a></td>
+</tr>
+<tr>
+<td style="text-align: left">Sku (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Vendor SKU</td>
+</tr>
+<tr>
+<td style="text-align: left">ShippingProvider (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">The shipping carrier that the product was shipped with</td>
+</tr>
+<tr>
+<td style="text-align: left">TrackingInfo (<code class="prettyprint">String</code>)</td>
+<td style="text-align: left">Tracking number for this shipped product</td>
+</tr>
+<tr>
+<td style="text-align: left"><em>ReferenceName (<code class="prettyprint">String</code>)</em></td>
+<td style="text-align: left"><em>Reserved for internal use</em></td>
+</tr>
+<tr>
+<td style="text-align: left"><em>ReferenceValue (<code class="prettyprint">String</code>)</em></td>
+<td style="text-align: left"><em>Reserved for internal use</em></td>
+</tr>
+</tbody></table>
+
+<h3 id="feed">Feed</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id (GUID)</td>
+<td style="text-align: left">Identifier for the Feed</td>
+</tr>
+<tr>
+<td style="text-align: left">title (string)</td>
+<td style="text-align: left">Title of order feed</td>
+</tr>
+<tr>
+<td style="text-align: left">updated (DateTime)</td>
+<td style="text-align: left">Timestamp based on newest entry timestamp</td>
+</tr>
+<tr>
+<td style="text-align: left">author (Object)</td>
+<td style="text-align: left">Container for author name</td>
+</tr>
+<tr>
+<td style="text-align: left">author.name</td>
+<td style="text-align: left">(string) Name of author</td>
+</tr>
+<tr>
+<td style="text-align: left">link current (string)</td>
+<td style="text-align: left">Link to the order feed endpoint</td>
+</tr>
+<tr>
+<td style="text-align: left">link self (string)</td>
+<td style="text-align: left">Link to the current order feed instance</td>
+</tr>
+<tr>
+<td style="text-align: left">link prev-archive (string)</td>
+<td style="text-align: left">Link to the previously archived order feed</td>
+</tr>
+<tr>
+<td style="text-align: left">Entry (<a href="#orderentry">OrderEntry</a>)</td>
+<td style="text-align: left">Entry in Order Feed</td>
+</tr>
+<tr>
+<td style="text-align: left">Entry.id (GUID)</td>
+<td style="text-align: left">Entry identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Entry.title (string)</td>
+<td style="text-align: left">Title for order entry</td>
+</tr>
+<tr>
+<td style="text-align: left">Entry.published (DateTime)</td>
+<td style="text-align: left">Published date for order entry</td>
+</tr>
+<tr>
+<td style="text-align: left">Entry.updated (DateTime)</td>
+<td style="text-align: left">Last update for order entry</td>
+</tr>
+<tr>
+<td style="text-align: left">Entry.content (object)</td>
+<td style="text-align: left">Container for order type</td>
+</tr>
+<tr>
+<td style="text-align: left">Entry.content.order-created (<a href="#ordercreated">OrderCreated</a>)</td>
+<td style="text-align: left"><strong>Either</strong> this property <strong>or</strong> order-status-updated will exist on the resource</td>
+</tr>
+<tr>
+<td style="text-align: left">Entry.content.order-status-updated (<a href="#orderstatusupdated">OrderStatusUpdated</a>)</td>
+<td style="text-align: left"><strong>Either</strong> this property <strong>or</strong> order-created will exist on the resource</td>
+</tr>
+</tbody></table>
+
+<h3 id="ordercreated">OrderCreated</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">order-id (GUID)</td>
+<td style="text-align: left">Identifier for the Dropship order</td>
+</tr>
+<tr>
+<td style="text-align: left">items (Array[Object])</td>
+<td style="text-align: left">Array of order items</td>
+</tr>
+<tr>
+<td style="text-align: left">items.order-item (<a href="#orderitem">OrderItem</a>)</td>
+<td style="text-align: left">Information for item in order</td>
+</tr>
+<tr>
+<td style="text-align: left">seller (Object)</td>
+<td style="text-align: left">Information for selling store</td>
+</tr>
+<tr>
+<td style="text-align: left">seller.company-id (Integer)</td>
+<td style="text-align: left"><a href="/api/company-tree/#company">Company</a> identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">seller.location-id (Integer)</td>
+<td style="text-align: left">Store location identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">seller.po-reference (String)</td>
+<td style="text-align: left">Purchase order that gets printed on customer invoice</td>
+</tr>
+<tr>
+<td style="text-align: left">seller.printable-id (String)</td>
+<td style="text-align: left">ID that gets printed on customer invoice</td>
+</tr>
+<tr>
+<td style="text-align: left">ship-to-store (Boolean)</td>
+<td style="text-align: left">Indicates if order is shipped to store</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-address (Object)</td>
+<td style="text-align: left">Information for shipping address</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-address.address-id (GUID)</td>
+<td style="text-align: left"><a href="/api/crm/#address">Address</a> identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-address.attention-to (String)</td>
+<td style="text-align: left">Recipient’s name</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-address.country (String)</td>
+<td style="text-align: left">Country</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-address.country-code String)</td>
+<td style="text-align: left">Country code</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-address.locality (String)</td>
+<td style="text-align: left">City</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-address.notes (String)</td>
+<td style="text-align: left">Notes for recipient</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-address.phone (String)</td>
+<td style="text-align: left">Recipient phone number</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-address.post-office-box-number (String)</td>
+<td style="text-align: left">P.O. box number</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-address.postal-code  (String)</td>
+<td style="text-align: left">Postal/zip code</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-address.region (String)</td>
+<td style="text-align: left">Province/Territory/State</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-address.region-code (String)</td>
+<td style="text-align: left">Province/Territory/State code</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-address.street-address-1 (String)</td>
+<td style="text-align: left">Address line 1</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-address.street-address-2 (String)</td>
+<td style="text-align: left">Address line 2</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-address.type (String)</td>
+<td style="text-align: left"><a href="/api/crm/#address">Address</a> type</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-customer (Object)</td>
+<td style="text-align: left">Information for shipping customer</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-customer.customer-id (GUID)</td>
+<td style="text-align: left"><a href="/api/crm/#customer">Customer</a> identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-customer.alternate-name  (String)</td>
+<td style="text-align: left">Customer’s alternate name</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-customer.family-name (String)</td>
+<td style="text-align: left">Last name</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-customer.middle-name (String)</td>
+<td style="text-align: left">Midle name</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-customer.notes   (String)</td>
+<td style="text-align: left">Notes for recipient</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-customer.primary-name (String)</td>
+<td style="text-align: left">First name</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-customer.title (String)</td>
+<td style="text-align: left">Recipient’s title</td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-customer.type (String)</td>
+<td style="text-align: left"><a href="/api/crm/#customer">CustomerType</a></td>
+</tr>
+<tr>
+<td style="text-align: left">shipping-method (String)</td>
+<td style="text-align: left">Method ID that comes from shipping provider</td>
+</tr>
+<tr>
+<td style="text-align: left">supplier-id (Integer)</td>
+<td style="text-align: left">Supplier identifier</td>
+</tr>
+</tbody></table>
+
+<h3 id="orderitem">OrderItem</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">catalog-id (String)</td>
+<td style="text-align: left"><a href="/api/catalog/">Catalog</a> identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">description (String)</td>
+<td style="text-align: left">Description of item</td>
+</tr>
+<tr>
+<td style="text-align: left">quantity (Integer)</td>
+<td style="text-align: left">Number of items</td>
+</tr>
+<tr>
+<td style="text-align: left">selling-price (Decimal)</td>
+<td style="text-align: left">MSRP consumer price of item</td>
+</tr>
+<tr>
+<td style="text-align: left">sku (String)</td>
+<td style="text-align: left">Vendor SKU</td>
+</tr>
+</tbody></table>
+
+<h3 id="orderstatusupdated">OrderStatusUpdated</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">order-id (GUID)</td>
+<td style="text-align: left">Identifier for the Dropship order</td>
+</tr>
+<tr>
+<td style="text-align: left">company-id (Integer)</td>
+<td style="text-align: left"><a href="/api/company-tree/#company">Company</a> identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">items (Array[object))</td>
+<td style="text-align: left">Array of order items</td>
+</tr>
+<tr>
+<td style="text-align: left">items.item-information (<a href="#iteminformation">ItemInformation</a>)</td>
+<td style="text-align: left">Information for item in order</td>
+</tr>
+<tr>
+<td style="text-align: left">supplier-id (Integer)</td>
+<td style="text-align: left">Supplier identifier</td>
+</tr>
+</tbody></table>
+
+<h3 id="enumerations">Enumerations</h3>
+
+<h4 id="orderstatus">OrderStatus</h4>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Id</th>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">0</td>
+<td style="text-align: left">PendingSupplier</td>
+<td style="text-align: left">A new order has been created but is pending the supplier</td>
+</tr>
+<tr>
+<td style="text-align: left">1</td>
+<td style="text-align: left">Ordered</td>
+<td style="text-align: left">Order has been picked up by the supplier and is in processing stage (picked, packed and shipped)</td>
+</tr>
+<tr>
+<td style="text-align: left">2</td>
+<td style="text-align: left">Shipped</td>
+<td style="text-align: left">Order has been shipped from a warehouse</td>
+</tr>
+<tr>
+<td style="text-align: left">3</td>
+<td style="text-align: left">BackOrdered</td>
+<td style="text-align: left">Order cannot currently be fulfilled due to items being temporarily out of stock</td>
+</tr>
+<tr>
+<td style="text-align: left">4</td>
+<td style="text-align: left">Error</td>
+<td style="text-align: left">There has been an exception with either a product or an entire order</td>
+</tr>
+<tr>
+<td style="text-align: left">5</td>
+<td style="text-align: left">NotAvailable</td>
+<td style="text-align: left">Some or all items from order are no longer available</td>
+</tr>
+<tr>
+<td style="text-align: left">6</td>
+<td style="text-align: left">PartiallyShipped</td>
+<td style="text-align: left">Some items have been shipped due to availability, and other items are pending availability</td>
+</tr>
+<tr>
+<td style="text-align: left">7</td>
+<td style="text-align: left">Cancelled</td>
+<td style="text-align: left">Order has been canceled</td>
+</tr>
+<tr>
+<td style="text-align: left">8</td>
+<td style="text-align: left">Other</td>
+<td style="text-align: left">Order is in a state not represented by the other states</td>
+</tr>
+</tbody></table>
+
+<h4 id="itemstatus">ItemStatus</h4>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Id</th>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">0</td>
+<td style="text-align: left">PendingSupplier</td>
+<td style="text-align: left">A new order has been created but is pending the supplier</td>
+</tr>
+<tr>
+<td style="text-align: left">1</td>
+<td style="text-align: left">Ordered</td>
+<td style="text-align: left">Order has been picked up by the supplier and is in processing stage (picked, packed and shipped)</td>
+</tr>
+<tr>
+<td style="text-align: left">2</td>
+<td style="text-align: left">Shipped</td>
+<td style="text-align: left">Order has been shipped from a warehouse</td>
+</tr>
+<tr>
+<td style="text-align: left">3</td>
+<td style="text-align: left">BackOrdered</td>
+<td style="text-align: left">Order cannot currently be fulfilled due to items being temporarily out of stock</td>
+</tr>
+<tr>
+<td style="text-align: left">4</td>
+<td style="text-align: left">Error</td>
+<td style="text-align: left">There has been an exception with either a product or an entire order</td>
+</tr>
+<tr>
+<td style="text-align: left">5</td>
+<td style="text-align: left">NotAvailable</td>
+<td style="text-align: left">This item from order is no longer available</td>
+</tr>
+<tr>
+<td style="text-align: left">6</td>
+<td style="text-align: left">PartiallyShipped</td>
+<td style="text-align: left">This item has been shipped due to some quantity available</td>
+</tr>
+<tr>
+<td style="text-align: left">7</td>
+<td style="text-align: left">Cancelled</td>
+<td style="text-align: left">Item from order has been canceled</td>
+</tr>
+<tr>
+<td style="text-align: left">8</td>
+<td style="text-align: left">Other</td>
+<td style="text-align: left">Item from order is in a state not represented by the other states</td>
+</tr>
+</tbody></table>
+
+<h1 id="requests">Requests</h1>
+
+<h2 id="put-order-status"><span class='put'>PUT</span> Order Status</h2>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>PUT /Suppliers({SupplierId})/Orders({OrderId})/OrderStatusUpdate
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X PUT <span class="s2">"https://dropshipdemo.iqmetrix.net/Suppliers(60455)/Orders(0b05f9fb-1210-4494-b654-d051948716b4)/OrderStatusUpdate"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+    "Id": "91a57ddb-2d42-402b-85b4-fe327a347313",
+    "Info": "www.ups.com",
+    "Message": "Error: Product '</span>98ESP456<span class="s1">' is unavailable",
+    "ShippingProvider": "UPS",
+    "Status": "Shipped",
+    "TrackingInfo": "23923408863"
+}'</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>SupplierId</code> (<strong>Required</strong>) </li>
+    <li><code>OrderId</code> (<strong>Required</strong>) </li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>Id</code> (<strong>Required</strong>) </li><li><code>Info</code> (Optional) </li><li><code>Message</code> (Optional) </li><li><code>ShippingProvider</code> (Optional) </li><li><code>Status</code> (Optional) - Defaults to PendingSupplier</li><li><code>TrackingInfo</code> (Optional) </li></ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 202 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91a57ddb-2d42-402b-85b4-fe327a347313"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.ups.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Error: Product '98ESP456' is unavailable"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ShippingProvider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UPS"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shipped"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"TrackingInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23923408863"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><a href="#OrderStatusUpdate">orderstatusupdate</a></p>
+
+<h2 id="put-item-status"><span class='put'>PUT</span> Item Status</h2>
+
+<p>If products from an order have been split into multiple shipments, then the supplier must provide tracking numbers for each shipment.</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>PUT /Suppliers({SupplierId})/Orders({OrderId})/ItemStatusUpdate
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X PUT <span class="s2">"https://dropshipdemo.iqmetrix.net/Suppliers(60455)/Orders(0b05f9fb-1210-4494-b654-d051948716b4)/ItemStatusUpdate"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{
+    "Id": "91a57ddb-2d42-402b-85b4-fe327a347313",
+    "ItemInformation": [
+        {
+            "CatalogId": "dbc2577a-021f-4bbf-8289",
+            "Info": "www.ups.com",
+            "Message": "Error: Product '</span>98ESP456<span class="s1">' is unavailable",
+            "ProductName": "239234SMS L720 BLU SPT RTD8863",
+            "Quantity": 5,
+            "Status": "Exception",
+            "Sku": "9356SAMGL6S",
+            "ShippingProvider": "UPS",
+            "TrackingInfo": "23923408863"
+        }
+    ]
+}'</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>SupplierId</code> (<strong>Required</strong>) </li>
+    <li><code>OrderId</code> (<strong>Required</strong>) </li>
+</ul>
+
+<h4 id="request-parameters">Request Parameters</h4>
+
+<ul><li><code>Id</code> (<strong>Required</strong>) </li><li><code>ItemInformation</code> (Optional) </li><ul><li><code>Sku</code> (<strong>Required</strong>) </li><li><code>CatalogId</code> (Optional) </li><li><code>Info</code> (Optional) </li><li><code>Message</code> (Optional) </li><li><code>ProductName</code> (Optional) </li><li><code>Quantity</code> (Optional) </li><li><code>Status</code> (Optional) - Defaults to PendingSupplier</li><li><code>ShippingProvider</code> (Optional) </li><li><code>TrackingInfo</code> (Optional) </li></ul></ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 202 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91a57ddb-2d42-402b-85b4-fe327a347313"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ItemInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"CatalogId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dbc2577a-021f-4bbf-8289"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.ups.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Error: Product '98ESP456' is unavailable"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"239234SMS L720 BLU SPT RTD8863"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Exception"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9356SAMGL6S"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ShippingProvider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UPS"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"TrackingInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23923408863"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><a href="#ItemStatusUpdate">itemstatusupdate</a></p>
+
+<h2 id="get-the-order-feed"><span class='get'>GET</span> the Order Feed</h2>
+
+<p>The <code class="prettyprint">current</code> feed endpoint gives access to the most recent (up to 50) entries in the notification feed while the <code class="prettyprint">prev-archive</code> link will give access to the previous (up to 50) entries in the feed.</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Suppliers({SupplierId})/Notifications
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://dropshipdemo.iqmetrix.net/Suppliers(60455)/Notifications"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/atom+xml"</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>SupplierId</code> (<strong>Required</strong>) </li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/atom+xml
+</code></pre>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;feed</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/2005/Atom"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>Dropship Order Event Feed<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;id&gt;</span>urn:uuid:f1be4a74-508f-4159-b3f1-c6efe76c03e4<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;updated&gt;</span>2015-10-23T21:37:34Z<span class="nt">&lt;/updated&gt;</span>
+    <span class="nt">&lt;author&gt;</span>
+        <span class="nt">&lt;name&gt;</span>iQmetrix<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;/author&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"current"</span> <span class="na">href=</span><span class="s">"https://dropship.iqmetrix.net/v1/Suppliers(60455)/Notifications"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"self"</span> <span class="na">href=</span><span class="s">"https://dropship.iqmetrix.net/v1/Suppliers(60455)/Notifications/Pages(f1be4a74-508f-4159-b3f1-c6efe76c03e4)"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"prev-archive"</span> <span class="na">href=</span><span class="s">"https://dropship.iqmetrix.net/v1/Suppliers(60455)/Notifications/Pages(e1697c26-23e2-4bc7-8f6c-494c6034d9e2)"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;entry&gt;</span>
+        <span class="nt">&lt;id&gt;</span>urn:uuid:9e5a279b-9583-4d51-b3fa-00d0d146986a<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;title</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>Dropship Order Created<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;published&gt;</span>2015-10-23T21:37:31Z<span class="nt">&lt;/published&gt;</span>
+        <span class="nt">&lt;updated&gt;</span>2015-10-23T21:37:31Z<span class="nt">&lt;/updated&gt;</span>
+        <span class="nt">&lt;content</span> <span class="na">type=</span><span class="s">"application/xml"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;order-created</span> <span class="na">xmlns:i=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns=</span><span class="s">"urn:iQmetrix:dropship"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;items&gt;</span>
+                    <span class="nt">&lt;order-item&gt;</span>
+                        <span class="nt">&lt;catalog-id&gt;</span>18e039de-f950-4d8e-a48a-d06e4db55a07<span class="nt">&lt;/catalog-id&gt;</span>
+                        <span class="nt">&lt;description&gt;</span>Some Item<span class="nt">&lt;/description&gt;</span>
+                        <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
+                        <span class="nt">&lt;selling-price&gt;</span>100<span class="nt">&lt;/selling-price&gt;</span>
+                        <span class="nt">&lt;sku&gt;</span>AB-JH0786-MI<span class="nt">&lt;/sku&gt;</span>
+                    <span class="nt">&lt;/order-item&gt;</span>
+                    <span class="nt">&lt;order-item&gt;</span>
+                        <span class="nt">&lt;catalog-id&gt;</span>736fae29-88e2-4360-8b0e-d2e3d3254c06<span class="nt">&lt;/catalog-id&gt;</span>
+                        <span class="nt">&lt;description&gt;</span>Another Item<span class="nt">&lt;/description&gt;</span>
+                        <span class="nt">&lt;quantity&gt;</span>2<span class="nt">&lt;/quantity&gt;</span>
+                        <span class="nt">&lt;selling-price&gt;</span>42<span class="nt">&lt;/selling-price&gt;</span>
+                        <span class="nt">&lt;sku&gt;</span>EM-JH073-MI<span class="nt">&lt;/sku&gt;</span>
+                    <span class="nt">&lt;/order-item&gt;</span>
+                <span class="nt">&lt;/items&gt;</span>
+                <span class="nt">&lt;order-id&gt;</span>32cb2b46-fb26-48c8-9b8f-67ed759e2599<span class="nt">&lt;/order-id&gt;</span>
+                <span class="nt">&lt;seller&gt;</span>
+                    <span class="nt">&lt;company-id&gt;</span>33772<span class="nt">&lt;/company-id&gt;</span>
+                    <span class="nt">&lt;location-id&gt;</span>33773<span class="nt">&lt;/location-id&gt;</span>
+                    <span class="nt">&lt;po-reference&gt;</span>ABC123N1<span class="nt">&lt;/po-reference&gt;</span>
+                    <span class="nt">&lt;printable-id&gt;</span>98764531<span class="nt">&lt;/printable-id&gt;</span>
+                <span class="nt">&lt;/seller&gt;</span>
+                <span class="nt">&lt;ship-to-store&gt;</span>true<span class="nt">&lt;/ship-to-store&gt;</span>
+                <span class="nt">&lt;shipping-address&gt;</span>
+                    <span class="nt">&lt;address-id&gt;</span>00000000-0000-0000-0000-000000000000<span class="nt">&lt;/address-id&gt;</span>
+                    <span class="nt">&lt;attention-to&gt;</span>Bob Eh<span class="nt">&lt;/attention-to&gt;</span>
+                    <span class="nt">&lt;country&gt;</span>Canada<span class="nt">&lt;/country&gt;</span>
+                    <span class="nt">&lt;country-code&gt;</span>CA<span class="nt">&lt;/country-code&gt;</span>
+                    <span class="nt">&lt;locality&gt;</span>Moosejaw<span class="nt">&lt;/locality&gt;</span>
+                    <span class="nt">&lt;notes</span> <span class="na">i:nil=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;phone</span> <span class="na">i:nil=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;post-office-box-number</span> <span class="na">i:nil=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;postal-code&gt;</span>S6J1N2<span class="nt">&lt;/postal-code&gt;</span>
+                    <span class="nt">&lt;region&gt;</span>Saskatchewan<span class="nt">&lt;/region&gt;</span>
+                    <span class="nt">&lt;region-code&gt;</span>SK<span class="nt">&lt;/region-code&gt;</span>
+                    <span class="nt">&lt;street-address-1&gt;</span>742 Evergreen Terrace<span class="nt">&lt;/street-address-1&gt;</span>
+                    <span class="nt">&lt;street-address-2</span> <span class="na">i:nil=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;type</span> <span class="na">i:nil=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;/shipping-address&gt;</span>
+                <span class="nt">&lt;shipping-customer&gt;</span>
+                    <span class="nt">&lt;alternate-name</span> <span class="na">i:nil=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;customer-id&gt;</span>3da9470e-f1b2-4a1a-bd47-5bf18fe2d1ab<span class="nt">&lt;/customer-id&gt;</span>
+                    <span class="nt">&lt;family-name&gt;</span>Eh<span class="nt">&lt;/family-name&gt;</span>
+                    <span class="nt">&lt;middle-name</span> <span class="na">i:nil=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;notes</span> <span class="na">i:nil=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;primary-name&gt;</span>Bob<span class="nt">&lt;/primary-name&gt;</span>
+                    <span class="nt">&lt;title</span> <span class="na">i:nil=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;type&gt;</span>Person<span class="nt">&lt;/type&gt;</span>
+                <span class="nt">&lt;/shipping-customer&gt;</span>
+                <span class="nt">&lt;shipping-method&gt;</span>123<span class="nt">&lt;/shipping-method&gt;</span>
+                <span class="nt">&lt;supplier-id&gt;</span>60455<span class="nt">&lt;/supplier-id&gt;</span>
+            <span class="nt">&lt;/order-created&gt;</span>
+        <span class="nt">&lt;/content&gt;</span>
+    <span class="nt">&lt;/entry&gt;</span>
+    <span class="nt">&lt;entry&gt;</span>
+        <span class="nt">&lt;id&gt;</span>urn:uuid:gf456fd486-df4s56g-d45fdsf-f74ds8fds456fs<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;title</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>Dropship Order Status Updated<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;published&gt;</span>2015-10-09T15:36:45Z<span class="nt">&lt;/published&gt;</span>
+        <span class="nt">&lt;updated&gt;</span>2015-10-09T15:36:45Z<span class="nt">&lt;/updated&gt;</span>
+        <span class="nt">&lt;content</span> <span class="na">type=</span><span class="s">"application/xml"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;order-status-updated</span> <span class="na">xmlns:i=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns=</span><span class="s">"urn:iQmetrix:dropship"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;company-id&gt;</span>50068<span class="nt">&lt;/company-id&gt;</span>
+                <span class="nt">&lt;items&gt;</span>
+                    <span class="nt">&lt;item-information&gt;</span>
+                        <span class="nt">&lt;catalog-id&gt;</span>18e039de-f950-4d8e-a48a-d06e4db55a07<span class="nt">&lt;/catalog-id&gt;</span>
+                        <span class="nt">&lt;info</span> <span class="na">i:nil=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;message</span> <span class="na">i:nil=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
+                        <span class="nt">&lt;shipping-provider&gt;</span>Purolator<span class="nt">&lt;/shipping-provider&gt;</span>
+                        <span class="nt">&lt;sku&gt;</span>AB-JH0786-MI<span class="nt">&lt;/sku&gt;</span>
+                        <span class="nt">&lt;status&gt;</span>Other<span class="nt">&lt;/status&gt;</span>
+                        <span class="nt">&lt;tracking-info</span> <span class="na">i:nil=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;/item-information&gt;</span>
+                <span class="nt">&lt;/items&gt;</span>
+                <span class="nt">&lt;order-id&gt;</span>32cb2b46-fb26-48c8-9b8f-67ed759e2599<span class="nt">&lt;/order-id&gt;</span>
+                <span class="nt">&lt;supplier-id&gt;</span>60455<span class="nt">&lt;/supplier-id&gt;</span>
+            <span class="nt">&lt;/order-status-updated&gt;</span>
+        <span class="nt">&lt;/content&gt;</span>
+    <span class="nt">&lt;/entry&gt;</span>
+<span class="nt">&lt;/feed&gt;</span>            
+
+</code></pre>
+
+<h2 id="get-order-feed-archives"><span class='get'>GET</span> Order Feed Archives</h2>
+
+<p>The <code class="prettyprint">next-archive</code> link gives access to a newer (up to 50) list of archive entries in the notification feed while the <code class="prettyprint">prev-archive</code> link will give access to the previous (up to 50) list of archive entries.</p>
+
+<blockquote>
+<p>Definition</p>
+</blockquote>
+<pre class="highlight plaintext"><code>GET /Suppliers({SupplierId})/Notifications/Pages({PageId})
+</code></pre>
+
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell"><code>curl -X GET <span class="s2">"https://dropshipdemo.iqmetrix.net/Suppliers(60455)/Notifications/Pages(e1697c26-23e2-4bc7-8f6c-494c6034d9e2)"</span> -H <span class="s2">"Authorization: Bearer (Access Token)"</span> -H <span class="s2">"Accept: application/atom+xml"</span>
+</code></pre>
+
+<h4 id="uri-parameters">URI Parameters</h4>
+
+<ul>
+    <li><code>SupplierId</code> (<strong>Required</strong>) </li>
+    <li><code>PageId</code> (<strong>Required</strong>) </li>
+</ul>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/atom+xml
+</code></pre>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;feed</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/2005/Atom"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>Dropship Order Event Feed<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;id&gt;</span>urn:uuid:e1697c26-23e2-4bc7-8f6c-494c6034d9e2<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;updated&gt;</span>2015-07-08T20:20:45Z<span class="nt">&lt;/updated&gt;</span>
+    <span class="nt">&lt;author&gt;</span>
+        <span class="nt">&lt;name&gt;</span>iQmetrix<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;/author&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"current"</span> <span class="na">href=</span><span class="s">"https://dropship.iqmetrix.net/v1/Suppliers(60455)/Notifications"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"self"</span> <span class="na">href=</span><span class="s">"https://dropship.iqmetrix.net/v1/Suppliers(60455)/Notifications/Pages(e1697c26-23e2-4bc7-8f6c-494c6034d9e2)"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"next-archive"</span> <span class="na">href=</span><span class="s">"https://dropship.iqmetrix.net/v1/Suppliers(60455)/Notifications/Pages(f1be4a74-508f-4159-b3f1-c6efe76c03e4)"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"prev-archive"</span> <span class="na">href=</span><span class="s">"https://dropship.iqmetrix.net/v1/Suppliers(60455)/Notifications/Pages(b59ded0f-0119-4c49-9113-93862e24eac6)"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;entry&gt;</span>
+        <span class="nt">&lt;id&gt;</span>urn:uuid:b77ef04c-8dd4-4fba-b8c4-10de4bccbeb3<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;title</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>Dropship Order Status Updated<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;published&gt;</span>2015-07-08T20:20:45Z<span class="nt">&lt;/published&gt;</span>
+        <span class="nt">&lt;updated&gt;</span>2015-07-08T20:20:45Z<span class="nt">&lt;/updated&gt;</span>
+        <span class="nt">&lt;content</span> <span class="na">type=</span><span class="s">"application/xml"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;order-status-updated</span> <span class="na">xmlns:i=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns=</span><span class="s">"urn:iQmetrix:dropship"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;company-id&gt;</span>29796<span class="nt">&lt;/company-id&gt;</span>
+                <span class="nt">&lt;items&gt;</span>
+                    <span class="nt">&lt;item-information&gt;</span>
+                        <span class="nt">&lt;catalog-id&gt;</span>30cece9f-a90d-4f51-b33f-0aa663371658<span class="nt">&lt;/catalog-id&gt;</span>
+                        <span class="nt">&lt;info&gt;</span>Additional info<span class="nt">&lt;/info&gt;</span>
+                        <span class="nt">&lt;message&gt;</span>Message<span class="nt">&lt;/message&gt;</span>
+                        <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
+                        <span class="nt">&lt;shipping-provider&gt;</span>UPS<span class="nt">&lt;/shipping-provider&gt;</span>
+                        <span class="nt">&lt;sku&gt;</span>GB40030<span class="nt">&lt;/sku&gt;</span>
+                        <span class="nt">&lt;status&gt;</span>Shipped<span class="nt">&lt;/status&gt;</span>
+                        <span class="nt">&lt;tracking-info&gt;</span>8979876<span class="nt">&lt;/tracking-info&gt;</span>
+                    <span class="nt">&lt;/item-information&gt;</span>
+                <span class="nt">&lt;/items&gt;</span>
+                <span class="nt">&lt;order-id&gt;</span>503ed5af-fe26-4d60-9b4f-8d5a708c761b<span class="nt">&lt;/order-id&gt;</span>
+                <span class="nt">&lt;supplier-id&gt;</span>60455<span class="nt">&lt;/supplier-id&gt;</span>
+            <span class="nt">&lt;/order-status-updated&gt;</span>       
+        <span class="nt">&lt;/content&gt;</span>
+    <span class="nt">&lt;/entry&gt;</span>
+<span class="nt">&lt;/feed&gt;</span>            
+</code></pre>
+
+<h1 id="errors">Errors</h1>
+
+<p>The table below may help resolve problems encountered when making requests to the Supplier Orders API.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">HTTP Status Code</th>
+<th style="text-align: left">Message</th>
+<th style="text-align: left">How to Resolve</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">Cannot find supplier identifier in the uri</code></td>
+<td style="text-align: left">Occurs when entering an incorrect <code class="prettyprint">SupplierId</code> in the uri</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 400</code></td>
+<td style="text-align: left"><code class="prettyprint">The request is invalid</code></td>
+<td style="text-align: left">Occurs when entering an incorrect <code class="prettyprint">PageId</code> in the uri</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 401</code></td>
+<td style="text-align: left"><code class="prettyprint">Invalid token</code></td>
+<td style="text-align: left">Occurs when entering an incorrect token in the request header</td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="prettyprint">HTTP 404</code></td>
+<td style="text-align: left"><code class="prettyprint">Not found</code></td>
+<td style="text-align: left">Occurs when entering an incorrect uri path (e.g. Zxppliers({SupplierId}))</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">cURL</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

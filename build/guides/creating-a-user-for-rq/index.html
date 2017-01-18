@@ -1,0 +1,604 @@
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Creating a User for RQ | iQmetrix Developer Portal</title>
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
+
+    <style>
+      /*.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}*/
+    </style>
+    <link href="../../stylesheets/two_column.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all.js"></script>
+  </head>
+
+  <body class="guides guides_creating-a-user-for-rq guides_creating-a-user-for-rq_index" data-languages="[]">
+
+    <div class="fixed-top">
+      <a class="navbar-logo" href="/"><img src="../../images/splash/iqmetrix-logo-white.png" alt="Brand"/></a>
+      <div class="navbar-right">
+        <ul class="topnav" id="myTopnav">
+          <li><a class="active" href="/">PRODUCTS</a></li>
+          <li><a href="/api/changelog">API REFERENCE</a></li>
+          <li><a href="/api/changelog">CORE CONCEPTS &amp; GUIDES</a></li>
+          <li><a href="/api/changelog">PARTNERS</a></li>
+          <li><a href="mailto:apisupport@iqmetrix.com?subject=Support">CONTACT</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="breadcrumb">
+      <ol>
+        <li><a href="/api/">API REFERENCE</a></li>
+        <li>></li>
+        <li><a href="">API DOCUMENTATION</a></li>
+        <li>></li>
+        <li class="active">CUSTOMER RELATIONSHIP MANAGEMENT (CRM)</li>
+      </ol>
+    </div>
+    <div class="title">
+      <h1>API Documentation</h1>
+      <p>In depth reference documentation for iQmetrix API's.</p>
+    </div>
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <!-- <img src="../../images/logo.png" alt="Logo" /> -->
+        <div class="lang-selector">
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="content">
+        <h1 id="overview">Overview</h1>
+
+<p>This guide is intended to walk you through the process of adding a employee from your system into RQ as an employee (user) and assigning it to a location with a security role. </p>
+
+<p>Users in the User Manager represent Employee accounts from the Entity Store that are used to access data within RQ. To learn more about this interaction, see <a href="http://developers.iqmetrix.com/concepts/user-manager/">User Manager</a>.</p>
+
+<p>The following APIs will be covered in this guide:</p>
+
+<ul>
+<li>Authentication</li>
+<li>User Manager</li>
+<li>Company Tree</li>
+<li>Security Roles</li>
+</ul>
+
+<h2 id="who-is-this-guide-for">Who Is This Guide For?</h2>
+
+<p>The intended audience for this guide are developers who are integrating employees within their system into the Entity Store program.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>To use this guide, the following steps must be completed:</p>
+
+<ul>
+<li>You must have <strong>RQ v5.12</strong> or later (supports two-way communication between APIs and RQ)</li>
+<li>You must have your <strong>onboarding package</strong> from iQmetrix, which includes your access credentials and environments</li>
+<li>Your Company Tree in RQ, representing company structure (stores, groups, divisions, etc.) must be created</li>
+</ul>
+
+<p><div class='bs-callout alert-success'>If the above steps are not complete or you are not sure, please contact <a href ="mailto:apisupport@iqmetrix.com?subject=RQ User Support">API Support</a>.</div></p>
+
+<h2 id="before-you-begin">Before You Begin</h2>
+
+<p>Before you can create and assign a User, you will need to know:</p>
+
+<ul>
+<li><strong>Who</strong> is being assigned the role, the User</li>
+<li><strong>What</strong> access the user is granted in the company, the Security Role</li>
+<li><strong>Where</strong> the user is located in the company, the Location</li>
+</ul>
+
+<h1 id="steps">Steps</h1>
+
+<h2 id="step-1-authenticating">Step 1 - Authenticating</h2>
+
+<h5 id="example-request">Example Request</h5>
+<pre class="highlight plaintext"><code>Authorization: Bearer (Access Token)
+</code></pre>
+
+<p>In order to make authorized requests to iQmetrix APIs, you need an <a href="http://developers.iqmetrix.com/glossary/#access-token">Access Token</a>.</p>
+
+<p>See the table below for different ways of getting an Access Token.</p>
+
+<p><strong>Table 1:</strong> Methods for Obtaining an Access Token</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">If&hellip;</th>
+<th style="text-align: left">Then&hellip;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">You do not have an Access Token</td>
+<td style="text-align: left">See <a href="/api/authentication/#obtaining-an-access-token">Obtaining an Access Token</a></td>
+</tr>
+<tr>
+<td style="text-align: left">You have an Access Token, but it is close to expiring</td>
+<td style="text-align: left">See <a href="/api/authentication/#refreshing-an-access-token">Refreshing an Access Token</a></td>
+</tr>
+</tbody></table>
+
+<p>The token is placed in the <code class="prettyprint">Authorization</code> header of requests to iQmetrix APIs, prefixed by the word <code class="prettyprint">Bearer</code>.</p>
+
+<h2 id="step-2-creating-the-user">Step 2 - Creating the User</h2>
+
+<p>The goal of this step is to create an Employee profile in the Entity Store. Our platform performs synchronizations to push these users into their respective companies in RQ.</p>
+
+<p>The <code class="prettyprint">ParentEntityId</code> (Company ID from Entity Store) is required to import the employee.</p>
+
+<p>Ensure that you mark down the <code class="prettyprint">Id</code> from the response, to be used in the later steps.</p>
+
+<h2 id="2-1-adding-a-user">2.1 Adding a User</h2>
+
+<h5 id="example-request">Example Request</h5>
+<pre class="highlight plaintext"><code>POST https://usermanagerdemo.iqmetrix.net/v1/Users/importExisting
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johnb@test.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"samplepassword"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johnb@test.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bates"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ParentEntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClientUserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"132"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"JobTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales Clerk"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"AddressLine1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1432 Merry View Road"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AddressLine2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Big Windy"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"StateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ON"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1A2B2"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"PhoneNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6135550127"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5532"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Work"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="example-response">Example Response</h3>
+<pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Password"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19760</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CorrelationId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ClientUserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"132"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bates"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johnb@test.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johnb@test.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ParentEntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14146</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Profiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"Picture"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"AddressLine1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1432 Merry View Road"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AddressLine2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Big Windy"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"StateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ON"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1A2B2"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"PhoneNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6135550127"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5532"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Work"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"JobTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales Clerk"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Should you omit the <code class="prettyprint">password</code> field in this API call (e.g. a brand new employee) you will need to force a <a href="#setting-up-a-temporary-password">temporary password</a>. Otherwise, the user will not be able to log into RQ. Ensure there is a <code class="prettyprint">ParentEntityId</code>, as this is the Company ID.</p>
+
+<p>To import a user from your existing system, see <a href="/api/user-manager/#importing-an-existing-user">Importing an Existing User</a>.</p>
+
+<p>In RQ, the JSON request would appear similar to the figure below.</p>
+
+<p><strong>Figure 1:</strong> Displays the RQ results from adding a user. </p>
+
+<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/rq-general-details.png" alt="Employee general fields"/></p>
+
+<h2 id="2-2-setting-up-a-temporary-password">2.2 Setting Up a Temporary Password</h2>
+
+<h5 id="example-request">Example Request</h5>
+<pre class="highlight plaintext"><code>POST https://usermanagerdemo.iqmetrix.net/v1/Users({UserId})/TemporaryPassword
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"newpa55word"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="example-response">Example Response</h3>
+<pre class="highlight plaintext"><code>HTTP 204 Content-Type: application/json
+</code></pre>
+
+<p>If you omitted the password from the previous step, then you must force the user to change their password when logging in for the first time.</p>
+
+<p>To set a temporary password for your user, see <a href="/api/user-manager/#setting-a-temporary-password">Setting a Temporary Password</a></p>
+
+<h2 id="step-3-assigning-locations">Step 3 - Assigning Locations</h2>
+
+<p>Once you have created a user in the system, the next step is to assign it to a location within your company tree. This ensures that employee visibility and activity is restricted to that particular location. For more information on Company Tree, see <a href="http://developers.iqmetrix.com/concepts/company-tree/">Company Tree</a>.</p>
+
+<h2 id="3-1-getting-company-locations">3.1 Getting Company Locations</h2>
+
+<h5 id="example-request">Example Request</h5>
+<pre class="highlight plaintext"><code>GET https://entitymanagerdemo.iqmetrix.net/v1/Companies({CompanyId})/Locations
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code></pre>
+
+<h3 id="example-response">Example Response</h3>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14202</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dufferin Mall"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This Location is used to clear out discounted inventory"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Roles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Location"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"CreatedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-26T00:03:01.372Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastModifiedUTC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-27T00:03:06.392Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Area"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1100</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SqFt"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"AddressLine1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4970 Hillside Avenue"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AddressLine2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apt 115"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Edmonton"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"StateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ON"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"StateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ontario"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CountryName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canada"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P9H 9I4"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nt">"ClientEntityId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Contacts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Store Manager"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"PhoneNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Main Line"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5555555555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Geography"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-104.612034</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.443559</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"SortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dufferin mall"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StoreHours"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Monday"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Open"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"Close"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Minute"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="err">}</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"StorePhoneNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Main Line"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5555555555"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"TimeZone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alaskan Standard Time"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"DaylightSavingTimeEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Getting all locations for a company will provide both store information as well as the Location IDs to be used in Step 3.2.</p>
+
+<p>To get a list of locations, see <a href="/api/company-tree/#getting-all-locations-for-a-company">Getting All Locations for a Company</a></p>
+
+<h2 id="3-2-assigning-a-location-to-a-user">3.2 Assigning a Location to a User</h2>
+
+<p>The employee from your system will need to be assigned to a location within the company tree in RQ.</p>
+
+<p>To assign a user to a location, see <a href="/api/user-manager/#assigning-a-user-to-a-location">Assigning a User to a Location</a></p>
+
+<p><strong>Figure 2:</strong> Displays the RQ result from assigning the Location field. </p>
+
+<h5 id="example-request">Example Request</h5>
+<pre class="highlight plaintext"><code>PUT https://usermanagerdemo.iqmetrix.net/v1/Users({UserId})/Locations({LocationId})
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code></pre>
+
+<h3 id="example-response">Example Response</h3>
+<pre class="highlight plaintext"><code>HTTP 204 Content-Type: application/json
+</code></pre>
+
+<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/rq-user-location.png" alt="rq assigned location"/></p>
+
+<h2 id="step-4-assigning-security-roles">Step 4 - Assigning Security Roles</h2>
+
+<p>The goal of this step is to ensure that your employee has a security role in RQ that matches their role in your system. If a Security Role is not assigned to a User, then they will not be able to interact with RQ.</p>
+
+<h2 id="4-1-getting-company-security-roles">4.1 Getting Company Security Roles</h2>
+
+<h5 id="example-request">Example Request</h5>
+<pre class="highlight plaintext"><code>GET https://usermanagerdemo.iqmetrix.net/v1/Entities({EntityId})/SecurityRoles
+Authorization: Bearer (Access Token)
+Accept: application/json
+</code></pre>
+
+<h3 id="example-response">Example Response</h3>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">316</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Store Manager"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>Getting the security roles for a company is the quickest way to retrieve security roles. You are also able to retrieve security roles by Location or Division/Group. </p>
+
+<p>Please note down the Security Role <code class="prettyprint">Id</code> that you will be assigning based on the <code class="prettyprint">EntityId</code> you provided.</p>
+
+<p>For more information, see <a href="/api/security-roles/#getting-all-security-roles-for-an-entity">Getting All Security Roles for an Entity</a></p>
+
+<h2 id="4-2-assigning-a-security-role">4.2 Assigning a Security Role</h2>
+
+<h5 id="example-request">Example Request</h5>
+<pre class="highlight plaintext"><code>POST https://usermanagerdemo.iqmetrix.net/v1/Users({UserId})/AssignedRoles
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14159</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SecurityRoleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">316</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="example-response">Example Response</h3>
+<pre class="highlight plaintext"><code>HTTP 201 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6548</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"EntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">14159</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SecurityRoleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">316</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UserId"</span><span class="p">:</span><span class="w"> </span><span class="mi">19760</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The <code class="prettyprint">EntityId</code> assigned to this User would be the Company ID, Location ID, or a Group or Division ID.</p>
+
+<p>For our scenario, we are assigning the security role <code class="prettyprint">Store Manager</code> at this location.</p>
+
+<p>To assign a security role, see <a href="/api/security-roles/#assigning-a-security-role-to-a-user">Assigning a Security Role to a User</a></p>
+
+<p><strong>Figure 3:</strong> Displays the RQ result from assigning the Security Role field. </p>
+
+<p><img class="popUpImage" src="http://developers.iqmetrix.com/images/rq-general-security.png" alt="rq security role"/></p>
+
+<h2>(Optional) Updating a User</h2>
+
+<div class='bs-callout alert-success'>You cannot change a user&rsquo;s password using this method. To update their password, you must set a temporary password. </div>
+
+<p>A user, its properties, and attributes can be updated anytime by <a href="/api/user-manager/#updating-a-user">Updating a User</a></p>
+
+<h5 id="example-request">Example Request</h5>
+<pre class="highlight plaintext"><code>PUT https://usermanagerdemo.iqmetrix.net/v1/Users({UserId})
+Authorization: Bearer (Access Token)
+Accept: application/json
+Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19760</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bates"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johnb@kentel.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"AddressLine1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1432 Merry View Road"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AddressLine2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Big Windy"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"StateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ON"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1A2B2"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Department"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"ClientUserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"132"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johnb@kentel.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"JobTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales Clerk"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ParentEntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PhoneNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6135550127"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5532"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Work"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Picture"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="example-response">Example Response</h3>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2576</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"FirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"LastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bates"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"UserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johnb@kentel.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"AddressLine1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1432 Merry View Road"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AddressLine2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Big Windy"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"StateCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ON"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1A2B2"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Department"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"ClientUserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"132"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johnb@kentel.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"IsActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"JobTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales Clerk"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ParentEntityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"PhoneNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6135550127"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5532"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Work"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"Picture"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nt">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="optional-terminating-an-employee">(Optional) Terminating an Employee</h2>
+
+<p>An employee can be terminated at anytime by <a href="/api/user-manager/#disabling-a-user">Disabling their user account</a>.</p>
+
+<div class='bs-callout alert-success'>This method does not delete the employee.</div>
+
+<div class='bs-callout alert-info'>Disabling a User does NOT free up their email address or username to be used to create another User. To free up an email address or username, you must instead update the email or username of the original User to something else. </div>
+
+<h5 id="example-request">Example Request</h5>
+<pre class="highlight plaintext"><code>DELETE https://usermanagerdemo.iqmetrix.net/v1/Users({UserId})
+Authorization: Bearer (Access Token)
+</code></pre>
+
+<h3 id="example-response">Example Response</h3>
+<pre class="highlight plaintext"><code>HTTP 200 Content-Type: application/json
+</code></pre>
+
+      </div>
+    </div>
+  </body>
